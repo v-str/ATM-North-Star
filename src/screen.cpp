@@ -17,9 +17,10 @@ void Welcome() {
        << "\b\b";
 }
 
-static void Write(const string &str, int write_latency = 55) {
+static void Write(const string &str, int write_latency = 20) {
   for (const auto &symbol : str) {
     cout << symbol;
+    cout.flush();
     Sleep(write_latency);
   }
 }
@@ -45,10 +46,10 @@ void MnScreen() {
       "-     ## ### ##     ##     ##  ###  ##      -\n"
       "-     ##     ##     ##     ##   #   ##      -\n"
       "---------------------------------------------\n";
+  cout << demo;
   string description =
       "\t    ATM - machine 4528\n"
       "  Adress - 28 Greene St, New York, NY 10012\n";
-  cout << demo;
   Write(description);
   cout << "\t";
   system("pause");

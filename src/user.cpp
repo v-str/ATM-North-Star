@@ -54,6 +54,7 @@ void AtmUser::ClearScreen() { system("cls"); }
 void AtmUser::Write(const string &s) {
   for (const auto &symbol : s) {
     cout << symbol;
+    cout.flush();
     Sleep(5);
   }
   cout << "\n";
