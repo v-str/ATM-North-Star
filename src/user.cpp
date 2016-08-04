@@ -221,7 +221,7 @@ void AtmUser::IndividualCreditCalculation() {
 void AtmUser::TransactionMenu() {
   ClearScreen();
   string select =
-      "\t################ Transaction menu #################\n"
+      "\n\t################ Transaction menu #################\n"
       "\t#                                                 #\n"
       "\t# 1. Account information            2. Refill     #\n"
       "\t# ----------------------            ------------  #\n"
