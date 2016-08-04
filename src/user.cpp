@@ -49,7 +49,7 @@ void AtmUser::MainMenuError() {
   }
 }
 
-void AtmUser::ClearScreen() { system("cls"); }
+void AtmUser::ClearScreen() { system("clear"); }
 
 void AtmUser::Write(const string &s) {
   for (const auto &symbol : s) {

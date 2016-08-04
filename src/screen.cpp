@@ -53,7 +53,7 @@ void MnScreen() {
   Write(description);
   cout << "\t";
   system("pause");
-  system("cls");
+  system("clear");
 }
 
 void Error() {
