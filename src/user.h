@@ -42,6 +42,9 @@ class AtmUser {
   void DemoWidthdrawal();
   void DemoStatement();
 
+  void ShowMenuNonRecursive();
+  bool IsUserWantToExit();
+
  private:
   string login_ = "no_name";
   string password_ = "0000";

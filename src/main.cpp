@@ -19,9 +19,10 @@ int main() {
   } else if (choice == 2) {
     AtmUser one;
     one.Registration();
+  } else if (choice == 3) {
+    AtmUser two("Lol", "1234", 0.0, 0, 0.0, 0);
+    two.ShowMenuNonRecursive();
   } else {
     Error();
   }
-
-  system("pause");
 }

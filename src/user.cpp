@@ -690,3 +690,45 @@ void AtmUser::DemoExit() {
     ErrorReload();
   }
 }
+
+void AtmUser::ShowMenuNonRecursive() {
+  ClearScreen();
+  for (;;) {
+    ClearScreen();
+    string select =
+        "\n\t################ Transaction menu #################\n"
+        "\t#                                                  #\n"
+        "\t# 1. Account information            2. Refill      #\n"
+        "\t# ----------------------            ------------   #\n"
+        "\t# 3. Credit application             4. Withdrawal  #\n"
+        "\t# ----------------------            ------------   #\n"
+        "\t# 5. Exit(test)                                    #\n"
+        "\t#                                                  #\n"
+        "\t####################################################\n";
+    cout << select;
+
+    cout << "\tSelect: ";
+    int ch = 0;
+    cin >> ch;
+    ClearScreen();
+    if (ch == 5) {
+      if (IsUserWantToExit()) {
+        cout << "\n\t# Have a nice day!\n\t";
+        break;
+      }
+    }
+  }
+}
+
+bool AtmUser::IsUserWantToExit() {
+  ClearScreen();
+  string main_or_exit =
+      "\n\t# Go to the main?\n"
+      "\t# 1. Yes\n"
+      "\t# 2. No, exit\n";
+  Write(main_or_exit);
+  cout << "\t# Enter: ";
+  int choice = 0;
+  cin >> choice;
+  return choice == 2;
+}

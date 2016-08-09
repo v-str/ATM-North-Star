@@ -12,6 +12,7 @@ void Welcome() {
   cout << "\n\n\n\n\t\t##################\n"
           "\t\t#  1. Demo mode  #\n"
           "\t\t#  2. Sign-in    #\n"
+          "\t\t#  3. Test       #\n"
           "\t\t##################\n"
           "\t\t   Enter: ___"
        << "\b\b";
