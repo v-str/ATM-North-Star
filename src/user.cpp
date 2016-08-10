@@ -51,7 +51,7 @@ void AtmUser::MainMenuError() {
 
 void AtmUser::ClearScreen() { system("clear"); }
 
-void AtmUser::Write(const string &s) {
+void AtmUser::Write(const string &s) const {
   for (const auto &symbol : s) {
     cout << symbol;
     cout.flush();
@@ -707,11 +707,10 @@ void AtmUser::ShowMenuNonRecursive() {
         "\t####################################################\n";
     cout << select;
 
-    cout << "\tSelect: ";
-    int ch = 0;
-    cin >> ch;
+    int choice = GetUserChoice("\tSelect: ");
+
     ClearScreen();
-    if (ch == 5) {
+    if (choice == 5) {
       if (IsUserWantToExit()) {
         cout << "\n\t# Have a nice day!\n\t";
         break;
@@ -721,14 +720,25 @@ void AtmUser::ShowMenuNonRecursive() {
 }
 
 bool AtmUser::IsUserWantToExit() {
+  SuggestUserToExit();
+  return GetUserChoice("\t# Enter: ") == 2;
+}
+
+int AtmUser::GetUserChoice(const string &text) const {
+  cout << text;
+  return GetValueFromUser();
+}
+
+int AtmUser::GetValueFromUser() const {
+  int value = 0;
+  cin >> value;
+  return value;
+}
+
+void AtmUser::SuggestUserToExit() {
   ClearScreen();
-  string main_or_exit =
+  Write(
       "\n\t# Go to the main?\n"
       "\t# 1. Yes\n"
-      "\t# 2. No, exit\n";
-  Write(main_or_exit);
-  cout << "\t# Enter: ";
-  int choice = 0;
-  cin >> choice;
-  return choice == 2;
+      "\t# 2. No, exit\n");
 }

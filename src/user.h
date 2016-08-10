@@ -18,7 +18,7 @@ class AtmUser {
 
   void MainMenuError();
   void ClearScreen();
-  void Write(const string &s);
+  void Write(const string &s) const;
   void ErrorReload();
   void ExitToMain();
   void MaxCreditCalculation(double max_sum);
@@ -43,9 +43,15 @@ class AtmUser {
   void DemoStatement();
 
   void ShowMenuNonRecursive();
+
   bool IsUserWantToExit();
 
+  void SuggestUserToExit();
+
  private:
+  int GetUserChoice(const string &text) const;
+  int GetValueFromUser() const;
+
   string login_ = "no_name";
   string password_ = "0000";
   double cash_ = 0.0;
