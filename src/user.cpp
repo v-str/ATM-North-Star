@@ -34,14 +34,11 @@ bool AtmUser::IsNormalWithdrawal(double cash_sum) const {
 void AtmUser::MainMenuError() {
   cin.clear();
   cin.sync();
-  string error =
+  Write(
       "\n  Data is not correct:\n"
       "  1. Main menu\n"
-      "  2. Exit(any key)\n";
-  Write(error);
-  cout << " Enter: ";
-  int choice = 0;
-  cin >> choice;
+      "  2. Exit(any key)\n");
+  int choice = GetUserChoice(" Enter: ");
   if (choice != 1) {
     cout << " Have a nice day!\n\n";
   } else {
@@ -235,7 +232,7 @@ void AtmUser::TransactionMenu() {
   cout << "\n\n\t# Select the section: ";
   int choice = 0;
   cin >> choice;
-  if (choice < 1 || choice > 10) {
+  if (choice < 1 || choice > 6) {
     MainMenuError();
   } else {
     switch (choice) {
@@ -537,8 +534,6 @@ void AtmUser::Statement() {
           "\t#      DAY       #\n"
           "\t#                #\n"
           "\t##################\n";
-
-  ExitToMain();
 }
 
 void AtmUser::DemoMode() {
@@ -695,33 +690,47 @@ void AtmUser::ShowMenuNonRecursive() {
   ClearScreen();
   for (;;) {
     ClearScreen();
-    string select =
-        "\n\t################ Transaction menu #################\n"
-        "\t#                                                  #\n"
-        "\t# 1. Account information            2. Refill      #\n"
-        "\t# ----------------------            ------------   #\n"
-        "\t# 3. Credit application             4. Withdrawal  #\n"
-        "\t# ----------------------            ------------   #\n"
-        "\t# 5. Exit(test)                                    #\n"
-        "\t#                                                  #\n"
-        "\t####################################################\n";
-    cout << select;
+    ShowTransactionMenu();
 
     int choice = GetUserChoice("\tSelect: ");
 
     ClearScreen();
+    //-
     if (choice == 5) {
-      if (IsUserWantToExit()) {
-        cout << "\n\t# Have a nice day!\n\t";
-        break;
-      }
+      Statement();
+    }
+
+    string menu_text =
+        "\n\t# Go to the main?\n"
+        "\t# 1. Yes\n"
+        "\t# 2. No, exit\n";
+    string choice_text = "\t# Enter: ";
+    //-
+    if (IsUserWantToExit(menu_text, choice_text)) {
+      cout << "\n\t# Have a nice day!\n\t";
+      break;
     }
   }
 }
 
-bool AtmUser::IsUserWantToExit() {
-  SuggestUserToExit();
-  return GetUserChoice("\t# Enter: ") == 2;
+void AtmUser::ShowTransactionMenu() {
+  string select =
+      "\n\t################ Transaction menu #################\n"
+      "\t#                                                  #\n"
+      "\t# 1. Account information            2. Refill      #\n"
+      "\t# ----------------------            ------------   #\n"
+      "\t# 3. Credit application             4. Withdrawal  #\n"
+      "\t# ----------------------            ------------   #\n"
+      "\t# 5. Statement                      6. Exit(test)  #\n"
+      "\t#                                                  #\n"
+      "\t####################################################\n";
+  cout << select;
+}
+
+bool AtmUser::IsUserWantToExit(const string &menu_text,
+                               const string &choice_text) {
+  Write(menu_text);
+  return GetUserChoice(choice_text) == 2;
 }
 
 int AtmUser::GetUserChoice(const string &text) const {
@@ -733,12 +742,4 @@ int AtmUser::GetValueFromUser() const {
   int value = 0;
   cin >> value;
   return value;
-}
-
-void AtmUser::SuggestUserToExit() {
-  ClearScreen();
-  Write(
-      "\n\t# Go to the main?\n"
-      "\t# 1. Yes\n"
-      "\t# 2. No, exit\n");
 }

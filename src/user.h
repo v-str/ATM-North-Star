@@ -44,9 +44,10 @@ class AtmUser {
 
   void ShowMenuNonRecursive();
 
-  bool IsUserWantToExit();
+  bool IsUserWantToExit(const string &menu_text,
+                        const string &choice_text);
 
-  void SuggestUserToExit();
+  void ShowTransactionMenu();
 
  private:
   int GetUserChoice(const string &text) const;
