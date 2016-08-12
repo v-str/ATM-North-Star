@@ -17,7 +17,7 @@ class AtmUser {
   bool IsNormalWithdrawal(double cash_sum) const;
 
   void MainMenuError();
-  void ClearScreen();
+
   void Write(const string &s) const;
   void ErrorReload();
   void ExitToMain();
@@ -42,14 +42,17 @@ class AtmUser {
   void DemoWidthdrawal();
   void DemoStatement();
 
-  void ShowMenuNonRecursive();
-
-  bool IsUserWantToExit(const string &menu_text,
-                        const string &choice_text);
-
-  void ShowTransactionMenu();
+  void RunProgramUntilUserWantToExit();
 
  private:
+  void SetupProgram();
+  void ClearScreen();
+
+  bool RunProgram();
+  void ShowTransactionMenu();
+  bool HandleUserChoice(int choice);
+
+  bool IsUserWantToExit(const string &menu_text, const string &choice_text);
   int GetUserChoice(const string &text) const;
   int GetValueFromUser() const;
 

@@ -686,31 +686,48 @@ void AtmUser::DemoExit() {
   }
 }
 
-void AtmUser::ShowMenuNonRecursive() {
-  ClearScreen();
+void AtmUser::RunProgramUntilUserWantToExit() {
+  SetupProgram();
   for (;;) {
-    ClearScreen();
-    ShowTransactionMenu();
-
-    int choice = GetUserChoice("\tSelect: ");
-
-    ClearScreen();
-    //-
-    if (choice == 5) {
-      Statement();
-    }
-
-    string menu_text =
-        "\n\t# Go to the main?\n"
-        "\t# 1. Yes\n"
-        "\t# 2. No, exit\n";
-    string choice_text = "\t# Enter: ";
-    //-
-    if (IsUserWantToExit(menu_text, choice_text)) {
-      cout << "\n\t# Have a nice day!\n\t";
-      break;
-    }
+    bool user_want_to_exit = RunProgram();
+    if (user_want_to_exit) break;
   }
+}
+
+void AtmUser::SetupProgram() { ClearScreen(); }
+
+bool AtmUser::RunProgram() {
+  ClearScreen();
+  ShowTransactionMenu();
+
+  int choice = GetUserChoice("\tSelect: ");
+
+  bool user_want_to_exit = HandleUserChoice(choice);
+  return user_want_to_exit;
+}
+
+bool AtmUser::HandleUserChoice(int choice) {
+  ClearScreen();
+  string menu_text =
+      "\n\t# Go to the main?\n"
+      "\t# 1. Yes\n"
+      "\t# 2. No, exit\n";
+  string choice_text = "\t# Enter: ";
+
+  if (choice == 5) {
+    Statement();
+  } else {
+    menu_text =
+        "\n  Data is not correct:\n"
+        "  1. Main menu\n"
+        "  2. Exit(any key)\n";
+    choice_text = " Enter: ";
+  }
+  bool user_want_to_exit = IsUserWantToExit(menu_text, choice_text);
+  if (user_want_to_exit) {
+    cout << "\n\t# Have a nice day!\n\t";
+  }
+  return user_want_to_exit;
 }
 
 void AtmUser::ShowTransactionMenu() {

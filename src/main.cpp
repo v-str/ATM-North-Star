@@ -21,7 +21,7 @@ int main() {
     one.Registration();
   } else if (choice == 3) {
     AtmUser two("Lol", "1234", 0.0, 0, 0.0, 0);
-    two.ShowMenuNonRecursive();
+    two.RunProgramUntilUserWantToExit();
   } else {
     Error();
   }
