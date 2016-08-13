@@ -320,7 +320,7 @@ void AtmUser::Registration() {
   }
 }
 
-void AtmUser::ShowAccInfo() {
+bool AtmUser::ShowAccInfo() {
   cout << "--------------------------------------------\n";
   cout << "# Login: " << login_ << "\n";
   cout << "--------------------------------------------\n";
@@ -336,6 +336,8 @@ void AtmUser::ShowAccInfo() {
   cout << "# Credit term: " << amount_of_credit_month_ << " month(s)\n";
   cout << "--------------------------------------------\n";
   Sleep(100);
+
+  return SuggestUserToExitWithDefaultMenu();
 }
 
 bool AtmUser::Refill() {
@@ -682,8 +684,7 @@ bool AtmUser::HandleUserChoice(int choice) {
   ClearScreen();
 
   if (choice == 1) {
-    ShowAccInfo();
-    return SuggestUserToExitWithDefaultMenu();
+    return ShowAccInfo();
   } else if (choice == 2) {
     return Refill();
   } else if (choice == 3) {

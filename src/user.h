@@ -28,7 +28,7 @@ class AtmUser {
 
   void TransactionMenu();
   void Registration();
-  void ShowAccInfo();
+  bool ShowAccInfo();
 
   bool Refill();
 
@@ -47,6 +47,7 @@ class AtmUser {
   void RunProgramUntilUserWantToExit();
 
  private:
+
   void SetupProgram();
   void ClearScreen();
 
