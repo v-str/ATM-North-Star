@@ -336,8 +336,6 @@ void AtmUser::ShowAccInfo() {
   cout << "# Credit term: " << amount_of_credit_month_ << " month(s)\n";
   cout << "--------------------------------------------\n";
   Sleep(100);
-
-  ExitToMain();
 }
 
 void AtmUser::Refill() {
@@ -713,8 +711,11 @@ bool AtmUser::HandleUserChoice(int choice) {
       "\t# 1. Yes\n"
       "\t# 2. No, exit\n";
   string choice_text = "\t# Enter: ";
+  if (choice == 1) {
+    ShowAccInfo();
+  } else if (choice == 2) {
 
-  if (choice == 5) {
+  }else if (choice == 5) {
     Statement();
   } else {
     menu_text =
