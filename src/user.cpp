@@ -338,7 +338,7 @@ void AtmUser::ShowAccInfo() {
   Sleep(100);
 }
 
-void AtmUser::Refill() {
+bool AtmUser::Refill() {
   string sum =
       "\t Notify:\n\t The sum must be more than\n"
       "\t 10$ and less than 50000$";
@@ -360,6 +360,7 @@ void AtmUser::Refill() {
   } else {
     cout << "\n\tIncorrect sum, Reconnect to repeat.\n";
   }
+  return SuggestUserToExitWithDefaultMenu();
 }
 
 void AtmUser::ConsiderACredit() {
@@ -679,33 +680,33 @@ bool AtmUser::RunProgram() {
 
 bool AtmUser::HandleUserChoice(int choice) {
   ClearScreen();
-  string menu_text =
-      "\n\t# Go to the main?\n"
-      "\t# 1. Yes\n"
-      "\t# 2. No, exit\n";
-  string choice_text = "\t# Enter: ";
+
   if (choice == 1) {
     ShowAccInfo();
+    return SuggestUserToExitWithDefaultMenu();
   } else if (choice == 2) {
-    Refill();
+    return Refill();
   } else if (choice == 3) {
-    if (IsCreditEmpty()) {
-      ConsiderACredit();
-    } else {
-      RefuseACredit();
-    }
+    return CreditApplication();
   } else if (choice == 4) {
     Withdrawal();
+    return SuggestUserToExitWithDefaultMenu();
   } else if (choice == 5) {
     Statement();
+    return SuggestUserToExitWithDefaultMenu();
   } else {
-    menu_text =
-        "\n  Data is not correct:\n"
-        "  1. Main menu\n"
-        "  2. Exit(any key)\n";
-    choice_text = " Enter: ";
+    return SuggestUserToExitWithIncorrectDataMenu();
   }
-  return SuggestUserToExit(menu_text, choice_text);
+}
+
+bool AtmUser::CreditApplication() {
+  if (IsCreditEmpty()) {
+    ConsiderACredit();
+    return SuggestUserToExitWithDefaultMenu();
+  } else {
+    RefuseACredit();
+    return SuggestUserToExitWithDefaultMenu();
+  }
 }
 
 bool AtmUser::SuggestUserToExitWithDefaultMenu() {

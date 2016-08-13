@@ -29,7 +29,9 @@ class AtmUser {
   void TransactionMenu();
   void Registration();
   void ShowAccInfo();
-  void Refill();
+
+  bool Refill();
+
   void ConsiderACredit();
   void Withdrawal();
   void Statement();
@@ -55,6 +57,7 @@ class AtmUser {
   void WishGoodDay();
   bool SuggestUserToExitWithDefaultMenu();
   bool SuggestUserToExitWithIncorrectDataMenu();
+  bool CreditApplication();
 
   bool SuggestUserToExit(const string &menu_text, const string &choice_text);
   bool IsUserWantToExit(const string &menu_text, const string &choice_text);
