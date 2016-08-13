@@ -33,7 +33,7 @@ class AtmUser {
   bool Refill();
 
   void ConsiderACredit();
-  void Withdrawal();
+  bool Withdrawal();
   void Statement();
 
   void DemoMode();

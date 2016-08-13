@@ -451,7 +451,7 @@ void AtmUser::ConsiderACredit() {
   }
 }
 
-void AtmUser::Withdrawal() {
+bool AtmUser::Withdrawal() {
   cout << "\n\t# Please, enter the required sum: ";
   double mcs = 0.0;
   cin >> mcs;
@@ -478,6 +478,7 @@ void AtmUser::Withdrawal() {
     string big_sum = "\n\t# Sorry, but entered sum is incorrect.\n";
     Write(big_sum);
   }
+  return SuggestUserToExitWithDefaultMenu();
 }
 
 void AtmUser::Statement() {
@@ -690,8 +691,7 @@ bool AtmUser::HandleUserChoice(int choice) {
   } else if (choice == 3) {
     return CreditApplication();
   } else if (choice == 4) {
-    Withdrawal();
-    return SuggestUserToExitWithDefaultMenu();
+    return Withdrawal();
   } else if (choice == 5) {
     Statement();
     return SuggestUserToExitWithDefaultMenu();
