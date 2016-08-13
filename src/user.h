@@ -13,28 +13,24 @@ class AtmUser {
 
   bool IsNormalLogin() const;
   bool IsNormalPass() const;
-  bool IsCreditEmpty() const;
+  bool AlreadyHasACredit() const;
   bool IsNormalWithdrawal(double cash_sum) const;
 
-  void MainMenuError();
+
 
   void Write(const string &s) const;
-  void ErrorReload();
-  void ExitToMain();
-  void MaxCreditCalculation(double max_sum);
-  void IndividualCreditCalculation();
-  void Exit();
+  void ShowIncorrectDataMessage();
+
+  void ShowExitMessage();
   void MonthToRepay();
 
-  void TransactionMenu();
   void Registration();
   bool ShowAccInfo();
 
   bool Refill();
   bool Statement();
 
-
-  void ConsiderACredit();
+  bool ConsiderACredit();
   bool Withdrawal();
 
   void DemoMode();
@@ -48,18 +44,24 @@ class AtmUser {
   void RunProgramUntilUserWantToExit();
 
  private:
-
   void SetupProgram();
   void ClearScreen();
 
   bool RunProgram();
   void ShowTransactionMenu();
   bool HandleUserChoice(int choice);
-  void RefuseACredit();
+  bool IndividualCreditCalculation();
+  void ShowCreditInformMessage();
+  int GetUserContinueTextChoice();
   void WishGoodDay();
+  bool ConsiderACreditBasedOnCash();
   bool SuggestUserToExitWithDefaultMenu();
   bool SuggestUserToExitWithIncorrectDataMenu();
   bool CreditApplication();
+  bool RefuseToReCredit();
+  bool GiveACredit();
+  void RefuseACredit();
+  bool MaxCreditCalculation(double max_sum);
 
   bool SuggestUserToExit(const string &menu_text, const string &choice_text);
   bool IsUserWantToExit(const string &menu_text, const string &choice_text);

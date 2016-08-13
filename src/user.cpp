@@ -25,25 +25,10 @@ bool AtmUser::IsNormalLogin() const {
 
 bool AtmUser::IsNormalPass() const { return password_.length() == 4; }
 
-bool AtmUser::IsCreditEmpty() const { return credit_ == 0; }
+bool AtmUser::AlreadyHasACredit() const { return credit_ > 0; }
 
 bool AtmUser::IsNormalWithdrawal(double cash_sum) const {
   return cash_sum >= 0 && cash_sum <= cash_;
-}
-
-void AtmUser::MainMenuError() {
-  cin.clear();
-  cin.sync();
-  Write(
-      "\n  Data is not correct:\n"
-      "  1. Main menu\n"
-      "  2. Exit(any key)\n");
-  int choice = GetUserChoice(" Enter: ");
-  if (choice != 1) {
-    cout << " Have a nice day!\n\n";
-  } else {
-    TransactionMenu();
-  }
 }
 
 void AtmUser::ClearScreen() { system("clear"); }
@@ -57,32 +42,16 @@ void AtmUser::Write(const string &s) const {
   cout << "\n";
 }
 
-void AtmUser::ErrorReload() {
+void AtmUser::ShowIncorrectDataMessage() {
   string err = "\t Data is not correct, please reload the program.\n\n";
   Write(err);
 }
 
-void AtmUser::Exit() {
+void AtmUser::ShowExitMessage() {
   string exit =
       "\n\tThank you for using our payment system,\n"
       "\thave a nice day!";
   Write(exit);
-}
-
-void AtmUser::ExitToMain() {
-  string main_or_exit =
-      "\n\t# Go to the main?\n"
-      "\t# 1. Yes\n"
-      "\t# 2. No, exit\n";
-  Write(main_or_exit);
-  cout << "\t# Enter: ";
-  int choice = 0;
-  cin >> choice;
-  if (choice != 1) {
-    cout << "\n\t# Have a nice day!\n\t";
-  } else {
-    TransactionMenu();
-  }
 }
 
 void AtmUser::MonthToRepay() {
@@ -94,7 +63,7 @@ void AtmUser::MonthToRepay() {
   }
 }
 
-void AtmUser::MaxCreditCalculation(double max_sum) {
+bool AtmUser::MaxCreditCalculation(double max_sum) {
   cout << "\nThe number of months to repay the loan: ";
   MonthToRepay();
 
@@ -127,28 +96,28 @@ void AtmUser::MaxCreditCalculation(double max_sum) {
       "\t2. No, go to the main.\n"
       "\t3. Exit program.\n";
   Write(CreditConfirm);
-  cout << "\tEnter: ";
-  int cr_choice = 0;
-  cin >> cr_choice;
-  if (cr_choice == 1) {
+  int choice = GetUserChoice("\tEnter: ");
+  if (choice == 1) {
     credit_ = max_sum;
     monthly_payment_ = pay_per_month;
     string credit_access =
         "\n# The loan was successfully transferred on your account.\n"
         "# You might cash your credit in our nearest bank.";
     Write(credit_access);
-    ExitToMain();
-  } else if (cr_choice == 2) {
+    return SuggestUserToExitWithDefaultMenu();
+  } else if (choice == 2) {
     amount_of_credit_month_ = 0;
-    TransactionMenu();
-  } else if (cr_choice == 3) {
-    Exit();
+    return false;
+  } else if (choice == 3) {
+    ShowExitMessage();
+    return true;
   } else {
-    ErrorReload();
+    ShowIncorrectDataMessage();
+    return true;
   }
 }
 
-void AtmUser::IndividualCreditCalculation() {
+bool AtmUser::IndividualCreditCalculation() {
   ClearScreen();
 
   string ind = "Individual calculating...\n\n";
@@ -206,67 +175,15 @@ void AtmUser::IndividualCreditCalculation() {
         "account.\nYou might cash your credit in our "
         "nearest bank.";
     Write(credit_access);
-    ExitToMain();
+    return SuggestUserToExitWithDefaultMenu();
   } else if (cr_choice == 2) {
-    TransactionMenu();
+    return false;
   } else if (cr_choice == 3) {
-    Exit();
+    ShowExitMessage();
+    return true;
   } else {
-    ErrorReload();
-  }
-}
-
-void AtmUser::TransactionMenu() {
-  ClearScreen();
-  string select =
-      "\n\t################ Transaction menu #################\n"
-      "\t#                                                 #\n"
-      "\t# 1. Account information            2. Refill     #\n"
-      "\t# ----------------------            ------------  #\n"
-      "\t# 3. Credit application             4. Withdrawal #\n"
-      "\t# ----------------------            ------------  #\n"
-      "\t# 5. Statement                      6. Exit       #\n"
-      "\t#                                                 #\n"
-      "\t###################################################\n";
-  cout << select;
-  cout << "\n\n\t# Select the section: ";
-  int choice = 0;
-  cin >> choice;
-  if (choice < 1 || choice > 6) {
-    MainMenuError();
-  } else {
-    switch (choice) {
-      case 1:
-        ClearScreen();
-        ShowAccInfo();
-        break;
-      case 2:
-        Refill();
-        break;
-      case 3:
-        if (IsCreditEmpty()) {
-          ConsiderACredit();
-        } else {
-          string text =
-              "\n #Sorry, but you have already a "
-              "loan in our bank.\n"
-              " #You can't get a second loan, "
-              "while your first loan "
-              "not complete.\n";
-          Write(text);
-          ShowAccInfo();
-        }
-        break;
-      case 4:
-        Withdrawal();
-        break;
-      case 5:
-        Statement();
-        break;
-      case 6:
-        Exit();
-        break;
-    }
+    ShowIncorrectDataMessage();
+    return true;
   }
 }
 
@@ -307,15 +224,15 @@ void AtmUser::Registration() {
       cout << "\t\t|---------------------------|\n\n\t\t\t";
     } else {
       ClearScreen();
-      string correct = "\t\t| Access allowed |";
       cout << "\n\n\t\t------------------\n";
+      string correct = "\t\t| Access allowed |";      
       Write(correct);
-      cout << "\t\t------------------";
+      cout << "\t\t------------------\n";
       Sleep(1000);
       credit_ = 0.0;
       monthly_payment_ = 0.0;
       amount_of_credit_month_ = 0;
-      TransactionMenu();
+      RunProgramUntilUserWantToExit();
     }
   }
 }
@@ -365,90 +282,108 @@ bool AtmUser::Refill() {
   return SuggestUserToExitWithDefaultMenu();
 }
 
-void AtmUser::ConsiderACredit() {
-  if (credit_ == 0) {
-    ClearScreen();
+bool AtmUser::ConsiderACredit() {
+  ClearScreen();
 
-    string reference =
-        "# You can get a loan in our bank if your\n"
-        "  balance more than $1000.\n"
-        "# We draw your attention to the fact that\n"
-        "  our bank may refuse you in getting a loan\n"
-        "  without giving any reason.\n"
-        "# Nowadays, the all loans are set on 14% per year\n"
-        "# The loan depend from sum on account at the moment.\n";
-    Write(reference);
-    cout << "\n\t*********************\n"
-            "\t*   Continue?       *\n"
-            "\t*                   *\n"
-            "\t*   1. Yes          *\n"
-            "\t*   2. No           *\n"
-            "\t*                   *\n"
-            "\t*********************\n"
-            "\t# Enter: ";
-    int choice = 0;
-    cin >> choice;
-    if (choice == 1) {
-      if (cash_ >= 1000) {
-        ClearScreen();
-        string GetLoan =
-            "# Your balance more than 1000$. You can afford to take the\n"
-            "# credit in our bank. The maximum amount for you is:";
-        Write(GetLoan);
-        double maximum = 15 * cash_;
-        Sleep(500);
-        cout << "----------------------------------------------------------\n";
-        cout << " \t\t\t $" << maximum << "\n";
-        cout << "----------------------------------------------------------\n";
-        Sleep(500);
-        string Prefer =
-            "\n# Do you prefer get all sum or you want to change the sum of "
-            "loan?\n";
-        Write(Prefer);
-        cout << "# 1. Get all sum\n";
-        cout << "# 2. Change the sum of loan\n";
-        cout << "# 3. Main menu\n";
-        cout << "# 4. Exit\n";
-        cout << "# Enter: ";
-        int choice = 0;
-        cin >> choice;
-        if (choice != 1 && choice != 2 && choice != 3 && choice != 4) {
-          ErrorReload();
-        } else {
-          switch (choice) {
-            case 1:
-              MaxCreditCalculation(maximum);
-              break;
-            case 2:
-              IndividualCreditCalculation();
-              break;
-            case 3:
-              TransactionMenu();
-              break;
-            case 4:
-              Exit();
-              break;
-          }
-        }
-      } else {
-        ClearScreen();
-        string cash_less = "# We checked your balance.\n";
-        Write(cash_less);
-        Sleep(500);
-        cout << "# Available cash = $" << cash_ << "\n";
-        string entry_more =
-            "# Sorry, for getting a loan your balance must be "
-            "1000$ or more.\n";
-        Write(entry_more);
-        Sleep(500);
-        // ExitToMain();
-      }
-    } else if (choice == 2) {
-      TransactionMenu();
-    } else {
-      ErrorReload();
-    }
+  ShowCreditInformMessage();
+
+  int choice = GetUserContinueTextChoice();
+  if (choice == 1) {
+    return ConsiderACreditBasedOnCash();
+  } else if (choice == 2) {
+    return false;
+  } else {
+    ShowIncorrectDataMessage();
+    return true;
   }
+}
+
+bool AtmUser::ConsiderACreditBasedOnCash() {
+  if (cash_ >= 1000) {
+    return GiveACredit();
+  } else {
+    RefuseACredit();
+    return false;
+  }
+}
+
+bool AtmUser::GiveACredit() {
+  ClearScreen();
+  string GetLoan =
+      "# Your balance more than 1000$. You can afford to take the\n"
+      "# credit in our bank. The maximum amount for you is:";
+  Write(GetLoan);
+  double maximum = 15 * cash_;
+  Sleep(500);
+  cout << "----------------------------------------------------------\n";
+  cout << " \t\t\t $" << maximum << "\n";
+  cout << "----------------------------------------------------------\n";
+  Sleep(500);
+  string Prefer =
+      "\n# Do you prefer get all sum or you want to change the sum of "
+      "loan?\n";
+  Write(Prefer);
+  string menu_text =
+      "# 1. Get all sum\n"
+      "# 2. Change the sum of loan\n"
+      "# 3. Main menu\n"
+      "# 4. Exit\n"
+      "# Enter: ";
+  int choice = GetUserChoice(menu_text);
+
+  if (choice == 1) {
+    return MaxCreditCalculation(maximum);
+  } else if (choice == 2) {
+    return IndividualCreditCalculation();
+  } else if (choice == 3) {
+    return false;
+  } else if (choice == 4) {
+    ShowExitMessage();
+    return true;
+  } else {
+    ShowIncorrectDataMessage();
+    return true;
+  }
+}
+
+void AtmUser::RefuseACredit() {
+  ClearScreen();
+  string cash_less = "# We checked your balance.\n";
+  Write(cash_less);
+  Sleep(500);
+  cout << "# Available cash = $" << cash_ << "\n";
+  string entry_more =
+      "# Sorry, for getting a loan your balance must be "
+      "1000$ or more.\n";
+  Write(entry_more);
+  Sleep(500);
+}
+
+int AtmUser::GetUserContinueTextChoice() {
+  string continue_text =
+      "\n\t*********************\n"
+      "\t*   Continue?       *\n"
+      "\t*                   *\n"
+      "\t*   1. Yes          *\n"
+      "\t*   2. No           *\n"
+      "\t*                   *\n"
+      "\t*********************\n"
+      "\t# Enter: ";
+  int choice = GetUserChoice(continue_text);
+
+  return choice;
+}
+
+void AtmUser::ShowCreditInformMessage() {
+  string reference =
+      "# You can get a loan in our bank if your\n"
+      "  balance more than $1000.\n"
+      "# We draw your attention to the fact that\n"
+      "  our bank may refuse you in getting a loan\n"
+      "  without giving any reason.\n"
+      "# Nowadays, the all loans are set on 14% per year\n"
+      "# The loan depend from sum on account at the moment.\n";
+  Write(reference);
 }
 
 bool AtmUser::Withdrawal() {
@@ -541,7 +476,7 @@ void AtmUser::DemoMode() {
   int ch = 0;
   cin >> ch;
   if (ch < 1 || ch > 6) {
-    ErrorReload();
+    ShowIncorrectDataMessage();
   } else {
     switch (ch) {
       case 1:
@@ -660,9 +595,9 @@ void AtmUser::DemoExit() {
     ClearScreen();
     DemoMode();
   } else if (ch == 2) {
-    Exit();
+    ShowExitMessage();
   } else {
-    ErrorReload();
+    ShowIncorrectDataMessage();
   }
 }
 
@@ -701,13 +636,23 @@ bool AtmUser::HandleUserChoice(int choice) {
 }
 
 bool AtmUser::CreditApplication() {
-  if (IsCreditEmpty()) {
-    ConsiderACredit();
-    return SuggestUserToExitWithDefaultMenu();
+  if (AlreadyHasACredit()) {
+    return RefuseToReCredit();
   } else {
-    RefuseACredit();
-    return SuggestUserToExitWithDefaultMenu();
+    return ConsiderACredit();
   }
+}
+
+bool AtmUser::RefuseToReCredit() {
+  string text =
+      "\n #Sorry, but you have already a "
+      "loan in our bank.\n"
+      " #You can't get a second loan, "
+      "while your first loan "
+      "not complete.\n";
+  Write(text);
+  ShowAccInfo();
+  return SuggestUserToExitWithDefaultMenu();
 }
 
 bool AtmUser::SuggestUserToExitWithDefaultMenu() {
@@ -743,17 +688,6 @@ void AtmUser::WishGoodDay() {
           "\t# Have a nice day! #\n"
           "\t#                  #\n"
           "\t####################\n\n";
-}
-
-void AtmUser::RefuseACredit() {
-  string text =
-      "\n #Sorry, but you have already a "
-      "loan in our bank.\n"
-      " #You can't get a second loan, "
-      "while your first loan "
-      "not complete.\n";
-  Write(text);
-  ShowAccInfo();
 }
 
 void AtmUser::ShowTransactionMenu() {
