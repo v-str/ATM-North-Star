@@ -481,7 +481,7 @@ bool AtmUser::Withdrawal() {
   return SuggestUserToExitWithDefaultMenu();
 }
 
-void AtmUser::Statement() {
+bool AtmUser::Statement() {
   ClearScreen();
 
   string space;
@@ -513,6 +513,7 @@ void AtmUser::Statement() {
           "\t#      DAY       #\n"
           "\t#                #\n"
           "\t##################\n";
+  return SuggestUserToExitWithDefaultMenu();
 }
 
 void AtmUser::DemoMode() {
@@ -693,8 +694,7 @@ bool AtmUser::HandleUserChoice(int choice) {
   } else if (choice == 4) {
     return Withdrawal();
   } else if (choice == 5) {
-    Statement();
-    return SuggestUserToExitWithDefaultMenu();
+    return Statement();
   } else {
     return SuggestUserToExitWithIncorrectDataMenu();
   }

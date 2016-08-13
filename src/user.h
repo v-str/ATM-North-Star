@@ -31,10 +31,11 @@ class AtmUser {
   bool ShowAccInfo();
 
   bool Refill();
+  bool Statement();
+
 
   void ConsiderACredit();
   bool Withdrawal();
-  void Statement();
 
   void DemoMode();
   void DemoAccInfo();
