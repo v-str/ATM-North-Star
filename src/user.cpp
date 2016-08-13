@@ -245,7 +245,7 @@ void AtmUser::TransactionMenu() {
         break;
       case 3:
         if (IsCreditEmpty()) {
-          CreditApp();
+          ConsiderACredit();
         } else {
           string text =
               "\n #Sorry, but you have already a "
@@ -362,7 +362,7 @@ void AtmUser::Refill() {
   }
 }
 
-void AtmUser::CreditApp() {
+void AtmUser::ConsiderACredit() {
   if (credit_ == 0) {
     ClearScreen();
 
@@ -376,10 +376,10 @@ void AtmUser::CreditApp() {
         "# The loan depend from sum on account at the moment.\n";
     Write(reference);
     cout << "\n\t*********************\n"
-            "\t* Continue?         *\n"
+            "\t*   Continue?       *\n"
             "\t*                   *\n"
-            "\t* 1. Yes            *\n"
-            "\t* 2. No             *\n"
+            "\t*   1. Yes          *\n"
+            "\t*   2. No           *\n"
             "\t*                   *\n"
             "\t*********************\n"
             "\t# Enter: ";
@@ -438,7 +438,7 @@ void AtmUser::CreditApp() {
             "1000$ or more.\n";
         Write(entry_more);
         Sleep(500);
-        ExitToMain();
+        // ExitToMain();
       }
     } else if (choice == 2) {
       TransactionMenu();
@@ -664,8 +664,7 @@ void AtmUser::DemoExit() {
 void AtmUser::RunProgramUntilUserWantToExit() {
   SetupProgram();
   for (;;) {
-    bool user_want_to_exit = RunProgram();
-    if (user_want_to_exit) break;
+    if (RunProgram()) break;
   }
 }
 
@@ -675,10 +674,7 @@ bool AtmUser::RunProgram() {
   ClearScreen();
   ShowTransactionMenu();
 
-  int choice = GetUserChoice("\tSelect: ");
-
-  bool user_want_to_exit = HandleUserChoice(choice);
-  return user_want_to_exit;
+  return HandleUserChoice(GetUserChoice("\tSelect: "));
 }
 
 bool AtmUser::HandleUserChoice(int choice) {
@@ -692,6 +688,12 @@ bool AtmUser::HandleUserChoice(int choice) {
     ShowAccInfo();
   } else if (choice == 2) {
     Refill();
+  } else if (choice == 3) {
+    if (IsCreditEmpty()) {
+      ConsiderACredit();
+    } else {
+      RefuseACredit();
+    }
   } else if (choice == 4) {
     Withdrawal();
   } else if (choice == 5) {
@@ -703,15 +705,53 @@ bool AtmUser::HandleUserChoice(int choice) {
         "  2. Exit(any key)\n";
     choice_text = " Enter: ";
   }
+  return SuggestUserToExit(menu_text, choice_text);
+}
+
+bool AtmUser::SuggestUserToExitWithDefaultMenu() {
+  string menu_text =
+      "\n\t# Go to the main?\n"
+      "\t# 1. Yes\n"
+      "\t# 2. No, exit\n";
+  string choice_text = "\t# Enter: ";
+  return SuggestUserToExit(menu_text, choice_text);
+}
+
+bool AtmUser::SuggestUserToExitWithIncorrectDataMenu() {
+  string menu_text =
+      "\n  Data is not correct:\n"
+      "  1. Main menu\n"
+      "  2. Exit(any key)\n";
+  string choice_text = " Enter: ";
+  return SuggestUserToExit(menu_text, choice_text);
+}
+
+bool AtmUser::SuggestUserToExit(const string &menu_text,
+                                const string &choice_text) {
   bool user_want_to_exit = IsUserWantToExit(menu_text, choice_text);
   if (user_want_to_exit) {
-    cout << "\n\t####################\n"
-            "\t#                  #"
-            "\n\t# Have a nice day! #\n"
-            "\t#                  #"
-            "\n\t####################\n\n";
+    WishGoodDay();
   }
   return user_want_to_exit;
+}
+
+void AtmUser::WishGoodDay() {
+  cout << "\n\t####################\n"
+          "\t#                  #\n"
+          "\t# Have a nice day! #\n"
+          "\t#                  #\n"
+          "\t####################\n\n";
+}
+
+void AtmUser::RefuseACredit() {
+  string text =
+      "\n #Sorry, but you have already a "
+      "loan in our bank.\n"
+      " #You can't get a second loan, "
+      "while your first loan "
+      "not complete.\n";
+  Write(text);
+  ShowAccInfo();
 }
 
 void AtmUser::ShowTransactionMenu() {

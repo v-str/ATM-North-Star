@@ -30,7 +30,7 @@ class AtmUser {
   void Registration();
   void ShowAccInfo();
   void Refill();
-  void CreditApp();
+  void ConsiderACredit();
   void Withdrawal();
   void Statement();
 
@@ -51,7 +51,12 @@ class AtmUser {
   bool RunProgram();
   void ShowTransactionMenu();
   bool HandleUserChoice(int choice);
+  void RefuseACredit();
+  void WishGoodDay();
+  bool SuggestUserToExitWithDefaultMenu();
+  bool SuggestUserToExitWithIncorrectDataMenu();
 
+  bool SuggestUserToExit(const string &menu_text, const string &choice_text);
   bool IsUserWantToExit(const string &menu_text, const string &choice_text);
   int GetUserChoice(const string &text) const;
   int GetValueFromUser() const;
