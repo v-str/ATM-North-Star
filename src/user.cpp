@@ -340,7 +340,7 @@ void AtmUser::ShowAccInfo() {
 
 void AtmUser::Refill() {
   string sum =
-      "\t Notify:\n\t the sum must be more than\n"
+      "\t Notify:\n\t The sum must be more than\n"
       "\t 10$ and less than 50000$";
   cout << "\n\t---------------------------------------\n";
   Write(sum);
@@ -348,18 +348,17 @@ void AtmUser::Refill() {
   cout << "\t# Please enter the sum of money($): ";
   int money = 0;
   cin >> money;
-  if (money > 10 && money <= 50000) {
+  if (money >= 10 && money <= 50000) {
     cash_ += money;
     cout << "\t----------------------------------------\n";
     string success = "\t# Balance refill completed successfully.\n";
     Write(success);
     cout << "\t# Balance: $" << cash_ << "\n";
-    cout << "\t---------------------------------------\n\n";
+    cout << "\t----------------------------------------\n\n";
     cin.sync();
     Sleep(1000);
-    ExitToMain();
   } else {
-    MainMenuError();
+    cout << "\n\tIncorrect sum, Reconnect to repeat.\n";
   }
 }
 
@@ -714,8 +713,8 @@ bool AtmUser::HandleUserChoice(int choice) {
   if (choice == 1) {
     ShowAccInfo();
   } else if (choice == 2) {
-
-  }else if (choice == 5) {
+    Refill();
+  } else if (choice == 5) {
     Statement();
   } else {
     menu_text =
