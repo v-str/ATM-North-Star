@@ -450,10 +450,8 @@ void AtmUser::CreditApp() {
 
 void AtmUser::Withdrawal() {
   cout << "\n\t# Please, enter the required sum: ";
-  int money_cash_sum = 0;
-  cin >> money_cash_sum;
-
-  double mcs = static_cast<double>(money_cash_sum);
+  double mcs = 0.0;
+  cin >> mcs;
 
   if (IsNormalWithdrawal(mcs)) {
     cout << "\t#Sum($): " << mcs << "\n";
@@ -466,36 +464,16 @@ void AtmUser::Withdrawal() {
       Write(success);
       cout << "\t# Sum($): " << mcs << "\n";
       cout << "\t# Balance($): " << cash_ << "\n";
-      ExitToMain();
     } else {
       string incorrect_pass = "\n\t# Sorry, entered password is incorrect.\n";
       ClearScreen();
       Write(incorrect_pass);
-      ExitToMain();
     }
   } else {
     ClearScreen();
 
     string big_sum = "\n\t# Sorry, but entered sum is incorrect.\n";
     Write(big_sum);
-
-    string reenter =
-        "\t# 1.Re-enter\n"
-        "\t# 2.Main menu\n"
-        "\t# 3.Exit\n";
-    Write(reenter);
-    cout << "\t# Enter: ";
-    int ch = 0;
-    cin >> ch;
-    if (ch == 1) {
-      Withdrawal();
-    } else if (ch == 2) {
-      TransactionMenu();
-    } else if (ch == 3) {
-      Exit();
-    } else {
-      ErrorReload();
-    }
   }
 }
 
@@ -714,6 +692,8 @@ bool AtmUser::HandleUserChoice(int choice) {
     ShowAccInfo();
   } else if (choice == 2) {
     Refill();
+  } else if (choice == 4) {
+    Withdrawal();
   } else if (choice == 5) {
     Statement();
   } else {
@@ -725,7 +705,11 @@ bool AtmUser::HandleUserChoice(int choice) {
   }
   bool user_want_to_exit = IsUserWantToExit(menu_text, choice_text);
   if (user_want_to_exit) {
-    cout << "\n\t# Have a nice day!\n\t";
+    cout << "\n\t####################\n"
+            "\t#                  #"
+            "\n\t# Have a nice day! #\n"
+            "\t#                  #"
+            "\n\t####################\n\n";
   }
   return user_want_to_exit;
 }
