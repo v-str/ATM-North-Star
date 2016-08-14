@@ -2,6 +2,7 @@
 
 #include "screen.h"
 #include "user.h"
+#include "demo_user.h"
 
 int main() {
   using std::cin;
@@ -14,7 +15,7 @@ int main() {
   cin >> choice;
 
   if (choice == 1) {
-    AtmUser demo("Demo mode", "0000", 0.0, 0, 0.0, 0);
+    DemoUser demo;
     demo.DemoMode();
   } else if (choice == 2) {
     AtmUser one;

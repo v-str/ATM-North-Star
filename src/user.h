@@ -30,14 +30,6 @@ class AtmUser {
   bool ConsiderACredit();
   bool Withdrawal();
 
-  void DemoMode();
-  void DemoAccInfo();
-  void DemoRefill();
-  void DemoExit();
-  void DemoCreditApp();
-  void DemoWidthdrawal();
-  void DemoStatement();
-
   void RunProgramUntilUserWantToExit();
 
  private:
