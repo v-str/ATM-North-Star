@@ -35,14 +35,14 @@ void AtmUser::ClearScreen() { system("clear"); }
 
 void AtmUser::ShowIncorrectDataMessage() {
   string err = "\t Data is not correct, please reload the program.\n\n";
-  Write(err);
+  WriteTextWithDelay(err);
 }
 
 void AtmUser::ShowExitMessage() {
   string exit =
       "\n\tThank you for using our payment system,\n"
       "\thave a nice day!";
-  Write(exit);
+  WriteTextWithDelay(exit);
 }
 
 void AtmUser::MonthToRepay() {
@@ -95,7 +95,7 @@ bool AtmUser::MaxCreditCalculation(double max_sum) {
     string credit_access =
         "\n# The loan was successfully transferred on your account.\n"
         "# You might cash your credit in our nearest bank.";
-    Write(credit_access);
+    WriteTextWithDelay(credit_access);
     return SuggestUserToExitWithDefaultMenu();
   } else if (choice == 2) {
     amount_of_credit_month_ = 0;
@@ -113,14 +113,14 @@ bool AtmUser::IndividualCreditCalculation() {
   ClearScreen();
 
   string ind = "Individual calculating...\n\n";
-  Write(ind);
+  WriteTextWithDelay(ind);
   double sum_of_credit = 0.0;
   do {
     string error =
         "The entered amount should not "
         "exceed the allowed credit.\n"
         "Enter the appropriate amount: ";
-    Write(error);
+    WriteTextWithDelay(error);
     cout << "Enter: ";
     cin >> sum_of_credit;
   } while (sum_of_credit >= (15 * cash_));
@@ -166,7 +166,7 @@ bool AtmUser::IndividualCreditCalculation() {
         "The loan was successfully transferred on your "
         "account.\nYou might cash your credit in our "
         "nearest bank.";
-    Write(credit_access);
+    WriteTextWithDelay(credit_access);
     return SuggestUserToExitWithDefaultMenu();
   } else if (choice == 2) {
     return false;
@@ -199,7 +199,7 @@ void AtmUser::Registration() {
         "\t\t|less than 20 symbols.      |\n"
         "\t\t|Please, reload the program.|";
     cout << "\n\n\n\n\t\t|---------------------------|\n";
-    Write(incorrect);
+    WriteTextWithDelay(incorrect);
     cout << "\t\t\t|---------------------------|\n\n";
   } else {
     cout << "\t\tPassword: XXXX\b\b\b\b";
@@ -212,13 +212,13 @@ void AtmUser::Registration() {
           "\t\t|It must be in XXXX format. |\n"
           "\t\t|Please, reload the program.|";
       cout << "\n\n\n\n\t\t\t|---------------------------|\n";
-      Write(incorrect);
+      WriteTextWithDelay(incorrect);
       cout << "\t\t|---------------------------|\n\n\t\t\t";
     } else {
       ClearScreen();
       cout << "\n\n\t\t------------------\n";
       string correct = "\t\t| Access allowed |";
-      Write(correct);
+      WriteTextWithDelay(correct);
       cout << "\t\t------------------\n";
       Sleep(1000);
       credit_ = 0.0;
@@ -254,7 +254,7 @@ bool AtmUser::Refill() {
   string notification =
       "\t Notify:\n\t The sum must be more than\n"
       "\t 10$ and less than 50000$";
-  Write(notification);
+  WriteTextWithDelay(notification);
   cout << "\t---------------------------------------\n";
   cout << "\t# Please enter the sum of money($): ";
   int money = 0;
@@ -263,7 +263,7 @@ bool AtmUser::Refill() {
     cash_ += money;
     cout << "\t----------------------------------------\n";
     string success = "\t# Balance refill completed successfully.\n";
-    Write(success);
+    WriteTextWithDelay(success);
     cout << "\t# Balance: $" << cash_ << "\n";
     cout << "\t----------------------------------------\n\n";
     cin.sync();
@@ -322,7 +322,7 @@ bool AtmUser::GiveACredit() {
   string GetLoan =
       "# Your balance more than 1000$. You can afford to take the\n"
       "# credit in our bank. The maximum amount for you is:";
-  Write(GetLoan);
+  WriteTextWithDelay(GetLoan);
   double maximum = 15 * cash_;
   Sleep(500);
   cout << "----------------------------------------------------------\n";
@@ -357,13 +357,13 @@ bool AtmUser::GiveACredit() {
 void AtmUser::RefuseACredit() {
   ClearScreen();
   string cash_less = "# We checked your balance.\n";
-  Write(cash_less);
+  WriteTextWithDelay(cash_less);
   Sleep(500);
   cout << "# Available cash = $" << cash_ << "\n";
   string entry_more =
       "# Sorry, for getting a loan your balance must be "
       "1000$ or more.\n";
-  Write(entry_more);
+  WriteTextWithDelay(entry_more);
   Sleep(500);
 }
 
@@ -380,19 +380,19 @@ bool AtmUser::Withdrawal() {
     if (check_pass == password_) {
       cash_ -= maximum_credit_sum;
       string success = "\n\t# Withdrawal completed successfully\n";
-      Write(success);
+      WriteTextWithDelay(success);
       cout << "\t# Sum($): " << maximum_credit_sum << "\n";
       cout << "\t# Balance($): " << cash_ << "\n";
     } else {
       string incorrect_pass = "\n\t# Sorry, entered password is incorrect.\n";
       ClearScreen();
-      Write(incorrect_pass);
+      WriteTextWithDelay(incorrect_pass);
     }
   } else {
     ClearScreen();
 
     string big_sum = "\n\t# Sorry, but entered sum is incorrect.\n";
-    Write(big_sum);
+    WriteTextWithDelay(big_sum);
   }
   return SuggestUserToExitWithDefaultMenu();
 }
@@ -439,7 +439,7 @@ void AtmUser::DemoMode() {
       "# Welcome to demo mode. This chapter\n"
       "# contains basic information about ATM North Star.\n\n"
       "# First of all, look at the main menu: \n\n";
-  Write(demo);
+  WriteTextWithDelay(demo);
   cout << "\t################ Transaction menu ########################\n"
           "\t#                                                        #\n"
           "\t# 1. Account information            2. Refill            #\n"
@@ -451,7 +451,7 @@ void AtmUser::DemoMode() {
           "\t##########################################################\n\n";
 
   string choose = "# Please, choose interested you chapter: ";
-  Write(choose);
+  WriteTextWithDelay(choose);
   cout << "# Enter: _ "
        << "\b\b";
   int ch = 0;
@@ -487,7 +487,7 @@ void AtmUser::DemoAccInfo() {
   string AccInfo =
       "# This section show your account information.\n"
       "# For example, it's look like this:\n\n";
-  Write(AccInfo);
+  WriteTextWithDelay(AccInfo);
   cout << "--------------------------------------------\n";
   cout << "# Login: " << login_ << "\n";
   cout << "--------------------------------------------\n";
@@ -508,7 +508,7 @@ void AtmUser::DemoAccInfo() {
       "# As you can see, you account may contain different data like\n"
       "# balance or credit balance, almost you can see more details such as\n"
       "# how many month you must to pay a loan  etc.\n\n";
-  Write(Details);
+  WriteTextWithDelay(Details);
   DemoExit();
 }
 
@@ -521,7 +521,7 @@ void AtmUser::DemoRefill() {
       "# When you refill on 1005.66  supposed, that you making a\n"
       "# transfer from another account.\n\n"
       "# For example, refill account is look like this:";
-  Write(demoref);
+  WriteTextWithDelay(demoref);
   cout << "------------------------------------------\n"
           " Entered sum: 1000 $\n"
           "------------------------------------------\n"
@@ -536,7 +536,7 @@ void AtmUser::DemoCreditApp() {
   string credit_app =
       "# Our bank may allow you to get a loan in the amount\n"
       "# of not more than 15 of your account size at the moment.\n\n";
-  Write(credit_app);
+  WriteTextWithDelay(credit_app);
 
   DemoExit();
 }
@@ -548,7 +548,7 @@ void AtmUser::DemoWidthdrawal() {
       "# Withdrawal happens to your existing account.\n"
       "# Optionally, you can withdraw the entire amount at\n"
       "# once or choose the amount that you need to be.\n";
-  Write(widthdrawal);
+  WriteTextWithDelay(widthdrawal);
 
   DemoExit();
 }
@@ -559,7 +559,7 @@ void AtmUser::DemoStatement() {
   string state =
       "# Standart statement which contain information\n"
       "# about your cash.\n";
-  Write(state);
+  WriteTextWithDelay(state);
 
   DemoExit();
 }
@@ -568,7 +568,7 @@ void AtmUser::DemoExit() {
   string exit =
       "# 1. Exit to start demo page.\n"
       "# 2. Exit program.";
-  Write(exit);
+  WriteTextWithDelay(exit);
   cout << "Enter: ";
   int ch = 0;
   cin >> ch;
@@ -631,7 +631,7 @@ bool AtmUser::RefuseToReCredit() {
       " #You can't get a second loan, "
       "while your first loan "
       "not complete.\n";
-  Write(text);
+  WriteTextWithDelay(text);
   ShowAccInfo();
   return SuggestUserToExitWithDefaultMenu();
 }
@@ -692,7 +692,7 @@ bool AtmUser::IsUserWantToExit(const string &menu_text,
 
 int AtmUser::GetUserChoiceWithMenuText(const string &menu_text,
                                        const string &choice_text) const {
-  Write(menu_text);
+  WriteTextWithDelay(menu_text);
   return GetUserChoice(choice_text);
 }
 
@@ -707,7 +707,7 @@ int AtmUser::GetValueFromUser() const {
   return value;
 }
 
-void AtmUser::Write(const string &text) const {
+void AtmUser::WriteTextWithDelay(const string &text) const {
   for (const auto &symbol : text) {
     cout << symbol;
     cout.flush();

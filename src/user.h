@@ -65,7 +65,7 @@ class AtmUser {
   int GetValueFromUser() const;
   int GetUserChoiceWithMenuText(const string &menu_text,
                                 const string &choice_text) const;
-  void Write(const string &text) const;
+  void WriteTextWithDelay(const string &text) const;
 
   string login_ = "no_name";
   string password_ = "0000";
