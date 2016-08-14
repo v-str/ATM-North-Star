@@ -611,6 +611,8 @@ bool AtmUser::HandleUserChoice(int choice) {
     return Withdrawal();
   } else if (choice == 5) {
     return Statement();
+  } else if (choice == 6) {
+    return SuggestUserToExitWithConfirmationMenu();
   } else {
     return SuggestUserToExitWithIncorrectDataMenu();
   }
@@ -637,21 +639,30 @@ bool AtmUser::RefuseToReCredit() {
 }
 
 bool AtmUser::SuggestUserToExitWithDefaultMenu() {
-  string menu_text =
+  string default_menu_text =
       "\n\t# Go to the main?\n"
       "\t# 1. Yes\n"
       "\t# 2. No, exit\n";
   string choice_text = "\t# Enter: ";
-  return SuggestUserToExit(menu_text, choice_text);
+  return SuggestUserToExit(default_menu_text, choice_text);
 }
 
 bool AtmUser::SuggestUserToExitWithIncorrectDataMenu() {
-  string menu_text =
+  string incorrect_data_menu_text =
       "\n  Data is not correct:\n"
       "  1. Main menu\n"
       "  2. Exit(any key)\n";
   string choice_text = " Enter: ";
-  return SuggestUserToExit(menu_text, choice_text);
+  return SuggestUserToExit(incorrect_data_menu_text, choice_text);
+}
+
+bool AtmUser::SuggestUserToExitWithConfirmationMenu() {
+  string confirmation_menu_text =
+      "\n\t# Do you really want to exit?\n"
+      "\t# 1. No, go to main\n"
+      "\t# 2. Yes, exit\n";
+  string choice_text = "\t# Enter: ";
+  return SuggestUserToExit(confirmation_menu_text, choice_text);
 }
 
 bool AtmUser::SuggestUserToExit(const string &menu_text,
@@ -673,13 +684,13 @@ void AtmUser::WishGoodDay() {
 
 void AtmUser::ShowTransactionMenu() {
   string select =
-      "\n\t################ Transaction menu #################\n"
+      "\n\t################ Transaction menu ##################\n"
       "\t#                                                  #\n"
       "\t# 1. Account information            2. Refill      #\n"
       "\t# ----------------------            ------------   #\n"
       "\t# 3. Credit application             4. Withdrawal  #\n"
       "\t# ----------------------            ------------   #\n"
-      "\t# 5. Statement                      6. Exit(test)  #\n"
+      "\t# 5. Statement                      6. Exit        #\n"
       "\t#                                                  #\n"
       "\t####################################################\n";
   cout << select;

@@ -7,6 +7,7 @@
 
 using std::string;
 using std::cout;
+using std::cin;
 
 void Welcome() {
   cout << "\n\n\n\n\t\t##################\n"
@@ -52,6 +53,7 @@ void MnScreen() {
       "  Adress - 28 Greene St, New York, NY 10012\n";
   Write(description);
   cout << "\t";
+  cin.get();
   system("pause");
   system("clear");
 }

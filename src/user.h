@@ -51,8 +51,11 @@ class AtmUser {
 
   void WishGoodDay();
   bool ConsiderACreditBasedOnCash();
+
   bool SuggestUserToExitWithDefaultMenu();
   bool SuggestUserToExitWithIncorrectDataMenu();
+  bool SuggestUserToExitWithConfirmationMenu();
+
   bool CreditApplication();
   bool RefuseToReCredit();
   bool GiveACredit();
