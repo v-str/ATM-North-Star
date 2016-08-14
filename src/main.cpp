@@ -18,8 +18,8 @@ int main() {
     DemoUser demo;
     demo.DemoMode();
   } else if (choice == 2) {
-    AtmUser one;
-    one.Registration();
+    AtmUser user;
+    user.Registration();
   } else {
     Error();
   }

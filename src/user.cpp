@@ -19,6 +19,208 @@ AtmUser::AtmUser(const string &login, const string &password, double cash,
       monthly_payment_(monthly_payment),
       amount_of_credit_month_(amount_of_credit_month) {}
 
+void AtmUser::Registration() {
+  ClearScreen();
+
+  cout << "\n\t\t   ********************\n"
+          "\t\t   *   REGISTRATION   *\n"
+          "\t\t   ********************\n";
+
+  cout << "\n\n\n\t\tLogin: "
+          "####################\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b";
+  cin.ignore();
+  getline(cin, login_);
+  cin.sync();
+  if (!IsNormalLogin()) {
+    ClearScreen();
+    string incorrect =
+        "\t\t|Incorrect login.           |\n"
+        "\t\t|It must be more than 1 and |\n"
+        "\t\t|less than 20 symbols.      |\n"
+        "\t\t|Please, reload the program.|";
+    cout << "\n\n\n\n\t\t|---------------------------|\n";
+    WriteTextWithDelay(incorrect);
+    cout << "\t\t\t|---------------------------|\n\n";
+  } else {
+    cout << "\t\tPassword: XXXX\b\b\b\b";
+    cin >> password_;
+    cin.sync();
+    if (!IsNormalPass()) {
+      ClearScreen();
+      string incorrect =
+          "\t\t|Incorrect password.        |\n"
+          "\t\t|It must be in XXXX format. |\n"
+          "\t\t|Please, reload the program.|";
+      cout << "\n\n\n\n\t\t\t|---------------------------|\n";
+      WriteTextWithDelay(incorrect);
+      cout << "\t\t|---------------------------|\n\n\t\t\t";
+    } else {
+      ClearScreen();
+      cout << "\n\n\t\t------------------\n";
+      string correct = "\t\t| Access allowed |";
+      WriteTextWithDelay(correct);
+      cout << "\t\t------------------\n";
+      Sleep(1000);
+      credit_ = 0.0;
+      monthly_payment_ = 0.0;
+      amount_of_credit_month_ = 0;
+      RunProgramUntilUserWantToExit();
+    }
+  }
+}
+
+void AtmUser::RunProgramUntilUserWantToExit() {
+  SetupProgram();
+  for (;;) {
+    if (RunProgram()) break;
+  }
+}
+
+bool AtmUser::RunProgram() {
+  ClearScreen();
+  ShowTransactionMenu();
+
+  return HandleUserChoice(GetUserChoice("\tSelect: "));
+}
+
+bool AtmUser::HandleUserChoice(int choice) {
+  ClearScreen();
+
+  if (choice == 1) {
+    return ShowAccInfo();
+  } else if (choice == 2) {
+    return Refill();
+  } else if (choice == 3) {
+    return CreditApplication();
+  } else if (choice == 4) {
+    return Withdrawal();
+  } else if (choice == 5) {
+    return Statement();
+  } else if (choice == 6) {
+    return SuggestUserToExitWithConfirmationMenu();
+  } else {
+    return SuggestUserToExitWithIncorrectDataMenu();
+  }
+}
+
+bool AtmUser::ShowAccInfo() {
+  cout << "--------------------------------------------\n";
+  cout << "# Login: " << login_ << "\n";
+  cout << "--------------------------------------------\n";
+  Sleep(100);
+  cout << "# Password: " << password_ << "\n";
+  cout << "--------------------------------------------\n";
+  Sleep(100);
+  cout << "# Balance $: " << cash_ << "\n";
+  cout << "--------------------------------------------\n";
+  Sleep(100);
+  cout << "# Credit $: " << credit_ << "\n";
+  cout << "# Monthly payment $: " << monthly_payment_ << "\n";
+  cout << "# Credit term: " << amount_of_credit_month_ << " month(s)\n";
+  cout << "--------------------------------------------\n";
+  Sleep(100);
+
+  return SuggestUserToExitWithDefaultMenu();
+}
+
+bool AtmUser::Refill() {
+  cout << "\n\t---------------------------------------\n";
+  string notification =
+      "\t Notify:\n\t The sum must be more than\n"
+      "\t 10$ and less than 50000$";
+  WriteTextWithDelay(notification);
+  cout << "\t---------------------------------------\n";
+  cout << "\t# Please enter the sum of money($): ";
+  int money = 0;
+  cin >> money;
+  if (money >= 10 && money <= 50000) {
+    cash_ += money;
+    cout << "\t----------------------------------------\n";
+    string success = "\t# Balance refill completed successfully.\n";
+    WriteTextWithDelay(success);
+    cout << "\t# Balance: $" << cash_ << "\n";
+    cout << "\t----------------------------------------\n\n";
+    cin.sync();
+    Sleep(1000);
+  } else {
+    cout << "\n\tIncorrect sum, Reconnect to repeat.\n";
+  }
+  return SuggestUserToExitWithDefaultMenu();
+}
+
+bool AtmUser::CreditApplication() {
+  if (AlreadyHasACredit()) {
+    return RefuseToReCredit();
+  } else {
+    return ConsiderACredit();
+  }
+}
+
+bool AtmUser::Withdrawal() {
+  cout << "\n\t# Please, enter the required sum: ";
+  double maximum_credit_sum = 0.0;
+  cin >> maximum_credit_sum;
+
+  if (IsNormalWithdrawal(maximum_credit_sum)) {
+    cout << "\t#Sum($): " << maximum_credit_sum << "\n";
+    cout << "\t# Please enter your password: XXXX\b\b\b\b";
+    string check_pass;
+    cin >> check_pass;
+    if (check_pass == password_) {
+      cash_ -= maximum_credit_sum;
+      string success = "\n\t# Withdrawal completed successfully\n";
+      WriteTextWithDelay(success);
+      cout << "\t# Sum($): " << maximum_credit_sum << "\n";
+      cout << "\t# Balance($): " << cash_ << "\n";
+    } else {
+      string incorrect_pass = "\n\t# Sorry, entered password is incorrect.\n";
+      ClearScreen();
+      WriteTextWithDelay(incorrect_pass);
+    }
+  } else {
+    ClearScreen();
+
+    string big_sum = "\n\t# Sorry, but entered sum is incorrect.\n";
+    WriteTextWithDelay(big_sum);
+  }
+  return SuggestUserToExitWithDefaultMenu();
+}
+
+bool AtmUser::Statement() {
+  ClearScreen();
+
+  string space;
+  if (cash_ >= 0 && cash_ < 10)
+    space = "          #\n";
+  else if (cash_ >= 10 && cash_ < 100)
+    space = "         #\n";
+  else if (cash_ >= 100 && cash_ < 1000)
+    space = "        #\n";
+  else if (cash_ >= 1000 && cash_ < 10000)
+    space = "       #\n";
+  else if (cash_ >= 10000 && cash_ < 100000)
+    space = "      #\n";
+  else if (cash_ >= 100000 && cash_ < 1000000)
+    space = "     #\n";
+
+  cout << "\t##################\n"
+          "\t#                #\n"
+          "\t#  28 Green st.  #\n"
+          "\t#   New - York   #\n"
+          "\t#                #\n"
+          "\t#   NORTH BANK   #\n"
+          "\t#                #\n"
+          "\t# Balance:       #\n"
+          "\t#   "
+       << "$ " << cash_ << space;
+  cout << "\t#                #\n"
+          "\t#  HAVE A NICE   #\n"
+          "\t#      DAY       #\n"
+          "\t#                #\n"
+          "\t##################\n";
+  return SuggestUserToExitWithDefaultMenu();
+}
+
 bool AtmUser::IsNormalLogin() const {
   return !login_.empty() && login_.length() < 21;
 }
@@ -179,101 +381,6 @@ bool AtmUser::IndividualCreditCalculation() {
   }
 }
 
-void AtmUser::Registration() {
-  ClearScreen();
-
-  cout << "\n\t\t   ********************\n"
-          "\t\t   *   REGISTRATION   *\n"
-          "\t\t   ********************\n";
-
-  cout << "\n\n\n\t\tLogin: "
-          "####################\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b";
-  cin.ignore();
-  getline(cin, login_);
-  cin.sync();
-  if (!IsNormalLogin()) {
-    ClearScreen();
-    string incorrect =
-        "\t\t|Incorrect login.           |\n"
-        "\t\t|It must be more than 1 and |\n"
-        "\t\t|less than 20 symbols.      |\n"
-        "\t\t|Please, reload the program.|";
-    cout << "\n\n\n\n\t\t|---------------------------|\n";
-    WriteTextWithDelay(incorrect);
-    cout << "\t\t\t|---------------------------|\n\n";
-  } else {
-    cout << "\t\tPassword: XXXX\b\b\b\b";
-    cin >> password_;
-    cin.sync();
-    if (!IsNormalPass()) {
-      ClearScreen();
-      string incorrect =
-          "\t\t|Incorrect password.        |\n"
-          "\t\t|It must be in XXXX format. |\n"
-          "\t\t|Please, reload the program.|";
-      cout << "\n\n\n\n\t\t\t|---------------------------|\n";
-      WriteTextWithDelay(incorrect);
-      cout << "\t\t|---------------------------|\n\n\t\t\t";
-    } else {
-      ClearScreen();
-      cout << "\n\n\t\t------------------\n";
-      string correct = "\t\t| Access allowed |";
-      WriteTextWithDelay(correct);
-      cout << "\t\t------------------\n";
-      Sleep(1000);
-      credit_ = 0.0;
-      monthly_payment_ = 0.0;
-      amount_of_credit_month_ = 0;
-      RunProgramUntilUserWantToExit();
-    }
-  }
-}
-
-bool AtmUser::ShowAccInfo() {
-  cout << "--------------------------------------------\n";
-  cout << "# Login: " << login_ << "\n";
-  cout << "--------------------------------------------\n";
-  Sleep(100);
-  cout << "# Password: " << password_ << "\n";
-  cout << "--------------------------------------------\n";
-  Sleep(100);
-  cout << "# Balance $: " << cash_ << "\n";
-  cout << "--------------------------------------------\n";
-  Sleep(100);
-  cout << "# Credit $: " << credit_ << "\n";
-  cout << "# Monthly payment $: " << monthly_payment_ << "\n";
-  cout << "# Credit term: " << amount_of_credit_month_ << " month(s)\n";
-  cout << "--------------------------------------------\n";
-  Sleep(100);
-
-  return SuggestUserToExitWithDefaultMenu();
-}
-
-bool AtmUser::Refill() {
-  cout << "\n\t---------------------------------------\n";
-  string notification =
-      "\t Notify:\n\t The sum must be more than\n"
-      "\t 10$ and less than 50000$";
-  WriteTextWithDelay(notification);
-  cout << "\t---------------------------------------\n";
-  cout << "\t# Please enter the sum of money($): ";
-  int money = 0;
-  cin >> money;
-  if (money >= 10 && money <= 50000) {
-    cash_ += money;
-    cout << "\t----------------------------------------\n";
-    string success = "\t# Balance refill completed successfully.\n";
-    WriteTextWithDelay(success);
-    cout << "\t# Balance: $" << cash_ << "\n";
-    cout << "\t----------------------------------------\n\n";
-    cin.sync();
-    Sleep(1000);
-  } else {
-    cout << "\n\tIncorrect sum, Reconnect to repeat.\n";
-  }
-  return SuggestUserToExitWithDefaultMenu();
-}
-
 bool AtmUser::ConsiderACredit() {
   ClearScreen();
 
@@ -367,114 +474,7 @@ void AtmUser::RefuseACredit() {
   Sleep(500);
 }
 
-bool AtmUser::Withdrawal() {
-  cout << "\n\t# Please, enter the required sum: ";
-  double maximum_credit_sum = 0.0;
-  cin >> maximum_credit_sum;
-
-  if (IsNormalWithdrawal(maximum_credit_sum)) {
-    cout << "\t#Sum($): " << maximum_credit_sum << "\n";
-    cout << "\t# Please enter your password: XXXX\b\b\b\b";
-    string check_pass;
-    cin >> check_pass;
-    if (check_pass == password_) {
-      cash_ -= maximum_credit_sum;
-      string success = "\n\t# Withdrawal completed successfully\n";
-      WriteTextWithDelay(success);
-      cout << "\t# Sum($): " << maximum_credit_sum << "\n";
-      cout << "\t# Balance($): " << cash_ << "\n";
-    } else {
-      string incorrect_pass = "\n\t# Sorry, entered password is incorrect.\n";
-      ClearScreen();
-      WriteTextWithDelay(incorrect_pass);
-    }
-  } else {
-    ClearScreen();
-
-    string big_sum = "\n\t# Sorry, but entered sum is incorrect.\n";
-    WriteTextWithDelay(big_sum);
-  }
-  return SuggestUserToExitWithDefaultMenu();
-}
-
-bool AtmUser::Statement() {
-  ClearScreen();
-
-  string space;
-  if (cash_ >= 0 && cash_ < 10)
-    space = "          #\n";
-  else if (cash_ >= 10 && cash_ < 100)
-    space = "         #\n";
-  else if (cash_ >= 100 && cash_ < 1000)
-    space = "        #\n";
-  else if (cash_ >= 1000 && cash_ < 10000)
-    space = "       #\n";
-  else if (cash_ >= 10000 && cash_ < 100000)
-    space = "      #\n";
-  else if (cash_ >= 100000 && cash_ < 1000000)
-    space = "     #\n";
-
-  cout << "\t##################\n"
-          "\t#                #\n"
-          "\t#  28 Green st.  #\n"
-          "\t#   New - York   #\n"
-          "\t#                #\n"
-          "\t#   NORTH BANK   #\n"
-          "\t#                #\n"
-          "\t# Balance:       #\n"
-          "\t#   "
-       << "$ " << cash_ << space;
-  cout << "\t#                #\n"
-          "\t#  HAVE A NICE   #\n"
-          "\t#      DAY       #\n"
-          "\t#                #\n"
-          "\t##################\n";
-  return SuggestUserToExitWithDefaultMenu();
-}
-
-void AtmUser::RunProgramUntilUserWantToExit() {
-  SetupProgram();
-  for (;;) {
-    if (RunProgram()) break;
-  }
-}
-
 void AtmUser::SetupProgram() { ClearScreen(); }
-
-bool AtmUser::RunProgram() {
-  ClearScreen();
-  ShowTransactionMenu();
-
-  return HandleUserChoice(GetUserChoice("\tSelect: "));
-}
-
-bool AtmUser::HandleUserChoice(int choice) {
-  ClearScreen();
-
-  if (choice == 1) {
-    return ShowAccInfo();
-  } else if (choice == 2) {
-    return Refill();
-  } else if (choice == 3) {
-    return CreditApplication();
-  } else if (choice == 4) {
-    return Withdrawal();
-  } else if (choice == 5) {
-    return Statement();
-  } else if (choice == 6) {
-    return SuggestUserToExitWithConfirmationMenu();
-  } else {
-    return SuggestUserToExitWithIncorrectDataMenu();
-  }
-}
-
-bool AtmUser::CreditApplication() {
-  if (AlreadyHasACredit()) {
-    return RefuseToReCredit();
-  } else {
-    return ConsiderACredit();
-  }
-}
 
 bool AtmUser::RefuseToReCredit() {
   string text =

@@ -63,8 +63,8 @@ void DemoUser::DemoMode() const {
         DemoStatement();
         break;
       case 6:
-        AtmUser one;
-        one.Registration();
+        AtmUser user;
+        user.Registration();
         break;
     }
   }
