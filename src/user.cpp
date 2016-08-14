@@ -99,6 +99,7 @@ bool AtmUser::HandleUserChoice(int choice) {
   } else if (choice == 6) {
     return SuggestUserToExitWithConfirmationMenu();
   } else {
+      cin.clear();
     return SuggestUserToExitWithIncorrectDataMenu();
   }
 }
@@ -564,7 +565,14 @@ int AtmUser::GetUserChoice(const string &choice_text) const {
 
 int AtmUser::GetValueFromUser() const {
   int value = 0;
-  cin >> value;
+  while (!(cin >> value))
+  {
+      cin.clear();
+      while (cin.get() != '\n');
+      cout << "\tIncorrect data. Please, repeat.\n";
+      cout << "\t-------------------------------\n";
+      cout << "\tSelect: ";
+  }
   return value;
 }
 
