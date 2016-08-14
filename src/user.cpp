@@ -90,13 +90,14 @@ bool AtmUser::MaxCreditCalculation(double max_sum) {
   }
   cout << "                \t          Total: " << all_payment << " $\n";
   cout << "\n";
-  string CreditConfirm =
+  string menu_text =
       "\n\t# Do you confirm the loan?\n"
       "\t1. Yes, I confirm.\n"
       "\t2. No, go to the main.\n"
       "\t3. Exit program.\n";
-  Write(CreditConfirm);
-  int choice = GetUserChoice("\tEnter: ");
+
+  int choice = GetUserChoiceWithMenuText(menu_text, "\tEnter: ");
+
   if (choice == 1) {
     credit_ = max_sum;
     monthly_payment_ = pay_per_month;
@@ -225,7 +226,7 @@ void AtmUser::Registration() {
     } else {
       ClearScreen();
       cout << "\n\n\t\t------------------\n";
-      string correct = "\t\t| Access allowed |";      
+      string correct = "\t\t| Access allowed |";
       Write(correct);
       cout << "\t\t------------------\n";
       Sleep(1000);
@@ -706,12 +707,11 @@ void AtmUser::ShowTransactionMenu() {
 
 bool AtmUser::IsUserWantToExit(const string &menu_text,
                                const string &choice_text) {
-  Write(menu_text);
-  return GetUserChoice(choice_text) == 2;
+  return GetUserChoiceWithMenuText(menu_text, choice_text) == 2;
 }
 
-int AtmUser::GetUserChoice(const string &text) const {
-  cout << text;
+int AtmUser::GetUserChoice(const string &choice_text) const {
+  cout << choice_text;
   return GetValueFromUser();
 }
 
@@ -719,4 +719,10 @@ int AtmUser::GetValueFromUser() const {
   int value = 0;
   cin >> value;
   return value;
+}
+
+int AtmUser::GetUserChoiceWithMenuText(const string &menu_text,
+                                       const string &choice_text) const {
+  Write(menu_text);
+  return GetUserChoice(choice_text);
 }
