@@ -16,7 +16,6 @@ class AtmUser {
   bool AlreadyHasACredit() const;
   bool IsNormalWithdrawal(double cash_sum) const;
 
-  void Write(const string &s) const;
   void ShowIncorrectDataMessage();
 
   void ShowExitMessage();
@@ -49,8 +48,7 @@ class AtmUser {
   void ShowTransactionMenu();
   bool HandleUserChoice(int choice);
   bool IndividualCreditCalculation();
-  void ShowCreditInformMessage();
-  int GetUserContinueTextChoice();
+
   void WishGoodDay();
   bool ConsiderACreditBasedOnCash();
   bool SuggestUserToExitWithDefaultMenu();
@@ -65,7 +63,9 @@ class AtmUser {
   bool IsUserWantToExit(const string &menu_text, const string &choice_text);
   int GetUserChoice(const string &choice_text) const;
   int GetValueFromUser() const;
-  int GetUserChoiceWithMenuText(const string &menu_text, const string &choice_text) const;
+  int GetUserChoiceWithMenuText(const string &menu_text,
+                                const string &choice_text) const;
+  void Write(const string &text) const;
 
   string login_ = "no_name";
   string password_ = "0000";

@@ -33,15 +33,6 @@ bool AtmUser::IsNormalWithdrawal(double cash_sum) const {
 
 void AtmUser::ClearScreen() { system("clear"); }
 
-void AtmUser::Write(const string &s) const {
-  for (const auto &symbol : s) {
-    cout << symbol;
-    cout.flush();
-    Sleep(5);
-  }
-  cout << "\n";
-}
-
 void AtmUser::ShowIncorrectDataMessage() {
   string err = "\t Data is not correct, please reload the program.\n\n";
   Write(err);
@@ -159,16 +150,16 @@ bool AtmUser::IndividualCreditCalculation() {
   }
   cout << "                \t          Total: " << all_payment << " $\n";
   cout << "\n";
-  string CreditConfirm =
+  string loan_confirmation_menu_text =
       "\nDo you confirm the loan?\n"
       "1. Yes, I confirm.\n"
       "2. No, go to the main\n"
       "3. Exit program\n";
-  Write(CreditConfirm);
-  cout << "Enter: ";
-  int cr_choice = 0;
-  cin >> cr_choice;
-  if (cr_choice == 1) {
+
+  int choice =
+      GetUserChoiceWithMenuText(loan_confirmation_menu_text, "Enter: ");
+
+  if (choice == 1) {
     credit_ = sum_of_credit;
     monthly_payment_ = pay_per_month;
     string credit_access =
@@ -177,9 +168,9 @@ bool AtmUser::IndividualCreditCalculation() {
         "nearest bank.";
     Write(credit_access);
     return SuggestUserToExitWithDefaultMenu();
-  } else if (cr_choice == 2) {
+  } else if (choice == 2) {
     return false;
-  } else if (cr_choice == 3) {
+  } else if (choice == 3) {
     ShowExitMessage();
     return true;
   } else {
@@ -259,11 +250,11 @@ bool AtmUser::ShowAccInfo() {
 }
 
 bool AtmUser::Refill() {
-  string sum =
+  cout << "\n\t---------------------------------------\n";
+  string notification =
       "\t Notify:\n\t The sum must be more than\n"
       "\t 10$ and less than 50000$";
-  cout << "\n\t---------------------------------------\n";
-  Write(sum);
+  Write(notification);
   cout << "\t---------------------------------------\n";
   cout << "\t# Please enter the sum of money($): ";
   int money = 0;
@@ -286,9 +277,27 @@ bool AtmUser::Refill() {
 bool AtmUser::ConsiderACredit() {
   ClearScreen();
 
-  ShowCreditInformMessage();
+  string reference_menu_text =
+      "# You can get a loan in our bank if your\n"
+      "  balance more than $1000.\n"
+      "# We draw your attention to the fact that\n"
+      "  our bank may refuse you in getting a loan\n"
+      "  without giving any reason.\n"
+      "# Nowadays, the all loans are set on 14% per year\n"
+      "# The loan depend from sum on account at the moment.\n";
 
-  int choice = GetUserContinueTextChoice();
+  string choice_continue_text =
+      "\n\t*********************\n"
+      "\t*   Continue?       *\n"
+      "\t*                   *\n"
+      "\t*   1. Yes          *\n"
+      "\t*   2. No           *\n"
+      "\t*                   *\n"
+      "\t*********************\n"
+      "\t# Enter: ";
+
+  int choice =
+      GetUserChoiceWithMenuText(reference_menu_text, choice_continue_text);
   if (choice == 1) {
     return ConsiderACreditBasedOnCash();
   } else if (choice == 2) {
@@ -320,17 +329,15 @@ bool AtmUser::GiveACredit() {
   cout << " \t\t\t $" << maximum << "\n";
   cout << "----------------------------------------------------------\n";
   Sleep(500);
-  string Prefer =
+  string prefer_menu_text =
       "\n# Do you prefer get all sum or you want to change the sum of "
-      "loan?\n";
-  Write(Prefer);
-  string menu_text =
+      "loan?\n\n"
       "# 1. Get all sum\n"
       "# 2. Change the sum of loan\n"
       "# 3. Main menu\n"
-      "# 4. Exit\n"
-      "# Enter: ";
-  int choice = GetUserChoice(menu_text);
+      "# 4. Exit\n";
+
+  int choice = GetUserChoiceWithMenuText(prefer_menu_text, "# Enter: ");
 
   if (choice == 1) {
     return MaxCreditCalculation(maximum);
@@ -360,48 +367,21 @@ void AtmUser::RefuseACredit() {
   Sleep(500);
 }
 
-int AtmUser::GetUserContinueTextChoice() {
-  string continue_text =
-      "\n\t*********************\n"
-      "\t*   Continue?       *\n"
-      "\t*                   *\n"
-      "\t*   1. Yes          *\n"
-      "\t*   2. No           *\n"
-      "\t*                   *\n"
-      "\t*********************\n"
-      "\t# Enter: ";
-  int choice = GetUserChoice(continue_text);
-
-  return choice;
-}
-
-void AtmUser::ShowCreditInformMessage() {
-  string reference =
-      "# You can get a loan in our bank if your\n"
-      "  balance more than $1000.\n"
-      "# We draw your attention to the fact that\n"
-      "  our bank may refuse you in getting a loan\n"
-      "  without giving any reason.\n"
-      "# Nowadays, the all loans are set on 14% per year\n"
-      "# The loan depend from sum on account at the moment.\n";
-  Write(reference);
-}
-
 bool AtmUser::Withdrawal() {
   cout << "\n\t# Please, enter the required sum: ";
-  double mcs = 0.0;
-  cin >> mcs;
+  double maximum_credit_sum = 0.0;
+  cin >> maximum_credit_sum;
 
-  if (IsNormalWithdrawal(mcs)) {
-    cout << "\t#Sum($): " << mcs << "\n";
+  if (IsNormalWithdrawal(maximum_credit_sum)) {
+    cout << "\t#Sum($): " << maximum_credit_sum << "\n";
     cout << "\t# Please enter your password: XXXX\b\b\b\b";
-    string checkpass;
-    cin >> checkpass;
-    if (checkpass == password_) {
-      cash_ -= mcs;
+    string check_pass;
+    cin >> check_pass;
+    if (check_pass == password_) {
+      cash_ -= maximum_credit_sum;
       string success = "\n\t# Withdrawal completed successfully\n";
       Write(success);
-      cout << "\t# Sum($): " << mcs << "\n";
+      cout << "\t# Sum($): " << maximum_credit_sum << "\n";
       cout << "\t# Balance($): " << cash_ << "\n";
     } else {
       string incorrect_pass = "\n\t# Sorry, entered password is incorrect.\n";
@@ -505,7 +485,7 @@ void AtmUser::DemoMode() {
 void AtmUser::DemoAccInfo() {
   ClearScreen();
   string AccInfo =
-      "# In this section show your account information.\n"
+      "# This section show your account information.\n"
       "# For example, it's look like this:\n\n";
   Write(AccInfo);
   cout << "--------------------------------------------\n";
@@ -710,6 +690,12 @@ bool AtmUser::IsUserWantToExit(const string &menu_text,
   return GetUserChoiceWithMenuText(menu_text, choice_text) == 2;
 }
 
+int AtmUser::GetUserChoiceWithMenuText(const string &menu_text,
+                                       const string &choice_text) const {
+  Write(menu_text);
+  return GetUserChoice(choice_text);
+}
+
 int AtmUser::GetUserChoice(const string &choice_text) const {
   cout << choice_text;
   return GetValueFromUser();
@@ -721,8 +707,11 @@ int AtmUser::GetValueFromUser() const {
   return value;
 }
 
-int AtmUser::GetUserChoiceWithMenuText(const string &menu_text,
-                                       const string &choice_text) const {
-  Write(menu_text);
-  return GetUserChoice(choice_text);
+void AtmUser::Write(const string &text) const {
+  for (const auto &symbol : text) {
+    cout << symbol;
+    cout.flush();
+    Sleep(5);
+  }
+  cout << "\n";
 }
