@@ -24,6 +24,7 @@ class DemoUser {
   bool IsNormalLogin() const;
   bool IsNormalPass() const;
   void DemoCreditApp() const;
+  void ShowDemoMenuText() const;
 };
 
 #endif  // DEMO_USER_H

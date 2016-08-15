@@ -22,11 +22,36 @@ static void WriteTextWithDelay(const string &text) {
 void DemoUser::DemoMode() const {
   ClearScreen();
 
-  string demo =
+  ShowDemoMenuText();
+  cout << "# Enter: _ "
+       << "\b\b";
+  int ch = 0;
+  cin >> ch;
+
+  if (ch == 1) {
+    DemoAccInfo();
+  } else if (ch == 2) {
+    DemoRefill();
+  } else if (ch == 3) {
+    DemoCreditApp();
+  } else if (ch == 4) {
+    DemoWidthdrawal();
+  } else if (ch == 5) {
+    DemoStatement();
+  } else if (ch == 6) {
+    AtmUser user;
+    user.Registration();
+  } else {
+    ShowIncorrectDataMessage();
+  }
+}
+
+void DemoUser::ShowDemoMenuText() const {
+  WriteTextWithDelay(
       "# Welcome to demo mode. This chapter\n"
       "# contains basic information about ATM North Star.\n\n"
-      "# First of all, look at the main menu: \n\n";
-  WriteTextWithDelay(demo);
+      "# First of all, look at the main menu: \n\n");
+
   cout << "\t################ Transaction menu ########################\n"
           "\t#                                                        #\n"
           "\t# 1. Account information            2. Refill            #\n"
@@ -37,37 +62,7 @@ void DemoUser::DemoMode() const {
           "\t#                                                        #\n"
           "\t##########################################################\n\n";
 
-  string choose = "# Please, choose interested you chapter: ";
-  WriteTextWithDelay(choose);
-  cout << "# Enter: _ "
-       << "\b\b";
-  int ch = 0;
-  cin >> ch;
-  if (ch < 1 || ch > 6) {
-    ShowIncorrectDataMessage();
-  } else {
-    switch (ch) {
-      case 1:
-        DemoAccInfo();
-        break;
-      case 2:
-        DemoRefill();
-        break;
-      case 3:
-        DemoCreditApp();
-        break;
-      case 4:
-        DemoWidthdrawal();
-        break;
-      case 5:
-        DemoStatement();
-        break;
-      case 6:
-        AtmUser user;
-        user.Registration();
-        break;
-    }
-  }
+  WriteTextWithDelay("# Please, choose interested you chapter: ");
 }
 
 void DemoUser::ClearScreen() const { system("clear"); }
@@ -100,7 +95,7 @@ void DemoUser::DemoAccInfo() const {
   Sleep(100);
 
   string Details =
-      "# As you can see, you account may contain different data like\n"
+      "# As you can see, your account may contain different data like\n"
       "# balance or credit balance, almost you can see more details such as\n"
       "# how many month you must to pay a loan  etc.\n\n";
   WriteTextWithDelay(Details);
