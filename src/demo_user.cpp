@@ -19,14 +19,27 @@ static void WriteTextWithDelay(const string &text) {
   cout << "\n";
 }
 
+int DemoUser::GetValueFromUser() const {
+  cout << "# Enter: _ "
+       << "\b\b";
+  int value = 0;
+  while (!(cin >> value) && (value < 1 && value > 7)) {
+    cin.clear();
+    while (cin.get() != '\n');
+    cout << "\tIncorrect data. Please, repeat.\n";
+    cout << "\t-------------------------------\n";
+    cout << "# Enter: _ "
+         << "\b\b";
+  }
+  return value;
+}
+
 void DemoUser::DemoMode() const {
   ClearScreen();
 
   ShowDemoMenuText();
-  cout << "# Enter: _ "
-       << "\b\b";
-  int ch = 0;
-  cin >> ch;
+
+  int ch = GetValueFromUser();
 
   if (ch == 1) {
     DemoAccInfo();
