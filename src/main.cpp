@@ -16,7 +16,7 @@ int main() {
 
   if (choice == 1) {
     DemoUser demo;
-    demo.DemoMode();
+    demo.ShowDemoMode();
   } else if (choice == 2) {
     AtmUser user;
     user.Registration();
