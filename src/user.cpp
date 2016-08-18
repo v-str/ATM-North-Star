@@ -87,7 +87,7 @@ bool AtmUser::HandleUserChoice(int choice) {
   ClearScreen();
 
   if (choice == 1) {
-    return ShowAccInfo();
+    return ShowAccountInfo();
   } else if (choice == 2) {
     return Refill();
   } else if (choice == 3) {
@@ -99,12 +99,11 @@ bool AtmUser::HandleUserChoice(int choice) {
   } else if (choice == 6) {
     return SuggestUserToExitWithConfirmationMenu();
   } else {
-      cin.clear();
     return SuggestUserToExitWithIncorrectDataMenu();
   }
 }
 
-bool AtmUser::ShowAccInfo() {
+bool AtmUser::ShowAccountInfo() {
   cout << "--------------------------------------------\n";
   cout << "# Login: " << login_ << "\n";
   cout << "--------------------------------------------\n";
@@ -485,7 +484,7 @@ bool AtmUser::RefuseToReCredit() {
       "while your first loan "
       "not complete.\n";
   WriteTextWithDelay(text);
-  ShowAccInfo();
+  ShowAccountInfo();
   return SuggestUserToExitWithDefaultMenu();
 }
 
@@ -565,13 +564,13 @@ int AtmUser::GetUserChoice(const string &choice_text) const {
 
 int AtmUser::GetValueFromUser() const {
   int value = 0;
-  while (!(cin >> value))
-  {
-      cin.clear();
-      while (cin.get() != '\n');
-      cout << "\tIncorrect data. Please, repeat.\n";
-      cout << "\t-------------------------------\n";
-      cout << "\tSelect: ";
+  while (!(cin >> value)) {
+    cin.clear();
+    while (cin.get() != '\n')
+      ;
+    cout << "\tIncorrect data. Please, repeat.\n";
+    cout << "\t-------------------------------\n";
+    cout << "\tSelect: ";
   }
   return value;
 }

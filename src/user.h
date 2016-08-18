@@ -20,7 +20,7 @@ class AtmUser {
 
   bool Refill();
   bool Statement();
-  bool ShowAccInfo();
+  bool ShowAccountInfo();
   bool ConsiderACredit();
   bool Withdrawal();
 

@@ -7,22 +7,24 @@ class DemoUser {
   using string = std::string;
 
  public:
-    void ShowDemoMode();
+  void ShowDemoMode();
 
-    bool RunDemoModeUntilUserWantToExit();
  private:
+  bool UserDecideToExit();
 
-  bool DemoAccInfo() const;
+  // void WishGoodDay();
+
+  bool DemoAccountInfo() const;
 
   bool DemoRefill() const;
-
+  bool StartRegistration();
   bool SuggestUserToExit() const;
 
   void DemoCreditAppconst() const;
 
-  void DemoWidthdrawal() const;
+  bool DemoWidthdrawal() const;
 
-  void DemoStatement() const;
+  bool DemoStatement() const;
 
   void ShowExitMessage() const;
 
@@ -30,7 +32,7 @@ class DemoUser {
 
   void ClearScreen() const;
 
-  void ShowIncorrectDataMessage() const;
+  bool ShowIncorrectMessage() const;
 
   void RunProgramUntilUserWantToExit() const;
 
@@ -42,12 +44,14 @@ class DemoUser {
 
   bool IsNormalPass() const;
 
-  void DemoCreditApp() const;
+  bool DemoCreditApp() const;
 
   void ShowWelcomeMessage() const;
 
   int GetValueFromUser() const;
   void ShowDemoMenu() const;
+
+  bool SuggestUserToExit(const string &menu_text, const string &choice_text);
 };
 
 #endif  // DEMO_USER_H

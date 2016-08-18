@@ -46,38 +46,42 @@ void DemoUser::ShowDemoMode() {
   ShowWelcomeMessage();
   for (;;) {
     ShowDemoMenu();
-    if (RunDemoModeUntilUserWantToExit()) {
-      ShowExitMessage();
+    if (UserDecideToExit()) {
+      // ShowExitMessage();
       break;
     }
     ClearScreen();
   }
 }
 
-bool DemoUser::RunDemoModeUntilUserWantToExit() {
-  int ch = 0;
-  cin >> ch;
-  if (ch == 1) {
-    return DemoAccInfo();
-  } else if (ch == 2) {
+bool DemoUser::UserDecideToExit() {
+  int choice = GetValueFromUser();
+  if (choice == 1) {
+    return DemoAccountInfo();
+  } else if (choice == 2) {
     return DemoRefill();
-  }  // else if (ch == 3) {
-  //    DemoCreditApp();
-  //  } else if (ch == 4) {
-  //    DemoWidthdrawal();
-  //  } else if (ch == 5) {
-  //    DemoStatement();
-  //  } else if (ch == 6) {
-  //    AtmUser user;
-  //    user.Registration();
-  //  } else {
-  //    ShowIncorrectDataMessage();
-  //}
+  } else if (choice == 3) {
+    return DemoCreditApp();
+  } else if (choice == 4) {
+    return DemoWidthdrawal();
+  } else if (choice == 5) {
+    return DemoStatement();
+  } else if (choice == 6) {
+    return StartRegistration();
+  } else {
+    return ShowIncorrectMessage();
+  }
+}
+
+bool DemoUser::StartRegistration() {
+  AtmUser user;
+  user.Registration();
+  return true;
 }
 
 void DemoUser::ClearScreen() const { system("clear"); }
 
-bool DemoUser::DemoAccInfo() const {
+bool DemoUser::DemoAccountInfo() const {
   ClearScreen();
   string AccInfo =
       "# This section show your account information.\n"
@@ -103,20 +107,23 @@ bool DemoUser::DemoAccInfo() const {
       "# As you can see, your account may contain different data like\n"
       "# balance or credit balance, almost you can see more details such as\n"
       "# how many month you must to pay a loan  etc.\n\n");
+  if (SuggestUserToExit()) {
+    ShowExitMessage();
+  }
   return SuggestUserToExit();
 }
 
 bool DemoUser::SuggestUserToExit() const {
+  WriteTextWithDelay(
+      "# 1. Exit to start demo page.\n"
+      "# 2. Exit program.\n");
+  cout << "Enter: ";
   int user_want_to_exit = GetValueFromUser();
 
   return user_want_to_exit == 2;
 }
 
 int DemoUser::GetValueFromUser() const {
-  WriteTextWithDelay(
-      "# 1. Exit to start demo page.\n"
-      "# 2. Exit program.\n");
-  cout << "Enter: ";
   int value = 0;
   while (!(cin >> value)) {
     cin.clear();
@@ -124,8 +131,7 @@ int DemoUser::GetValueFromUser() const {
       ;
     cout << "\tIncorrect data. Please, repeat.\n";
     cout << "\t-------------------------------\n";
-    cout << "# Enter: _ "
-         << "\b\b";
+    cout << "\tSelect: ";
   }
   return value;
 }
@@ -155,18 +161,19 @@ bool DemoUser::DemoRefill() const {
   return SuggestUserToExit();
 }
 
-void DemoUser::DemoCreditApp() const {
+bool DemoUser::DemoCreditApp() const {
   ClearScreen();
 
   string credit_app =
-      "# Our bank may allow you to get a loan in the amount\n"
-      "# of not more than 15 of your account size at the moment.\n\n";
+      "# Our bank may allow you to get a loan on the amount\n"
+      "# of not more than 15x of your cash on account at the "
+      "moment.\n\n";
   WriteTextWithDelay(credit_app);
 
-  SuggestUserToExit();
+  return SuggestUserToExit();
 }
 
-void DemoUser::DemoWidthdrawal() const {
+bool DemoUser::DemoWidthdrawal() const {
   ClearScreen();
 
   string widthdrawal =
@@ -175,10 +182,10 @@ void DemoUser::DemoWidthdrawal() const {
       "# once or choose the amount that you need to be.\n";
   WriteTextWithDelay(widthdrawal);
 
-  SuggestUserToExit();
+  return SuggestUserToExit();
 }
 
-void DemoUser::DemoStatement() const {
+bool DemoUser::DemoStatement() const {
   ClearScreen();
 
   string state =
@@ -186,10 +193,11 @@ void DemoUser::DemoStatement() const {
       "# about your cash.\n";
   WriteTextWithDelay(state);
 
-  SuggestUserToExit();
+  return SuggestUserToExit();
 }
 
-void DemoUser::ShowIncorrectDataMessage() const {
+bool DemoUser::ShowIncorrectMessage() const {
   string err = "\t Data is not correct, please reload the program.\n\n";
   WriteTextWithDelay(err);
+  return true;
 }
