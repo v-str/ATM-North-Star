@@ -9,12 +9,12 @@ class DemoUser {
  public:
     void ShowDemoMode();
 
-    bool RunUntilUserWantToExit();
+    bool RunDemoModeUntilUserWantToExit();
  private:
 
   bool DemoAccInfo() const;
 
-  void DemoRefill() const;
+  bool DemoRefill() const;
 
   bool SuggestUserToExit() const;
 

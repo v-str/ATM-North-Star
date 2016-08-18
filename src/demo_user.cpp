@@ -28,7 +28,8 @@ void DemoUser::ShowDemoMenu() const {
           "\t# ----------------------            ------------         #\n"
           "\t# 5. Statement                      6. Create account    #\n"
           "\t#                                                        #\n"
-          "\t##########################################################\n\n";
+          "\t##########################################################\n\n"
+          "\t# Enter: ";
 }
 
 void DemoUser::ShowWelcomeMessage() const {
@@ -45,22 +46,22 @@ void DemoUser::ShowDemoMode() {
   ShowWelcomeMessage();
   for (;;) {
     ShowDemoMenu();
-    if (RunUntilUserWantToExit()) {
+    if (RunDemoModeUntilUserWantToExit()) {
       ShowExitMessage();
       break;
     }
+    ClearScreen();
   }
 }
 
-bool DemoUser::RunUntilUserWantToExit() {
+bool DemoUser::RunDemoModeUntilUserWantToExit() {
   int ch = 0;
   cin >> ch;
   if (ch == 1) {
     return DemoAccInfo();
-  }
-  // else if (ch == 2) {
-  //    DemoRefill();
-  //  } else if (ch == 3) {
+  } else if (ch == 2) {
+    return DemoRefill();
+  }  // else if (ch == 3) {
   //    DemoCreditApp();
   //  } else if (ch == 4) {
   //    DemoWidthdrawal();
@@ -131,12 +132,12 @@ int DemoUser::GetValueFromUser() const {
 
 void DemoUser::ShowExitMessage() const {
   string exit =
-      "\n  Thank you for using our ATM system,\n"
-      "  have a nice day!\n\n";
+      "\n# Thank you for using our ATM system,\n"
+      "# have a nice day!\n\n";
   WriteTextWithDelay(exit);
 }
 
-void DemoUser::DemoRefill() const {
+bool DemoUser::DemoRefill() const {
   ClearScreen();
   string demoref =
       "# In this section user may refill balance\n"
@@ -151,7 +152,7 @@ void DemoUser::DemoRefill() const {
           "------------------------------------------\n"
           " If sum a valid, money will be tranferred.\n"
           "------------------------------------------\n\n";
-  SuggestUserToExit();
+  return SuggestUserToExit();
 }
 
 void DemoUser::DemoCreditApp() const {
