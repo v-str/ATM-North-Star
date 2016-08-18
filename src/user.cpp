@@ -7,6 +7,8 @@
 using std::cin;
 using std::cout;
 
+static const int kMaxLenghtOfLogin = 21;
+
 AtmUser::AtmUser() = default;
 
 AtmUser::AtmUser(const string &login, const string &password, double cash,
@@ -19,6 +21,12 @@ AtmUser::AtmUser(const string &login, const string &password, double cash,
       monthly_payment_(monthly_payment),
       amount_of_credit_month_(amount_of_credit_month) {}
 
+void AtmUser::WriteSymbolsNTimes(char symbol, int n) const {
+  for (int i = 0; i < n; ++i) {
+    cout << symbol;
+  }
+}
+
 void AtmUser::Registration() {
   ClearScreen();
 
@@ -26,8 +34,11 @@ void AtmUser::Registration() {
           "\t\t   *   REGISTRATION   *\n"
           "\t\t   ********************\n";
 
-  cout << "\n\n\n\t\tLogin: "
-          "####################\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b";
+  cout << "\n\n\n\t\tLogin: ";
+
+  WriteSymbolsNTimes('#', kMaxLenghtOfLogin);
+  WriteSymbolsNTimes('\b', kMaxLenghtOfLogin);
+
   cin.ignore();
   getline(cin, login_);
   cin.sync();
@@ -222,7 +233,7 @@ bool AtmUser::Statement() {
 }
 
 bool AtmUser::IsNormalLogin() const {
-  return !login_.empty() && login_.length() < 21;
+  return !login_.empty() && login_.length() < kMaxLenghtOfLogin;
 }
 
 bool AtmUser::IsNormalPass() const { return password_.length() == 4; }
@@ -494,7 +505,7 @@ bool AtmUser::SuggestUserToExitWithDefaultMenu() {
       "\t# 1. Yes\n"
       "\t# 2. No, exit\n";
   string choice_text = "\t# Enter: ";
-  return SuggestUserToExit(default_menu_text, choice_text);
+  return IsUserWantToExit(default_menu_text, choice_text);
 }
 
 bool AtmUser::SuggestUserToExitWithIncorrectDataMenu() {
@@ -503,7 +514,7 @@ bool AtmUser::SuggestUserToExitWithIncorrectDataMenu() {
       "  1. Main menu\n"
       "  2. Exit(any key)\n";
   string choice_text = " Enter: ";
-  return SuggestUserToExit(incorrect_data_menu_text, choice_text);
+  return IsUserWantToExit(incorrect_data_menu_text, choice_text);
 }
 
 bool AtmUser::SuggestUserToExitWithConfirmationMenu() {
@@ -512,16 +523,7 @@ bool AtmUser::SuggestUserToExitWithConfirmationMenu() {
       "\t# 1. No, go to main\n"
       "\t# 2. Yes, exit\n";
   string choice_text = "\t# Enter: ";
-  return SuggestUserToExit(confirmation_menu_text, choice_text);
-}
-
-bool AtmUser::SuggestUserToExit(const string &menu_text,
-                                const string &choice_text) {
-  bool user_want_to_exit = IsUserWantToExit(menu_text, choice_text);
-  if (user_want_to_exit) {
-    WishGoodDay();
-  }
-  return user_want_to_exit;
+  return IsUserWantToExit(confirmation_menu_text, choice_text);
 }
 
 void AtmUser::WishGoodDay() {

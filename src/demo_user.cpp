@@ -1,5 +1,4 @@
 #include "demo_user.h"
-#include "user.h"
 
 #include <iostream>
 #include <string>
@@ -20,13 +19,15 @@ static void WriteTextWithDelay(const string &text) {
 }
 
 void DemoUser::ShowDemoMenu() const {
-  cout << "\t############Demo Transaction menu ########################\n"
+  cout << "\t################ Demo Transaction menu ###################\n"
           "\t#                                                        #\n"
-          "\t# 1. Account information            2. Refill            #\n"
-          "\t# ----------------------            ------------         #\n"
-          "\t# 3. Credit application             4. Withdrawal        #\n"
-          "\t# ----------------------            ------------         #\n"
-          "\t# 5. Statement                      6. Create account    #\n"
+          "\t#  1. Account information            2. Refill           #\n"
+          "\t#  ----------------------            ------------        #\n"
+          "\t#  3. Credit application             4. Withdrawal       #\n"
+          "\t#  ----------------------            ------------        #\n"
+          "\t#  5. Statement                      6. Exit             #\n"
+          "\t#                                                        #\n"
+          "\t#                   7. Create Account                    #\n"
           "\t#                                                        #\n"
           "\t##########################################################\n\n"
           "\t# Enter: ";
@@ -47,7 +48,6 @@ void DemoUser::ShowDemoMode() {
   for (;;) {
     ShowDemoMenu();
     if (UserDecideToExit()) {
-      // ShowExitMessage();
       break;
     }
     ClearScreen();
@@ -67,16 +67,19 @@ bool DemoUser::UserDecideToExit() {
   } else if (choice == 5) {
     return DemoStatement();
   } else if (choice == 6) {
+    return true;
+  } else if (choice == 7) {
     return StartRegistration();
   } else {
     return ShowIncorrectMessage();
   }
 }
 
+bool DemoUser::UserWantToRegistrate() const { return user_want_to_registrate; }
+
 bool DemoUser::StartRegistration() {
-  AtmUser user;
-  user.Registration();
-  return true;
+  user_want_to_registrate = true;
+  return user_want_to_registrate;
 }
 
 void DemoUser::ClearScreen() const { system("clear"); }
@@ -107,9 +110,7 @@ bool DemoUser::DemoAccountInfo() const {
       "# As you can see, your account may contain different data like\n"
       "# balance or credit balance, almost you can see more details such as\n"
       "# how many month you must to pay a loan  etc.\n\n");
-  if (SuggestUserToExit()) {
-    ShowExitMessage();
-  }
+
   return SuggestUserToExit();
 }
 

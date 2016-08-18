@@ -27,9 +27,9 @@ class AtmUser {
   void ShowIncorrectDataMessage();
   void ShowExitMessage();
   void MonthToRepay();
+  void WishGoodDay();
 
  private:
-
   void RunProgramUntilUserWantToExit();
   bool RunProgram();
   bool HandleUserChoice(int choice);
@@ -37,7 +37,6 @@ class AtmUser {
   void SetupProgram();
   void ClearScreen();
   void ShowTransactionMenu();
-  void WishGoodDay();
   void RefuseACredit();
 
   bool IndividualCreditCalculation();
@@ -53,14 +52,13 @@ class AtmUser {
   bool GiveACredit();
   bool MaxCreditCalculation(double max_sum);
 
-
-  bool SuggestUserToExit(const string &menu_text, const string &choice_text);
   bool IsUserWantToExit(const string &menu_text, const string &choice_text);
   int GetUserChoice(const string &choice_text) const;
   int GetValueFromUser() const;
   int GetUserChoiceWithMenuText(const string &menu_text,
                                 const string &choice_text) const;
   void WriteTextWithDelay(const string &text) const;
+  void WriteSymbolsNTimes(char symbol, int n) const;
 
   string login_ = "no_name";
   string password_ = "0000";

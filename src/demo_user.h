@@ -8,11 +8,10 @@ class DemoUser {
 
  public:
   void ShowDemoMode();
+  bool UserWantToRegistrate() const;
 
  private:
   bool UserDecideToExit();
-
-  // void WishGoodDay();
 
   bool DemoAccountInfo() const;
 
@@ -49,9 +48,12 @@ class DemoUser {
   void ShowWelcomeMessage() const;
 
   int GetValueFromUser() const;
+
   void ShowDemoMenu() const;
 
   bool SuggestUserToExit(const string &menu_text, const string &choice_text);
+
+  bool user_want_to_registrate = false;
 };
 
 #endif  // DEMO_USER_H
