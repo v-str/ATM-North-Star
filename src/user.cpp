@@ -58,11 +58,11 @@ void AtmUser::Registration() {
     cin.sync();
     if (!IsNormalPass()) {
       ClearScreen();
+      cout << "\n\n\n\n\t\t\t|---------------------------|\n";
       string incorrect =
           "\t\t|Incorrect password.        |\n"
           "\t\t|It must be in XXXX format. |\n"
           "\t\t|Please, reload the program.|";
-      cout << "\n\n\n\n\t\t\t|---------------------------|\n";
       WriteTextWithDelay(incorrect);
       cout << "\t\t|---------------------------|\n\n\t\t\t";
     } else {

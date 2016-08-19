@@ -9,6 +9,7 @@ class DemoUser {
  public:
   void ShowDemoMode();
   bool UserWantToRegistrate() const;
+  bool UserWantToExitProgram() const;
 
  private:
   bool UserDecideToExit();
@@ -53,7 +54,10 @@ class DemoUser {
 
   bool SuggestUserToExit(const string &menu_text, const string &choice_text);
 
+  void ShowDemoAccountInfo() const;
+
   bool user_want_to_registrate = false;
+  void ShowInfoAboutRefill() const;
 };
 
 #endif  // DEMO_USER_H
