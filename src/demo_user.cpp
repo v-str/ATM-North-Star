@@ -1,5 +1,6 @@
 #include "demo_user.h"
 
+#include <cstring>
 #include <iostream>
 #include <string>
 
@@ -9,7 +10,7 @@ using std::cin;
 using std::cout;
 using std::string;
 
-static const int k_exit = 2;
+static const string k_exit = "2";
 
 static void WriteTextWithDelay(const string &text) {
   for (const auto &symbol : text) {
@@ -56,25 +57,61 @@ void DemoUser::ShowDemoMode() {
   }
 }
 
+// bool DemoUser::UserDecideToExit() {
+//  int choice = GetValueFromUser();
+//  if (choice == 1) {
+//    return DemoAccountInfo();
+//  } else if (choice == 2) {
+//    return DemoRefill();
+//  } else if (choice == 3) {
+//    return DemoCreditApp();
+//  } else if (choice == 4) {
+//    return DemoWidthdrawal();
+//  } else if (choice == 5) {
+//    return DemoStatement();
+//  } else if (choice == 6) {
+//    return UserWantToExitProgram();
+//  } else if (choice == 7) {
+//    return StartRegistration();
+//  } else {
+//    return ShowIncorrectMessage();
+//  }
+//}
+
 bool DemoUser::UserDecideToExit() {
-  int choice = GetValueFromUser();
-  if (choice == 1) {
+  cin.clear();
+  while (cin.get() != '\n')
+    ;
+
+  string choice = GetValueString();
+  if (choice == "1") {
     return DemoAccountInfo();
-  } else if (choice == 2) {
-    return DemoRefill();
-  } else if (choice == 3) {
-    return DemoCreditApp();
-  } else if (choice == 4) {
-    return DemoWidthdrawal();
-  } else if (choice == 5) {
-    return DemoStatement();
-  } else if (choice == 6) {
-    return UserWantToExitProgram();
-  } else if (choice == 7) {
-    return StartRegistration();
-  } else {
+  } /*else if (choice == 2) {
+      return DemoRefill();
+    } else if (choice == 3) {
+      return DemoCreditApp();
+    } else if (choice == 4) {
+      return DemoWidthdrawal();
+    } else if (choice == 5) {
+      return DemoStatement();
+    } else if (choice == 6) {
+      return UserWantToExitProgram();
+    } else if (choice == 7) {
+      return StartRegistration();
+    } else {
     return ShowIncorrectMessage();
+  }*/
+}
+
+string DemoUser::GetValueString() {
+  string value;
+  cin >> value;
+  for (int i = 0; i < 255; ++i) {
+    if (value[i] == ' ') {
+      value = "0";
+    }
   }
+  return value;
 }
 
 bool DemoUser::UserWantToRegistrate() const { return user_want_to_registrate; }
@@ -111,7 +148,7 @@ void DemoUser::ShowDemoAccountInfo() const {
       "# how many month you must to pay a loan  etc.\n\n");
 }
 
-bool DemoUser::DemoAccountInfo() const {
+bool DemoUser::DemoAccountInfo() {
   ClearScreen();
 
   ShowDemoAccountInfo();
@@ -119,15 +156,39 @@ bool DemoUser::DemoAccountInfo() const {
   return SuggestUserToExit();
 }
 
-bool DemoUser::SuggestUserToExit() const {
+bool DemoUser::SuggestUserToExit() {
+  cin.clear();
+  cin.sync();
+
   WriteTextWithDelay(
       "# 1. Exit to start demo page.\n"
       "# 2. Exit program.\n");
   cout << "Enter: ";
 
-  int user_want_to_exit = GetValueFromUser();
+  string main_menu = "1";
+  string exit = "2";
 
-  return user_want_to_exit == k_exit;
+  string choice = GetValueString();
+  bool flag = false;
+  for (;;) {
+    if (choice == main_menu) {
+      break;
+    } else if (choice == exit) {
+      flag = true;
+      break;
+    } else {
+      cout << "Incorrect, repeat.\n\n";
+      WriteTextWithDelay(
+          "# 1. Exit to start demo page.\n"
+          "# 2. Exit program.\n");
+      cout << "Enter: ";
+    }
+    cin.clear();
+    while (cin.get() != '\n')
+      ;
+    cin >> choice;
+  }
+  return flag;
 }
 
 void DemoUser::ShowExitMessage() const {
@@ -150,46 +211,46 @@ void DemoUser::ShowInfoAboutRefill() const {
           " (If sum a valid, money will be tranferred)\n\n";
 }
 
-bool DemoUser::DemoRefill() const {
+bool DemoUser::DemoRefill() {
   ClearScreen();
   ShowInfoAboutRefill();
   return SuggestUserToExit();
 }
 
-bool DemoUser::DemoCreditApp() const {
-  ClearScreen();
+// bool DemoUser::DemoCreditApp() const {
+//  ClearScreen();
 
-  WriteTextWithDelay(
-      "# Our bank may allow you to get a loan on the amount\n"
-      "# of not more than 15x of your cash on account at the "
-      "# moment.\n\n"
-      "# For example: \n"
-      "# If your balance at the moment equal $2000, you may\n"
-      "# get a $30000 loan on individual conditions.\n\n");
+//  WriteTextWithDelay(
+//      "# Our bank may allow you to get a loan on the amount\n"
+//      "# of not more than 15x of your cash on account at the "
+//      "# moment.\n\n"
+//      "# For example: \n"
+//      "# If your balance at the moment equal $2000, you may\n"
+//      "# get a $30000 loan on individual conditions.\n\n");
 
-  return SuggestUserToExit();
-}
+//  return SuggestUserToExit();
+//}
 
-bool DemoUser::DemoWidthdrawal() const {
-  ClearScreen();
+// bool DemoUser::DemoWidthdrawal() const {
+//  ClearScreen();
 
-  WriteTextWithDelay(
-      "# Withdrawal happens to your existing account.\n"
-      "# Optionally, you can withdraw the entire amount at\n"
-      "# once or choose the amount that you need to be.\n");
+//  WriteTextWithDelay(
+//      "# Withdrawal happens to your existing account.\n"
+//      "# Optionally, you can withdraw the entire amount at\n"
+//      "# once or choose the amount that you need to be.\n");
 
-  return SuggestUserToExit();
-}
+//  return SuggestUserToExit();
+//}
 
-bool DemoUser::DemoStatement() const {
-  ClearScreen();
+// bool DemoUser::DemoStatement() const {
+//  ClearScreen();
 
-  WriteTextWithDelay(
-      "# Standart statement which contain information\n"
-      "# about your cash.\n");
+//  WriteTextWithDelay(
+//      "# Standart statement which contain information\n"
+//      "# about your cash.\n");
 
-  return SuggestUserToExit();
-}
+//  return SuggestUserToExit();
+//}
 
 int DemoUser::GetValueFromUser() const {
   int value = 0;
