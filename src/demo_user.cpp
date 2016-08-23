@@ -1,6 +1,7 @@
 #include "demo_user.h"
 
 #include <iostream>
+#include <limits>
 #include <string>
 
 #include "system_utility.h"
@@ -201,6 +202,7 @@ int DemoUser::GetValueFromUser() const {
             "-------------------------------\n"
             "# Enter: ";
   }
+  cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
   return value;
 }
 
