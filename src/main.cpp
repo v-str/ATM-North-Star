@@ -4,9 +4,6 @@
 #include "screen.h"
 #include "user.h"
 
-static const int k_demo_mode = 1;
-static const int k_registration_mode = 2;
-
 int main() {
   using std::cin;
 
@@ -19,13 +16,13 @@ int main() {
   cin >> choice;
 
   AtmUser user;
-  if (choice == k_demo_mode) {
+  if (choice == 1) {
     DemoUser demo;
     demo.ShowDemoMode();
     if (demo.UserWantToRegistrate()) {
       user.Registration();
     }
-  } else if (choice == k_registration_mode) {
+  } else if (choice == 2) {
     user.Registration();
 
   } else {

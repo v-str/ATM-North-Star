@@ -14,11 +14,11 @@ class DemoUser {
  private:
   bool UserDecideToExit();
 
-  bool DemoAccountInfo();
+  bool DemoAccountInfo() const;
 
-  bool DemoRefill();
+  bool DemoRefill() const;
   bool StartRegistration();
-  bool SuggestUserToExit();
+  bool SuggestUserToExit() const;
 
   void DemoCreditAppconst() const;
 
@@ -56,11 +56,8 @@ class DemoUser {
 
   void ShowDemoAccountInfo() const;
 
-  void ShowInfoAboutRefill() const;
-
-  string GetValueString();
-
   bool user_want_to_registrate = false;
+  void ShowInfoAboutRefill() const;
 };
 
 #endif  // DEMO_USER_H
