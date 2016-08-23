@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 
 #include "demo_user.h"
 #include "screen.h"
@@ -14,7 +15,7 @@ int main() {
   int choice = 0;
 
   cin >> choice;
-
+  cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
   AtmUser user;
   if (choice == 1) {
     DemoUser demo;

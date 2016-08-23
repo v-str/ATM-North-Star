@@ -561,10 +561,10 @@ int AtmUser::GetUserChoiceWithMenuText(const string &menu_text,
 
 int AtmUser::GetUserChoice(const string &choice_text) const {
   cout << choice_text;
-  return GetValueFromUser();
+  return GetChoiceFromUser();
 }
 
-int AtmUser::GetValueFromUser() const {
+int AtmUser::GetChoiceFromUser() const {
   int value = 0;
   while (!(cin >> value)) {
     cin.clear();

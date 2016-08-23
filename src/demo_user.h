@@ -50,14 +50,17 @@ class DemoUser {
 
   int GetValueFromUser() const;
 
+  int ConvertLineToChoice(const string &line) const;
+  string GetLineFromUser() const;
+  bool StringContainsOnlyDigits(const string &str) const;
+
   void ShowDemoMenu() const;
 
   bool SuggestUserToExit(const string &menu_text, const string &choice_text);
-
   void ShowDemoAccountInfo() const;
+  void ShowInfoAboutRefill() const;
 
   bool user_want_to_registrate = false;
-  void ShowInfoAboutRefill() const;
 };
 
 #endif  // DEMO_USER_H

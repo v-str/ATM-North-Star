@@ -54,7 +54,7 @@ class AtmUser {
 
   bool IsUserWantToExit(const string &menu_text, const string &choice_text);
   int GetUserChoice(const string &choice_text) const;
-  int GetValueFromUser() const;
+  int GetChoiceFromUser() const;
   int GetUserChoiceWithMenuText(const string &menu_text,
                                 const string &choice_text) const;
   void WriteTextWithDelay(const string &text) const;

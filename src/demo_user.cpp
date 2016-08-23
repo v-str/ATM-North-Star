@@ -10,7 +10,8 @@ using std::cin;
 using std::cout;
 using std::string;
 
-static const int k_exit = 2;
+static const int kExit = 2;
+static const int kInvalidChoice = 0;
 
 static void WriteTextWithDelay(const string &text) {
   for (const auto &symbol : text) {
@@ -46,8 +47,10 @@ void DemoUser::ShowWelcomeMessage() const {
 }
 
 void DemoUser::ShowDemoMode() {
+
   ClearScreen();
   ShowWelcomeMessage();
+
   for (;;) {
     ShowDemoMenu();
     if (UserDecideToExit()) {
@@ -58,6 +61,7 @@ void DemoUser::ShowDemoMode() {
 }
 
 bool DemoUser::UserDecideToExit() {
+
   int choice = GetValueFromUser();
   if (choice == 1) {
     return DemoAccountInfo();
@@ -128,7 +132,7 @@ bool DemoUser::SuggestUserToExit() const {
 
   int user_want_to_exit = GetValueFromUser();
 
-  return user_want_to_exit == k_exit;
+  return user_want_to_exit == kExit;
 }
 
 void DemoUser::ShowExitMessage() const {
@@ -192,19 +196,6 @@ bool DemoUser::DemoStatement() const {
   return SuggestUserToExit();
 }
 
-int DemoUser::GetValueFromUser() const {
-  int value = 0;
-  while (!(cin >> value)) {
-    cin.clear();
-    while (cin.get() != '\n')
-      ;
-    cout << "# Incorrect data. Please, repeat.\n"
-            "-------------------------------\n"
-            "# Enter: ";
-  }
-  cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-  return value;
-}
 
 bool DemoUser::ShowIncorrectMessage() const {
   WriteTextWithDelay(
@@ -223,4 +214,36 @@ bool DemoUser::ShowIncorrectMessage() const {
     WriteTextWithDelay("\n\t#Incorrect input, reload the program.\n");
     return true;
   }
+}
+
+int DemoUser::GetValueFromUser() const {
+  return ConvertLineToChoice(GetLineFromUser());
+}
+
+int DemoUser::ConvertLineToChoice(const string &line) const {
+  if (StringContainsOnlyDigits(line)) {
+    try {
+      return std::stoi(line);
+    } catch (const std::invalid_argument &) {
+    }
+  }
+
+  return kInvalidChoice;
+}
+
+bool DemoUser::StringContainsOnlyDigits(const string &str) const {
+  for (size_t i = 0; i < str.length(); ++i) {
+    if (!isdigit(str[i])) {
+      return false;
+    }
+  }
+  return !str.empty();
+}
+
+
+string DemoUser::GetLineFromUser() const {
+  string line;
+  getline(cin, line);
+
+  return line;
 }
