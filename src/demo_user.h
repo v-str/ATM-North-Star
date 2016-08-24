@@ -52,7 +52,7 @@ class DemoUser {
 
   int ConvertLineToChoice(const string &line) const;
   string GetLineFromUser() const;
-  bool StringContainsOnlyDigits(const string &str) const;
+  bool LineNotEmpty(const string &str) const;
 
   void ShowDemoMenu() const;
 
