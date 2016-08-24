@@ -94,6 +94,10 @@ bool DemoUser::SuggestUserToExit() const {
       "# 2. Exit program.\n");
   cout << "# Enter: ";
 
+  return GetResultFromUser();
+}
+
+bool DemoUser::GetResultFromUser() const {
   bool result_of_choice = false;
   int user_want_to_exit = GetValueFromUser();
   for (;;) {
@@ -110,6 +114,7 @@ bool DemoUser::SuggestUserToExit() const {
       user_want_to_exit = GetValueFromUser();
     }
   }
+
   return result_of_choice;
 }
 

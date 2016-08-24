@@ -61,6 +61,7 @@ class DemoUser {
   void ShowInfoAboutRefill() const;
 
   bool user_want_to_registrate = false;
+  bool GetResultFromUser() const;
 };
 
 #endif  // DEMO_USER_H
