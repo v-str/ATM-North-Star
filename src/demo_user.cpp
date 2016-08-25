@@ -4,6 +4,7 @@
 #include <limits>
 #include <string>
 
+#include "correct_input.h"
 #include "system_utility.h"
 
 using std::cin;
@@ -13,14 +14,7 @@ using std::string;
 static const int kExit = 2;
 static const int kInvalidChoice = 0;
 
-static void WriteTextWithDelay(const string &text) {
-  for (const auto &symbol : text) {
-    cout << symbol;
-    cout.flush();
-    Sleep(5);
-  }
-  cout << "\n";
-}
+CorrectInput result_of_user_input;
 
 void DemoUser::ShowDemoMenu() const {
   cout << "\t################ Demo Transaction menu ###################\n"
@@ -60,7 +54,7 @@ void DemoUser::ShowDemoMode() {
 }
 
 bool DemoUser::UserDecideToExit() {
-  int choice = GetValueFromUser();
+  int choice = result_of_user_input.GetValueFromUser();
   if (choice == 1) {
     return DemoAccountInfo();
   } else if (choice == 2) {
@@ -85,68 +79,7 @@ bool DemoUser::DemoAccountInfo() const {
 
   ShowDemoAccountInfo();
 
-  return SuggestUserToExit();
-}
-
-bool DemoUser::SuggestUserToExit() const {
-  WriteTextWithDelay(
-      "# 1. Exit to start demo page.\n"
-      "# 2. Exit program.\n");
-  cout << "# Enter: ";
-
-  return GetResultFromUser();
-}
-
-bool DemoUser::GetResultFromUser() const {
-  bool result_of_choice = false;
-  int user_want_to_exit = GetValueFromUser();
-  for (;;) {
-    if (user_want_to_exit == 1) {
-      break;
-    } else if (user_want_to_exit == kExit) {
-      ShowExitMessage();
-      Sleep(1000);
-      result_of_choice = true;
-      break;
-    } else {
-      cout << "# Incorrect input, please try again:\n"
-              "# Enter: ";
-      user_want_to_exit = GetValueFromUser();
-    }
-  }
-
-  return result_of_choice;
-}
-
-int DemoUser::GetValueFromUser() const {
-  return ConvertLineToChoice(GetLineFromUser());
-}
-
-int DemoUser::ConvertLineToChoice(const string &line) const {
-  if (LineNotEmpty(line)) {
-    try {
-      return std::stoi(line);
-    } catch (const std::invalid_argument &) {
-    }
-  }
-
-  return kInvalidChoice;
-}
-
-bool DemoUser::LineNotEmpty(const string &str) const {
-  for (size_t i = 0; i < str.length(); ++i) {
-    if (!isdigit(str[i])) {
-      return false;
-    }
-  }
-  return !str.empty();
-}
-
-string DemoUser::GetLineFromUser() const {
-  string line;
-  getline(cin, line);
-
-  return line;
+  return result_of_user_input.SuggestUserToExit();
 }
 
 bool DemoUser::UserWantToRegistrate() const { return user_want_to_registrate; }
@@ -200,13 +133,13 @@ void DemoUser::ShowInfoAboutRefill() const {
   cout << "--------------------------------------------\n"
           " Entered sum: 1000 $\n"
           "--------------------------------------------\n"
-          " (If sum a valid, money will be tranferred)\n\n";
+          " (If sum is valid, money will be transferred)\n\n";
 }
 
 bool DemoUser::DemoRefill() const {
   ClearScreen();
   ShowInfoAboutRefill();
-  return SuggestUserToExit();
+  return result_of_user_input.SuggestUserToExit();
 }
 
 bool DemoUser::DemoCreditApp() const {
@@ -220,7 +153,7 @@ bool DemoUser::DemoCreditApp() const {
       "# If your balance at the moment equal $2000, you may\n"
       "# get a $30000 loan on individual conditions.\n\n");
 
-  return SuggestUserToExit();
+  return result_of_user_input.SuggestUserToExit();
 }
 
 bool DemoUser::DemoWidthdrawal() const {
@@ -231,7 +164,7 @@ bool DemoUser::DemoWidthdrawal() const {
       "# Optionally, you can withdraw the entire amount at\n"
       "# once or choose the amount that you need to be.\n");
 
-  return SuggestUserToExit();
+  return result_of_user_input.SuggestUserToExit();
 }
 
 bool DemoUser::DemoStatement() const {
@@ -241,7 +174,7 @@ bool DemoUser::DemoStatement() const {
       "# Standart statement which contain information\n"
       "# about your cash.\n");
 
-  return SuggestUserToExit();
+  return result_of_user_input.SuggestUserToExit();
 }
 
 bool DemoUser::ShowIncorrectMessage() const {
@@ -251,14 +184,15 @@ bool DemoUser::ShowIncorrectMessage() const {
       "\t# 1. Yes\n"
       "\t# 2. No, exit");
   cout << "\t# Enter: ";
-
-  int choice = GetValueFromUser();
+  cin.clear();
+  int choice = result_of_user_input.GetValueFromUser();
   if (choice == 1) {
     return false;
   } else if (choice == 2) {
     return true;
   } else {
     WriteTextWithDelay("\n\t#Incorrect input, reload the program.\n");
+    Sleep(1000);
     return true;
   }
 }
