@@ -4,17 +4,18 @@
 #include <limits>
 #include <string>
 
-#include "correct_input.h"
+#include "user_input.h"
 #include "system_utility.h"
 
 using std::cin;
 using std::cout;
 using std::string;
 
-static const int kExit = 2;
-static const int kInvalidChoice = 0;
+const int kInvalidChoice = 0;
+const int kExit = 2;
+const int kgo_to_main = 1;
 
-CorrectInput result_of_user_input;
+UserInput result_of_user_input;
 
 void DemoUser::ShowDemoMenu() const {
   cout << "\t################ Demo Transaction menu ###################\n"
@@ -186,7 +187,7 @@ bool DemoUser::ShowIncorrectMessage() const {
   cout << "\t# Enter: ";
   cin.clear();
   int choice = result_of_user_input.GetValueFromUser();
-  if (choice == 1) {
+  if (choice == kgo_to_main) {
     return false;
   } else if (choice == 2) {
     return true;

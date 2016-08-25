@@ -1,13 +1,21 @@
 #include "user.h"
 
 #include <iostream>
+#include <limits>
 
+#include "user_input.h"
 #include "system_utility.h"
 
 using std::cin;
 using std::cout;
 
+const int kInvalidChoice = 0;
+const int kExit = 2;
+const int kgo_to_main = 1;
+
 static const int kMaxLenghtOfLogin = 21;
+
+extern UserInput result_of_user_input;
 
 AtmUser::AtmUser() = default;
 
@@ -130,8 +138,9 @@ bool AtmUser::ShowAccountInfo() {
   cout << "# Credit term: " << amount_of_credit_month_ << " month(s)\n";
   cout << "--------------------------------------------\n";
   Sleep(100);
-
-  return SuggestUserToExitWithDefaultMenu();
+  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  //return SuggestUserToExitWithDefaultMenu();
+  return result_of_user_input.SuggestUserToExit();
 }
 
 bool AtmUser::Refill() {

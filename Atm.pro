@@ -9,11 +9,11 @@ SOURCES += \
     src/user.cpp \
     src/system_utility.cpp \
     src/demo_user.cpp \
-    src/correct_input.cpp
+    src/user_input.cpp
 
 HEADERS += \
     src/screen.h \
     src/user.h \
     src/system_utility.h \
     src/demo_user.h \
-    src/correct_input.h
+    src/user_input.h

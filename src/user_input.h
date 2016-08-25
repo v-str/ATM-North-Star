@@ -3,11 +3,11 @@
 
 #include <string>
 
-class CorrectInput {
+class UserInput {
   using string = std::string;
 
  public:
-  CorrectInput() {}
+  UserInput() {}
   bool SuggestUserToExit() const;
   int GetValueFromUser() const;
   string GetLineFromUser() const;

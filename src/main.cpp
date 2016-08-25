@@ -1,6 +1,7 @@
 #include <iostream>
 #include <limits>
 
+#include "user_input.h"
 #include "demo_user.h"
 #include "screen.h"
 #include "user.h"
