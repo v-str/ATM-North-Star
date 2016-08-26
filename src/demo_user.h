@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include "user_input.h"
+
 class DemoUser {
   using string = std::string;
 
@@ -59,9 +61,10 @@ class DemoUser {
   bool SuggestUserToExit(const string &menu_text, const string &choice_text);
   void ShowDemoAccountInfo() const;
   void ShowInfoAboutRefill() const;
-
-  bool user_want_to_registrate = false;
   bool GetResultFromUser() const;
+
+  bool user_want_to_registrate_ = false;
+  UserInput user_input_;
 };
 
 #endif  // DEMO_USER_H

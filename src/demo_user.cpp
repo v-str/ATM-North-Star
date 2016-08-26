@@ -4,7 +4,6 @@
 #include <limits>
 #include <string>
 
-#include "user_input.h"
 #include "system_utility.h"
 
 using std::cin;
@@ -14,8 +13,6 @@ using std::string;
 const int kInvalidChoice = 0;
 const int kExit = 2;
 const int kgo_to_main = 1;
-
-UserInput result_of_user_input;
 
 void DemoUser::ShowDemoMenu() const {
   cout << "\t################ Demo Transaction menu ###################\n"
@@ -55,7 +52,7 @@ void DemoUser::ShowDemoMode() {
 }
 
 bool DemoUser::UserDecideToExit() {
-  int choice = result_of_user_input.GetValueFromUser();
+  int choice = user_input_.GetValueFromUser();
   if (choice == 1) {
     return DemoAccountInfo();
   } else if (choice == 2) {
@@ -80,16 +77,16 @@ bool DemoUser::DemoAccountInfo() const {
 
   ShowDemoAccountInfo();
 
-  return result_of_user_input.SuggestUserToExit();
+  return user_input_.SuggestUserToExit();
 }
 
-bool DemoUser::UserWantToRegistrate() const { return user_want_to_registrate; }
+bool DemoUser::UserWantToRegistrate() const { return user_want_to_registrate_; }
 
 bool DemoUser::UserWantToExitProgram() const { return true; }
 
 bool DemoUser::StartRegistration() {
-  user_want_to_registrate = true;
-  return user_want_to_registrate;
+  user_want_to_registrate_ = true;
+  return user_want_to_registrate_;
 }
 
 void DemoUser::ClearScreen() const { system("clear"); }
@@ -140,7 +137,7 @@ void DemoUser::ShowInfoAboutRefill() const {
 bool DemoUser::DemoRefill() const {
   ClearScreen();
   ShowInfoAboutRefill();
-  return result_of_user_input.SuggestUserToExit();
+  return user_input_.SuggestUserToExit();
 }
 
 bool DemoUser::DemoCreditApp() const {
@@ -154,7 +151,7 @@ bool DemoUser::DemoCreditApp() const {
       "# If your balance at the moment equal $2000, you may\n"
       "# get a $30000 loan on individual conditions.\n\n");
 
-  return result_of_user_input.SuggestUserToExit();
+  return user_input_.SuggestUserToExit();
 }
 
 bool DemoUser::DemoWidthdrawal() const {
@@ -165,7 +162,7 @@ bool DemoUser::DemoWidthdrawal() const {
       "# Optionally, you can withdraw the entire amount at\n"
       "# once or choose the amount that you need to be.\n");
 
-  return result_of_user_input.SuggestUserToExit();
+  return user_input_.SuggestUserToExit();
 }
 
 bool DemoUser::DemoStatement() const {
@@ -175,7 +172,7 @@ bool DemoUser::DemoStatement() const {
       "# Standart statement which contain information\n"
       "# about your cash.\n");
 
-  return result_of_user_input.SuggestUserToExit();
+  return user_input_.SuggestUserToExit();
 }
 
 bool DemoUser::ShowIncorrectMessage() const {
@@ -186,7 +183,7 @@ bool DemoUser::ShowIncorrectMessage() const {
       "\t# 2. No, exit");
   cout << "\t# Enter: ";
   cin.clear();
-  int choice = result_of_user_input.GetValueFromUser();
+  int choice = user_input_.GetValueFromUser();
   if (choice == kgo_to_main) {
     return false;
   } else if (choice == 2) {

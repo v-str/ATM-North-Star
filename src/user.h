@@ -2,12 +2,13 @@
 #define USER_H
 
 #include <string>
+#include "user_input.h"
 
 class AtmUser {
   using string = std::string;
 
  public:
-  AtmUser();
+  AtmUser() {}
   AtmUser(const string &login, const string &password, double cash, long credit,
           double monthly_payment, int amount_of_credit_month);
 
@@ -66,6 +67,8 @@ class AtmUser {
   double credit_ = 0.0;
   double monthly_payment_ = 0.0;
   int amount_of_credit_month_ = 0;
+
+  UserInput user_input_;
 };
 
 #endif  // USER_H

@@ -3,7 +3,6 @@
 #include <iostream>
 #include <limits>
 
-#include "user_input.h"
 #include "system_utility.h"
 
 using std::cin;
@@ -14,10 +13,6 @@ const int kExit = 2;
 const int kgo_to_main = 1;
 
 static const int kMaxLenghtOfLogin = 21;
-
-extern UserInput result_of_user_input;
-
-AtmUser::AtmUser() = default;
 
 AtmUser::AtmUser(const string &login, const string &password, double cash,
                  long credit, double monthly_payment,
@@ -139,8 +134,7 @@ bool AtmUser::ShowAccountInfo() {
   cout << "--------------------------------------------\n";
   Sleep(100);
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-  //return SuggestUserToExitWithDefaultMenu();
-  return result_of_user_input.SuggestUserToExit();
+  return user_input_.SuggestUserToExit();
 }
 
 bool AtmUser::Refill() {
