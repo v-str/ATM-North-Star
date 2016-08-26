@@ -203,20 +203,6 @@ bool AtmUser::Withdrawal() {
 bool AtmUser::Statement() {
   ClearScreen();
 
-  string space;
-  if (cash_ >= 0 && cash_ < 10)
-    space = "          #\n";
-  else if (cash_ >= 10 && cash_ < 100)
-    space = "         #\n";
-  else if (cash_ >= 100 && cash_ < 1000)
-    space = "        #\n";
-  else if (cash_ >= 1000 && cash_ < 10000)
-    space = "       #\n";
-  else if (cash_ >= 10000 && cash_ < 100000)
-    space = "      #\n";
-  else if (cash_ >= 100000 && cash_ < 1000000)
-    space = "     #\n";
-
   cout << "\t##################\n"
           "\t#                #\n"
           "\t#  28 Green st.  #\n"
@@ -225,14 +211,31 @@ bool AtmUser::Statement() {
           "\t#   NORTH BANK   #\n"
           "\t#                #\n"
           "\t# Balance:       #\n"
-          "\t#   "
-       << "$ " << cash_ << space;
+          "\t#  $ "
+       << cash_ << GetSpaces(cash_) << "#\n";
   cout << "\t#                #\n"
           "\t#  HAVE A NICE   #\n"
           "\t#      DAY       #\n"
           "\t#                #\n"
           "\t##################\n";
   return SuggestUserToExitWithDefaultMenu();
+}
+
+string AtmUser::GetSpaces(int cash) const {
+  const int kSizeOfField = 12;
+  char space = ' ';
+  return string(kSizeOfField - NumberOfDigits(cash), space);
+}
+
+int AtmUser::NumberOfDigits(int value) const {
+  int number_of_digits = 0;
+
+  while (value != 0) {
+    ++number_of_digits;
+    value /= 10;
+  }
+
+  return number_of_digits;
 }
 
 bool AtmUser::IsNormalLogin() const {

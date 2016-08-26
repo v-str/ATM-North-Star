@@ -60,6 +60,9 @@ class AtmUser {
                                 const string &choice_text) const;
   void WriteTextWithDelay(const string &text) const;
   void WriteSymbolsNTimes(char symbol, int n) const;
+  int NumberOfDigits(int cash) const;
+
+  string GetSpaces(int cash_) const;
 
   string login_ = "no_name";
   string password_ = "0000";
