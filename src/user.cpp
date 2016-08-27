@@ -101,19 +101,19 @@ bool AtmUser::HandleUserChoice(int choice) {
   ClearScreen();
 
   if (choice == 1) {
-    return ShowAccountInfo();
+    return ShowAccountInfo();  // +
   } else if (choice == 2) {
-    return Refill();
+    return Refill();  // +
   } else if (choice == 3) {
-    return CreditApplication(); // non-refactored
+    return CreditApplication();  // -
   } else if (choice == 4) {
-    return Withdrawal();
+    return Withdrawal();  // +
   } else if (choice == 5) {
-    return Statement();
+    return Statement();  // -
   } else if (choice == 6) {
-    return SuggestUserToExitWithConfirmationMenu();
+    return SuggestUserToExitWithConfirmationMenu();  // +
   } else {
-    return user_input_.ShowIncorrectMessage();
+    return user_input_.ShowIncorrectMessage();  // ++
   }
 }
 
@@ -187,7 +187,8 @@ bool AtmUser::Withdrawal() {
       string success = "\n\t# Withdrawal completed successfully\n";
       WriteTextWithDelay(success);
       cout << "\t# Sum($): " << maximum_credit_sum << "\n";
-      cout << "\t# Balance($): " << cash_ << "\n";
+      cout << "\t# Balance($): " << cash_ << "\n\n";
+      IgnoreNewLineSymbol();
     } else {
       string incorrect_pass = "\n\t# Sorry, entered password is incorrect.\n";
       ClearScreen();
@@ -196,7 +197,6 @@ bool AtmUser::Withdrawal() {
   } else {
     WriteTextWithDelay("\n\t# Sorry, but entered sum is incorrect.\n");
   }
-  //IgnoreNewLineSymbol();
   return user_input_.SuggestUserToExit();
 }
 
@@ -218,6 +218,7 @@ bool AtmUser::Statement() {
           "\t#      DAY       #\n"
           "\t#                #\n"
           "\t##################\n";
+  IgnoreNewLineSymbol();
   return SuggestUserToExitWithDefaultMenu();
 }
 
@@ -230,11 +231,14 @@ string AtmUser::GetSpaces(int cash) const {
 int AtmUser::NumberOfDigits(int value) const {
   int number_of_digits = 0;
 
-  while (value != 0) {
-    ++number_of_digits;
-    value /= 10;
+  if (value == 0) {
+    return number_of_digits = 1;
+  } else {
+    while (value != 0) {
+      ++number_of_digits;
+      value /= 10;
+    }
   }
-
   return number_of_digits;
 }
 
@@ -247,7 +251,7 @@ bool AtmUser::IsNormalPass() const { return password_.length() == 4; }
 bool AtmUser::AlreadyHasACredit() const { return credit_ > 0; }
 
 bool AtmUser::IsNormalWithdrawal(double cash_sum) const {
-  return cash_sum >= 0 && cash_sum <= cash_;
+  return cash_sum > 0 && cash_sum <= cash_;
 }
 
 void AtmUser::ClearScreen() { system("clear"); }
