@@ -15,7 +15,7 @@ const int kgo_to_main = 1;
 
 bool UserInput::SuggestUserToExit() const {
   WriteTextWithDelay(
-      "# 1. Exit to start demo page.\n"
+      "# 1. Exit to main page.\n"
       "# 2. Exit program.\n");
   cout << "# Enter: ";
 

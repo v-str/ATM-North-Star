@@ -113,7 +113,7 @@ bool AtmUser::HandleUserChoice(int choice) {
   } else if (choice == 6) {
     return SuggestUserToExitWithConfirmationMenu();
   } else {
-    return SuggestUserToExitWithIncorrectDataMenu();
+    return user_input_.ShowIncorrectMessage();
   }
 }
 
@@ -524,12 +524,13 @@ bool AtmUser::SuggestUserToExitWithIncorrectDataMenu() {
 }
 
 bool AtmUser::SuggestUserToExitWithConfirmationMenu() {
-  string confirmation_menu_text =
-      "\n\t# Do you really want to exit?\n"
-      "\t# 1. No, go to main\n"
-      "\t# 2. Yes, exit\n";
-  string choice_text = "\t# Enter: ";
-  return IsUserWantToExit(confirmation_menu_text, choice_text);
+  cout << "\n\t# Do you really want to exit?\n"
+          "\t# 1. No, go to main\n"
+          "\t# 2. Yes, exit\n";
+
+  cout << "\t# Enter: ";
+  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  return user_input_.GetResultFromUser();
 }
 
 void AtmUser::WishGoodDay() {
