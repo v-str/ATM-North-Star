@@ -82,7 +82,10 @@ bool DemoUser::DemoAccountInfo() const {
 
 bool DemoUser::UserWantToRegistrate() const { return user_want_to_registrate_; }
 
-bool DemoUser::UserWantToExitProgram() const { return true; }
+bool DemoUser::UserWantToExitProgram() const {
+  user_input_.ShowExitMessage();
+  return true;
+}
 
 bool DemoUser::StartRegistration() {
   user_want_to_registrate_ = true;
@@ -112,12 +115,6 @@ void DemoUser::ShowDemoAccountInfo() const {
       "# As you can see, your account may contain different data like\n"
       "# balance or credit balance, almost you can see more details such as\n"
       "# how many month you must to pay a loan  etc.\n\n");
-}
-
-void DemoUser::ShowExitMessage() const {
-  WriteTextWithDelay(
-      "\n# Thank you for using our ATM system,\n"
-      "# have a nice day!\n\n");
 }
 
 void DemoUser::ShowInfoAboutRefill() const {

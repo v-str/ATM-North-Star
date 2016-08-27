@@ -26,7 +26,7 @@ class AtmUser {
   bool Withdrawal();
 
   void ShowIncorrectDataMessage();
-  void ShowExitMessage();
+
   void MonthToRepay();
   void WishGoodDay();
 

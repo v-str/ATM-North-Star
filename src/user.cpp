@@ -262,13 +262,6 @@ void AtmUser::ShowIncorrectDataMessage() {
   WriteTextWithDelay(err);
 }
 
-void AtmUser::ShowExitMessage() {
-  string exit =
-      "\n\tThank you for using our payment system,\n"
-      "\thave a nice day!";
-  WriteTextWithDelay(exit);
-}
-
 void AtmUser::MonthToRepay() {
   cin >> amount_of_credit_month_;
   if (amount_of_credit_month_ <= 0 || amount_of_credit_month_ > 61) {
@@ -325,7 +318,7 @@ bool AtmUser::MaxCreditCalculation(double max_sum) {
     amount_of_credit_month_ = 0;
     return false;
   } else if (choice == 3) {
-    ShowExitMessage();
+    user_input_.ShowExitMessage();
     return true;
   } else {
     ShowIncorrectDataMessage();
@@ -395,7 +388,7 @@ bool AtmUser::IndividualCreditCalculation() {
   } else if (choice == 2) {
     return false;
   } else if (choice == 3) {
-    ShowExitMessage();
+    user_input_.ShowExitMessage();
     return true;
   } else {
     ShowIncorrectDataMessage();
@@ -458,13 +451,13 @@ bool AtmUser::GiveACredit() {
       "# 2. Change the sum of loan\n"
       "# 3. Main menu\n"
       "# 4. Exit\n");
-    cout << "# Enter: ";
+  cout << "# Enter: ";
   int choice = user_input_.GetValueFromUser();
 
   if (choice == 1) {
-    return MaxCreditCalculation(maximum);
+    return MaxCreditCalculation(maximum);  // -
   } else if (choice == 2) {
-    return IndividualCreditCalculation();
+    return IndividualCreditCalculation();  // -
   } else if (choice == 3) {
     return false;
   } else if (choice == 4) {

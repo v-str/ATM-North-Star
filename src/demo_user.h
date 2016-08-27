@@ -28,8 +28,6 @@ class DemoUser {
 
   bool DemoStatement() const;
 
-  void ShowExitMessage() const;
-
   void Registration() const;
 
   void ClearScreen() const;
