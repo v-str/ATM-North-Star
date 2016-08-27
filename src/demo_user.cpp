@@ -183,5 +183,5 @@ bool DemoUser::ShowIncorrectMessage() const {
       "\t# 2. No, exit");
   cout << "\t# Enter: ";
   cin.clear();
-  return user_input_.GetResultFromUser();
+  return user_input_.GetResultFromUserAboutExit();
 }

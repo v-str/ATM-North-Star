@@ -451,15 +451,15 @@ bool AtmUser::GiveACredit() {
   cout << " \t\t\t $" << maximum << "\n";
   cout << "----------------------------------------------------------\n";
   Sleep(500);
-  string prefer_menu_text =
+  WriteTextWithDelay(
       "\n# Do you prefer get all sum or you want to change the sum of "
       "loan?\n\n"
       "# 1. Get all sum\n"
       "# 2. Change the sum of loan\n"
       "# 3. Main menu\n"
-      "# 4. Exit\n";
-
-  int choice = GetUserChoiceWithMenuText(prefer_menu_text, "# Enter: ");
+      "# 4. Exit\n");
+    cout << "# Enter: ";
+  int choice = user_input_.GetValueFromUser();
 
   if (choice == 1) {
     return MaxCreditCalculation(maximum);
@@ -468,7 +468,7 @@ bool AtmUser::GiveACredit() {
   } else if (choice == 3) {
     return false;
   } else if (choice == 4) {
-    ShowExitMessage();
+    user_input_.ShowExitMessage();
     return true;
   } else {
     ShowIncorrectDataMessage();
@@ -528,7 +528,7 @@ bool AtmUser::SuggestUserToExitWithConfirmationMenu() {
 
   cout << "\t# Enter: ";
   IgnoreNewLineSymbol();
-  return user_input_.GetResultFromUser();
+  return user_input_.GetResultFromUserAboutExit();
 }
 
 void AtmUser::WishGoodDay() {

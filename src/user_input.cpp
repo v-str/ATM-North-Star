@@ -19,10 +19,10 @@ bool UserInput::SuggestUserToExit() const {
       "\t# 2. Exit program.\n");
   cout << "\t# Enter: ";
 
-  return GetResultFromUser();
+  return GetResultFromUserAboutExit();
 }
 
-bool UserInput::GetResultFromUser() const {
+bool UserInput::GetResultFromUserAboutExit() const {
   bool result_of_choice = false;
   for (;;) {
     int user_want_to_exit = GetValueFromUser();
@@ -75,8 +75,7 @@ string UserInput::GetLineFromUser() const {
 
 void UserInput::ShowExitMessage() const {
   WriteTextWithDelay(
-      "\n\t# Thank you for using our ATM system,\n"
-      "\t# have a nice day!\n\n");
+      "\n\t# Thank you for using our ATM system,\n");
 }
 
 bool UserInput::ShowIncorrectMessage() const {
@@ -87,5 +86,5 @@ bool UserInput::ShowIncorrectMessage() const {
       "\t# 2. No, exit");
   cout << "\t# Enter: ";
   cin.clear();
-  return GetResultFromUser();
+  return GetResultFromUserAboutExit();
 }

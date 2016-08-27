@@ -12,13 +12,13 @@ class UserInput {
   bool SuggestUserToExit() const;
   int GetValueFromUser() const;
   bool ShowIncorrectMessage() const;
-  bool GetResultFromUser() const;
+  bool GetResultFromUserAboutExit() const;
+  void ShowExitMessage() const;
 
  private:
   int ConvertLineToChoice(const string &line) const;
   bool LineNotEmpty(const string &str) const;
   string GetLineFromUser() const;
-  void ShowExitMessage() const;
 };
 
 #endif  // CORRECT_INPUT_H
