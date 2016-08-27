@@ -118,20 +118,20 @@ bool AtmUser::HandleUserChoice(int choice) {
 }
 
 bool AtmUser::ShowAccountInfo() {
-  cout << "--------------------------------------------\n";
-  cout << "# Login: " << login_ << "\n";
-  cout << "--------------------------------------------\n";
+  cout << "\t--------------------------------------------\n";
+  cout << "\t# Login: " << login_ << "\n";
+  cout << "\t--------------------------------------------\n";
   Sleep(100);
-  cout << "# Password: " << password_ << "\n";
-  cout << "--------------------------------------------\n";
+  cout << "\t# Password: " << password_ << "\n";
+  cout << "\t--------------------------------------------\n";
   Sleep(100);
-  cout << "# Balance $: " << cash_ << "\n";
-  cout << "--------------------------------------------\n";
+  cout << "\t# Balance $: " << cash_ << "\n";
+  cout << "\t--------------------------------------------\n";
   Sleep(100);
-  cout << "# Credit $: " << credit_ << "\n";
-  cout << "# Monthly payment $: " << monthly_payment_ << "\n";
-  cout << "# Credit term: " << amount_of_credit_month_ << " month(s)\n";
-  cout << "--------------------------------------------\n";
+  cout << "\t# Credit $: " << credit_ << "\n";
+  cout << "\t# Monthly payment $: " << monthly_payment_ << "\n";
+  cout << "\t# Credit term: " << amount_of_credit_month_ << " month(s)\n";
+  cout << "\t--------------------------------------------\n\n\n";
   Sleep(100);
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
   return user_input_.SuggestUserToExit();
@@ -159,7 +159,8 @@ bool AtmUser::Refill() {
   } else {
     cout << "\n\tIncorrect sum, Reconnect to repeat.\n";
   }
-  return SuggestUserToExitWithDefaultMenu();
+  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  return user_input_.SuggestUserToExit();
 }
 
 bool AtmUser::CreditApplication() {

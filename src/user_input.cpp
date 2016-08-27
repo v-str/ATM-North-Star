@@ -15,9 +15,9 @@ const int kgo_to_main = 1;
 
 bool UserInput::SuggestUserToExit() const {
   WriteTextWithDelay(
-      "# 1. Exit to main page.\n"
-      "# 2. Exit program.\n");
-  cout << "# Enter: ";
+      "\t# 1. Exit to main page.\n"
+      "\t# 2. Exit program.\n");
+  cout << "\t# Enter: ";
 
   return GetResultFromUser();
 }
@@ -75,8 +75,8 @@ string UserInput::GetLineFromUser() const {
 
 void UserInput::ShowExitMessage() const {
   WriteTextWithDelay(
-      "\n# Thank you for using our ATM system,\n"
-      "# have a nice day!\n\n");
+      "\n\t# Thank you for using our ATM system,\n"
+      "\t# have a nice day!\n\n");
 }
 
 bool UserInput::ShowIncorrectMessage() const {
