@@ -105,7 +105,7 @@ bool AtmUser::HandleUserChoice(int choice) {
   } else if (choice == 2) {
     return Refill();
   } else if (choice == 3) {
-    return CreditApplication();
+    return CreditApplication(); // non-refactored
   } else if (choice == 4) {
     return Withdrawal();
   } else if (choice == 5) {
@@ -133,7 +133,7 @@ bool AtmUser::ShowAccountInfo() {
   cout << "\t# Credit term: " << amount_of_credit_month_ << " month(s)\n";
   cout << "\t--------------------------------------------\n\n\n";
   Sleep(100);
-  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  IgnoreNewLineSymbol();
   return user_input_.SuggestUserToExit();
 }
 
@@ -145,8 +145,8 @@ bool AtmUser::Refill() {
   WriteTextWithDelay(notification);
   cout << "\t---------------------------------------\n";
   cout << "\t# Please enter the sum of money($): ";
-  int money = 0;
-  cin >> money;
+  IgnoreNewLineSymbol();
+  int money = user_input_.GetValueFromUser();
   if (money >= 10 && money <= 50000) {
     cash_ += money;
     cout << "\t----------------------------------------\n";
@@ -157,9 +157,10 @@ bool AtmUser::Refill() {
     cin.sync();
     Sleep(1000);
   } else {
-    cout << "\n\tIncorrect sum, Reconnect to repeat.\n";
+    cout << "\n\tIncorrect sum, Reconnect to repeat.\n"
+            "\t\t - Press any key - \n\n";
+    IgnoreNewLineSymbol();
   }
-  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
   return user_input_.SuggestUserToExit();
 }
 
@@ -173,8 +174,8 @@ bool AtmUser::CreditApplication() {
 
 bool AtmUser::Withdrawal() {
   cout << "\n\t# Please, enter the required sum: ";
-  double maximum_credit_sum = 0.0;
-  cin >> maximum_credit_sum;
+  IgnoreNewLineSymbol();
+  double maximum_credit_sum = user_input_.GetValueFromUser();
 
   if (IsNormalWithdrawal(maximum_credit_sum)) {
     cout << "\t#Sum($): " << maximum_credit_sum << "\n";
@@ -193,12 +194,10 @@ bool AtmUser::Withdrawal() {
       WriteTextWithDelay(incorrect_pass);
     }
   } else {
-    ClearScreen();
-
-    string big_sum = "\n\t# Sorry, but entered sum is incorrect.\n";
-    WriteTextWithDelay(big_sum);
+    WriteTextWithDelay("\n\t# Sorry, but entered sum is incorrect.\n");
   }
-  return SuggestUserToExitWithDefaultMenu();
+  //IgnoreNewLineSymbol();
+  return user_input_.SuggestUserToExit();
 }
 
 bool AtmUser::Statement() {
@@ -530,7 +529,7 @@ bool AtmUser::SuggestUserToExitWithConfirmationMenu() {
           "\t# 2. Yes, exit\n";
 
   cout << "\t# Enter: ";
-  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  IgnoreNewLineSymbol();
   return user_input_.GetResultFromUser();
 }
 

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <limits>
 
 using std::cin;
 using std::cout;
@@ -19,4 +20,9 @@ void WriteTextWithDelay(const string &text) {
     Sleep(5);
   }
   cout << "\n";
+}
+
+void IgnoreNewLineSymbol()
+{
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
