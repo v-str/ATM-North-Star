@@ -405,35 +405,25 @@ bool AtmUser::IndividualCreditCalculation() {
 bool AtmUser::ConsiderACredit() {
   ClearScreen();
 
-  string reference_menu_text =
+  WriteTextWithDelay(
       "# You can get a loan in our bank if your\n"
       "  balance more than $1000.\n"
       "# We draw your attention to the fact that\n"
       "  our bank may refuse you in getting a loan\n"
       "  without giving any reason.\n"
       "# Nowadays, the all loans are set on 14% per year\n"
-      "# The loan depend from sum on account at the moment.\n";
+      "# The loan depend from sum on account at the moment.\n");
 
-  string choice_continue_text =
-      "\n\t*********************\n"
-      "\t*   Continue?       *\n"
-      "\t*                   *\n"
-      "\t*   1. Yes          *\n"
-      "\t*   2. No           *\n"
-      "\t*                   *\n"
-      "\t*********************\n"
-      "\t# Enter: ";
-
-  int choice =
-      GetUserChoiceWithMenuText(reference_menu_text, choice_continue_text);
-  if (choice == 1) {
-    return ConsiderACreditBasedOnCash();
-  } else if (choice == 2) {
-    return false;
-  } else {
-    ShowIncorrectDataMessage();
-    return true;
-  }
+  cout << "\n\t*********************\n"
+          "\t*   Continue?       *\n"
+          "\t*                   *\n"
+          "\t*   1. Yes          *\n"
+          "\t*   2. No           *\n"
+          "\t*                   *\n"
+          "\t*********************\n"
+          "\tEnter: ";
+  IgnoreNewLineSymbol();
+  return user_input_.GetResultFromUser();
 }
 
 bool AtmUser::ConsiderACreditBasedOnCash() {
@@ -505,7 +495,6 @@ bool AtmUser::RefuseToReCredit() {
       "while your first loan "
       "not complete.\n");
   return ShowAccountInfo();
-  //return SuggestUserToExitWithDefaultMenu();
 }
 
 bool AtmUser::SuggestUserToExitWithDefaultMenu() {
