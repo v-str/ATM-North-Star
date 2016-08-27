@@ -223,7 +223,7 @@ bool AtmUser::Statement() {
 
 string AtmUser::GetSpaces(int cash) const {
   const int kSizeOfField = 12;
-  char space = ' ';
+  const char space = ' ';
   return string(kSizeOfField - NumberOfDigits(cash), space);
 }
 

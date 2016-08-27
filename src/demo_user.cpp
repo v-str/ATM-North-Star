@@ -68,7 +68,7 @@ bool DemoUser::UserDecideToExit() {
   } else if (choice == 7) {
     return StartRegistration();
   } else {
-    return ShowIncorrectMessage();
+    return user_input_.ShowIncorrectMessage();
   }
 }
 
@@ -183,14 +183,5 @@ bool DemoUser::ShowIncorrectMessage() const {
       "\t# 2. No, exit");
   cout << "\t# Enter: ";
   cin.clear();
-  int choice = user_input_.GetValueFromUser();
-  if (choice == kgo_to_main) {
-    return false;
-  } else if (choice == 2) {
-    return true;
-  } else {
-    WriteTextWithDelay("\n\t#Incorrect input, reload the program.\n");
-    Sleep(1000);
-    return true;
-  }
+  return user_input_.GetResultFromUser();
 }

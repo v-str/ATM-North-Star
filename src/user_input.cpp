@@ -24,8 +24,8 @@ bool UserInput::SuggestUserToExit() const {
 
 bool UserInput::GetResultFromUser() const {
   bool result_of_choice = false;
-  int user_want_to_exit = GetValueFromUser();
   for (;;) {
+    int user_want_to_exit = GetValueFromUser();
     if (user_want_to_exit == kgo_to_main) {
       break;
     } else if (user_want_to_exit == kExit) {
@@ -34,9 +34,8 @@ bool UserInput::GetResultFromUser() const {
       result_of_choice = true;
       break;
     } else {
-      cout << "# Incorrect input, please try again:\n"
-              "# Enter: ";
-      user_want_to_exit = GetValueFromUser();
+      cout << "\t# Incorrect input, please try again:\n"
+              "\t# Enter: ";
     }
   }
 
@@ -78,4 +77,15 @@ void UserInput::ShowExitMessage() const {
   WriteTextWithDelay(
       "\n# Thank you for using our ATM system,\n"
       "# have a nice day!\n\n");
+}
+
+bool UserInput::ShowIncorrectMessage() const {
+  WriteTextWithDelay(
+      "\n\t# Data is not correct,\n"
+      "\t# return to main?\n"
+      "\t# 1. Yes\n"
+      "\t# 2. No, exit");
+  cout << "\t# Enter: ";
+  cin.clear();
+  return GetResultFromUser();
 }
