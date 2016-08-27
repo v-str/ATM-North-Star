@@ -219,7 +219,7 @@ bool AtmUser::Statement() {
           "\t#                #\n"
           "\t##################\n";
   IgnoreNewLineSymbol();
-  return SuggestUserToExitWithDefaultMenu();
+  return user_input_.SuggestUserToExit();
 }
 
 string AtmUser::GetSpaces(int cash) const {
