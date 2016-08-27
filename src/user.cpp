@@ -94,26 +94,26 @@ bool AtmUser::RunProgram() {
   ClearScreen();
   ShowTransactionMenu();
 
-  return HandleUserChoice(GetUserChoice("\tSelect: "));
+  return HandleUserChoice(GetUserChoice("\tSelect: "));  // -
 }
 
 bool AtmUser::HandleUserChoice(int choice) {
   ClearScreen();
 
   if (choice == 1) {
-    return ShowAccountInfo();  // +
+    return ShowAccountInfo();
   } else if (choice == 2) {
-    return Refill();  // +
+    return Refill();
   } else if (choice == 3) {
     return CreditApplication();  // -
   } else if (choice == 4) {
-    return Withdrawal();  // +
+    return Withdrawal();
   } else if (choice == 5) {
-    return Statement();  // -
+    return Statement();
   } else if (choice == 6) {
-    return SuggestUserToExitWithConfirmationMenu();  // +
+    return SuggestUserToExitWithConfirmationMenu();
   } else {
-    return user_input_.ShowIncorrectMessage();  // ++
+    return user_input_.ShowIncorrectMessage();
   }
 }
 
@@ -168,7 +168,7 @@ bool AtmUser::CreditApplication() {
   if (AlreadyHasACredit()) {
     return RefuseToReCredit();
   } else {
-    return ConsiderACredit();
+    return ConsiderACredit();  // -
   }
 }
 
@@ -498,15 +498,14 @@ void AtmUser::RefuseACredit() {
 void AtmUser::SetupProgram() { ClearScreen(); }
 
 bool AtmUser::RefuseToReCredit() {
-  string text =
+  WriteTextWithDelay(
       "\n #Sorry, but you have already a "
       "loan in our bank.\n"
       " #You can't get a second loan, "
       "while your first loan "
-      "not complete.\n";
-  WriteTextWithDelay(text);
-  ShowAccountInfo();
-  return SuggestUserToExitWithDefaultMenu();
+      "not complete.\n");
+  return ShowAccountInfo();
+  //return SuggestUserToExitWithDefaultMenu();
 }
 
 bool AtmUser::SuggestUserToExitWithDefaultMenu() {
