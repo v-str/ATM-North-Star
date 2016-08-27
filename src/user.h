@@ -38,7 +38,7 @@ class AtmUser {
   void SetupProgram();
   void ClearScreen();
   void ShowTransactionMenu();
-  void RefuseACredit();
+  bool RefuseACredit();
 
   bool IndividualCreditCalculation();
 

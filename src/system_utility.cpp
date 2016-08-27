@@ -1,9 +1,9 @@
 #include "system_utility.h"
 
-#include <iostream>
 #include <chrono>
-#include <thread>
+#include <iostream>
 #include <limits>
+#include <thread>
 
 using std::cin;
 using std::cout;
@@ -22,7 +22,6 @@ void WriteTextWithDelay(const string &text) {
   cout << "\n";
 }
 
-void IgnoreNewLineSymbol()
-{
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+void IgnoreNewLineSymbol() {
+  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }

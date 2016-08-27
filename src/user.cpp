@@ -42,7 +42,6 @@ void AtmUser::Registration() {
   WriteSymbolsNTimes('#', kMaxLenghtOfLogin);
   WriteSymbolsNTimes('\b', kMaxLenghtOfLogin);
 
-  cin.ignore();
   getline(cin, login_);
   cin.sync();
   if (!IsNormalLogin()) {
@@ -423,15 +422,19 @@ bool AtmUser::ConsiderACredit() {
           "\t*********************\n"
           "\tEnter: ";
   IgnoreNewLineSymbol();
-  return user_input_.GetResultFromUser();
+
+  int choice = user_input_.GetValueFromUser();
+  if (choice == 1) {
+    return ConsiderACreditBasedOnCash();
+  }
+  return false;
 }
 
 bool AtmUser::ConsiderACreditBasedOnCash() {
   if (cash_ >= 1000) {
     return GiveACredit();
   } else {
-    RefuseACredit();
-    return false;
+    return RefuseACredit();
   }
 }
 
@@ -472,17 +475,19 @@ bool AtmUser::GiveACredit() {
   }
 }
 
-void AtmUser::RefuseACredit() {
+bool AtmUser::RefuseACredit() {
   ClearScreen();
-  string cash_less = "# We checked your balance.\n";
-  WriteTextWithDelay(cash_less);
+
+  WriteTextWithDelay("# We checked your balance.\n");
   Sleep(500);
   cout << "# Available cash = $" << cash_ << "\n";
-  string entry_more =
+
+  WriteTextWithDelay(
       "# Sorry, for getting a loan your balance must be "
-      "1000$ or more.\n";
-  WriteTextWithDelay(entry_more);
+      "$1000 or more.\n");
   Sleep(500);
+
+  return user_input_.SuggestUserToExit();
 }
 
 void AtmUser::SetupProgram() { ClearScreen(); }
