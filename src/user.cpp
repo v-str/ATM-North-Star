@@ -12,6 +12,8 @@ const int kInvalidChoice = 0;
 const int kExit = 2;
 const int kgo_to_main = 1;
 
+const int minimal_sum_for_credit = 1000;
+
 static const int kMaxLenghtOfLogin = 21;
 
 AtmUser::AtmUser(const string &login, const string &password, double cash,
@@ -423,15 +425,14 @@ bool AtmUser::ConsiderACredit() {
           "\tEnter: ";
   IgnoreNewLineSymbol();
 
-  int choice = user_input_.GetValueFromUser();
-  if (choice == 1) {
+  if (user_input_.GetValueFromUser() == 1) {
     return ConsiderACreditBasedOnCash();
   }
   return false;
 }
 
 bool AtmUser::ConsiderACreditBasedOnCash() {
-  if (cash_ >= 1000) {
+  if (cash_ >= minimal_sum_for_credit) {
     return GiveACredit();
   } else {
     return RefuseACredit();
