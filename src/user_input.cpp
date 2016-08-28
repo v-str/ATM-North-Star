@@ -25,7 +25,7 @@ bool UserInput::SuggestUserToExit() const {
 bool UserInput::GetResultFromUserAboutExit() const {
   bool result_of_choice = false;
   for (;;) {
-    int user_want_to_exit = GetValueFromUser();
+    int user_want_to_exit = GetChoiceFromUser();
     if (user_want_to_exit == kgo_to_main) {
       break;
     } else if (user_want_to_exit == kExit) {
@@ -42,7 +42,7 @@ bool UserInput::GetResultFromUserAboutExit() const {
   return result_of_choice;
 }
 
-int UserInput::GetValueFromUser() const {
+int UserInput::GetChoiceFromUser() const {
   return ConvertLineToChoice(GetLineFromUser());
 }
 

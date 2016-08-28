@@ -297,7 +297,7 @@ bool AtmUser::ConsiderACredit() {
           "\tEnter: ";
   IgnoreNewLineSymbol();
 
-  if (user_input_.GetValueFromUser() == 1) {
+  if (user_input_.GetChoiceFromUser() == 1) {
     return ConsiderACreditBasedOnCash();
   }
   return false;
@@ -331,18 +331,18 @@ bool AtmUser::GiveACredit() {
       "# 3. Main menu\n"
       "# 4. Exit\n");
   cout << "# Enter: ";
-  int choice = user_input_.GetValueFromUser();
+  int choice = user_input_.GetChoiceFromUser();
 
   if (choice == 1) {
-    return MaxCreditCalculation(maximal_sum_of_credit);  // +
+    return MaxCreditCalculation(maximal_sum_of_credit);
   } else if (choice == 2) {
-    return IndividualCreditCalculation();  // -
+    return IndividualCreditCalculation();
   } else if (choice == 3) {
     return false;
   } else if (choice == 4) {
-    return ExitCreditMenu();  // +
+    return ExitCreditMenu();
   } else {
-    return ReloadProgram();  // +
+    return ReloadProgram();
   }
 }
 

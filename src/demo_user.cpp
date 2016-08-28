@@ -52,7 +52,7 @@ void DemoUser::ShowDemoMode() {
 }
 
 bool DemoUser::UserDecideToExit() {
-  int choice = user_input_.GetValueFromUser();
+  int choice = user_input_.GetChoiceFromUser();
   if (choice == 1) {
     return DemoAccountInfo();
   } else if (choice == 2) {
