@@ -9,7 +9,7 @@ using std::cin;
 using std::cout;
 using std::string;
 
-const int kInvalidChoice = 0;
+const int kInvalidChoice = -1;
 const int kExit = 2;
 const int kgo_to_main = 1;
 
