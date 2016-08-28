@@ -147,7 +147,8 @@ bool AtmUser::Refill() {
   cout << "\t---------------------------------------\n";
   cout << "\t# Please enter the sum of money($): ";
   IgnoreNewLineSymbol();
-  int money = user_input_.GetValueFromUser();
+  int money = 0;
+  cin >> money;
   if (money >= 10 && money <= 50000) {
     cash_ += money;
     cout << "\t----------------------------------------\n";
@@ -176,7 +177,9 @@ bool AtmUser::CreditApplication() {
 bool AtmUser::Withdrawal() {
   cout << "\n\t# Please, enter the required sum: ";
   IgnoreNewLineSymbol();
-  double maximum_credit_sum = user_input_.GetValueFromUser();
+
+  double maximum_credit_sum = 0.0;
+  cin >> maximum_credit_sum;
 
   if (IsNormalWithdrawal(maximum_credit_sum)) {
     cout << "\t#Sum($): " << maximum_credit_sum << "\n";
