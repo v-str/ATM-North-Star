@@ -503,24 +503,6 @@ bool AtmUser::RefuseToReCredit() {
   return ShowAccountInfo();
 }
 
-bool AtmUser::SuggestUserToExitWithDefaultMenu() {
-  string default_menu_text =
-      "\n\t# Go to the main?\n"
-      "\t# 1. Yes\n"
-      "\t# 2. No, exit\n";
-  string choice_text = "\t# Enter: ";
-  return IsUserWantToExit(default_menu_text, choice_text);
-}
-
-bool AtmUser::SuggestUserToExitWithIncorrectDataMenu() {
-  string incorrect_data_menu_text =
-      "\n  Data is not correct:\n"
-      "  1. Main menu\n"
-      "  2. Exit(any key)\n";
-  string choice_text = " Enter: ";
-  return IsUserWantToExit(incorrect_data_menu_text, choice_text);
-}
-
 bool AtmUser::SuggestUserToExitWithConfirmationMenu() {
   cout << "\n\t# Do you really want to exit?\n"
           "\t# 1. No, go to main\n"
@@ -551,11 +533,6 @@ void AtmUser::ShowTransactionMenu() {
       "\t#                                                  #\n"
       "\t####################################################\n";
   cout << select;
-}
-
-bool AtmUser::IsUserWantToExit(const string &menu_text,
-                               const string &choice_text) {
-  return GetUserChoiceWithMenuText(menu_text, choice_text) == 2;
 }
 
 int AtmUser::GetUserChoiceWithMenuText(const string &menu_text,

@@ -44,8 +44,6 @@ class AtmUser {
 
   bool ConsiderACreditBasedOnCash();
 
-  bool SuggestUserToExitWithDefaultMenu();
-  bool SuggestUserToExitWithIncorrectDataMenu();
   bool SuggestUserToExitWithConfirmationMenu();
 
   bool CreditApplication();
@@ -58,7 +56,6 @@ class AtmUser {
   bool EnrollACredit(double max_sum, double pay_per_month);
   bool RepealACredit();
 
-  bool IsUserWantToExit(const string &menu_text, const string &choice_text);
   int GetUserChoice(const string &choice_text) const;
   int GetChoiceFromUser() const;
   int GetUserChoiceWithMenuText(const string &menu_text,
