@@ -260,6 +260,7 @@ void AtmUser::ClearScreen() { system("clear"); }
 void AtmUser::ShowIncorrectDataMessage() {
   string err = "\t Data is not correct, please reload the program.\n\n";
   WriteTextWithDelay(err);
+  cin.get();
 }
 
 void AtmUser::MonthToRepay() {
@@ -461,12 +462,20 @@ bool AtmUser::GiveACredit() {
   } else if (choice == 3) {
     return false;
   } else if (choice == 4) {
-    user_input_.ShowExitMessage();
-    return true;
+    return ExitCreditMenu();
   } else {
-    ShowIncorrectDataMessage();
-    return true;
+    return ReloadProgram();
   }
+}
+
+bool AtmUser::ExitCreditMenu() {
+  user_input_.ShowExitMessage();
+  return true;
+}
+
+bool AtmUser::ReloadProgram() {
+  ShowIncorrectDataMessage();
+  return true;
 }
 
 bool AtmUser::RefuseACredit() {

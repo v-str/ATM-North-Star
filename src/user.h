@@ -51,6 +51,9 @@ class AtmUser {
   bool CreditApplication();
   bool RefuseToReCredit();
   bool GiveACredit();
+  bool ExitCreditMenu();
+  bool ReloadProgram();
+
   bool MaxCreditCalculation(double max_sum);
 
   bool IsUserWantToExit(const string &menu_text, const string &choice_text);
