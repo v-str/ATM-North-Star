@@ -272,131 +272,6 @@ void AtmUser::MonthToRepay() {
   }
 }
 
-bool AtmUser::MaxCreditCalculation(double max_sum) {
-  cout << "\nThe number of months to repay the loan: ";
-  MonthToRepay();
-
-  ClearScreen();
-
-  cout << "\t             Consumer credit\n"
-          "\t* Profile: "
-       << login_ << "\n"
-                    "\t* Sum $: "
-       << max_sum << "\n"
-                     "\t* Persent per year: 14%\n\n ";
-
-  double x = (max_sum * 14) / 100;
-  double pay_per_month = (max_sum / amount_of_credit_month_) + (x / 12);
-
-  double all_payment = 0.0;
-
-  for (int i = 0; i < amount_of_credit_month_; ++i) {
-    cout << "\t* Payment month: " << i + 1 << "   | Payment sum: ";
-    cout << pay_per_month << " $\n";
-
-    Sleep(50);
-    all_payment += pay_per_month;
-  }
-  cout << "                \t          Total: " << all_payment << " $\n";
-  cout << "\n";
-  string menu_text =
-      "\n\t# Do you confirm the loan?\n"
-      "\t1. Yes, I confirm.\n"
-      "\t2. No, go to the main.\n"
-      "\t3. Exit program.\n";
-
-  int choice = GetUserChoiceWithMenuText(menu_text, "\tEnter: ");
-
-  if (choice == 1) {
-    credit_ = max_sum;
-    monthly_payment_ = pay_per_month;
-    string credit_access =
-        "\n# The loan was successfully transferred on your account.\n"
-        "# You might cash your credit in our nearest bank.";
-    WriteTextWithDelay(credit_access);
-    return SuggestUserToExitWithDefaultMenu();
-  } else if (choice == 2) {
-    amount_of_credit_month_ = 0;
-    return false;
-  } else if (choice == 3) {
-    user_input_.ShowExitMessage();
-    return true;
-  } else {
-    ShowIncorrectDataMessage();
-    return true;
-  }
-}
-
-bool AtmUser::IndividualCreditCalculation() {
-  ClearScreen();
-
-  string ind = "Individual calculating...\n\n";
-  WriteTextWithDelay(ind);
-  double sum_of_credit = 0.0;
-  do {
-    string error =
-        "The entered amount should not "
-        "exceed the allowed credit.\n"
-        "Enter the appropriate amount: ";
-    WriteTextWithDelay(error);
-    cout << "Enter: ";
-    cin >> sum_of_credit;
-  } while (sum_of_credit >= (15 * cash_));
-  cout << "\nThe number of months to repay the loan: ";
-  MonthToRepay();
-
-  cout << "\t\tConsumer Credit\n\n";
-  Sleep(500);
-  cout << "Profile: " << login_ << "\n";
-  Sleep(500);
-  cout << "Sum $: " << sum_of_credit << "\n";
-  Sleep(500);
-  cout << "Persent per year: 14%\n\n";
-  Sleep(2500);
-
-  double x = (sum_of_credit * 14) / 100;
-  double pay_per_month = (sum_of_credit / amount_of_credit_month_) + (x / 12);
-
-  double all_payment = 0.0;
-
-  for (int i = 0; i < amount_of_credit_month_; ++i) {
-    cout << "\t Payment month: " << i + 1
-         << "   | Payment sum: " << pay_per_month << " $\n";
-
-    Sleep(50);
-    all_payment += pay_per_month;
-  }
-  cout << "                \t          Total: " << all_payment << " $\n";
-  cout << "\n";
-  string loan_confirmation_menu_text =
-      "\nDo you confirm the loan?\n"
-      "1. Yes, I confirm.\n"
-      "2. No, go to the main\n"
-      "3. Exit program\n";
-
-  int choice =
-      GetUserChoiceWithMenuText(loan_confirmation_menu_text, "Enter: ");
-
-  if (choice == 1) {
-    credit_ = sum_of_credit;
-    monthly_payment_ = pay_per_month;
-    string credit_access =
-        "The loan was successfully transferred on your "
-        "account.\nYou might cash your credit in our "
-        "nearest bank.";
-    WriteTextWithDelay(credit_access);
-    return SuggestUserToExitWithDefaultMenu();
-  } else if (choice == 2) {
-    return false;
-  } else if (choice == 3) {
-    user_input_.ShowExitMessage();
-    return true;
-  } else {
-    ShowIncorrectDataMessage();
-    return true;
-  }
-}
-
 bool AtmUser::ConsiderACredit() {
   ClearScreen();
 
@@ -456,15 +331,138 @@ bool AtmUser::GiveACredit() {
   int choice = user_input_.GetValueFromUser();
 
   if (choice == 1) {
-    return MaxCreditCalculation(maximal_sum_of_credit);  // -
+    return MaxCreditCalculation(maximal_sum_of_credit);  // +
   } else if (choice == 2) {
     return IndividualCreditCalculation();  // -
   } else if (choice == 3) {
     return false;
   } else if (choice == 4) {
-    return ExitCreditMenu(); // +
+    return ExitCreditMenu();  // +
   } else {
     return ReloadProgram();  // +
+  }
+}
+
+bool AtmUser::MaxCreditCalculation(double max_sum) {
+  cout << "\nThe number of months to repay the loan: ";
+  MonthToRepay();
+
+  ClearScreen();
+
+  cout << "\t             Consumer credit\n"
+          "\t* Profile: "
+       << login_ << "\n"
+                    "\t* Sum $: "
+       << max_sum << "\n"
+                     "\t* Persent per year: 14%\n\n ";
+
+  double x = (max_sum * 14) / 100;
+  double pay_per_month = (max_sum / amount_of_credit_month_) + (x / 12);
+
+  double all_payment = 0.0;
+
+  for (int i = 0; i < amount_of_credit_month_; ++i) {
+    cout << "\t* Payment month: " << i + 1 << "   | Payment sum: ";
+    cout << pay_per_month << " $\n";
+
+    Sleep(50);
+    all_payment += pay_per_month;
+  }
+  cout << "                \t          Total: " << all_payment << " $\n";
+  cout << "\n";
+  string menu_text =
+      "\n\t# Do you confirm the loan?\n"
+      "\t1. Yes, I confirm.\n"
+      "\t2. No, go to the main.\n"
+      "\t3. Exit program.\n";
+
+  int choice = GetUserChoiceWithMenuText(menu_text, "\tEnter: ");
+
+  if (choice == 1) {
+    return EnrollACredit(max_sum, pay_per_month);
+  } else if (choice == 2) {
+    return RepealACredit();
+  } else if (choice == 3) {
+    return ExitCreditMenu();
+  } else {
+    return ReloadProgram();
+  }
+}
+
+bool AtmUser::EnrollACredit(double max_sum, double pay_per_month) {
+  credit_ = max_sum;
+  monthly_payment_ = pay_per_month;
+  string credit_access =
+      "\n# The loan was successfully transferred on your account.\n"
+      "# You might cash your credit in our nearest bank.";
+  WriteTextWithDelay(credit_access);
+  IgnoreNewLineSymbol();
+  return user_input_.SuggestUserToExit();
+}
+
+bool AtmUser::RepealACredit() {
+  amount_of_credit_month_ = 0;
+  return false;
+}
+
+bool AtmUser::IndividualCreditCalculation() {
+  ClearScreen();
+
+  string ind = "Individual calculating...\n\n";
+  WriteTextWithDelay(ind);
+  double sum_of_credit = 0.0;
+  do {
+    string error =
+        "The entered amount should not "
+        "exceed the allowed credit.\n"
+        "Enter the appropriate amount: ";
+    WriteTextWithDelay(error);
+    cout << "Enter: ";
+    cin >> sum_of_credit;
+  } while (sum_of_credit >= (15 * cash_));
+  cout << "\nThe number of months to repay the loan: ";
+  MonthToRepay();
+
+  cout << "\t\tConsumer Credit\n\n";
+  Sleep(500);
+  cout << "Profile: " << login_ << "\n";
+  Sleep(500);
+  cout << "Sum $: " << sum_of_credit << "\n";
+  Sleep(500);
+  cout << "Persent per year: 14%\n\n";
+  Sleep(2500);
+
+  double x = (sum_of_credit * 14) / 100;
+  double pay_per_month = (sum_of_credit / amount_of_credit_month_) + (x / 12);
+
+  double all_payment = 0.0;
+
+  for (int i = 0; i < amount_of_credit_month_; ++i) {
+    cout << "\t Payment month: " << i + 1
+         << "   | Payment sum: " << pay_per_month << " $\n";
+
+    Sleep(50);
+    all_payment += pay_per_month;
+  }
+  cout << "                \t          Total: " << all_payment << " $\n";
+  cout << "\n";
+  string loan_confirmation_menu_text =
+      "\nDo you confirm the loan?\n"
+      "1. Yes, I confirm.\n"
+      "2. No, go to the main\n"
+      "3. Exit program\n";
+
+  int choice =
+      GetUserChoiceWithMenuText(loan_confirmation_menu_text, "Enter: ");
+
+  if (choice == 1) {
+    return EnrollACredit(sum_of_credit, pay_per_month);
+  } else if (choice == 2) {
+    return false;
+  } else if (choice == 3) {
+    return ExitCreditMenu();
+  } else {
+    return ReloadProgram();
   }
 }
 

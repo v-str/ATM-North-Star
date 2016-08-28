@@ -55,6 +55,8 @@ class AtmUser {
   bool ReloadProgram();
 
   bool MaxCreditCalculation(double max_sum);
+  bool EnrollACredit(double max_sum, double pay_per_month);
+  bool RepealACredit();
 
   bool IsUserWantToExit(const string &menu_text, const string &choice_text);
   int GetUserChoice(const string &choice_text) const;
