@@ -22,6 +22,6 @@ void WriteTextWithDelay(const string &text) {
   cout << "\n";
 }
 
-void IgnoreNewLineSymbol() {
+void IgnoreCinLine() {
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }

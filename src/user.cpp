@@ -70,6 +70,7 @@ void AtmUser::Registration() {
       WriteTextWithDelay(incorrect);
       cout << "\t\t|---------------------------|\n\n\t\t\t";
     } else {
+      IgnoreCinLine();
       ClearScreen();
       cout << "\n\n\t\t------------------\n";
       string correct = "\t\t| Access allowed |";
@@ -94,8 +95,9 @@ void AtmUser::RunProgramUntilUserWantToExit() {
 bool AtmUser::RunProgram() {
   ClearScreen();
   ShowTransactionMenu();
+  cout << "\tSelect: ";
 
-  return HandleUserChoice(GetUserChoice("\tSelect: "));  // -
+  return HandleUserChoice(user_input_.GetChoiceFromUser());
 }
 
 bool AtmUser::HandleUserChoice(int choice) {
@@ -106,7 +108,7 @@ bool AtmUser::HandleUserChoice(int choice) {
   } else if (choice == 2) {
     return Refill();
   } else if (choice == 3) {
-    return CreditApplication();  // -
+    return CreditApplication();
   } else if (choice == 4) {
     return Withdrawal();
   } else if (choice == 5) {
@@ -134,7 +136,6 @@ bool AtmUser::ShowAccountInfo() {
   cout << "\t# Credit term: " << amount_of_credit_month_ << " month(s)\n";
   cout << "\t--------------------------------------------\n\n\n";
   Sleep(100);
-  IgnoreNewLineSymbol();
   return user_input_.SuggestUserToExit();
 }
 
@@ -146,7 +147,7 @@ bool AtmUser::Refill() {
   WriteTextWithDelay(notification);
   cout << "\t---------------------------------------\n";
   cout << "\t# Please enter the sum of money($): ";
-  IgnoreNewLineSymbol();
+
   int money = 0;
   cin >> money;
   if (money >= 10 && money <= 50000) {
@@ -161,8 +162,8 @@ bool AtmUser::Refill() {
   } else {
     cout << "\n\tIncorrect sum, Reconnect to repeat.\n"
             "\t\t - Press any key - \n\n";
-    IgnoreNewLineSymbol();
   }
+  IgnoreCinLine();
   return user_input_.SuggestUserToExit();
 }
 
@@ -176,7 +177,6 @@ bool AtmUser::CreditApplication() {
 
 bool AtmUser::Withdrawal() {
   cout << "\n\t# Please, enter the required sum: ";
-  IgnoreNewLineSymbol();
 
   double maximum_credit_sum = 0.0;
   cin >> maximum_credit_sum;
@@ -192,7 +192,7 @@ bool AtmUser::Withdrawal() {
       WriteTextWithDelay(success);
       cout << "\t# Sum($): " << maximum_credit_sum << "\n";
       cout << "\t# Balance($): " << cash_ << "\n\n";
-      IgnoreNewLineSymbol();
+
     } else {
       string incorrect_pass = "\n\t# Sorry, entered password is incorrect.\n";
       ClearScreen();
@@ -201,6 +201,7 @@ bool AtmUser::Withdrawal() {
   } else {
     WriteTextWithDelay("\n\t# Sorry, but entered sum is incorrect.\n");
   }
+  IgnoreCinLine();
   return user_input_.SuggestUserToExit();
 }
 
@@ -222,7 +223,7 @@ bool AtmUser::Statement() {
           "\t#      DAY       #\n"
           "\t#                #\n"
           "\t##################\n";
-  IgnoreNewLineSymbol();
+
   return user_input_.SuggestUserToExit();
 }
 
@@ -295,7 +296,6 @@ bool AtmUser::ConsiderACredit() {
           "\t*                   *\n"
           "\t*********************\n"
           "\tEnter: ";
-  IgnoreNewLineSymbol();
 
   if (user_input_.GetChoiceFromUser() == 1) {
     return ConsiderACreditBasedOnCash();
@@ -399,7 +399,7 @@ bool AtmUser::EnrollACredit(double max_sum, double pay_per_month) {
       "\n# The loan was successfully transferred on your account.\n"
       "# You might cash your credit in our nearest bank.";
   WriteTextWithDelay(credit_access);
-  IgnoreNewLineSymbol();
+  IgnoreCinLine();
   return user_input_.SuggestUserToExit();
 }
 
@@ -512,7 +512,7 @@ bool AtmUser::SuggestUserToExitWithConfirmationMenu() {
           "\t# 2. Yes, exit\n";
 
   cout << "\t# Enter: ";
-  IgnoreNewLineSymbol();
+
   return user_input_.GetResultFromUserAboutExit();
 }
 
