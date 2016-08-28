@@ -439,10 +439,10 @@ bool AtmUser::GiveACredit() {
       "# Your balance more than 1000$. You can afford to take the\n"
       "# credit in our bank. The maximum amount for you is:";
   WriteTextWithDelay(GetLoan);
-  double maximum = 15 * cash_;
+  double maximal_sum_of_credit = 15 * cash_;
   Sleep(500);
   cout << "----------------------------------------------------------\n";
-  cout << " \t\t\t $" << maximum << "\n";
+  cout << " \t\t\t $" << maximal_sum_of_credit << "\n";
   cout << "----------------------------------------------------------\n";
   Sleep(500);
   WriteTextWithDelay(
@@ -456,15 +456,15 @@ bool AtmUser::GiveACredit() {
   int choice = user_input_.GetValueFromUser();
 
   if (choice == 1) {
-    return MaxCreditCalculation(maximum);  // -
+    return MaxCreditCalculation(maximal_sum_of_credit);  // -
   } else if (choice == 2) {
     return IndividualCreditCalculation();  // -
   } else if (choice == 3) {
     return false;
   } else if (choice == 4) {
-    return ExitCreditMenu();
+    return ExitCreditMenu(); // +
   } else {
-    return ReloadProgram();
+    return ReloadProgram();  // +
   }
 }
 
