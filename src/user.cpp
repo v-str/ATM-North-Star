@@ -8,10 +8,6 @@
 using std::cin;
 using std::cout;
 
-const int kInvalidChoice = -1;
-const int kExit = 2;
-const int kgo_to_main = 1;
-
 const int minimal_sum_for_credit = 1000;
 
 static const int kMaxLenghtOfLogin = 21;

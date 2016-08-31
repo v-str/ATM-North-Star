@@ -1,10 +1,11 @@
 #include <iostream>
 #include <limits>
 
-#include "user_input.h"
 #include "demo_user.h"
 #include "screen.h"
+#include "system_utility.h"
 #include "user.h"
+#include "user_input.h"
 
 int main() {
   using std::cin;
@@ -12,11 +13,9 @@ int main() {
   MnScreen();
 
   Welcome();
+  UserInput user_input;
+  int choice = user_input.GetChoiceFromUser();
 
-  int choice = 0;
-
-  cin >> choice;
-  cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
   AtmUser user;
   if (choice == 1) {
     DemoUser demo;

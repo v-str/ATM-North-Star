@@ -9,9 +9,9 @@ using std::cin;
 using std::cout;
 using std::string;
 
-const int kInvalidChoice = -1;
-const int kExit = 2;
-const int kgo_to_main = 1;
+static const int kInvalidChoice = -1;
+static const int kExit = 2;
+static const int kgo_to_main = 1;
 
 bool UserInput::SuggestUserToExit() const {
   WriteTextWithDelay(
