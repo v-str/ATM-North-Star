@@ -26,7 +26,7 @@ class DemoUser {
   bool DemoWidthdrawal() const;
   bool DemoStatement() const;
 
-  void ClearScreen() const;
+
 
   bool ShowIncorrectMessage() const;
 

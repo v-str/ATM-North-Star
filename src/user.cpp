@@ -259,7 +259,7 @@ bool AtmUser::IsNormalWithdrawal(double cash_sum) const {
   return cash_sum > 0 && cash_sum <= cash_;
 }
 
-void AtmUser::ClearScreen() { system("clear"); }
+
 
 void AtmUser::ShowIncorrectDataMessage() {
   string err = "\t Data is not correct, please reload the program.\n\n";

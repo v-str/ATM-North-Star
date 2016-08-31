@@ -25,3 +25,5 @@ void WriteTextWithDelay(const string &text) {
 void IgnoreCinLine() {
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
+
+void ClearScreen() { system("clear"); }

@@ -92,8 +92,6 @@ bool DemoUser::StartRegistration() {
   return user_want_to_registrate_;
 }
 
-void DemoUser::ClearScreen() const { system("clear"); }
-
 void DemoUser::ShowDemoAccountInfo() const {
   WriteTextWithDelay(
       "# This section show your account information.\n"

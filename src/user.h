@@ -36,7 +36,7 @@ class AtmUser {
   bool HandleUserChoice(int choice);
 
   void SetupProgram();
-  void ClearScreen();
+
   void ShowTransactionMenu();
   bool RefuseACredit();
 
