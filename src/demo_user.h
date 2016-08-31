@@ -14,52 +14,27 @@ class DemoUser {
   bool UserWantToExitProgram() const;
 
  private:
+  void ShowDemoMenu() const;
+
+  void ShowWelcomeMessage() const;
+
   bool UserDecideToExit();
 
   bool DemoAccountInfo() const;
-
   bool DemoRefill() const;
-  bool StartRegistration();
-  bool SuggestUserToExit() const;
-
-  void DemoCreditAppconst() const;
-
+  bool DemoCreditApp() const;
   bool DemoWidthdrawal() const;
-
   bool DemoStatement() const;
-
-  void Registration() const;
 
   void ClearScreen() const;
 
   bool ShowIncorrectMessage() const;
 
-  void RunProgramUntilUserWantToExit() const;
+  bool StartRegistration();
 
-  void SetupProgram() const;
-
-  bool RunProgram() const;
-
-  bool IsNormalLogin() const;
-
-  bool IsNormalPass() const;
-
-  bool DemoCreditApp() const;
-
-  void ShowWelcomeMessage() const;
-
-  int GetValueFromUser() const;
-
-  int ConvertLineToChoice(const string &line) const;
-  string GetLineFromUser() const;
-  bool LineNotEmpty(const string &str) const;
-
-  void ShowDemoMenu() const;
-
-  bool SuggestUserToExit(const string &menu_text, const string &choice_text);
   void ShowDemoAccountInfo() const;
+
   void ShowInfoAboutRefill() const;
-  bool GetResultFromUser() const;
 
   bool user_want_to_registrate_ = false;
   UserInput user_input_;
