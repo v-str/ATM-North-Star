@@ -74,8 +74,7 @@ string UserInput::GetLineFromUser() const {
 }
 
 void UserInput::ShowExitMessage() const {
-  WriteTextWithDelay(
-      "\n\t# Thank you for using our ATM system\n");
+  WriteTextWithDelay("\n\t# Thank you for using our ATM system\n");
 }
 
 bool UserInput::ShowIncorrectMessage() const {

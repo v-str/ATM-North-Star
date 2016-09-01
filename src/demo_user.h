@@ -3,10 +3,8 @@
 
 #include <string>
 
-#include "user_input.h"
 #include "messanger.h"
-
-
+#include "user_input.h"
 
 class DemoUser {
   using string = std::string;

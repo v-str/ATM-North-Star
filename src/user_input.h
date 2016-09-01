@@ -21,7 +21,6 @@ class UserInput {
   int ConvertLineToChoice(const string &line) const;
   bool LineNotEmpty(const string &str) const;
   string GetLineFromUser() const;
-
 };
 
 #endif  // CORRECT_INPUT_H
