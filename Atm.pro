@@ -10,7 +10,7 @@ SOURCES += \
     src/system_utility.cpp \
     src/demo_user.cpp \
     src/user_input.cpp \
-    src/demo_message_set.cpp
+    src/messanger.cpp
 
 HEADERS += \
     src/screen.h \
@@ -18,4 +18,4 @@ HEADERS += \
     src/system_utility.h \
     src/demo_user.h \
     src/user_input.h \
-    src/demo_message_set.h
+    src/messanger.h

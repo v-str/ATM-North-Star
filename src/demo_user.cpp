@@ -4,7 +4,6 @@
 #include <limits>
 #include <string>
 
-#include "demo_message_set.h"
 #include "system_utility.h"
 
 using std::cin;
@@ -13,10 +12,10 @@ using std::string;
 
 void DemoUser::ShowDemoMode() {
   ClearScreen();
-  ShowWelcomeDemoMessage();
+  demo_statement_.ShowWelcomeDemoMessage();
 
   for (;;) {
-    ShowDemoMenu();
+    demo_statement_.ShowDemoMenu();
     if (UserDecideToExit()) {
       break;
     }
@@ -47,11 +46,30 @@ bool DemoUser::UserDecideToExit() {
 
 bool DemoUser::DemoAccountInfo() const {
   ClearScreen();
-  ShowDemoAccountInfoMsg();
+  demo_statement_.ShowDemoAccountInfoMsg();
   return user_input_.SuggestUserToExit();
 }
 
-bool DemoUser::UserWantToRegistrate() const { return user_want_to_registrate_; }
+bool DemoUser::DemoRefill() const {
+  ClearScreen();
+  demo_statement_.ShowInfoAboutRefillMsg();
+  return user_input_.SuggestUserToExit();
+}
+
+bool DemoUser::DemoCreditApp() const {
+  demo_statement_.ShowDemoCreditAppMsg();
+  return user_input_.SuggestUserToExit();
+}
+
+bool DemoUser::DemoWidthdrawal() const {
+  demo_statement_.ShowDemoWidthdrawalMsg();
+  return user_input_.SuggestUserToExit();
+}
+
+bool DemoUser::DemoStatement() const {
+  demo_statement_.ShowDemoStatementMsg();
+  return user_input_.SuggestUserToExit();
+}
 
 bool DemoUser::UserWantToExitProgram() const {
   user_input_.ShowExitMessage();
@@ -63,23 +81,4 @@ bool DemoUser::StartRegistration() {
   return user_want_to_registrate_;
 }
 
-bool DemoUser::DemoRefill() const {
-  ClearScreen();
-  ShowInfoAboutRefillMsg();
-  return user_input_.SuggestUserToExit();
-}
-
-bool DemoUser::DemoCreditApp() const {
-  ShowDemoCreditAppMsg();
-  return user_input_.SuggestUserToExit();
-}
-
-bool DemoUser::DemoWidthdrawal() const {
-  ShowDemoWidthdrawalMsg();
-  return user_input_.SuggestUserToExit();
-}
-
-bool DemoUser::DemoStatement() const {
-  ShowDemoStatementMsg();
-  return user_input_.SuggestUserToExit();
-}
+bool DemoUser::UserWantToRegistrate() const { return user_want_to_registrate_; }

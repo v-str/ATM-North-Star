@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include "messanger.h"
+
 class UserInput {
   using string = std::string;
 
@@ -19,6 +21,7 @@ class UserInput {
   int ConvertLineToChoice(const string &line) const;
   bool LineNotEmpty(const string &str) const;
   string GetLineFromUser() const;
+
 };
 
 #endif  // CORRECT_INPUT_H

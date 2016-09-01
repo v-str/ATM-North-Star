@@ -19,3 +19,11 @@ void IgnoreCinLine() {
 
 void ClearScreen() { system("clear"); }
 
+void WriteTextWithDelay(const string &text) {
+  for (const auto &symbol : text) {
+    cout << symbol;
+    cout.flush();
+    Sleep(5);
+  }
+  cout << "\n";
+}

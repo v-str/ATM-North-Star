@@ -4,6 +4,9 @@
 #include <string>
 
 #include "user_input.h"
+#include "messanger.h"
+
+
 
 class DemoUser {
   using string = std::string;
@@ -25,6 +28,7 @@ class DemoUser {
   bool StartRegistration();
   bool user_want_to_registrate_ = false;
   UserInput user_input_;
+  Messanger demo_statement_;
 };
 
 #endif  // DEMO_USER_H
