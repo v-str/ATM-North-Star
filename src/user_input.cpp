@@ -4,6 +4,7 @@
 #include <string>
 
 #include "system_utility.h"
+#include "demo_message_set.h"
 
 using std::cin;
 using std::cout;

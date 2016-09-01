@@ -22,14 +22,7 @@ class DemoUser {
   bool DemoWidthdrawal() const;
   bool DemoStatement() const;
 
-  bool ShowIncorrectMessage() const;
-
   bool StartRegistration();
-
-  void ShowDemoAccountInfo() const;
-
-  void ShowInfoAboutRefill() const;
-
   bool user_want_to_registrate_ = false;
   UserInput user_input_;
 };

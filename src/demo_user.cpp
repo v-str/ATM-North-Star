@@ -4,6 +4,7 @@
 #include <limits>
 #include <string>
 
+#include "demo_message_set.h"
 #include "system_utility.h"
 
 using std::cin;
@@ -46,9 +47,7 @@ bool DemoUser::UserDecideToExit() {
 
 bool DemoUser::DemoAccountInfo() const {
   ClearScreen();
-
-  ShowDemoAccountInfo();
-
+  ShowDemoAccountInfoMsg();
   return user_input_.SuggestUserToExit();
 }
 
@@ -64,91 +63,23 @@ bool DemoUser::StartRegistration() {
   return user_want_to_registrate_;
 }
 
-void DemoUser::ShowDemoAccountInfo() const {
-  WriteTextWithDelay(
-      "# This section show your account information.\n"
-      "# For example, it's look like this:\n");
-  cout << "--------------------------------------------\n";
-  cout << "# Login: Mr. Anderson\n";
-  Sleep(100);
-  cout << "# Password: 7623\n";
-  Sleep(100);
-  cout << "# Balance $: 7450\n";
-  Sleep(100);
-  cout << "# Credit $: 20000\n";
-  cout << "# Monthly payment $: 2280\n";
-  cout << "# Credit term: 20 month(s)\n";
-  cout << "--------------------------------------------\n\n";
-  Sleep(100);
-
-  WriteTextWithDelay(
-      "# As you can see, your account may contain different data like\n"
-      "# balance or credit balance, almost you can see more details such as\n"
-      "# how many month you must to pay a loan  etc.\n\n");
-}
-
-void DemoUser::ShowInfoAboutRefill() const {
-  WriteTextWithDelay(
-      "# In this section user may refill balance\n"
-      "# on any sum from 10 to 50000 dollars.\n"
-      "# You can enter any sum such as 100 or 1005.66.\n"
-      "# When you refill on 1005.66  supposed, that you making a\n"
-      "# transfer from another account.\n\n"
-      "# For example, refill account is look like this:");
-  cout << "--------------------------------------------\n"
-          " Entered sum: 1000 $\n"
-          "--------------------------------------------\n"
-          " (If sum is valid, money will be transferred)\n\n";
-}
-
 bool DemoUser::DemoRefill() const {
   ClearScreen();
-  ShowInfoAboutRefill();
+  ShowInfoAboutRefillMsg();
   return user_input_.SuggestUserToExit();
 }
 
 bool DemoUser::DemoCreditApp() const {
-  ClearScreen();
-
-  WriteTextWithDelay(
-      "# Our bank may allow you to get a loan on the amount\n"
-      "# of not more than 15x of your cash on account at the "
-      "# moment.\n\n"
-      "# For example: \n"
-      "# If your balance at the moment equal $2000, you may\n"
-      "# get a $30000 loan on individual conditions.\n\n");
-
+  ShowDemoCreditAppMsg();
   return user_input_.SuggestUserToExit();
 }
 
 bool DemoUser::DemoWidthdrawal() const {
-  ClearScreen();
-
-  WriteTextWithDelay(
-      "# Withdrawal happens to your existing account.\n"
-      "# Optionally, you can withdraw the entire amount at\n"
-      "# once or choose the amount that you need to be.\n");
-
+  ShowDemoWidthdrawalMsg();
   return user_input_.SuggestUserToExit();
 }
 
 bool DemoUser::DemoStatement() const {
-  ClearScreen();
-
-  WriteTextWithDelay(
-      "# Standart statement which contain information\n"
-      "# about your cash.\n");
-
+  ShowDemoStatementMsg();
   return user_input_.SuggestUserToExit();
-}
-
-bool DemoUser::ShowIncorrectMessage() const {
-  WriteTextWithDelay(
-      "\n\t# Data is not correct,\n"
-      "\t# return to main?\n"
-      "\t# 1. Yes\n"
-      "\t# 2. No, exit");
-  cout << "\t# Enter: ";
-  cin.clear();
-  return user_input_.GetResultFromUserAboutExit();
 }
