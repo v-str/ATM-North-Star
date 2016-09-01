@@ -14,10 +14,6 @@ class DemoUser {
   bool UserWantToExitProgram() const;
 
  private:
-  void ShowDemoMenu() const;
-
-  void ShowWelcomeMessage() const;
-
   bool UserDecideToExit();
 
   bool DemoAccountInfo() const;
@@ -25,8 +21,6 @@ class DemoUser {
   bool DemoCreditApp() const;
   bool DemoWidthdrawal() const;
   bool DemoStatement() const;
-
-
 
   bool ShowIncorrectMessage() const;
 
