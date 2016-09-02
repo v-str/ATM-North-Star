@@ -3,6 +3,7 @@
 
 #include <string>
 #include "user_input.h"
+#include "system_utility.h"
 
 class AtmUser {
   using string = std::string;
@@ -74,6 +75,7 @@ class AtmUser {
   int amount_of_credit_month_ = 0;
 
   UserInput user_input_;
+  SystemUtility utility;
 };
 
 #endif  // USER_H

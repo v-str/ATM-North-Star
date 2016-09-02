@@ -29,7 +29,7 @@ void AtmUser::WriteSymbolsNTimes(char symbol, int n) const {
 }
 
 void AtmUser::Registration() {
-  ClearScreen();
+  utility.ClearScreen();
 
   cout << "\n\t\t   ********************\n"
           "\t\t   *   REGISTRATION   *\n"
@@ -43,36 +43,36 @@ void AtmUser::Registration() {
   getline(cin, login_);
   cin.sync();
   if (!IsNormalLogin()) {
-    ClearScreen();
+    utility.ClearScreen();
     string incorrect =
         "\t\t|Incorrect login.           |\n"
         "\t\t|It must be more than 1 and |\n"
         "\t\t|less than 20 symbols.      |\n"
         "\t\t|Please, reload the program.|";
     cout << "\n\n\n\n\t\t|---------------------------|\n";
-    WriteTextWithDelay(incorrect);
+    utility.WriteTextWithDelay(incorrect);
     cout << "\t\t\t|---------------------------|\n\n";
   } else {
     cout << "\t\tPassword: XXXX\b\b\b\b";
     cin >> password_;
     cin.sync();
     if (!IsNormalPass()) {
-      ClearScreen();
+      utility.ClearScreen();
       cout << "\n\n\n\n\t\t\t|---------------------------|\n";
       string incorrect =
           "\t\t|Incorrect password.        |\n"
           "\t\t|It must be in XXXX format. |\n"
           "\t\t|Please, reload the program.|";
-      WriteTextWithDelay(incorrect);
+      utility.WriteTextWithDelay(incorrect);
       cout << "\t\t|---------------------------|\n\n\t\t\t";
     } else {
-      IgnoreCinLine();
-      ClearScreen();
+      utility.IgnoreCinLine();
+      utility.ClearScreen();
       cout << "\n\n\t\t------------------\n";
       string correct = "\t\t| Access allowed |";
-      WriteTextWithDelay(correct);
+      utility.WriteTextWithDelay(correct);
       cout << "\t\t------------------\n";
-      Sleep(1000);
+      utility.Sleep(1000);
       credit_ = 0.0;
       monthly_payment_ = 0.0;
       amount_of_credit_month_ = 0;
@@ -89,7 +89,7 @@ void AtmUser::RunProgramUntilUserWantToExit() {
 }
 
 bool AtmUser::RunProgram() {
-  ClearScreen();
+  utility.ClearScreen();
   ShowTransactionMenu();
   cout << "\tSelect: ";
 
@@ -97,7 +97,7 @@ bool AtmUser::RunProgram() {
 }
 
 bool AtmUser::HandleUserChoice(int choice) {
-  ClearScreen();
+  utility.ClearScreen();
 
   if (choice == 1) {
     return ShowAccountInfo();
@@ -120,18 +120,18 @@ bool AtmUser::ShowAccountInfo() {
   cout << "\t--------------------------------------------\n";
   cout << "\t# Login: " << login_ << "\n";
   cout << "\t--------------------------------------------\n";
-  Sleep(100);
+  utility.Sleep(100);
   cout << "\t# Password: " << password_ << "\n";
   cout << "\t--------------------------------------------\n";
-  Sleep(100);
+  utility.Sleep(100);
   cout << "\t# Balance $: " << cash_ << "\n";
   cout << "\t--------------------------------------------\n";
-  Sleep(100);
+  utility.Sleep(100);
   cout << "\t# Credit $: " << credit_ << "\n";
   cout << "\t# Monthly payment $: " << monthly_payment_ << "\n";
   cout << "\t# Credit term: " << amount_of_credit_month_ << " month(s)\n";
   cout << "\t--------------------------------------------\n\n\n";
-  Sleep(100);
+  utility.Sleep(100);
   return user_input_.SuggestUserToExit();
 }
 
@@ -140,7 +140,7 @@ bool AtmUser::Refill() {
   string notification =
       "\t Notify:\n\t The sum must be more than\n"
       "\t 10$ and less than 50000$";
-  WriteTextWithDelay(notification);
+  utility.WriteTextWithDelay(notification);
   cout << "\t---------------------------------------\n";
   cout << "\t# Please enter the sum of money($): ";
 
@@ -150,16 +150,16 @@ bool AtmUser::Refill() {
     cash_ += money;
     cout << "\t----------------------------------------\n";
     string success = "\t# Balance refill completed successfully.\n";
-    WriteTextWithDelay(success);
+    utility.WriteTextWithDelay(success);
     cout << "\t# Balance: $" << cash_ << "\n";
     cout << "\t----------------------------------------\n\n";
     cin.sync();
-    Sleep(1000);
+    utility.Sleep(1000);
   } else {
     cout << "\n\tIncorrect sum, Reconnect to repeat.\n"
             "\t\t - Press any key - \n\n";
   }
-  IgnoreCinLine();
+  utility.IgnoreCinLine();
   return user_input_.SuggestUserToExit();
 }
 
@@ -185,24 +185,24 @@ bool AtmUser::Withdrawal() {
     if (check_pass == password_) {
       cash_ -= maximum_credit_sum;
       string success = "\n\t# Withdrawal completed successfully\n";
-      WriteTextWithDelay(success);
+      utility.WriteTextWithDelay(success);
       cout << "\t# Sum($): " << maximum_credit_sum << "\n";
       cout << "\t# Balance($): " << cash_ << "\n\n";
 
     } else {
       string incorrect_pass = "\n\t# Sorry, entered password is incorrect.\n";
-      ClearScreen();
-      WriteTextWithDelay(incorrect_pass);
+      utility.ClearScreen();
+      utility.WriteTextWithDelay(incorrect_pass);
     }
   } else {
-    WriteTextWithDelay("\n\t# Sorry, but entered sum is incorrect.\n");
+    utility.WriteTextWithDelay("\n\t# Sorry, but entered sum is incorrect.\n");
   }
-  IgnoreCinLine();
+  utility.IgnoreCinLine();
   return user_input_.SuggestUserToExit();
 }
 
 bool AtmUser::Statement() {
-  ClearScreen();
+  utility.ClearScreen();
 
   cout << "\t##################\n"
           "\t#                #\n"
@@ -223,7 +223,7 @@ bool AtmUser::Statement() {
   return user_input_.SuggestUserToExit();
 }
 
-string AtmUser::GetSpaces(int cash) const {
+std::string AtmUser::GetSpaces(int cash) const {
   const int kSizeOfField = 12;
   const char space = ' ';
   return string(kSizeOfField - NumberOfDigits(cash), space);
@@ -257,7 +257,7 @@ bool AtmUser::IsNormalWithdrawal(double cash_sum) const {
 
 void AtmUser::ShowIncorrectDataMessage() {
   string err = "\t Data is not correct, please reload the program.\n\n";
-  WriteTextWithDelay(err);
+  utility.WriteTextWithDelay(err);
   cin.get();
 }
 
@@ -271,9 +271,9 @@ void AtmUser::MonthToRepay() {
 }
 
 bool AtmUser::ConsiderACredit() {
-  ClearScreen();
+  utility.ClearScreen();
 
-  WriteTextWithDelay(
+  utility.WriteTextWithDelay(
       "# You can get a loan in our bank if your\n"
       "  balance more than $1000.\n"
       "# We draw your attention to the fact that\n"
@@ -306,18 +306,18 @@ bool AtmUser::ConsiderACreditBasedOnCash() {
 }
 
 bool AtmUser::GiveACredit() {
-  ClearScreen();
+  utility.ClearScreen();
   string GetLoan =
       "# Your balance more than 1000$. You can afford to take the\n"
       "# credit in our bank. The maximum amount for you is:";
-  WriteTextWithDelay(GetLoan);
+  utility.WriteTextWithDelay(GetLoan);
   double maximal_sum_of_credit = 15 * cash_;
-  Sleep(500);
+  utility.Sleep(500);
   cout << "----------------------------------------------------------\n";
   cout << " \t\t\t $" << maximal_sum_of_credit << "\n";
   cout << "----------------------------------------------------------\n";
-  Sleep(500);
-  WriteTextWithDelay(
+  utility.Sleep(500);
+  utility.WriteTextWithDelay(
       "\n# Do you prefer get all sum or you want to change the sum of "
       "loan?\n\n"
       "# 1. Get all sum\n"
@@ -344,7 +344,7 @@ bool AtmUser::MaxCreditCalculation(double max_sum) {
   cout << "\nThe number of months to repay the loan: ";
   MonthToRepay();
 
-  ClearScreen();
+  utility.ClearScreen();
 
   cout << "\t             Consumer credit\n"
           "\t* Profile: "
@@ -362,7 +362,7 @@ bool AtmUser::MaxCreditCalculation(double max_sum) {
     cout << "\t* Payment month: " << i + 1 << "   | Payment sum: ";
     cout << pay_per_month << " $\n";
 
-    Sleep(50);
+    utility.Sleep(50);
     all_payment += pay_per_month;
   }
   cout << "                \t          Total: " << all_payment << " $\n";
@@ -392,8 +392,8 @@ bool AtmUser::EnrollACredit(double max_sum, double pay_per_month) {
   string credit_access =
       "\n# The loan was successfully transferred on your account.\n"
       "# You might cash your credit in our nearest bank.";
-  WriteTextWithDelay(credit_access);
-  IgnoreCinLine();
+  utility.WriteTextWithDelay(credit_access);
+  utility.IgnoreCinLine();
   return user_input_.SuggestUserToExit();
 }
 
@@ -403,17 +403,17 @@ bool AtmUser::RepealACredit() {
 }
 
 bool AtmUser::IndividualCreditCalculation() {
-  ClearScreen();
+  utility.ClearScreen();
 
   string ind = "Individual calculating...\n\n";
-  WriteTextWithDelay(ind);
+  utility.WriteTextWithDelay(ind);
   double sum_of_credit = 0.0;
   do {
     string error =
         "The entered amount should not "
         "exceed the allowed credit.\n"
         "Enter the appropriate amount: ";
-    WriteTextWithDelay(error);
+    utility.WriteTextWithDelay(error);
     cout << "Enter: ";
     cin >> sum_of_credit;
   } while (sum_of_credit >= (15 * cash_));
@@ -421,13 +421,13 @@ bool AtmUser::IndividualCreditCalculation() {
   MonthToRepay();
 
   cout << "\t\tConsumer Credit\n\n";
-  Sleep(500);
+  utility.Sleep(500);
   cout << "Profile: " << login_ << "\n";
-  Sleep(500);
+  utility.Sleep(500);
   cout << "Sum $: " << sum_of_credit << "\n";
-  Sleep(500);
+  utility.Sleep(500);
   cout << "Persent per year: 14%\n\n";
-  Sleep(2500);
+  utility.Sleep(2500);
 
   double x = (sum_of_credit * 14) / 100;
   double pay_per_month = (sum_of_credit / amount_of_credit_month_) + (x / 12);
@@ -438,7 +438,7 @@ bool AtmUser::IndividualCreditCalculation() {
     cout << "\t Payment month: " << i + 1
          << "   | Payment sum: " << pay_per_month << " $\n";
 
-    Sleep(50);
+    utility.Sleep(50);
     all_payment += pay_per_month;
   }
   cout << "                \t          Total: " << all_payment << " $\n";
@@ -474,24 +474,24 @@ bool AtmUser::ReloadProgram() {
 }
 
 bool AtmUser::RefuseACredit() {
-  ClearScreen();
+  utility.ClearScreen();
 
-  WriteTextWithDelay("# We checked your balance.\n");
-  Sleep(500);
+  utility.WriteTextWithDelay("# We checked your balance.\n");
+  utility.Sleep(500);
   cout << "# Available cash = $" << cash_ << "\n";
 
-  WriteTextWithDelay(
+  utility.WriteTextWithDelay(
       "# Sorry, for getting a loan your balance must be "
       "$1000 or more.\n");
-  Sleep(500);
+  utility.Sleep(500);
 
   return user_input_.SuggestUserToExit();
 }
 
-void AtmUser::SetupProgram() { ClearScreen(); }
+void AtmUser::SetupProgram() { utility.ClearScreen(); }
 
 bool AtmUser::RefuseToReCredit() {
-  WriteTextWithDelay(
+  utility.WriteTextWithDelay(
       "\n #Sorry, but you have already a "
       "loan in our bank.\n"
       " #You can't get a second loan, "
@@ -534,7 +534,7 @@ void AtmUser::ShowTransactionMenu() {
 
 int AtmUser::GetUserChoiceWithMenuText(const string &menu_text,
                                        const string &choice_text) const {
-  WriteTextWithDelay(menu_text);
+  utility.WriteTextWithDelay(menu_text);
   return GetUserChoice(choice_text);
 }
 
@@ -560,7 +560,7 @@ void AtmUser::WriteTextWithDelay(const string &text) const {
   for (const auto &symbol : text) {
     cout << symbol;
     cout.flush();
-    Sleep(5);
+    utility.Sleep(5);
   }
   cout << "\n";
 }

@@ -11,7 +11,7 @@ using std::cout;
 using std::string;
 
 void DemoUser::ShowDemoMode() {
-  ClearScreen();
+  utility.ClearScreen();
   demo_statement_.ShowWelcomeDemoMessage();
 
   for (;;) {
@@ -19,7 +19,7 @@ void DemoUser::ShowDemoMode() {
     if (UserDecideToExit()) {
       break;
     }
-    ClearScreen();
+    utility.ClearScreen();
   }
 }
 
@@ -45,13 +45,13 @@ bool DemoUser::UserDecideToExit() {
 }
 
 bool DemoUser::DemoAccountInfo() const {
-  ClearScreen();
+  utility.ClearScreen();
   demo_statement_.ShowDemoAccountInfoMessage();
   return user_input_.SuggestUserToExit();
 }
 
 bool DemoUser::DemoRefill() const {
-  ClearScreen();
+  utility.ClearScreen();
   demo_statement_.ShowInfoAboutRefillMessage();
   return user_input_.SuggestUserToExit();
 }

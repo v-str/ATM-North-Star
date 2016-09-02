@@ -22,38 +22,38 @@ void DemoUserMessanger::ShowDemoMenu() const {
 }
 
 void DemoUserMessanger::ShowWelcomeDemoMessage() const {
-  WriteTextWithDelay(
+  utility.WriteTextWithDelay(
       "# Welcome to demo mode. This chapter\n"
       "# contains basic information about ATM North Star.\n\n"
       "# First of all, look at the main menu:\n");
 
-  WriteTextWithDelay("# Please, choose interested you chapter:\n");
+  utility.WriteTextWithDelay("# Please, choose interested you chapter:\n");
 }
 
 void DemoUserMessanger::ShowDemoAccountInfoMessage() const {
-  WriteTextWithDelay(
+  utility.WriteTextWithDelay(
       "# This section show your account information.\n"
       "# For example, it's look like this:\n");
   cout << "--------------------------------------------\n";
   cout << "# Login: Mr. Anderson\n";
-  Sleep(100);
+  utility.Sleep(100);
   cout << "# Password: 7623\n";
-  Sleep(100);
+  utility.Sleep(100);
   cout << "# Balance $: 7450\n";
-  Sleep(100);
+  utility.Sleep(100);
   cout << "# Credit $: 20000\n";
   cout << "# Monthly payment $: 2280\n";
   cout << "# Credit term: 20 month(s)\n";
   cout << "--------------------------------------------\n\n";
-  Sleep(100);
-  WriteTextWithDelay(
+  utility.Sleep(100);
+  utility.WriteTextWithDelay(
       "# As you can see, your account may contain different data like\n"
       "# balance or credit balance, almost you can see more details such as\n"
       "# how many month you must to pay a loan  etc.\n\n");
 }
 
 void DemoUserMessanger::ShowInfoAboutRefillMessage() const {
-  WriteTextWithDelay(
+  utility.WriteTextWithDelay(
       "# In this section user may refill balance\n"
       "# on any sum from 10 to 50000 dollars.\n"
       "# You can enter any sum such as 100 or 1005.66.\n"
@@ -67,8 +67,8 @@ void DemoUserMessanger::ShowInfoAboutRefillMessage() const {
 }
 
 void DemoUserMessanger::ShowDemoCreditAppMessage() const {
-  ClearScreen();
-  WriteTextWithDelay(
+  utility.ClearScreen();
+  utility.WriteTextWithDelay(
       "# Our bank may allow you to get a loan on the amount\n"
       "# of not more than 15x of your cash on account at the "
       "# moment.\n\n"
@@ -78,16 +78,16 @@ void DemoUserMessanger::ShowDemoCreditAppMessage() const {
 }
 
 void DemoUserMessanger::ShowDemoWidthdrawalMessage() const {
-  ClearScreen();
-  WriteTextWithDelay(
+  utility.ClearScreen();
+  utility.WriteTextWithDelay(
       "# Withdrawal happens to your existing account.\n"
       "# Optionally, you can withdraw the entire amount at\n"
       "# once or choose the amount that you need to be.\n");
 }
 
 void DemoUserMessanger::ShowDemoStatementMessage() const {
-  ClearScreen();
-  WriteTextWithDelay(
+  utility.ClearScreen();
+  utility.WriteTextWithDelay(
       "# Standart statement which contain information\n"
       "# about your cash.\n");
 }

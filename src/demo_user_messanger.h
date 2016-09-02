@@ -13,6 +13,8 @@ class DemoUserMessanger {
   void ShowDemoCreditAppMessage() const;
   void ShowDemoWidthdrawalMessage() const;
   void ShowDemoStatementMessage() const;
+private:
+  SystemUtility utility;
 };
 
 #endif  // DEMO_USER_MESSANGER_H

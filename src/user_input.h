@@ -4,6 +4,7 @@
 #include <string>
 
 #include "demo_user_messanger.h"
+#include "system_utility.h"
 
 class UserInput {
   using string = std::string;
@@ -21,6 +22,8 @@ class UserInput {
   int ConvertLineToChoice(const string &line) const;
   bool LineNotEmpty(const string &str) const;
   string GetLineFromUser() const;
+
+  SystemUtility utility;
 };
 
 #endif  // CORRECT_INPUT_H

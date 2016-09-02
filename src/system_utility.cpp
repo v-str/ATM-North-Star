@@ -9,17 +9,17 @@ using std::cin;
 using std::cout;
 using std::string;
 
-void Sleep(int latency_ms) {
+void SystemUtility::Sleep(int latency_ms) const {
   std::this_thread::sleep_for(std::chrono::milliseconds(latency_ms));
 }
 
-void IgnoreCinLine() {
+void SystemUtility::IgnoreCinLine() const {
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
-void ClearScreen() { system("clear"); }
+void SystemUtility::ClearScreen() const { system("clear"); }
 
-void WriteTextWithDelay(const string &text, int delay) {
+void SystemUtility::WriteTextWithDelay(const string &text, int delay) const {
   for (const auto &symbol : text) {
     cout << symbol;
     cout.flush();

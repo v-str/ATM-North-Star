@@ -12,12 +12,13 @@ int main() {
 
   InitialScreen initial_screen;
   initial_screen.Logotype();
-
   initial_screen.Welcome();
+
   UserInput user_input;
   int choice = user_input.GetChoiceFromUser();
 
   AtmUser user;
+
   if (choice == 1) {
     DemoUser demo;
     demo.ShowDemoMode();
