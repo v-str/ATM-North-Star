@@ -1,4 +1,4 @@
-#include "screen.h"
+#include "initial_screen.h"
 
 #include <iostream>
 #include <string>
@@ -9,7 +9,7 @@ using std::string;
 using std::cout;
 using std::cin;
 
-void Welcome() {
+void InitialScreen::Welcome() const {
   cout << "\n\n\n\n\t\t##################\n"
           "\t\t#  1. Demo mode  #\n"
           "\t\t#  2. Sign-in    #\n"
@@ -18,15 +18,7 @@ void Welcome() {
        << "\b\b";
 }
 
-static void Write(const string &str, int write_latency = 20) {
-  for (const auto &symbol : str) {
-    cout << symbol;
-    cout.flush();
-    Sleep(write_latency);
-  }
-}
-
-void MnScreen() {
+void InitialScreen::Logotype() const {
   string demo =
       "---------------------------------------------\n"
       "-  ##   ## ####### ######  ######## ##  ##  -\n"
@@ -48,19 +40,18 @@ void MnScreen() {
       "-     ##     ##     ##     ##   #   ##      -\n"
       "---------------------------------------------\n";
   cout << demo;
-  string description =
+
+  WriteTextWithDelay(
       "\t    ATM - machine 4528\n"
-      "  Adress - 28 Greene St, New York, NY 10012\n";
-  Write(description);
+      "  Adress - 28 Greene St, New York, NY 10012\n");
   cout << "\t";
   cin.get();
   system("pause");
   system("clear");
 }
 
-void Error() {
-  string err =
+void InitialScreen::Error() const {
+  WriteTextWithDelay(
       "\n\n\t Data is not correct,"
-      "please reload the program.\n\n";
-  Write(err);
+      "please reload the program.\n\n");
 }

@@ -2,7 +2,7 @@
 #include <limits>
 
 #include "demo_user.h"
-#include "screen.h"
+#include "initial_screen.h"
 #include "system_utility.h"
 #include "user.h"
 #include "user_input.h"
@@ -10,9 +10,10 @@
 int main() {
   using std::cin;
 
-  MnScreen();
+  InitialScreen initial_screen;
+  initial_screen.Logotype();
 
-  Welcome();
+  initial_screen.Welcome();
   UserInput user_input;
   int choice = user_input.GetChoiceFromUser();
 
@@ -27,7 +28,7 @@ int main() {
     user.Registration();
 
   } else {
-    Error();
+    initial_screen.Error();
   }
   user.WishGoodDay();
 }
