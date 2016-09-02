@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "messanger.h"
+#include "demo_user_messanger.h"
 #include "user_input.h"
 
 class DemoUser {
@@ -26,7 +26,7 @@ class DemoUser {
   bool StartRegistration();
   bool user_want_to_registrate_ = false;
   UserInput user_input_;
-  Messanger demo_statement_;
+  DemoUserMessanger demo_statement_;
 };
 
 #endif  // DEMO_USER_H

@@ -1,4 +1,4 @@
-#include "messanger.h"
+#include "demo_user_messanger.h"
 
 #include <iostream>
 
@@ -6,7 +6,7 @@ using std::cin;
 using std::cout;
 using std::string;
 
-void Messanger::ShowDemoMenu() const {
+void DemoUserMessanger::ShowDemoMenu() const {
   cout << "\t################ Demo Transaction menu ###################\n"
           "\t#                                                        #\n"
           "\t#  1. Account information            2. Refill           #\n"
@@ -21,7 +21,7 @@ void Messanger::ShowDemoMenu() const {
           "\t# Enter: ";
 }
 
-void Messanger::ShowWelcomeDemoMessage() const {
+void DemoUserMessanger::ShowWelcomeDemoMessage() const {
   WriteTextWithDelay(
       "# Welcome to demo mode. This chapter\n"
       "# contains basic information about ATM North Star.\n\n"
@@ -30,7 +30,7 @@ void Messanger::ShowWelcomeDemoMessage() const {
   WriteTextWithDelay("# Please, choose interested you chapter:\n");
 }
 
-void Messanger::ShowDemoAccountInfoMsg() const {
+void DemoUserMessanger::ShowDemoAccountInfoMessage() const {
   WriteTextWithDelay(
       "# This section show your account information.\n"
       "# For example, it's look like this:\n");
@@ -52,7 +52,7 @@ void Messanger::ShowDemoAccountInfoMsg() const {
       "# how many month you must to pay a loan  etc.\n\n");
 }
 
-void Messanger::ShowInfoAboutRefillMsg() const {
+void DemoUserMessanger::ShowInfoAboutRefillMessage() const {
   WriteTextWithDelay(
       "# In this section user may refill balance\n"
       "# on any sum from 10 to 50000 dollars.\n"
@@ -66,7 +66,7 @@ void Messanger::ShowInfoAboutRefillMsg() const {
           " (If sum is valid, money will be transferred)\n\n";
 }
 
-void Messanger::ShowDemoCreditAppMsg() const {
+void DemoUserMessanger::ShowDemoCreditAppMessage() const {
   ClearScreen();
   WriteTextWithDelay(
       "# Our bank may allow you to get a loan on the amount\n"
@@ -77,7 +77,7 @@ void Messanger::ShowDemoCreditAppMsg() const {
       "# get a $30000 loan on individual conditions.\n\n");
 }
 
-void Messanger::ShowDemoWidthdrawalMsg() const {
+void DemoUserMessanger::ShowDemoWidthdrawalMessage() const {
   ClearScreen();
   WriteTextWithDelay(
       "# Withdrawal happens to your existing account.\n"
@@ -85,7 +85,7 @@ void Messanger::ShowDemoWidthdrawalMsg() const {
       "# once or choose the amount that you need to be.\n");
 }
 
-void Messanger::ShowDemoStatementMsg() const {
+void DemoUserMessanger::ShowDemoStatementMessage() const {
   ClearScreen();
   WriteTextWithDelay(
       "# Standart statement which contain information\n"

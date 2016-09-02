@@ -46,28 +46,28 @@ bool DemoUser::UserDecideToExit() {
 
 bool DemoUser::DemoAccountInfo() const {
   ClearScreen();
-  demo_statement_.ShowDemoAccountInfoMsg();
+  demo_statement_.ShowDemoAccountInfoMessage();
   return user_input_.SuggestUserToExit();
 }
 
 bool DemoUser::DemoRefill() const {
   ClearScreen();
-  demo_statement_.ShowInfoAboutRefillMsg();
+  demo_statement_.ShowInfoAboutRefillMessage();
   return user_input_.SuggestUserToExit();
 }
 
 bool DemoUser::DemoCreditApp() const {
-  demo_statement_.ShowDemoCreditAppMsg();
+  demo_statement_.ShowDemoCreditAppMessage();
   return user_input_.SuggestUserToExit();
 }
 
 bool DemoUser::DemoWidthdrawal() const {
-  demo_statement_.ShowDemoWidthdrawalMsg();
+  demo_statement_.ShowDemoWidthdrawalMessage();
   return user_input_.SuggestUserToExit();
 }
 
 bool DemoUser::DemoStatement() const {
-  demo_statement_.ShowDemoStatementMsg();
+  demo_statement_.ShowDemoStatementMessage();
   return user_input_.SuggestUserToExit();
 }
 
