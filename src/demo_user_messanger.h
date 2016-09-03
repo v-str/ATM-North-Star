@@ -5,7 +5,6 @@
 
 class DemoUserMessanger {
  public:
-  void ShowDemoMenu() const;
   void ShowWelcomeDemoMessage() const;
 
   void ShowDemoAccountInfoMessage() const;
@@ -13,8 +12,12 @@ class DemoUserMessanger {
   void ShowDemoCreditAppMessage() const;
   void ShowDemoWidthdrawalMessage() const;
   void ShowDemoStatementMessage() const;
-private:
-  SystemUtility utility;
+  void ShowDemoMenuMessage() const;
+
+ private:
+  void ShowDemoMenu() const;
+
+  SystemUtility utility_;
 };
 
 #endif  // DEMO_USER_MESSANGER_H

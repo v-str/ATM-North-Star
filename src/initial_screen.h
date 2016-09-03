@@ -8,8 +8,9 @@ class InitialScreen {
   void Welcome() const;
   void Logotype() const;
   void Error() const;
-private:
-  SystemUtility utility;
+
+ private:
+  SystemUtility utility_;
 };
 
 #endif  // INITIAL_SCREEN_H

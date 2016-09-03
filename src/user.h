@@ -75,7 +75,7 @@ class AtmUser {
   int amount_of_credit_month_ = 0;
 
   UserInput user_input_;
-  SystemUtility utility;
+  SystemUtility utility_;
 };
 
 #endif  // USER_H

@@ -11,6 +11,7 @@ int main() {
   using std::cin;
 
   InitialScreen initial_screen;
+
   initial_screen.Logotype();
   initial_screen.Welcome();
 

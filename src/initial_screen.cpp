@@ -41,7 +41,7 @@ void InitialScreen::Logotype() const {
       "---------------------------------------------\n";
   cout << demo;
 
-  utility.WriteTextWithDelay(
+  utility_.WriteTextWithDelay(
       "\t    ATM - machine 4528\n"
       "  Adress - 28 Greene St, New York, NY 10012\n");
   cout << "\t";
@@ -51,7 +51,7 @@ void InitialScreen::Logotype() const {
 }
 
 void InitialScreen::Error() const {
-  utility.WriteTextWithDelay(
+  utility_.WriteTextWithDelay(
       "\n\n\t Data is not correct,"
       "please reload the program.\n\n");
 }

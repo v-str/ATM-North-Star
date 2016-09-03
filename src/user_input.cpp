@@ -14,7 +14,7 @@ static const int kExit = 2;
 static const int kgo_to_main = 1;
 
 bool UserInput::SuggestUserToExit() const {
-  utility.WriteTextWithDelay(
+  utility_.WriteTextWithDelay(
       "\n\t# 1. Exit to main page.\n"
       "\t# 2. Exit program.\n");
   cout << "\t# Enter: ";
@@ -30,7 +30,7 @@ bool UserInput::GetResultFromUserAboutExit() const {
       break;
     } else if (user_want_to_exit == kExit) {
       ShowExitMessage();
-      utility.Sleep(1000);
+      utility_.Sleep(1000);
       result_of_choice = true;
       break;
     } else {
@@ -74,11 +74,11 @@ string UserInput::GetLineFromUser() const {
 }
 
 void UserInput::ShowExitMessage() const {
-  utility.WriteTextWithDelay("\n\t# Thank you for using our ATM system\n");
+  utility_.WriteTextWithDelay("\n\t# Thank you for using our ATM system\n");
 }
 
 bool UserInput::ShowIncorrectMessage() const {
-  utility.WriteTextWithDelay(
+  utility_.WriteTextWithDelay(
       "\n\t# Data is not correct,\n"
       "\t# return to main?\n"
       "\t# 1. Yes\n"

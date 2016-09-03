@@ -4,22 +4,20 @@
 #include <limits>
 #include <string>
 
-#include "system_utility.h"
-
 using std::cin;
 using std::cout;
 using std::string;
 
 void DemoUser::ShowDemoMode() {
-  utility.ClearScreen();
-  demo_statement_.ShowWelcomeDemoMessage();
-
+  demo_messanger_.ShowWelcomeDemoMessage();
+  if (UserDecideToExit()) {
+    return;
+  }
   for (;;) {
-    demo_statement_.ShowDemoMenu();
+    demo_messanger_.ShowDemoMenuMessage();
     if (UserDecideToExit()) {
-      break;
+      return;
     }
-    utility.ClearScreen();
   }
 }
 
@@ -45,29 +43,27 @@ bool DemoUser::UserDecideToExit() {
 }
 
 bool DemoUser::DemoAccountInfo() const {
-  utility.ClearScreen();
-  demo_statement_.ShowDemoAccountInfoMessage();
+  demo_messanger_.ShowDemoAccountInfoMessage();
   return user_input_.SuggestUserToExit();
 }
 
 bool DemoUser::DemoRefill() const {
-  utility.ClearScreen();
-  demo_statement_.ShowInfoAboutRefillMessage();
+  demo_messanger_.ShowInfoAboutRefillMessage();
   return user_input_.SuggestUserToExit();
 }
 
 bool DemoUser::DemoCreditApp() const {
-  demo_statement_.ShowDemoCreditAppMessage();
+  demo_messanger_.ShowDemoCreditAppMessage();
   return user_input_.SuggestUserToExit();
 }
 
 bool DemoUser::DemoWidthdrawal() const {
-  demo_statement_.ShowDemoWidthdrawalMessage();
+  demo_messanger_.ShowDemoWidthdrawalMessage();
   return user_input_.SuggestUserToExit();
 }
 
 bool DemoUser::DemoStatement() const {
-  demo_statement_.ShowDemoStatementMessage();
+  demo_messanger_.ShowDemoStatementMessage();
   return user_input_.SuggestUserToExit();
 }
 

@@ -23,7 +23,7 @@ class UserInput {
   bool LineNotEmpty(const string &str) const;
   string GetLineFromUser() const;
 
-  SystemUtility utility;
+  SystemUtility utility_;
 };
 
 #endif  // CORRECT_INPUT_H

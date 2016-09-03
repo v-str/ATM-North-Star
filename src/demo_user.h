@@ -5,7 +5,6 @@
 
 #include "demo_user_messanger.h"
 #include "user_input.h"
-#include "system_utility.h"
 
 class DemoUser {
   using string = std::string;
@@ -25,10 +24,10 @@ class DemoUser {
   bool DemoStatement() const;
 
   bool StartRegistration();
+
   bool user_want_to_registrate_ = false;
   UserInput user_input_;
-  DemoUserMessanger demo_statement_;
-  SystemUtility utility;
+  DemoUserMessanger demo_messanger_;
 };
 
 #endif  // DEMO_USER_H
