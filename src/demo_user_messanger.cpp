@@ -6,6 +6,33 @@ using std::cin;
 using std::cout;
 using std::string;
 
+void DemoUserMessanger::ShowMessage(
+    DemoUserMessanger::MessageType message_type) {
+  switch (message_type) {
+    case kWelcome:
+      ShowWelcomeDemoMessage();
+      break;
+    case kMenu:
+      ShowDemoMenu();
+      break;
+    case kAccountInfo:
+      ShowDemoAccountInfoMessage();
+      break;
+    case kRefill:
+      ShowInfoAboutRefillMessage();
+      break;
+    case kCreditApp:
+      ShowDemoCreditAppMessage();
+      break;
+    case kWithdrawal:
+      ShowDemoWidthdrawalMessage();
+      break;
+    case kStatement:
+      ShowDemoStatementMessage();
+      break;
+  }
+}
+
 void DemoUserMessanger::ShowDemoMenu() const {
   cout << "\t################ Demo Transaction menu ###################\n"
           "\t#                                                        #\n"

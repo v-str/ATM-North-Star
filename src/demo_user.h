@@ -11,20 +11,31 @@ class DemoUser {
 
  public:
   void ShowDemoMode();
-  bool UserWantToRegistrate() const;
-  bool UserWantToExitProgram() const;
 
- private:
-  bool UserDecideToExit();
+  bool UserWantToRegistrate();
 
-  bool DemoAccountInfo() const;
-  bool DemoRefill() const;
-  bool DemoCreditApp() const;
-  bool DemoWidthdrawal() const;
-  bool DemoStatement() const;
+  void UserWantToExitProgram();
+  void UserDecideToExit();
 
-  bool StartRegistration();
 
+private:
+  void DemoAccountInfo();
+  void DemoRefill();
+  void DemoCreditApp();
+  void DemoWidthdrawal();
+  void DemoStatement();
+
+  void StartRegistration();
+
+  void StartAccountInfoSectionWithQuestionAboutExit();
+  void StartRefillSectionWithQuestionAboutExit();
+  void StartCreditSectionWithQuestionAboutExit();
+  void StartWidthdrawalInfoSectionWithQuestionAboutExit();
+  void StartStatementInfoSectionWithQuestionAboutExit();
+  void SayGoodBye();
+  void ForwardToRegistration();
+
+  bool user_want_to_exit_ = false;
   bool user_want_to_registrate_ = false;
   UserInput user_input_;
   DemoUserMessanger demo_messanger_;

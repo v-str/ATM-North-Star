@@ -5,6 +5,17 @@
 
 class DemoUserMessanger {
  public:
+  enum MessageType {
+    kWelcome,
+    kMenu,
+    kAccountInfo,
+    kRefill,
+    kCreditApp,
+    kWithdrawal,
+    kStatement
+  };
+
+  void ShowMessage(MessageType message_type);
   void ShowWelcomeDemoMessage() const;
 
   void ShowDemoAccountInfoMessage() const;

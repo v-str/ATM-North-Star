@@ -389,17 +389,18 @@ bool AtmUser::MaxCreditCalculation(double max_sum) {
 bool AtmUser::EnrollACredit(double max_sum, double pay_per_month) {
   credit_ = max_sum;
   monthly_payment_ = pay_per_month;
-  string credit_access =
+  utility_.WriteTextWithDelay(
       "\n# The loan was successfully transferred on your account.\n"
-      "# You might cash your credit in our nearest bank.";
-  utility_.WriteTextWithDelay(credit_access);
+      "# You might cash your credit in our nearest bank.");
   utility_.IgnoreCinLine();
   return user_input_.SuggestUserToExit();
 }
 
 bool AtmUser::RepealACredit() {
   amount_of_credit_month_ = 0;
-  return false;
+  utility_.WriteTextWithDelay("\n\t# Credit is repealed...\n");
+  utility_.IgnoreCinLine();
+  return user_input_.SuggestUserToExit();
 }
 
 bool AtmUser::IndividualCreditCalculation() {

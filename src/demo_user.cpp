@@ -4,77 +4,103 @@
 #include <limits>
 #include <string>
 
-using std::cin;
-using std::cout;
-using std::string;
+bool DemoUser::UserWantToRegistrate() { return user_want_to_registrate_; }
 
 void DemoUser::ShowDemoMode() {
-  demo_messanger_.ShowWelcomeDemoMessage();
-  if (UserDecideToExit()) {
+  auto message_type = DemoUserMessanger::MessageType::kWelcome;
+  demo_messanger_.ShowMessage(message_type);
+  UserDecideToExit();
+  if (user_want_to_exit_) {
     return;
   }
   for (;;) {
     demo_messanger_.ShowDemoMenuMessage();
-    if (UserDecideToExit()) {
+    UserDecideToExit();
+    if (user_want_to_exit_) {
       return;
     }
   }
 }
 
-bool DemoUser::UserDecideToExit() {
-  int choice = user_input_.GetChoiceFromUser();
-  if (choice == 1) {
-    return DemoAccountInfo();
-  } else if (choice == 2) {
-    return DemoRefill();
-  } else if (choice == 3) {
-    return DemoCreditApp();
-  } else if (choice == 4) {
-    return DemoWidthdrawal();
-  } else if (choice == 5) {
-    return DemoStatement();
-  } else if (choice == 6) {
-    return UserWantToExitProgram();
-  } else if (choice == 7) {
-    return StartRegistration();
+void DemoUser::UserDecideToExit() {
+  int user_choice = user_input_.GetChoiceFromUser();
+  if (user_choice == 1) {
+    DemoAccountInfo();
+  } else if (user_choice == 2) {
+    DemoRefill();
+  } else if (user_choice == 3) {
+    DemoCreditApp();
+  } else if (user_choice == 4) {
+    DemoWidthdrawal();
+  } else if (user_choice == 5) {
+    DemoStatement();
+  } else if (user_choice == 6) {
+    UserWantToExitProgram();
+  } else if (user_choice == 7) {
+    StartRegistration();
   } else {
-    return user_input_.ShowIncorrectMessage();
+    user_input_.ShowIncorrectMessage();
   }
 }
 
-bool DemoUser::DemoAccountInfo() const {
-  demo_messanger_.ShowDemoAccountInfoMessage();
-  return user_input_.SuggestUserToExit();
+void DemoUser::DemoAccountInfo() {
+  StartAccountInfoSectionWithQuestionAboutExit();
 }
 
-bool DemoUser::DemoRefill() const {
-  demo_messanger_.ShowInfoAboutRefillMessage();
-  return user_input_.SuggestUserToExit();
+void DemoUser::DemoRefill() { StartRefillSectionWithQuestionAboutExit(); }
+
+void DemoUser::DemoCreditApp() { StartCreditSectionWithQuestionAboutExit(); }
+
+void DemoUser::DemoWidthdrawal() {
+  StartWidthdrawalInfoSectionWithQuestionAboutExit();
 }
 
-bool DemoUser::DemoCreditApp() const {
-  demo_messanger_.ShowDemoCreditAppMessage();
-  return user_input_.SuggestUserToExit();
+void DemoUser::DemoStatement() {
+  StartStatementInfoSectionWithQuestionAboutExit();
 }
 
-bool DemoUser::DemoWidthdrawal() const {
-  demo_messanger_.ShowDemoWidthdrawalMessage();
-  return user_input_.SuggestUserToExit();
+void DemoUser::UserWantToExitProgram() { SayGoodBye(); }
+
+void DemoUser::StartRegistration() { ForwardToRegistration(); }
+
+void DemoUser::StartAccountInfoSectionWithQuestionAboutExit() {
+  auto message_type = DemoUserMessanger::MessageType::kAccountInfo;
+  demo_messanger_.ShowMessage(message_type);
+  user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-bool DemoUser::DemoStatement() const {
-  demo_messanger_.ShowDemoStatementMessage();
-  return user_input_.SuggestUserToExit();
+void DemoUser::StartRefillSectionWithQuestionAboutExit() {
+  auto message_type = DemoUserMessanger::MessageType::kRefill;
+  demo_messanger_.ShowMessage(message_type);
+  user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-bool DemoUser::UserWantToExitProgram() const {
+void DemoUser::StartCreditSectionWithQuestionAboutExit() {
+  auto message_type = DemoUserMessanger::MessageType::kCreditApp;
+  demo_messanger_.ShowMessage(message_type);
+  user_want_to_exit_ = user_input_.SuggestUserToExit();
+}
+
+void DemoUser::StartWidthdrawalInfoSectionWithQuestionAboutExit() {
+  auto message_type = DemoUserMessanger::MessageType::kWithdrawal;
+  demo_messanger_.ShowMessage(message_type);
+  user_want_to_exit_ = user_input_.SuggestUserToExit();
+}
+
+void DemoUser::StartStatementInfoSectionWithQuestionAboutExit() {
+  auto message_type = DemoUserMessanger::MessageType::kStatement;
+  demo_messanger_.ShowMessage(message_type);
+  user_want_to_exit_ = user_input_.SuggestUserToExit();
+}
+
+void DemoUser::SayGoodBye() {
   user_input_.ShowExitMessage();
-  return true;
+  user_want_to_exit_ = true;
 }
 
-bool DemoUser::StartRegistration() {
+void DemoUser::ForwardToRegistration() {
   user_want_to_registrate_ = true;
-  return user_want_to_registrate_;
+  user_want_to_exit_ = user_want_to_registrate_;
 }
 
-bool DemoUser::UserWantToRegistrate() const { return user_want_to_registrate_; }
+
