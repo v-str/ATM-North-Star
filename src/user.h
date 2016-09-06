@@ -5,6 +5,7 @@
 #include "user_input.h"
 #include "system_utility.h"
 #include "user_messanger.h"
+#include "user_parameters.h"
 
 class AtmUser {
   using string = std::string;
@@ -43,6 +44,7 @@ class AtmUser {
   void WishGoodDay();
   void NoticeAboutSuccessfulRegistration();
 
+
  private:
   void RunProgramUntilUserWantToExit();
   bool RunProgram();
@@ -79,12 +81,14 @@ class AtmUser {
 
   string GetSpaces(int cash_) const;
 
-  string login_ = "no_name";
-  string password_ = "0000";
-  double cash_ = 0.0;
-  double credit_ = 0.0;
-  double monthly_payment_ = 0.0;
-  int amount_of_credit_month_ = 0;
+//  string login_ = "no_name";
+//  string password_ = "0000";
+//  double cash_ = 0.0;
+//  double credit_ = 0.0;
+//  double monthly_payment_ = 0.0;
+//  int amount_of_credit_month_ = 0;
+
+  AccountInfo account_info_;
 
   UserInput user_input_;
   SystemUtility utility_;

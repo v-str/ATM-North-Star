@@ -65,3 +65,17 @@ void UserMessanger::WriteUserInfo(const UserMessanger::string &info_title,
   WriteSymbolsNTimes('-', 30);
   utility_.Sleep(100);
 }
+
+void UserMessanger::ShowAccountInfo(const AccountInfo &account_info) {
+  cout << "\t";
+  WriteSymbolsNTimes('-', 30);
+
+  WriteUserInfo("Login", account_info.login_);
+  WriteUserInfo("Password", account_info.password_);
+  WriteUserInfo("Balance", std::to_string(account_info.cash_));
+  WriteUserInfo("Credit", std::to_string(account_info.credit_));
+  WriteUserInfo("Monthly payment $",
+                std::to_string(account_info.monthly_payment_));
+  WriteUserInfo("Credit term",
+                std::to_string(account_info.amount_of_credit_month_));
+}

@@ -5,6 +5,7 @@
 #include <string>
 
 #include "system_utility.h"
+#include "user_parameters.h"
 
 using std::cout;
 
@@ -20,6 +21,8 @@ class UserMessanger {
   void ShowIncorrectPasswordMessage();
 
   void WriteUserInfo(const string &info_title, const string &value);
+
+  void ShowAccountInfo(const AccountInfo &account_info);
 
   void ShowTransactionMenu();
 

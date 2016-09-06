@@ -11,7 +11,8 @@ SOURCES += \
     src/user_input.cpp \
     src/demo_user_messanger.cpp \
     src/initial_screen.cpp \
-    src/user_messanger.cpp
+    src/user_messanger.cpp \
+    src/user_parameters.cpp
 
 HEADERS += \
     src/user.h \
@@ -20,4 +21,5 @@ HEADERS += \
     src/user_input.h \
     src/demo_user_messanger.h \
     src/initial_screen.h \
-    src/user_messanger.h
+    src/user_messanger.h \
+    src/user_parameters.h
