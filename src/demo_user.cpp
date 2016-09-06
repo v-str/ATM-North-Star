@@ -63,6 +63,11 @@ void DemoUser::UserWantToExitProgram() { SayGoodBye(); }
 
 void DemoUser::StartRegistration() { ForwardToRegistration(); }
 
+
+
+
+
+
 void DemoUser::StartAccountInfoSectionWithQuestionAboutExit() {
   auto message_type = DemoUserMessanger::MessageType::kAccountInfo;
   demo_messanger_.ShowMessage(message_type);

@@ -4,9 +4,18 @@
 #include <string>
 #include "user_input.h"
 #include "system_utility.h"
+#include "user_messanger.h"
 
 class AtmUser {
   using string = std::string;
+    enum MenuSection {
+      kAccountSection = 1,
+      kRefillSection,
+      kCreditSection,
+      kWidthdrawalSection,
+      kStatementSection,
+      kExitSection,
+    };
 
  public:
   AtmUser() {}
@@ -14,6 +23,8 @@ class AtmUser {
           double monthly_payment, int amount_of_credit_month);
 
   void Registration();
+
+  void GetPassword();
 
   bool IsNormalLogin() const;
   bool IsNormalPass() const;
@@ -30,6 +41,7 @@ class AtmUser {
 
   void MonthToRepay();
   void WishGoodDay();
+  void NoticeAboutSuccessfulRegistration();
 
  private:
   void RunProgramUntilUserWantToExit();
@@ -76,6 +88,8 @@ class AtmUser {
 
   UserInput user_input_;
   SystemUtility utility_;
+  UserMessanger user_messanger_;
+
 };
 
 #endif  // USER_H

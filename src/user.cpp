@@ -22,60 +22,18 @@ AtmUser::AtmUser(const string &login, const string &password, double cash,
       monthly_payment_(monthly_payment),
       amount_of_credit_month_(amount_of_credit_month) {}
 
-void AtmUser::WriteSymbolsNTimes(char symbol, int n) const {
-  for (int i = 0; i < n; ++i) {
-    cout << symbol;
-  }
-}
-
 void AtmUser::Registration() {
-  utility_.ClearScreen();
-
-  cout << "\n\t\t   ********************\n"
-          "\t\t   *   REGISTRATION   *\n"
-          "\t\t   ********************\n";
-
-  cout << "\n\n\n\t\tLogin: ";
-
-  WriteSymbolsNTimes('#', kMaxLenghtOfLogin);
-  WriteSymbolsNTimes('\b', kMaxLenghtOfLogin);
-
+  user_messanger_.ShowRegistrationScreen();
   getline(cin, login_);
   cin.sync();
   if (!IsNormalLogin()) {
-    utility_.ClearScreen();
-    string incorrect =
-        "\t\t|Incorrect login.           |\n"
-        "\t\t|It must be more than 1 and |\n"
-        "\t\t|less than 20 symbols.      |\n"
-        "\t\t|Please, reload the program.|";
-    cout << "\n\n\n\n\t\t|---------------------------|\n";
-    utility_.WriteTextWithDelay(incorrect);
-    cout << "\t\t\t|---------------------------|\n\n";
+    user_messanger_.ShowIncorrectLoginMessage();
   } else {
-    cout << "\t\tPassword: XXXX\b\b\b\b";
-    cin >> password_;
-    cin.sync();
+    GetPassword();
     if (!IsNormalPass()) {
-      utility_.ClearScreen();
-      cout << "\n\n\n\n\t\t\t|---------------------------|\n";
-      string incorrect =
-          "\t\t|Incorrect password.        |\n"
-          "\t\t|It must be in XXXX format. |\n"
-          "\t\t|Please, reload the program.|";
-      utility_.WriteTextWithDelay(incorrect);
-      cout << "\t\t|---------------------------|\n\n\t\t\t";
+      user_messanger_.ShowIncorrectPasswordMessage();
     } else {
-      utility_.IgnoreCinLine();
-      utility_.ClearScreen();
-      cout << "\n\n\t\t------------------\n";
-      string correct = "\t\t| Access allowed |";
-      utility_.WriteTextWithDelay(correct);
-      cout << "\t\t------------------\n";
-      utility_.Sleep(1000);
-      credit_ = 0.0;
-      monthly_payment_ = 0.0;
-      amount_of_credit_month_ = 0;
+      NoticeAboutSuccessfulRegistration();
       RunProgramUntilUserWantToExit();
     }
   }
@@ -89,27 +47,24 @@ void AtmUser::RunProgramUntilUserWantToExit() {
 }
 
 bool AtmUser::RunProgram() {
-  utility_.ClearScreen();
-  ShowTransactionMenu();
-  cout << "\tSelect: ";
-
+  user_messanger_.ShowTransactionMenu();
   return HandleUserChoice(user_input_.GetChoiceFromUser());
 }
 
 bool AtmUser::HandleUserChoice(int choice) {
   utility_.ClearScreen();
 
-  if (choice == 1) {
+  if (choice == kAccountSection) {
     return ShowAccountInfo();
-  } else if (choice == 2) {
+  } else if (choice == kRefillSection) {
     return Refill();
-  } else if (choice == 3) {
+  } else if (choice == kCreditSection) {
     return CreditApplication();
-  } else if (choice == 4) {
+  } else if (choice == kWidthdrawalSection) {
     return Withdrawal();
-  } else if (choice == 5) {
+  } else if (choice == kStatementSection) {
     return Statement();
-  } else if (choice == 6) {
+  } else if (choice == kExitSection) {
     return SuggestUserToExitWithConfirmationMenu();
   } else {
     return user_input_.ShowIncorrectMessage();
@@ -564,4 +519,23 @@ void AtmUser::WriteTextWithDelay(const string &text) const {
     utility_.Sleep(5);
   }
   cout << "\n";
+}
+
+void AtmUser::NoticeAboutSuccessfulRegistration() {
+  utility_.IgnoreCinLine();
+  utility_.ClearScreen();
+  cout << "\n\n\t\t------------------\n";
+  string correct = "\t\t| Access allowed |";
+  utility_.WriteTextWithDelay(correct);
+  cout << "\t\t------------------\n";
+  utility_.Sleep(1000);
+  credit_ = 0.0;
+  monthly_payment_ = 0.0;
+  amount_of_credit_month_ = 0;
+}
+
+void AtmUser::GetPassword() {
+  cout << "\t\tPassword: XXXX\b\b\b\b";
+  cin >> password_;
+  cin.sync();
 }
