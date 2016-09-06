@@ -58,3 +58,10 @@ void UserMessanger::ShowTransactionMenu() {
   cout << select;
   cout << "\tSelect: ";
 }
+
+void UserMessanger::WriteUserInfo(const UserMessanger::string &info_title,
+                                  const UserMessanger::string &value) {
+  cout << "\n\t# " << info_title << ": " << value << "\n\t";
+  WriteSymbolsNTimes('-', 30);
+  utility_.Sleep(100);
+}

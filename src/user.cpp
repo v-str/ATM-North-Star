@@ -72,30 +72,26 @@ bool AtmUser::HandleUserChoice(int choice) {
 }
 
 bool AtmUser::ShowAccountInfo() {
-  cout << "\t--------------------------------------------\n";
-  cout << "\t# Login: " << login_ << "\n";
-  cout << "\t--------------------------------------------\n";
-  utility_.Sleep(100);
-  cout << "\t# Password: " << password_ << "\n";
-  cout << "\t--------------------------------------------\n";
-  utility_.Sleep(100);
-  cout << "\t# Balance $: " << cash_ << "\n";
-  cout << "\t--------------------------------------------\n";
-  utility_.Sleep(100);
-  cout << "\t# Credit $: " << credit_ << "\n";
-  cout << "\t# Monthly payment $: " << monthly_payment_ << "\n";
-  cout << "\t# Credit term: " << amount_of_credit_month_ << " month(s)\n";
-  cout << "\t--------------------------------------------\n\n\n";
-  utility_.Sleep(100);
+  cout << "\t";
+  user_messanger_.WriteSymbolsNTimes('-', 30);
+
+  user_messanger_.WriteUserInfo("Login", login_);
+  user_messanger_.WriteUserInfo("Password", password_);
+  user_messanger_.WriteUserInfo("Balance", std::to_string(cash_));
+  user_messanger_.WriteUserInfo("Credit", std::to_string(credit_));
+  user_messanger_.WriteUserInfo("Monthly payment $",
+                                std::to_string(monthly_payment_));
+  user_messanger_.WriteUserInfo("Credit term",
+                                std::to_string(amount_of_credit_month_));
+
   return user_input_.SuggestUserToExit();
 }
 
 bool AtmUser::Refill() {
   cout << "\n\t---------------------------------------\n";
-  string notification =
+  utility_.WriteTextWithDelay(
       "\t Notify:\n\t The sum must be more than\n"
-      "\t 10$ and less than 50000$";
-  utility_.WriteTextWithDelay(notification);
+      "\t 10$ and less than 50000$");
   cout << "\t---------------------------------------\n";
   cout << "\t# Please enter the sum of money($): ";
 
@@ -104,8 +100,7 @@ bool AtmUser::Refill() {
   if (money >= 10 && money <= 50000) {
     cash_ += money;
     cout << "\t----------------------------------------\n";
-    string success = "\t# Balance refill completed successfully.\n";
-    utility_.WriteTextWithDelay(success);
+    utility_.WriteTextWithDelay("\t# Balance refill completed successfully.\n");
     cout << "\t# Balance: $" << cash_ << "\n";
     cout << "\t----------------------------------------\n\n";
     cin.sync();
