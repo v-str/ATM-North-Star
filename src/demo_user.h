@@ -28,21 +28,12 @@ class DemoUser {
   void UserDecideToExit();
 
  private:
-  void DemoAccountInfo();
-  void DemoRefill();
-  void DemoCreditApp();
-  void DemoWidthdrawal();
-  void DemoStatement();
-
   void StartRegistration();
 
-  void StartAccountInfoSectionWithQuestionAboutExit();
-  void StartRefillSectionWithQuestionAboutExit();
-  void StartCreditSectionWithQuestionAboutExit();
-  void StartWidthdrawalInfoSectionWithQuestionAboutExit();
-  void StartStatementInfoSectionWithQuestionAboutExit();
   void SayGoodBye();
   void ForwardToRegistration();
+
+  void StartSection(DemoUserMessanger::MessageType message_type);
 
   bool user_want_to_exit_ = false;
   bool user_want_to_registrate_ = false;

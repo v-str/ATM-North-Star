@@ -25,15 +25,15 @@ void DemoUser::ShowDemoMode() {
 void DemoUser::UserDecideToExit() {
   int user_choice = user_input_.GetChoiceFromUser();
   if (user_choice == kAccountSection) {
-    DemoAccountInfo();
+    StartSection(DemoUserMessanger::MessageType::kAccountInfo);
   } else if (user_choice == kRefillSection) {
-    DemoRefill();
+    StartSection(DemoUserMessanger::MessageType::kRefill);
   } else if (user_choice == kCreditSection) {
-    DemoCreditApp();
+    StartSection(DemoUserMessanger::MessageType::kCreditApp);
   } else if (user_choice == kWidthdrawalSection) {
-    DemoWidthdrawal();
+    StartSection(DemoUserMessanger::MessageType::kWithdrawal);
   } else if (user_choice == kStatementSection) {
-    DemoStatement();
+    StartSection(DemoUserMessanger::MessageType::kStatement);
   } else if (user_choice == kExitSection) {
     UserWantToExitProgram();
   } else if (user_choice == kRegistrationSection) {
@@ -43,57 +43,11 @@ void DemoUser::UserDecideToExit() {
   }
 }
 
-void DemoUser::DemoAccountInfo() {
-  StartAccountInfoSectionWithQuestionAboutExit();
-}
-
-void DemoUser::DemoRefill() { StartRefillSectionWithQuestionAboutExit(); }
-
-void DemoUser::DemoCreditApp() { StartCreditSectionWithQuestionAboutExit(); }
-
-void DemoUser::DemoWidthdrawal() {
-  StartWidthdrawalInfoSectionWithQuestionAboutExit();
-}
-
-void DemoUser::DemoStatement() {
-  StartStatementInfoSectionWithQuestionAboutExit();
-}
-
 void DemoUser::UserWantToExitProgram() { SayGoodBye(); }
 
 void DemoUser::StartRegistration() { ForwardToRegistration(); }
 
-
-
-
-
-
-void DemoUser::StartAccountInfoSectionWithQuestionAboutExit() {
-  auto message_type = DemoUserMessanger::MessageType::kAccountInfo;
-  demo_messanger_.ShowMessage(message_type);
-  user_want_to_exit_ = user_input_.SuggestUserToExit();
-}
-
-void DemoUser::StartRefillSectionWithQuestionAboutExit() {
-  auto message_type = DemoUserMessanger::MessageType::kRefill;
-  demo_messanger_.ShowMessage(message_type);
-  user_want_to_exit_ = user_input_.SuggestUserToExit();
-}
-
-void DemoUser::StartCreditSectionWithQuestionAboutExit() {
-  auto message_type = DemoUserMessanger::MessageType::kCreditApp;
-  demo_messanger_.ShowMessage(message_type);
-  user_want_to_exit_ = user_input_.SuggestUserToExit();
-}
-
-void DemoUser::StartWidthdrawalInfoSectionWithQuestionAboutExit() {
-  auto message_type = DemoUserMessanger::MessageType::kWithdrawal;
-  demo_messanger_.ShowMessage(message_type);
-  user_want_to_exit_ = user_input_.SuggestUserToExit();
-}
-
-void DemoUser::StartStatementInfoSectionWithQuestionAboutExit() {
-  auto message_type = DemoUserMessanger::MessageType::kStatement;
+void DemoUser::StartSection(DemoUserMessanger::MessageType message_type) {
   demo_messanger_.ShowMessage(message_type);
   user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
@@ -107,5 +61,3 @@ void DemoUser::ForwardToRegistration() {
   user_want_to_registrate_ = true;
   user_want_to_exit_ = user_want_to_registrate_;
 }
-
-
