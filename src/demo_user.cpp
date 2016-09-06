@@ -24,19 +24,19 @@ void DemoUser::ShowDemoMode() {
 
 void DemoUser::UserDecideToExit() {
   int user_choice = user_input_.GetChoiceFromUser();
-  if (user_choice == 1) {
+  if (user_choice == kAccountSection) {
     DemoAccountInfo();
-  } else if (user_choice == 2) {
+  } else if (user_choice == kRefillSection) {
     DemoRefill();
-  } else if (user_choice == 3) {
+  } else if (user_choice == kCreditSection) {
     DemoCreditApp();
-  } else if (user_choice == 4) {
+  } else if (user_choice == kWidthdrawalSection) {
     DemoWidthdrawal();
-  } else if (user_choice == 5) {
+  } else if (user_choice == kStatementSection) {
     DemoStatement();
-  } else if (user_choice == 6) {
+  } else if (user_choice == kExitSection) {
     UserWantToExitProgram();
-  } else if (user_choice == 7) {
+  } else if (user_choice == kRegistrationSection) {
     StartRegistration();
   } else {
     user_input_.ShowIncorrectMessage();

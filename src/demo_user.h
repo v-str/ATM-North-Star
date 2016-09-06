@@ -9,6 +9,16 @@
 class DemoUser {
   using string = std::string;
 
+  enum MenuSection {
+    kAccountSection = 1,
+    kRefillSection,
+    kCreditSection,
+    kWidthdrawalSection,
+    kStatementSection,
+    kExitSection,
+    kRegistrationSection
+  };
+
  public:
   void ShowDemoMode();
 
@@ -17,8 +27,7 @@ class DemoUser {
   void UserWantToExitProgram();
   void UserDecideToExit();
 
-
-private:
+ private:
   void DemoAccountInfo();
   void DemoRefill();
   void DemoCreditApp();
