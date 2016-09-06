@@ -8,7 +8,7 @@
 using std::cin;
 using std::cout;
 
-const int minimal_sum_for_credit = 1000;
+static const int kMinimalSumForCredit = 1000;
 
 static const int kMaxLenghtOfLogin = 21;
 
@@ -22,6 +22,7 @@ AtmUser::AtmUser(const string &login, const string &password, double cash,
   account_info_.monthly_payment_ = monthly_payment;
   account_info_.amount_of_credit_month_ = amount_of_credit_month;
 }
+
 void AtmUser::Registration() {
   user_messanger_.ShowRegistrationScreen();
   getline(cin, account_info_.login_);
@@ -241,7 +242,7 @@ bool AtmUser::ConsiderACredit() {
 }
 
 bool AtmUser::ConsiderACreditBasedOnCash() {
-  if (account_info_.cash_ >= minimal_sum_for_credit) {
+  if (account_info_.cash_ >= kMinimalSumForCredit) {
     return GiveACredit();
   } else {
     return RefuseACredit();

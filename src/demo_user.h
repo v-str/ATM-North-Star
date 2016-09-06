@@ -21,18 +21,14 @@ class DemoUser {
 
  public:
   void ShowDemoMode();
-
   bool UserWantToRegistrate();
-
   void UserWantToExitProgram();
   void UserDecideToExit();
 
  private:
   void StartRegistration();
-
   void SayGoodBye();
   void ForwardToRegistration();
-
   void StartSection(DemoUserMessanger::MessageType message_type);
 
   bool user_want_to_exit_ = false;
