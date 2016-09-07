@@ -16,8 +16,6 @@ void UserMessanger::ShowRegistrationScreen() {
   cout << "\n\t\t   ********************\n"
           "\t\t   *   REGISTRATION   *\n"
           "\t\t   ********************\n";
-
-
 }
 
 void UserMessanger::ShowIncorrectLoginMessage() {
@@ -54,6 +52,36 @@ void UserMessanger::ShowTransactionMenu() {
       "\t####################################################\n";
   cout << select;
   cout << "\tSelect: ";
+}
+
+void UserMessanger::ShowNotifyAboutCash() {
+  cout << "\t";
+  WriteSymbolsNTimes('-', 45);
+  cout << "\n\t";
+  utility_.WriteTextWithDelay(
+      "\t Notify:\n\t The sum must be more than\n"
+      "\t 10$ and less than 50000$");
+  cout << "\t";
+  WriteSymbolsNTimes('-', 45);
+  cout << "\n";
+  cout << "\t# Please enter the sum of money($): ";
+}
+
+void UserMessanger::ShowUserBalance(double &balance) {
+  cout << "\n\t";
+  WriteSymbolsNTimes('-', 45);
+  utility_.WriteTextWithDelay("\n\t# Balance refill completed successfully.");
+  WriteUserInfo("Balance", std::to_string(balance));
+  cout << "\n\t";
+  cin.sync();
+  utility_.Sleep(1000);
+}
+
+void UserMessanger::ShowIncorrectSum()
+{
+    cout << "\n\tIncorrect sum, Reconnect to repeat.\n"
+            "\t\t - Press any key - \n\n";
+    cin.clear();
 }
 
 void UserMessanger::WriteUserInfo(const UserMessanger::string &info_title,

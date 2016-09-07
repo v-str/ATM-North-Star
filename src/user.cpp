@@ -77,26 +77,14 @@ bool AtmUser::ShowAccountInfo() {
 }
 
 bool AtmUser::Refill() {
-  cout << "\n\t---------------------------------------\n";
-  utility_.WriteTextWithDelay(
-      "\t Notify:\n\t The sum must be more than\n"
-      "\t 10$ and less than 50000$");
-  cout << "\t---------------------------------------\n";
-  cout << "\t# Please enter the sum of money($): ";
-
+  user_messanger_.ShowNotifyAboutCash();
   int money = 0;
   cin >> money;
   if (money >= 10 && money <= 50000) {
     account_info_.cash_ += money;
-    cout << "\t----------------------------------------\n";
-    utility_.WriteTextWithDelay("\t# Balance refill completed successfully.\n");
-    cout << "\t# Balance: $" << account_info_.cash_ << "\n";
-    cout << "\t----------------------------------------\n\n";
-    cin.sync();
-    utility_.Sleep(1000);
+    user_messanger_.ShowUserBalance(account_info_.cash_);
   } else {
-    cout << "\n\tIncorrect sum, Reconnect to repeat.\n"
-            "\t\t - Press any key - \n\n";
+    user_messanger_.ShowIncorrectSum();
   }
   utility_.IgnoreCinLine();
   return user_input_.SuggestUserToExit();
@@ -106,7 +94,7 @@ bool AtmUser::CreditApplication() {
   if (AlreadyHasACredit()) {
     return RefuseToReCredit();
   } else {
-    return ConsiderACredit();  // -
+    return ConsiderACredit();
   }
 }
 

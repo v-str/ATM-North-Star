@@ -8,6 +8,7 @@
 #include "user_parameters.h"
 
 using std::cout;
+using std::cin;
 
 class UserMessanger {
   using string = std::string;
@@ -25,6 +26,11 @@ class UserMessanger {
   void ShowAccountInfo(const AccountInfo &account_info);
 
   void ShowTransactionMenu();
+
+  void ShowNotifyAboutCash();
+
+  void ShowUserBalance(double &balance);
+  void ShowIncorrectSum();
 
  private:
   SystemUtility utility_;
