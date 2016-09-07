@@ -26,10 +26,10 @@ class DemoUser {
   void UserDecideToExit();
 
  private:
+  void StartSection(DemoUserMessanger::MessageType message_type);
+  void ForwardToRegistration();
   void StartRegistration();
   void SayGoodBye();
-  void ForwardToRegistration();
-  void StartSection(DemoUserMessanger::MessageType message_type);
 
   bool user_want_to_exit_ = false;
   bool user_want_to_registrate_ = false;

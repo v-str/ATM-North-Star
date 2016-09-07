@@ -26,6 +26,7 @@ class AtmUser {
   void Registration();
 
   void GetPassword();
+  void GetLogin();
 
   bool IsNormalLogin() const;
   bool IsNormalPass() const;
@@ -42,7 +43,11 @@ class AtmUser {
 
   void MonthToRepay();
   void WishGoodDay();
+
+  void InitialRegistrationScreen();
   void NoticeAboutSuccessfulRegistration();
+  void NoticeAboutIncorrectLogin();
+  void NoticeAboutIncorrectPassword();
 
 
  private:

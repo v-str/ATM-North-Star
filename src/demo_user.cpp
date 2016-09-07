@@ -4,8 +4,6 @@
 #include <limits>
 #include <string>
 
-bool DemoUser::UserWantToRegistrate() { return user_want_to_registrate_; }
-
 void DemoUser::ShowDemoMode() {
   auto message_type = DemoUserMessanger::MessageType::kWelcome;
   demo_messanger_.ShowMessage(message_type);
@@ -21,6 +19,10 @@ void DemoUser::ShowDemoMode() {
     }
   }
 }
+
+bool DemoUser::UserWantToRegistrate() { return user_want_to_registrate_; }
+
+void DemoUser::UserWantToExitProgram() { SayGoodBye(); }
 
 void DemoUser::UserDecideToExit() {
   int user_choice = user_input_.GetChoiceFromUser();
@@ -43,21 +45,19 @@ void DemoUser::UserDecideToExit() {
   }
 }
 
-void DemoUser::UserWantToExitProgram() { SayGoodBye(); }
-
-void DemoUser::StartRegistration() { ForwardToRegistration(); }
-
 void DemoUser::StartSection(DemoUserMessanger::MessageType message_type) {
   demo_messanger_.ShowMessage(message_type);
   user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-void DemoUser::SayGoodBye() {
-  user_input_.ShowExitMessage();
-  user_want_to_exit_ = true;
-}
-
 void DemoUser::ForwardToRegistration() {
   user_want_to_registrate_ = true;
   user_want_to_exit_ = user_want_to_registrate_;
+}
+
+void DemoUser::StartRegistration() { ForwardToRegistration(); }
+
+void DemoUser::SayGoodBye() {
+  user_input_.ShowExitMessage();
+  user_want_to_exit_ = true;
 }

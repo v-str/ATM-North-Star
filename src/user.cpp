@@ -24,15 +24,14 @@ AtmUser::AtmUser(const string &login, const string &password, double cash,
 }
 
 void AtmUser::Registration() {
-  user_messanger_.ShowRegistrationScreen();
-  getline(cin, account_info_.login_);
-  cin.sync();
+  InitialRegistrationScreen();
+  GetLogin();
   if (!IsNormalLogin()) {
-    user_messanger_.ShowIncorrectLoginMessage();
+    NoticeAboutIncorrectLogin();
   } else {
     GetPassword();
     if (!IsNormalPass()) {
-      user_messanger_.ShowIncorrectPasswordMessage();
+      NoticeAboutIncorrectPassword();
     } else {
       NoticeAboutSuccessfulRegistration();
       RunProgramUntilUserWantToExit();
@@ -512,12 +511,15 @@ void AtmUser::WriteTextWithDelay(const string &text) const {
   cout << "\n";
 }
 
+void AtmUser::InitialRegistrationScreen() {
+  user_messanger_.ShowRegistrationScreen();
+}
+
 void AtmUser::NoticeAboutSuccessfulRegistration() {
   utility_.IgnoreCinLine();
   utility_.ClearScreen();
   cout << "\n\n\t\t------------------\n";
-  string correct = "\t\t| Access allowed |";
-  utility_.WriteTextWithDelay(correct);
+  utility_.WriteTextWithDelay("\t\t| Access allowed |");
   cout << "\t\t------------------\n";
   utility_.Sleep(1000);
   account_info_.credit_ = 0.0;
@@ -525,8 +527,25 @@ void AtmUser::NoticeAboutSuccessfulRegistration() {
   account_info_.amount_of_credit_month_ = 0;
 }
 
+void AtmUser::NoticeAboutIncorrectLogin() {
+  user_messanger_.ShowIncorrectLoginMessage();
+}
+
+void AtmUser::NoticeAboutIncorrectPassword() {
+  user_messanger_.ShowIncorrectPasswordMessage();
+}
+
 void AtmUser::GetPassword() {
   cout << "\t\tPassword: XXXX\b\b\b\b";
   cin >> account_info_.password_;
+  cin.sync();
+}
+
+void AtmUser::GetLogin() {
+  cout << "\n\n\n\t\tLogin: ";
+
+  user_messanger_.WriteSymbolsNTimes('#', kMaxLenghtOfLogin);
+  user_messanger_.WriteSymbolsNTimes('\b', kMaxLenghtOfLogin);
+  getline(cin, account_info_.login_);
   cin.sync();
 }

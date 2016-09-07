@@ -17,10 +17,7 @@ void UserMessanger::ShowRegistrationScreen() {
           "\t\t   *   REGISTRATION   *\n"
           "\t\t   ********************\n";
 
-  cout << "\n\n\n\t\tLogin: ";
 
-  WriteSymbolsNTimes('#', kMaxLenghtOfLogin);
-  WriteSymbolsNTimes('\b', kMaxLenghtOfLogin);
 }
 
 void UserMessanger::ShowIncorrectLoginMessage() {
@@ -62,13 +59,13 @@ void UserMessanger::ShowTransactionMenu() {
 void UserMessanger::WriteUserInfo(const UserMessanger::string &info_title,
                                   const UserMessanger::string &value) {
   cout << "\n\t# " << info_title << ": " << value << "\n\t";
-  WriteSymbolsNTimes('-', 30);
+  WriteSymbolsNTimes('-', 45);
   utility_.Sleep(100);
 }
 
 void UserMessanger::ShowAccountInfo(const AccountInfo &account_info) {
   cout << "\t";
-  WriteSymbolsNTimes('-', 30);
+  WriteSymbolsNTimes('-', 45);
 
   WriteUserInfo("Login", account_info.login_);
   WriteUserInfo("Password", account_info.password_);
