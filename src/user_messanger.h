@@ -37,9 +37,12 @@ class UserMessanger {
   string GetPasswordFromUser();
 
   void ShowSumOfWithdrawal(int sum_of_cash) const;
+
   void ShowSuccessfulWithdrawal(int sum_of_cash, int sum_of_withdrawal);
 
   void ShowIncorrectPasswordMessage();
+
+  void ShowStatement(int cash, string spaces);
 
  private:
   SystemUtility utility_;

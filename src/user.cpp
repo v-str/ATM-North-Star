@@ -119,23 +119,9 @@ bool AtmUser::WithdrawCash() {
 
 bool AtmUser::Statement() {
   utility_.ClearScreen();
-
-  cout << "\t##################\n"
-          "\t#                #\n"
-          "\t#  28 Green st.  #\n"
-          "\t#   New - York   #\n"
-          "\t#                #\n"
-          "\t#   NORTH BANK   #\n"
-          "\t#                #\n"
-          "\t# Balance:       #\n"
-          "\t#  $ "
-       << account_info_.cash_ << GetSpaces(account_info_.cash_) << "#\n";
-  cout << "\t#                #\n"
-          "\t#  HAVE A NICE   #\n"
-          "\t#      DAY       #\n"
-          "\t#                #\n"
-          "\t##################\n";
-
+  string spaces = GetSpaces(account_info_.cash_);
+  int cash = account_info_.cash_;
+  user_messanger_.ShowStatement(cash, spaces);
   return user_input_.SuggestUserToExit();
 }
 
