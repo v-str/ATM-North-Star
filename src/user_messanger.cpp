@@ -20,22 +20,23 @@ void UserMessanger::ShowRegistrationScreen() {
 
 void UserMessanger::ShowIncorrectLoginMessage() {
   utility_.ClearScreen();
+  cout << "\n\n\n\n\t|---------------------------|\n";
   utility_.WriteTextWithDelay(
-      "\t\t|Incorrect login.           |\n"
-      "\t\t|It must be more than 1 and |\n"
-      "\t\t|less than 20 symbols.      |\n"
-      "\t\t|Please, reload the program.|");
-  cout << "\t\t|---------------------------|\n\n";
+      "\t|Incorrect login.           |\n"
+      "\t|It must be more than 1 and |\n"
+      "\t|less than 20 symbols.      |\n"
+      "\t|Please, reload the program.|");
+  cout << "\t|---------------------------|\n\n";
 }
 
 void UserMessanger::ShowIncorrectPasswordMessage() {
   utility_.ClearScreen();
-  cout << "\n\n\n\n\t\t\t|---------------------------|\n";
+  cout << "\n\n\n\n\t|---------------------------|\n";
   utility_.WriteTextWithDelay(
-      "\t\t|Incorrect password.        |\n"
-      "\t\t|It must be in XXXX format. |\n"
-      "\t\t|Please, reload the program.|");
-  cout << "\t\t|---------------------------|\n\n\t\t\t";
+      "\t|Incorrect password.        |\n"
+      "\t|It must be in XXXX format. |\n"
+      "\t|Please, reload the program.|");
+  cout << "\t|---------------------------|\n\n\t\t\t";
 }
 
 void UserMessanger::ShowTransactionMenu() {
@@ -67,7 +68,7 @@ void UserMessanger::ShowNotifyAboutCash() {
   cout << "\t# Please enter the sum of money($): ";
 }
 
-void UserMessanger::ShowUserBalance(double &balance) {
+void UserMessanger::ShowUserBalance(double balance) {
   cout << "\n\t";
   WriteSymbolsNTimes('-', 45);
   utility_.WriteTextWithDelay("\n\t# Balance refill completed successfully.");
@@ -77,11 +78,10 @@ void UserMessanger::ShowUserBalance(double &balance) {
   utility_.Sleep(1000);
 }
 
-void UserMessanger::ShowIncorrectSum()
-{
-    cout << "\n\tIncorrect sum, Reconnect to repeat.\n"
-            "\t\t - Press any key - \n\n";
-    cin.clear();
+void UserMessanger::ShowIncorrectSum() {
+  cout << "\n\tIncorrect sum, Reconnect to repeat.\n"
+          "\t\t - Press any key - \n\n";
+  cin.clear();
 }
 
 void UserMessanger::WriteUserInfo(const UserMessanger::string &info_title,
@@ -103,4 +103,46 @@ void UserMessanger::ShowAccountInfo(const AccountInfo &account_info) {
                 std::to_string(account_info.monthly_payment_));
   WriteUserInfo("Credit term",
                 std::to_string(account_info.amount_of_credit_month_));
+}
+
+int UserMessanger::SumOfWithdrawal() const {
+  cout << "\n\t# Please, enter the required sum: ";
+
+  double credit_sum = 0.0;
+  cin >> credit_sum;
+
+  return credit_sum;
+}
+
+void UserMessanger::ShowIncorrectWithdrawalSum(const AccountInfo &account_info,
+                                               int incorrect_sum) {
+  utility_.ClearScreen();
+  utility_.WriteTextWithDelay("\n\t Sorry, entered sum is incorrect.\n\n");
+  cout << "\t Entered sum: " << incorrect_sum << "\n\n";
+  WriteUserInfo("Balance", std::to_string(account_info.cash_));
+  cin.clear();
+}
+
+UserMessanger::string UserMessanger::GetPasswordFromUser() {
+  string password;
+  cin >> password;
+  return password;
+}
+
+void UserMessanger::ShowSumOfCash(int sum_of_cash) const {
+  cout << "\t#Sum($): " << sum_of_cash << "\n";
+  cout << "\t# Please enter your password: XXXX\b\b\b\b";
+}
+
+void UserMessanger::ShowSuccessfulWithdrawal(int sum_of_cash, int sum_of_withdrawal) {
+  utility_.WriteTextWithDelay("\n\t# Withdrawal completed successfully\n");
+  cout << "\t# Sum($): " << sum_of_cash << "\n";
+  cout << "\t# Balance($): " << sum_of_withdrawal << "\n\n";
+}
+
+void UserMessanger::ShowIncorrectWithdrawalPasswordMessage()
+{
+    utility_.ClearScreen();
+    utility_.WriteTextWithDelay(
+        "\n\t# Sorry, entered password is incorrect.\n");
 }

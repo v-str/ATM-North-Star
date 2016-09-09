@@ -99,30 +99,20 @@ bool AtmUser::CreditApplication() {
 }
 
 bool AtmUser::Withdrawal() {
-  cout << "\n\t# Please, enter the required sum: ";
+  int sum_of_cash = user_messanger_.SumOfWithdrawal();
 
-  double maximum_credit_sum = 0.0;
-  cin >> maximum_credit_sum;
-
-  if (IsNormalWithdrawal(maximum_credit_sum)) {
-    cout << "\t#Sum($): " << maximum_credit_sum << "\n";
-    cout << "\t# Please enter your password: XXXX\b\b\b\b";
-    string check_pass;
-    cin >> check_pass;
-    if (check_pass == account_info_.password_) {
-      account_info_.cash_ -= maximum_credit_sum;
-      string success = "\n\t# Withdrawal completed successfully\n";
-      utility_.WriteTextWithDelay(success);
-      cout << "\t# Sum($): " << maximum_credit_sum << "\n";
-      cout << "\t# Balance($): " << account_info_.cash_ << "\n\n";
-
+  if (IsNormalWithdrawal(sum_of_cash)) {
+    user_messanger_.ShowSumOfCash(sum_of_cash);
+    string password = user_messanger_.GetPasswordFromUser();
+    if (password == account_info_.password_) {
+      account_info_.cash_ -= sum_of_cash;
+      user_messanger_.ShowSuccessfulWithdrawal(sum_of_cash,
+                                               account_info_.cash_);
     } else {
-      string incorrect_pass = "\n\t# Sorry, entered password is incorrect.\n";
-      utility_.ClearScreen();
-      utility_.WriteTextWithDelay(incorrect_pass);
+     user_messanger_.ShowIncorrectWithdrawalPasswordMessage();
     }
   } else {
-    utility_.WriteTextWithDelay("\n\t# Sorry, but entered sum is incorrect.\n");
+    user_messanger_.ShowIncorrectWithdrawalSum(account_info_, sum_of_cash);
   }
   utility_.IgnoreCinLine();
   return user_input_.SuggestUserToExit();

@@ -29,8 +29,18 @@ class UserMessanger {
 
   void ShowNotifyAboutCash();
 
-  void ShowUserBalance(double &balance);
+  void ShowUserBalance(double balance);
   void ShowIncorrectSum();
+
+  int SumOfWithdrawal() const;
+  void ShowIncorrectWithdrawalSum(const AccountInfo &account_info, int incorrect_sum);
+  string GetPasswordFromUser();
+
+  void ShowSumOfCash(int sum_of_cash) const;
+  void ShowSuccessfulWithdrawal(int sum_of_cash, int sum_of_withdrawal);
+
+  void ShowIncorrectWithdrawalPasswordMessage();
+
 
  private:
   SystemUtility utility_;
