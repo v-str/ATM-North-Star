@@ -29,7 +29,7 @@ void UserMessanger::ShowIncorrectLoginMessage() {
   cout << "\t|---------------------------|\n\n";
 }
 
-void UserMessanger::ShowIncorrectPasswordMessage() {
+void UserMessanger::ShowIncorrectFormatPasswordMessage() {
   utility_.ClearScreen();
   cout << "\n\n\n\n\t|---------------------------|\n";
   utility_.WriteTextWithDelay(
@@ -105,16 +105,7 @@ void UserMessanger::ShowAccountInfo(const AccountInfo &account_info) {
                 std::to_string(account_info.amount_of_credit_month_));
 }
 
-int UserMessanger::SumOfWithdrawal() const {
-  cout << "\n\t# Please, enter the required sum: ";
-
-  double credit_sum = 0.0;
-  cin >> credit_sum;
-
-  return credit_sum;
-}
-
-void UserMessanger::ShowIncorrectWithdrawalSum(const AccountInfo &account_info,
+void UserMessanger::ShowUnacceptableWithdrawal(const AccountInfo &account_info,
                                                int incorrect_sum) {
   utility_.ClearScreen();
   utility_.WriteTextWithDelay("\n\t Sorry, entered sum is incorrect.\n\n");
@@ -129,20 +120,19 @@ UserMessanger::string UserMessanger::GetPasswordFromUser() {
   return password;
 }
 
-void UserMessanger::ShowSumOfCash(int sum_of_cash) const {
+void UserMessanger::ShowSumOfWithdrawal(int sum_of_cash) const {
   cout << "\t#Sum($): " << sum_of_cash << "\n";
   cout << "\t# Please enter your password: XXXX\b\b\b\b";
 }
 
-void UserMessanger::ShowSuccessfulWithdrawal(int sum_of_cash, int sum_of_withdrawal) {
+void UserMessanger::ShowSuccessfulWithdrawal(int sum_of_cash,
+                                             int sum_of_withdrawal) {
   utility_.WriteTextWithDelay("\n\t# Withdrawal completed successfully\n");
   cout << "\t# Sum($): " << sum_of_cash << "\n";
   cout << "\t# Balance($): " << sum_of_withdrawal << "\n\n";
 }
 
-void UserMessanger::ShowIncorrectWithdrawalPasswordMessage()
-{
-    utility_.ClearScreen();
-    utility_.WriteTextWithDelay(
-        "\n\t# Sorry, entered password is incorrect.\n");
+void UserMessanger::ShowIncorrectPasswordMessage() {
+  utility_.ClearScreen();
+  utility_.WriteTextWithDelay("\n\t# Sorry, entered password is incorrect.\n");
 }

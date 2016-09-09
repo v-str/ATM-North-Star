@@ -61,7 +61,7 @@ bool AtmUser::HandleUserChoice(int choice) {
   } else if (choice == kCreditSection) {
     return CreditApplication();
   } else if (choice == kWidthdrawalSection) {
-    return Withdrawal();
+    return WithdrawCash();
   } else if (choice == kStatementSection) {
     return Statement();
   } else if (choice == kExitSection) {
@@ -98,21 +98,21 @@ bool AtmUser::CreditApplication() {
   }
 }
 
-bool AtmUser::Withdrawal() {
-  int sum_of_cash = user_messanger_.SumOfWithdrawal();
-
-  if (IsNormalWithdrawal(sum_of_cash)) {
-    user_messanger_.ShowSumOfCash(sum_of_cash);
+bool AtmUser::WithdrawCash() {
+  int sum_of_withdrawal = SumOfWithdrawal();
+  if (IsWithdrawalAcceptable(sum_of_withdrawal)) {
+    user_messanger_.ShowSumOfWithdrawal(sum_of_withdrawal);
     string password = user_messanger_.GetPasswordFromUser();
-    if (password == account_info_.password_) {
-      account_info_.cash_ -= sum_of_cash;
-      user_messanger_.ShowSuccessfulWithdrawal(sum_of_cash,
+    if (IsCorrectPassword(password)) {
+      WithdrawFromAccount(sum_of_withdrawal);
+      user_messanger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
                                                account_info_.cash_);
     } else {
-     user_messanger_.ShowIncorrectWithdrawalPasswordMessage();
+      user_messanger_.ShowIncorrectPasswordMessage();
     }
   } else {
-    user_messanger_.ShowIncorrectWithdrawalSum(account_info_, sum_of_cash);
+    user_messanger_.ShowUnacceptableWithdrawal(account_info_,
+                                               sum_of_withdrawal);
   }
   utility_.IgnoreCinLine();
   return user_input_.SuggestUserToExit();
@@ -171,7 +171,7 @@ bool AtmUser::IsNormalPass() const {
 
 bool AtmUser::AlreadyHasACredit() const { return account_info_.credit_ > 0; }
 
-bool AtmUser::IsNormalWithdrawal(double cash_sum) const {
+bool AtmUser::IsWithdrawalAcceptable(double cash_sum) const {
   return cash_sum > 0 && cash_sum <= account_info_.cash_;
 }
 
@@ -510,7 +510,7 @@ void AtmUser::NoticeAboutIncorrectLogin() {
 }
 
 void AtmUser::NoticeAboutIncorrectPassword() {
-  user_messanger_.ShowIncorrectPasswordMessage();
+  user_messanger_.ShowIncorrectFormatPasswordMessage();
 }
 
 void AtmUser::GetPassword() {
@@ -526,4 +526,21 @@ void AtmUser::GetLogin() {
   user_messanger_.WriteSymbolsNTimes('\b', kMaxLenghtOfLogin);
   getline(cin, account_info_.login_);
   cin.sync();
+}
+
+int AtmUser::SumOfWithdrawal() const {
+  cout << "\n\t# Please, enter the required sum: ";
+
+  double credit_sum = 0.0;
+  cin >> credit_sum;
+
+  return credit_sum;
+}
+
+bool AtmUser::IsCorrectPassword(const string &password) {
+  return password == account_info_.password_;
+}
+
+void AtmUser::WithdrawFromAccount(int sum_of_withdrawal) {
+  account_info_.cash_ -= sum_of_withdrawal;
 }

@@ -19,7 +19,7 @@ class UserMessanger {
   void WriteSymbolsNTimes(char symbol, int n) const;
   void ShowRegistrationScreen();
   void ShowIncorrectLoginMessage();
-  void ShowIncorrectPasswordMessage();
+  void ShowIncorrectFormatPasswordMessage();
 
   void WriteUserInfo(const string &info_title, const string &value);
 
@@ -32,15 +32,14 @@ class UserMessanger {
   void ShowUserBalance(double balance);
   void ShowIncorrectSum();
 
-  int SumOfWithdrawal() const;
-  void ShowIncorrectWithdrawalSum(const AccountInfo &account_info, int incorrect_sum);
+  void ShowUnacceptableWithdrawal(const AccountInfo &account_info,
+                                  int incorrect_sum);
   string GetPasswordFromUser();
 
-  void ShowSumOfCash(int sum_of_cash) const;
+  void ShowSumOfWithdrawal(int sum_of_cash) const;
   void ShowSuccessfulWithdrawal(int sum_of_cash, int sum_of_withdrawal);
 
-  void ShowIncorrectWithdrawalPasswordMessage();
-
+  void ShowIncorrectPasswordMessage();
 
  private:
   SystemUtility utility_;
