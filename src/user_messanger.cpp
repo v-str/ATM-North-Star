@@ -111,12 +111,13 @@ void UserMessanger::ShowUnacceptableWithdrawal(const AccountInfo &account_info,
   utility_.WriteTextWithDelay("\n\t Sorry, entered sum is incorrect.\n\n");
   cout << "\t Entered sum: " << incorrect_sum << "\n\n";
   WriteUserInfo("Balance", std::to_string(account_info.cash_));
-  cin.clear();
+  utility_.IgnoreCinLine();
 }
 
 UserMessanger::string UserMessanger::GetPasswordFromUser() {
   string password;
   cin >> password;
+  utility_.IgnoreCinLine();
   return password;
 }
 
@@ -134,5 +135,6 @@ void UserMessanger::ShowSuccessfulWithdrawal(int sum_of_cash,
 
 void UserMessanger::ShowIncorrectPasswordMessage() {
   utility_.ClearScreen();
+  utility_.IgnoreCinLine();
   utility_.WriteTextWithDelay("\n\t# Sorry, entered password is incorrect.\n");
 }

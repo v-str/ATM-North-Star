@@ -114,7 +114,6 @@ bool AtmUser::WithdrawCash() {
     user_messanger_.ShowUnacceptableWithdrawal(account_info_,
                                                sum_of_withdrawal);
   }
-  utility_.IgnoreCinLine();
   return user_input_.SuggestUserToExit();
 }
 
