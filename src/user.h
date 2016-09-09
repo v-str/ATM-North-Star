@@ -75,6 +75,8 @@ class AtmUser {
   bool ExitCreditMenu();
   bool ReloadProgram();
 
+  bool UnacceptableAmountOfMonths();
+
   bool IsCorrectPassword(const string &password);
 
   bool MaxCreditCalculation(double max_sum);

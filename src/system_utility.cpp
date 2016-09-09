@@ -9,6 +9,12 @@ using std::cin;
 using std::cout;
 using std::string;
 
+void SystemUtility::CleanFlow() const {
+  cin.clear();
+  while (cin.get() != '\n')
+    ;
+}
+
 void SystemUtility::Sleep(int latency_ms) const {
   std::this_thread::sleep_for(std::chrono::milliseconds(latency_ms));
 }

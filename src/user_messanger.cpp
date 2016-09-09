@@ -156,3 +156,15 @@ void UserMessanger::ShowStatement(int cash, string spaces) {
           "\t#                #\n"
           "\t##################\n";
 }
+
+void UserMessanger::ShowIncorrectDataMessage() {
+  utility_.WriteTextWithDelay(
+      "\t Data is not correct, please reload the program.\n\n");
+  cin.get();
+}
+
+void UserMessanger::ShowIncorrectMonthInput() {
+  cout << "Number of credit month can't be more than 60\n";
+  cout << "The number of months to repay the loan: ";
+  utility_.CleanFlow();
+}

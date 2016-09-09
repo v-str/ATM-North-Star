@@ -161,18 +161,14 @@ bool AtmUser::IsWithdrawalAcceptable(double cash_sum) const {
 }
 
 void AtmUser::ShowIncorrectDataMessage() {
-  string err = "\t Data is not correct, please reload the program.\n\n";
-  utility_.WriteTextWithDelay(err);
-  cin.get();
+  user_messanger_.ShowIncorrectDataMessage();
 }
 
 void AtmUser::MonthToRepay() {
-  cin >> account_info_.amount_of_credit_month_;
-  if (account_info_.amount_of_credit_month_ <= 0 ||
-      account_info_.amount_of_credit_month_ > 61) {
-    cout << "Number of credit month can't be more than 60\n";
-    cout << "The number of months to repay the loan: ";
-    MonthToRepay();
+  for (;;) {
+    if (UnacceptableAmountOfMonths()) {
+      user_messanger_.ShowIncorrectMonthInput();
+    }
   }
 }
 
@@ -380,6 +376,12 @@ bool AtmUser::ExitCreditMenu() {
 bool AtmUser::ReloadProgram() {
   ShowIncorrectDataMessage();
   return true;
+}
+
+bool AtmUser::UnacceptableAmountOfMonths() {
+  cin >> account_info_.amount_of_credit_month_;
+  return (account_info_.amount_of_credit_month_ <= 0 ||
+          account_info_.amount_of_credit_month_ > 61);
 }
 
 bool AtmUser::RefuseACredit() {

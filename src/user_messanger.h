@@ -44,6 +44,9 @@ class UserMessanger {
 
   void ShowStatement(int cash, string spaces);
 
+  void ShowIncorrectDataMessage();
+  void ShowIncorrectMonthInput();
+
  private:
   SystemUtility utility_;
 };
