@@ -121,6 +121,16 @@ UserMessanger::string UserMessanger::GetPasswordFromUser() {
   return password;
 }
 
+UserMessanger::string UserMessanger::SuggestToConfirmACredit() {
+  string menu_text(
+      "\n\t# Do you confirm the loan?\n"
+      "\t1. Yes, I confirm.\n"
+      "\t2. No, go to the main.\n"
+      "\t3. Exit program.\n");
+
+  return menu_text;
+}
+
 void UserMessanger::ShowSumOfWithdrawal(int sum_of_cash) const {
   cout << "\t#Sum($): " << sum_of_cash << "\n";
   cout << "\t# Please enter your password: XXXX\b\b\b\b";
@@ -139,7 +149,7 @@ void UserMessanger::ShowIncorrectPasswordMessage() {
   utility_.WriteTextWithDelay("\n\t# Sorry, entered password is incorrect.\n");
 }
 
-void UserMessanger::ShowStatement(int cash, string spaces) {
+void UserMessanger::ShowStatement(int cash, string &spaces) {
   cout << "\t##################\n"
           "\t#                #\n"
           "\t#  28 Green st.  #\n"
@@ -166,5 +176,122 @@ void UserMessanger::ShowIncorrectDataMessage() {
 void UserMessanger::ShowIncorrectMonthInput() {
   cout << "Number of credit month can't be more than 60\n";
   cout << "The number of months to repay the loan: ";
-  utility_.CleanFlow();
+}
+
+void UserMessanger::ShowNotifyAboutCredit() {
+  utility_.ClearScreen();
+  utility_.WriteTextWithDelay(
+      "# You can get a loan in our bank if your\n"
+      "  balance more than $1000.\n"
+      "# We draw your attention to the fact that\n"
+      "  our bank may refuse you in getting a loan\n"
+      "  without giving any reason.\n"
+      "# Nowadays, the all loans are set on 14% per year\n"
+      "# The loan depend from sum on account at the moment.\n");
+
+  cout << "\n\t*********************\n"
+          "\t*   Continue?       *\n"
+          "\t*                   *\n"
+          "\t*   1. Yes          *\n"
+          "\t*   2. No           *\n"
+          "\t*                   *\n"
+          "\t*********************\n"
+          "\tEnter: ";
+}
+
+void UserMessanger::ShowCreditConditions(int maximal_sum_of_credit) {
+  utility_.ClearScreen();
+  utility_.WriteTextWithDelay(
+      "# Your balance more than 1000$. You can afford to take the\n"
+      "# credit in our bank. The maximum amount for you is:");
+  utility_.Sleep(500);
+  cout << "----------------------------------------------------------\n";
+  cout << " \t\t\t $" << maximal_sum_of_credit << "\n";
+  cout << "----------------------------------------------------------\n";
+  utility_.Sleep(500);
+  utility_.WriteTextWithDelay(
+      "\n# Do you prefer get all sum or you want to change the sum of "
+      "loan?\n\n"
+      "# 1. Get all sum\n"
+      "# 2. Change the sum of loan\n"
+      "# 3. Main menu\n"
+      "# 4. Exit\n");
+  cout << "# Enter: ";
+}
+
+void UserMessanger::ShowInfoAboutCredit(UserMessanger::string &user_login,
+                                        int max_sum) {
+  cout << "\t             Consumer credit\n"
+          "\t* Profile: "
+       << user_login << "\n\t* Sum $: " << max_sum
+       << "\n\t* Persent per year: 14%\n\n ";
+}
+
+void UserMessanger::ShowEnrollACredit() {
+  utility_.WriteTextWithDelay(
+      "\n# The loan was successfully transferred on your account.\n"
+      "# You might cash your credit in our nearest bank.");
+  utility_.IgnoreCinLine();
+}
+
+void UserMessanger::ShowIndividualCreditInfo(UserMessanger::string &user_login,
+                                             int sum_of_credit) {
+  cout << "\t\tConsumer Credit\n\n";
+  utility_.Sleep(500);
+  cout << "Profile: " << user_login << "\n";
+  utility_.Sleep(500);
+  cout << "Sum $: " << sum_of_credit << "\n";
+  utility_.Sleep(500);
+  cout << "Persent per year: 14%\n\n";
+  utility_.Sleep(2500);
+}
+
+void UserMessanger::ShowRefuseACredit(int sum_of_cash) const {
+  utility_.ClearScreen();
+  utility_.WriteTextWithDelay("# We checked your balance.\n");
+  utility_.Sleep(500);
+  cout << "# Available cash = $" << sum_of_cash << "\n";
+  utility_.WriteTextWithDelay(
+      "# Sorry, for getting a loan your balance must be "
+      "$1000 or more.\n");
+  utility_.Sleep(500);
+}
+
+void UserMessanger::RefusToGrantAnotherCredit() const {
+  utility_.WriteTextWithDelay(
+      "\n #Sorry, but you have already a "
+      "loan in our bank.\n"
+      " #You can't get a second loan, "
+      "while your first loan "
+      "not complete.\n");
+}
+
+void UserMessanger::SuggestUserToExit() const {
+  utility_.WriteTextWithDelay(
+      "\n\t# Do you really want to exit?\n"
+      "\t# 1. No, go to main\n"
+      "\t# 2. Yes, exit\n");
+  cout << "\t# Enter: ";
+}
+
+void UserMessanger::WishAGoodDay() const {
+  cout << "\n\t####################\n"
+          "\t#                  #\n"
+          "\t# Have a nice day! #\n"
+          "\t#                  #\n"
+          "\t####################\n\n";
+}
+
+void UserMessanger::ShowTransactionMenu() const {
+  string select =
+      "\n\t################ Transaction menu ##################\n"
+      "\t#                                                  #\n"
+      "\t# 1. Account information            2. Refill      #\n"
+      "\t# ----------------------            ------------   #\n"
+      "\t# 3. Credit application             4. Withdrawal  #\n"
+      "\t# ----------------------            ------------   #\n"
+      "\t# 5. Statement                      6. Exit        #\n"
+      "\t#                                                  #\n"
+      "\t####################################################\n";
+  cout << select;
 }

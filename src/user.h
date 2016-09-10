@@ -6,6 +6,7 @@
 #include "system_utility.h"
 #include "user_messanger.h"
 #include "user_parameters.h"
+#include "user_credit.h"
 
 class AtmUser {
   using string = std::string;
@@ -63,23 +64,23 @@ class AtmUser {
 
   bool RefuseACredit();
 
-  bool IndividualCreditCalculation();
+  bool IndividualCreditCalculation(int maximal_sum_of_credit);
 
   bool ConsiderACreditBasedOnCash();
 
   bool SuggestUserToExitWithConfirmationMenu();
 
   bool CreditApplication();
-  bool RefuseToReCredit();
+  bool RefusToGrantAnotherCredit();
   bool GiveACredit();
   bool ExitCreditMenu();
   bool ReloadProgram();
 
-  bool UnacceptableAmountOfMonths();
+  int GetCreditMonths();
 
   bool IsCorrectPassword(const string &password);
 
-  bool MaxCreditCalculation(double max_sum);
+  bool MaxCreditCalculation(int maximal_sum_of_credit);
   bool EnrollACredit(double max_sum, double pay_per_month);
   bool RepealACredit();
 
@@ -100,6 +101,7 @@ class AtmUser {
   UserInput user_input_;
   SystemUtility utility_;
   UserMessanger user_messanger_;
+  UserCredit user_credit_;
 
 };
 

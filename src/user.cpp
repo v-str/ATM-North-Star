@@ -92,7 +92,7 @@ bool AtmUser::Refill() {
 
 bool AtmUser::CreditApplication() {
   if (AlreadyHasACredit()) {
-    return RefuseToReCredit();
+    return RefusToGrantAnotherCredit();
   } else {
     return ConsiderACredit();
   }
@@ -133,7 +133,6 @@ std::string AtmUser::GetSpaces(int cash) const {
 
 int AtmUser::NumberOfDigits(int value) const {
   int number_of_digits = 0;
-
   if (value == 0) {
     return number_of_digits = 1;
   } else {
@@ -165,34 +164,12 @@ void AtmUser::ShowIncorrectDataMessage() {
 }
 
 void AtmUser::MonthToRepay() {
-  for (;;) {
-    if (UnacceptableAmountOfMonths()) {
-      user_messanger_.ShowIncorrectMonthInput();
-    }
-  }
+  cout << "\nThe number of months to repay the loan: ";
+  GetCreditMonths();
 }
 
 bool AtmUser::ConsiderACredit() {
-  utility_.ClearScreen();
-
-  utility_.WriteTextWithDelay(
-      "# You can get a loan in our bank if your\n"
-      "  balance more than $1000.\n"
-      "# We draw your attention to the fact that\n"
-      "  our bank may refuse you in getting a loan\n"
-      "  without giving any reason.\n"
-      "# Nowadays, the all loans are set on 14% per year\n"
-      "# The loan depend from sum on account at the moment.\n");
-
-  cout << "\n\t*********************\n"
-          "\t*   Continue?       *\n"
-          "\t*                   *\n"
-          "\t*   1. Yes          *\n"
-          "\t*   2. No           *\n"
-          "\t*                   *\n"
-          "\t*********************\n"
-          "\tEnter: ";
-
+  user_messanger_.ShowNotifyAboutCredit();
   if (user_input_.GetChoiceFromUser() == 1) {
     return ConsiderACreditBasedOnCash();
   }
@@ -208,31 +185,13 @@ bool AtmUser::ConsiderACreditBasedOnCash() {
 }
 
 bool AtmUser::GiveACredit() {
-  utility_.ClearScreen();
-  string GetLoan =
-      "# Your balance more than 1000$. You can afford to take the\n"
-      "# credit in our bank. The maximum amount for you is:";
-  utility_.WriteTextWithDelay(GetLoan);
-  double maximal_sum_of_credit = 15 * account_info_.cash_;
-  utility_.Sleep(500);
-  cout << "----------------------------------------------------------\n";
-  cout << " \t\t\t $" << maximal_sum_of_credit << "\n";
-  cout << "----------------------------------------------------------\n";
-  utility_.Sleep(500);
-  utility_.WriteTextWithDelay(
-      "\n# Do you prefer get all sum or you want to change the sum of "
-      "loan?\n\n"
-      "# 1. Get all sum\n"
-      "# 2. Change the sum of loan\n"
-      "# 3. Main menu\n"
-      "# 4. Exit\n");
-  cout << "# Enter: ";
+  int maximal_sum_of_credit = 15 * account_info_.cash_;
+  user_messanger_.ShowCreditConditions(maximal_sum_of_credit);
   int choice = user_input_.GetChoiceFromUser();
-
   if (choice == 1) {
     return MaxCreditCalculation(maximal_sum_of_credit);
   } else if (choice == 2) {
-    return IndividualCreditCalculation();
+    return IndividualCreditCalculation(maximal_sum_of_credit);
   } else if (choice == 3) {
     return false;
   } else if (choice == 4) {
@@ -242,44 +201,23 @@ bool AtmUser::GiveACredit() {
   }
 }
 
-bool AtmUser::MaxCreditCalculation(double max_sum) {
-  cout << "\nThe number of months to repay the loan: ";
+bool AtmUser::MaxCreditCalculation(int maximal_sum_of_credit) {
   MonthToRepay();
 
   utility_.ClearScreen();
 
-  cout << "\t             Consumer credit\n"
-          "\t* Profile: "
-       << account_info_.login_ << "\n"
-                                  "\t* Sum $: "
-       << max_sum << "\n"
-                     "\t* Persent per year: 14%\n\n ";
+  string user_login = account_info_.login_;
+  user_messanger_.ShowInfoAboutCredit(user_login, maximal_sum_of_credit);
 
-  double x = (max_sum * 14) / 100;
+  int amount_of_months = account_info_.amount_of_credit_month_;
+
   double pay_per_month =
-      (max_sum / account_info_.amount_of_credit_month_) + (x / 12);
-
-  double all_payment = 0.0;
-
-  for (int i = 0; i < account_info_.amount_of_credit_month_; ++i) {
-    cout << "\t* Payment month: " << i + 1 << "   | Payment sum: ";
-    cout << pay_per_month << " $\n";
-
-    utility_.Sleep(50);
-    all_payment += pay_per_month;
-  }
-  cout << "                \t          Total: " << all_payment << " $\n";
-  cout << "\n";
-  string menu_text =
-      "\n\t# Do you confirm the loan?\n"
-      "\t1. Yes, I confirm.\n"
-      "\t2. No, go to the main.\n"
-      "\t3. Exit program.\n";
+      user_credit_.CalculateCredit(maximal_sum_of_credit, amount_of_months);
+  string menu_text = user_messanger_.SuggestToConfirmACredit();
 
   int choice = GetUserChoiceWithMenuText(menu_text, "\tEnter: ");
-
   if (choice == 1) {
-    return EnrollACredit(max_sum, pay_per_month);
+    return EnrollACredit(maximal_sum_of_credit, pay_per_month);
   } else if (choice == 2) {
     return RepealACredit();
   } else if (choice == 3) {
@@ -292,10 +230,7 @@ bool AtmUser::MaxCreditCalculation(double max_sum) {
 bool AtmUser::EnrollACredit(double max_sum, double pay_per_month) {
   account_info_.credit_ = max_sum;
   account_info_.monthly_payment_ = pay_per_month;
-  utility_.WriteTextWithDelay(
-      "\n# The loan was successfully transferred on your account.\n"
-      "# You might cash your credit in our nearest bank.");
-  utility_.IgnoreCinLine();
+  user_messanger_.ShowEnrollACredit();
   return user_input_.SuggestUserToExit();
 }
 
@@ -306,59 +241,30 @@ bool AtmUser::RepealACredit() {
   return user_input_.SuggestUserToExit();
 }
 
-bool AtmUser::IndividualCreditCalculation() {
+bool AtmUser::IndividualCreditCalculation(int maximal_sum_of_credit) {
   utility_.ClearScreen();
+  utility_.WriteTextWithDelay("Individual calculating...\n\n");
 
-  string ind = "Individual calculating...\n\n";
-  utility_.WriteTextWithDelay(ind);
-  double sum_of_credit = 0.0;
-  do {
-    string error =
-        "The entered amount should not "
-        "exceed the allowed credit.\n"
-        "Enter the appropriate amount: ";
-    utility_.WriteTextWithDelay(error);
-    cout << "Enter: ";
-    cin >> sum_of_credit;
-  } while (sum_of_credit >= (15 * account_info_.cash_));
-  cout << "\nThe number of months to repay the loan: ";
+  int user_sum_of_credit =
+      user_credit_.GetIndividualSumOfCreditFromUser(maximal_sum_of_credit);
   MonthToRepay();
 
-  cout << "\t\tConsumer Credit\n\n";
-  utility_.Sleep(500);
-  cout << "Profile: " << account_info_.login_ << "\n";
-  utility_.Sleep(500);
-  cout << "Sum $: " << sum_of_credit << "\n";
-  utility_.Sleep(500);
-  cout << "Persent per year: 14%\n\n";
-  utility_.Sleep(2500);
+  int amount_of_months = account_info_.amount_of_credit_month_;
 
-  double x = (sum_of_credit * 14) / 100;
+  user_messanger_.ShowIndividualCreditInfo(account_info_.login_,
+                                           user_sum_of_credit);
+
   double pay_per_month =
-      (sum_of_credit / account_info_.amount_of_credit_month_) + (x / 12);
+      user_credit_.CalculateCredit(user_sum_of_credit, amount_of_months);
 
-  double all_payment = 0.0;
-
-  for (int i = 0; i < account_info_.amount_of_credit_month_; ++i) {
-    cout << "\t Payment month: " << i + 1
-         << "   | Payment sum: " << pay_per_month << " $\n";
-
-    utility_.Sleep(50);
-    all_payment += pay_per_month;
-  }
-  cout << "                \t          Total: " << all_payment << " $\n";
-  cout << "\n";
   string loan_confirmation_menu_text =
-      "\nDo you confirm the loan?\n"
-      "1. Yes, I confirm.\n"
-      "2. No, go to the main\n"
-      "3. Exit program\n";
+      user_messanger_.SuggestToConfirmACredit();
 
   int choice =
       GetUserChoiceWithMenuText(loan_confirmation_menu_text, "Enter: ");
 
   if (choice == 1) {
-    return EnrollACredit(sum_of_credit, pay_per_month);
+    return EnrollACredit(user_sum_of_credit, pay_per_month);
   } else if (choice == 2) {
     return false;
   } else if (choice == 3) {
@@ -378,70 +284,39 @@ bool AtmUser::ReloadProgram() {
   return true;
 }
 
-bool AtmUser::UnacceptableAmountOfMonths() {
-  cin >> account_info_.amount_of_credit_month_;
-  return (account_info_.amount_of_credit_month_ <= 0 ||
-          account_info_.amount_of_credit_month_ > 61);
+int AtmUser::GetCreditMonths() {
+  int months = 0;
+  cin >> months;
+  utility_.IgnoreCinLine();
+  if (months <= 0 || months > 61) {
+    return 0;
+  } else {
+    return account_info_.amount_of_credit_month_ = months;
+  }
 }
 
 bool AtmUser::RefuseACredit() {
-  utility_.ClearScreen();
-
-  utility_.WriteTextWithDelay("# We checked your balance.\n");
-  utility_.Sleep(500);
-  cout << "# Available cash = $" << account_info_.cash_ << "\n";
-
-  utility_.WriteTextWithDelay(
-      "# Sorry, for getting a loan your balance must be "
-      "$1000 or more.\n");
-  utility_.Sleep(500);
+  int sum_of_cash = account_info_.cash_;
+  user_messanger_.ShowRefuseACredit(sum_of_cash);
 
   return user_input_.SuggestUserToExit();
 }
 
 void AtmUser::SetupProgram() { utility_.ClearScreen(); }
 
-bool AtmUser::RefuseToReCredit() {
-  utility_.WriteTextWithDelay(
-      "\n #Sorry, but you have already a "
-      "loan in our bank.\n"
-      " #You can't get a second loan, "
-      "while your first loan "
-      "not complete.\n");
+bool AtmUser::RefusToGrantAnotherCredit() {
+  user_messanger_.RefusToGrantAnotherCredit();
   return ShowAccountInfo();
 }
 
 bool AtmUser::SuggestUserToExitWithConfirmationMenu() {
-  cout << "\n\t# Do you really want to exit?\n"
-          "\t# 1. No, go to main\n"
-          "\t# 2. Yes, exit\n";
-
-  cout << "\t# Enter: ";
-
+  user_messanger_.SuggestUserToExit();
   return user_input_.GetResultFromUserAboutExit();
 }
 
-void AtmUser::WishGoodDay() {
-  cout << "\n\t####################\n"
-          "\t#                  #\n"
-          "\t# Have a nice day! #\n"
-          "\t#                  #\n"
-          "\t####################\n\n";
-}
+void AtmUser::WishGoodDay() { user_messanger_.WishAGoodDay(); }
 
-void AtmUser::ShowTransactionMenu() {
-  string select =
-      "\n\t################ Transaction menu ##################\n"
-      "\t#                                                  #\n"
-      "\t# 1. Account information            2. Refill      #\n"
-      "\t# ----------------------            ------------   #\n"
-      "\t# 3. Credit application             4. Withdrawal  #\n"
-      "\t# ----------------------            ------------   #\n"
-      "\t# 5. Statement                      6. Exit        #\n"
-      "\t#                                                  #\n"
-      "\t####################################################\n";
-  cout << select;
-}
+void AtmUser::ShowTransactionMenu() { user_messanger_.ShowTransactionMenu(); }
 
 int AtmUser::GetUserChoiceWithMenuText(const string &menu_text,
                                        const string &choice_text) const {

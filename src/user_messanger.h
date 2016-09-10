@@ -35,6 +35,7 @@ class UserMessanger {
   void ShowUnacceptableWithdrawal(const AccountInfo &account_info,
                                   int incorrect_sum);
   string GetPasswordFromUser();
+  string SuggestToConfirmACredit();
 
   void ShowSumOfWithdrawal(int sum_of_cash) const;
 
@@ -42,10 +43,23 @@ class UserMessanger {
 
   void ShowIncorrectPasswordMessage();
 
-  void ShowStatement(int cash, string spaces);
+  void ShowStatement(int cash, string &spaces);
 
   void ShowIncorrectDataMessage();
   void ShowIncorrectMonthInput();
+  void ShowNotifyAboutCredit();
+
+  void ShowCreditConditions(int maximal_sum_of_credit);
+  void ShowInfoAboutCredit(string &user_login, int max_sum);
+  void ShowEnrollACredit();
+  void ShowIndividualCreditInfo(string &user_login, int sum_of_credit);
+
+  void ShowRefuseACredit(int sum_of_cash) const;
+  void RefusToGrantAnotherCredit() const;
+
+  void SuggestUserToExit() const;
+  void WishAGoodDay() const;
+  void ShowTransactionMenu() const;
 
  private:
   SystemUtility utility_;
