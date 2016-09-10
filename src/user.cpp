@@ -13,7 +13,7 @@ static const int kMinimalSumForCredit = 1000;
 static const int kMaxLenghtOfLogin = 21;
 
 AtmUser::AtmUser(const string &login, const string &password, double cash,
-                 long credit, double monthly_payment,
+                 int credit, double monthly_payment,
                  int amount_of_credit_month) {
   account_info_.login_ = login;
   account_info_.password_ = password;

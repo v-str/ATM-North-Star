@@ -21,7 +21,7 @@ class AtmUser {
 
  public:
   AtmUser() {}
-  AtmUser(const string &login, const string &password, double cash, long credit,
+  AtmUser(const string &login, const string &password, double cash, int credit,
           double monthly_payment, int amount_of_credit_month);
 
   void Registration();
