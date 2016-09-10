@@ -2,22 +2,22 @@
 #define USER_H
 
 #include <string>
-#include "user_input.h"
 #include "system_utility.h"
+#include "user_credit.h"
+#include "user_input.h"
 #include "user_messanger.h"
 #include "user_parameters.h"
-#include "user_credit.h"
 
 class AtmUser {
   using string = std::string;
-    enum MenuSection {
-      kAccountSection = 1,
-      kRefillSection,
-      kCreditSection,
-      kWidthdrawalSection,
-      kStatementSection,
-      kExitSection,
-    };
+  enum MenuSection {
+    kAccountSection = 1,
+    kRefillSection,
+    kCreditSection,
+    kWidthdrawalSection,
+    kStatementSection,
+    kExitSection,
+  };
 
  public:
   AtmUser() {}
@@ -25,41 +25,33 @@ class AtmUser {
           double monthly_payment, int amount_of_credit_month);
 
   void Registration();
+  void WishGoodDay();
 
-  void GetPassword();
-  void GetLogin();
-
-  bool IsNormalLogin() const;
-  bool IsNormalPass() const;
-  bool AlreadyHasACredit() const;
-  bool IsWithdrawalAcceptable(double cash_sum) const;
-
+ private:
   bool Refill();
   bool Statement();
   bool ShowAccountInfo();
   bool ConsiderACredit();
   bool WithdrawCash();
 
-  void ShowIncorrectDataMessage();
-
-  void MonthToRepay();
-  void WishGoodDay();
-
-  void InitialRegistrationScreen();
-  void NoticeAboutSuccessfulRegistration();
-  void NoticeAboutIncorrectLogin();
-  void NoticeAboutIncorrectPassword();
-
-
- private:
+  void GetLogin();
+  void GetPassword();
   void RunProgramUntilUserWantToExit();
   bool RunProgram();
   bool HandleUserChoice(int choice);
 
+  void NoticeAboutSuccessfulRegistration();
+  void NoticeAboutIncorrectLogin();
+  void NoticeAboutIncorrectPassword();
+
+  void InitialRegistrationScreen();
   void SetupProgram();
+
+  void MonthToRepay();
 
   void ShowTransactionMenu();
 
+  void ShowIncorrectDataMessage();
   void WithdrawFromAccount(int sum_of_withdrawal);
 
   bool RefuseACredit();
@@ -71,12 +63,17 @@ class AtmUser {
   bool SuggestUserToExitWithConfirmationMenu();
 
   bool CreditApplication();
-  bool RefusToGrantAnotherCredit();
+  bool RefuseToGrantAnotherCredit();
   bool GiveACredit();
   bool ExitCreditMenu();
   bool ReloadProgram();
 
   int GetCreditMonths();
+
+  bool IsNormalLogin() const;
+  bool IsNormalPass() const;
+  bool AlreadyHasACredit() const;
+  bool IsWithdrawalAcceptable(double cash_sum) const;
 
   bool IsCorrectPassword(const string &password);
 
@@ -102,7 +99,6 @@ class AtmUser {
   SystemUtility utility_;
   UserMessanger user_messanger_;
   UserCredit user_credit_;
-
 };
 
 #endif  // USER_H

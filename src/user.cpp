@@ -92,7 +92,7 @@ bool AtmUser::Refill() {
 
 bool AtmUser::CreditApplication() {
   if (AlreadyHasACredit()) {
-    return RefusToGrantAnotherCredit();
+    return RefuseToGrantAnotherCredit();
   } else {
     return ConsiderACredit();
   }
@@ -304,7 +304,7 @@ bool AtmUser::RefuseACredit() {
 
 void AtmUser::SetupProgram() { utility_.ClearScreen(); }
 
-bool AtmUser::RefusToGrantAnotherCredit() {
+bool AtmUser::RefuseToGrantAnotherCredit() {
   user_messanger_.RefusToGrantAnotherCredit();
   return ShowAccountInfo();
 }
@@ -351,7 +351,7 @@ void AtmUser::WriteTextWithDelay(const string &text) const {
   cout << "\n";
 }
 
-void AtmUser::InitialRegistrationScreen() {
+void AtmUser::InitialRegistrationScreen(){
   user_messanger_.ShowRegistrationScreen();
 }
 
