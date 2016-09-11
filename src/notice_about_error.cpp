@@ -47,3 +47,10 @@ void NoticeAboutError::ShowUnacceptableWithdrawal(
   user_messenger_.WriteUserInfo("Balance", std::to_string(account_info.cash_));
   utility_.IgnoreCinLine();
 }
+
+bool NoticeAboutError::ShowIncorrectDataMessage() {
+    utility_.WriteTextWithDelay(
+        "\t Data is not correct, please reload the program.\n\n");
+    cin.get();
+    return true;
+}

@@ -62,7 +62,7 @@ class AtmUser {
   bool RefuseToGrantAnotherCredit();
   bool GiveACredit();
   bool ExitCreditMenu();
-  bool ReloadProgram();
+
 
   int GetCreditMonths();
 

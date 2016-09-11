@@ -21,6 +21,8 @@ class NoticeAboutError {
   void NoticeAboutIncorrectDataMessage() const;
   void NoticeAboutIncorrectSum() const;
 
+  bool ShowIncorrectDataMessage();
+
  private:
   SystemUtility utility_;
   UserMessanger user_messenger_;
