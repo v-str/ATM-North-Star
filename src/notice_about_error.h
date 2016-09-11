@@ -13,6 +13,7 @@ public:
     NoticeAboutError();
 
     void ShowIncorrectLoginMessage() const;
+    void ShowIncorrectFormatPasswordMessage() const;
 private:
 
     SystemUtility utility_;

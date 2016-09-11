@@ -4,8 +4,8 @@
 #include <iostream>
 #include <string>
 
-#include "system_utility.h"
 #include "account_info.h"
+#include "system_utility.h"
 
 using std::cout;
 using std::cin;
@@ -18,8 +18,8 @@ class UserMessanger {
 
   void WriteSymbolsNTimes(char symbol, int n) const;
   void ShowRegistrationScreen() const;
-  void ShowIncorrectLoginMessage() const;
-  void ShowIncorrectFormatPasswordMessage() const;
+
+//  void ShowIncorrectFormatPasswordMessage() const;
 
   void WriteUserInfo(const string &info_title, const string &value);
 

@@ -24,12 +24,12 @@ class IdentificationOfUser {
   bool IsNormalLogin();
   bool IsNormalPass();
 
+  void ShowAccountInformation();
   void NoticeAboutSuccessfulRegistration();
 
   void NoticeAboutIncorrectLogin() const;
   void NoticeAboutIncorrectPassword() const;
 
-  void ShowAccountInformation();
 
   AccountInfo account_info_;
 

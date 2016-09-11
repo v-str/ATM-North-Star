@@ -33,18 +33,6 @@ bool IdentificationOfUser::IsNormalPass() {
   return account_info_.password_.length() == kMaxLenghtOfPassword;
 }
 
-void IdentificationOfUser::NoticeAboutIncorrectLogin() const {
-  error_.ShowIncorrectLoginMessage();
-}
-
-void IdentificationOfUser::NoticeAboutIncorrectPassword() const {
-  user_messanger_.ShowIncorrectFormatPasswordMessage();
-}
-
-void IdentificationOfUser::ShowAccountInformation() {
-  user_messanger_.ShowAccountInfo(account_info_);
-}
-
 void IdentificationOfUser::NoticeAboutSuccessfulRegistration() {
   utility_.IgnoreCinLine();
   utility_.ClearScreen();
@@ -56,3 +44,16 @@ void IdentificationOfUser::NoticeAboutSuccessfulRegistration() {
   account_info_.monthly_payment_ = 0.0;
   account_info_.amount_of_credit_month_ = 0;
 }
+
+void IdentificationOfUser::NoticeAboutIncorrectLogin() const {
+  error_.ShowIncorrectLoginMessage();
+}
+
+void IdentificationOfUser::NoticeAboutIncorrectPassword() const {
+  error_.ShowIncorrectFormatPasswordMessage();
+}
+
+void IdentificationOfUser::ShowAccountInformation() {
+  user_messanger_.ShowAccountInfo(account_info_);
+}
+
