@@ -27,11 +27,11 @@ void AtmUser::Registration() {
   InitialRegistrationScreen();
   identification_of_user_.GetLogin();
   if (!identification_of_user_.IsNormalLogin()) {
-    NoticeAboutIncorrectLogin();
+    identification_of_user_.NoticeAboutIncorrectLogin();
   } else {
     identification_of_user_.GetPassword();
     if (!identification_of_user_.IsNormalPass()) {
-      NoticeAboutIncorrectPassword();
+      identification_of_user_.NoticeAboutIncorrectPassword();
     } else {
       NoticeAboutSuccessfulRegistration();
       RunProgramUntilUserWantToExit();
@@ -367,13 +367,13 @@ void AtmUser::NoticeAboutSuccessfulRegistration() {
   account_info_.amount_of_credit_month_ = 0;
 }
 
-void AtmUser::NoticeAboutIncorrectLogin() {
-  user_messanger_.ShowIncorrectLoginMessage();
-}
+//void AtmUser::NoticeAboutIncorrectLogin() {
+//  user_messanger_.ShowIncorrectLoginMessage();
+//}
 
-void AtmUser::NoticeAboutIncorrectPassword() {
-  user_messanger_.ShowIncorrectFormatPasswordMessage();
-}
+//void AtmUser::NoticeAboutIncorrectPassword() {
+//  user_messanger_.ShowIncorrectFormatPasswordMessage();
+//}
 
 // void AtmUser::GetPassword() {
 //  cout << "\t\tPassword: XXXX\b\b\b\b";

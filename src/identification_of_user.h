@@ -22,9 +22,9 @@ class IdentificationOfUser {
   bool IsNormalLogin();
   bool IsNormalPass();
 
-  void NoticeAboutIncorrectPassword();
-  void NoticeAboutIncorrectLogin();
-  void NoticeAboutSuccessfulRegistration();
+  void NoticeAboutIncorrectLogin() const;
+  void NoticeAboutIncorrectPassword() const;
+  void NoticeAboutSuccessfulRegistration() const;
 
   AccountInfo account_info_;
 

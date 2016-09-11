@@ -33,3 +33,11 @@ bool IdentificationOfUser::IsNormalLogin() {
 bool IdentificationOfUser::IsNormalPass() {
   return account_info_.password_.length() == 4;
 }
+
+void IdentificationOfUser::NoticeAboutIncorrectLogin() const {
+  user_messanger_.ShowIncorrectLoginMessage();
+}
+
+void IdentificationOfUser::NoticeAboutIncorrectPassword() const {
+     user_messanger_.ShowIncorrectFormatPasswordMessage();
+}

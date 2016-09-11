@@ -42,8 +42,8 @@ class AtmUser {
   bool HandleUserChoice(int choice);
 
   void NoticeAboutSuccessfulRegistration();
-  void NoticeAboutIncorrectLogin();
-  void NoticeAboutIncorrectPassword();
+  //void NoticeAboutIncorrectLogin();
+  //void NoticeAboutIncorrectPassword();
 
   void InitialRegistrationScreen();
   void SetupProgram();

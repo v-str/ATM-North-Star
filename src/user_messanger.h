@@ -18,8 +18,8 @@ class UserMessanger {
 
   void WriteSymbolsNTimes(char symbol, int n) const;
   void ShowRegistrationScreen();
-  void ShowIncorrectLoginMessage();
-  void ShowIncorrectFormatPasswordMessage();
+  void ShowIncorrectLoginMessage() const;
+  void ShowIncorrectFormatPasswordMessage() const;
 
   void WriteUserInfo(const string &info_title, const string &value);
 

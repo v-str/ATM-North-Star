@@ -18,7 +18,7 @@ void UserMessanger::ShowRegistrationScreen() {
           "\t\t   ********************\n";
 }
 
-void UserMessanger::ShowIncorrectLoginMessage() {
+void UserMessanger::ShowIncorrectLoginMessage() const{
   utility_.ClearScreen();
   cout << "\n\n\n\n\t|---------------------------|\n";
   utility_.WriteTextWithDelay(
@@ -29,7 +29,7 @@ void UserMessanger::ShowIncorrectLoginMessage() {
   cout << "\t|---------------------------|\n\n";
 }
 
-void UserMessanger::ShowIncorrectFormatPasswordMessage() {
+void UserMessanger::ShowIncorrectFormatPasswordMessage() const{
   utility_.ClearScreen();
   cout << "\n\n\n\n\t|---------------------------|\n";
   utility_.WriteTextWithDelay(
