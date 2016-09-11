@@ -66,8 +66,6 @@ class AtmUser {
 
   int GetCreditMonths();
 
-  // bool IsNormalLogin() const;
-  // bool IsNormalPass() const;
   bool AlreadyHasACredit() const;
   bool IsWithdrawalAcceptable(double cash_sum) const;
 

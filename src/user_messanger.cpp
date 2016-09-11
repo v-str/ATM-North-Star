@@ -78,15 +78,6 @@ void UserMessanger::ShowAccountInfo(const AccountInfo &account_info) {
                 std::to_string(account_info.amount_of_credit_month_));
 }
 
-//void UserMessanger::ShowUnacceptableWithdrawal(const AccountInfo &account_info,
-//                                               int incorrect_sum) {
-//  utility_.ClearScreen();
-//  utility_.WriteTextWithDelay("\n\t Sorry, entered sum is incorrect.\n\n");
-//  cout << "\t Entered sum: " << incorrect_sum << "\n\n";
-//  WriteUserInfo("Balance", std::to_string(account_info.cash_));
-//  utility_.IgnoreCinLine();
-//}
-
 UserMessanger::string UserMessanger::SuggestToConfirmACredit() {
   string menu_text(
       "\n\t# Do you confirm the loan?\n"
