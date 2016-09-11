@@ -78,12 +78,6 @@ void UserInput::ShowExitMessage() const {
 }
 
 bool UserInput::ShowIncorrectMessage() const {
-  utility_.WriteTextWithDelay(
-      "\n\t# Data is not correct,\n"
-      "\t# return to main?\n"
-      "\t# 1. Yes\n"
-      "\t# 2. No, exit");
-  cout << "\t# Enter: ";
-  cin.clear();
+  error_.NoticeAboutIncorrectDataMessage();
   return GetResultFromUserAboutExit();
 }

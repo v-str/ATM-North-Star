@@ -46,11 +46,11 @@ void IdentificationOfUser::NoticeAboutSuccessfulRegistration() {
 }
 
 void IdentificationOfUser::NoticeAboutIncorrectLogin() const {
-  error_.ShowIncorrectLoginMessage();
+  error_.NoticeAboutIncorrectLoginMessage();
 }
 
 void IdentificationOfUser::NoticeAboutIncorrectPassword() const {
-  error_.ShowIncorrectFormatPasswordMessage();
+  error_.NoticeAboutIncorrectFormatPasswordMessage();
 }
 
 void IdentificationOfUser::ShowAccountInformation() {

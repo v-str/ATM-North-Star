@@ -8,6 +8,7 @@
 #include "user_credit.h"
 #include "user_input.h"
 #include "user_messanger.h"
+#include "notice_about_error.h"
 
 class AtmUser {
   using string = std::string;
@@ -95,6 +96,7 @@ class AtmUser {
   UserMessanger user_messanger_;
   UserCredit user_credit_;
   IdentificationOfUser identification_of_user_;
+  NoticeAboutError error_;
 };
 
 #endif  // USER_H

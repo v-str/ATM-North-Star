@@ -12,8 +12,12 @@ class NoticeAboutError
 public:
     NoticeAboutError();
 
-    void ShowIncorrectLoginMessage() const;
-    void ShowIncorrectFormatPasswordMessage() const;
+    void NoticeAboutIncorrectLoginMessage() const;
+    void NoticeAboutIncorrectFormatPasswordMessage() const;
+
+    void NoticeAboutIncorrectDataMessage() const;
+    void NoticeAboutIncorrectSum() const;
+
 private:
 
     SystemUtility utility_;

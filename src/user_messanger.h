@@ -19,8 +19,6 @@ class UserMessanger {
   void WriteSymbolsNTimes(char symbol, int n) const;
   void ShowRegistrationScreen() const;
 
-//  void ShowIncorrectFormatPasswordMessage() const;
-
   void WriteUserInfo(const string &info_title, const string &value);
 
   void ShowAccountInfo(const AccountInfo &account_info);
@@ -30,7 +28,6 @@ class UserMessanger {
   void ShowNotifyAboutCash();
 
   void ShowUserBalance(double balance);
-  void ShowIncorrectSum();
 
   void ShowUnacceptableWithdrawal(const AccountInfo &account_info,
                                   int incorrect_sum);

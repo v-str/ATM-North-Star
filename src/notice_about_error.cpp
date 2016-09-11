@@ -2,7 +2,7 @@
 
 NoticeAboutError::NoticeAboutError() {}
 
-void NoticeAboutError::ShowIncorrectLoginMessage() const {
+void NoticeAboutError::NoticeAboutIncorrectLoginMessage() const {
   utility_.ClearScreen();
   cout << "\n\n\n\n\t|---------------------------|\n";
   utility_.WriteTextWithDelay(
@@ -13,7 +13,7 @@ void NoticeAboutError::ShowIncorrectLoginMessage() const {
   cout << "\t|---------------------------|\n\n";
 }
 
-void NoticeAboutError::ShowIncorrectFormatPasswordMessage() const {
+void NoticeAboutError::NoticeAboutIncorrectFormatPasswordMessage() const {
   utility_.ClearScreen();
   cout << "\n\n\n\n\t|---------------------------|\n";
   utility_.WriteTextWithDelay(
@@ -21,4 +21,21 @@ void NoticeAboutError::ShowIncorrectFormatPasswordMessage() const {
       "\t|It must be in XXXX format. |\n"
       "\t|Please, reload the program.|");
   cout << "\t|---------------------------|\n\n\t\t\t";
+}
+
+void NoticeAboutError::NoticeAboutIncorrectDataMessage() const {
+  utility_.WriteTextWithDelay(
+      "\n\t# Data is not correct,\n"
+      "\t# return to main?\n"
+      "\t# 1. Yes\n"
+      "\t# 2. No, exit");
+  cout << "\t# Enter: ";
+  cin.clear();
+}
+
+void NoticeAboutError::NoticeAboutIncorrectSum() const
+{
+    cout << "\n\tIncorrect sum, Reconnect to repeat.\n"
+            "\t\t - Press any key - \n\n";
+    cin.clear();
 }

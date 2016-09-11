@@ -82,7 +82,7 @@ bool AtmUser::Refill() {
     account_info_.cash_ += money;
     user_messanger_.ShowUserBalance(account_info_.cash_);
   } else {
-    user_messanger_.ShowIncorrectSum();
+    error_.NoticeAboutIncorrectSum();
   }
   utility_.IgnoreCinLine();
   return user_input_.SuggestUserToExit();

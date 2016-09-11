@@ -18,16 +18,6 @@ void UserMessanger::ShowRegistrationScreen() const {
           "\t\t   ********************\n";
 }
 
-//void UserMessanger::ShowIncorrectFormatPasswordMessage() const {
-//  utility_.ClearScreen();
-//  cout << "\n\n\n\n\t|---------------------------|\n";
-//  utility_.WriteTextWithDelay(
-//      "\t|Incorrect password.        |\n"
-//      "\t|It must be in XXXX format. |\n"
-//      "\t|Please, reload the program.|");
-//  cout << "\t|---------------------------|\n\n\t\t\t";
-//}
-
 void UserMessanger::ShowTransactionMenu() {
   utility_.ClearScreen();
   string select =
@@ -65,12 +55,6 @@ void UserMessanger::ShowUserBalance(double balance) {
   cout << "\n\t";
   cin.sync();
   utility_.Sleep(1000);
-}
-
-void UserMessanger::ShowIncorrectSum() {
-  cout << "\n\tIncorrect sum, Reconnect to repeat.\n"
-          "\t\t - Press any key - \n\n";
-  cin.clear();
 }
 
 void UserMessanger::WriteUserInfo(const UserMessanger::string &info_title,

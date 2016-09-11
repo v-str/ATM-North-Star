@@ -5,6 +5,7 @@
 
 #include "demo_user_messanger.h"
 #include "system_utility.h"
+#include "notice_about_error.h"
 
 class UserInput {
   using string = std::string;
@@ -24,6 +25,7 @@ class UserInput {
   string GetLineFromUser() const;
 
   SystemUtility utility_;
+  NoticeAboutError error_;
 };
 
 #endif  // CORRECT_INPUT_H
