@@ -1,8 +1,7 @@
 #include "identification_of_user.h"
 
-static const int kMinimalSumForCredit = 1000;
-
 static const int kMaxLenghtOfLogin = 21;
+static const int kMaxLenghtOfPassword = 4;
 
 IdentificationOfUser::IdentificationOfUser() {}
 
@@ -31,7 +30,7 @@ bool IdentificationOfUser::IsNormalLogin() {
 }
 
 bool IdentificationOfUser::IsNormalPass() {
-  return account_info_.password_.length() == 4;
+  return account_info_.password_.length() == kMaxLenghtOfPassword;
 }
 
 void IdentificationOfUser::NoticeAboutIncorrectLogin() const {
