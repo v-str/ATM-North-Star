@@ -4,11 +4,11 @@
 #include <string>
 #include "account_info.h"
 #include "identification_of_user.h"
+#include "notice_about_error.h"
 #include "system_utility.h"
 #include "user_credit.h"
 #include "user_input.h"
 #include "user_messanger.h"
-#include "notice_about_error.h"
 
 class AtmUser {
   using string = std::string;
@@ -33,17 +33,17 @@ class AtmUser {
   void InitialRegistrationScreen();
   void RunProgramUntilUserWantToExit();
 
-  void SetupProgram();// problem with name of method
+  void SetupProgram();  // problem with name of method
 
   bool RunProgram();
   bool HandleUserChoice(int choice);
 
-  //ShowAccountInfo
+  // ShowAccountInfo
   //=======================
   bool ShowAccountInfo();
   //=======================
 
-  //Refill
+  // Refill
   //=======================
   bool Refill();
   //=======================
@@ -51,48 +51,21 @@ class AtmUser {
   // Class UserCredit
   //=======================================================
   bool CreditApplication();
-  bool AlreadyHasACredit() const;
-  bool RefuseToGrantAnotherCredit();
-  bool ConsiderACreditBasedOnCash();
-  bool GiveACredit();
-  bool MaxCreditCalculation(int maximal_sum_of_credit);
-  bool IndividualCreditCalculation(int maximal_sum_of_credit);
-  bool EnrollACredit(double sum_of_credit, double pay_per_month);
-  bool RepealACredit();
-  bool ExitCreditMenu();
   //========================================================
-
-
-
-
-
 
   bool WithdrawCash();
   bool Statement();
-
-
-  bool ConsiderACredit();
-
-  void MonthToRepay();
 
   void ShowTransactionMenu();
 
   void ShowIncorrectDataMessage();
   void WithdrawFromAccount(int sum_of_withdrawal);
 
-  bool RefuseACredit();
-
-
-
   bool SuggestUserToExitWithConfirmationMenu();
-
-
-  int GetCreditMonths();
 
   bool IsWithdrawalAcceptable(double cash_sum) const;
 
   bool IsCorrectPassword(const string &password);
-
 
   int GetUserChoice(const string &choice_text) const;
   int GetChoiceFromUser() const;
@@ -105,8 +78,6 @@ class AtmUser {
   int SumOfWithdrawal() const;
 
   string GetSpaces(int cash_) const;
-
-  //AccountInfo account_info_;
 
   UserInput user_input_;
   SystemUtility utility_;
