@@ -31,3 +31,7 @@ int UserCredit::GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit) {
 
   return user_sum_of_credit;
 }
+
+bool UserCredit::AlreadyHasACredit(AccountInfo &account_info) const {
+  return account_info.credit_ > 0;
+}

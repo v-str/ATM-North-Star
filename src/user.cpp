@@ -13,12 +13,13 @@ static const int kMinimalSumForCredit = 1000;
 AtmUser::AtmUser(const string &login, const string &password, double cash,
                  int credit, double monthly_payment,
                  int amount_of_credit_month) {
-  account_info_.login_ = login;
-  account_info_.password_ = password;
-  account_info_.cash_ = cash;
-  account_info_.credit_ = credit;
-  account_info_.monthly_payment_ = monthly_payment;
-  account_info_.amount_of_credit_month_ = amount_of_credit_month;
+  identification_of_user_.account_info_.login_ = login;
+  identification_of_user_.account_info_.password_ = password;
+  identification_of_user_.account_info_.cash_ = cash;
+  identification_of_user_.account_info_.credit_ = credit;
+  identification_of_user_.account_info_.monthly_payment_ = monthly_payment;
+  identification_of_user_.account_info_.amount_of_credit_month_ =
+      amount_of_credit_month;
 }
 
 void AtmUser::Registration() {
@@ -79,8 +80,9 @@ bool AtmUser::Refill() {
   int money = 0;
   cin >> money;
   if (money >= 10 && money <= 50000) {
-    account_info_.cash_ += money;
-    user_messanger_.ShowUserBalance(account_info_.cash_);
+    identification_of_user_.account_info_.cash_ += money;
+    user_messanger_.ShowUserBalance(
+        identification_of_user_.account_info_.cash_);
   } else {
     error_.NoticeAboutIncorrectSum();
   }
@@ -89,7 +91,7 @@ bool AtmUser::Refill() {
 }
 
 bool AtmUser::CreditApplication() {
-  if (AlreadyHasACredit()) {
+  if (user_credit_.AlreadyHasACredit(identification_of_user_.account_info_)) {
     return RefuseToGrantAnotherCredit();
   } else {
     return ConsiderACredit();
@@ -110,7 +112,7 @@ bool AtmUser::ConsiderACredit() {
 }
 
 bool AtmUser::ConsiderACreditBasedOnCash() {
-  if (account_info_.cash_ >= kMinimalSumForCredit) {
+  if (identification_of_user_.account_info_.cash_ >= kMinimalSumForCredit) {
     return GiveACredit();
   } else {
     return RefuseACredit();
@@ -118,7 +120,7 @@ bool AtmUser::ConsiderACreditBasedOnCash() {
 }
 
 bool AtmUser::GiveACredit() {
-  int maximal_sum_of_credit = 15 * account_info_.cash_;
+  int maximal_sum_of_credit = 15 * identification_of_user_.account_info_.cash_;
   user_messanger_.ShowCreditConditions(maximal_sum_of_credit);
   int choice = user_input_.GetChoiceFromUser();
   if (choice == 1) {
@@ -139,10 +141,11 @@ bool AtmUser::MaxCreditCalculation(int maximal_sum_of_credit) {
 
   utility_.ClearScreen();
 
-  string user_login = account_info_.login_;
+  string user_login = identification_of_user_.account_info_.login_;
   user_messanger_.ShowInfoAboutCredit(user_login, maximal_sum_of_credit);
 
-  int amount_of_months = account_info_.amount_of_credit_month_;
+  int amount_of_months =
+      identification_of_user_.account_info_.amount_of_credit_month_;
 
   double pay_per_month =
       user_credit_.CalculateCredit(maximal_sum_of_credit, amount_of_months);
@@ -160,15 +163,15 @@ bool AtmUser::MaxCreditCalculation(int maximal_sum_of_credit) {
   }
 }
 
-bool AtmUser::EnrollACredit(double max_sum, double pay_per_month) {
-  account_info_.credit_ = max_sum;
-  account_info_.monthly_payment_ = pay_per_month;
+bool AtmUser::EnrollACredit(double sum_of_credit, double pay_per_month) {
+  identification_of_user_.account_info_.credit_ = sum_of_credit;
+  identification_of_user_.account_info_.monthly_payment_ = pay_per_month;
   user_messanger_.ShowEnrollACredit();
   return user_input_.SuggestUserToExit();
 }
 
 bool AtmUser::RepealACredit() {
-  account_info_.amount_of_credit_month_ = 0;
+  identification_of_user_.account_info_.amount_of_credit_month_ = 0;
   utility_.WriteTextWithDelay("\n\t# Credit is repealed...\n");
   utility_.IgnoreCinLine();
   return user_input_.SuggestUserToExit();
@@ -187,10 +190,11 @@ bool AtmUser::IndividualCreditCalculation(int maximal_sum_of_credit) {
       user_credit_.GetIndividualSumOfCreditFromUser(maximal_sum_of_credit);
   MonthToRepay();
 
-  int amount_of_months = account_info_.amount_of_credit_month_;
+  int amount_of_months =
+      identification_of_user_.account_info_.amount_of_credit_month_;
 
-  user_messanger_.ShowIndividualCreditInfo(account_info_.login_,
-                                           user_sum_of_credit);
+  user_messanger_.ShowIndividualCreditInfo(
+      identification_of_user_.account_info_.login_, user_sum_of_credit);
 
   double pay_per_month =
       user_credit_.CalculateCredit(user_sum_of_credit, amount_of_months);
@@ -213,7 +217,7 @@ bool AtmUser::IndividualCreditCalculation(int maximal_sum_of_credit) {
 }
 
 bool AtmUser::RefuseACredit() {
-  int sum_of_cash = account_info_.cash_;
+  int sum_of_cash = identification_of_user_.account_info_.cash_;
   user_messanger_.ShowRefuseACredit(sum_of_cash);
 
   return user_input_.SuggestUserToExit();
@@ -226,21 +230,22 @@ bool AtmUser::WithdrawCash() {
     string password = identification_of_user_.GetPasswordFromUser();
     if (IsCorrectPassword(password)) {
       WithdrawFromAccount(sum_of_withdrawal);
-      user_messanger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
-                                               account_info_.cash_);
+      user_messanger_.ShowSuccessfulWithdrawal(
+          sum_of_withdrawal, identification_of_user_.account_info_.cash_);
     } else {
       user_messanger_.ShowIncorrectPasswordMessage();
     }
   } else {
-    error_.ShowUnacceptableWithdrawal(account_info_, sum_of_withdrawal);
+    error_.ShowUnacceptableWithdrawal(identification_of_user_.account_info_,
+                                      sum_of_withdrawal);
   }
   return user_input_.SuggestUserToExit();
 }
 
 bool AtmUser::Statement() {
   utility_.ClearScreen();
-  string spaces = GetSpaces(account_info_.cash_);
-  int cash = account_info_.cash_;
+  string spaces = GetSpaces(identification_of_user_.account_info_.cash_);
+  int cash = identification_of_user_.account_info_.cash_;
   user_messanger_.ShowStatement(cash, spaces);
   return user_input_.SuggestUserToExit();
 }
@@ -264,10 +269,13 @@ int AtmUser::NumberOfDigits(int value) const {
   return number_of_digits;
 }
 
-bool AtmUser::AlreadyHasACredit() const { return account_info_.credit_ > 0; }
+bool AtmUser::AlreadyHasACredit() const {
+  return identification_of_user_.account_info_.credit_ > 0;
+}
 
 bool AtmUser::IsWithdrawalAcceptable(double cash_sum) const {
-  return cash_sum > 0 && cash_sum <= account_info_.cash_;
+  return cash_sum > 0 &&
+         cash_sum <= identification_of_user_.account_info_.cash_;
 }
 
 void AtmUser::ShowIncorrectDataMessage() {
@@ -286,7 +294,8 @@ int AtmUser::GetCreditMonths() {
   if (months <= 0 || months > 61) {
     return 0;
   } else {
-    return account_info_.amount_of_credit_month_ = months;
+    return identification_of_user_.account_info_.amount_of_credit_month_ =
+               months;
   }
 }
 
@@ -348,9 +357,9 @@ int AtmUser::SumOfWithdrawal() const {
 }
 
 bool AtmUser::IsCorrectPassword(const string &password) {
-  return password == account_info_.password_;
+  return password == identification_of_user_.account_info_.password_;
 }
 
 void AtmUser::WithdrawFromAccount(int sum_of_withdrawal) {
-  account_info_.cash_ -= sum_of_withdrawal;
+  identification_of_user_.account_info_.cash_ -= sum_of_withdrawal;
 }

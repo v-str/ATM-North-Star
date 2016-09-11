@@ -30,18 +30,48 @@ class AtmUser {
   void WishGoodDay();
 
  private:
-  bool Refill();
-  bool Statement();
-  bool ShowAccountInfo();
-  bool ConsiderACredit();
-  bool WithdrawCash();
-
+  void InitialRegistrationScreen();
   void RunProgramUntilUserWantToExit();
+
+  void SetupProgram();// problem with name of method
+
   bool RunProgram();
   bool HandleUserChoice(int choice);
 
-  void InitialRegistrationScreen();
-  void SetupProgram();
+  //ShowAccountInfo
+  //=======================
+  bool ShowAccountInfo();
+  //=======================
+
+  //Refill
+  //=======================
+  bool Refill();
+  //=======================
+
+  // Class UserCredit
+  //=======================================================
+  bool CreditApplication();
+  bool AlreadyHasACredit() const;
+  bool RefuseToGrantAnotherCredit();
+  bool ConsiderACreditBasedOnCash();
+  bool GiveACredit();
+  bool MaxCreditCalculation(int maximal_sum_of_credit);
+  bool IndividualCreditCalculation(int maximal_sum_of_credit);
+  bool EnrollACredit(double sum_of_credit, double pay_per_month);
+  bool RepealACredit();
+  bool ExitCreditMenu();
+  //========================================================
+
+
+
+
+
+
+  bool WithdrawCash();
+  bool Statement();
+
+
+  bool ConsiderACredit();
 
   void MonthToRepay();
 
@@ -52,28 +82,17 @@ class AtmUser {
 
   bool RefuseACredit();
 
-  bool IndividualCreditCalculation(int maximal_sum_of_credit);
 
-  bool ConsiderACreditBasedOnCash();
 
   bool SuggestUserToExitWithConfirmationMenu();
-
-  bool CreditApplication();
-  bool RefuseToGrantAnotherCredit();
-  bool GiveACredit();
-  bool ExitCreditMenu();
 
 
   int GetCreditMonths();
 
-  bool AlreadyHasACredit() const;
   bool IsWithdrawalAcceptable(double cash_sum) const;
 
   bool IsCorrectPassword(const string &password);
 
-  bool MaxCreditCalculation(int maximal_sum_of_credit);
-  bool EnrollACredit(double max_sum, double pay_per_month);
-  bool RepealACredit();
 
   int GetUserChoice(const string &choice_text) const;
   int GetChoiceFromUser() const;
@@ -87,7 +106,7 @@ class AtmUser {
 
   string GetSpaces(int cash_) const;
 
-  AccountInfo account_info_;
+  //AccountInfo account_info_;
 
   UserInput user_input_;
   SystemUtility utility_;
