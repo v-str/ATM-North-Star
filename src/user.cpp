@@ -25,12 +25,12 @@ AtmUser::AtmUser(const string &login, const string &password, double cash,
 
 void AtmUser::Registration() {
   InitialRegistrationScreen();
-  GetLogin();
-  if (!IsNormalLogin()) {
+  identification_of_user_.GetLogin();
+  if (!identification_of_user_.IsNormalLogin()) {
     NoticeAboutIncorrectLogin();
   } else {
-    GetPassword();
-    if (!IsNormalPass()) {
+    identification_of_user_.GetPassword();
+    if (!identification_of_user_.IsNormalPass()) {
       NoticeAboutIncorrectPassword();
     } else {
       NoticeAboutSuccessfulRegistration();
@@ -72,7 +72,7 @@ bool AtmUser::HandleUserChoice(int choice) {
 }
 
 bool AtmUser::ShowAccountInfo() {
-  user_messanger_.ShowAccountInfo(account_info_);
+  user_messanger_.ShowAccountInfo(identification_of_user_.account_info_);
   return user_input_.SuggestUserToExit();
 }
 
@@ -144,14 +144,14 @@ int AtmUser::NumberOfDigits(int value) const {
   return number_of_digits;
 }
 
-bool AtmUser::IsNormalLogin() const {
-  return !account_info_.login_.empty() &&
-         account_info_.login_.length() < kMaxLenghtOfLogin;
-}
+// bool AtmUser::IsNormalLogin() const {
+//  return !account_info_.login_.empty() &&
+//         account_info_.login_.length() < kMaxLenghtOfLogin;
+//}
 
-bool AtmUser::IsNormalPass() const {
-  return account_info_.password_.length() == 4;
-}
+// bool AtmUser::IsNormalPass() const {
+//  return account_info_.password_.length() == 4;
+//}
 
 bool AtmUser::AlreadyHasACredit() const { return account_info_.credit_ > 0; }
 
@@ -351,7 +351,7 @@ void AtmUser::WriteTextWithDelay(const string &text) const {
   cout << "\n";
 }
 
-void AtmUser::InitialRegistrationScreen(){
+void AtmUser::InitialRegistrationScreen() {
   user_messanger_.ShowRegistrationScreen();
 }
 
@@ -375,20 +375,20 @@ void AtmUser::NoticeAboutIncorrectPassword() {
   user_messanger_.ShowIncorrectFormatPasswordMessage();
 }
 
-void AtmUser::GetPassword() {
-  cout << "\t\tPassword: XXXX\b\b\b\b";
-  cin >> account_info_.password_;
-  cin.sync();
-}
+// void AtmUser::GetPassword() {
+//  cout << "\t\tPassword: XXXX\b\b\b\b";
+//  cin >> account_info_.password_;
+//  cin.sync();
+//}
 
-void AtmUser::GetLogin() {
-  cout << "\n\n\n\t\tLogin: ";
+// void AtmUser::GetLogin() {
+//  cout << "\n\n\n\t\tLogin: ";
 
-  user_messanger_.WriteSymbolsNTimes('#', kMaxLenghtOfLogin);
-  user_messanger_.WriteSymbolsNTimes('\b', kMaxLenghtOfLogin);
-  getline(cin, account_info_.login_);
-  cin.sync();
-}
+//  user_messanger_.WriteSymbolsNTimes('#', kMaxLenghtOfLogin);
+//  user_messanger_.WriteSymbolsNTimes('\b', kMaxLenghtOfLogin);
+//  getline(cin, account_info_.login_);
+//  cin.sync();
+//}
 
 int AtmUser::SumOfWithdrawal() const {
   cout << "\n\t# Please, enter the required sum: ";

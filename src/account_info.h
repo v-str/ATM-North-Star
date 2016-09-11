@@ -1,5 +1,5 @@
-#ifndef USER_PARAMETERS_H
-#define USER_PARAMETERS_H
+#ifndef ACCOUNT_INFO_H
+#define ACCOUNT_INFO_H
 
 #include <string>
 
@@ -14,4 +14,4 @@ struct AccountInfo{
   int amount_of_credit_month_ = 0;
 };
 
-#endif  // USER_PARAMETERS_H
+#endif  // ACCOUNT_INFO_H
