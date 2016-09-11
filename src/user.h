@@ -2,12 +2,12 @@
 #define USER_H
 
 #include <string>
+#include "account_info.h"
+#include "identification_of_user.h"
 #include "system_utility.h"
 #include "user_credit.h"
 #include "user_input.h"
 #include "user_messanger.h"
-#include "account_info.h"
-#include "identification_of_user.h"
 
 class AtmUser {
   using string = std::string;
@@ -35,15 +35,9 @@ class AtmUser {
   bool ConsiderACredit();
   bool WithdrawCash();
 
-  //void GetLogin();
-  //void GetPassword();
   void RunProgramUntilUserWantToExit();
   bool RunProgram();
   bool HandleUserChoice(int choice);
-
-  void NoticeAboutSuccessfulRegistration();
-  //void NoticeAboutIncorrectLogin();
-  //void NoticeAboutIncorrectPassword();
 
   void InitialRegistrationScreen();
   void SetupProgram();
@@ -71,8 +65,8 @@ class AtmUser {
 
   int GetCreditMonths();
 
-  //bool IsNormalLogin() const;
-  //bool IsNormalPass() const;
+  // bool IsNormalLogin() const;
+  // bool IsNormalPass() const;
   bool AlreadyHasACredit() const;
   bool IsWithdrawalAcceptable(double cash_sum) const;
 

@@ -39,5 +39,17 @@ void IdentificationOfUser::NoticeAboutIncorrectLogin() const {
 }
 
 void IdentificationOfUser::NoticeAboutIncorrectPassword() const {
-     user_messanger_.ShowIncorrectFormatPasswordMessage();
+  user_messanger_.ShowIncorrectFormatPasswordMessage();
+}
+
+void IdentificationOfUser::NoticeAboutSuccessfulRegistration() {
+  utility_.IgnoreCinLine();
+  utility_.ClearScreen();
+  cout << "\n\n\t\t------------------\n";
+  utility_.WriteTextWithDelay("\t\t| Access allowed |");
+  cout << "\t\t------------------\n";
+  utility_.Sleep(1000);
+  account_info_.credit_ = 0.0;
+  account_info_.monthly_payment_ = 0.0;
+  account_info_.amount_of_credit_month_ = 0;
 }

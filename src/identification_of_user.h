@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "account_info.h"
+#include "system_utility.h"
 #include "user_messanger.h"
 
 using std::cin;
@@ -22,14 +23,16 @@ class IdentificationOfUser {
   bool IsNormalLogin();
   bool IsNormalPass();
 
+  void NoticeAboutSuccessfulRegistration();
+
   void NoticeAboutIncorrectLogin() const;
   void NoticeAboutIncorrectPassword() const;
-  void NoticeAboutSuccessfulRegistration() const;
 
   AccountInfo account_info_;
 
  private:
   UserMessanger user_messanger_;
+  SystemUtility utility_;
 };
 
 #endif  // IDENTIFICATION_OF_USER_H
