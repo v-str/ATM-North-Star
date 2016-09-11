@@ -91,7 +91,7 @@ void UserMessanger::WriteUserInfo(const UserMessanger::string &info_title,
   utility_.Sleep(100);
 }
 
-void UserMessanger::ShowAccountInfo(const AccountInfo &account_info) {
+void UserMessanger::ShowAccountInfo(const AccountInfo &account_info){
   cout << "\t";
   WriteSymbolsNTimes('-', 45);
 

@@ -28,6 +28,8 @@ class IdentificationOfUser {
   void NoticeAboutIncorrectLogin() const;
   void NoticeAboutIncorrectPassword() const;
 
+  void ShowAccountInformation();
+
   AccountInfo account_info_;
 
  private:

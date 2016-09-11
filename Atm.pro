@@ -13,7 +13,8 @@ SOURCES += \
     src/initial_screen.cpp \
     src/user_messanger.cpp \
     src/user_credit.cpp \
-    src/identification_of_user.cpp
+    src/identification_of_user.cpp \
+    src/notice_about_error.cpp
 
 HEADERS += \
     src/user.h \
@@ -25,4 +26,5 @@ HEADERS += \
     src/user_messanger.h \
     src/user_credit.h \
     src/account_info.h \
-    src/identification_of_user.h
+    src/identification_of_user.h \
+    src/notice_about_error.h
