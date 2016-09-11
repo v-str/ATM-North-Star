@@ -153,23 +153,6 @@ void AtmUser::ShowIncorrectDataMessage() {
   user_messanger_.ShowIncorrectDataMessage();
 }
 
-// void AtmUser::MonthToRepay() {
-//  cout << "\nThe number of months to repay the loan: ";
-//  GetCreditMonths();
-//}
-
-// int AtmUser::GetCreditMonths() {
-//  int months = 0;
-//  cin >> months;
-//  utility_.IgnoreCinLine();
-//  if (months <= 0 || months > 61) {
-//    return 0;
-//  } else {
-//    return identification_of_user_.account_info_.amount_of_credit_month_ =
-//               months;
-//  }
-//}
-
 void AtmUser::SetupProgram() { utility_.ClearScreen(); }
 
 bool AtmUser::SuggestUserToExitWithConfirmationMenu() {

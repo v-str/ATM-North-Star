@@ -9,7 +9,6 @@
 #include "notice_about_error.h"
 #include "system_utility.h"
 
-
 #include "user_input.h"
 #include "user_messanger.h"
 
@@ -24,13 +23,15 @@ class UserCredit {
  public:
   UserCredit();
 
-  double CalculateCredit(int sum, int amount_of_months);
-  int GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit);
-
   bool AlreadyHasACredit(AccountInfo &account_info) const;
   void RefuseToGrantAnotherCredit() const;
 
   bool ConsiderACredit(IdentificationOfUser &identification_of_user);
+
+ private:
+  double CalculateCredit(int sum, int amount_of_months);
+  int GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit);
+
   bool ConsiderACreditBasedOnCash(IdentificationOfUser &identification_of_user);
   bool GiveACredit(IdentificationOfUser &identification_of_user);
 
@@ -50,7 +51,6 @@ class UserCredit {
   void MonthToRepay(IdentificationOfUser &identification_of_user);
   int GetCreditMonths(IdentificationOfUser &identification_of_user);
 
- private:
   SystemUtility utility_;
   UserMessanger user_messanger_;
   UserInput user_input_;

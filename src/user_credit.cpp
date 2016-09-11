@@ -4,19 +4,6 @@ static const int kMinimalSumForCredit = 1000;
 
 UserCredit::UserCredit() {}
 
-double UserCredit::CalculateCredit(int sum, int amount_of_months) {
-  double x = (sum * 14) / 100;
-  double pay_per_month = (sum / amount_of_months) + (x / 12);
-  double all_payment = 0.0;
-  for (int i = 0; i < amount_of_months; ++i) {
-    cout << "\t* Payment month: " << i + 1 << "\tPayment sum: ";
-    cout << pay_per_month << " $\n";
-    utility_.Sleep(75);
-    all_payment += pay_per_month;
-  }
-  cout << "\t\t\tTotal: " << all_payment << " $\n\n";
-  return pay_per_month;
-}
 
 int UserCredit::GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit) {
   int user_sum_of_credit = 0;
@@ -34,8 +21,6 @@ int UserCredit::GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit) {
   return user_sum_of_credit;
 }
 
-//======================================================================
-
 bool UserCredit::AlreadyHasACredit(AccountInfo &account_info) const {
   return account_info.credit_ > 0;
 }
@@ -50,6 +35,22 @@ bool UserCredit::ConsiderACredit(IdentificationOfUser &identification_of_user) {
     return ConsiderACreditBasedOnCash(identification_of_user);
   }
   return false;
+}
+
+//======================================================================
+
+double UserCredit::CalculateCredit(int sum, int amount_of_months) {
+  double x = (sum * 14) / 100;
+  double pay_per_month = (sum / amount_of_months) + (x / 12);
+  double all_payment = 0.0;
+  for (int i = 0; i < amount_of_months; ++i) {
+    cout << "\t* Payment month: " << i + 1 << "\tPayment sum: ";
+    cout << pay_per_month << " $\n";
+    utility_.Sleep(75);
+    all_payment += pay_per_month;
+  }
+  cout << "\t\t\tTotal: " << all_payment << " $\n\n";
+  return pay_per_month;
 }
 
 bool UserCredit::ConsiderACreditBasedOnCash(
@@ -128,8 +129,8 @@ bool UserCredit::IndividualCreditCalculation(
   string loan_confirmation_menu_text =
       user_messanger_.SuggestToConfirmACredit();
 
-  int choice =
-      user_choice_.GetUserChoiceWithMenuText(loan_confirmation_menu_text, "Enter: ");
+  int choice = user_choice_.GetUserChoiceWithMenuText(
+      loan_confirmation_menu_text, "Enter: ");
 
   if (choice == 1) {
     return EnrollACredit(identification_of_user, user_sum_of_credit,
