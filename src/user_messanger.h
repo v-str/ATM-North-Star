@@ -31,7 +31,6 @@ class UserMessanger {
 
   void ShowUnacceptableWithdrawal(const AccountInfo &account_info,
                                   int incorrect_sum);
-  string GetPasswordFromUser();
   string SuggestToConfirmACredit();
 
   void ShowSumOfWithdrawal(int sum_of_cash) const;

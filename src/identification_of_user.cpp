@@ -53,7 +53,13 @@ void IdentificationOfUser::NoticeAboutIncorrectPassword() const {
   error_.NoticeAboutIncorrectFormatPasswordMessage();
 }
 
+IdentificationOfUser::string IdentificationOfUser::GetPasswordFromUser() {
+  string password;
+  cin >> password;
+  utility_.IgnoreCinLine();
+  return password;
+}
+
 void IdentificationOfUser::ShowAccountInformation() {
   user_messanger_.ShowAccountInfo(account_info_);
 }
-

@@ -87,13 +87,6 @@ void UserMessanger::ShowUnacceptableWithdrawal(const AccountInfo &account_info,
   utility_.IgnoreCinLine();
 }
 
-UserMessanger::string UserMessanger::GetPasswordFromUser() {
-  string password;
-  cin >> password;
-  utility_.IgnoreCinLine();
-  return password;
-}
-
 UserMessanger::string UserMessanger::SuggestToConfirmACredit() {
   string menu_text(
       "\n\t# Do you confirm the loan?\n"

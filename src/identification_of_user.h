@@ -30,6 +30,8 @@ class IdentificationOfUser {
   void NoticeAboutIncorrectLogin() const;
   void NoticeAboutIncorrectPassword() const;
 
+  string GetPasswordFromUser();
+
 
   AccountInfo account_info_;
 

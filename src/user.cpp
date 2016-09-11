@@ -70,8 +70,8 @@ bool AtmUser::HandleUserChoice(int choice) {
 }
 
 bool AtmUser::ShowAccountInfo() {
-    identification_of_user_.ShowAccountInformation();
-    return user_input_.SuggestUserToExit();
+  identification_of_user_.ShowAccountInformation();
+  return user_input_.SuggestUserToExit();
 }
 
 bool AtmUser::Refill() {
@@ -100,7 +100,7 @@ bool AtmUser::WithdrawCash() {
   int sum_of_withdrawal = SumOfWithdrawal();
   if (IsWithdrawalAcceptable(sum_of_withdrawal)) {
     user_messanger_.ShowSumOfWithdrawal(sum_of_withdrawal);
-    string password = user_messanger_.GetPasswordFromUser();
+    string password = identification_of_user_.GetPasswordFromUser();
     if (IsCorrectPassword(password)) {
       WithdrawFromAccount(sum_of_withdrawal);
       user_messanger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
