@@ -10,7 +10,7 @@ void UserMessanger::WriteSymbolsNTimes(char symbol, int n) const {
   }
 }
 
-void UserMessanger::ShowRegistrationScreen() {
+void UserMessanger::ShowRegistrationScreen() const {
   utility_.ClearScreen();
 
   cout << "\n\t\t   ********************\n"
@@ -18,7 +18,7 @@ void UserMessanger::ShowRegistrationScreen() {
           "\t\t   ********************\n";
 }
 
-void UserMessanger::ShowIncorrectLoginMessage() const{
+void UserMessanger::ShowIncorrectLoginMessage() const {
   utility_.ClearScreen();
   cout << "\n\n\n\n\t|---------------------------|\n";
   utility_.WriteTextWithDelay(
@@ -29,7 +29,7 @@ void UserMessanger::ShowIncorrectLoginMessage() const{
   cout << "\t|---------------------------|\n\n";
 }
 
-void UserMessanger::ShowIncorrectFormatPasswordMessage() const{
+void UserMessanger::ShowIncorrectFormatPasswordMessage() const {
   utility_.ClearScreen();
   cout << "\n\n\n\n\t|---------------------------|\n";
   utility_.WriteTextWithDelay(
@@ -91,7 +91,7 @@ void UserMessanger::WriteUserInfo(const UserMessanger::string &info_title,
   utility_.Sleep(100);
 }
 
-void UserMessanger::ShowAccountInfo(const AccountInfo &account_info){
+void UserMessanger::ShowAccountInfo(const AccountInfo &account_info) {
   cout << "\t";
   WriteSymbolsNTimes('-', 45);
 

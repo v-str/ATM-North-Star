@@ -34,16 +34,15 @@ bool IdentificationOfUser::IsNormalPass() {
 }
 
 void IdentificationOfUser::NoticeAboutIncorrectLogin() const {
-  user_messanger_.ShowIncorrectLoginMessage();
+  error_.ShowIncorrectLoginMessage();
 }
 
 void IdentificationOfUser::NoticeAboutIncorrectPassword() const {
-    user_messanger_.ShowIncorrectFormatPasswordMessage();
+  user_messanger_.ShowIncorrectFormatPasswordMessage();
 }
 
-void IdentificationOfUser::ShowAccountInformation()
-{
-    user_messanger_.ShowAccountInfo(account_info_);
+void IdentificationOfUser::ShowAccountInformation() {
+  user_messanger_.ShowAccountInfo(account_info_);
 }
 
 void IdentificationOfUser::NoticeAboutSuccessfulRegistration() {

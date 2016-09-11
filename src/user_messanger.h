@@ -17,7 +17,7 @@ class UserMessanger {
   UserMessanger();
 
   void WriteSymbolsNTimes(char symbol, int n) const;
-  void ShowRegistrationScreen();
+  void ShowRegistrationScreen() const;
   void ShowIncorrectLoginMessage() const;
   void ShowIncorrectFormatPasswordMessage() const;
 

@@ -70,7 +70,6 @@ bool AtmUser::HandleUserChoice(int choice) {
 }
 
 bool AtmUser::ShowAccountInfo() {
-//  user_messanger_.ShowAccountInfo(identification_of_user_.account_info_);
     identification_of_user_.ShowAccountInformation();
     return user_input_.SuggestUserToExit();
 }

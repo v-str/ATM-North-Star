@@ -6,6 +6,7 @@
 #include "account_info.h"
 #include "system_utility.h"
 #include "user_messanger.h"
+#include "notice_about_error.h"
 
 using std::cin;
 using std::cout;
@@ -35,6 +36,7 @@ class IdentificationOfUser {
  private:
   UserMessanger user_messanger_;
   SystemUtility utility_;
+  NoticeAboutError error_;
 };
 
 #endif  // IDENTIFICATION_OF_USER_H
