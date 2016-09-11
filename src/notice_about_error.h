@@ -3,25 +3,28 @@
 
 #include <iostream>
 #include "system_utility.h"
+#include "account_info.h"
+#include "user_messanger.h"
 
 using std::cout;
 using std::cin;
 
-class NoticeAboutError
-{
-public:
-    NoticeAboutError();
+class NoticeAboutError {
+ public:
+  NoticeAboutError();
 
-    void NoticeAboutIncorrectLoginMessage() const;
-    void NoticeAboutIncorrectFormatPasswordMessage() const;
+  void NoticeAboutIncorrectLoginMessage() const;
+  void NoticeAboutIncorrectFormatPasswordMessage() const;
 
-    void NoticeAboutIncorrectDataMessage() const;
-    void NoticeAboutIncorrectSum() const;
+  void NoticeAboutIncorrectDataMessage() const;
+  void NoticeAboutIncorrectSum() const;
 
-private:
+  void ShowUnacceptableWithdrawal(const AccountInfo &account_info,
+                                  int incorrect_sum);
 
-    SystemUtility utility_;
-
+ private:
+  SystemUtility utility_;
+  UserMessanger user_messenger_;
 };
 
-#endif // NOTICE_ABOUT_ERROR_H
+#endif  // NOTICE_ABOUT_ERROR_H

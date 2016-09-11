@@ -33,9 +33,17 @@ void NoticeAboutError::NoticeAboutIncorrectDataMessage() const {
   cin.clear();
 }
 
-void NoticeAboutError::NoticeAboutIncorrectSum() const
-{
-    cout << "\n\tIncorrect sum, Reconnect to repeat.\n"
-            "\t\t - Press any key - \n\n";
-    cin.clear();
+void NoticeAboutError::NoticeAboutIncorrectSum() const {
+  cout << "\n\tIncorrect sum, Reconnect to repeat.\n"
+          "\t\t - Press any key - \n\n";
+  cin.clear();
+}
+
+void NoticeAboutError::ShowUnacceptableWithdrawal(
+    const AccountInfo &account_info, int incorrect_sum) {
+  utility_.ClearScreen();
+  utility_.WriteTextWithDelay("\n\t# Sorry, entered sum is incorrect.\n\n");
+  cout << "\t# Entered sum: " << incorrect_sum << "\n\n";
+  user_messenger_.WriteUserInfo("Balance", std::to_string(account_info.cash_));
+  utility_.IgnoreCinLine();
 }

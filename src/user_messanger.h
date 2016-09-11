@@ -29,8 +29,9 @@ class UserMessanger {
 
   void ShowUserBalance(double balance);
 
-  void ShowUnacceptableWithdrawal(const AccountInfo &account_info,
-                                  int incorrect_sum);
+//  void ShowUnacceptableWithdrawal(const AccountInfo &account_info,
+//                                  int incorrect_sum);
+
   string SuggestToConfirmACredit();
 
   void ShowSumOfWithdrawal(int sum_of_cash) const;
