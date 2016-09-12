@@ -8,11 +8,11 @@
 #include "identification_of_user.h"
 #include "notice_about_error.h"
 #include "system_utility.h"
-
 #include "user_input.h"
 #include "user_messanger.h"
-
 #include "user_choice.h"
+#include "credit_messanger.h"
+
 
 using std::cout;
 using std::cin;
@@ -27,7 +27,7 @@ class UserCredit {
   void RefuseToGrantAnotherCredit() const;
 
   bool ConsiderACredit(IdentificationOfUser &identification_of_user);
-
+  //==========================================================================
  private:
   double CalculateCredit(int sum, int amount_of_months);
   int GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit);
@@ -56,6 +56,7 @@ class UserCredit {
   UserInput user_input_;
   NoticeAboutError error_;
   UserChoice user_choice_;
+  CreditMessanger credit_messanger_;
 };
 
 #endif  // USER_CREDIT_H

@@ -49,7 +49,6 @@ class UserMessanger {
   void ShowIndividualCreditInfo(string &user_login, int sum_of_credit);
 
   void ShowRefuseACredit(int sum_of_cash) const;
-  void RefusToGrantAnotherCredit() const;
 
   void SuggestUserToExit() const;
   void WishAGoodDay() const;

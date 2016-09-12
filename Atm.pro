@@ -15,7 +15,8 @@ SOURCES += \
     src/user_credit.cpp \
     src/identification_of_user.cpp \
     src/notice_about_error.cpp \
-    src/user_choice.cpp
+    src/user_choice.cpp \
+    src/credit_messanger.cpp
 
 HEADERS += \
     src/user.h \
@@ -29,4 +30,5 @@ HEADERS += \
     src/account_info.h \
     src/identification_of_user.h \
     src/notice_about_error.h \
-    src/user_choice.h
+    src/user_choice.h \
+    src/credit_messanger.h

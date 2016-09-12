@@ -4,7 +4,6 @@ static const int kMinimalSumForCredit = 1000;
 
 UserCredit::UserCredit() {}
 
-
 int UserCredit::GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit) {
   int user_sum_of_credit = 0;
   do {
@@ -26,7 +25,7 @@ bool UserCredit::AlreadyHasACredit(AccountInfo &account_info) const {
 }
 
 void UserCredit::RefuseToGrantAnotherCredit() const {
-  user_messanger_.RefusToGrantAnotherCredit();
+  credit_messanger_.RefusToGrantAnotherCredit();
 }
 
 bool UserCredit::ConsiderACredit(IdentificationOfUser &identification_of_user) {
@@ -36,8 +35,6 @@ bool UserCredit::ConsiderACredit(IdentificationOfUser &identification_of_user) {
   }
   return false;
 }
-
-//======================================================================
 
 double UserCredit::CalculateCredit(int sum, int amount_of_months) {
   double x = (sum * 14) / 100;

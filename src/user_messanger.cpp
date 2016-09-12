@@ -214,15 +214,6 @@ void UserMessanger::ShowRefuseACredit(int sum_of_cash) const {
   utility_.Sleep(500);
 }
 
-void UserMessanger::RefusToGrantAnotherCredit() const {
-  utility_.WriteTextWithDelay(
-      "\n #Sorry, but you have already a "
-      "loan in our bank.\n"
-      " #You can't get a second loan, "
-      "while your first loan "
-      "not complete.\n");
-}
-
 void UserMessanger::SuggestUserToExit() const {
   utility_.WriteTextWithDelay(
       "\n\t# Do you really want to exit?\n"
