@@ -8,7 +8,7 @@
 #include "system_utility.h"
 #include "user_credit.h"
 #include "user_input.h"
-#include "user_messanger.h"
+#include "user_messenger.h"
 
 class AtmUser {
   using string = std::string;
@@ -81,7 +81,7 @@ class AtmUser {
 
   UserInput user_input_;
   SystemUtility utility_;
-  UserMessanger user_messanger_;
+  UserMessenger user_messanger_;
   UserCredit user_credit_;
   IdentificationOfUser identification_of_user_;
   NoticeAboutError error_;

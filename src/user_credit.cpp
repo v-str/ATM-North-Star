@@ -25,11 +25,11 @@ bool UserCredit::AlreadyHasACredit(AccountInfo &account_info) const {
 }
 
 void UserCredit::RefuseToGrantAnotherCredit() const {
-  credit_messanger_.RefusToGrantAnotherCredit();
+  credit_messenger_.RefusToGrantAnotherCredit();
 }
 
 bool UserCredit::ConsiderACredit(IdentificationOfUser &identification_of_user) {
-  credit_messanger_.ShowNotifyAboutCredit();
+  credit_messenger_.ShowNotifyAboutCredit();
   if (user_input_.GetChoiceFromUser() == 1) {
     return ConsiderACreditBasedOnCash(identification_of_user);
   }
@@ -61,7 +61,7 @@ bool UserCredit::ConsiderACreditBasedOnCash(
 
 bool UserCredit::GiveACredit(IdentificationOfUser &identification_of_user) {
   int maximal_sum_of_credit = 15 * identification_of_user.account_info_.cash_;
-  credit_messanger_.ShowCreditConditions(maximal_sum_of_credit);
+  credit_messenger_.ShowCreditConditions(maximal_sum_of_credit);
   int choice = user_input_.GetChoiceFromUser();
   if (choice == 1) {
     return MaxCreditCalculation(identification_of_user, maximal_sum_of_credit);
@@ -84,7 +84,7 @@ bool UserCredit::MaxCreditCalculation(
   utility_.ClearScreen();
 
   string user_login = identification_of_user.account_info_.login_;
-  user_messanger_.ShowInfoAboutCredit(user_login, maximal_sum_of_credit);
+  credit_messenger_.ShowInfoAboutCredit(user_login, maximal_sum_of_credit);
 
   int amount_of_months =
       identification_of_user.account_info_.amount_of_credit_month_;

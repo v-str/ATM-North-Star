@@ -1,16 +1,16 @@
-#include "user_messanger.h"
+#include "user_messenger.h"
 
 static const int kMaxLenghtOfLogin = 21;
 
-UserMessanger::UserMessanger() {}
+UserMessenger::UserMessenger() {}
 
-void UserMessanger::WriteSymbolsNTimes(char symbol, int n) const {
+void UserMessenger::WriteSymbolsNTimes(char symbol, int n) const {
   for (int i = 0; i < n; ++i) {
     cout << symbol;
   }
 }
 
-void UserMessanger::ShowRegistrationScreen() const {
+void UserMessenger::ShowRegistrationScreen() const {
   utility_.ClearScreen();
 
   cout << "\n\t\t   ********************\n"
@@ -18,7 +18,7 @@ void UserMessanger::ShowRegistrationScreen() const {
           "\t\t   ********************\n";
 }
 
-void UserMessanger::ShowTransactionMenu() {
+void UserMessenger::ShowTransactionMenu() {
   utility_.ClearScreen();
   string select =
       "\n\t################ Transaction menu ##################\n"
@@ -34,7 +34,7 @@ void UserMessanger::ShowTransactionMenu() {
   cout << "\tSelect: ";
 }
 
-void UserMessanger::ShowNotifyAboutCash() {
+void UserMessenger::ShowNotifyAboutCash() {
   cout << "\t";
   WriteSymbolsNTimes('-', 45);
   cout << "\n\t";
@@ -47,7 +47,7 @@ void UserMessanger::ShowNotifyAboutCash() {
   cout << "\t# Please enter the sum of money($): ";
 }
 
-void UserMessanger::ShowUserBalance(double balance) {
+void UserMessenger::ShowUserBalance(double balance) {
   cout << "\n\t";
   WriteSymbolsNTimes('-', 45);
   utility_.WriteTextWithDelay("\n\t# Balance refill completed successfully.");
@@ -57,14 +57,14 @@ void UserMessanger::ShowUserBalance(double balance) {
   utility_.Sleep(1000);
 }
 
-void UserMessanger::WriteUserInfo(const UserMessanger::string &info_title,
-                                  const UserMessanger::string &value) {
+void UserMessenger::WriteUserInfo(const UserMessenger::string &info_title,
+                                  const UserMessenger::string &value) {
   cout << "\n\t# " << info_title << ": " << value << "\n\t";
   WriteSymbolsNTimes('-', 45);
   utility_.Sleep(100);
 }
 
-void UserMessanger::ShowAccountInfo(const AccountInfo &account_info) {
+void UserMessenger::ShowAccountInfo(const AccountInfo &account_info) {
   cout << "\t";
   WriteSymbolsNTimes('-', 45);
 
@@ -78,7 +78,7 @@ void UserMessanger::ShowAccountInfo(const AccountInfo &account_info) {
                 std::to_string(account_info.amount_of_credit_month_));
 }
 
-UserMessanger::string UserMessanger::SuggestToConfirmACredit() {
+UserMessenger::string UserMessenger::SuggestToConfirmACredit() {
   string menu_text(
       "\n\t# Do you confirm the loan?\n"
       "\t1. Yes, I confirm.\n"
@@ -88,25 +88,25 @@ UserMessanger::string UserMessanger::SuggestToConfirmACredit() {
   return menu_text;
 }
 
-void UserMessanger::ShowSumOfWithdrawal(int sum_of_cash) const {
+void UserMessenger::ShowSumOfWithdrawal(int sum_of_cash) const {
   cout << "\t#Sum($): " << sum_of_cash << "\n";
   cout << "\t# Please enter your password: XXXX\b\b\b\b";
 }
 
-void UserMessanger::ShowSuccessfulWithdrawal(int sum_of_cash,
+void UserMessenger::ShowSuccessfulWithdrawal(int sum_of_cash,
                                              int sum_of_withdrawal) {
   utility_.WriteTextWithDelay("\n\t# Withdrawal completed successfully\n");
   cout << "\t# Sum($): " << sum_of_cash << "\n";
   cout << "\t# Balance($): " << sum_of_withdrawal << "\n\n";
 }
 
-void UserMessanger::ShowIncorrectPasswordMessage() {
+void UserMessenger::ShowIncorrectPasswordMessage() {
   utility_.ClearScreen();
   utility_.IgnoreCinLine();
   utility_.WriteTextWithDelay("\n\t# Sorry, entered password is incorrect.\n");
 }
 
-void UserMessanger::ShowStatement(int cash, string &spaces) {
+void UserMessenger::ShowStatement(int cash, string &spaces) {
   cout << "\t##################\n"
           "\t#                #\n"
           "\t#  28 Green st.  #\n"
@@ -124,33 +124,25 @@ void UserMessanger::ShowStatement(int cash, string &spaces) {
           "\t##################\n";
 }
 
-void UserMessanger::ShowIncorrectDataMessage() {
+void UserMessenger::ShowIncorrectDataMessage() {
   utility_.WriteTextWithDelay(
       "\t Data is not correct, please reload the program.\n\n");
   cin.get();
 }
 
-void UserMessanger::ShowIncorrectMonthInput() {
+void UserMessenger::ShowIncorrectMonthInput() {
   cout << "Number of credit month can't be more than 60\n";
   cout << "The number of months to repay the loan: ";
 }
 
-void UserMessanger::ShowInfoAboutCredit(UserMessanger::string &user_login,
-                                        int max_sum) {
-  cout << "\t             Consumer credit\n"
-          "\t* Profile: "
-       << user_login << "\n\t* Sum $: " << max_sum
-       << "\n\t* Persent per year: 14%\n\n ";
-}
-
-void UserMessanger::ShowEnrollACredit() {
+void UserMessenger::ShowEnrollACredit() {
   utility_.WriteTextWithDelay(
       "\n# The loan was successfully transferred on your account.\n"
       "# You might cash your credit in our nearest bank.");
   utility_.IgnoreCinLine();
 }
 
-void UserMessanger::ShowIndividualCreditInfo(UserMessanger::string &user_login,
+void UserMessenger::ShowIndividualCreditInfo(UserMessenger::string &user_login,
                                              int sum_of_credit) {
   cout << "\t\tConsumer Credit\n\n";
   utility_.Sleep(500);
@@ -162,7 +154,7 @@ void UserMessanger::ShowIndividualCreditInfo(UserMessanger::string &user_login,
   utility_.Sleep(2500);
 }
 
-void UserMessanger::ShowRefuseACredit(int sum_of_cash) const {
+void UserMessenger::ShowRefuseACredit(int sum_of_cash) const {
   utility_.ClearScreen();
   utility_.WriteTextWithDelay("# We checked your balance.\n");
   utility_.Sleep(500);
@@ -173,7 +165,7 @@ void UserMessanger::ShowRefuseACredit(int sum_of_cash) const {
   utility_.Sleep(500);
 }
 
-void UserMessanger::SuggestUserToExit() const {
+void UserMessenger::SuggestUserToExit() const {
   utility_.WriteTextWithDelay(
       "\n\t# Do you really want to exit?\n"
       "\t# 1. No, go to main\n"
@@ -181,7 +173,7 @@ void UserMessanger::SuggestUserToExit() const {
   cout << "\t# Enter: ";
 }
 
-void UserMessanger::WishAGoodDay() const {
+void UserMessenger::WishAGoodDay() const {
   cout << "\n\t####################\n"
           "\t#                  #\n"
           "\t# Have a nice day! #\n"
@@ -189,7 +181,7 @@ void UserMessanger::WishAGoodDay() const {
           "\t####################\n\n";
 }
 
-void UserMessanger::ShowTransactionMenu() const {
+void UserMessenger::ShowTransactionMenu() const {
   string select =
       "\n\t################ Transaction menu ##################\n"
       "\t#                                                  #\n"

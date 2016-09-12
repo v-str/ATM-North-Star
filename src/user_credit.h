@@ -9,9 +9,9 @@
 #include "notice_about_error.h"
 #include "system_utility.h"
 #include "user_input.h"
-#include "user_messanger.h"
+#include "user_messenger.h"
 #include "user_choice.h"
-#include "credit_messanger.h"
+#include "credit_messenger.h"
 
 
 using std::cout;
@@ -52,11 +52,11 @@ class UserCredit {
   int GetCreditMonths(IdentificationOfUser &identification_of_user);
 
   SystemUtility utility_;
-  UserMessanger user_messanger_;
+  UserMessenger user_messanger_;
   UserInput user_input_;
   NoticeAboutError error_;
   UserChoice user_choice_;
-  CreditMessanger credit_messanger_;
+  CreditMessanger credit_messenger_;
 };
 
 #endif  // USER_CREDIT_H

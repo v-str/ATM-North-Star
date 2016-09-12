@@ -10,11 +10,11 @@
 using std::cout;
 using std::cin;
 
-class UserMessanger {
+class UserMessenger {
   using string = std::string;
 
  public:
-  UserMessanger();
+  UserMessenger();
 
   void WriteSymbolsNTimes(char symbol, int n) const;
   void ShowRegistrationScreen() const;
@@ -42,7 +42,6 @@ class UserMessanger {
   void ShowIncorrectDataMessage();
   void ShowIncorrectMonthInput();
 
-  void ShowInfoAboutCredit(string &user_login, int max_sum);
   void ShowEnrollACredit();
   void ShowIndividualCreditInfo(string &user_login, int sum_of_credit);
 

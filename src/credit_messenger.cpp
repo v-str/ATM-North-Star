@@ -1,4 +1,4 @@
-#include "credit_messanger.h"
+#include "credit_messenger.h"
 
 CreditMessanger::CreditMessanger() {}
 
@@ -51,4 +51,12 @@ void CreditMessanger::ShowCreditConditions(
       "# 3. Main menu\n"
       "# 4. Exit\n");
   cout << "# Enter: ";
+}
+
+void CreditMessanger::ShowInfoAboutCredit(
+    const CreditMessanger::string &user_login, const int max_sum) const {
+  cout << "\t             Consumer credit\n"
+          "\t* Profile: "
+       << user_login << "\n\t* Sum $: " << max_sum
+       << "\n\t* Persent per year: 14%\n\n ";
 }

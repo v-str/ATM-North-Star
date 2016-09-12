@@ -4,7 +4,7 @@
 #include <iostream>
 #include "account_info.h"
 #include "system_utility.h"
-#include "user_messanger.h"
+#include "user_messenger.h"
 
 using std::cout;
 using std::cin;
@@ -25,7 +25,7 @@ class NoticeAboutError {
 
  private:
   SystemUtility utility_;
-  UserMessanger user_messenger_;
+  UserMessenger user_messenger_;
 };
 
 #endif  // NOTICE_ABOUT_ERROR_H
