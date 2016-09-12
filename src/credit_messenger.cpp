@@ -60,3 +60,13 @@ void CreditMessanger::ShowInfoAboutCredit(
        << user_login << "\n\t* Sum $: " << max_sum
        << "\n\t* Persent per year: 14%\n\n ";
 }
+
+CreditMessanger::string CreditMessanger::SuggestToConfirmACredit() const {
+  string menu_text(
+      "\n\t# Do you confirm the loan?\n"
+      "\t1. Yes, I confirm.\n"
+      "\t2. No, go to the main.\n"
+      "\t3. Exit program.\n");
+
+  return menu_text;
+}

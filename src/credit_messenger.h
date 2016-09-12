@@ -19,6 +19,8 @@ class CreditMessanger {
   void ShowCreditConditions(const int maximal_sum_of_credit) const;
   void ShowInfoAboutCredit(const string &user_login, const int max_sum) const;
 
+  string SuggestToConfirmACredit() const;
+
  private:
   SystemUtility utility_;
 };

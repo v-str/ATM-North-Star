@@ -91,7 +91,7 @@ bool UserCredit::MaxCreditCalculation(
 
   double pay_per_month =
       CalculateCredit(maximal_sum_of_credit, amount_of_months);
-  string menu_text = user_messanger_.SuggestToConfirmACredit();
+  string menu_text = credit_messenger_.SuggestToConfirmACredit();
 
   int choice = user_choice_.GetUserChoiceWithMenuText(menu_text, "\tEnter: ");
   if (choice == 1) {
