@@ -29,7 +29,7 @@ void UserCredit::RefuseToGrantAnotherCredit() const {
 }
 
 bool UserCredit::ConsiderACredit(IdentificationOfUser &identification_of_user) {
-  user_messanger_.ShowNotifyAboutCredit();
+  credit_messanger_.ShowNotifyAboutCredit();
   if (user_input_.GetChoiceFromUser() == 1) {
     return ConsiderACreditBasedOnCash(identification_of_user);
   }
@@ -61,7 +61,7 @@ bool UserCredit::ConsiderACreditBasedOnCash(
 
 bool UserCredit::GiveACredit(IdentificationOfUser &identification_of_user) {
   int maximal_sum_of_credit = 15 * identification_of_user.account_info_.cash_;
-  user_messanger_.ShowCreditConditions(maximal_sum_of_credit);
+  credit_messanger_.ShowCreditConditions(maximal_sum_of_credit);
   int choice = user_input_.GetChoiceFromUser();
   if (choice == 1) {
     return MaxCreditCalculation(identification_of_user, maximal_sum_of_credit);

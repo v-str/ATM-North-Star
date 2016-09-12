@@ -41,9 +41,7 @@ class UserMessanger {
 
   void ShowIncorrectDataMessage();
   void ShowIncorrectMonthInput();
-  void ShowNotifyAboutCredit();
 
-  void ShowCreditConditions(int maximal_sum_of_credit);
   void ShowInfoAboutCredit(string &user_login, int max_sum);
   void ShowEnrollACredit();
   void ShowIndividualCreditInfo(string &user_login, int sum_of_credit);
