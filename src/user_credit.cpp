@@ -118,13 +118,13 @@ bool UserCredit::IndividualCreditCalculation(
   int amount_of_months =
       identification_of_user.account_info_.amount_of_credit_month_;
 
-  user_messanger_.ShowIndividualCreditInfo(
+  credit_messenger_.ShowIndividualCreditInfo(
       identification_of_user.account_info_.login_, user_sum_of_credit);
 
   double pay_per_month = CalculateCredit(user_sum_of_credit, amount_of_months);
 
   string loan_confirmation_menu_text =
-      user_messanger_.SuggestToConfirmACredit();
+      credit_messenger_.SuggestToConfirmACredit();
 
   int choice = user_choice_.GetUserChoiceWithMenuText(
       loan_confirmation_menu_text, "Enter: ");

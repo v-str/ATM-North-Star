@@ -29,8 +29,6 @@ class UserMessenger {
 
   void ShowUserBalance(double balance);
 
-  string SuggestToConfirmACredit();
-
   void ShowSumOfWithdrawal(int sum_of_cash) const;
 
   void ShowSuccessfulWithdrawal(int sum_of_cash, int sum_of_withdrawal);
@@ -43,8 +41,6 @@ class UserMessenger {
   void ShowIncorrectMonthInput();
 
   void ShowEnrollACredit();
-  void ShowIndividualCreditInfo(string &user_login, int sum_of_credit);
-
   void ShowRefuseACredit(int sum_of_cash) const;
 
   void SuggestUserToExit() const;

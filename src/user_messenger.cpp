@@ -78,16 +78,6 @@ void UserMessenger::ShowAccountInfo(const AccountInfo &account_info) {
                 std::to_string(account_info.amount_of_credit_month_));
 }
 
-UserMessenger::string UserMessenger::SuggestToConfirmACredit() {
-  string menu_text(
-      "\n\t# Do you confirm the loan?\n"
-      "\t1. Yes, I confirm.\n"
-      "\t2. No, go to the main.\n"
-      "\t3. Exit program.\n");
-
-  return menu_text;
-}
-
 void UserMessenger::ShowSumOfWithdrawal(int sum_of_cash) const {
   cout << "\t#Sum($): " << sum_of_cash << "\n";
   cout << "\t# Please enter your password: XXXX\b\b\b\b";
@@ -140,18 +130,6 @@ void UserMessenger::ShowEnrollACredit() {
       "\n# The loan was successfully transferred on your account.\n"
       "# You might cash your credit in our nearest bank.");
   utility_.IgnoreCinLine();
-}
-
-void UserMessenger::ShowIndividualCreditInfo(UserMessenger::string &user_login,
-                                             int sum_of_credit) {
-  cout << "\t\tConsumer Credit\n\n";
-  utility_.Sleep(500);
-  cout << "Profile: " << user_login << "\n";
-  utility_.Sleep(500);
-  cout << "Sum $: " << sum_of_credit << "\n";
-  utility_.Sleep(500);
-  cout << "Persent per year: 14%\n\n";
-  utility_.Sleep(2500);
 }
 
 void UserMessenger::ShowRefuseACredit(int sum_of_cash) const {

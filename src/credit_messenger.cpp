@@ -70,3 +70,15 @@ CreditMessanger::string CreditMessanger::SuggestToConfirmACredit() const {
 
   return menu_text;
 }
+
+void CreditMessanger::ShowIndividualCreditInfo(
+    const CreditMessanger::string &user_login, const int sum_of_credit) const {
+  cout << "\t\tConsumer Credit\n\n";
+  utility_.Sleep(500);
+  cout << "Profile: " << user_login << "\n";
+  utility_.Sleep(500);
+  cout << "Sum $: " << sum_of_credit << "\n";
+  utility_.Sleep(500);
+  cout << "Persent per year: 14%\n\n";
+  utility_.Sleep(2500);
+}
