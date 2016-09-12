@@ -89,3 +89,14 @@ void CreditMessanger::ShowEnrollACredit() const {
       "# You might cash your credit in our nearest bank.");
   utility_.IgnoreCinLine();
 }
+
+void CreditMessanger::ShowRefuseACredit(const int sum_of_cash) const {
+  utility_.ClearScreen();
+  utility_.WriteTextWithDelay("# We checked your balance.\n");
+  utility_.Sleep(500);
+  cout << "# Available cash = $" << sum_of_cash << "\n";
+  utility_.WriteTextWithDelay(
+      "# Sorry, for getting a loan your balance must be "
+      "$1000 or more.\n");
+  utility_.Sleep(500);
+}

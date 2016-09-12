@@ -5,14 +5,12 @@
 
 #include <string>
 #include "account_info.h"
+#include "credit_messenger.h"
 #include "identification_of_user.h"
 #include "notice_about_error.h"
 #include "system_utility.h"
-#include "user_input.h"
-#include "user_messenger.h"
 #include "user_choice.h"
-#include "credit_messenger.h"
-
+#include "user_input.h"
 
 using std::cout;
 using std::cin;
@@ -52,7 +50,6 @@ class UserCredit {
   int GetCreditMonths(IdentificationOfUser &identification_of_user);
 
   SystemUtility utility_;
-  UserMessenger user_messanger_;
   UserInput user_input_;
   NoticeAboutError error_;
   UserChoice user_choice_;

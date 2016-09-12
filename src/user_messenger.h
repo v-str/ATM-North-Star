@@ -40,9 +40,6 @@ class UserMessenger {
   void ShowIncorrectDataMessage();
   void ShowIncorrectMonthInput();
 
-  void ShowEnrollACredit();
-  void ShowRefuseACredit(int sum_of_cash) const;
-
   void SuggestUserToExit() const;
   void WishAGoodDay() const;
   void ShowTransactionMenu() const;

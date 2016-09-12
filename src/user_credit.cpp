@@ -158,7 +158,7 @@ bool UserCredit::RepealACredit(IdentificationOfUser &identification_of_user) {
 
 bool UserCredit::RefuseACredit(IdentificationOfUser &identification_of_user) {
   int sum_of_cash = identification_of_user.account_info_.cash_;
-  user_messanger_.ShowRefuseACredit(sum_of_cash);
+  credit_messenger_.ShowRefuseACredit(sum_of_cash);
 
   return user_input_.SuggestUserToExit();
 }

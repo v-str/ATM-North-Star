@@ -125,24 +125,6 @@ void UserMessenger::ShowIncorrectMonthInput() {
   cout << "The number of months to repay the loan: ";
 }
 
-void UserMessenger::ShowEnrollACredit() {
-  utility_.WriteTextWithDelay(
-      "\n# The loan was successfully transferred on your account.\n"
-      "# You might cash your credit in our nearest bank.");
-  utility_.IgnoreCinLine();
-}
-
-void UserMessenger::ShowRefuseACredit(int sum_of_cash) const {
-  utility_.ClearScreen();
-  utility_.WriteTextWithDelay("# We checked your balance.\n");
-  utility_.Sleep(500);
-  cout << "# Available cash = $" << sum_of_cash << "\n";
-  utility_.WriteTextWithDelay(
-      "# Sorry, for getting a loan your balance must be "
-      "$1000 or more.\n");
-  utility_.Sleep(500);
-}
-
 void UserMessenger::SuggestUserToExit() const {
   utility_.WriteTextWithDelay(
       "\n\t# Do you really want to exit?\n"
