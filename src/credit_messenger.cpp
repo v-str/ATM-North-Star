@@ -82,3 +82,10 @@ void CreditMessanger::ShowIndividualCreditInfo(
   cout << "Persent per year: 14%\n\n";
   utility_.Sleep(2500);
 }
+
+void CreditMessanger::ShowEnrollACredit() const {
+  utility_.WriteTextWithDelay(
+      "\n# The loan was successfully transferred on your account.\n"
+      "# You might cash your credit in our nearest bank.");
+  utility_.IgnoreCinLine();
+}

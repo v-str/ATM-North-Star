@@ -23,6 +23,8 @@ class CreditMessanger {
   void ShowIndividualCreditInfo(const string &user_login,
                                 const int sum_of_credit) const;
 
+  void ShowEnrollACredit() const;
+
  private:
   SystemUtility utility_;
 };

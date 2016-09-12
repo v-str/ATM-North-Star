@@ -145,7 +145,7 @@ bool UserCredit::EnrollACredit(IdentificationOfUser &identification_of_user,
                                double sum_of_credit, double pay_per_month) {
   identification_of_user.account_info_.credit_ = sum_of_credit;
   identification_of_user.account_info_.monthly_payment_ = pay_per_month;
-  user_messanger_.ShowEnrollACredit();
+  credit_messenger_.ShowEnrollACredit();
   return user_input_.SuggestUserToExit();
 }
 
