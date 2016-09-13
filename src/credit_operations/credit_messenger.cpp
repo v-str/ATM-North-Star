@@ -1,7 +1,5 @@
 #include "credit_messenger.h"
 
-CreditMessanger::CreditMessanger() {}
-
 void CreditMessanger::RefusToGrantAnotherCredit() const {
   utility_.WriteTextWithDelay(
       "\n #Sorry, but you have already a "

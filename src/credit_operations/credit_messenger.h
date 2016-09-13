@@ -12,8 +12,6 @@ class CreditMessanger {
   using string = std::string;
 
  public:
-  CreditMessanger();
-
   void RefusToGrantAnotherCredit() const;
   void ShowNotifyAboutCredit() const;
   void ShowCreditConditions(const int maximal_sum_of_credit) const;

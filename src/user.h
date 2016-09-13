@@ -3,7 +3,7 @@
 
 #include <string>
 #include "account_info.h"
-#include "identification_of_user.h"
+#include "user_identificator.h"
 #include "notice_about_error.h"
 #include "system_utility.h"
 #include "user_credit.h"
@@ -83,7 +83,7 @@ class AtmUser {
   SystemUtility utility_;
   UserMessenger user_messanger_;
   UserCredit user_credit_;
-  IdentificationOfUser identification_of_user_;
+  UserIdentificator user_identificator_;
   NoticeAboutError error_;
 };
 

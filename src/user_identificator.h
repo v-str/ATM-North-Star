@@ -11,12 +11,12 @@
 using std::cin;
 using std::cout;
 
-class IdentificationOfUser {
+class UserIdentificator {
   using string = std::string;
 
  public:
-  IdentificationOfUser();
-  IdentificationOfUser(const string &login);
+  UserIdentificator();
+  UserIdentificator(const string &login);
 
   void GetLogin();
   void GetPassword();

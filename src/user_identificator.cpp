@@ -1,15 +1,15 @@
-#include "identification_of_user.h"
+#include "user_identificator.h"
 
 static const int kMaxLenghtOfLogin = 21;
 static const int kMaxLenghtOfPassword = 4;
 
-IdentificationOfUser::IdentificationOfUser() {}
+UserIdentificator::UserIdentificator() {}
 
-IdentificationOfUser::IdentificationOfUser(const string &login) {
+UserIdentificator::UserIdentificator(const string &login) {
   account_info_.login_ = login;
 }
 
-void IdentificationOfUser::GetLogin() {
+void UserIdentificator::GetLogin() {
   cout << "\n\n\n\t\tLogin: ";
 
   user_messanger_.WriteSymbolsNTimes('#', kMaxLenghtOfLogin);
@@ -18,22 +18,22 @@ void IdentificationOfUser::GetLogin() {
   cin.sync();
 }
 
-void IdentificationOfUser::GetPassword() {
+void UserIdentificator::GetPassword() {
   cout << "\t\tPassword: XXXX\b\b\b\b";
   cin >> account_info_.password_;
   cin.sync();
 }
 
-bool IdentificationOfUser::IsNormalLogin() {
+bool UserIdentificator::IsNormalLogin() {
   return !account_info_.login_.empty() &&
          account_info_.login_.length() < kMaxLenghtOfLogin;
 }
 
-bool IdentificationOfUser::IsNormalPass() {
+bool UserIdentificator::IsNormalPass() {
   return account_info_.password_.length() == kMaxLenghtOfPassword;
 }
 
-void IdentificationOfUser::NoticeAboutSuccessfulRegistration() {
+void UserIdentificator::NoticeAboutSuccessfulRegistration() {
   utility_.IgnoreCinLine();
   utility_.ClearScreen();
   cout << "\n\n\t\t------------------\n";
@@ -45,21 +45,21 @@ void IdentificationOfUser::NoticeAboutSuccessfulRegistration() {
   account_info_.amount_of_credit_month_ = 0;
 }
 
-void IdentificationOfUser::NoticeAboutIncorrectLogin() const {
+void UserIdentificator::NoticeAboutIncorrectLogin() const {
   error_.NoticeAboutIncorrectLoginMessage();
 }
 
-void IdentificationOfUser::NoticeAboutIncorrectPassword() const {
+void UserIdentificator::NoticeAboutIncorrectPassword() const {
   error_.NoticeAboutIncorrectFormatPasswordMessage();
 }
 
-IdentificationOfUser::string IdentificationOfUser::GetPasswordFromUser() {
+UserIdentificator::string UserIdentificator::GetPasswordFromUser() {
   string password;
   cin >> password;
   utility_.IgnoreCinLine();
   return password;
 }
 
-void IdentificationOfUser::ShowAccountInformation() {
+void UserIdentificator::ShowAccountInformation() {
   user_messanger_.ShowAccountInfo(account_info_);
 }

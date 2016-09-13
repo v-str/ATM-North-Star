@@ -12,11 +12,11 @@ SOURCES += \
     src/demo_user_messanger.cpp \
     src/initial_screen.cpp \
     src/user_credit.cpp \
-    src/identification_of_user.cpp \
     src/notice_about_error.cpp \
     src/user_choice.cpp \
     src/user_messenger.cpp \
-    src/credit_messenger.cpp
+    src/credit_messenger.cpp \
+    src/user_identificator.cpp
 
 HEADERS += \
     src/user.h \
@@ -27,8 +27,8 @@ HEADERS += \
     src/initial_screen.h \
     src/user_credit.h \
     src/account_info.h \
-    src/identification_of_user.h \
     src/notice_about_error.h \
     src/user_choice.h \
     src/user_messenger.h \
-    src/credit_messenger.h
+    src/credit_messenger.h \
+    src/user_identificator.h
