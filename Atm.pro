@@ -21,7 +21,9 @@ SOURCES += \
     src/credit/credit_messenger.cpp \
     src/demo_user/demo_user.cpp \
     src/demo_user/demo_user_messanger.cpp \
-    src/user_identifier.cpp
+    src/user_identifier.cpp \
+    src/credit/primary_credit_operations.cpp \
+    src/credit/secondary_credit_operations.cpp
 
 HEADERS += \
     src/user.h \
@@ -36,4 +38,6 @@ HEADERS += \
     src/credit/credit_messenger.h \
     src/demo_user/demo_user.h \
     src/demo_user/demo_user_messanger.h \
-    src/user_identifier.h
+    src/user_identifier.h \
+    src/credit/primary_credit_operations.h \
+    src/credit/secondary_credit_operations.h

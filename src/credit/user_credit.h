@@ -11,6 +11,7 @@
 #include "user_choice.h"
 #include "user_identifier.h"
 #include "user_input.h"
+#include "secondary_credit_operations.h"
 
 using std::cout;
 using std::cin;
@@ -31,8 +32,7 @@ class UserCredit {
 
   bool GiveACredit(UserIdentifier &user_identifier);
 
-  bool MaxCreditCalculation(int maximal_sum_of_credit,
-                            UserIdentifier &user_identifier);
+  bool MaxCreditCalculation(UserIdentifier &user_identifier, int maximal_sum_of_credit);
   bool IndividualCreditCalculation(UserIdentifier &user_identifier,
                                    int maximal_sum_of_credit);
 
@@ -48,8 +48,6 @@ class UserCredit {
 
   bool RefuseACredit(UserIdentifier &user_identifier);
 
-  bool ExitCreditMenu();
-
   int GetAmountOfMonthToRepayACredit();
 
   int GetCreditMonths();
@@ -60,6 +58,8 @@ class UserCredit {
 
   UserInput user_input_;
   CreditMessanger credit_messenger_;
+
+  SecondaryCreditOperations secondary_operation_;
 };
 
 #endif  // USER_CREDIT_H
