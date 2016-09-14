@@ -10,7 +10,7 @@
 #include "system_utility.h"
 #include "user_choice.h"
 #include "user_input.h"
-#include "user_identificator.h"
+#include "user_identifier.h"
 
 using std::cout;
 using std::cin;
@@ -24,37 +24,42 @@ class UserCredit {
   bool AlreadyHasACredit(AccountInfo &account_info) const;
   void RefuseToGrantAnotherCredit() const;
 
-  bool ConsiderACredit(UserIdentificator &identification_of_user);
+  bool ConsiderACredit(UserIdentifier &user_identifier);
   //==========================================================================
  private:
+  bool ConsiderACreditBasedOnCash(UserIdentifier &user_identifier);
+
+  bool GiveACredit(UserIdentifier &user_identifier);
+
   double CalculateCredit(int sum, int amount_of_months);
+
   int GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit);
 
-  bool ConsiderACreditBasedOnCash(UserIdentificator &identification_of_user);
-  bool GiveACredit(UserIdentificator &identification_of_user);
 
-  bool MaxCreditCalculation(UserIdentificator &identification_of_user,
+  bool MaxCreditCalculation(UserIdentifier &user_identifier,
                             int maximal_sum_of_credit);
 
-  bool IndividualCreditCalculation(UserIdentificator &identification_of_user,
+  bool IndividualCreditCalculation(UserIdentifier &user_identifier,
                                    int maximal_sum_of_credit);
 
-  bool EnrollACredit(UserIdentificator &identification_of_user,
+  bool EnrollACredit(UserIdentifier &user_identifier,
                      double sum_of_credit, double pay_per_month);
-  bool RepealACredit(UserIdentificator &identification_of_user);
+  bool RepealACredit(UserIdentifier &user_identifier);
 
-  bool RefuseACredit(UserIdentificator &identification_of_user);
+  bool RefuseACredit(UserIdentifier &user_identifier);
+
   bool ExitCreditMenu();
 
-  void MonthToRepay(UserIdentificator &identification_of_user);
-  int GetCreditMonths(UserIdentificator &identification_of_user);
+  void MonthToRepay(UserIdentifier &user_identifier);
+
+  int GetCreditMonths(UserIdentifier &user_identifier);
 
   SystemUtility utility_;
   UserInput user_input_;
   NoticeAboutError error_;
   UserChoice user_choice_;
   CreditMessanger credit_messenger_;
-  UserIdentificator identification_of_user;
+  UserIdentifier user_identifier;
 };
 
 #endif  // USER_CREDIT_H
