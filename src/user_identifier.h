@@ -19,6 +19,10 @@ class UserIdentifier {
 
   void InitLogin(const string login);
   void InitPassword(const string password);
+  void InitCash(const int cash);
+  void InitCredit(const int credit);
+  void InitMonthlyPayment(const double monthly_payment);
+  void InitAmountOfCreditMonth(const int amount_credit_month);
 
 
   void GetLogin();

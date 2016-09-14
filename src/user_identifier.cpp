@@ -15,6 +15,26 @@ void UserIdentifier::InitPassword(const UserIdentifier::string password)
     account_info_.password_ = password;
 }
 
+void UserIdentifier::InitCash(const int cash)
+{
+    account_info_.cash_ = cash;
+}
+
+void UserIdentifier::InitCredit(const int credit)
+{
+    account_info_.credit_ = credit;
+}
+
+void UserIdentifier::InitMonthlyPayment(const double monthly_payment)
+{
+    account_info_.monthly_payment_ = monthly_payment;
+}
+
+void UserIdentifier::InitAmountOfCreditMonth(const int amount_credit_month)
+{
+    account_info_.amount_of_credit_month_ = amount_credit_month;
+}
+
 void UserIdentifier::GetLogin() {
   cout << "\n\n\n\t\tLogin: ";
 
