@@ -16,7 +16,10 @@ class UserIdentifier {
 
  public:
   UserIdentifier();
-  UserIdentifier(const string &login);
+
+  void InitLogin(const string login);
+  void InitPassword(const string password);
+
 
   void GetLogin();
   void GetPassword();

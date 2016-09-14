@@ -5,8 +5,14 @@ static const int kMaxLenghtOfPassword = 4;
 
 UserIdentifier::UserIdentifier() {}
 
-UserIdentifier::UserIdentifier(const string &login) {
-  account_info_.login_ = login;
+void UserIdentifier::InitLogin(const UserIdentifier::string login)
+{
+    account_info_.login_ = login;
+}
+
+void UserIdentifier::InitPassword(const UserIdentifier::string password)
+{
+    account_info_.password_ = password;
 }
 
 void UserIdentifier::GetLogin() {

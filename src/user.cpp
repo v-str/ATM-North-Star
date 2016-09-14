@@ -11,8 +11,8 @@ using std::cout;
 AtmUser::AtmUser(const string &login, const string &password, double cash,
                  int credit, double monthly_payment,
                  int amount_of_credit_month) {
-  user_identifier_.account_info_.login_ = login;
-  user_identifier_.account_info_.password_ = password;
+  user_identifier_.InitLogin(login);
+  user_identifier_.InitPassword(password);
   user_identifier_.account_info_.cash_ = cash;
   user_identifier_.account_info_.credit_ = credit;
   user_identifier_.account_info_.monthly_payment_ = monthly_payment;
