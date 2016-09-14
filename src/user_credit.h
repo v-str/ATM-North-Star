@@ -9,8 +9,8 @@
 #include "notice_about_error.h"
 #include "system_utility.h"
 #include "user_choice.h"
-#include "user_identificator.h"
 #include "user_input.h"
+#include "user_identificator.h"
 
 using std::cout;
 using std::cin;
@@ -54,6 +54,7 @@ class UserCredit {
   NoticeAboutError error_;
   UserChoice user_choice_;
   CreditMessanger credit_messenger_;
+  UserIdentificator identification_of_user;
 };
 
 #endif  // USER_CREDIT_H
