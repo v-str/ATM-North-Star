@@ -34,7 +34,7 @@ class UserIdentifier {
 
   int AssignACredit(const int sum_of_credit);
   double AssignAMonthlyPayment(const double pay_per_month);
-  bool IsCreditAvailable(const int minimal_sum_for_credit);
+  bool IsCreditAvailable();
 
   void GetLogin();
   void GetPassword();

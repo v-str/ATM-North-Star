@@ -21,7 +21,7 @@ class UserCredit {
  public:
   UserCredit();
 
-  bool AlreadyHasACredit() const;
+  bool AlreadyHasACredit(UserIdentifier &user_identifier) const;
   void RefuseToGrantAnotherCredit() const;
 
   bool ConsiderACredit(UserIdentifier &user_identifier);
@@ -35,30 +35,28 @@ class UserCredit {
 
   int GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit);
 
-  bool MaxCreditCalculation(UserIdentifier &user_identifier,
-                            int maximal_sum_of_credit);
+  bool MaxCreditCalculation(int maximal_sum_of_credit,
+                            UserIdentifier &user_identifier);
 
   bool IndividualCreditCalculation(UserIdentifier &user_identifier,
                                    int maximal_sum_of_credit);
 
-  bool EnrollACredit(UserIdentifier &user_identifier, double sum_of_credit,
-                     double pay_per_month);
-  bool RepealACredit(UserIdentifier &user_identifier);
+  bool EnrollACredit() const;
+  bool RepealACredit() const;
 
   bool RefuseACredit(UserIdentifier &user_identifier);
 
   bool ExitCreditMenu();
 
-  void MonthToRepay(UserIdentifier &user_identifier);
+  int MonthToRepay();
 
-  int GetCreditMonths(UserIdentifier &user_identifier);
+  int GetCreditMonths();
 
   SystemUtility utility_;
   UserInput user_input_;
   NoticeAboutError error_;
   UserChoice user_choice_;
   CreditMessanger credit_messenger_;
-  UserIdentifier user_identifier;
 };
 
 #endif  // USER_CREDIT_H

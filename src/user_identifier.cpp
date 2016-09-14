@@ -59,8 +59,8 @@ double UserIdentifier::AssignAMonthlyPayment(const double pay_per_month) {
   return account_info_.monthly_payment_ = pay_per_month;
 }
 
-bool UserIdentifier::IsCreditAvailable(const int minimal_sum_for_credit) {
-  return account_info_.credit_ >= minimal_sum_for_credit;
+bool UserIdentifier::IsCreditAvailable() {
+  return ReturnCash() >= 1000;
 }
 
 void UserIdentifier::GetLogin() {

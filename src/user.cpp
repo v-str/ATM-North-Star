@@ -87,7 +87,7 @@ bool AtmUser::Refill() {
 }
 
 bool AtmUser::CreditApplication() {
-  if (user_credit_.AlreadyHasACredit()) {
+  if (user_credit_.AlreadyHasACredit(user_identifier_)) {
     user_credit_.RefuseToGrantAnotherCredit();
     user_identifier_.ShowAccountInformation();
     return user_input_.SuggestUserToExit();

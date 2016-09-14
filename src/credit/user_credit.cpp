@@ -4,7 +4,7 @@ static const int kMinimalSumForCredit = 1000;
 
 UserCredit::UserCredit() {}
 
-bool UserCredit::AlreadyHasACredit() const {
+bool UserCredit::AlreadyHasACredit(UserIdentifier &user_identifier) const {
   return user_identifier.ReturnCredit() > 0;
 }
 
@@ -21,7 +21,7 @@ bool UserCredit::ConsiderACredit(UserIdentifier &user_identifier) {
 }
 
 bool UserCredit::ConsiderACreditBasedOnCash(UserIdentifier &user_identifier) {
-  if (user_identifier.IsCreditAvailable(kMinimalSumForCredit)) {
+  if (user_identifier.IsCreditAvailable()) {
     return GiveACredit(user_identifier);
   } else {
     return RefuseACredit(user_identifier);
@@ -33,7 +33,7 @@ bool UserCredit::GiveACredit(UserIdentifier &user_identifier) {
   credit_messenger_.ShowCreditConditions(maximal_sum_of_credit);
   int choice = user_input_.GetChoiceFromUser();
   if (choice == 1) {
-    return MaxCreditCalculation(user_identifier, maximal_sum_of_credit);
+    return MaxCreditCalculation(maximal_sum_of_credit, user_identifier);
   } else if (choice == 2) {
     return IndividualCreditCalculation(user_identifier, maximal_sum_of_credit);
   } else if (choice == 3) {
@@ -56,7 +56,7 @@ int UserCredit::GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit) {
     cin >> user_sum_of_credit;
 
     utility_.IgnoreCinLine();
-  } while (user_sum_of_credit >= maximal_sum_of_credit);
+  } while (user_sum_of_credit > maximal_sum_of_credit);
 
   return user_sum_of_credit;
 }
@@ -75,26 +75,31 @@ double UserCredit::CalculateCredit(int sum, int amount_of_months) {
   return pay_per_month;
 }
 
-bool UserCredit::MaxCreditCalculation(UserIdentifier &user_identifier,
-                                      int maximal_sum_of_credit) {
-  MonthToRepay(user_identifier);
+bool UserCredit::MaxCreditCalculation(int maximal_sum_of_credit,
+                                      UserIdentifier &user_identifier) {
+  int amount_of_credit_months = MonthToRepay();
 
   utility_.ClearScreen();
 
   string user_login = user_identifier.ReturnLogin();
+
   credit_messenger_.ShowInfoAboutCredit(user_login, maximal_sum_of_credit);
 
-  int amount_of_months = user_identifier.ReturnAmountOfCreditMonth();
-
   double pay_per_month =
-      CalculateCredit(maximal_sum_of_credit, amount_of_months);
+      CalculateCredit(maximal_sum_of_credit, amount_of_credit_months);
+
   string menu_text = credit_messenger_.SuggestToConfirmACredit();
 
   int choice = user_choice_.GetUserChoiceWithMenuText(menu_text, "\tEnter: ");
+
   if (choice == 1) {
-    return EnrollACredit(user_identifier, maximal_sum_of_credit, pay_per_month);
+    user_identifier.AssignACredit(maximal_sum_of_credit);
+    user_identifier.AssignAMonthlyPayment(pay_per_month);
+    return EnrollACredit();
   } else if (choice == 2) {
-    return RepealACredit(user_identifier);
+    user_identifier.AssignACredit(0);
+    user_identifier.AssignAMonthlyPayment(0.0);
+    return RepealACredit();
   } else if (choice == 3) {
     return ExitCreditMenu();
   } else {
@@ -109,14 +114,14 @@ bool UserCredit::IndividualCreditCalculation(UserIdentifier &user_identifier,
 
   int user_sum_of_credit =
       GetIndividualSumOfCreditFromUser(maximal_sum_of_credit);
-  MonthToRepay(user_identifier);
 
-  int amount_of_months = user_identifier.ReturnAmountOfCreditMonth();
+  int amount_of_credit_months = MonthToRepay();
 
   credit_messenger_.ShowIndividualCreditInfo(user_identifier.ReturnLogin(),
                                              user_sum_of_credit);
 
-  double pay_per_month = CalculateCredit(user_sum_of_credit, amount_of_months);
+  double pay_per_month =
+      CalculateCredit(user_sum_of_credit, amount_of_credit_months);
 
   string loan_confirmation_menu_text =
       credit_messenger_.SuggestToConfirmACredit();
@@ -125,7 +130,9 @@ bool UserCredit::IndividualCreditCalculation(UserIdentifier &user_identifier,
       loan_confirmation_menu_text, "Enter: ");
 
   if (choice == 1) {
-    return EnrollACredit(user_identifier, user_sum_of_credit, pay_per_month);
+    user_identifier.AssignACredit(maximal_sum_of_credit);
+    user_identifier.AssignAMonthlyPayment(pay_per_month);
+    return EnrollACredit();
   } else if (choice == 2) {
     return false;
   } else if (choice == 3) {
@@ -135,24 +142,19 @@ bool UserCredit::IndividualCreditCalculation(UserIdentifier &user_identifier,
   }
 }
 
-bool UserCredit::EnrollACredit(UserIdentifier &user_identifier,
-                               double sum_of_credit, double pay_per_month) {
-  user_identifier.AssignACredit(sum_of_credit);
-  user_identifier.AssignAMonthlyPayment(pay_per_month);
+bool UserCredit::EnrollACredit() const {
   credit_messenger_.ShowEnrollACredit();
   return user_input_.SuggestUserToExit();
 }
 
-bool UserCredit::RepealACredit(UserIdentifier &user_identifier) {
-  user_identifier.AssignAMonthlyPayment(0.0);
+bool UserCredit::RepealACredit() const {
   utility_.WriteTextWithDelay("\n\t# Credit is repealed...\n");
   utility_.IgnoreCinLine();
   return user_input_.SuggestUserToExit();
 }
 
 bool UserCredit::RefuseACredit(UserIdentifier &user_identifier) {
-  int sum_of_cash = user_identifier.ReturnCash();
-  credit_messenger_.ShowRefuseACredit(sum_of_cash);
+  credit_messenger_.ShowRefuseACredit(user_identifier.ReturnCash());
 
   return user_input_.SuggestUserToExit();
 }
@@ -162,18 +164,14 @@ bool UserCredit::ExitCreditMenu() {
   return true;
 }
 
-void UserCredit::MonthToRepay(UserIdentifier &user_identifier) {
+int UserCredit::MonthToRepay() {
   cout << "\nThe number of months to repay the loan: ";
-  GetCreditMonths(user_identifier);
+  return GetCreditMonths();
 }
 
-int UserCredit::GetCreditMonths(UserIdentifier &user_identifier) {
+int UserCredit::GetCreditMonths() {
   int months = 0;
   cin >> months;
   utility_.IgnoreCinLine();
-  if (months <= 0 || months > 61) {
-    return 0;
-  } else {
-    return user_identifier.ReturnAmountOfCreditMonth();
-  }
+  return months;
 }
