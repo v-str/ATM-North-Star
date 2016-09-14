@@ -4,14 +4,9 @@
 #include <iostream>
 
 #include <string>
-#include "account_info.h"
 #include "credit_messenger.h"
 #include "notice_about_error.h"
 #include "primary_credit_operations.h"
-#include "secondary_credit_operations.h"
-#include "system_utility.h"
-#include "user_choice.h"
-#include "user_identifier.h"
 #include "user_input.h"
 
 using std::cout;
@@ -27,36 +22,16 @@ class UserCredit {
   void RefuseToGrantAnotherCredit() const;
 
   bool ConsiderACredit(UserIdentifier &user_identifier);
-  //==========================================================================
+
  private:
   bool ConsiderACreditBasedOnCash(UserIdentifier &user_identifier);
-
   bool GiveACredit(UserIdentifier &user_identifier);
-
-  bool IndividualCreditCalculation(UserIdentifier &user_identifier,
-                                   int maximal_sum_of_credit);
-
-  double CalculateCredit(int sum, int amount_of_months);
-
-  int GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit);
-
-  bool RepealACredit() const;
-
   bool RefuseACredit(UserIdentifier &user_identifier);
-
-  int GetAmountOfMonthToRepayACredit();
-
-  int GetCreditMonths();
-
-  SystemUtility utility_;
-  NoticeAboutError error_;
-  UserChoice user_choice_;
 
   UserInput user_input_;
   CreditMessanger credit_messenger_;
-
+  NoticeAboutError error_;
   PrimaryCreditOperations primary_credit_operations_;
-  SecondaryCreditOperations secondary_credit_operation_;
 };
 
 #endif  // USER_CREDIT_H

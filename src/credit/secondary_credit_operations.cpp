@@ -26,3 +26,20 @@ int SecondaryCreditOperations::GetAmountOfCreditMonthsFromUser(
   utility_.IgnoreCinLine();
   return months;
 }
+
+int SecondaryCreditOperations::GetIndividualSumOfCreditFromUser(
+    int maximal_sum_of_credit) {
+  int user_sum_of_credit = 0;
+  do {
+    utility_.WriteTextWithDelay(
+        "The entered amount should not "
+        "exceed the allowed credit.\n"
+        "Enter the appropriate amount of credit: ");
+    cout << "Enter: ";
+    cin >> user_sum_of_credit;
+
+    utility_.IgnoreCinLine();
+  } while (user_sum_of_credit > maximal_sum_of_credit);
+
+  return user_sum_of_credit;
+}

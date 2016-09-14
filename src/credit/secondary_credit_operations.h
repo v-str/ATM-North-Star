@@ -15,6 +15,8 @@ class SecondaryCreditOperations {
 
   int GetAmountOfCreditMonthsFromUser(UserIdentifier &user_identifier);
 
+  int GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit);
+
  private:
   UserInput user_input_;
   SystemUtility utility_;

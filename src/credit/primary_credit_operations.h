@@ -7,8 +7,8 @@
 #include "notice_about_error.h"
 #include "secondary_credit_operations.h"
 #include "system_utility.h"
-#include "user_identifier.h"
 #include "user_choice.h"
+#include "user_identifier.h"
 
 class PrimaryCreditOperations {
   using string = std::string;
@@ -16,6 +16,9 @@ class PrimaryCreditOperations {
  public:
   bool MaxCreditCalculation(UserIdentifier &user_identifier,
                             int maximal_sum_of_credit);
+
+  bool IndividualCreditCalculation(UserIdentifier &user_identifier,
+                                   int maximal_sum_of_credit);
 
  private:
   double CalculateCredit(const int sum, const int amount_of_months);
