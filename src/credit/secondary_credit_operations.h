@@ -13,7 +13,7 @@ class SecondaryCreditOperations {
 
   bool RepealACredit(UserIdentifier &user_identifier) const;
 
-  int GetAmountOfCreditMonthsFromUser();
+  int GetAmountOfCreditMonthsFromUser(UserIdentifier &user_identifier);
 
  private:
   UserInput user_input_;

@@ -17,11 +17,12 @@ bool SecondaryCreditOperations::RepealACredit(
   return user_input_.SuggestUserToExit();
 }
 
-int SecondaryCreditOperations::GetAmountOfCreditMonthsFromUser() {
+int SecondaryCreditOperations::GetAmountOfCreditMonthsFromUser(
+    UserIdentifier &user_identifier) {
   cout << "\nThe number of months to repay the loan: ";
-  int months = 0;
+  int months;
   cin >> months;
+  user_identifier.InitAmountOfCreditMonth(months);
   utility_.IgnoreCinLine();
   return months;
 }
-
