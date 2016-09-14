@@ -31,15 +31,17 @@ class UserCredit {
 
   bool GiveACredit(UserIdentifier &user_identifier);
 
+  bool MaxCreditCalculation(int maximal_sum_of_credit,
+                            UserIdentifier &user_identifier);
+  bool IndividualCreditCalculation(UserIdentifier &user_identifier,
+                                   int maximal_sum_of_credit);
+
   double CalculateCredit(int sum, int amount_of_months);
+
 
   int GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit);
 
-  bool MaxCreditCalculation(int maximal_sum_of_credit,
-                            UserIdentifier &user_identifier);
 
-  bool IndividualCreditCalculation(UserIdentifier &user_identifier,
-                                   int maximal_sum_of_credit);
 
   bool EnrollACredit() const;
   bool RepealACredit() const;
@@ -48,14 +50,15 @@ class UserCredit {
 
   bool ExitCreditMenu();
 
-  int MonthToRepay();
+  int GetAmountOfMonthToRepayACredit();
 
   int GetCreditMonths();
 
   SystemUtility utility_;
-  UserInput user_input_;
   NoticeAboutError error_;
   UserChoice user_choice_;
+
+  UserInput user_input_;
   CreditMessanger credit_messenger_;
 };
 

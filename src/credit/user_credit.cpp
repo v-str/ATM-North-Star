@@ -8,9 +8,6 @@ bool UserCredit::AlreadyHasACredit(UserIdentifier &user_identifier) const {
   return user_identifier.ReturnCredit() > 0;
 }
 
-void UserCredit::RefuseToGrantAnotherCredit() const {
-  credit_messenger_.RefusToGrantAnotherCredit();
-}
 
 bool UserCredit::ConsiderACredit(UserIdentifier &user_identifier) {
   credit_messenger_.ShowNotifyAboutCredit();
@@ -26,6 +23,10 @@ bool UserCredit::ConsiderACreditBasedOnCash(UserIdentifier &user_identifier) {
   } else {
     return RefuseACredit(user_identifier);
   }
+}
+//============================================================================
+void UserCredit::RefuseToGrantAnotherCredit() const {
+  credit_messenger_.RefusToGrantAnotherCredit();
 }
 
 bool UserCredit::GiveACredit(UserIdentifier &user_identifier) {
@@ -77,7 +78,7 @@ double UserCredit::CalculateCredit(int sum, int amount_of_months) {
 
 bool UserCredit::MaxCreditCalculation(int maximal_sum_of_credit,
                                       UserIdentifier &user_identifier) {
-  int amount_of_credit_months = MonthToRepay();
+  int amount_of_credit_months = GetAmountOfMonthToRepayACredit();
 
   utility_.ClearScreen();
 
@@ -115,7 +116,7 @@ bool UserCredit::IndividualCreditCalculation(UserIdentifier &user_identifier,
   int user_sum_of_credit =
       GetIndividualSumOfCreditFromUser(maximal_sum_of_credit);
 
-  int amount_of_credit_months = MonthToRepay();
+  int amount_of_credit_months = GetAmountOfMonthToRepayACredit();
 
   credit_messenger_.ShowIndividualCreditInfo(user_identifier.ReturnLogin(),
                                              user_sum_of_credit);
@@ -164,7 +165,7 @@ bool UserCredit::ExitCreditMenu() {
   return true;
 }
 
-int UserCredit::MonthToRepay() {
+int UserCredit::GetAmountOfMonthToRepayACredit() {
   cout << "\nThe number of months to repay the loan: ";
   return GetCreditMonths();
 }
