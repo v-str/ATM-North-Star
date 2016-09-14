@@ -98,3 +98,13 @@ void CreditMessanger::ShowRefuseACredit(const int sum_of_cash) const {
       "$1000 or more.\n");
   utility_.Sleep(500);
 }
+
+bool CreditMessanger::ShowExitMessage() const {
+  user_input_.ShowExitMessage();
+  return true;
+}
+
+void CreditMessanger::ShowRepealACreadit() const {
+  utility_.WriteTextWithDelay("\n\t# Credit is repealed...\n");
+  utility_.IgnoreCinLine();
+}

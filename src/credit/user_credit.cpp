@@ -35,7 +35,7 @@ bool UserCredit::GiveACredit(UserIdentifier &user_identifier) {
   } else if (choice == 3) {
     return false;
   } else if (choice == 4) {
-    return secondary_operation_.ExitCreditMenu();
+    return credit_messenger_.ShowExitMessage();
   } else {
     return error_.ShowIncorrectDataMessage();
   }
@@ -97,11 +97,9 @@ bool UserCredit::MaxCreditCalculation(UserIdentifier &user_identifier,
     user_identifier.AssignAMonthlyPayment(pay_per_month);
     return EnrollACredit();
   } else if (choice == 2) {
-    user_identifier.AssignACredit(0);
-    user_identifier.AssignAMonthlyPayment(0.0);
-    return RepealACredit();
+    return secondary_credit_operation_.RepealACredit(user_identifier);
   } else if (choice == 3) {
-    return secondary_operation_.ExitCreditMenu();
+    return credit_messenger_.ShowExitMessage();
   } else {
     return error_.ShowIncorrectDataMessage();
   }
@@ -136,7 +134,7 @@ bool UserCredit::IndividualCreditCalculation(UserIdentifier &user_identifier,
   } else if (choice == 2) {
     return false;
   } else if (choice == 3) {
-    return secondary_operation_.ExitCreditMenu();
+    return credit_messenger_.ShowExitMessage();
   } else {
     return error_.ShowIncorrectDataMessage();
   }

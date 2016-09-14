@@ -59,7 +59,7 @@ class UserCredit {
   UserInput user_input_;
   CreditMessanger credit_messenger_;
 
-  SecondaryCreditOperations secondary_operation_;
+  SecondaryCreditOperations secondary_credit_operation_;
 };
 
 #endif  // USER_CREDIT_H

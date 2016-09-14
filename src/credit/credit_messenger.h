@@ -5,6 +5,7 @@
 #include "string"
 
 #include "system_utility.h"
+#include "user_input.h"
 
 using std::cout;
 
@@ -24,8 +25,12 @@ class CreditMessanger {
   void ShowEnrollACredit() const;
   void ShowRefuseACredit(const int sum_of_cash) const;
 
+  bool ShowExitMessage() const;
+  void ShowRepealACreadit() const;
+
  private:
   SystemUtility utility_;
+  UserInput user_input_;
 };
 
 #endif  // CREDIT_MESSANGER_H
