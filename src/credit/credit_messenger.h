@@ -24,7 +24,6 @@ class CreditMessanger {
   void ShowEnrollACredit() const;
   void ShowRefuseACredit(const int sum_of_cash) const;
 
-
  private:
   SystemUtility utility_;
 };

@@ -39,19 +39,19 @@ void NoticeAboutError::NoticeAboutIncorrectSum() const {
   cin.clear();
 }
 
-void NoticeAboutError::ShowUnacceptableWithdrawal(
-    const AccountInfo &account_info, int incorrect_sum) {
+void NoticeAboutError::ShowUnacceptableWithdrawal(const int amount_of_cash,
+                                                  int incorrect_sum) {
   utility_.ClearScreen();
   utility_.WriteTextWithDelay("\n\t# Sorry, entered sum is incorrect.\n\n");
   cout << "\t# Entered sum: " << incorrect_sum << "\n\n";
-  user_messenger_.WriteUserInfo("Balance", std::to_string(account_info.cash_));
+  user_messenger_.WriteUserInfo("Balance", std::to_string(amount_of_cash));
   utility_.IgnoreCinLine();
 }
 
 bool NoticeAboutError::ShowIncorrectDataMessage() {
-    utility_.WriteTextWithDelay(
-        "\t Data is not correct, please reload the program.\n\n");
-    cin.get();
-    return true;
+  utility_.WriteTextWithDelay(
+      "\t Data is not correct, please reload the program.\n\n");
+  cin.get();
+  return true;
 }
 // a;dfljaslfkjas;fklj

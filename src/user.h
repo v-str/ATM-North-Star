@@ -3,10 +3,10 @@
 
 #include <string>
 #include "account_info.h"
-#include "user_identifier.h"
 #include "notice_about_error.h"
 #include "system_utility.h"
 #include "user_credit.h"
+#include "user_identifier.h"
 #include "user_input.h"
 #include "user_messenger.h"
 

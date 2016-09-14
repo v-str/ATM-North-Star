@@ -3,7 +3,7 @@
 
 #include <string>
 
-struct AccountInfo{
+struct AccountInfo {
   using string = std::string;
 
   string login_ = "no_name";

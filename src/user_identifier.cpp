@@ -5,34 +5,62 @@ static const int kMaxLenghtOfPassword = 4;
 
 UserIdentifier::UserIdentifier() {}
 
-void UserIdentifier::InitLogin(const UserIdentifier::string login)
-{
-    account_info_.login_ = login;
+void UserIdentifier::InitLogin(const UserIdentifier::string login) {
+  account_info_.login_ = login;
 }
 
-void UserIdentifier::InitPassword(const UserIdentifier::string password)
-{
-    account_info_.password_ = password;
+void UserIdentifier::InitPassword(const UserIdentifier::string password) {
+  account_info_.password_ = password;
 }
 
-void UserIdentifier::InitCash(const int cash)
-{
-    account_info_.cash_ = cash;
+void UserIdentifier::InitCash(const int cash) { account_info_.cash_ = cash; }
+
+void UserIdentifier::InitCredit(const int credit) {
+  account_info_.credit_ = credit;
 }
 
-void UserIdentifier::InitCredit(const int credit)
-{
-    account_info_.credit_ = credit;
+void UserIdentifier::InitMonthlyPayment(const double monthly_payment) {
+  account_info_.monthly_payment_ = monthly_payment;
 }
 
-void UserIdentifier::InitMonthlyPayment(const double monthly_payment)
-{
-    account_info_.monthly_payment_ = monthly_payment;
+void UserIdentifier::InitAmountOfCreditMonth(const int amount_credit_month) {
+  account_info_.amount_of_credit_month_ = amount_credit_month;
 }
 
-void UserIdentifier::InitAmountOfCreditMonth(const int amount_credit_month)
-{
-    account_info_.amount_of_credit_month_ = amount_credit_month;
+int UserIdentifier::AddCash(const int sum) {
+  return account_info_.cash_ += sum;
+}
+
+int UserIdentifier::DeductCash(const int sum) {
+  return account_info_.cash_ -= sum;
+}
+
+int UserIdentifier::ReturnCash() const { return account_info_.cash_; }
+
+int UserIdentifier::ReturnCredit() const { return account_info_.credit_; }
+
+UserIdentifier::string UserIdentifier::ReturnLogin() const {
+  return account_info_.login_;
+}
+
+UserIdentifier::string UserIdentifier::ReturnPassword() const {
+  return account_info_.password_;
+}
+
+int UserIdentifier::ReturnAmountOfCreditMonth() const {
+  return account_info_.amount_of_credit_month_;
+}
+
+int UserIdentifier::AssignACredit(const int sum_of_credit) {
+  return account_info_.credit_ = sum_of_credit;
+}
+
+double UserIdentifier::AssignAMonthlyPayment(const double pay_per_month) {
+  return account_info_.monthly_payment_ = pay_per_month;
+}
+
+bool UserIdentifier::IsCreditAvailable(const int minimal_sum_for_credit) {
+  return account_info_.credit_ >= minimal_sum_for_credit;
 }
 
 void UserIdentifier::GetLogin() {
@@ -72,11 +100,11 @@ void UserIdentifier::NoticeAboutSuccessfulRegistration() {
 }
 
 void UserIdentifier::NoticeAboutIncorrectLogin() const {
-  error_.NoticeAboutIncorrectLoginMessage();
+  error_message_.NoticeAboutIncorrectLoginMessage();
 }
 
 void UserIdentifier::NoticeAboutIncorrectPassword() const {
-  error_.NoticeAboutIncorrectFormatPasswordMessage();
+  error_message_.NoticeAboutIncorrectFormatPasswordMessage();
 }
 
 UserIdentifier::string UserIdentifier::GetPasswordFromUser() {

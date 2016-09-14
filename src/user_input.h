@@ -4,8 +4,8 @@
 #include <string>
 
 #include "demo_user_messanger.h"
-#include "system_utility.h"
 #include "notice_about_error.h"
+#include "system_utility.h"
 
 class UserInput {
   using string = std::string;

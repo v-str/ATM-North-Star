@@ -9,8 +9,8 @@
 #include "notice_about_error.h"
 #include "system_utility.h"
 #include "user_choice.h"
-#include "user_input.h"
 #include "user_identifier.h"
+#include "user_input.h"
 
 using std::cout;
 using std::cin;
@@ -21,7 +21,7 @@ class UserCredit {
  public:
   UserCredit();
 
-  bool AlreadyHasACredit(AccountInfo &account_info) const;
+  bool AlreadyHasACredit() const;
   void RefuseToGrantAnotherCredit() const;
 
   bool ConsiderACredit(UserIdentifier &user_identifier);
@@ -35,15 +35,14 @@ class UserCredit {
 
   int GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit);
 
-
   bool MaxCreditCalculation(UserIdentifier &user_identifier,
                             int maximal_sum_of_credit);
 
   bool IndividualCreditCalculation(UserIdentifier &user_identifier,
                                    int maximal_sum_of_credit);
 
-  bool EnrollACredit(UserIdentifier &user_identifier,
-                     double sum_of_credit, double pay_per_month);
+  bool EnrollACredit(UserIdentifier &user_identifier, double sum_of_credit,
+                     double pay_per_month);
   bool RepealACredit(UserIdentifier &user_identifier);
 
   bool RefuseACredit(UserIdentifier &user_identifier);

@@ -4,9 +4,9 @@
 #include <iostream>
 #include <string>
 #include "account_info.h"
+#include "notice_about_error.h"
 #include "system_utility.h"
 #include "user_messenger.h"
-#include "notice_about_error.h"
 
 using std::cin;
 using std::cout;
@@ -24,6 +24,17 @@ class UserIdentifier {
   void InitMonthlyPayment(const double monthly_payment);
   void InitAmountOfCreditMonth(const int amount_credit_month);
 
+  int AddCash(const int sum);
+  int DeductCash(const int sum);
+  int ReturnCash() const;
+  int ReturnCredit() const;
+  string ReturnLogin() const;
+  string ReturnPassword() const;
+  int ReturnAmountOfCreditMonth() const;
+
+  int AssignACredit(const int sum_of_credit);
+  double AssignAMonthlyPayment(const double pay_per_month);
+  bool IsCreditAvailable(const int minimal_sum_for_credit);
 
   void GetLogin();
   void GetPassword();
@@ -39,13 +50,11 @@ class UserIdentifier {
 
   string GetPasswordFromUser();
 
-
-  AccountInfo account_info_;
-
  private:
+  NoticeAboutError error_message_;
+  AccountInfo account_info_;
   UserMessenger user_messanger_;
   SystemUtility utility_;
-  NoticeAboutError error_;
 };
 
 #endif  // IDENTIFICATION_OF_USER_H
