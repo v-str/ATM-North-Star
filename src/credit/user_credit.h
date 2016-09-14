@@ -7,13 +7,12 @@
 #include "account_info.h"
 #include "credit_messenger.h"
 #include "notice_about_error.h"
+#include "primary_credit_operations.h"
+#include "secondary_credit_operations.h"
 #include "system_utility.h"
 #include "user_choice.h"
 #include "user_identifier.h"
 #include "user_input.h"
-#include "primary_credit_operations.h"
-#include "secondary_credit_operations.h"
-
 
 using std::cout;
 using std::cin;
@@ -34,18 +33,13 @@ class UserCredit {
 
   bool GiveACredit(UserIdentifier &user_identifier);
 
-  bool MaxCreditCalculation(UserIdentifier &user_identifier, int maximal_sum_of_credit);
   bool IndividualCreditCalculation(UserIdentifier &user_identifier,
                                    int maximal_sum_of_credit);
 
   double CalculateCredit(int sum, int amount_of_months);
 
-
   int GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit);
 
-
-
-  bool EnrollACredit() const;
   bool RepealACredit() const;
 
   bool RefuseACredit(UserIdentifier &user_identifier);
