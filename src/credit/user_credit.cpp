@@ -93,9 +93,8 @@ bool UserCredit::MaxCreditCalculation(UserIdentifier &user_identifier,
   int choice = user_choice_.GetUserChoiceWithMenuText(menu_text, "\tEnter: ");
 
   if (choice == 1) {
-    user_identifier.AssignACredit(maximal_sum_of_credit);
-    user_identifier.AssignAMonthlyPayment(pay_per_month);
-    return EnrollACredit();
+    return secondary_credit_operation_.EnrollACredit(
+        user_identifier, maximal_sum_of_credit, pay_per_month);
   } else if (choice == 2) {
     return secondary_credit_operation_.RepealACredit(user_identifier);
   } else if (choice == 3) {
