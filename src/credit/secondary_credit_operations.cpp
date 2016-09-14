@@ -16,3 +16,12 @@ bool SecondaryCreditOperations::RepealACredit(
   credit_messenger_.ShowRepealACreadit();
   return user_input_.SuggestUserToExit();
 }
+
+int SecondaryCreditOperations::GetAmountOfCreditMonthsFromUser() {
+  cout << "\nThe number of months to repay the loan: ";
+  int months = 0;
+  cin >> months;
+  utility_.IgnoreCinLine();
+  return months;
+}
+

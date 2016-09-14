@@ -77,7 +77,8 @@ double UserCredit::CalculateCredit(int sum, int amount_of_months) {
 
 bool UserCredit::MaxCreditCalculation(UserIdentifier &user_identifier,
                                       int maximal_sum_of_credit) {
-  int amount_of_credit_months = GetAmountOfMonthToRepayACredit();
+  int amount_of_credit_months =
+      secondary_credit_operation_.GetAmountOfCreditMonthsFromUser();
 
   utility_.ClearScreen();
 
@@ -85,8 +86,8 @@ bool UserCredit::MaxCreditCalculation(UserIdentifier &user_identifier,
 
   credit_messenger_.ShowInfoAboutCredit(user_login, maximal_sum_of_credit);
 
-  double pay_per_month =
-      CalculateCredit(maximal_sum_of_credit, amount_of_credit_months);
+  double pay_per_month = primary_credit_operations_.CalculateCredit(
+      maximal_sum_of_credit, amount_of_credit_months);
 
   string menu_text = credit_messenger_.SuggestToConfirmACredit();
 

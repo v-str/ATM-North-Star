@@ -11,7 +11,9 @@
 #include "user_choice.h"
 #include "user_identifier.h"
 #include "user_input.h"
+#include "primary_credit_operations.h"
 #include "secondary_credit_operations.h"
+
 
 using std::cout;
 using std::cin;
@@ -59,6 +61,7 @@ class UserCredit {
   UserInput user_input_;
   CreditMessanger credit_messenger_;
 
+  PrimaryCreditOperations primary_credit_operations_;
   SecondaryCreditOperations secondary_credit_operation_;
 };
 
