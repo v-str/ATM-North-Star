@@ -5,6 +5,7 @@ CONFIG -= qt
 
 INCLUDEPATH += \
     src \
+    src/user_identification \
     src/credit/user_credit \
     src/credit/credit_operations \
     src/credit/credit_messenger \
@@ -23,7 +24,7 @@ SOURCES += \
     src/credit/credit_messenger/credit_messenger.cpp \
     src/demo_user/demo_user.cpp \
     src/demo_user/demo_user_messanger.cpp \
-    src/user_identifier.cpp \
+    src/user_identification/user_identifier.cpp \
     src/credit/credit_operations/primary_credit_operations.cpp \
     src/credit/credit_operations/secondary_credit_operations.cpp
 
@@ -40,6 +41,6 @@ HEADERS += \
     src/credit/credit_messenger/credit_messenger.h \
     src/demo_user/demo_user.h \
     src/demo_user/demo_user_messanger.h \
-    src/user_identifier.h \
+    src/user_identification/user_identifier.h \
     src/credit/credit_operations/primary_credit_operations.h \
     src/credit/credit_operations/secondary_credit_operations.h

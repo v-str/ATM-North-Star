@@ -63,6 +63,10 @@ bool UserIdentifier::IsCreditAvailable() {
   return ReturnCash() >= 1000;
 }
 
+
+
+
+
 void UserIdentifier::GetLogin() {
   cout << "\n\n\n\t\tLogin: ";
 
