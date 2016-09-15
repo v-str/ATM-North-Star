@@ -27,7 +27,7 @@ void AtmUser::Registration() {
   } else {
     user_identifier_.GetPassword();
     if (!user_identifier_.IsNormalPass()) {
-      user_identifier_.NoticeAboutIncorrectPassword();
+      error_message_.NoticeAboutIncorrectFormatPasswordMessage();
     } else {
       successful_action_.NoticeAboutSuccessfulRegistration(user_identifier_);
       RunProgramUntilUserWantToExit();

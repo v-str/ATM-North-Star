@@ -85,10 +85,6 @@ bool UserIdentifier::IsNormalPass() {
   return account_info_.password_.length() == kMaxLenghtOfPassword;
 }
 
-void UserIdentifier::NoticeAboutIncorrectPassword() const {
-  error_message_.NoticeAboutIncorrectFormatPasswordMessage();
-}
-
 UserIdentifier::string UserIdentifier::GetPasswordFromUser() {
   string password;
   cin >> password;
