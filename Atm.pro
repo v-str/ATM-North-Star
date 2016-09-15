@@ -5,6 +5,7 @@ CONFIG -= qt
 
 INCLUDEPATH += \
     src \
+    src/notifications \
     src/user_identification \
     src/credit/user_credit \
     src/credit/credit_operations \
@@ -17,7 +18,7 @@ SOURCES += \
     src/system_utility.cpp \
     src/user_input.cpp \
     src/initial_screen.cpp \
-    src/notice_about_error.cpp \
+    src/notifications/notice_about_error.cpp \
     src/user_choice.cpp \
     src/user_messenger.cpp \
     src/credit/user_credit/user_credit.cpp \
@@ -34,7 +35,7 @@ HEADERS += \
     src/user_input.h \
     src/initial_screen.h \
     src/account_info.h \
-    src/notice_about_error.h \
+    src/notifications/notice_about_error.h \
     src/user_choice.h \
     src/user_messenger.h \
     src/credit/user_credit/user_credit.h \
