@@ -30,8 +30,7 @@ void CreditMessanger::ShowNotifyAboutCredit() const {
           "\tEnter: ";
 }
 
-void CreditMessanger::ShowCreditConditions(
-    const int maximal_sum_of_credit) const {
+void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
   utility_.ClearScreen();
   utility_.WriteTextWithDelay(
       "# Your balance more than 1000$. You can afford to take the\n"
@@ -52,7 +51,7 @@ void CreditMessanger::ShowCreditConditions(
 }
 
 void CreditMessanger::ShowInfoAboutCredit(
-    const CreditMessanger::string &user_login, const int max_sum) const {
+    const CreditMessanger::string &user_login, int max_sum) const {
   cout << "\t             Consumer credit\n"
           "\t* Profile: "
        << user_login << "\n\t* Sum $: " << max_sum
@@ -70,7 +69,7 @@ CreditMessanger::string CreditMessanger::SuggestToConfirmACredit() const {
 }
 
 void CreditMessanger::ShowIndividualCreditInfo(
-    const CreditMessanger::string &user_login, const int sum_of_credit) const {
+    const CreditMessanger::string &user_login, int sum_of_credit) const {
   cout << "\t\tConsumer Credit\n\n";
   utility_.Sleep(500);
   cout << "Profile: " << user_login << "\n";
@@ -88,7 +87,7 @@ void CreditMessanger::ShowEnrollACredit() const {
   utility_.IgnoreCinLine();
 }
 
-void CreditMessanger::ShowRefuseACredit(const int sum_of_cash) const {
+void CreditMessanger::ShowRefuseACredit(int sum_of_cash) const {
   utility_.ClearScreen();
   utility_.WriteTextWithDelay("# We checked your balance.\n");
   utility_.Sleep(500);

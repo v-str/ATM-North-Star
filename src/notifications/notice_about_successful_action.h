@@ -11,7 +11,8 @@ using std::cout;
 
 class NoticeAboutSuccessfulAction {
  public:
-  void NoticeAboutSuccessfulRegistration(UserIdentifier &user_identifier_) const;
+  void NoticeAboutSuccessfulRegistration(
+      UserIdentifier &user_identifier_) const;
 
  private:
   SystemUtility utility_;

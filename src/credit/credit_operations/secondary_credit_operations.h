@@ -8,8 +8,8 @@
 
 class SecondaryCreditOperations {
  public:
-  bool EnrollACredit(UserIdentifier &user_identifier, const int sum_of_credit,
-                     const int pay_per_month) const;
+  bool EnrollACredit(UserIdentifier &user_identifier, int sum_of_credit,
+                     int pay_per_month) const;
 
   bool RepealACredit(UserIdentifier &user_identifier) const;
 

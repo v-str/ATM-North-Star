@@ -68,8 +68,8 @@ bool PrimaryCreditOperations::IndividualCreditCalculation(
   }
 }
 
-double PrimaryCreditOperations::CalculateCredit(const int sum,
-                                                const int amount_of_months) {
+double PrimaryCreditOperations::CalculateCredit(int sum,
+                                                int amount_of_months) {
   double rate = (sum * 14) / 100;
   double pay_per_month = (sum / amount_of_months) + (rate / 12);
   double all_payment = 0.0;

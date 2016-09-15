@@ -5,7 +5,7 @@
 
 class CashOperator {
  public:
-  int AddCash(const int sum);
+  int AddCash(int sum);
 };
 
 #endif  // CASH_OPERATOR_H

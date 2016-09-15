@@ -39,7 +39,7 @@ void NoticeAboutError::NoticeAboutIncorrectSum() const {
   cin.clear();
 }
 
-void NoticeAboutError::ShowUnacceptableWithdrawal(const int amount_of_cash,
+void NoticeAboutError::ShowUnacceptableWithdrawal(int amount_of_cash,
                                                   int incorrect_sum) {
   utility_.ClearScreen();
   utility_.WriteTextWithDelay("\n\t# Sorry, entered sum is incorrect.\n\n");

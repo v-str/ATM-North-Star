@@ -21,7 +21,7 @@ class PrimaryCreditOperations {
                                    int maximal_sum_of_credit);
 
  private:
-  double CalculateCredit(const int sum, const int amount_of_months);
+  double CalculateCredit(int sum, int amount_of_months);
 
   NoticeAboutError error_operation;
   SystemUtility utility_;

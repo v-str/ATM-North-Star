@@ -13,7 +13,7 @@ class NoticeAboutError {
  public:
   NoticeAboutError();
 
-  void ShowUnacceptableWithdrawal(const int amount_of_cash, int incorrect_sum);
+  void ShowUnacceptableWithdrawal(int amount_of_cash, int incorrect_sum);
 
   void NoticeAboutIncorrectLoginMessage() const;
   void NoticeAboutIncorrectFormatPasswordMessage() const;

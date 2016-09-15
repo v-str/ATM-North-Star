@@ -1,3 +1,3 @@
 #include "cash_operator.h"
 
-int CashOperator::AddCash(const int sum) {}
+int CashOperator::AddCash(int sum) {}

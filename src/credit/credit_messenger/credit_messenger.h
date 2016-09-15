@@ -15,15 +15,15 @@ class CreditMessanger {
  public:
   void RefusToGrantAnotherCredit() const;
   void ShowNotifyAboutCredit() const;
-  void ShowCreditConditions(const int maximal_sum_of_credit) const;
-  void ShowInfoAboutCredit(const string &user_login, const int max_sum) const;
+  void ShowCreditConditions(int maximal_sum_of_credit) const;
+  void ShowInfoAboutCredit(const string &user_login, int max_sum) const;
 
   string SuggestToConfirmACredit() const;
   void ShowIndividualCreditInfo(const string &user_login,
-                                const int sum_of_credit) const;
+                                int sum_of_credit) const;
 
   void ShowEnrollACredit() const;
-  void ShowRefuseACredit(const int sum_of_cash) const;
+  void ShowRefuseACredit(int sum_of_cash) const;
 
   bool ShowExitMessage() const;
   void ShowRepealACreadit() const;
