@@ -23,7 +23,7 @@ class PrimaryCreditOperations {
  private:
   double CalculateCredit(const int sum, const int amount_of_months);
 
-  NoticeAboutError error_;
+  NoticeAboutError error_operation;
   SystemUtility utility_;
   CreditMessanger credit_messenger_;
   SecondaryCreditOperations secondary_credit_operation_;

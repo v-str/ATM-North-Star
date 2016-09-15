@@ -78,6 +78,6 @@ void UserInput::ShowExitMessage() const {
 }
 
 bool UserInput::ShowIncorrectMessage() const {
-  error_.NoticeAboutIncorrectDataMessage();
+  error_message.NoticeAboutIncorrectDataMessage();
   return GetResultFromUserAboutExit();
 }

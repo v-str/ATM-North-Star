@@ -84,7 +84,7 @@ class AtmUser {
   UserMessenger user_messanger_;
   UserCredit user_credit_;
   UserIdentifier user_identifier_;
-  NoticeAboutError error_;
+  NoticeAboutError error_message;
 };
 
 #endif  // USER_H

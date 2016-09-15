@@ -25,7 +25,7 @@ class UserIdentifier {
   void InitAmountOfCreditMonth(const int amount_credit_month);
 
   int AddCash(const int sum);
-  int DeductCash(const int sum);
+  int DeductCashFromUser(const int sum);
   int ReturnCash() const;
   int ReturnCredit() const;
   string ReturnLogin() const;

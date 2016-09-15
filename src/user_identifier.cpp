@@ -31,7 +31,7 @@ int UserIdentifier::AddCash(const int sum) {
   return account_info_.cash_ += sum;
 }
 
-int UserIdentifier::DeductCash(const int sum) {
+int UserIdentifier::DeductCashFromUser(const int sum) {
   return account_info_.cash_ -= sum;
 }
 

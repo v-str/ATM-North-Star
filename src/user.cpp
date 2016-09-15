@@ -80,7 +80,7 @@ bool AtmUser::Refill() {
     user_identifier_.AddCash(money);
     user_messanger_.ShowUserBalance(user_identifier_.ReturnCash());
   } else {
-    error_.NoticeAboutIncorrectSum();
+    error_message.NoticeAboutIncorrectSum();
   }
   utility_.IgnoreCinLine();
   return user_input_.SuggestUserToExit();
@@ -110,7 +110,7 @@ bool AtmUser::WithdrawCash() {
     }
   } else {
     int amount_of_cash = user_identifier_.ReturnCash();
-    error_.ShowUnacceptableWithdrawal(amount_of_cash, sum_of_withdrawal);
+    error_message.ShowUnacceptableWithdrawal(amount_of_cash, sum_of_withdrawal);
   }
   return user_input_.SuggestUserToExit();
 }
@@ -212,5 +212,5 @@ bool AtmUser::IsCorrectPassword(const string &password) {
 }
 
 void AtmUser::WithdrawFromAccount(int sum_of_withdrawal) {
-  user_identifier_.DeductCash(sum_of_withdrawal);
+  user_identifier_.DeductCashFromUser(sum_of_withdrawal);
 }

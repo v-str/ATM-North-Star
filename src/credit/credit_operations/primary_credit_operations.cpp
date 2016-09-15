@@ -27,7 +27,7 @@ bool PrimaryCreditOperations::MaxCreditCalculation(
   } else if (choice == 3) {
     return credit_messenger_.ShowExitMessage();
   } else {
-    return error_.ShowIncorrectDataMessage();
+    return error_operation.ShowIncorrectDataMessage();
   }
 }
 
@@ -64,7 +64,7 @@ bool PrimaryCreditOperations::IndividualCreditCalculation(
   } else if (choice == 3) {
     return credit_messenger_.ShowExitMessage();
   } else {
-    return error_.ShowIncorrectDataMessage();
+    return error_operation.ShowIncorrectDataMessage();
   }
 }
 

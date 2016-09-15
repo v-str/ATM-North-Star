@@ -41,7 +41,7 @@ bool UserCredit::GiveACredit(UserIdentifier &user_identifier) {
   } else if (choice == 4) {
     return credit_messenger_.ShowExitMessage();
   } else {
-    return error_.ShowIncorrectDataMessage();
+    return error_message.ShowIncorrectDataMessage();
   }
 }
 

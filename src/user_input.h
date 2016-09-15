@@ -25,7 +25,7 @@ class UserInput {
   string GetLineFromUser() const;
 
   SystemUtility utility_;
-  NoticeAboutError error_;
+  NoticeAboutError error_message;
 };
 
 #endif  // CORRECT_INPUT_H

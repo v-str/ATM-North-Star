@@ -29,7 +29,7 @@ class UserCredit {
 
   UserInput user_input_;
   CreditMessanger credit_messenger_;
-  NoticeAboutError error_;
+  NoticeAboutError error_message;
   PrimaryCreditOperations primary_credit_operations_;
 };
 
