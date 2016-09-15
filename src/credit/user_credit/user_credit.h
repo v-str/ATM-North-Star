@@ -16,12 +16,11 @@ class UserCredit {
   using string = std::string;
 
  public:
-  UserCredit();
 
   bool AlreadyHasACredit(UserIdentifier &user_identifier) const;
   void RefuseToGrantAnotherCredit() const;
 
-  bool ConsiderACredit(UserIdentifier &user_identifier);
+  bool SuggestACredit(UserIdentifier &user_identifier);
 
  private:
   bool ConsiderACreditBasedOnCash(UserIdentifier &user_identifier);

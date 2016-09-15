@@ -92,7 +92,7 @@ bool AtmUser::CreditApplication() {
     user_identifier_.ShowAccountInformation();
     return user_input_.SuggestUserToExit();
   } else {
-    return user_credit_.ConsiderACredit(user_identifier_);
+    return user_credit_.SuggestACredit(user_identifier_);
   }
 }
 

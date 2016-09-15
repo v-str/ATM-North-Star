@@ -4,9 +4,11 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 INCLUDEPATH += \
-    src/credit \
-    src/demo_user \
-    src
+    src \
+    src/credit/user_credit \
+    src/credit/credit_operations \
+    src/credit/credit_messenger \
+    src/demo_user
 
 SOURCES += \
     src/main.cpp \
@@ -17,13 +19,13 @@ SOURCES += \
     src/notice_about_error.cpp \
     src/user_choice.cpp \
     src/user_messenger.cpp \
-    src/credit/user_credit.cpp \
-    src/credit/credit_messenger.cpp \
+    src/credit/user_credit/user_credit.cpp \
+    src/credit/credit_messenger/credit_messenger.cpp \
     src/demo_user/demo_user.cpp \
     src/demo_user/demo_user_messanger.cpp \
     src/user_identifier.cpp \
-    src/credit/primary_credit_operations.cpp \
-    src/credit/secondary_credit_operations.cpp
+    src/credit/credit_operations/primary_credit_operations.cpp \
+    src/credit/credit_operations/secondary_credit_operations.cpp
 
 HEADERS += \
     src/user.h \
@@ -34,10 +36,10 @@ HEADERS += \
     src/notice_about_error.h \
     src/user_choice.h \
     src/user_messenger.h \
-    src/credit/user_credit.h \
-    src/credit/credit_messenger.h \
+    src/credit/user_credit/user_credit.h \
+    src/credit/credit_messenger/credit_messenger.h \
     src/demo_user/demo_user.h \
     src/demo_user/demo_user_messanger.h \
     src/user_identifier.h \
-    src/credit/primary_credit_operations.h \
-    src/credit/secondary_credit_operations.h
+    src/credit/credit_operations/primary_credit_operations.h \
+    src/credit/credit_operations/secondary_credit_operations.h
