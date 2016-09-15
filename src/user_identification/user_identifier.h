@@ -18,23 +18,26 @@ class UserIdentifier {
   void SetCredit(int credit);
   void SetMonthlyPayment(double monthly_payment);
   void SetAmountOfCreditMonth(int amount_credit_month);
-  int AddCash(int sum);
-  int WithdrawCashFromUser(int amount);
-  int Cash() const;
-  int Credit() const;
-  int AmountOfCreditMonth() const;
-  int AssignACredit(int sum_of_credit);
-  double AssignAMonthlyPayment(double pay_per_month);
-  bool IsCreditAvailable();
 
   void SetLogin(const string &login);
   void SetPassword(const string &password);
 
-  string Login() const;
-  string Password() const;
+  void SetLogin();
+  void SetPassword();
 
-  void GetLogin();
-  void GetPassword();
+  int GetCash() const;
+  int GetCredit() const;
+  int GetAmountOfCreditMonth() const;
+  int GetAssignACredit(int sum_of_credit);
+
+  string GetLogin() const;
+  string GetPassword() const;
+
+  double AssignAMonthlyPayment(double pay_per_month);
+
+  bool IsCreditAvailable();
+
+  int WithdrawCashFromUser(int amount);
 
   bool IsNormalLogin();
   bool IsNormalPass();
@@ -47,8 +50,8 @@ class UserIdentifier {
   string login_ = "no_name";
   string password_ = "0000";
 
-  int cash_ = 0.0;
-  int credit_ = 0.0;
+  int cash_ = 0;
+  int credit_ = 0;
   double monthly_payment_ = 0.0;
   int amount_of_credit_month_ = 0;
 

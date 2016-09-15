@@ -3,7 +3,6 @@
 static const int kMaxLenghtOfLogin = 21;
 static const int kMaxLenghtOfPassword = 4;
 
-//==========
 void UserIdentifier::SetCash(int cash) { cash_ = cash; }
 
 void UserIdentifier::SetCredit(int credit) { credit_ = credit; }
@@ -16,19 +15,21 @@ void UserIdentifier::SetAmountOfCreditMonth(int amount_credit_month) {
   amount_of_credit_month_ = amount_credit_month;
 }
 
-int UserIdentifier::AddCash(int sum) { return cash_ += sum; }
+void UserIdentifier::SetLogin(const string &login) { login_ = login; }
 
-int UserIdentifier::WithdrawCashFromUser(int amount) { return cash_ -= amount; }
+void UserIdentifier::SetPassword(const UserIdentifier::string &password) {
+  password_ = password;
+}
 
-int UserIdentifier::Cash() const { return cash_; }
+int UserIdentifier::GetCash() const { return cash_; }
 
-int UserIdentifier::Credit() const { return credit_; }
+int UserIdentifier::GetCredit() const { return credit_; }
 
-int UserIdentifier::AmountOfCreditMonth() const {
+int UserIdentifier::GetAmountOfCreditMonth() const {
   return amount_of_credit_month_;
 }
 
-int UserIdentifier::AssignACredit(int sum_of_credit) {
+int UserIdentifier::GetAssignACredit(int sum_of_credit) {
   return credit_ = sum_of_credit;
 }
 
@@ -36,20 +37,15 @@ double UserIdentifier::AssignAMonthlyPayment(double pay_per_month) {
   return monthly_payment_ = pay_per_month;
 }
 
-bool UserIdentifier::IsCreditAvailable() { return Cash() >= 1000; }
-//==========
+bool UserIdentifier::IsCreditAvailable() { return GetCash() >= 1000; }
 
-void UserIdentifier::SetLogin(const string &login) { login_ = login; }
+int UserIdentifier::WithdrawCashFromUser(int amount) { return cash_ -= amount; }
 
-void UserIdentifier::SetPassword(const UserIdentifier::string &password) {
-  password_ = password;
-}
+UserIdentifier::string UserIdentifier::GetLogin() const { return login_; }
 
-UserIdentifier::string UserIdentifier::Login() const { return login_; }
+UserIdentifier::string UserIdentifier::GetPassword() const { return password_; }
 
-UserIdentifier::string UserIdentifier::Password() const { return password_; }
-
-void UserIdentifier::GetLogin() {
+void UserIdentifier::SetLogin() {
   cout << "\n\n\n\t\tLogin: ";
 
   user_messanger_.WriteSymbolsNTimes('#', kMaxLenghtOfLogin);
@@ -58,7 +54,7 @@ void UserIdentifier::GetLogin() {
   cin.sync();
 }
 
-void UserIdentifier::GetPassword() {
+void UserIdentifier::SetPassword() {
   cout << "\t\tPassword: XXXX\b\b\b\b";
   cin >> password_;
   cin.sync();

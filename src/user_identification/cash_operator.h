@@ -5,7 +5,7 @@
 
 class CashOperator {
  public:
-  int AddCash(int sum);
+  void AddCash(UserIdentifier &user_identifier_, int sum_of_cash);
 
 };
 

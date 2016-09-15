@@ -3,7 +3,7 @@
 static const int kMinimalSumForCredit = 1000;
 
 bool UserCredit::AlreadyHasACredit(UserIdentifier &user_identifier) const {
-  return user_identifier.Credit() > 0;
+  return user_identifier.GetCredit() > 0;
 }
 
 void UserCredit::RefuseToGrantAnotherCredit() const {
@@ -27,7 +27,7 @@ bool UserCredit::ConsiderACreditBasedOnCash(UserIdentifier &user_identifier) {
 }
 
 bool UserCredit::GiveACredit(UserIdentifier &user_identifier) {
-  int maximal_sum_of_credit = 15 * user_identifier.Cash();
+  int maximal_sum_of_credit = 15 * user_identifier.GetCash();
   credit_messenger_.ShowCreditConditions(maximal_sum_of_credit);
   int choice = user_input_.GetChoiceFromUser();
   if (choice == 1) {
@@ -46,7 +46,7 @@ bool UserCredit::GiveACredit(UserIdentifier &user_identifier) {
 }
 
 bool UserCredit::RefuseACredit(UserIdentifier &user_identifier) {
-  credit_messenger_.ShowRefuseACredit(user_identifier.Cash());
+  credit_messenger_.ShowRefuseACredit(user_identifier.GetCash());
 
   return user_input_.SuggestUserToExit();
 }
