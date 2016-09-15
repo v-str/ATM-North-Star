@@ -2,7 +2,6 @@
 #define USER_H
 
 #include <string>
-#include "account_info.h"
 #include "notice_about_error.h"
 #include "system_utility.h"
 #include "user_credit.h"
@@ -10,6 +9,7 @@
 #include "user_input.h"
 #include "user_messenger.h"
 #include "notice_about_successful_action.h"
+#include "cash_operator.h"
 
 class AtmUser {
   using string = std::string;
@@ -87,6 +87,7 @@ class AtmUser {
   UserIdentifier user_identifier_;
   NoticeAboutError error_message_;
   NoticeAboutSuccessfulAction successful_action_;
+  CashOperator cash_operator_;
 };
 
 #endif  // USER_H
