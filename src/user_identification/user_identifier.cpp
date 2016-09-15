@@ -5,28 +5,31 @@ static const int kMaxLenghtOfPassword = 4;
 
 UserIdentifier::UserIdentifier() {}
 
-void UserIdentifier::InitLogin(const string &login) {
+void UserIdentifier::SetLogin(const string &login) {
   account_info_.login_ = login;
 }
 
-void UserIdentifier::InitPassword(const UserIdentifier::string &password) {
+void UserIdentifier::SetPassword(const UserIdentifier::string &password) {
   account_info_.password_ = password;
 }
 
-void UserIdentifier::InitCash(int cash) { account_info_.cash_ = cash; }
+void UserIdentifier::SetCash(int cash) { account_info_.cash_ = cash; }
 
-void UserIdentifier::InitCredit(int credit) {
+void UserIdentifier::SetCredit(int credit) {
   account_info_.credit_ = credit;
 }
 
-void UserIdentifier::InitMonthlyPayment(double monthly_payment) {
+void UserIdentifier::SetMonthlyPayment(double monthly_payment) {
   account_info_.monthly_payment_ = monthly_payment;
 }
 
-void UserIdentifier::InitAmountOfCreditMonth(int amount_credit_month) {
+void UserIdentifier::SetAmountOfCreditMonth(int amount_credit_month) {
   account_info_.amount_of_credit_month_ = amount_credit_month;
 }
 
+
+
+//==========
 int UserIdentifier::AddCash(int sum) {
   return account_info_.cash_ += sum;
 }
@@ -35,19 +38,11 @@ int UserIdentifier::DeductCashFromUser(int sum) {
   return account_info_.cash_ -= sum;
 }
 
-int UserIdentifier::ReturnCash() const { return account_info_.cash_; }
+int UserIdentifier::Cash() const { return account_info_.cash_; }
 
-int UserIdentifier::ReturnCredit() const { return account_info_.credit_; }
+int UserIdentifier::Credit() const { return account_info_.credit_; }
 
-UserIdentifier::string UserIdentifier::ReturnLogin() const {
-  return account_info_.login_;
-}
-
-UserIdentifier::string UserIdentifier::ReturnPassword() const {
-  return account_info_.password_;
-}
-
-int UserIdentifier::ReturnAmountOfCreditMonth() const {
+int UserIdentifier::AmountOfCreditMonth() const {
   return account_info_.amount_of_credit_month_;
 }
 
@@ -59,7 +54,21 @@ double UserIdentifier::AssignAMonthlyPayment(double pay_per_month) {
   return account_info_.monthly_payment_ = pay_per_month;
 }
 
-bool UserIdentifier::IsCreditAvailable() { return ReturnCash() >= 1000; }
+bool UserIdentifier::IsCreditAvailable() { return Cash() >= 1000; }
+//==========
+
+
+
+
+
+UserIdentifier::string UserIdentifier::ReturnLogin() const {
+  return account_info_.login_;
+}
+
+UserIdentifier::string UserIdentifier::ReturnPassword() const {
+  return account_info_.password_;
+}
+
 
 void UserIdentifier::GetLogin() {
   cout << "\n\n\n\t\tLogin: ";

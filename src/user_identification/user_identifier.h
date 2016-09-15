@@ -17,25 +17,26 @@ class UserIdentifier {
  public:
   UserIdentifier();
 
-  void InitLogin(const string &login);
-  void InitPassword(const string &password);
-  void InitCash(int cash);
-  void InitCredit(int credit);
-  void InitMonthlyPayment(double monthly_payment);
-  void InitAmountOfCreditMonth(int amount_credit_month);
+  void SetLogin(const string &login);
+  void SetPassword(const string &password);
+  void SetCash(int cash);
+  void SetCredit(int credit);
+  void SetMonthlyPayment(double monthly_payment);
+  void SetAmountOfCreditMonth(int amount_credit_month);
+
 
   int AddCash(int sum);
-
   int DeductCashFromUser(int sum);
-  int ReturnCash() const;
-  int ReturnCredit() const;
-  string ReturnLogin() const;
-  string ReturnPassword() const;
-  int ReturnAmountOfCreditMonth() const;
-
+  int Cash() const;
+  int Credit() const;
+  int AmountOfCreditMonth() const;
   int AssignACredit(int sum_of_credit);
   double AssignAMonthlyPayment(double pay_per_month);
   bool IsCreditAvailable();
+
+
+  string ReturnLogin() const;
+  string ReturnPassword() const;
 
   void GetLogin();
   void GetPassword();

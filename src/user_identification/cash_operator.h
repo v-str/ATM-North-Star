@@ -6,6 +6,7 @@
 class CashOperator {
  public:
   int AddCash(int sum);
+
 };
 
 #endif  // CASH_OPERATOR_H

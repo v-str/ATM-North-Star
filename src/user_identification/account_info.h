@@ -8,6 +8,8 @@ struct AccountInfo {
 
   string login_ = "no_name";
   string password_ = "0000";
+
+
   int cash_ = 0.0;
   int credit_ = 0.0;
   double monthly_payment_ = 0.0;

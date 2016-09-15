@@ -8,7 +8,7 @@ void NoticeAboutSuccessfulAction::NoticeAboutSuccessfulRegistration(
   utility_.WriteTextWithDelay("\t\t| Access allowed |");
   cout << "\t\t------------------\n";
   utility_.Sleep(1000);
-  user_identifier_.InitCredit(0);
-  user_identifier_.InitMonthlyPayment(0.0);
-  user_identifier_.InitAmountOfCreditMonth(0);
+  user_identifier_.SetCredit(0);
+  user_identifier_.SetMonthlyPayment(0.0);
+  user_identifier_.SetAmountOfCreditMonth(0);
 }

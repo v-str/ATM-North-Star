@@ -22,7 +22,7 @@ int SecondaryCreditOperations::GetAmountOfCreditMonthsFromUser(
   cout << "\nThe number of months to repay the loan: ";
   int months;
   cin >> months;
-  user_identifier.InitAmountOfCreditMonth(months);
+  user_identifier.SetAmountOfCreditMonth(months);
   utility_.IgnoreCinLine();
   return months;
 }
