@@ -1,6 +1,38 @@
 #include "cash_operator.h"
 
-void CashOperator::AddCash(UserIdentifier &user_identifier_, int sum_of_cash) {
-  int total_cash = user_identifier_.GetCash() + sum_of_cash;
-  user_identifier_.SetCash(total_cash);
+void CashOperator::SetCash(int cash) { cash_ = cash; }
+
+void CashOperator::SetCredit(int credit) { credit_ = credit; }
+
+void CashOperator::SetMonthlyPayment(double monthly_payment) {
+  monthly_payment_ = monthly_payment;
+}
+
+void CashOperator::SetAmountOfCreditMonth(int amount_credit_month) {
+  amount_of_credit_month_ = amount_credit_month;
+}
+
+int CashOperator::GetCash() const { return cash_; }
+
+int CashOperator::GetCredit() const { return credit_; }
+
+double CashOperator::GetMonthlyPayment() const { return monthly_payment_; }
+
+int CashOperator::GetAmountOfCreditMonth() const {
+  return amount_of_credit_month_;
+}
+
+int CashOperator::GetAssignACredit(int sum_of_credit) {
+  return credit_ = sum_of_credit;
+}
+
+bool CashOperator::IsCreditAvailable() { return GetCash() >= 1000; }
+
+int CashOperator::WithdrawCashFromUser(int amount) { return cash_ -= amount; }
+
+
+void CashOperator::AddCash(int sum_of_cash) { cash_ += sum_of_cash; }
+
+void CashOperator::AssignAMonthlyPayment(double pay_per_month) {
+  monthly_payment_ = pay_per_month;
 }

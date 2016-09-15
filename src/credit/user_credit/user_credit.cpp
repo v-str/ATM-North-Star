@@ -2,40 +2,43 @@
 
 static const int kMinimalSumForCredit = 1000;
 
-bool UserCredit::AlreadyHasACredit(UserIdentifier &user_identifier) const {
-  return user_identifier.GetCredit() > 0;
+bool UserCredit::AlreadyHasACredit(const CashOperator &cash_operator) const {
+  return cash_operator.GetCredit() > 0;
 }
 
 void UserCredit::RefuseToGrantAnotherCredit() const {
   credit_messenger_.RefusToGrantAnotherCredit();
 }
 
-bool UserCredit::SuggestACredit(UserIdentifier &user_identifier) {
+bool UserCredit::SuggestACredit(CashOperator &cash_operator,
+                                const string &user_login) {
   credit_messenger_.ShowNotifyAboutCredit();
   if (user_input_.GetChoiceFromUser() == 1) {
-    return ConsiderACreditBasedOnCash(user_identifier);
+    return ConsiderACreditBasedOnCash(cash_operator, user_login);
   }
   return false;
 }
 
-bool UserCredit::ConsiderACreditBasedOnCash(UserIdentifier &user_identifier) {
-  if (user_identifier.IsCreditAvailable()) {
-    return GiveACredit(user_identifier);
+bool UserCredit::ConsiderACreditBasedOnCash(CashOperator &cash_operator,
+                                            const string &user_login) {
+  if (cash_operator.IsCreditAvailable()) {
+    return GiveACredit(cash_operator, user_login);
   } else {
-    return RefuseACredit(user_identifier);
+    return RefuseACredit(cash_operator);
   }
 }
 
-bool UserCredit::GiveACredit(UserIdentifier &user_identifier) {
-  int maximal_sum_of_credit = 15 * user_identifier.GetCash();
+bool UserCredit::GiveACredit(CashOperator &cash_operator,
+                             const string &user_login) {
+  int maximal_sum_of_credit = 15 * cash_operator.GetCash();
   credit_messenger_.ShowCreditConditions(maximal_sum_of_credit);
   int choice = user_input_.GetChoiceFromUser();
   if (choice == 1) {
     return primary_credit_operations_.MaxCreditCalculation(
-        user_identifier, maximal_sum_of_credit);
+        cash_operator, user_login, maximal_sum_of_credit);
   } else if (choice == 2) {
     return primary_credit_operations_.IndividualCreditCalculation(
-        user_identifier, maximal_sum_of_credit);
+        cash_operator, user_login, maximal_sum_of_credit);
   } else if (choice == 3) {
     return false;
   } else if (choice == 4) {
@@ -45,8 +48,8 @@ bool UserCredit::GiveACredit(UserIdentifier &user_identifier) {
   }
 }
 
-bool UserCredit::RefuseACredit(UserIdentifier &user_identifier) {
-  credit_messenger_.ShowRefuseACredit(user_identifier.GetCash());
+bool UserCredit::RefuseACredit(const CashOperator &cash_operator) const {
+  credit_messenger_.ShowRefuseACredit(cash_operator.GetCash());
 
   return user_input_.SuggestUserToExit();
 }

@@ -1,14 +1,13 @@
 #include "primary_credit_operations.h"
 
-bool PrimaryCreditOperations::MaxCreditCalculation(
-    UserIdentifier &user_identifier, int maximal_sum_of_credit) {
+bool PrimaryCreditOperations::MaxCreditCalculation(CashOperator &cash_operator,
+                                                   const string &user_login,
+                                                   int maximal_sum_of_credit) {
   int amount_of_credit_months =
       secondary_credit_operation_.GetAmountOfCreditMonthsFromUser(
-          user_identifier);
+          cash_operator);
 
   utility_.ClearScreen();
-
-  string user_login = user_identifier.GetLogin();
 
   credit_messenger_.ShowInfoAboutCredit(user_login, maximal_sum_of_credit);
 
@@ -21,18 +20,19 @@ bool PrimaryCreditOperations::MaxCreditCalculation(
 
   if (choice == 1) {
     return secondary_credit_operation_.EnrollACredit(
-        user_identifier, maximal_sum_of_credit, pay_per_month);
+        cash_operator, maximal_sum_of_credit, pay_per_month);
   } else if (choice == 2) {
-    return secondary_credit_operation_.RepealACredit(user_identifier);
+    return secondary_credit_operation_.RepealACredit(cash_operator);
   } else if (choice == 3) {
     return credit_messenger_.ShowExitMessage();
   } else {
-    return error_operation.ShowIncorrectDataMessage();
+    return error_operation_.ShowIncorrectDataMessage();
   }
 }
 
 bool PrimaryCreditOperations::IndividualCreditCalculation(
-    UserIdentifier &user_identifier, int maximal_sum_of_credit) {
+    CashOperator &cash_operator, const string &user_login,
+    int maximal_sum_of_credit) {
   utility_.ClearScreen();
   utility_.WriteTextWithDelay("Individual calculating...\n\n");
 
@@ -42,10 +42,9 @@ bool PrimaryCreditOperations::IndividualCreditCalculation(
 
   int amount_of_credit_months =
       secondary_credit_operation_.GetAmountOfCreditMonthsFromUser(
-          user_identifier);
+          cash_operator);
 
-  credit_messenger_.ShowIndividualCreditInfo(user_identifier.GetLogin(),
-                                             user_sum_of_credit);
+  credit_messenger_.ShowIndividualCreditInfo(user_login, user_sum_of_credit);
 
   double pay_per_month =
       CalculateCredit(user_sum_of_credit, amount_of_credit_months);
@@ -58,18 +57,17 @@ bool PrimaryCreditOperations::IndividualCreditCalculation(
 
   if (choice == 1) {
     return secondary_credit_operation_.EnrollACredit(
-        user_identifier, user_sum_of_credit, pay_per_month);
+        cash_operator, user_sum_of_credit, pay_per_month);
   } else if (choice == 2) {
-    return secondary_credit_operation_.RepealACredit(user_identifier);
+    return secondary_credit_operation_.RepealACredit(cash_operator);
   } else if (choice == 3) {
     return credit_messenger_.ShowExitMessage();
   } else {
-    return error_operation.ShowIncorrectDataMessage();
+    return error_operation_.ShowIncorrectDataMessage();
   }
 }
 
-double PrimaryCreditOperations::CalculateCredit(int sum,
-                                                int amount_of_months) {
+double PrimaryCreditOperations::CalculateCredit(int sum, int amount_of_months) {
   double rate = (sum * 14) / 100;
   double pay_per_month = (sum / amount_of_months) + (rate / 12);
   double all_payment = 0.0;

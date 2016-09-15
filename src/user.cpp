@@ -11,25 +11,25 @@ using std::cout;
 AtmUser::AtmUser(const string &login, const string &password, double cash,
                  int credit, double monthly_payment,
                  int amount_of_credit_month) {
-  user_identifier_.SetLogin(login);
-  user_identifier_.SetPassword(password);
-  user_identifier_.SetCash(cash);
-  user_identifier_.SetCredit(credit);
-  user_identifier_.SetMonthlyPayment(monthly_payment);
-  user_identifier_.SetAmountOfCreditMonth(amount_of_credit_month);
+  user_identifier_.ShowLogin(login);
+  user_identifier_.ShowPassword(password);
+  cash_operator_.SetCash(cash);
+  cash_operator_.SetCredit(credit);
+  cash_operator_.SetMonthlyPayment(monthly_payment);
+  cash_operator_.SetAmountOfCreditMonth(amount_of_credit_month);
 }
 
 void AtmUser::Registration() {
   InitialRegistrationScreen();
-  user_identifier_.SetLogin();
+  user_identifier_.ShowLogin();
   if (!user_identifier_.IsNormalLogin()) {
     error_message_.NoticeAboutIncorrectLoginMessage();
   } else {
-    user_identifier_.SetPassword();
+    user_identifier_.ShowPassword();
     if (!user_identifier_.IsNormalPass()) {
       error_message_.NoticeAboutIncorrectFormatPasswordMessage();
     } else {
-      successful_action_.NoticeAboutSuccessfulRegistration(user_identifier_);
+      successful_action_.NoticeAboutSuccessfulRegistration(cash_operator_);
       RunProgramUntilUserWantToExit();
     }
   }
@@ -68,8 +68,24 @@ bool AtmUser::HandleUserChoice(int choice) {
 }
 
 bool AtmUser::ShowAccountInfo() {
-  user_identifier_.ShowAccountInformation();
+  ShowAccountInformation();
   return user_input_.SuggestUserToExit();
+}
+
+void AtmUser::ShowAccountInformation() {
+  cout << "\t";
+  user_messanger_.WriteSymbolsNTimes('-', 45);
+
+  user_messanger_.WriteUserInfo("Login", user_identifier_.GetLogin());
+  user_messanger_.WriteUserInfo("Password", user_identifier_.GetPassword());
+  user_messanger_.WriteUserInfo("Balance",
+                                std::to_string(cash_operator_.GetCash()));
+  user_messanger_.WriteUserInfo("Credit",
+                                std::to_string(cash_operator_.GetCredit()));
+  user_messanger_.WriteUserInfo(
+      "Monthly payment $", std::to_string(cash_operator_.GetMonthlyPayment()));
+  user_messanger_.WriteUserInfo(
+      "Credit term", std::to_string(cash_operator_.GetAmountOfCreditMonth()));
 }
 
 bool AtmUser::Refill() {
@@ -77,8 +93,8 @@ bool AtmUser::Refill() {
   int money = 0;
   cin >> money;
   if (money >= 10 && money <= 50000) {
-    cash_operator_.AddCash(user_identifier_, money);
-    user_messanger_.ShowUserBalance(user_identifier_.GetCash());
+    cash_operator_.AddCash(money);
+    user_messanger_.ShowUserBalance(cash_operator_.GetCash());
   } else {
     error_message_.NoticeAboutIncorrectSum();
   }
@@ -87,12 +103,13 @@ bool AtmUser::Refill() {
 }
 
 bool AtmUser::CreditApplication() {
-  if (user_credit_.AlreadyHasACredit(user_identifier_)) {
+  if (user_credit_.AlreadyHasACredit(cash_operator_)) {
     user_credit_.RefuseToGrantAnotherCredit();
-    user_identifier_.ShowAccountInformation();
+    ShowAccountInformation();
     return user_input_.SuggestUserToExit();
   } else {
-    return user_credit_.SuggestACredit(user_identifier_);
+    string user_login = user_identifier_.GetLogin();
+    return user_credit_.SuggestACredit(cash_operator_, user_login);
   }
 }
 
@@ -104,12 +121,12 @@ bool AtmUser::WithdrawCash() {
     if (IsCorrectPassword(password)) {
       WithdrawFromAccount(sum_of_withdrawal);
       user_messanger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
-                                               user_identifier_.GetCash());
+                                               cash_operator_.GetCash());
     } else {
       user_messanger_.ShowIncorrectPasswordMessage();
     }
   } else {
-    int amount_of_cash = user_identifier_.GetCash();
+    int amount_of_cash = cash_operator_.GetCash();
     error_message_.ShowUnacceptableWithdrawal(amount_of_cash,
                                               sum_of_withdrawal);
   }
@@ -118,8 +135,8 @@ bool AtmUser::WithdrawCash() {
 
 bool AtmUser::Statement() {
   utility_.ClearScreen();
-  string spaces = GetSpaces(user_identifier_.GetCash());
-  int cash = user_identifier_.GetCash();
+  string spaces = GetSpaces(cash_operator_.GetCash());
+  int cash = cash_operator_.GetCash();
   user_messanger_.ShowStatement(cash, spaces);
   return user_input_.SuggestUserToExit();
 }
@@ -145,7 +162,7 @@ int AtmUser::NumberOfDigits(int value) const {
 }
 
 bool AtmUser::IsWithdrawalAcceptable(double cash_sum) const {
-  return cash_sum > 0 && cash_sum <= user_identifier_.GetCash();
+  return cash_sum > 0 && cash_sum <= cash_operator_.GetCash();
 }
 
 void AtmUser::ShowIncorrectDataMessage() {
@@ -214,5 +231,5 @@ bool AtmUser::IsCorrectPassword(const string &password) {
 }
 
 void AtmUser::WithdrawFromAccount(int sum_of_withdrawal) {
-  user_identifier_.WithdrawCashFromUser(sum_of_withdrawal);
+  cash_operator_.WithdrawCashFromUser(sum_of_withdrawal);
 }

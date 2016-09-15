@@ -4,14 +4,14 @@
 #include <iostream>
 
 #include "system_utility.h"
-#include "user_identifier.h"
+#include "cash_operator.h"
 
 using std::cout;
 
 class NoticeAboutSuccessfulAction {
  public:
   void NoticeAboutSuccessfulRegistration(
-      UserIdentifier &user_identifier_) const;
+      CashOperator &cash_operator) const;
 
  private:
   SystemUtility utility_;

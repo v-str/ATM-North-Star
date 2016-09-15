@@ -16,16 +16,16 @@ class UserCredit {
   using string = std::string;
 
  public:
-
-  bool AlreadyHasACredit(UserIdentifier &user_identifier) const;
+  bool AlreadyHasACredit(const CashOperator &cash_operator) const;
   void RefuseToGrantAnotherCredit() const;
 
-  bool SuggestACredit(UserIdentifier &user_identifier);
+  bool SuggestACredit(CashOperator &cash_operator, const string &user_login);
 
  private:
-  bool ConsiderACreditBasedOnCash(UserIdentifier &user_identifier);
-  bool GiveACredit(UserIdentifier &user_identifier);
-  bool RefuseACredit(UserIdentifier &user_identifier);
+  bool ConsiderACreditBasedOnCash(CashOperator &cash_operator,
+                                  const string &user_login);
+  bool GiveACredit(CashOperator &cash_operator, const string &user_login);
+  bool RefuseACredit(const CashOperator &cash_operator) const;
 
   UserInput user_input_;
   CreditMessanger credit_messenger_;

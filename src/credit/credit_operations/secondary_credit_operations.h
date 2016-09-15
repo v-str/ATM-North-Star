@@ -5,15 +5,16 @@
 #include "system_utility.h"
 #include "user_identifier.h"
 #include "user_input.h"
+#include "cash_operator.h"
 
 class SecondaryCreditOperations {
  public:
-  bool EnrollACredit(UserIdentifier &user_identifier, int sum_of_credit,
+  bool EnrollACredit(CashOperator &cash_operator, int sum_of_credit,
                      int pay_per_month) const;
 
-  bool RepealACredit(UserIdentifier &user_identifier) const;
+  bool RepealACredit(CashOperator &cash_operator) const;
 
-  int GetAmountOfCreditMonthsFromUser(UserIdentifier &user_identifier);
+  int GetAmountOfCreditMonthsFromUser(CashOperator &cash_operator);
 
   int GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit);
 
@@ -21,6 +22,7 @@ class SecondaryCreditOperations {
   UserInput user_input_;
   SystemUtility utility_;
   CreditMessanger credit_messenger_;
+  CashOperator cash_operator_;
 };
 
 #endif  // SECONDARY_CREDIT_OPERATIONS_H

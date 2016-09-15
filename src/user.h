@@ -34,7 +34,7 @@ class AtmUser {
   void InitialRegistrationScreen();
   void RunProgramUntilUserWantToExit();
 
-  void SetupProgram();  // problem with name of method
+  void SetupProgram();  // TO DO problem with name of method
 
   bool RunProgram();
   bool HandleUserChoice(int choice);
@@ -42,6 +42,7 @@ class AtmUser {
   // ShowAccountInfo
   //=======================
   bool ShowAccountInfo();
+  void ShowAccountInformation();
   //=======================
 
   // Refill
@@ -84,9 +85,9 @@ class AtmUser {
   SystemUtility utility_;
   UserMessenger user_messanger_;
   UserCredit user_credit_;
-  UserIdentifier user_identifier_;
   NoticeAboutError error_message_;
   NoticeAboutSuccessfulAction successful_action_;
+  UserIdentifier user_identifier_;
   CashOperator cash_operator_;
 };
 

@@ -1,29 +1,30 @@
 #include "secondary_credit_operations.h"
 
-bool SecondaryCreditOperations::EnrollACredit(UserIdentifier &user_identifier,
+bool SecondaryCreditOperations::EnrollACredit(CashOperator &cash_operator,
                                               int sum_of_credit,
                                               int pay_per_month) const {
-  user_identifier.GetAssignACredit(sum_of_credit);
-  user_identifier.AssignAMonthlyPayment(pay_per_month);
+  cash_operator.GetAssignACredit(sum_of_credit);
+  cash_operator.AssignAMonthlyPayment(pay_per_month);
   credit_messenger_.ShowEnrollACredit();
   return user_input_.SuggestUserToExit();
 }
 
 bool SecondaryCreditOperations::RepealACredit(
-    UserIdentifier &user_identifier) const {
-  user_identifier.GetAssignACredit(0);
-  user_identifier.AssignAMonthlyPayment(0.0);
-  user_identifier.SetAmountOfCreditMonth(0);
+        CashOperator &cash_operator
+    ) const {
+  cash_operator.GetAssignACredit(0);
+  cash_operator.AssignAMonthlyPayment(0.0);
+  cash_operator.SetAmountOfCreditMonth(0);
   credit_messenger_.ShowRepealACreadit();
   return user_input_.SuggestUserToExit();
 }
 
 int SecondaryCreditOperations::GetAmountOfCreditMonthsFromUser(
-    UserIdentifier &user_identifier) {
+    CashOperator &cash_operator) {
   cout << "\nThe number of months to repay the loan: ";
   int months;
   cin >> months;
-  user_identifier.SetAmountOfCreditMonth(months);
+  cash_operator.SetAmountOfCreditMonth(months);
   utility_.IgnoreCinLine();
   return months;
 }
