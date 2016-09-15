@@ -91,17 +91,6 @@ bool UserIdentifier::IsNormalPass() {
   return account_info_.password_.length() == kMaxLenghtOfPassword;
 }
 
-void UserIdentifier::NoticeAboutSuccessfulRegistration() {
-  utility_.IgnoreCinLine();
-  utility_.ClearScreen();
-  cout << "\n\n\t\t------------------\n";
-  utility_.WriteTextWithDelay("\t\t| Access allowed |");
-  cout << "\t\t------------------\n";
-  utility_.Sleep(1000);
-  account_info_.credit_ = 0.0;
-  account_info_.monthly_payment_ = 0.0;
-  account_info_.amount_of_credit_month_ = 0;
-}
 
 void UserIdentifier::NoticeAboutIncorrectLogin() const {
   error_message_.NoticeAboutIncorrectLoginMessage();

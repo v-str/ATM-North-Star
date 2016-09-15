@@ -27,7 +27,8 @@ SOURCES += \
     src/demo_user/demo_user_messanger.cpp \
     src/user_identification/user_identifier.cpp \
     src/credit/credit_operations/primary_credit_operations.cpp \
-    src/credit/credit_operations/secondary_credit_operations.cpp
+    src/credit/credit_operations/secondary_credit_operations.cpp \
+    src/notifications/notice_about_successful_action.cpp
 
 HEADERS += \
     src/user.h \
@@ -44,4 +45,5 @@ HEADERS += \
     src/demo_user/demo_user_messanger.h \
     src/user_identification/user_identifier.h \
     src/credit/credit_operations/primary_credit_operations.h \
-    src/credit/credit_operations/secondary_credit_operations.h
+    src/credit/credit_operations/secondary_credit_operations.h \
+    src/notifications/notice_about_successful_action.h

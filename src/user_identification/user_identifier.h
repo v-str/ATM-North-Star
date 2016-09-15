@@ -43,7 +43,6 @@ class UserIdentifier {
   bool IsNormalPass();
 
   void ShowAccountInformation();
-  void NoticeAboutSuccessfulRegistration();
 
   void NoticeAboutIncorrectLogin() const;
   void NoticeAboutIncorrectPassword() const;
