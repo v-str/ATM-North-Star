@@ -124,10 +124,11 @@ bool AtmUser::Statement() {
   return user_input_.SuggestUserToExit();
 }
 
-std::string AtmUser::GetSpaces(int cash) const {
-  const int kSizeOfField = 12;
+std::string AtmUser::GetSpaces(int convertation_cash_to_space) const {
+  const int kSizeOfCheckField = 12;
   const char space = ' ';
-  return string(kSizeOfField - NumberOfDigits(cash), space);
+  return string(kSizeOfCheckField - NumberOfDigits(convertation_cash_to_space),
+                space);
 }
 
 int AtmUser::NumberOfDigits(int value) const {
@@ -209,9 +210,9 @@ int AtmUser::SumOfWithdrawal() const {
 }
 
 bool AtmUser::IsCorrectPassword(const string &password) {
-  return password == user_identifier_.ReturnPassword();
+  return password == user_identifier_.Password();
 }
 
 void AtmUser::WithdrawFromAccount(int sum_of_withdrawal) {
-  user_identifier_.DeductCashFromUser(sum_of_withdrawal);
+  user_identifier_.WithdrawCashFromUser(sum_of_withdrawal);
 }

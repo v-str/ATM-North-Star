@@ -2,14 +2,14 @@
 #define USER_H
 
 #include <string>
+#include "cash_operator.h"
 #include "notice_about_error.h"
+#include "notice_about_successful_action.h"
 #include "system_utility.h"
 #include "user_credit.h"
 #include "user_identifier.h"
 #include "user_input.h"
 #include "user_messenger.h"
-#include "notice_about_successful_action.h"
-#include "cash_operator.h"
 
 class AtmUser {
   using string = std::string;
@@ -78,7 +78,7 @@ class AtmUser {
 
   int SumOfWithdrawal() const;
 
-  string GetSpaces(int cash_) const;
+  string GetSpaces(int convertation_cash_to_space) const;
 
   UserInput user_input_;
   SystemUtility utility_;

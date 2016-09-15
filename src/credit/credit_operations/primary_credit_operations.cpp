@@ -8,7 +8,7 @@ bool PrimaryCreditOperations::MaxCreditCalculation(
 
   utility_.ClearScreen();
 
-  string user_login = user_identifier.ReturnLogin();
+  string user_login = user_identifier.Login();
 
   credit_messenger_.ShowInfoAboutCredit(user_login, maximal_sum_of_credit);
 
@@ -44,7 +44,7 @@ bool PrimaryCreditOperations::IndividualCreditCalculation(
       secondary_credit_operation_.GetAmountOfCreditMonthsFromUser(
           user_identifier);
 
-  credit_messenger_.ShowIndividualCreditInfo(user_identifier.ReturnLogin(),
+  credit_messenger_.ShowIndividualCreditInfo(user_identifier.Login(),
                                              user_sum_of_credit);
 
   double pay_per_month =

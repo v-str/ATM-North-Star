@@ -64,20 +64,6 @@ void UserMessenger::WriteUserInfo(const UserMessenger::string &info_title,
   utility_.Sleep(100);
 }
 
-void UserMessenger::ShowAccountInfo(const AccountInfo &account_info) {
-  cout << "\t";
-  WriteSymbolsNTimes('-', 45);
-
-  WriteUserInfo("Login", account_info.login_);
-  WriteUserInfo("Password", account_info.password_);
-  WriteUserInfo("Balance", std::to_string(account_info.cash_));
-  WriteUserInfo("Credit", std::to_string(account_info.credit_));
-  WriteUserInfo("Monthly payment $",
-                std::to_string(account_info.monthly_payment_));
-  WriteUserInfo("Credit term",
-                std::to_string(account_info.amount_of_credit_month_));
-}
-
 void UserMessenger::ShowSumOfWithdrawal(int sum_of_cash) const {
   cout << "\t#Sum($): " << sum_of_cash << "\n";
   cout << "\t# Please enter your password: XXXX\b\b\b\b";

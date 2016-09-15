@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 
-#include "account_info.h"
 #include "system_utility.h"
 
 using std::cout;
@@ -20,8 +19,6 @@ class UserMessenger {
   void ShowRegistrationScreen() const;
 
   void WriteUserInfo(const string &info_title, const string &value);
-
-  void ShowAccountInfo(const AccountInfo &account_info);
 
   void ShowTransactionMenu();
 

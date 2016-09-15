@@ -3,7 +3,6 @@
 
 #include <iostream>
 
-#include "account_info.h"
 #include "system_utility.h"
 #include "user_identifier.h"
 

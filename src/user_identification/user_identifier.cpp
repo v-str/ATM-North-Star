@@ -3,95 +3,73 @@
 static const int kMaxLenghtOfLogin = 21;
 static const int kMaxLenghtOfPassword = 4;
 
-UserIdentifier::UserIdentifier() {}
+//==========
+void UserIdentifier::SetCash(int cash) { cash_ = cash; }
 
-void UserIdentifier::SetLogin(const string &login) {
-  account_info_.login_ = login;
-}
-
-void UserIdentifier::SetPassword(const UserIdentifier::string &password) {
-  account_info_.password_ = password;
-}
-
-void UserIdentifier::SetCash(int cash) { account_info_.cash_ = cash; }
-
-void UserIdentifier::SetCredit(int credit) {
-  account_info_.credit_ = credit;
-}
+void UserIdentifier::SetCredit(int credit) { credit_ = credit; }
 
 void UserIdentifier::SetMonthlyPayment(double monthly_payment) {
-  account_info_.monthly_payment_ = monthly_payment;
+  monthly_payment_ = monthly_payment;
 }
 
 void UserIdentifier::SetAmountOfCreditMonth(int amount_credit_month) {
-  account_info_.amount_of_credit_month_ = amount_credit_month;
+  amount_of_credit_month_ = amount_credit_month;
 }
 
+int UserIdentifier::AddCash(int sum) { return cash_ += sum; }
 
+int UserIdentifier::WithdrawCashFromUser(int amount) { return cash_ -= amount; }
 
-//==========
-int UserIdentifier::AddCash(int sum) {
-  return account_info_.cash_ += sum;
-}
+int UserIdentifier::Cash() const { return cash_; }
 
-int UserIdentifier::DeductCashFromUser(int sum) {
-  return account_info_.cash_ -= sum;
-}
-
-int UserIdentifier::Cash() const { return account_info_.cash_; }
-
-int UserIdentifier::Credit() const { return account_info_.credit_; }
+int UserIdentifier::Credit() const { return credit_; }
 
 int UserIdentifier::AmountOfCreditMonth() const {
-  return account_info_.amount_of_credit_month_;
+  return amount_of_credit_month_;
 }
 
 int UserIdentifier::AssignACredit(int sum_of_credit) {
-  return account_info_.credit_ = sum_of_credit;
+  return credit_ = sum_of_credit;
 }
 
 double UserIdentifier::AssignAMonthlyPayment(double pay_per_month) {
-  return account_info_.monthly_payment_ = pay_per_month;
+  return monthly_payment_ = pay_per_month;
 }
 
 bool UserIdentifier::IsCreditAvailable() { return Cash() >= 1000; }
 //==========
 
+void UserIdentifier::SetLogin(const string &login) { login_ = login; }
 
-
-
-
-UserIdentifier::string UserIdentifier::ReturnLogin() const {
-  return account_info_.login_;
+void UserIdentifier::SetPassword(const UserIdentifier::string &password) {
+  password_ = password;
 }
 
-UserIdentifier::string UserIdentifier::ReturnPassword() const {
-  return account_info_.password_;
-}
+UserIdentifier::string UserIdentifier::Login() const { return login_; }
 
+UserIdentifier::string UserIdentifier::Password() const { return password_; }
 
 void UserIdentifier::GetLogin() {
   cout << "\n\n\n\t\tLogin: ";
 
   user_messanger_.WriteSymbolsNTimes('#', kMaxLenghtOfLogin);
   user_messanger_.WriteSymbolsNTimes('\b', kMaxLenghtOfLogin);
-  getline(cin, account_info_.login_);
+  getline(cin, login_);
   cin.sync();
 }
 
 void UserIdentifier::GetPassword() {
   cout << "\t\tPassword: XXXX\b\b\b\b";
-  cin >> account_info_.password_;
+  cin >> password_;
   cin.sync();
 }
 
 bool UserIdentifier::IsNormalLogin() {
-  return !account_info_.login_.empty() &&
-         account_info_.login_.length() < kMaxLenghtOfLogin;
+  return !login_.empty() && login_.length() < kMaxLenghtOfLogin;
 }
 
 bool UserIdentifier::IsNormalPass() {
-  return account_info_.password_.length() == kMaxLenghtOfPassword;
+  return password_.length() == kMaxLenghtOfPassword;
 }
 
 UserIdentifier::string UserIdentifier::GetPasswordFromUser() {
@@ -102,5 +80,15 @@ UserIdentifier::string UserIdentifier::GetPasswordFromUser() {
 }
 
 void UserIdentifier::ShowAccountInformation() {
-  user_messanger_.ShowAccountInfo(account_info_);
+  cout << "\t";
+  user_messanger_.WriteSymbolsNTimes('-', 45);
+
+  user_messanger_.WriteUserInfo("Login", login_);
+  user_messanger_.WriteUserInfo("Password", password_);
+  user_messanger_.WriteUserInfo("Balance", std::to_string(cash_));
+  user_messanger_.WriteUserInfo("Credit", std::to_string(credit_));
+  user_messanger_.WriteUserInfo("Monthly payment $",
+                                std::to_string(monthly_payment_));
+  user_messanger_.WriteUserInfo("Credit term",
+                                std::to_string(amount_of_credit_month_));
 }

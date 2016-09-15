@@ -36,7 +36,6 @@ HEADERS += \
     src/system_utility.h \
     src/user_input.h \
     src/initial_screen.h \
-    src/user_identification/account_info.h \
     src/notifications/notice_about_error.h \
     src/user_choice.h \
     src/user_messenger.h \

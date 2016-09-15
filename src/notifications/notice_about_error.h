@@ -2,7 +2,6 @@
 #define NOTICE_ABOUT_ERROR_H
 
 #include <iostream>
-#include "account_info.h"
 #include "system_utility.h"
 #include "user_messenger.h"
 
