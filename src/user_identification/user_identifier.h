@@ -44,7 +44,6 @@ class UserIdentifier {
 
   void ShowAccountInformation();
 
-  void NoticeAboutIncorrectLogin() const;
   void NoticeAboutIncorrectPassword() const;
 
   string GetPasswordFromUser();

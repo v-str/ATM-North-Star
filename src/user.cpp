@@ -23,7 +23,7 @@ void AtmUser::Registration() {
   InitialRegistrationScreen();
   user_identifier_.GetLogin();
   if (!user_identifier_.IsNormalLogin()) {
-    user_identifier_.NoticeAboutIncorrectLogin();
+    error_message_.NoticeAboutIncorrectLoginMessage();
   } else {
     user_identifier_.GetPassword();
     if (!user_identifier_.IsNormalPass()) {
@@ -80,7 +80,7 @@ bool AtmUser::Refill() {
     user_identifier_.AddCash(money);
     user_messanger_.ShowUserBalance(user_identifier_.ReturnCash());
   } else {
-    error_message.NoticeAboutIncorrectSum();
+    error_message_.NoticeAboutIncorrectSum();
   }
   utility_.IgnoreCinLine();
   return user_input_.SuggestUserToExit();
@@ -110,7 +110,8 @@ bool AtmUser::WithdrawCash() {
     }
   } else {
     int amount_of_cash = user_identifier_.ReturnCash();
-    error_message.ShowUnacceptableWithdrawal(amount_of_cash, sum_of_withdrawal);
+    error_message_.ShowUnacceptableWithdrawal(amount_of_cash,
+                                              sum_of_withdrawal);
   }
   return user_input_.SuggestUserToExit();
 }

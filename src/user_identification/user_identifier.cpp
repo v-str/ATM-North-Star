@@ -59,13 +59,7 @@ double UserIdentifier::AssignAMonthlyPayment(const double pay_per_month) {
   return account_info_.monthly_payment_ = pay_per_month;
 }
 
-bool UserIdentifier::IsCreditAvailable() {
-  return ReturnCash() >= 1000;
-}
-
-
-
-
+bool UserIdentifier::IsCreditAvailable() { return ReturnCash() >= 1000; }
 
 void UserIdentifier::GetLogin() {
   cout << "\n\n\n\t\tLogin: ";
@@ -89,11 +83,6 @@ bool UserIdentifier::IsNormalLogin() {
 
 bool UserIdentifier::IsNormalPass() {
   return account_info_.password_.length() == kMaxLenghtOfPassword;
-}
-
-
-void UserIdentifier::NoticeAboutIncorrectLogin() const {
-  error_message_.NoticeAboutIncorrectLoginMessage();
 }
 
 void UserIdentifier::NoticeAboutIncorrectPassword() const {
