@@ -1,10 +1,12 @@
-#ifndef DEMO_MESSANGER_H
-#define DEMO_MESSANGER_H
+#ifndef USER_MESSANGER_H
+#define USER_MESSANGER_H
 
 #include <iostream>
 #include <string>
 
+#include "cash_operator.h"
 #include "system_utility.h"
+#include "user_identifier.h"
 
 using std::cout;
 using std::cin;
@@ -32,7 +34,7 @@ class UserMessenger {
 
   void ShowIncorrectPasswordMessage();
 
-  void ShowStatement(int cash, string &spaces);
+  void ShowStatement(int cash, const string &spaces) const;
 
   void ShowIncorrectDataMessage();
   void ShowIncorrectMonthInput();
@@ -41,8 +43,14 @@ class UserMessenger {
   void WishAGoodDay() const;
   void ShowTransactionMenu() const;
 
+  void ShowAccountInformation(UserIdentifier &user_identifier,
+                              CashOperator &cash_operator);
+
+  void ShowInitialLoginText();
+  void ShowInitialPasswordText();
+
  private:
   SystemUtility utility_;
 };
 
-#endif  // DEMO_MESSANGER_H
+#endif  // USER_MESSANGER_H

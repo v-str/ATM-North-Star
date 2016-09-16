@@ -11,6 +11,7 @@ INCLUDEPATH += \
     src/credit/credit_operations \
     src/credit/credit_messenger \
     src/demo_user
+    src/withdrawal
 
 SOURCES += \
     src/main.cpp \
@@ -29,7 +30,8 @@ SOURCES += \
     src/credit/credit_operations/primary_credit_operations.cpp \
     src/credit/credit_operations/secondary_credit_operations.cpp \
     src/notifications/notice_about_successful_action.cpp \
-    src/user_identification/cash_operator.cpp
+    src/user_identification/cash_operator.cpp \
+    src/withdrawal/withdrawal.cpp
 
 HEADERS += \
     src/user.h \
@@ -47,4 +49,5 @@ HEADERS += \
     src/credit/credit_operations/primary_credit_operations.h \
     src/credit/credit_operations/secondary_credit_operations.h \
     src/notifications/notice_about_successful_action.h \
-    src/user_identification/cash_operator.h
+    src/user_identification/cash_operator.h \
+    src/withdrawal/withdrawal.h

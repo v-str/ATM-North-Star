@@ -10,8 +10,9 @@
 #include "user_identifier.h"
 #include "user_input.h"
 #include "user_messenger.h"
+#include "withdrawal/withdrawal.h"
 
-class AtmUser {
+class User {
   using string = std::string;
   enum MenuSection {
     kAccountSection = 1,
@@ -23,37 +24,25 @@ class AtmUser {
   };
 
  public:
-  AtmUser() {}
-  AtmUser(const string &login, const string &password, double cash, int credit,
-          double monthly_payment, int amount_of_credit_month);
+  User() {}
+  User(const string &login, const string &password, double cash, int credit,
+       double monthly_payment, int amount_of_credit_month);
 
   void Registration();
   void WishGoodDay();
 
  private:
-  void InitialRegistrationScreen();
   void RunProgramUntilUserWantToExit();
 
-  void SetupProgram();  // TO DO problem with name of method
+  void SetupProgram();  // TODO problem with name of method
 
   bool RunProgram();
   bool HandleUserChoice(int choice);
 
-  // ShowAccountInfo
-  //=======================
   bool ShowAccountInfo();
-  void ShowAccountInformation();
-  //=======================
 
-  // Refill
-  //=======================
   bool Refill();
-  //=======================
-
-  // Class UserCredit
-  //=======================================================
   bool CreditApplication();
-  //========================================================
 
   bool WithdrawCash();
   bool Statement();
@@ -61,6 +50,7 @@ class AtmUser {
   void ShowTransactionMenu();
 
   void ShowIncorrectDataMessage();
+
   void WithdrawFromAccount(int sum_of_withdrawal);
 
   bool SuggestUserToExitWithConfirmationMenu();
@@ -70,14 +60,16 @@ class AtmUser {
   bool IsCorrectPassword(const string &password);
 
   int GetUserChoice(const string &choice_text) const;
+
   int GetChoiceFromUser() const;
+
   int GetUserChoiceWithMenuText(const string &menu_text,
                                 const string &choice_text) const;
   void WriteTextWithDelay(const string &text) const;
-  void WriteSymbolsNTimes(char symbol, int n) const;
-  int NumberOfDigits(int cash) const;
 
-  int SumOfWithdrawal() const;
+  void WriteSymbolsNTimes(char symbol, int n) const;
+
+  int NumberOfDigits(int cash) const;
 
   string GetSpaces(int convertation_cash_to_space) const;
 
@@ -89,6 +81,7 @@ class AtmUser {
   NoticeAboutSuccessfulAction successful_action_;
   UserIdentifier user_identifier_;
   CashOperator cash_operator_;
+  Withdrawal withdrawal_;
 };
 
 #endif  // USER_H

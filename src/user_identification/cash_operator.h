@@ -1,8 +1,6 @@
 #ifndef CASH_OPERATOR_H
 #define CASH_OPERATOR_H
 
-#include "user_identifier.h"
-
 class CashOperator {
  public:
   void SetCash(int cash);

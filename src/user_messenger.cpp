@@ -1,6 +1,7 @@
 #include "user_messenger.h"
 
 static const int kMaxLenghtOfLogin = 21;
+static const int kMaxLenghtOfPassword = 4;
 
 UserMessenger::UserMessenger() {}
 
@@ -82,7 +83,7 @@ void UserMessenger::ShowIncorrectPasswordMessage() {
   utility_.WriteTextWithDelay("\n\t# Sorry, entered password is incorrect.\n");
 }
 
-void UserMessenger::ShowStatement(int cash, string &spaces) {
+void UserMessenger::ShowStatement(int cash, const string &spaces) const {
   cout << "\t##################\n"
           "\t#                #\n"
           "\t#  28 Green st.  #\n"
@@ -139,4 +140,32 @@ void UserMessenger::ShowTransactionMenu() const {
       "\t#                                                  #\n"
       "\t####################################################\n";
   cout << select;
+}
+
+void UserMessenger::ShowAccountInformation(UserIdentifier &user_identifier,
+                                           CashOperator &cash_operator) {
+  cout << "\t";
+  WriteSymbolsNTimes('-', 45);
+
+  WriteUserInfo("Login", user_identifier.GetLogin());
+  WriteUserInfo("Password", user_identifier.GetPassword());
+  WriteUserInfo("Balance", std::to_string(cash_operator.GetCash()));
+  WriteUserInfo("Credit", std::to_string(cash_operator.GetCredit()));
+  WriteUserInfo("Monthly payment $",
+                std::to_string(cash_operator.GetMonthlyPayment()));
+  WriteUserInfo("Credit term",
+                std::to_string(cash_operator.GetAmountOfCreditMonth()));
+}
+
+void UserMessenger::ShowInitialLoginText() {
+  cout << "\n\n\n\t\tLogin: ";
+
+  WriteSymbolsNTimes('#', kMaxLenghtOfLogin);
+  WriteSymbolsNTimes('\b', kMaxLenghtOfLogin);
+}
+
+void UserMessenger::ShowInitialPasswordText() {
+  cout << "\t\tPassword: XXXX\b\b\b\b";
+  WriteSymbolsNTimes('X', kMaxLenghtOfPassword);
+  WriteSymbolsNTimes('\b', kMaxLenghtOfPassword);
 }
