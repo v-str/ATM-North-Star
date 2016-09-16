@@ -104,7 +104,7 @@ bool User::WithdrawCash() {
     user_messanger_.ShowSumOfWithdrawal(sum_of_withdrawal);
     string password = user_identifier_.GetPasswordFromUser();
     if (withdrawal_.IsCorrectPasswordAtWithdrawal(password, user_identifier_)) {
-      WithdrawFromAccount(sum_of_withdrawal);
+      withdrawal_.WithdrawFromAccount(cash_operator_, sum_of_withdrawal);
       user_messanger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
                                                cash_operator_.GetCash());
     } else {
@@ -144,10 +144,6 @@ int User::NumberOfDigits(int value) const {
     }
   }
   return number_of_digits;
-}
-
-bool User::IsWithdrawalAcceptable(double cash_sum) const {
-  return cash_sum > 0 && cash_sum <= cash_operator_.GetCash();
 }
 
 void User::ShowIncorrectDataMessage() {
@@ -196,12 +192,4 @@ void User::WriteTextWithDelay(const string &text) const {
     utility_.Sleep(5);
   }
   cout << "\n";
-}
-
-bool User::IsCorrectPassword(const string &password) {
-  return password == user_identifier_.GetPassword();
-}
-
-void User::WithdrawFromAccount(int sum_of_withdrawal) {
-  cash_operator_.WithdrawCashFromUser(sum_of_withdrawal);
 }

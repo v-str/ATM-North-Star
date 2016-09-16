@@ -21,6 +21,8 @@ class Withdrawal {
   bool IsCorrectPasswordAtWithdrawal(const string &password,
                                      UserIdentifier &user_identifier) const;
 
+  void WithdrawFromAccount(CashOperator &cash_operator, int sum_of_withdrawal);
+
  private:
   UserMessenger user_messanger_;
 };

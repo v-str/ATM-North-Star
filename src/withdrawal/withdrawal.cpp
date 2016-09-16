@@ -18,3 +18,8 @@ bool Withdrawal::IsCorrectPasswordAtWithdrawal(
     const Withdrawal::string &password, UserIdentifier &user_identifier) const {
   return password == user_identifier.GetPassword();
 }
+
+void Withdrawal::WithdrawFromAccount(CashOperator &cash_operator,
+                                     int sum_of_withdrawal) {
+  cash_operator.WithdrawCashFromUser(sum_of_withdrawal);
+}

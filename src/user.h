@@ -51,13 +51,7 @@ class User {
 
   void ShowIncorrectDataMessage();
 
-  void WithdrawFromAccount(int sum_of_withdrawal);
-
   bool SuggestUserToExitWithConfirmationMenu();
-
-  bool IsWithdrawalAcceptable(double cash_sum) const;
-
-  bool IsCorrectPassword(const string &password);
 
   int GetUserChoice(const string &choice_text) const;
 
