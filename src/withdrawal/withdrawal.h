@@ -5,7 +5,9 @@
 #include <string>
 
 #include "cash_operator.h"
+#include "notice_about_error.h"
 #include "user_identifier.h"
+#include "user_input.h"
 #include "user_messenger.h"
 
 using std::cout;
@@ -15,6 +17,9 @@ class Withdrawal {
   using string = std::string;
 
  public:
+  bool WithdrawCashFromUser(CashOperator &cash_operator,
+                            UserIdentifier &user_identifier);
+
   int SumOfWithdrawal() const;
   bool IsWithdrawalAcceptable(const CashOperator &cash_operator,
                               double cash_sum) const;
@@ -25,6 +30,8 @@ class Withdrawal {
 
  private:
   UserMessenger user_messanger_;
+  UserInput user_input_;
+  NoticeAboutError error_message_;
 };
 
 #endif  // WITHDRAWAL_H

@@ -1,5 +1,26 @@
 #include "withdrawal.h"
 
+bool Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
+                                      UserIdentifier &user_identifier) {
+  int sum_of_withdrawal = SumOfWithdrawal();
+  if (IsWithdrawalAcceptable(cash_operator, sum_of_withdrawal)) {
+    user_messanger_.ShowSumOfWithdrawal(sum_of_withdrawal);
+    string password = user_identifier.GetPasswordFromUser();
+    if (IsCorrectPasswordAtWithdrawal(password, user_identifier)) {
+      WithdrawFromAccount(cash_operator, sum_of_withdrawal);
+      user_messanger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
+                                               cash_operator.GetCash());
+    } else {
+      user_messanger_.ShowIncorrectPasswordMessage();
+    }
+  } else {
+    int amount_of_cash = cash_operator.GetCash();
+    error_message_.ShowUnacceptableWithdrawal(amount_of_cash,
+                                              sum_of_withdrawal);
+  }
+  return user_input_.SuggestUserToExit();
+}
+
 int Withdrawal::SumOfWithdrawal() const {
   cout << "\n\t# Please, enter the required sum: ";
 

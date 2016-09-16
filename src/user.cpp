@@ -99,23 +99,7 @@ bool User::CreditApplication() {
 }
 
 bool User::WithdrawCash() {
-  int sum_of_withdrawal = withdrawal_.SumOfWithdrawal();
-  if (withdrawal_.IsWithdrawalAcceptable(cash_operator_, sum_of_withdrawal)) {
-    user_messanger_.ShowSumOfWithdrawal(sum_of_withdrawal);
-    string password = user_identifier_.GetPasswordFromUser();
-    if (withdrawal_.IsCorrectPasswordAtWithdrawal(password, user_identifier_)) {
-      withdrawal_.WithdrawFromAccount(cash_operator_, sum_of_withdrawal);
-      user_messanger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
-                                               cash_operator_.GetCash());
-    } else {
-      user_messanger_.ShowIncorrectPasswordMessage();
-    }
-  } else {
-    int amount_of_cash = cash_operator_.GetCash();
-    error_message_.ShowUnacceptableWithdrawal(amount_of_cash,
-                                              sum_of_withdrawal);
-  }
-  return user_input_.SuggestUserToExit();
+  return withdrawal_.WithdrawCashFromUser(cash_operator_, user_identifier_);
 }
 
 bool User::Statement() {
