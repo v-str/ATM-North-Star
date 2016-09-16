@@ -2,6 +2,7 @@
 #define WITHDRAWAL_H
 
 #include <iostream>
+#include <string>
 
 #include "cash_operator.h"
 #include "user_identifier.h"
@@ -11,11 +12,16 @@ using std::cout;
 using std::cin;
 
 class Withdrawal {
+  using string = std::string;
+
  public:
   int SumOfWithdrawal() const;
   bool IsWithdrawalAcceptable(const CashOperator &cash_operator,
                               double cash_sum) const;
-private:
+  bool IsCorrectPasswordAtWithdrawal(const string &password,
+                                     UserIdentifier &user_identifier) const;
+
+ private:
   UserMessenger user_messanger_;
 };
 

@@ -100,10 +100,10 @@ bool User::CreditApplication() {
 
 bool User::WithdrawCash() {
   int sum_of_withdrawal = withdrawal_.SumOfWithdrawal();
-  if (IsWithdrawalAcceptable(sum_of_withdrawal)) {
+  if (withdrawal_.IsWithdrawalAcceptable(cash_operator_, sum_of_withdrawal)) {
     user_messanger_.ShowSumOfWithdrawal(sum_of_withdrawal);
     string password = user_identifier_.GetPasswordFromUser();
-    if (IsCorrectPassword(password)) {
+    if (withdrawal_.IsCorrectPasswordAtWithdrawal(password, user_identifier_)) {
       WithdrawFromAccount(sum_of_withdrawal);
       user_messanger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
                                                cash_operator_.GetCash());

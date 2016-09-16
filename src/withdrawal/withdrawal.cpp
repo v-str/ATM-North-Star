@@ -13,3 +13,8 @@ bool Withdrawal::IsWithdrawalAcceptable(const CashOperator &cash_operator,
                                         double cash_sum) const {
   return cash_sum > 0 && cash_sum <= cash_operator.GetCash();
 }
+
+bool Withdrawal::IsCorrectPasswordAtWithdrawal(
+    const Withdrawal::string &password, UserIdentifier &user_identifier) const {
+  return password == user_identifier.GetPassword();
+}
