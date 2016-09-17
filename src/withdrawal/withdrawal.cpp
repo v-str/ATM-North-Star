@@ -23,11 +23,9 @@ bool Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
 }
 
 int Withdrawal::SumOfWithdrawal() const {
-  cout << "\n\t# Please, enter the required sum: ";
-
+  messenger_.ShowSentenceEnterASumOfMoney();
   int withdraw_sum = 0;
   cin >> withdraw_sum;
-
   return withdraw_sum;
 }
 
