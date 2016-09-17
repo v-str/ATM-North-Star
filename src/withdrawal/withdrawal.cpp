@@ -9,8 +9,8 @@ bool Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
     string password = user_identifier.GetPasswordFromUser();
     if (IsCorrectPasswordAtWithdrawal(password, user_identifier)) {
       WithdrawFromAccount(cash_operator, sum_of_withdrawal);
-      user_messenger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
-                                               cash_operator.GetCash());
+      messenger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
+                                          cash_operator.GetCash());
     } else {
       user_messenger_.ShowIncorrectPasswordMessage();
     }

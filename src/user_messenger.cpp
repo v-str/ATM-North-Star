@@ -65,11 +65,6 @@ void UserMessenger::WriteUserInfo(const UserMessenger::string &info_title,
   utility_.Sleep(100);
 }
 
-void UserMessenger::ShowSumOfWithdrawal(int sum_of_cash) const {
-  cout << "\t#Sum($): " << sum_of_cash << "\n";
-  cout << "\t# Please enter your password: XXXX\b\b\b\b";
-}
-
 void UserMessenger::ShowSuccessfulWithdrawal(int sum_of_cash,
                                              int sum_of_withdrawal) {
   utility_.WriteTextWithDelay("\n\t# Withdrawal completed successfully\n");
