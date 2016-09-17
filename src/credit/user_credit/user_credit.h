@@ -22,12 +22,11 @@ class UserCredit {
                             CashOperator &cash_operator,
                             UserMessenger &user_messenger);
 
+ private:
   bool AlreadyHasACredit(const CashOperator &cash_operator) const;
   void RefuseToGrantAnotherCredit() const;
 
   bool SuggestACredit(CashOperator &cash_operator, const string &user_login);
-
- private:
   bool ConsiderACreditBasedOnCash(CashOperator &cash_operator,
                                   const string &user_login);
   bool GiveACredit(CashOperator &cash_operator, const string &user_login);

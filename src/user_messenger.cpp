@@ -65,24 +65,6 @@ void UserMessenger::WriteUserInfo(const UserMessenger::string &info_title,
   utility_.Sleep(100);
 }
 
-void UserMessenger::ShowStatement(int cash, const string &spaces) const {
-  cout << "\t##################\n"
-          "\t#                #\n"
-          "\t#  28 Green st.  #\n"
-          "\t#   New - York   #\n"
-          "\t#                #\n"
-          "\t#   NORTH BANK   #\n"
-          "\t#                #\n"
-          "\t# Balance:       #\n"
-          "\t#  $ "
-       << cash << spaces << "#\n";
-  cout << "\t#                #\n"
-          "\t#  HAVE A NICE   #\n"
-          "\t#      DAY       #\n"
-          "\t#                #\n"
-          "\t##################\n";
-}
-
 void UserMessenger::ShowIncorrectDataMessage() {
   utility_.WriteTextWithDelay(
       "\t Data is not correct, please reload the program.\n\n");

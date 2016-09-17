@@ -3,8 +3,6 @@
 #include <iostream>
 #include <limits>
 
-#include "system_utility.h"
-
 using std::cin;
 using std::cout;
 
@@ -96,33 +94,7 @@ bool User::WithdrawCash() {
   return withdrawal_.WithdrawCashFromUser(cash_operator_, user_identifier_);
 }
 
-bool User::Statement() {
-  utility_.ClearScreen();
-  string spaces = GetSpaces(cash_operator_.GetCash());
-  int cash = cash_operator_.GetCash();
-  user_messenger_.ShowStatement(cash, spaces);
-  return user_input_.SuggestUserToExit();
-}
-
-std::string User::GetSpaces(int convertation_cash_to_space) const {
-  const int kSizeOfCheckField = 12;
-  const char space = ' ';
-  return string(kSizeOfCheckField - NumberOfDigits(convertation_cash_to_space),
-                space);
-}
-
-int User::NumberOfDigits(int value) const {
-  int number_of_digits = 0;
-  if (value == 0) {
-    return number_of_digits = 1;
-  } else {
-    while (value != 0) {
-      ++number_of_digits;
-      value /= 10;
-    }
-  }
-  return number_of_digits;
-}
+bool User::Statement() { return statement_.ShowStatement(cash_operator_); }
 
 void User::ShowIncorrectDataMessage() {
   user_messenger_.ShowIncorrectDataMessage();

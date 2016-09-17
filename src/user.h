@@ -2,9 +2,12 @@
 #define USER_H
 
 #include <string>
+
 #include "cash_operator.h"
 #include "notice_about_error.h"
 #include "notice_about_successful_action.h"
+#include "statement.h"
+#include "statement.h"
 #include "system_utility.h"
 #include "user_credit.h"
 #include "user_identifier.h"
@@ -63,10 +66,7 @@ class User {
 
   void WriteSymbolsNTimes(char symbol, int n) const;
 
-  int NumberOfDigits(int cash) const;
-
-  string GetSpaces(int convertation_cash_to_space) const;
-
+  UserStatement statement_;
   UserInput user_input_;
   SystemUtility utility_;
   UserMessenger user_messenger_;

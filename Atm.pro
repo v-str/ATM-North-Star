@@ -10,8 +10,9 @@ INCLUDEPATH += \
     src/credit/user_credit \
     src/credit/credit_operations \
     src/credit/credit_messenger \
-    src/demo_user
-    src/withdrawal
+    src/demo_user \
+    src/withdrawal \
+    src/statement
 
 SOURCES += \
     src/main.cpp \
@@ -32,7 +33,9 @@ SOURCES += \
     src/notifications_about_operations/notice_about_successful_action.cpp \
     src/user_identification/cash_operator.cpp \
     src/withdrawal/withdrawal.cpp \
-    src/withdrawal/withdrawal_messenger.cpp
+    src/withdrawal/withdrawal_messenger.cpp \
+    src/statement/statement.cpp \
+    src/statement/statement_messenger.cpp
 
 HEADERS += \
     src/user.h \
@@ -52,4 +55,6 @@ HEADERS += \
     src/notifications_about_operations/notice_about_successful_action.h \
     src/user_identification/cash_operator.h \
     src/withdrawal/withdrawal.h \
-    src/withdrawal/withdrawal_messenger.h
+    src/withdrawal/withdrawal_messenger.h \
+    src/statement/statement.h \
+    src/statement/statement_messenger.h

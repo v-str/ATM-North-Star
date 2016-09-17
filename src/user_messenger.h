@@ -28,8 +28,6 @@ class UserMessenger {
 
   void ShowUserBalance(double balance);
 
-  void ShowStatement(int cash, const string &spaces) const;
-
   void ShowIncorrectDataMessage();
   void ShowIncorrectMonthInput();
 
