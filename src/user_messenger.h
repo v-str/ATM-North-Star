@@ -28,10 +28,6 @@ class UserMessenger {
 
   void ShowUserBalance(double balance);
 
-  void ShowSuccessfulWithdrawal(int sum_of_cash, int sum_of_withdrawal);
-
-  void ShowIncorrectPasswordMessage();
-
   void ShowStatement(int cash, const string &spaces) const;
 
   void ShowIncorrectDataMessage();

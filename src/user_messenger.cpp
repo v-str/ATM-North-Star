@@ -65,19 +65,6 @@ void UserMessenger::WriteUserInfo(const UserMessenger::string &info_title,
   utility_.Sleep(100);
 }
 
-void UserMessenger::ShowSuccessfulWithdrawal(int sum_of_cash,
-                                             int sum_of_withdrawal) {
-  utility_.WriteTextWithDelay("\n\t# Withdrawal completed successfully\n");
-  cout << "\t# Sum($): " << sum_of_cash << "\n";
-  cout << "\t# Balance($): " << sum_of_withdrawal << "\n\n";
-}
-
-void UserMessenger::ShowIncorrectPasswordMessage() {
-  utility_.ClearScreen();
-  utility_.IgnoreCinLine();
-  utility_.WriteTextWithDelay("\n\t# Sorry, entered password is incorrect.\n");
-}
-
 void UserMessenger::ShowStatement(int cash, const string &spaces) const {
   cout << "\t##################\n"
           "\t#                #\n"

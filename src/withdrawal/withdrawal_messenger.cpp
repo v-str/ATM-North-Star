@@ -8,6 +8,12 @@ void WithdrawalMessenger::ShowPasswordString() const {
   cout << "\t# Please enter your password: XXXX\b\b\b\b";
 }
 
+void WithdrawalMessenger::ShowIncorrectPasswordMessage() const {
+  utility_.ClearScreen();
+  utility_.IgnoreCinLine();
+  utility_.WriteTextWithDelay("\n\t# Sorry, entered password is incorrect.\n");
+}
+
 void WithdrawalMessenger::ShowSuccessfulWithdrawal(int sum_of_cash,
                                                    int sum_of_withdrawal) {
   utility_.WriteTextWithDelay("\n\t# Withdrawal completed successfully\n");

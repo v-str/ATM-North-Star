@@ -12,7 +12,7 @@ bool Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
       messenger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
                                           cash_operator.GetCash());
     } else {
-      user_messenger_.ShowIncorrectPasswordMessage();
+      messenger_.ShowIncorrectPasswordMessage();
     }
   } else {
     int amount_of_cash = cash_operator.GetCash();
