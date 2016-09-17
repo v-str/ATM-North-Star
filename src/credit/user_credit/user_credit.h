@@ -7,7 +7,9 @@
 #include "credit_messenger.h"
 #include "notice_about_error.h"
 #include "primary_credit_operations.h"
+#include "user_identifier.h"
 #include "user_input.h"
+#include "user_messenger.h"
 
 using std::cout;
 using std::cin;
@@ -16,6 +18,10 @@ class UserCredit {
   using string = std::string;
 
  public:
+  bool StartCreditOperation(UserIdentifier &user_identifier,
+                            CashOperator &cash_operator,
+                            UserMessenger &user_messenger);
+
   bool AlreadyHasACredit(const CashOperator &cash_operator) const;
   void RefuseToGrantAnotherCredit() const;
 
@@ -28,7 +34,7 @@ class UserCredit {
   bool RefuseACredit(const CashOperator &cash_operator) const;
 
   UserInput user_input_;
-  CreditMessanger credit_messenger_;
+  CreditMessanger messenger_;
   NoticeAboutError error_message;
   PrimaryCreditOperations primary_credit_operations_;
 };

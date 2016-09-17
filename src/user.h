@@ -69,7 +69,7 @@ class User {
 
   UserInput user_input_;
   SystemUtility utility_;
-  UserMessenger user_messanger_;
+  UserMessenger user_messenger_;
   UserCredit user_credit_;
   NoticeAboutError error_message_;
   NoticeAboutSuccessfulAction successful_action_;

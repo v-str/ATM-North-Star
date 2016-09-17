@@ -19,13 +19,13 @@ User::User(const string &login, const string &password, double cash, int credit,
 }
 
 void User::Registration() {
-  user_messanger_.ShowRegistrationScreen();
-  user_messanger_.ShowInitialLoginText();
+  user_messenger_.ShowRegistrationScreen();
+  user_messenger_.ShowInitialLoginText();
   user_identifier_.EnterInitialLogin();
   if (!user_identifier_.IsNormalLogin()) {
     error_message_.NoticeAboutIncorrectLoginMessage();
   } else {
-    user_messanger_.ShowInitialPasswordText();
+    user_messenger_.ShowInitialPasswordText();
     user_identifier_.EnterinitialPassword();
     if (!user_identifier_.IsNormalPass()) {
       error_message_.NoticeAboutIncorrectFormatPasswordMessage();
@@ -44,7 +44,7 @@ void User::RunProgramUntilUserWantToExit() {
 }
 
 bool User::RunProgram() {
-  user_messanger_.ShowTransactionMenu();
+  user_messenger_.ShowTransactionMenu();
   return HandleUserChoice(user_input_.GetChoiceFromUser());
 }
 
@@ -69,17 +69,17 @@ bool User::HandleUserChoice(int choice) {
 }
 
 bool User::ShowAccountInfo() {
-  user_messanger_.ShowAccountInformation(user_identifier_, cash_operator_);
+  user_messenger_.ShowAccountInformation(user_identifier_, cash_operator_);
   return user_input_.SuggestUserToExit();
 }
 
 bool User::Refill() {
-  user_messanger_.ShowNotifyAboutCash();
+  user_messenger_.ShowNotifyAboutCash();
   int money = 0;
   cin >> money;
   if (money >= 10 && money <= 50000) {
     cash_operator_.AddCash(money);
-    user_messanger_.ShowUserBalance(cash_operator_.GetCash());
+    user_messenger_.ShowUserBalance(cash_operator_.GetCash());
   } else {
     error_message_.NoticeAboutIncorrectSum();
   }
@@ -88,14 +88,8 @@ bool User::Refill() {
 }
 
 bool User::CreditApplication() {
-  if (user_credit_.AlreadyHasACredit(cash_operator_)) {
-    user_credit_.RefuseToGrantAnotherCredit();
-    user_messanger_.ShowAccountInformation(user_identifier_, cash_operator_);
-    return user_input_.SuggestUserToExit();
-  } else {
-    string user_login = user_identifier_.GetLogin();
-    return user_credit_.SuggestACredit(cash_operator_, user_login);
-  }
+  return user_credit_.StartCreditOperation(user_identifier_, cash_operator_,
+                                           user_messenger_);
 }
 
 bool User::WithdrawCash() {
@@ -106,7 +100,7 @@ bool User::Statement() {
   utility_.ClearScreen();
   string spaces = GetSpaces(cash_operator_.GetCash());
   int cash = cash_operator_.GetCash();
-  user_messanger_.ShowStatement(cash, spaces);
+  user_messenger_.ShowStatement(cash, spaces);
   return user_input_.SuggestUserToExit();
 }
 
@@ -131,19 +125,19 @@ int User::NumberOfDigits(int value) const {
 }
 
 void User::ShowIncorrectDataMessage() {
-  user_messanger_.ShowIncorrectDataMessage();
+  user_messenger_.ShowIncorrectDataMessage();
 }
 
 void User::SetupProgram() { utility_.ClearScreen(); }
 
 bool User::SuggestUserToExitWithConfirmationMenu() {
-  user_messanger_.SuggestUserToExit();
+  user_messenger_.SuggestUserToExit();
   return user_input_.GetResultFromUserAboutExit();
 }
 
-void User::WishGoodDay() { user_messanger_.WishAGoodDay(); }
+void User::WishGoodDay() { user_messenger_.WishAGoodDay(); }
 
-void User::ShowTransactionMenu() { user_messanger_.ShowTransactionMenu(); }
+void User::ShowTransactionMenu() { user_messenger_.ShowTransactionMenu(); }
 
 int User::GetUserChoiceWithMenuText(const string &menu_text,
                                     const string &choice_text) const {

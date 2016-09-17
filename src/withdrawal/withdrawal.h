@@ -8,7 +8,6 @@
 #include "notice_about_error.h"
 #include "user_identifier.h"
 #include "user_input.h"
-#include "user_messenger.h"
 #include "withdrawal_messenger.h"
 
 using std::cout;
@@ -30,7 +29,6 @@ class Withdrawal {
   void WithdrawFromAccount(CashOperator &cash_operator, int sum_of_withdrawal);
 
  private:
-  UserMessenger user_messenger_;
   UserInput user_input_;
   NoticeAboutError error_message_;
   WithdrawalMessenger messenger_;
