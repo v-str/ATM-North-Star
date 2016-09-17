@@ -31,7 +31,8 @@ SOURCES += \
     src/credit/credit_operations/secondary_credit_operations.cpp \
     src/notifications/notice_about_successful_action.cpp \
     src/user_identification/cash_operator.cpp \
-    src/withdrawal/withdrawal.cpp
+    src/withdrawal/withdrawal.cpp \
+    src/withdrawal/withdrawal_messenger.cpp
 
 HEADERS += \
     src/user.h \
@@ -50,4 +51,5 @@ HEADERS += \
     src/credit/credit_operations/secondary_credit_operations.h \
     src/notifications/notice_about_successful_action.h \
     src/user_identification/cash_operator.h \
-    src/withdrawal/withdrawal.h
+    src/withdrawal/withdrawal.h \
+    src/withdrawal/withdrawal_messenger.h
