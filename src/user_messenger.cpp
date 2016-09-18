@@ -5,12 +5,6 @@ static const int kMaxLenghtOfPassword = 4;
 
 UserMessenger::UserMessenger() {}
 
-void UserMessenger::WriteSymbolsNTimes(char symbol, int n) const {
-  for (int i = 0; i < n; ++i) {
-    cout << symbol;
-  }
-}
-
 void UserMessenger::ShowRegistrationScreen() const {
   utility_.ClearScreen();
 
@@ -37,20 +31,20 @@ void UserMessenger::ShowTransactionMenu() {
 
 void UserMessenger::ShowNotifyAboutCash() {
   cout << "\t";
-  WriteSymbolsNTimes('-', 45);
+  utility_.WriteSymbolsNTimes('-', 45);
   cout << "\n\t";
   utility_.WriteTextWithDelay(
       "\t Notify:\n\t The sum must be more than\n"
       "\t 10$ and less than 50000$");
   cout << "\t";
-  WriteSymbolsNTimes('-', 45);
+  utility_.WriteSymbolsNTimes('-', 45);
   cout << "\n";
   cout << "\t# Please enter the sum of money($): ";
 }
 
 void UserMessenger::ShowUserBalance(double balance) {
   cout << "\n\t";
-  WriteSymbolsNTimes('-', 45);
+  utility_.WriteSymbolsNTimes('-', 45);
   utility_.WriteTextWithDelay("\n\t# Balance refill completed successfully.");
   WriteUserInfo("Balance", std::to_string(balance));
   cout << "\n\t";
@@ -61,7 +55,7 @@ void UserMessenger::ShowUserBalance(double balance) {
 void UserMessenger::WriteUserInfo(const UserMessenger::string &info_title,
                                   const UserMessenger::string &value) {
   cout << "\n\t# " << info_title << ": " << value << "\n\t";
-  WriteSymbolsNTimes('-', 45);
+  utility_.WriteSymbolsNTimes('-', 45);
   utility_.Sleep(100);
 }
 
@@ -109,7 +103,7 @@ void UserMessenger::ShowTransactionMenu() const {
 void UserMessenger::ShowAccountInformation(UserIdentifier &user_identifier,
                                            CashOperator &cash_operator) {
   cout << "\t";
-  WriteSymbolsNTimes('-', 45);
+  utility_.WriteSymbolsNTimes('-', 45);
 
   WriteUserInfo("Login", user_identifier.GetLogin());
   WriteUserInfo("Password", user_identifier.GetPassword());
@@ -124,12 +118,12 @@ void UserMessenger::ShowAccountInformation(UserIdentifier &user_identifier,
 void UserMessenger::ShowInitialLoginText() {
   cout << "\n\n\n\t\tLogin: ";
 
-  WriteSymbolsNTimes('#', kMaxLenghtOfLogin);
-  WriteSymbolsNTimes('\b', kMaxLenghtOfLogin);
+  utility_.WriteSymbolsNTimes('#', kMaxLenghtOfLogin);
+  utility_.WriteSymbolsNTimes('\b', kMaxLenghtOfLogin);
 }
 
 void UserMessenger::ShowInitialPasswordText() {
   cout << "\t\tPassword: XXXX\b\b\b\b";
-  WriteSymbolsNTimes('X', kMaxLenghtOfPassword);
-  WriteSymbolsNTimes('\b', kMaxLenghtOfPassword);
+  utility_.WriteSymbolsNTimes('X', kMaxLenghtOfPassword);
+  utility_.WriteSymbolsNTimes('\b', kMaxLenghtOfPassword);
 }

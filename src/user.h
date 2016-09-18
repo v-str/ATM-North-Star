@@ -14,6 +14,7 @@
 #include "user_input.h"
 #include "user_messenger.h"
 #include "withdrawal/withdrawal.h"
+#include "refill_messenger.h"
 
 class User {
   using string = std::string;
@@ -76,6 +77,7 @@ class User {
   UserIdentifier user_identifier_;
   CashOperator cash_operator_;
   Withdrawal withdrawal_;
+  RefillMessenger refill_messenger_;
 };
 
 #endif  // USER_H

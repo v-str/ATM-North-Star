@@ -17,7 +17,6 @@ class UserMessenger {
  public:
   UserMessenger();
 
-  void WriteSymbolsNTimes(char symbol, int n) const;
   void ShowRegistrationScreen() const;
 
   void WriteUserInfo(const string &info_title, const string &value);

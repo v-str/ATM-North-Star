@@ -72,7 +72,7 @@ bool User::ShowAccountInfo() {
 }
 
 bool User::Refill() {
-  user_messenger_.ShowNotifyAboutCash();
+  refill_messenger_.ShowNotifyAboutCash();
   int money = 0;
   cin >> money;
   if (money >= 10 && money <= 50000) {

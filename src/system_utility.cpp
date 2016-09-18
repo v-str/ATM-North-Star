@@ -33,3 +33,9 @@ void SystemUtility::WriteTextWithDelay(const string &text, int delay) const {
   }
   cout << "\n";
 }
+
+void SystemUtility::WriteSymbolsNTimes(char symbol, int n) const {
+  for (int i = 0; i < n; ++i) {
+    cout << symbol;
+  }
+}

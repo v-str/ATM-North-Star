@@ -12,7 +12,8 @@ INCLUDEPATH += \
     src/credit/credit_messenger \
     src/demo_user \
     src/withdrawal \
-    src/statement
+    src/statement \
+    src/refill \
 
 SOURCES += \
     src/main.cpp \
@@ -35,7 +36,10 @@ SOURCES += \
     src/withdrawal/withdrawal.cpp \
     src/withdrawal/withdrawal_messenger.cpp \
     src/statement/statement.cpp \
-    src/statement/statement_messenger.cpp
+    src/statement/statement_messenger.cpp \
+    src/refill/refill.cpp \
+    src/refill/refill_messenger.cpp
+
 
 HEADERS += \
     src/user.h \
@@ -57,4 +61,6 @@ HEADERS += \
     src/withdrawal/withdrawal.h \
     src/withdrawal/withdrawal_messenger.h \
     src/statement/statement.h \
-    src/statement/statement_messenger.h
+    src/statement/statement_messenger.h \
+    src/refill/refill.h \
+    src/refill/refill_messenger.h
