@@ -10,7 +10,6 @@
 #include "statement.h"
 #include "statement.h"
 #include "system_utility.h"
-#include "user_choice.h"
 #include "user_credit.h"
 #include "user_identifier.h"
 #include "user_input.h"
@@ -37,32 +36,26 @@ class User {
 
  private:
   void RunProgramUntilUserWantToExit();
-
   bool RunProgram();
   bool HandleUserChoice(int choice);
 
   bool ShowAccountInfo();
-
   bool RefillOperation();
   bool CreditApplication();
-
   bool WithdrawCash();
   bool Statement();
 
-  void WriteSymbolsNTimes(char symbol, int n) const;
-
-  UserStatement statement_;
-  UserInput user_input_;
-  SystemUtility utility_;
-  UserMessenger user_messenger_;
-  UserCredit user_credit_;
-  NoticeAboutError error_message_;
-  NoticeAboutSuccessfulAction successful_action_;
   UserIdentifier user_identifier_;
   CashOperator cash_operator_;
-  Withdrawal withdrawal_;
+  UserMessenger user_messenger_;
+  NoticeAboutError error_message_;
+  NoticeAboutSuccessfulAction successful_action_;
+  SystemUtility utility_;
+  UserInput user_input_;
   Refill refill_;
-  UserChoice user_choice_;
+  UserCredit user_credit_;
+  Withdrawal withdrawal_;
+  UserStatement statement_;
 };
 
 #endif  // USER_H
