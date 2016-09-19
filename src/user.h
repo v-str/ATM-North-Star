@@ -33,7 +33,6 @@ class User {
        double monthly_payment, int amount_of_credit_month);
 
   void Registration();
-  void WishGoodDay();
 
  private:
   void RunProgramUntilUserWantToExit();
@@ -52,8 +51,6 @@ class User {
   bool Statement();
 
   void ShowTransactionMenu();
-
-//  void ShowIncorrectDataMessage();
 
   bool SuggestUserToExitWithConfirmationMenu();
 

@@ -3,8 +3,10 @@
 #include "system_utility.h"
 #include "user.h"
 #include "user_input.h"
+#include "user_messenger.h"
 
 int main() {
+  UserMessenger user_messenger_;
   InitialScreen initial_screen;
 
   initial_screen.Logotype();
@@ -27,5 +29,5 @@ int main() {
   } else {
     initial_screen.Error();
   }
-  user.WishGoodDay();
+  user_messenger_.WishAGoodDay();
 }
