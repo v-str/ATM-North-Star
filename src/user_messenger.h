@@ -5,6 +5,7 @@
 #include <string>
 
 #include "cash_operator.h"
+#include "refill_messenger.h"
 #include "system_utility.h"
 #include "user_identifier.h"
 
@@ -19,13 +20,9 @@ class UserMessenger {
 
   void ShowRegistrationScreen() const;
 
-  void WriteUserInfo(const string &info_title, const string &value);
-
   void ShowTransactionMenu();
 
   void ShowNotifyAboutCash();
-
-  void ShowUserBalance(double balance);
 
   void ShowIncorrectDataMessage();
   void ShowIncorrectMonthInput();
@@ -42,6 +39,7 @@ class UserMessenger {
 
  private:
   SystemUtility utility_;
+  RefillMessenger refill_messenger_;
 };
 
 #endif  // USER_MESSANGER_H

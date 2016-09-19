@@ -52,7 +52,7 @@ bool User::HandleUserChoice(int choice) {
   if (choice == kAccountSection) {
     return ShowAccountInfo();
   } else if (choice == kRefillSection) {
-    return Refill();
+    return RefillOperation();
   } else if (choice == kCreditSection) {
     return CreditApplication();
   } else if (choice == kWidthdrawalSection) {
@@ -71,18 +71,8 @@ bool User::ShowAccountInfo() {
   return user_input_.SuggestUserToExit();
 }
 
-bool User::Refill() {
-  refill_messenger_.ShowNotifyAboutCash();
-  int money = 0;
-  cin >> money;
-  if (money >= 10 && money <= 50000) {
-    cash_operator_.AddCash(money);
-    user_messenger_.ShowUserBalance(cash_operator_.GetCash());
-  } else {
-    error_message_.NoticeAboutIncorrectSum();
-  }
-  utility_.IgnoreCinLine();
-  return user_input_.SuggestUserToExit();
+bool User::RefillOperation() {
+  return refill_.StartRefillOperation(cash_operator_);
 }
 
 bool User::CreditApplication() {

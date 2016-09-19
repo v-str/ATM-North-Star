@@ -42,23 +42,6 @@ void UserMessenger::ShowNotifyAboutCash() {
   cout << "\t# Please enter the sum of money($): ";
 }
 
-void UserMessenger::ShowUserBalance(double balance) {
-  cout << "\n\t";
-  utility_.WriteSymbolsNTimes('-', 45);
-  utility_.WriteTextWithDelay("\n\t# Balance refill completed successfully.");
-  WriteUserInfo("Balance", std::to_string(balance));
-  cout << "\n\t";
-  cin.sync();
-  utility_.Sleep(1000);
-}
-
-void UserMessenger::WriteUserInfo(const UserMessenger::string &info_title,
-                                  const UserMessenger::string &value) {
-  cout << "\n\t# " << info_title << ": " << value << "\n\t";
-  utility_.WriteSymbolsNTimes('-', 45);
-  utility_.Sleep(100);
-}
-
 void UserMessenger::ShowIncorrectDataMessage() {
   utility_.WriteTextWithDelay(
       "\t Data is not correct, please reload the program.\n\n");
@@ -105,14 +88,16 @@ void UserMessenger::ShowAccountInformation(UserIdentifier &user_identifier,
   cout << "\t";
   utility_.WriteSymbolsNTimes('-', 45);
 
-  WriteUserInfo("Login", user_identifier.GetLogin());
-  WriteUserInfo("Password", user_identifier.GetPassword());
-  WriteUserInfo("Balance", std::to_string(cash_operator.GetCash()));
-  WriteUserInfo("Credit", std::to_string(cash_operator.GetCredit()));
-  WriteUserInfo("Monthly payment $",
-                std::to_string(cash_operator.GetMonthlyPayment()));
-  WriteUserInfo("Credit term",
-                std::to_string(cash_operator.GetAmountOfCreditMonth()));
+  refill_messenger_.WriteUserInfo("Login", user_identifier.GetLogin());
+  refill_messenger_.WriteUserInfo("Password", user_identifier.GetPassword());
+  refill_messenger_.WriteUserInfo("Balance",
+                                  std::to_string(cash_operator.GetCash()));
+  refill_messenger_.WriteUserInfo("Credit",
+                                  std::to_string(cash_operator.GetCredit()));
+  refill_messenger_.WriteUserInfo(
+      "Monthly payment $", std::to_string(cash_operator.GetMonthlyPayment()));
+  refill_messenger_.WriteUserInfo(
+      "Credit term", std::to_string(cash_operator.GetAmountOfCreditMonth()));
 }
 
 void UserMessenger::ShowInitialLoginText() {

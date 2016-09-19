@@ -44,7 +44,7 @@ void NoticeAboutError::ShowUnacceptableWithdrawal(int amount_of_cash,
   utility_.ClearScreen();
   utility_.WriteTextWithDelay("\n\t# Sorry, entered sum is incorrect.\n\n");
   cout << "\t# Entered sum: " << incorrect_sum << "\n\n";
-  user_messenger_.WriteUserInfo("Balance", std::to_string(amount_of_cash));
+  refill_messenger_.WriteUserInfo("Balance", std::to_string(amount_of_cash));
   utility_.IgnoreCinLine();
 }
 

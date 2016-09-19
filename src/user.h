@@ -6,6 +6,7 @@
 #include "cash_operator.h"
 #include "notice_about_error.h"
 #include "notice_about_successful_action.h"
+#include "refill.h"
 #include "statement.h"
 #include "statement.h"
 #include "system_utility.h"
@@ -14,7 +15,6 @@
 #include "user_input.h"
 #include "user_messenger.h"
 #include "withdrawal/withdrawal.h"
-#include "refill_messenger.h"
 
 class User {
   using string = std::string;
@@ -45,7 +45,7 @@ class User {
 
   bool ShowAccountInfo();
 
-  bool Refill();
+  bool RefillOperation();
   bool CreditApplication();
 
   bool WithdrawCash();
@@ -77,7 +77,7 @@ class User {
   UserIdentifier user_identifier_;
   CashOperator cash_operator_;
   Withdrawal withdrawal_;
-  RefillMessenger refill_messenger_;
+  Refill refill_;
 };
 
 #endif  // USER_H
