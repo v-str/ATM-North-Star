@@ -86,15 +86,14 @@ bool User::WithdrawCash() {
 
 bool User::Statement() { return statement_.ShowStatement(cash_operator_); }
 
-void User::ShowIncorrectDataMessage() {
-  user_messenger_.ShowIncorrectDataMessage();
-}
+// void User::ShowIncorrectDataMessage() {
+//  user_messenger_.ShowIncorrectDataMessage();
+//}
 
 void User::SetupProgram() { utility_.ClearScreen(); }
 
 bool User::SuggestUserToExitWithConfirmationMenu() {
-  user_messenger_.SuggestUserToExit();
-  return user_input_.GetResultFromUserAboutExit();
+  return user_messenger_.SuggestUserToExit();
 }
 
 void User::WishGoodDay() { user_messenger_.WishAGoodDay(); }

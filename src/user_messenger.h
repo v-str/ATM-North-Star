@@ -28,10 +28,10 @@ class UserMessenger {
   void ShowIncorrectDataMessage();
   void ShowIncorrectMonthInput();
 
-  void SuggestUserToExit() const;
   void WishAGoodDay() const;
   void ShowTransactionMenu() const;
 
+  bool SuggestUserToExit();
   bool ShowAccountInformation(UserIdentifier &user_identifier,
                               CashOperator &cash_operator);
 

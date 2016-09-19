@@ -53,7 +53,7 @@ class User {
 
   void ShowTransactionMenu();
 
-  void ShowIncorrectDataMessage();
+//  void ShowIncorrectDataMessage();
 
   bool SuggestUserToExitWithConfirmationMenu();
 
