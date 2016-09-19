@@ -2,9 +2,8 @@
 #define NOTICE_ABOUT_ERROR_H
 
 #include <iostream>
-#include "system_utility.h"
-#include "user_messenger.h"
 #include "refill_messenger.h"
+#include "system_utility.h"
 
 using std::cout;
 using std::cin;
@@ -24,7 +23,6 @@ class NoticeAboutError {
 
  private:
   SystemUtility utility_;
-  UserMessenger user_messenger_;
   RefillMessenger refill_messenger_;
 };
 

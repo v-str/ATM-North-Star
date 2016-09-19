@@ -83,7 +83,7 @@ void UserMessenger::ShowTransactionMenu() const {
   cout << select;
 }
 
-void UserMessenger::ShowAccountInformation(UserIdentifier &user_identifier,
+bool UserMessenger::ShowAccountInformation(UserIdentifier &user_identifier,
                                            CashOperator &cash_operator) {
   cout << "\t";
   utility_.WriteSymbolsNTimes('-', 45);
@@ -98,6 +98,7 @@ void UserMessenger::ShowAccountInformation(UserIdentifier &user_identifier,
       "Monthly payment $", std::to_string(cash_operator.GetMonthlyPayment()));
   refill_messenger_.WriteUserInfo(
       "Credit term", std::to_string(cash_operator.GetAmountOfCreditMonth()));
+  return user_input_.SuggestUserToExit();
 }
 
 void UserMessenger::ShowInitialLoginText() {

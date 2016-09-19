@@ -8,6 +8,7 @@
 #include "refill_messenger.h"
 #include "system_utility.h"
 #include "user_identifier.h"
+#include "user_input.h"
 
 using std::cout;
 using std::cin;
@@ -31,7 +32,7 @@ class UserMessenger {
   void WishAGoodDay() const;
   void ShowTransactionMenu() const;
 
-  void ShowAccountInformation(UserIdentifier &user_identifier,
+  bool ShowAccountInformation(UserIdentifier &user_identifier,
                               CashOperator &cash_operator);
 
   void ShowInitialLoginText();
@@ -40,6 +41,7 @@ class UserMessenger {
  private:
   SystemUtility utility_;
   RefillMessenger refill_messenger_;
+  UserInput user_input_;
 };
 
 #endif  // USER_MESSANGER_H

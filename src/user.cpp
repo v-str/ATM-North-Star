@@ -67,8 +67,8 @@ bool User::HandleUserChoice(int choice) {
 }
 
 bool User::ShowAccountInfo() {
-  user_messenger_.ShowAccountInformation(user_identifier_, cash_operator_);
-  return user_input_.SuggestUserToExit();
+  return user_messenger_.ShowAccountInformation(user_identifier_,
+                                                cash_operator_);
 }
 
 bool User::RefillOperation() {
