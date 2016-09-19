@@ -50,8 +50,6 @@ class User {
   bool WithdrawCash();
   bool Statement();
 
-  void ShowTransactionMenu();
-
   bool SuggestUserToExitWithConfirmationMenu();
 
   int GetUserChoice(const string &choice_text) const;
@@ -60,7 +58,6 @@ class User {
 
   int GetUserChoiceWithMenuText(const string &menu_text,
                                 const string &choice_text) const;
-  void WriteTextWithDelay(const string &text) const;
 
   void WriteSymbolsNTimes(char symbol, int n) const;
 

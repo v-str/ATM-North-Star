@@ -35,7 +35,7 @@ void User::Registration() {
 }
 
 void User::RunProgramUntilUserWantToExit() {
-  SetupProgram();
+  utility_.ClearScreen();
   for (;;) {
     if (RunProgram()) break;
   }
@@ -92,8 +92,6 @@ bool User::SuggestUserToExitWithConfirmationMenu() {
   return user_messenger_.SuggestUserToExit();
 }
 
-void User::ShowTransactionMenu() { user_messenger_.ShowTransactionMenu(); }
-
 int User::GetUserChoiceWithMenuText(const string &menu_text,
                                     const string &choice_text) const {
   utility_.WriteTextWithDelay(menu_text);
@@ -116,13 +114,4 @@ int User::GetChoiceFromUser() const {
     cout << "\tSelect: ";
   }
   return value;
-}
-
-void User::WriteTextWithDelay(const string &text) const {
-  for (const auto &symbol : text) {
-    cout << symbol;
-    cout.flush();
-    utility_.Sleep(5);
-  }
-  cout << "\n";
 }
