@@ -14,16 +14,20 @@ INCLUDEPATH += \
     src/withdrawal \
     src/statement \
     src/refill \
+    src/user_operations \
+    src/user_operations/user \
+    src/user_operations/user_messenger \
+    src/user_operations/user_choice_and_input \
 
 SOURCES += \
     src/main.cpp \
-    src/user.cpp \
+    src/user_operations/user/user.cpp \
+    src/user_operations/user_messenger/user_messenger.cpp \
+    src/user_operations/user_choice_and_input/user_input.cpp \
+    src/user_operations/user_choice_and_input/user_choice.cpp \
     src/system_utility.cpp \
-    src/user_input.cpp \
     src/initial_screen.cpp \
     src/notifications_about_operations/notice_about_error.cpp \
-    src/user_choice.cpp \
-    src/user_messenger.cpp \
     src/credit/user_credit/user_credit.cpp \
     src/credit/credit_messenger/credit_messenger.cpp \
     src/demo_user/demo_user.cpp \
@@ -42,13 +46,13 @@ SOURCES += \
 
 
 HEADERS += \
-    src/user.h \
+    src/user_operations/user/user.h \
+    src/user_operations/user_messenger/user_messenger.h \
+    src/user_operations/user_choice_and_input/user_input.h \
+    src/user_operations/user_choice_and_input/user_choice.h \
     src/system_utility.h \
-    src/user_input.h \
     src/initial_screen.h \
     src/notifications_about_operations/notice_about_error.h \
-    src/user_choice.h \
-    src/user_messenger.h \
     src/credit/user_credit/user_credit.h \
     src/credit/credit_messenger/credit_messenger.h \
     src/demo_user/demo_user.h \

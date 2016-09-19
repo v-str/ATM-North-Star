@@ -1,9 +1,6 @@
 #include "demo_user.h"
 #include "initial_screen.h"
-#include "system_utility.h"
 #include "user.h"
-#include "user_input.h"
-#include "user_messenger.h"
 
 int main() {
   UserMessenger user_messenger_;
