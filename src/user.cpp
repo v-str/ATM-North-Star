@@ -60,7 +60,8 @@ bool User::HandleUserChoice(int choice) {
   } else if (choice == kStatementSection) {
     return Statement();
   } else if (choice == kExitSection) {
-    return SuggestUserToExitWithConfirmationMenu();
+    user_messenger_.SuggestUserToExit();
+    return user_input_.SuggestUserToExitWithConfirmationMenu();
   } else {
     return user_input_.ShowIncorrectMessage();
   }
@@ -85,33 +86,3 @@ bool User::WithdrawCash() {
 }
 
 bool User::Statement() { return statement_.ShowStatement(cash_operator_); }
-
-void User::SetupProgram() { utility_.ClearScreen(); }
-
-bool User::SuggestUserToExitWithConfirmationMenu() {
-  return user_messenger_.SuggestUserToExit();
-}
-
-int User::GetUserChoiceWithMenuText(const string &menu_text,
-                                    const string &choice_text) const {
-  utility_.WriteTextWithDelay(menu_text);
-  return GetUserChoice(choice_text);
-}
-
-int User::GetUserChoice(const string &choice_text) const {
-  cout << choice_text;
-  return GetChoiceFromUser();
-}
-
-int User::GetChoiceFromUser() const {
-  int value = 0;
-  while (!(cin >> value)) {
-    cin.clear();
-    while (cin.get() != '\n')
-      ;
-    cout << "\tIncorrect data. Please, repeat.\n";
-    cout << "\t-------------------------------\n";
-    cout << "\tSelect: ";
-  }
-  return value;
-}

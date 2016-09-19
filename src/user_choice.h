@@ -5,6 +5,8 @@
 #include <string>
 
 #include "system_utility.h"
+#include "user_input.h"
+#include "user_messenger.h"
 
 using std::cout;
 using std::cin;
@@ -24,6 +26,8 @@ class UserChoice {
 
  private:
   SystemUtility utility_;
+  UserMessenger user_messenger_;
+  UserInput user_input_;
 };
 
 #endif  // USERCHOICE_H

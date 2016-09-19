@@ -53,13 +53,12 @@ void UserMessenger::ShowIncorrectMonthInput() {
   cout << "The number of months to repay the loan: ";
 }
 
-bool UserMessenger::SuggestUserToExit() {
+void UserMessenger::SuggestUserToExit() const {
   utility_.WriteTextWithDelay(
       "\n\t# Do you really want to exit?\n"
       "\t# 1. No, go to main\n"
       "\t# 2. Yes, exit\n");
   cout << "\t# Enter: ";
-  return user_input_.GetResultFromUserAboutExit();
 }
 
 void UserMessenger::WishAGoodDay() const {

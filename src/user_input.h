@@ -18,6 +18,8 @@ class UserInput {
   bool GetResultFromUserAboutExit() const;
   void ShowExitMessage() const;
 
+  bool SuggestUserToExitWithConfirmationMenu();
+
  private:
   int ConvertLineToChoice(const string &line) const;
   bool LineNotEmpty(const string &str) const;

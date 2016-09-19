@@ -10,6 +10,7 @@
 #include "statement.h"
 #include "statement.h"
 #include "system_utility.h"
+#include "user_choice.h"
 #include "user_credit.h"
 #include "user_identifier.h"
 #include "user_input.h"
@@ -37,8 +38,6 @@ class User {
  private:
   void RunProgramUntilUserWantToExit();
 
-  void SetupProgram();  // TODO problem with name of method
-
   bool RunProgram();
   bool HandleUserChoice(int choice);
 
@@ -49,15 +48,6 @@ class User {
 
   bool WithdrawCash();
   bool Statement();
-
-  bool SuggestUserToExitWithConfirmationMenu();
-
-  int GetUserChoice(const string &choice_text) const;
-
-  int GetChoiceFromUser() const;
-
-  int GetUserChoiceWithMenuText(const string &menu_text,
-                                const string &choice_text) const;
 
   void WriteSymbolsNTimes(char symbol, int n) const;
 
@@ -72,6 +62,7 @@ class User {
   CashOperator cash_operator_;
   Withdrawal withdrawal_;
   Refill refill_;
+  UserChoice user_choice_;
 };
 
 #endif  // USER_H

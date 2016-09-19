@@ -77,6 +77,10 @@ void UserInput::ShowExitMessage() const {
   utility_.WriteTextWithDelay("\n\t# Thank you for using our ATM system\n");
 }
 
+bool UserInput::SuggestUserToExitWithConfirmationMenu() {
+  return GetResultFromUserAboutExit();
+}
+
 bool UserInput::ShowIncorrectMessage() const {
   error_message.NoticeAboutIncorrectDataMessage();
   return GetResultFromUserAboutExit();

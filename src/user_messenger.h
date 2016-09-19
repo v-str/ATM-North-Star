@@ -31,7 +31,7 @@ class UserMessenger {
   void WishAGoodDay() const;
   void ShowTransactionMenu() const;
 
-  bool SuggestUserToExit();
+  void SuggestUserToExit() const;
   bool ShowAccountInformation(UserIdentifier &user_identifier,
                               CashOperator &cash_operator);
 

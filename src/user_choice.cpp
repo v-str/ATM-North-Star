@@ -25,3 +25,4 @@ int UserChoice::GetChoiceFromUser() const {
   }
   return value;
 }
+
