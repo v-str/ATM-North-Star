@@ -14,7 +14,7 @@
 #include "user_identifier.h"
 #include "user_input.h"
 #include "user_messenger.h"
-#include "withdrawal/withdrawal.h"
+#include "withdrawal.h"
 
 class User {
   using string = std::string;
