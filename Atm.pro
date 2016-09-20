@@ -20,7 +20,6 @@ DISTFILES += \
     ToDo_List
 
 HEADERS += \
-    src/user/user.h \
     src/user/user_choice.h \
     src/user/user_input.h \
     src/user/user_messenger.h \
@@ -41,10 +40,10 @@ HEADERS += \
     src/notifications_about_operations/notice_about_successful_action.h \
     src/system_utility/system_utility.h \
     src/user_identification/cash_operator.h \
-    src/user_identification/user_identifier.h
+    src/user_identification/user_identifier.h \
+    src/user/application.h
 
 SOURCES += \
-    src/user/user.cpp \
     src/user/user_choice.cpp \
     src/user/user_input.cpp \
     src/user/user_messenger.cpp \
@@ -66,5 +65,6 @@ SOURCES += \
     src/notifications_about_operations/notice_about_successful_action.cpp \
     src/system_utility/system_utility.cpp \
     src/user_identification/cash_operator.cpp \
-    src/user_identification/user_identifier.cpp
+    src/user_identification/user_identifier.cpp \
+    src/user/application.cpp
 

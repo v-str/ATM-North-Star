@@ -16,7 +16,7 @@
 #include "user_messenger.h"
 #include "withdrawal.h"
 
-class User {
+class Application {
   using string = std::string;
   enum MenuSection {
     kAccountSection = 1,
@@ -28,9 +28,9 @@ class User {
   };
 
  public:
-  User() {}
-  User(const string &login, const string &password, double cash, int credit,
-       double monthly_payment, int amount_of_credit_month);
+  Application() {}
+  Application(const string &login, const string &password, double cash,
+              int credit, double monthly_payment, int amount_of_credit_month);
 
   void Registration();
 

@@ -1,6 +1,6 @@
 #include "demo_user.h"
 #include "initial_screen.h"
-#include "user.h"
+#include "application.h"
 
 int main() {
   UserMessenger user_messenger_;
@@ -12,16 +12,16 @@ int main() {
   UserInput user_input;
   int choice = user_input.GetChoiceFromUser();
 
-  User user;
+  Application app;
 
   if (choice == 1) {
     DemoUser demo;
     demo.ShowDemoMode();
     if (demo.UserWantToRegistrate()) {
-      user.Registration();
+      app.Registration();
     }
   } else if (choice == 2) {
-    user.Registration();
+    app.Registration();
 
   } else {
     initial_screen.Error();

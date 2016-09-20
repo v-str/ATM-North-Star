@@ -1,4 +1,4 @@
-#include "user.h"
+#include "application.h"
 
 #include <iostream>
 #include <limits>
@@ -6,7 +6,7 @@
 using std::cin;
 using std::cout;
 
-User::User(const string &login, const string &password, double cash, int credit,
+Application::Application(const string &login, const string &password, double cash, int credit,
            double monthly_payment, int amount_of_credit_month) {
   user_identifier_.SetLogin(login);
   user_identifier_.SetPassword(password);
@@ -16,7 +16,7 @@ User::User(const string &login, const string &password, double cash, int credit,
   cash_operator_.SetAmountOfCreditMonth(amount_of_credit_month);
 }
 
-void User::Registration() {
+void Application::Registration() {
   user_messenger_.ShowRegistrationScreen();
   user_messenger_.ShowInitialLoginText();
   user_identifier_.EnterInitialLogin();
@@ -34,19 +34,19 @@ void User::Registration() {
   }
 }
 
-void User::RunProgramUntilUserWantToExit() {
+void Application::RunProgramUntilUserWantToExit() {
   utility_.ClearScreen();
   for (;;) {
     if (RunProgram()) break;
   }
 }
 
-bool User::RunProgram() {
+bool Application::RunProgram() {
   user_messenger_.ShowTransactionMenu();
   return HandleUserChoice(user_input_.GetChoiceFromUser());
 }
 
-bool User::HandleUserChoice(int choice) {
+bool Application::HandleUserChoice(int choice) {
   utility_.ClearScreen();
 
   if (choice == kAccountSection) {
@@ -67,22 +67,22 @@ bool User::HandleUserChoice(int choice) {
   }
 }
 
-bool User::ShowAccountInfo() {
+bool Application::ShowAccountInfo() {
   return user_messenger_.ShowAccountInformation(user_identifier_,
                                                 cash_operator_);
 }
 
-bool User::RefillOperation() {
+bool Application::RefillOperation() {
   return refill_.StartRefillOperation(cash_operator_);
 }
 
-bool User::CreditApplication() {
+bool Application::CreditApplication() {
   return user_credit_.StartCreditOperation(user_identifier_, cash_operator_,
                                            user_messenger_);
 }
 
-bool User::WithdrawCash() {
+bool Application::WithdrawCash() {
   return withdrawal_.WithdrawCashFromUser(cash_operator_, user_identifier_);
 }
 
-bool User::Statement() { return statement_.ShowStatement(cash_operator_); }
+bool Application::Statement() { return statement_.ShowStatement(cash_operator_); }
