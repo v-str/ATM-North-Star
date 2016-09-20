@@ -18,15 +18,17 @@ INCLUDEPATH += \
     src/user_operations/user \
     src/user_operations/user_messenger \
     src/user_operations/user_choice_and_input \
+    src/system_utility \
+    src/main
 
 SOURCES += \
-    src/main.cpp \
+    src/main/main.cpp \
     src/user_operations/user/user.cpp \
     src/user_operations/user_messenger/user_messenger.cpp \
     src/user_operations/user_choice_and_input/user_input.cpp \
     src/user_operations/user_choice_and_input/user_choice.cpp \
-    src/system_utility.cpp \
-    src/initial_screen.cpp \
+    src/system_utility/system_utility.cpp \
+    src/main/initial_screen.cpp \
     src/notifications_about_operations/notice_about_error.cpp \
     src/credit/user_credit/user_credit.cpp \
     src/credit/credit_messenger/credit_messenger.cpp \
@@ -50,8 +52,8 @@ HEADERS += \
     src/user_operations/user_messenger/user_messenger.h \
     src/user_operations/user_choice_and_input/user_input.h \
     src/user_operations/user_choice_and_input/user_choice.h \
-    src/system_utility.h \
-    src/initial_screen.h \
+    src/system_utility/system_utility.h \
+    src/main/initial_screen.h \
     src/notifications_about_operations/notice_about_error.h \
     src/credit/user_credit/user_credit.h \
     src/credit/credit_messenger/credit_messenger.h \
