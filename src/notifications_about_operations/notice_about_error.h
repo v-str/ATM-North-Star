@@ -2,6 +2,7 @@
 #define NOTICE_ABOUT_ERROR_H
 
 #include <iostream>
+#include "notice_messenger.h"
 #include "refill_messenger.h"
 #include "system_utility.h"
 
@@ -14,7 +15,7 @@ class NoticeAboutError {
 
   void ShowUnacceptableWithdrawal(int amount_of_cash, int incorrect_sum);
 
-  void NoticeAboutIncorrectLoginMessage() const;
+  void NoticeAboutIncorrectLogin() const;
   void NoticeAboutIncorrectFormatPasswordMessage() const;
   void NoticeAboutIncorrectDataMessage() const;
   void NoticeAboutIncorrectSum() const;
@@ -24,6 +25,7 @@ class NoticeAboutError {
  private:
   SystemUtility utility_;
   RefillMessenger refill_messenger_;
+  NoticeMessenger notice_messenger_;
 };
 
 #endif  // NOTICE_ABOUT_ERROR_H

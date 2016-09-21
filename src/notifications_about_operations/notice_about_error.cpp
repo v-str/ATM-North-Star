@@ -2,7 +2,7 @@
 
 NoticeAboutError::NoticeAboutError() {}
 
-void NoticeAboutError::NoticeAboutIncorrectLoginMessage() const {
+void NoticeAboutError::NoticeAboutIncorrectLogin() const {
   utility_.ClearScreen();
   cout << "\n\n\n\n\t|---------------------------|\n";
   utility_.WriteTextWithDelay(

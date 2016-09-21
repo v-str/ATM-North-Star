@@ -21,7 +21,7 @@ void Application::Registration() {
   user_messenger_.ShowInitialLoginText();
   user_identifier_.EnterInitialLogin();
   if (!user_identifier_.IsNormalLogin()) {
-    error_message_.NoticeAboutIncorrectLoginMessage();
+    error_message_.NoticeAboutIncorrectLogin();
   } else {
     user_messenger_.ShowInitialPasswordText();
     user_identifier_.EnterinitialPassword();
