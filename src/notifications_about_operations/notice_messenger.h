@@ -8,7 +8,7 @@ using std::cout;
 
 class NoticeMessenger {
  public:
-  void ShowFrame() const;
+  void ShowAcceptableMessageInFrame() const;
 
  private:
   SystemUtility utility_;

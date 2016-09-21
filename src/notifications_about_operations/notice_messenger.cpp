@@ -1,6 +1,6 @@
 #include "notice_messenger.h"
 
-void NoticeMessenger::ShowFrame() const {
+void NoticeMessenger::ShowAcceptableMessageInFrame() const {
   utility_.IgnoreCinLine();
   utility_.ClearScreen();
   cout << "\n\n\t\t";
