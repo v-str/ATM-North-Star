@@ -5,6 +5,7 @@
 
 #include "system_utility.h"
 #include "cash_operator.h"
+#include "notice_messenger.h"
 
 using std::cout;
 
@@ -15,6 +16,7 @@ class NoticeAboutSuccessfulAction {
 
  private:
   SystemUtility utility_;
+  NoticeMessenger notice_messenger_;
 };
 
 #endif  // NOTICE_ABOUT_SUCCESSFUL_ACTION_H
