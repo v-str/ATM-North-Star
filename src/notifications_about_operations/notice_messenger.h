@@ -10,6 +10,7 @@ using std::cout;
 class NoticeMessenger {
  public:
   void ShowAcceptableMessageInFrame() const;
+  void ShowIncorrectLoginFrame() const;
 
  private:
   SystemUtility utility_;
