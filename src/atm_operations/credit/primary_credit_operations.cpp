@@ -1,8 +1,8 @@
 #include "primary_credit_operations.h"
 
-static const int rate_per_year = 14;
-static const int full_rate = 100;
-static const int one_year = 12;
+const int rate_per_year = 14;
+const int full_rate = 100;
+const int one_year = 12;
 
 bool PrimaryCreditOperations::MaxCreditCalculation(CashOperator &cash_operator,
                                                    const string &user_login,

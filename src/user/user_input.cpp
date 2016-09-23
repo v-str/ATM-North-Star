@@ -1,24 +1,13 @@
 #include "user_input.h"
 
-#include <iostream>
-#include <string>
-
-#include "system_utility.h"
-
-using std::cin;
-using std::cout;
-using std::string;
-
-static const int kInvalidChoice = -1;
-static const int kExit = 2;
-static const int kgo_to_main = 1;
+const int kInvalidChoice = -1;
+const int kint_null = 0;
+const int kgo_to_main = 1;
+const int kExit = 2;
+const int ksecond = 1000;
 
 bool UserInput::SuggestUserToExit() const {
-  utility_.WriteTextWithDelay(
-      "\n\t# 1. Exit to main page.\n"
-      "\t# 2. Exit program.\n");
-  cout << "\t# Enter: ";
-
+  user_messenger_.ShowSuggestionAboutExit();
   return GetResultFromUserAboutExit();
 }
 
@@ -30,12 +19,11 @@ bool UserInput::GetResultFromUserAboutExit() const {
       break;
     } else if (user_want_to_exit == kExit) {
       ShowExitMessage();
-      utility_.Sleep(1000);
+      utility_.Sleep(ksecond);
       result_of_choice = true;
       break;
     } else {
-      cout << "\t# Incorrect input, please try again:\n"
-              "\t# Enter: ";
+      user_messenger_.ShowIncorrectSumInput();
     }
   }
   return result_of_choice;
@@ -56,7 +44,7 @@ int UserInput::ConvertLineToChoice(const string &line) const {
 }
 
 bool UserInput::LineNotEmpty(const string &str) const {
-  for (size_t i = 0; i < str.length(); ++i) {
+  for (size_t i = kint_null; i < str.length(); ++i) {
     if (!isdigit(str[i])) {
       return false;
     }

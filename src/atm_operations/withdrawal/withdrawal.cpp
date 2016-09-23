@@ -1,5 +1,7 @@
 #include "withdrawal.h"
 
+const int kint_null = 0;
+
 bool Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
                                       UserIdentifier &user_identifier) {
   int sum_of_withdrawal = SumOfWithdrawal();
@@ -17,21 +19,21 @@ bool Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
   } else {
     int amount_of_cash = cash_operator.GetCash();
     error_message_.NoticeUnacceptableWithdrawal(amount_of_cash,
-                                              sum_of_withdrawal);
+                                                sum_of_withdrawal);
   }
   return user_input_.SuggestUserToExit();
 }
 
 int Withdrawal::SumOfWithdrawal() const {
   messenger_.ShowSentenceEnterASumOfMoney();
-  int withdraw_sum = 0;
+  int withdraw_sum = kint_null;
   cin >> withdraw_sum;
   return withdraw_sum;
 }
 
 bool Withdrawal::IsWithdrawalAcceptable(const CashOperator &cash_operator,
                                         double cash_sum) const {
-  return cash_sum > 0 && cash_sum <= cash_operator.GetCash();
+  return cash_sum > kint_null && cash_sum <= cash_operator.GetCash();
 }
 
 bool Withdrawal::IsCorrectPasswordAtWithdrawal(

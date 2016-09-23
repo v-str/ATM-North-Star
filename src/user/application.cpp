@@ -6,8 +6,9 @@
 using std::cin;
 using std::cout;
 
-Application::Application(const string &login, const string &password, double cash, int credit,
-           double monthly_payment, int amount_of_credit_month) {
+Application::Application(const string &login, const string &password,
+                         double cash, int credit, double monthly_payment,
+                         int amount_of_credit_month) {
   user_identifier_.SetLogin(login);
   user_identifier_.SetPassword(password);
   cash_operator_.SetCash(cash);
@@ -68,8 +69,8 @@ bool Application::HandleUserChoice(int choice) {
 }
 
 bool Application::ShowAccountInfo() {
-  return user_messenger_.ShowAccountInformation(user_identifier_,
-                                                cash_operator_);
+  user_messenger_.ShowAccountInformation(user_identifier_, cash_operator_);
+  return user_input_.SuggestUserToExit();
 }
 
 bool Application::RefillOperation() {
@@ -85,4 +86,6 @@ bool Application::WithdrawCash() {
   return withdrawal_.WithdrawCashFromUser(cash_operator_, user_identifier_);
 }
 
-bool Application::Statement() { return statement_.ShowStatement(cash_operator_); }
+bool Application::Statement() {
+  return statement_.ShowStatement(cash_operator_);
+}

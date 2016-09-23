@@ -1,5 +1,7 @@
 #include "cash_operator.h"
 
+const int kmininmal_sum_for_credit = 1000;
+
 void CashOperator::SetCash(int cash) { cash_ = cash; }
 
 void CashOperator::SetCredit(int credit) { credit_ = credit; }
@@ -26,10 +28,11 @@ int CashOperator::GetAssignACredit(int sum_of_credit) {
   return credit_ = sum_of_credit;
 }
 
-bool CashOperator::IsCreditAvailable() { return GetCash() >= 1000; }
+bool CashOperator::IsCreditAvailable() {
+  return GetCash() >= kmininmal_sum_for_credit;
+}
 
 int CashOperator::WithdrawCashFromUser(int amount) { return cash_ -= amount; }
-
 
 void CashOperator::AddCash(int sum_of_cash) { cash_ += sum_of_cash; }
 

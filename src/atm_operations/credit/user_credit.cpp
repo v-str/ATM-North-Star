@@ -1,9 +1,9 @@
 #include "user_credit.h"
 
-static const int kint_null = 0;
-static const int kmax_multiplier = 15;
-static const int kconsider_a_credit = 1;
-static const int kMinimalSumForCredit = 1000;
+const int kint_null = 0;
+const int kmax_multiplier = 15;
+const int kconsider_a_credit = 1;
+const int kMinimalSumForCredit = 1000;
 
 bool UserCredit::StartCreditOperation(UserIdentifier &user_identifier,
                                       CashOperator &cash_operator,

@@ -1,7 +1,8 @@
 #include "user_messenger.h"
 
-static const int kMaxLenghtOfLogin = 21;
-static const int kMaxLenghtOfPassword = 4;
+const int kMaxLenghtOfLogin = 21;
+const int kMaxLenghtOfPassword = 4;
+const int kframe = 45;
 
 UserMessenger::UserMessenger() {}
 
@@ -31,13 +32,13 @@ void UserMessenger::ShowTransactionMenu() {
 
 void UserMessenger::ShowNotifyAboutCash() {
   cout << "\t";
-  utility_.WriteSymbolsNTimes('-', 45);
+  utility_.WriteSymbolsNTimes('-', kframe);
   cout << "\n\t";
   utility_.WriteTextWithDelay(
       "\t Notify:\n\t The sum must be more than\n"
       "\t 10$ and less than 50000$");
   cout << "\t";
-  utility_.WriteSymbolsNTimes('-', 45);
+  utility_.WriteSymbolsNTimes('-', kframe);
   cout << "\n";
   cout << "\t# Please enter the sum of money($): ";
 }
@@ -83,10 +84,10 @@ void UserMessenger::ShowTransactionMenu() const {
   cout << select;
 }
 
-bool UserMessenger::ShowAccountInformation(UserIdentifier &user_identifier,
+void UserMessenger::ShowAccountInformation(UserIdentifier &user_identifier,
                                            CashOperator &cash_operator) {
   cout << "\t";
-  utility_.WriteSymbolsNTimes('-', 45);
+  utility_.WriteSymbolsNTimes('-', kframe);
 
   refill_messenger_.WriteUserInfo("Login", user_identifier.GetLogin());
   refill_messenger_.WriteUserInfo("Password", user_identifier.GetPassword());
@@ -98,18 +99,35 @@ bool UserMessenger::ShowAccountInformation(UserIdentifier &user_identifier,
       "Monthly payment $", std::to_string(cash_operator.GetMonthlyPayment()));
   refill_messenger_.WriteUserInfo(
       "Credit term", std::to_string(cash_operator.GetAmountOfCreditMonth()));
-  return user_input_.SuggestUserToExit();
 }
 
-void UserMessenger::ShowInitialLoginText() {
+void UserMessenger::ShowInitialLoginText() const {
   cout << "\n\n\n\t\tLogin: ";
 
   utility_.WriteSymbolsNTimes('#', kMaxLenghtOfLogin);
   utility_.WriteSymbolsNTimes('\b', kMaxLenghtOfLogin);
 }
 
-void UserMessenger::ShowInitialPasswordText() {
+void UserMessenger::ShowInitialPasswordText() const {
   cout << "\t\tPassword: XXXX\b\b\b\b";
   utility_.WriteSymbolsNTimes('X', kMaxLenghtOfPassword);
   utility_.WriteSymbolsNTimes('\b', kMaxLenghtOfPassword);
+}
+
+void UserMessenger::ShowSuggestionAboutExit() const {
+  utility_.WriteTextWithDelay(
+      "\n\t# 1. Exit to main page.\n"
+      "\t# 2. Exit program.\n");
+  cout << "\t# Enter: ";
+}
+
+void UserMessenger::ShowIncorrectSumInput() const {
+  cout << "\t# Incorrect input, please try again:\n"
+          "\t# Enter: ";
+}
+
+void UserMessenger::ShowIncorrectData() const {
+  cout << "\tIncorrect data. Please, repeat.\n";
+  cout << "\t-------------------------------\n";
+  cout << "\tSelect: ";
 }

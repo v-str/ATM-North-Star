@@ -1,7 +1,7 @@
 #include "secondary_credit_operations.h"
 
-static const int kint_null = 0;
-static const int kdouble_null = 0.0;
+const int kint_null = 0;
+const int kdouble_null = 0.0;
 
 bool SecondaryCreditOperations::EnrollACredit(CashOperator &cash_operator,
                                               int sum_of_credit,

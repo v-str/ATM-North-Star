@@ -15,8 +15,6 @@ class UserChoice {
   using string = std::string;
 
  public:
-  UserChoice();
-
   int GetUserChoiceWithMenuText(const string &menu_text,
                                 const string &choice_text) const;
 

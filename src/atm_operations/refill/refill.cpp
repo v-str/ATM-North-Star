@@ -1,8 +1,8 @@
 #include "refill.h"
 
-static const int kint_null = 0;
-static const int minimal_refill = 10;
-static const int maximal_refill = 50000;
+const int kint_null = 0;
+const int minimal_refill = 10;
+const int maximal_refill = 50000;
 
 bool Refill::StartRefillOperation(CashOperator &cash_operator) {
   refill_messenger_.ShowNotifyAboutCash();
