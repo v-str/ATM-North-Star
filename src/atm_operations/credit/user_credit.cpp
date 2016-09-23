@@ -1,5 +1,8 @@
 #include "user_credit.h"
 
+static const int kint_null = 0;
+static const int kmax_multiplier = 15;
+static const int kconsider_a_credit = 1;
 static const int kMinimalSumForCredit = 1000;
 
 bool UserCredit::StartCreditOperation(UserIdentifier &user_identifier,
@@ -16,7 +19,7 @@ bool UserCredit::StartCreditOperation(UserIdentifier &user_identifier,
 }
 
 bool UserCredit::AlreadyHasACredit(const CashOperator &cash_operator) const {
-  return cash_operator.GetCredit() > 0;
+  return cash_operator.GetCredit() > kint_null;
 }
 
 void UserCredit::RefuseToGrantAnotherCredit() const {
@@ -26,7 +29,7 @@ void UserCredit::RefuseToGrantAnotherCredit() const {
 bool UserCredit::SuggestACredit(CashOperator &cash_operator,
                                 const string &user_login) {
   credit_messenger_.ShowNotifyAboutCredit();
-  if (user_input_.GetChoiceFromUser() == 1) {
+  if (user_input_.GetChoiceFromUser() == kconsider_a_credit) {
     return ConsiderACreditBasedOnCash(cash_operator, user_login);
   }
   return false;
@@ -43,18 +46,18 @@ bool UserCredit::ConsiderACreditBasedOnCash(CashOperator &cash_operator,
 
 bool UserCredit::GiveACredit(CashOperator &cash_operator,
                              const string &user_login) {
-  int maximal_sum_of_credit = 15 * cash_operator.GetCash();
+  int maximal_sum_of_credit = kmax_multiplier * cash_operator.GetCash();
   credit_messenger_.ShowCreditConditions(maximal_sum_of_credit);
   int choice = user_input_.GetChoiceFromUser();
-  if (choice == 1) {
+  if (choice == kMaxCredit) {
     return primary_credit_operations_.MaxCreditCalculation(
         cash_operator, user_login, maximal_sum_of_credit);
-  } else if (choice == 2) {
+  } else if (choice == kUserCredit) {
     return primary_credit_operations_.IndividualCreditCalculation(
         cash_operator, user_login, maximal_sum_of_credit);
-  } else if (choice == 3) {
+  } else if (choice == kMainMenu) {
     return false;
-  } else if (choice == 4) {
+  } else if (choice == kExit) {
     return credit_messenger_.ShowExitMessage();
   } else {
     return error_message.ShowIncorrectDataMessage();

@@ -27,3 +27,7 @@ bool NoticeAboutError::ShowIncorrectDataMessage() const {
   notice_messenger_.ShowError();
   return true;
 }
+
+void NoticeAboutError::NoticeAboutIncorrectMonths() const {
+  notice_messenger_.ShowIncorrectfMonths();
+}

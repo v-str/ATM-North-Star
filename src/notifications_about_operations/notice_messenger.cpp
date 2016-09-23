@@ -73,3 +73,11 @@ void NoticeMessenger::ShowError() const {
       "\t Data is not correct, please reload the program.\n\n");
   cin.get();
 }
+
+void NoticeMessenger::ShowIncorrectfMonths() const {
+  utility_.WriteTextWithDelay(
+      "The entered amount should not "
+      "exceed the allowed credit.\n"
+      "Enter the appropriate amount of credit: ");
+  cout << "Enter: ";
+}

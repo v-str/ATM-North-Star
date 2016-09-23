@@ -10,19 +10,13 @@ bool PrimaryCreditOperations::MaxCreditCalculation(CashOperator &cash_operator,
   int amount_of_credit_months =
       secondary_credit_operation_.GetAmountOfCreditMonthsFromUser(
           cash_operator);
-
   utility_.ClearScreen();
-
   credit_messenger_.ShowInfoAboutCredit(user_login, maximal_sum_of_credit);
-
   double pay_per_month =
       CalculateCredit(maximal_sum_of_credit, amount_of_credit_months);
-
   string menu_text = credit_messenger_.SuggestToConfirmACredit();
-
   int choice = user_choice_.GetUserChoiceWithMenuText(
       menu_text, credit_messenger_.ShowEnter1());
-
   return SuggestTheCredit(choice, maximal_sum_of_credit, pay_per_month,
                           cash_operator);
 }
@@ -31,28 +25,20 @@ bool PrimaryCreditOperations::IndividualCreditCalculation(
     CashOperator &cash_operator, const string &user_login,
     int maximal_sum_of_credit) {
   utility_.ClearScreen();
-
   int user_sum_of_credit =
       secondary_credit_operation_.GetIndividualSumOfCreditFromUser(
           maximal_sum_of_credit);
-
   int amount_of_credit_months =
       secondary_credit_operation_.GetAmountOfCreditMonthsFromUser(
           cash_operator);
-
   utility_.ClearScreen();
-
   credit_messenger_.ShowIndividualCreditInfo(user_login, user_sum_of_credit);
-
   double pay_per_month =
       CalculateCredit(user_sum_of_credit, amount_of_credit_months);
-
   string loan_confirmation_menu_text =
       credit_messenger_.SuggestToConfirmACredit();
-
   int choice = user_choice_.GetUserChoiceWithMenuText(
       loan_confirmation_menu_text, credit_messenger_.ShowEnter2());
-
   return SuggestTheCredit(choice, user_sum_of_credit, pay_per_month,
                           cash_operator);
 }
