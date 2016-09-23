@@ -29,7 +29,10 @@ class CreditMessanger {
   void ShowRepealACreadit() const;
 
   void ShowCalculationOfCredit(const double pay_per_month,
-                  const double amount_of_months) const;
+                               const double amount_of_months) const;
+
+  string ShowEnter1() const;
+  string ShowEnter2() const;
 
  private:
   SystemUtility utility_;

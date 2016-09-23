@@ -106,8 +106,8 @@ void CreditMessanger::ShowRepealACreadit() const {
   utility_.IgnoreCinLine();
 }
 
-void CreditMessanger::ShowCalculationOfCredit(const double pay_per_month,
-                                 const double amount_of_months) const {
+void CreditMessanger::ShowCalculationOfCredit(
+    const double pay_per_month, const double amount_of_months) const {
   double all_payment = 0.0;
   for (int i = 0; i < amount_of_months; ++i) {
     cout << "\t* Payment month: " << i + 1 << "\tPayment sum: ";
@@ -116,4 +116,12 @@ void CreditMessanger::ShowCalculationOfCredit(const double pay_per_month,
     all_payment += pay_per_month;
   }
   cout << "\t\t\tTotal: " << all_payment << " $\n\n";
+}
+
+CreditMessanger::string CreditMessanger::ShowEnter1() const {
+  return "\tEnter: ";
+}
+
+CreditMessanger::string CreditMessanger::ShowEnter2() const {
+  return "Enter: ";
 }
