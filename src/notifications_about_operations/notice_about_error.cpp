@@ -23,7 +23,7 @@ void NoticeAboutError::NoticeUnacceptableWithdrawal(int amount_of_cash,
   notice_messenger_.ShowUnacceptableWithdrawal(incorrect_sum, amount_of_cash);
 }
 
-bool NoticeAboutError::ShowIncorrectDataMessage() {
+bool NoticeAboutError::ShowIncorrectDataMessage() const {
   notice_messenger_.ShowError();
   return true;
 }

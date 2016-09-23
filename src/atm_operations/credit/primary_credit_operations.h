@@ -14,6 +14,8 @@
 class PrimaryCreditOperations {
   using string = std::string;
 
+  enum CreditSolution { kenroll = 1, krepeal, kexit };
+
  public:
   bool MaxCreditCalculation(CashOperator &cash_operator,
                             const string &user_login,
@@ -25,6 +27,9 @@ class PrimaryCreditOperations {
 
  private:
   double CalculateCredit(int sum, int amount_of_months);
+  bool SuggestTheCredit(const int choice, const int sum_of_credit,
+                        const int pay_per_month,
+                        CashOperator &cash_operator) const;
 
   NoticeAboutError error_operation_;
   SystemUtility utility_;

@@ -106,7 +106,7 @@ void CreditMessanger::ShowRepealACreadit() const {
   utility_.IgnoreCinLine();
 }
 
-void CreditMessanger::ShowCredit(const double pay_per_month,
+void CreditMessanger::ShowCalculationOfCredit(const double pay_per_month,
                                  const double amount_of_months) const {
   double all_payment = 0.0;
   for (int i = 0; i < amount_of_months; ++i) {

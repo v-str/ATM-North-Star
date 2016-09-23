@@ -18,16 +18,19 @@ bool PrimaryCreditOperations::MaxCreditCalculation(CashOperator &cash_operator,
 
   int choice = user_choice_.GetUserChoiceWithMenuText(menu_text, "\tEnter: ");
 
-  if (choice == 1) {
-    return secondary_credit_operation_.EnrollACredit(
-        cash_operator, maximal_sum_of_credit, pay_per_month);
-  } else if (choice == 2) {
-    return secondary_credit_operation_.RepealACredit(cash_operator);
-  } else if (choice == 3) {
-    return credit_messenger_.ShowExitMessage();
-  } else {
-    return error_operation_.ShowIncorrectDataMessage();
-  }
+  return SuggestTheCredit(choice, maximal_sum_of_credit, pay_per_month,
+                          cash_operator);
+
+  //  if (choice == kenroll) {
+  //    return secondary_credit_operation_.EnrollACredit(
+  //        cash_operator, maximal_sum_of_credit, pay_per_month);
+  //  } else if (choice == krepeal) {
+  //    return secondary_credit_operation_.RepealACredit(cash_operator);
+  //  } else if (choice == kexit) {
+  //    return credit_messenger_.ShowExitMessage();
+  //  } else {
+  //    return error_operation_.ShowIncorrectDataMessage();
+  //  }
 }
 
 bool PrimaryCreditOperations::IndividualCreditCalculation(
@@ -56,21 +59,28 @@ bool PrimaryCreditOperations::IndividualCreditCalculation(
   int choice = user_choice_.GetUserChoiceWithMenuText(
       loan_confirmation_menu_text, "Enter: ");
 
-  if (choice == 1) {
-    return secondary_credit_operation_.EnrollACredit(
-        cash_operator, user_sum_of_credit, pay_per_month);
-  } else if (choice == 2) {
-    return secondary_credit_operation_.RepealACredit(cash_operator);
-  } else if (choice == 3) {
-    return credit_messenger_.ShowExitMessage();
-  } else {
-    return error_operation_.ShowIncorrectDataMessage();
-  }
+  return SuggestTheCredit(choice, user_sum_of_credit, pay_per_month,
+                          cash_operator);
 }
 
 double PrimaryCreditOperations::CalculateCredit(int sum, int amount_of_months) {
   double rate = (sum * 14) / 100;
   double pay_per_month = (sum / amount_of_months) + (rate / 12);
-  credit_messenger_.ShowCredit(pay_per_month, amount_of_months);
+  credit_messenger_.ShowCalculationOfCredit(pay_per_month, amount_of_months);
   return pay_per_month;
+}
+
+bool PrimaryCreditOperations::SuggestTheCredit(
+    const int choice, const int sum_of_credit, const int pay_per_month,
+    CashOperator &cash_operator) const {
+  if (choice == kenroll) {
+    return secondary_credit_operation_.EnrollACredit(
+        cash_operator, sum_of_credit, pay_per_month);
+  } else if (choice == krepeal) {
+    return secondary_credit_operation_.RepealACredit(cash_operator);
+  } else if (choice == kexit) {
+    return credit_messenger_.ShowExitMessage();
+  } else {
+    return error_operation_.ShowIncorrectDataMessage();
+  }
 }
