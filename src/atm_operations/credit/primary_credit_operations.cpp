@@ -1,5 +1,9 @@
 #include "primary_credit_operations.h"
 
+static const int rate_per_year = 14;
+static const int full_rate = 100;
+static const int one_year = 12;
+
 bool PrimaryCreditOperations::MaxCreditCalculation(CashOperator &cash_operator,
                                                    const string &user_login,
                                                    int maximal_sum_of_credit) {
@@ -20,17 +24,6 @@ bool PrimaryCreditOperations::MaxCreditCalculation(CashOperator &cash_operator,
 
   return SuggestTheCredit(choice, maximal_sum_of_credit, pay_per_month,
                           cash_operator);
-
-  //  if (choice == kenroll) {
-  //    return secondary_credit_operation_.EnrollACredit(
-  //        cash_operator, maximal_sum_of_credit, pay_per_month);
-  //  } else if (choice == krepeal) {
-  //    return secondary_credit_operation_.RepealACredit(cash_operator);
-  //  } else if (choice == kexit) {
-  //    return credit_messenger_.ShowExitMessage();
-  //  } else {
-  //    return error_operation_.ShowIncorrectDataMessage();
-  //  }
 }
 
 bool PrimaryCreditOperations::IndividualCreditCalculation(
@@ -64,8 +57,8 @@ bool PrimaryCreditOperations::IndividualCreditCalculation(
 }
 
 double PrimaryCreditOperations::CalculateCredit(int sum, int amount_of_months) {
-  double rate = (sum * 14) / 100;
-  double pay_per_month = (sum / amount_of_months) + (rate / 12);
+  double rate = (sum * rate_per_year) / full_rate;
+  double pay_per_month = (sum / amount_of_months) + (rate / one_year);
   credit_messenger_.ShowCalculationOfCredit(pay_per_month, amount_of_months);
   return pay_per_month;
 }
