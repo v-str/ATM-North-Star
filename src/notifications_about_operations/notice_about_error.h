@@ -3,8 +3,6 @@
 
 #include <iostream>
 #include "notice_messenger.h"
-#include "refill_messenger.h"
-#include "system_utility.h"
 
 using std::cout;
 using std::cin;
@@ -13,7 +11,8 @@ class NoticeAboutError {
  public:
   NoticeAboutError();
 
-  void ShowUnacceptableWithdrawal(int amount_of_cash, int incorrect_sum);
+  void NoticeUnacceptableWithdrawal(int amount_of_cash,
+                                    int incorrect_sum) const;
 
   void NoticeAboutIncorrectLogin() const;
   void NoticeAboutIncorrectFormatPasswordMessage() const;
@@ -23,8 +22,6 @@ class NoticeAboutError {
   bool ShowIncorrectDataMessage();
 
  private:
-  SystemUtility utility_;
-  RefillMessenger refill_messenger_;
   NoticeMessenger notice_messenger_;
 };
 

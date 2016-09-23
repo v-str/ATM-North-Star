@@ -41,3 +41,35 @@ void NoticeMessenger::ShowIncorrectFormatPassword() const {
   utility_.WriteSymbolsNTimes('-', 27);
   cout << "|\n\n\t\t\t";
 }
+
+void NoticeMessenger::ShowIncorrectData() const {
+  utility_.WriteTextWithDelay(
+      "\n\t# Data is not correct,\n"
+      "\t# return to main?\n"
+      "\t# 1. Yes\n"
+      "\t# 2. No, exit");
+  cout << "\t# Enter: ";
+  cin.clear();
+}
+
+void NoticeMessenger::ShowIncorrectSum() const {
+  utility_.WriteTextWithDelay(
+      "\n\tIncorrect sum, Reconnect to repeat.\n"
+      "\t\t- Press any key - \n\n");
+  cin.clear();
+}
+
+void NoticeMessenger::ShowUnacceptableWithdrawal(int incorrect_sum,
+                                                 int amount_of_cash) const {
+  utility_.ClearScreen();
+  utility_.WriteTextWithDelay("\n\t# Sorry, entered sum is incorrect.\n\n");
+  cout << "\t# Entered sum: " << incorrect_sum << "\n\n";
+  refill_messenger_.WriteUserInfo("Balance", std::to_string(amount_of_cash));
+  utility_.IgnoreCinLine();
+}
+
+void NoticeMessenger::ShowError() const {
+  utility_.WriteTextWithDelay(
+      "\t Data is not correct, please reload the program.\n\n");
+  cin.get();
+}

@@ -11,33 +11,19 @@ void NoticeAboutError::NoticeAboutIncorrectFormatPasswordMessage() const {
 }
 
 void NoticeAboutError::NoticeAboutIncorrectDataMessage() const {
-  utility_.WriteTextWithDelay(
-      "\n\t# Data is not correct,\n"
-      "\t# return to main?\n"
-      "\t# 1. Yes\n"
-      "\t# 2. No, exit");
-  cout << "\t# Enter: ";
-  cin.clear();
+  notice_messenger_.ShowIncorrectData();
 }
 
 void NoticeAboutError::NoticeAboutIncorrectSum() const {
-  cout << "\n\tIncorrect sum, Reconnect to repeat.\n"
-          "\t\t - Press any key - \n\n";
-  cin.clear();
+  notice_messenger_.ShowIncorrectSum();
 }
 
-void NoticeAboutError::ShowUnacceptableWithdrawal(int amount_of_cash,
-                                                  int incorrect_sum) {
-  utility_.ClearScreen();
-  utility_.WriteTextWithDelay("\n\t# Sorry, entered sum is incorrect.\n\n");
-  cout << "\t# Entered sum: " << incorrect_sum << "\n\n";
-  refill_messenger_.WriteUserInfo("Balance", std::to_string(amount_of_cash));
-  utility_.IgnoreCinLine();
+void NoticeAboutError::NoticeUnacceptableWithdrawal(int amount_of_cash,
+                                                    int incorrect_sum) const {
+  notice_messenger_.ShowUnacceptableWithdrawal(incorrect_sum, amount_of_cash);
 }
 
 bool NoticeAboutError::ShowIncorrectDataMessage() {
-  utility_.WriteTextWithDelay(
-      "\t Data is not correct, please reload the program.\n\n");
-  cin.get();
+  notice_messenger_.ShowError();
   return true;
 }

@@ -16,7 +16,7 @@ bool Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
     }
   } else {
     int amount_of_cash = cash_operator.GetCash();
-    error_message_.ShowUnacceptableWithdrawal(amount_of_cash,
+    error_message_.NoticeUnacceptableWithdrawal(amount_of_cash,
                                               sum_of_withdrawal);
   }
   return user_input_.SuggestUserToExit();
