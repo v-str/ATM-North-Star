@@ -7,13 +7,7 @@ void NoticeAboutError::NoticeAboutIncorrectLogin() const {
 }
 
 void NoticeAboutError::NoticeAboutIncorrectFormatPasswordMessage() const {
-  utility_.ClearScreen();
-  cout << "\n\n\n\n\t|---------------------------|\n";
-  utility_.WriteTextWithDelay(
-      "\t|Incorrect password.        |\n"
-      "\t|It must be in XXXX format. |\n"
-      "\t|Please, reload the program.|");
-  cout << "\t|---------------------------|\n\n\t\t\t";
+  notice_messenger_.ShowIncorrectFormatPassword();
 }
 
 void NoticeAboutError::NoticeAboutIncorrectDataMessage() const {

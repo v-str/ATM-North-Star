@@ -27,3 +27,17 @@ void NoticeMessenger::ShowIncorrectLoginFrame() const {
   utility_.WriteSymbolsNTimes('-', 27);
   cout << "|\n\n";
 }
+
+void NoticeMessenger::ShowIncorrectFormatPassword() const {
+  utility_.ClearScreen();
+  cout << "\n\n\n\n\t|";
+  utility_.WriteSymbolsNTimes('-', 27);
+  cout << "|\n";
+  utility_.WriteTextWithDelay(
+      "\t|Incorrect password.        |\n"
+      "\t|It must be in XXXX format. |\n"
+      "\t|Please, reload the program.|");
+  cout << "\t|";
+  utility_.WriteSymbolsNTimes('-', 27);
+  cout << "|\n\n\t\t\t";
+}

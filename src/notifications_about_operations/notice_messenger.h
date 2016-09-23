@@ -12,6 +12,7 @@ class NoticeMessenger {
   void ShowAcceptableMessageInFrame() const;
   void ShowIncorrectLoginFrame() const;
 
+  void ShowIncorrectFormatPassword() const;
  private:
   SystemUtility utility_;
   RefillMessenger refill_messenger_;
