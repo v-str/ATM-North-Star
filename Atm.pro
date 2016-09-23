@@ -7,11 +7,11 @@ INCLUDEPATH += \
     src \
     src/notifications_about_operations \
     src/user_identification \
-    src/user_operations/credit \
-    src/demo_user \
-    src/user_operations/withdrawal \
-    src/user_operations/statement \
-    src/user_operations/refill \
+    src/atm_operations/credit \
+    src/atm_operations/withdrawal \
+    src/atm_operations/statement \
+    src/atm_operations/refill \
+ src/demo_user \
     src/user \
     src/system_utility \
     src/main
@@ -23,16 +23,16 @@ HEADERS += \
     src/user/user_choice.h \
     src/user/user_input.h \
     src/user/user_messenger.h \
-    src/user_operations/credit/credit_messenger.h \
-    src/user_operations/credit/primary_credit_operations.h \
-    src/user_operations/credit/secondary_credit_operations.h \
-    src/user_operations/credit/user_credit.h \
-    src/user_operations/refill/refill.h \
-    src/user_operations/refill/refill_messenger.h \
-    src/user_operations/statement/statement.h \
-    src/user_operations/statement/statement_messenger.h \
-    src/user_operations/withdrawal/withdrawal.h \
-    src/user_operations/withdrawal/withdrawal_messenger.h \
+    src/atm_operations/credit/credit_messenger.h \
+    src/atm_operations/credit/primary_credit_operations.h \
+    src/atm_operations/credit/secondary_credit_operations.h \
+    src/atm_operations/credit/user_credit.h \
+    src/atm_operations/refill/refill.h \
+    src/atm_operations/refill/refill_messenger.h \
+    src/atm_operations/statement/statement.h \
+    src/atm_operations/statement/statement_messenger.h \
+    src/atm_operations/withdrawal/withdrawal.h \
+    src/atm_operations/withdrawal/withdrawal_messenger.h \
     src/demo_user/demo_user.h \
     src/demo_user/demo_user_messanger.h \
     src/main/initial_screen.h \
@@ -48,16 +48,16 @@ SOURCES += \
     src/user/user_choice.cpp \
     src/user/user_input.cpp \
     src/user/user_messenger.cpp \
-    src/user_operations/credit/credit_messenger.cpp \
-    src/user_operations/credit/primary_credit_operations.cpp \
-    src/user_operations/credit/secondary_credit_operations.cpp \
-    src/user_operations/credit/user_credit.cpp \
-    src/user_operations/refill/refill.cpp \
-    src/user_operations/refill/refill_messenger.cpp \
-    src/user_operations/statement/statement.cpp \
-    src/user_operations/statement/statement_messenger.cpp \
-    src/user_operations/withdrawal/withdrawal.cpp \
-    src/user_operations/withdrawal/withdrawal_messenger.cpp \
+    src/atm_operations/credit/credit_messenger.cpp \
+    src/atm_operations/credit/primary_credit_operations.cpp \
+    src/atm_operations/credit/secondary_credit_operations.cpp \
+    src/atm_operations/credit/user_credit.cpp \
+    src/atm_operations/refill/refill.cpp \
+    src/atm_operations/refill/refill_messenger.cpp \
+    src/atm_operations/statement/statement.cpp \
+    src/atm_operations/statement/statement_messenger.cpp \
+    src/atm_operations/withdrawal/withdrawal.cpp \
+    src/atm_operations/withdrawal/withdrawal_messenger.cpp \
     src/demo_user/demo_user.cpp \
     src/demo_user/demo_user_messanger.cpp \
     src/main/initial_screen.cpp \
