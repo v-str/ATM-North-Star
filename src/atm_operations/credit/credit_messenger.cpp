@@ -19,7 +19,6 @@ void CreditMessanger::ShowNotifyAboutCredit() const {
       "  without giving any reason.\n"
       "# Nowadays, the all loans are set on 14% per year\n"
       "# The loan depend from sum on account at the moment.\n");
-
   cout << "\n\t*********************\n"
           "\t*   Continue?       *\n"
           "\t*                   *\n"
@@ -64,7 +63,6 @@ CreditMessanger::string CreditMessanger::SuggestToConfirmACredit() const {
       "\t1. Yes, I confirm.\n"
       "\t2. No, go to the main.\n"
       "\t3. Exit program.\n");
-
   return menu_text;
 }
 
@@ -77,7 +75,7 @@ void CreditMessanger::ShowIndividualCreditInfo(
   cout << "Sum $: " << sum_of_credit << "\n";
   utility_.Sleep(500);
   cout << "Persent per year: 14%\n\n";
-  utility_.Sleep(2500);
+  utility_.Sleep(1000);
 }
 
 void CreditMessanger::ShowEnrollACredit() const {
@@ -106,4 +104,16 @@ bool CreditMessanger::ShowExitMessage() const {
 void CreditMessanger::ShowRepealACreadit() const {
   utility_.WriteTextWithDelay("\n\t# Credit is repealed...\n");
   utility_.IgnoreCinLine();
+}
+
+void CreditMessanger::ShowCredit(const double pay_per_month,
+                                 const double amount_of_months) const {
+  double all_payment = 0.0;
+  for (int i = 0; i < amount_of_months; ++i) {
+    cout << "\t* Payment month: " << i + 1 << "\tPayment sum: ";
+    cout << pay_per_month << " $\n";
+    utility_.Sleep(75);
+    all_payment += pay_per_month;
+  }
+  cout << "\t\t\tTotal: " << all_payment << " $\n\n";
 }

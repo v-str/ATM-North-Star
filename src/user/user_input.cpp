@@ -38,7 +38,6 @@ bool UserInput::GetResultFromUserAboutExit() const {
               "\t# Enter: ";
     }
   }
-
   return result_of_choice;
 }
 
@@ -53,7 +52,6 @@ int UserInput::ConvertLineToChoice(const string &line) const {
     } catch (const std::invalid_argument &) {
     }
   }
-
   return kInvalidChoice;
 }
 
@@ -69,7 +67,6 @@ bool UserInput::LineNotEmpty(const string &str) const {
 string UserInput::GetLineFromUser() const {
   string line;
   getline(cin, line);
-
   return line;
 }
 

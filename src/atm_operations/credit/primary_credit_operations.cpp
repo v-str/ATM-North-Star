@@ -34,7 +34,6 @@ bool PrimaryCreditOperations::IndividualCreditCalculation(
     CashOperator &cash_operator, const string &user_login,
     int maximal_sum_of_credit) {
   utility_.ClearScreen();
-  utility_.WriteTextWithDelay("Individual calculating...\n\n");
 
   int user_sum_of_credit =
       secondary_credit_operation_.GetIndividualSumOfCreditFromUser(
@@ -43,6 +42,8 @@ bool PrimaryCreditOperations::IndividualCreditCalculation(
   int amount_of_credit_months =
       secondary_credit_operation_.GetAmountOfCreditMonthsFromUser(
           cash_operator);
+
+  utility_.ClearScreen();
 
   credit_messenger_.ShowIndividualCreditInfo(user_login, user_sum_of_credit);
 
@@ -70,13 +71,6 @@ bool PrimaryCreditOperations::IndividualCreditCalculation(
 double PrimaryCreditOperations::CalculateCredit(int sum, int amount_of_months) {
   double rate = (sum * 14) / 100;
   double pay_per_month = (sum / amount_of_months) + (rate / 12);
-  double all_payment = 0.0;
-  for (int i = 0; i < amount_of_months; ++i) {
-    cout << "\t* Payment month: " << i + 1 << "\tPayment sum: ";
-    cout << pay_per_month << " $\n";
-    utility_.Sleep(75);
-    all_payment += pay_per_month;
-  }
-  cout << "\t\t\tTotal: " << all_payment << " $\n\n";
+  credit_messenger_.ShowCredit(pay_per_month, amount_of_months);
   return pay_per_month;
 }

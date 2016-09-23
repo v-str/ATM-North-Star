@@ -33,7 +33,7 @@ class UserCredit {
   bool RefuseACredit(const CashOperator &cash_operator) const;
 
   UserInput user_input_;
-  CreditMessanger messenger_;
+  CreditMessanger credit_messenger_;
   NoticeAboutError error_message;
   PrimaryCreditOperations primary_credit_operations_;
 };

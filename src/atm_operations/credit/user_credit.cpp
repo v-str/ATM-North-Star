@@ -20,12 +20,12 @@ bool UserCredit::AlreadyHasACredit(const CashOperator &cash_operator) const {
 }
 
 void UserCredit::RefuseToGrantAnotherCredit() const {
-  messenger_.RefusToGrantAnotherCredit();
+  credit_messenger_.RefusToGrantAnotherCredit();
 }
 
 bool UserCredit::SuggestACredit(CashOperator &cash_operator,
                                 const string &user_login) {
-  messenger_.ShowNotifyAboutCredit();
+  credit_messenger_.ShowNotifyAboutCredit();
   if (user_input_.GetChoiceFromUser() == 1) {
     return ConsiderACreditBasedOnCash(cash_operator, user_login);
   }
@@ -44,7 +44,7 @@ bool UserCredit::ConsiderACreditBasedOnCash(CashOperator &cash_operator,
 bool UserCredit::GiveACredit(CashOperator &cash_operator,
                              const string &user_login) {
   int maximal_sum_of_credit = 15 * cash_operator.GetCash();
-  messenger_.ShowCreditConditions(maximal_sum_of_credit);
+  credit_messenger_.ShowCreditConditions(maximal_sum_of_credit);
   int choice = user_input_.GetChoiceFromUser();
   if (choice == 1) {
     return primary_credit_operations_.MaxCreditCalculation(
@@ -55,14 +55,13 @@ bool UserCredit::GiveACredit(CashOperator &cash_operator,
   } else if (choice == 3) {
     return false;
   } else if (choice == 4) {
-    return messenger_.ShowExitMessage();
+    return credit_messenger_.ShowExitMessage();
   } else {
     return error_message.ShowIncorrectDataMessage();
   }
 }
 
 bool UserCredit::RefuseACredit(const CashOperator &cash_operator) const {
-  messenger_.ShowRefuseACredit(cash_operator.GetCash());
-
+  credit_messenger_.ShowRefuseACredit(cash_operator.GetCash());
   return user_input_.SuggestUserToExit();
 }
