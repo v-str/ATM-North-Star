@@ -11,10 +11,10 @@ INCLUDEPATH += \
     src/atm_operations/withdrawal \
     src/atm_operations/statement \
     src/atm_operations/refill \
- src/demo_user \
+    src/demo_mode \
     src/user \
     src/system_utility \
-    src/main
+    src/start_program
 
 DISTFILES += \
     ToDo_List
@@ -33,9 +33,9 @@ HEADERS += \
     src/atm_operations/statement/statement_messenger.h \
     src/atm_operations/withdrawal/withdrawal.h \
     src/atm_operations/withdrawal/withdrawal_messenger.h \
-    src/demo_user/demo_user.h \
-    src/demo_user/demo_user_messanger.h \
-    src/main/initial_screen.h \
+    src/demo_mode/demo_user.h \
+    src/demo_mode/demo_user_messanger.h \
+    src/start_program/initial_screen.h \
     src/notifications_about_operations/notice_about_error.h \
     src/notifications_about_operations/notice_about_successful_action.h \
     src/system_utility/system_utility.h \
@@ -58,10 +58,10 @@ SOURCES += \
     src/atm_operations/statement/statement_messenger.cpp \
     src/atm_operations/withdrawal/withdrawal.cpp \
     src/atm_operations/withdrawal/withdrawal_messenger.cpp \
-    src/demo_user/demo_user.cpp \
-    src/demo_user/demo_user_messanger.cpp \
-    src/main/initial_screen.cpp \
-    src/main/main.cpp \
+    src/demo_mode/demo_user.cpp \
+    src/demo_mode/demo_user_messanger.cpp \
+    src/start_program/initial_screen.cpp \
+    src/start_program/main.cpp \
     src/notifications_about_operations/notice_about_error.cpp \
     src/notifications_about_operations/notice_about_successful_action.cpp \
     src/system_utility/system_utility.cpp \

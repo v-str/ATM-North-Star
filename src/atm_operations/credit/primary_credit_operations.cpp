@@ -22,7 +22,7 @@ bool PrimaryCreditOperations::MaxCreditCalculation(CashOperator &cash_operator,
   string menu_text = credit_messenger_.SuggestToConfirmACredit();
 
   int choice = user_choice_.GetUserChoiceWithMenuText(
-      menu_text, credit_messenger_.ShowEnter1());
+      menu_text, credit_messenger_.ShowEnter());
 
   return SuggestTheCredit(choice, maximal_sum_of_credit, pay_per_month,
                           cash_operator);
@@ -52,7 +52,7 @@ bool PrimaryCreditOperations::IndividualCreditCalculation(
       credit_messenger_.SuggestToConfirmACredit();
 
   int choice = user_choice_.GetUserChoiceWithMenuText(
-      loan_confirmation_menu_text, credit_messenger_.ShowEnter2());
+      loan_confirmation_menu_text, credit_messenger_.ShowEnter());
 
   return SuggestTheCredit(choice, user_sum_of_credit, pay_per_month,
                           cash_operator);
