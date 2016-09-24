@@ -8,7 +8,7 @@ static const int kMinimalSumForCredit = 1000;
 bool UserCredit::StartCreditOperation(UserIdentifier &user_identifier,
                                       CashOperator &cash_operator,
                                       UserMessenger &user_messenger) {
-  if (AlreadyHasACredit(cash_operator)) {
+  if (AlreadyHasACredit(cash_operator.GetCredit())) {
     RefuseToGrantAnotherCredit();
     user_messenger.ShowAccountInformation(user_identifier, cash_operator);
     return user_input_.SuggestUserToExit();
@@ -17,9 +17,9 @@ bool UserCredit::StartCreditOperation(UserIdentifier &user_identifier,
     return SuggestACredit(cash_operator, user_login);
   }
 }
-
-bool UserCredit::AlreadyHasACredit(const CashOperator &cash_operator) const {
-  return cash_operator.GetCredit() > kNull;
+// Private methods
+bool UserCredit::AlreadyHasACredit(const int sum_of_credit) const {
+  return sum_of_credit > kNull;
 }
 
 void UserCredit::RefuseToGrantAnotherCredit() const {

@@ -24,7 +24,7 @@ class UserCredit {
                             UserMessenger &user_messenger);
 
  private:
-  bool AlreadyHasACredit(const CashOperator &cash_operator) const;
+  bool AlreadyHasACredit(const int sum_of_credit) const;
   void RefuseToGrantAnotherCredit() const;
 
   bool SuggestACredit(CashOperator &cash_operator, const string &user_login);

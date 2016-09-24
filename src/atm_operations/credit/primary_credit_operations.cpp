@@ -1,9 +1,7 @@
 #include "primary_credit_operations.h"
 
 static const int kRatePerYear = 14;
-
 static const int kFullRate = 100;
-
 static const int kOneYear = 12;
 
 bool PrimaryCreditOperations::MaxCreditCalculation(CashOperator &cash_operator,

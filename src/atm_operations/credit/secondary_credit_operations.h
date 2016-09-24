@@ -19,7 +19,10 @@ class SecondaryCreditOperations {
 
   int GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit);
 
+
  private:
+  int GetMonth(CashOperator &cash_operator);
+
   UserInput user_input_;
   SystemUtility utility_;
   CreditMessanger credit_messenger_;
