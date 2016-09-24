@@ -1,9 +1,9 @@
 #include "user_credit.h"
 
-const int kint_null = 0;
-const int kmax_multiplier = 15;
-const int kconsider_a_credit = 1;
-const int kMinimalSumForCredit = 1000;
+static const int kNull = 0;
+static const int kMaxMultiplier = 15;
+static const int kConsiderACredit = 1;
+static const int kMinimalSumForCredit = 1000;
 
 bool UserCredit::StartCreditOperation(UserIdentifier &user_identifier,
                                       CashOperator &cash_operator,
@@ -19,7 +19,7 @@ bool UserCredit::StartCreditOperation(UserIdentifier &user_identifier,
 }
 
 bool UserCredit::AlreadyHasACredit(const CashOperator &cash_operator) const {
-  return cash_operator.GetCredit() > kint_null;
+  return cash_operator.GetCredit() > kNull;
 }
 
 void UserCredit::RefuseToGrantAnotherCredit() const {
@@ -29,7 +29,7 @@ void UserCredit::RefuseToGrantAnotherCredit() const {
 bool UserCredit::SuggestACredit(CashOperator &cash_operator,
                                 const string &user_login) {
   credit_messenger_.ShowNotifyAboutCredit();
-  if (user_input_.GetChoiceFromUser() == kconsider_a_credit) {
+  if (user_input_.GetChoiceFromUser() == kConsiderACredit) {
     return ConsiderACreditBasedOnCash(cash_operator, user_login);
   }
   return false;
@@ -46,7 +46,7 @@ bool UserCredit::ConsiderACreditBasedOnCash(CashOperator &cash_operator,
 
 bool UserCredit::GiveACredit(CashOperator &cash_operator,
                              const string &user_login) {
-  int maximal_sum_of_credit = kmax_multiplier * cash_operator.GetCash();
+  int maximal_sum_of_credit = kMaxMultiplier * cash_operator.GetCash();
   credit_messenger_.ShowCreditConditions(maximal_sum_of_credit);
   int choice = user_input_.GetChoiceFromUser();
   if (choice == kMaxCredit) {

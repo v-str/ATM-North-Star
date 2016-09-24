@@ -1,7 +1,5 @@
 #include "user_choice.h"
 
-const int kint_null = 0;
-
 int UserChoice::GetUserChoiceWithMenuText(const string &menu_text,
                                           const string &choice_text) const {
   utility_.WriteTextWithDelay(menu_text);
@@ -14,7 +12,7 @@ int UserChoice::GetUserChoice(const string &choice_text) const {
 }
 
 int UserChoice::GetChoiceFromUser() const {
-  int value = kint_null;
+  int value = 0;
   while (!(cin >> value)) {
     cin.clear();
     while (cin.get() != '\n')

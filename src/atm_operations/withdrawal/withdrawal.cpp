@@ -1,6 +1,6 @@
 #include "withdrawal.h"
 
-const int kint_null = 0;
+static const int kNull = 0;
 
 bool Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
                                       UserIdentifier &user_identifier) {
@@ -26,14 +26,14 @@ bool Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
 
 int Withdrawal::SumOfWithdrawal() const {
   messenger_.ShowSentenceEnterASumOfMoney();
-  int withdraw_sum = kint_null;
+  int withdraw_sum = 0;
   cin >> withdraw_sum;
   return withdraw_sum;
 }
 
 bool Withdrawal::IsWithdrawalAcceptable(const CashOperator &cash_operator,
                                         double cash_sum) const {
-  return cash_sum > kint_null && cash_sum <= cash_operator.GetCash();
+  return cash_sum > 0 && cash_sum <= cash_operator.GetCash();
 }
 
 bool Withdrawal::IsCorrectPasswordAtWithdrawal(

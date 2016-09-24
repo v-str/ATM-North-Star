@@ -1,7 +1,7 @@
 #include "statement.h"
 
-const int kint_null = 0;
-const int kSizeOfCheckField = 12;
+static const int kNull = 0;
+static const int kSizeOfCheckField = 12;
 
 bool UserStatement::ShowStatement(CashOperator &cash_operator) {
   utility_.ClearScreen();
@@ -19,11 +19,11 @@ UserStatement::string UserStatement::GetSpaces(
 }
 
 int UserStatement::NumberOfDigits(int value) const {
-  int number_of_digits = kint_null;
-  if (value == kint_null) {
+  int number_of_digits = kNull;
+  if (value == kNull) {
     return number_of_digits = 1;
   } else {
-    while (value != kint_null) {
+    while (value != kNull) {
       ++number_of_digits;
       value /= 10;
     }

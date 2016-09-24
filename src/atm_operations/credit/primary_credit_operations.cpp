@@ -1,8 +1,10 @@
 #include "primary_credit_operations.h"
 
-const int rate_per_year = 14;
-const int full_rate = 100;
-const int one_year = 12;
+static const int kRatePerYear = 14;
+
+static const int kFullRate = 100;
+
+static const int kOneYear = 12;
 
 bool PrimaryCreditOperations::MaxCreditCalculation(CashOperator &cash_operator,
                                                    const string &user_login,
@@ -10,13 +12,18 @@ bool PrimaryCreditOperations::MaxCreditCalculation(CashOperator &cash_operator,
   int amount_of_credit_months =
       secondary_credit_operation_.GetAmountOfCreditMonthsFromUser(
           cash_operator);
+
   utility_.ClearScreen();
+
   credit_messenger_.ShowInfoAboutCredit(user_login, maximal_sum_of_credit);
   double pay_per_month =
       CalculateCredit(maximal_sum_of_credit, amount_of_credit_months);
+
   string menu_text = credit_messenger_.SuggestToConfirmACredit();
+
   int choice = user_choice_.GetUserChoiceWithMenuText(
       menu_text, credit_messenger_.ShowEnter1());
+
   return SuggestTheCredit(choice, maximal_sum_of_credit, pay_per_month,
                           cash_operator);
 }
@@ -25,27 +32,35 @@ bool PrimaryCreditOperations::IndividualCreditCalculation(
     CashOperator &cash_operator, const string &user_login,
     int maximal_sum_of_credit) {
   utility_.ClearScreen();
+
   int user_sum_of_credit =
       secondary_credit_operation_.GetIndividualSumOfCreditFromUser(
           maximal_sum_of_credit);
+
   int amount_of_credit_months =
       secondary_credit_operation_.GetAmountOfCreditMonthsFromUser(
           cash_operator);
+
   utility_.ClearScreen();
+
   credit_messenger_.ShowIndividualCreditInfo(user_login, user_sum_of_credit);
+
   double pay_per_month =
       CalculateCredit(user_sum_of_credit, amount_of_credit_months);
+
   string loan_confirmation_menu_text =
       credit_messenger_.SuggestToConfirmACredit();
+
   int choice = user_choice_.GetUserChoiceWithMenuText(
       loan_confirmation_menu_text, credit_messenger_.ShowEnter2());
+
   return SuggestTheCredit(choice, user_sum_of_credit, pay_per_month,
                           cash_operator);
 }
 
 double PrimaryCreditOperations::CalculateCredit(int sum, int amount_of_months) {
-  double rate = (sum * rate_per_year) / full_rate;
-  double pay_per_month = (sum / amount_of_months) + (rate / one_year);
+  double rate = (sum * kRatePerYear) / kFullRate;
+  double pay_per_month = (sum / amount_of_months) + (rate / kOneYear);
   credit_messenger_.ShowCalculationOfCredit(pay_per_month, amount_of_months);
   return pay_per_month;
 }

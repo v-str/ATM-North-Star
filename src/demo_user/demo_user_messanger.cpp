@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-const int ksleep = 100;
+static const int kSleep = 100;
 
 using std::cin;
 using std::cout;
@@ -68,16 +68,16 @@ void DemoUserMessanger::ShowDemoAccountInfoMessage() const {
       "# For example, it's look like this:\n");
   cout << "--------------------------------------------\n";
   cout << "# Login: Mr. Anderson\n";
-  utility_.Sleep(ksleep);
+  utility_.Sleep(kSleep);
   cout << "# Password: 7623\n";
-  utility_.Sleep(ksleep);
+  utility_.Sleep(kSleep);
   cout << "# Balance $: 7450\n";
-  utility_.Sleep(ksleep);
+  utility_.Sleep(kSleep);
   cout << "# Credit $: 20000\n";
   cout << "# Monthly payment $: 2280\n";
   cout << "# Credit term: 20 month(s)\n";
   cout << "--------------------------------------------\n\n";
-  utility_.Sleep(ksleep);
+  utility_.Sleep(kSleep);
   utility_.WriteTextWithDelay(
       "# As you can see, your account may contain different data like\n"
       "# balance or credit balance, almost you can see more details such as\n"

@@ -1,6 +1,6 @@
 #include "cash_operator.h"
 
-const int kmininmal_sum_for_credit = 1000;
+static const int kmininmal_sum_for_credit = 1000;
 
 void CashOperator::SetCash(int cash) { cash_ = cash; }
 

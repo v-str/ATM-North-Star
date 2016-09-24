@@ -1,10 +1,9 @@
 #include "user_input.h"
 
-const int kInvalidChoice = -1;
-const int kint_null = 0;
-const int kgo_to_main = 1;
-const int kExit = 2;
-const int ksecond = 1000;
+static const int kInvalidChoice = -1;
+static const int kGoToMain = 1;
+static const int kExit = 2;
+static const int kSecond = 1000;
 
 bool UserInput::SuggestUserToExit() const {
   user_messenger_.ShowSuggestionAboutExit();
@@ -15,11 +14,11 @@ bool UserInput::GetResultFromUserAboutExit() const {
   bool result_of_choice = false;
   for (;;) {
     int user_want_to_exit = GetChoiceFromUser();
-    if (user_want_to_exit == kgo_to_main) {
+    if (user_want_to_exit == kGoToMain) {
       break;
     } else if (user_want_to_exit == kExit) {
       ShowExitMessage();
-      utility_.Sleep(ksecond);
+      utility_.Sleep(kSecond);
       result_of_choice = true;
       break;
     } else {
@@ -44,7 +43,7 @@ int UserInput::ConvertLineToChoice(const string &line) const {
 }
 
 bool UserInput::LineNotEmpty(const string &str) const {
-  for (size_t i = kint_null; i < str.length(); ++i) {
+  for (size_t i = 0; i < str.length(); ++i) {
     if (!isdigit(str[i])) {
       return false;
     }

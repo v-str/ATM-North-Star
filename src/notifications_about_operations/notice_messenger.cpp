@@ -1,26 +1,26 @@
 #include "notice_messenger.h"
 
-const int ksecond = 1000;
-const int kaccess_frame = 18;
-const int kincorrect_data_frame = 27;
+const int kSecond = 1000;
+const int kAccessFrame = 18;
+const int kIncorrectDataFrame = 27;
 
 void NoticeMessenger::ShowAcceptableMessageInFrame() const {
   utility_.IgnoreCinLine();
   utility_.ClearScreen();
   cout << "\n\n\t\t";
-  utility_.WriteSymbolsNTimes('-', kaccess_frame);
+  utility_.WriteSymbolsNTimes('-', kAccessFrame);
   cout << "\n";
   utility_.WriteTextWithDelay("\t\t| Access allowed |");
   cout << "\t\t";
-  utility_.WriteSymbolsNTimes('-', kaccess_frame);
+  utility_.WriteSymbolsNTimes('-', kAccessFrame);
   cout << "\t\t\n";
-  utility_.Sleep(ksecond);
+  utility_.Sleep(kSecond);
 }
 
 void NoticeMessenger::ShowIncorrectLoginFrame() const {
   utility_.ClearScreen();
   cout << "\n\n\n\n\t|";
-  utility_.WriteSymbolsNTimes('-', kincorrect_data_frame);
+  utility_.WriteSymbolsNTimes('-', kIncorrectDataFrame);
   cout << "|\n";
   utility_.WriteTextWithDelay(
       "\t|Incorrect login.           |\n"
@@ -28,21 +28,21 @@ void NoticeMessenger::ShowIncorrectLoginFrame() const {
       "\t|less than 20 symbols.      |\n"
       "\t|Please, reload the program.|");
   cout << "\t|";
-  utility_.WriteSymbolsNTimes('-', kincorrect_data_frame);
+  utility_.WriteSymbolsNTimes('-', kIncorrectDataFrame);
   cout << "|\n\n";
 }
 
 void NoticeMessenger::ShowIncorrectFormatPassword() const {
   utility_.ClearScreen();
   cout << "\n\n\n\n\t|";
-  utility_.WriteSymbolsNTimes('-', kincorrect_data_frame);
+  utility_.WriteSymbolsNTimes('-', kIncorrectDataFrame);
   cout << "|\n";
   utility_.WriteTextWithDelay(
       "\t|Incorrect password.        |\n"
       "\t|It must be in XXXX format. |\n"
       "\t|Please, reload the program.|");
   cout << "\t|";
-  utility_.WriteSymbolsNTimes('-', kincorrect_data_frame);
+  utility_.WriteSymbolsNTimes('-', kIncorrectDataFrame);
   cout << "|\n\n\t\t\t";
 }
 

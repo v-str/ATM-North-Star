@@ -1,8 +1,8 @@
 #include "user_messenger.h"
 
-const int kMaxLenghtOfLogin = 21;
-const int kMaxLenghtOfPassword = 4;
-const int kframe = 45;
+static const int kMaxLenghtOfLogin = 21;
+static const int kMaxLenghtOfPassword = 4;
+static const int kFrame = 45;
 
 UserMessenger::UserMessenger() {}
 
@@ -32,13 +32,13 @@ void UserMessenger::ShowTransactionMenu() {
 
 void UserMessenger::ShowNotifyAboutCash() {
   cout << "\t";
-  utility_.WriteSymbolsNTimes('-', kframe);
+  utility_.WriteSymbolsNTimes('-', kFrame);
   cout << "\n\t";
   utility_.WriteTextWithDelay(
       "\t Notify:\n\t The sum must be more than\n"
       "\t 10$ and less than 50000$");
   cout << "\t";
-  utility_.WriteSymbolsNTimes('-', kframe);
+  utility_.WriteSymbolsNTimes('-', kFrame);
   cout << "\n";
   cout << "\t# Please enter the sum of money($): ";
 }
@@ -87,7 +87,7 @@ void UserMessenger::ShowTransactionMenu() const {
 void UserMessenger::ShowAccountInformation(UserIdentifier &user_identifier,
                                            CashOperator &cash_operator) {
   cout << "\t";
-  utility_.WriteSymbolsNTimes('-', kframe);
+  utility_.WriteSymbolsNTimes('-', kFrame);
 
   refill_messenger_.WriteUserInfo("Login", user_identifier.GetLogin());
   refill_messenger_.WriteUserInfo("Password", user_identifier.GetPassword());

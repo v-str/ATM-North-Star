@@ -2,8 +2,8 @@
 #include "demo_user.h"
 #include "initial_screen.h"
 
-const int kdemo_mode = 1;
-const int kregistration = 2;
+static const int kDemoMode = 1;
+static const int kRegistration = 2;
 
 int main() {
   UserMessenger user_messenger_;
@@ -17,13 +17,13 @@ int main() {
 
   Application app;
 
-  if (choice == kdemo_mode) {
+  if (choice == kDemoMode) {
     DemoUser demo;
     demo.ShowDemoMode();
     if (demo.UserWantToRegistrate()) {
       app.Registration();
     }
-  } else if (choice == kregistration) {
+  } else if (choice == kRegistration) {
     app.Registration();
 
   } else {
