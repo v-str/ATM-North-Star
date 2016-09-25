@@ -31,7 +31,7 @@ class UserCredit {
   bool ConsiderACreditBasedOnCash(CashOperator &cash_operator,
                                   const string &user_login);
   bool GiveACredit(CashOperator &cash_operator, const string &user_login);
-  bool RefuseACredit(const CashOperator &cash_operator) const;
+  bool RefuseACredit(const int sum_of_cash) const;
 
   UserInput user_input_;
   CreditMessanger credit_messenger_;

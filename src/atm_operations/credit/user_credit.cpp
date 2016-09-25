@@ -17,7 +17,7 @@ bool UserCredit::StartCreditOperation(UserIdentifier &user_identifier,
     return SuggestACredit(cash_operator, user_login);
   }
 }
-// Private methods
+
 bool UserCredit::AlreadyHasACredit(const int sum_of_credit) const {
   return sum_of_credit > kNull;
 }
@@ -40,7 +40,8 @@ bool UserCredit::ConsiderACreditBasedOnCash(CashOperator &cash_operator,
   if (cash_operator.IsCreditAvailable()) {
     return GiveACredit(cash_operator, user_login);
   } else {
-    return RefuseACredit(cash_operator);
+    int sum_of_cash = cash_operator.GetCash();
+    return RefuseACredit(sum_of_cash);
   }
 }
 
@@ -64,7 +65,7 @@ bool UserCredit::GiveACredit(CashOperator &cash_operator,
   }
 }
 
-bool UserCredit::RefuseACredit(const CashOperator &cash_operator) const {
-  credit_messenger_.ShowRefuseACredit(cash_operator.GetCash());
+bool UserCredit::RefuseACredit(const int sum_of_cash) const {
+  credit_messenger_.ShowRefuseACredit(sum_of_cash);
   return user_input_.SuggestUserToExit();
 }
