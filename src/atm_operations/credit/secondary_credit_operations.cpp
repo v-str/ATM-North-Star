@@ -26,9 +26,11 @@ int SecondaryCreditOperations::GetIndividualSumOfCreditFromUser(
 }
 
 int SecondaryCreditOperations::GetMonth() {
-  credit_messenger_.ShowAmountOfMonthToPayACredit();
   int months = 0;
-  cin >> months;
-  utility_.IgnoreCinLine();
+  do {
+    credit_messenger_.ShowAmountOfMonthToPayACredit();
+    months = user_input_.GetChoiceFromUser();
+  } while (months <= 1 || months > 60);
+  //utility_.IgnoreCinLine();
   return months;
 }
