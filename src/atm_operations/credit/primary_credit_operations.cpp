@@ -73,7 +73,10 @@ bool PrimaryCreditOperations::SuggestTheCredit(
     cash_operator.AssignAMonthlyPayment(pay_per_month);
     return secondary_credit_operation_.EnrollACredit();
   } else if (choice == kRepeal) {
-    return secondary_credit_operation_.RepealACredit(cash_operator);
+    cash_operator.GetAssignACredit(0);
+    cash_operator.AssignAMonthlyPayment(0.0);
+    cash_operator.SetAmountOfCreditMonth(0);
+    return secondary_credit_operation_.RepealACredit();
   } else if (choice == kExit) {
     return credit_messenger_.ShowExitMessage();
   } else {

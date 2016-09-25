@@ -12,7 +12,7 @@ class SecondaryCreditOperations {
  public:
   bool EnrollACredit() const;
 
-  bool RepealACredit(CashOperator &cash_operator) const;
+  bool RepealACredit() const;
 
   int GetAmountOfCreditMonthsFromUser();
 

@@ -1,16 +1,11 @@
 #include "secondary_credit_operations.h"
 
 bool SecondaryCreditOperations::EnrollACredit() const {
-
   credit_messenger_.ShowEnrollACredit();
   return user_input_.SuggestUserToExit();
 }
 
-bool SecondaryCreditOperations::RepealACredit(
-    CashOperator &cash_operator) const {
-  cash_operator.GetAssignACredit(0);
-  cash_operator.AssignAMonthlyPayment(0.0);
-  cash_operator.SetAmountOfCreditMonth(0);
+bool SecondaryCreditOperations::RepealACredit() const {
   credit_messenger_.ShowRepealACreadit();
   return user_input_.SuggestUserToExit();
 }
