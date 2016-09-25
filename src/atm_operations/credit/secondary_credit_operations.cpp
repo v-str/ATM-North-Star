@@ -1,5 +1,8 @@
 #include "secondary_credit_operations.h"
 
+static const int kMinimalCreditTerm = 1;
+static const int kMaximalCreditTerm = 60;
+
 bool SecondaryCreditOperations::EnrollACredit() const {
   credit_messenger_.ShowEnrollACredit();
   return user_input_.SuggestUserToExit();
@@ -30,7 +33,6 @@ int SecondaryCreditOperations::GetMonth() {
   do {
     credit_messenger_.ShowAmountOfMonthToPayACredit();
     months = user_input_.GetChoiceFromUser();
-  } while (months <= 1 || months > 60);
-  //utility_.IgnoreCinLine();
+  } while (months < kMinimalCreditTerm || months > kMaximalCreditTerm);
   return months;
 }
