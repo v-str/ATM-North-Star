@@ -56,9 +56,10 @@ bool PrimaryCreditOperations::IndividualCreditCalculation(
                           cash_operator);
 }
 
-double PrimaryCreditOperations::CalculateCredit(int sum, int amount_of_months) {
-  double rate = (sum * kRatePerYear) / kFullRate;
-  double pay_per_month = (sum / amount_of_months) + (rate / kOneYear);
+double PrimaryCreditOperations::CalculateCredit(int sum_of_credit,
+                                                int amount_of_months) {
+  double rate = (sum_of_credit * kRatePerYear) / kFullRate;
+  double pay_per_month = (sum_of_credit / amount_of_months) + (rate / kOneYear);
   credit_messenger_.ShowCalculationOfCredit(pay_per_month, amount_of_months);
   return pay_per_month;
 }

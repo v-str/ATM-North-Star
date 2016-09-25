@@ -29,6 +29,10 @@ int SecondaryCreditOperations::GetMonth() {
   do {
     credit_messenger_.ShowAmountOfMonthToPayACredit();
     months = user_input_.GetChoiceFromUser();
-  } while (months < kMinimalCreditTerm || months > kMaximalCreditTerm);
+  } while (IsMonthNotCorrect(months));
   return months;
+}  // TODO Выделить условие while в отдельный метод.
+
+bool SecondaryCreditOperations::IsMonthNotCorrect(int months) {
+  return (months < kMinimalCreditTerm || months > kMaximalCreditTerm);
 }

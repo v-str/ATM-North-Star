@@ -2,10 +2,10 @@
 #define SECONDARY_CREDIT_OPERATIONS_H
 
 #include "credit_messenger.h"
+#include "notice_about_error.h"
 #include "system_utility.h"
 #include "user_identifier.h"
 #include "user_input.h"
-#include "notice_about_error.h"
 
 class SecondaryCreditOperations {
  public:
@@ -18,6 +18,7 @@ class SecondaryCreditOperations {
   int GetMonth();
 
  private:
+  bool IsMonthNotCorrect(int months);
 
   UserInput user_input_;
   SystemUtility utility_;

@@ -26,7 +26,7 @@ class PrimaryCreditOperations {
                                    int maximal_sum_of_credit);
 
  private:
-  double CalculateCredit(int sum, int amount_of_months);
+  double CalculateCredit(int sum_of_credit, int amount_of_months);
   bool SuggestTheCredit(const int choice, const int sum_of_credit,
                         const int pay_per_month,
                         CashOperator &cash_operator) const;
