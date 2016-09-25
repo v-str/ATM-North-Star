@@ -1,10 +1,7 @@
 #include "secondary_credit_operations.h"
 
-bool SecondaryCreditOperations::EnrollACredit(CashOperator &cash_operator,
-                                              int sum_of_credit,
-                                              int pay_per_month) const {
-  cash_operator.GetAssignACredit(sum_of_credit);
-  cash_operator.AssignAMonthlyPayment(pay_per_month);
+bool SecondaryCreditOperations::EnrollACredit() const {
+
   credit_messenger_.ShowEnrollACredit();
   return user_input_.SuggestUserToExit();
 }

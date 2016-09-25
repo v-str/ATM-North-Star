@@ -14,7 +14,7 @@
 class PrimaryCreditOperations {
   using string = std::string;
 
-  enum CreditSolution { kenroll = 1, krepeal, kexit };
+  enum CreditSolution { kEnroll = 1, kRepeal, kExit };
 
  public:
   bool MaxCreditCalculation(CashOperator &cash_operator,

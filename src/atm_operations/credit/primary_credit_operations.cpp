@@ -68,12 +68,13 @@ double PrimaryCreditOperations::CalculateCredit(int sum, int amount_of_months) {
 bool PrimaryCreditOperations::SuggestTheCredit(
     const int choice, const int sum_of_credit, const int pay_per_month,
     CashOperator &cash_operator) const {
-  if (choice == kenroll) {
-    return secondary_credit_operation_.EnrollACredit(
-        cash_operator, sum_of_credit, pay_per_month);
-  } else if (choice == krepeal) {
+  if (choice == kEnroll) {
+    cash_operator.GetAssignACredit(sum_of_credit);
+    cash_operator.AssignAMonthlyPayment(pay_per_month);
+    return secondary_credit_operation_.EnrollACredit();
+  } else if (choice == kRepeal) {
     return secondary_credit_operation_.RepealACredit(cash_operator);
-  } else if (choice == kexit) {
+  } else if (choice == kExit) {
     return credit_messenger_.ShowExitMessage();
   } else {
     return error_operation_.ShowIncorrectDataMessage();
