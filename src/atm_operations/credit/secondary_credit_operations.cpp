@@ -18,9 +18,8 @@ bool SecondaryCreditOperations::RepealACredit(
   return user_input_.SuggestUserToExit();
 }
 
-int SecondaryCreditOperations::GetAmountOfCreditMonthsFromUser(
-    CashOperator &cash_operator) {
-  return GetMonth(cash_operator);
+int SecondaryCreditOperations::GetAmountOfCreditMonthsFromUser() {
+  return GetMonth();
 }
 
 int SecondaryCreditOperations::GetIndividualSumOfCreditFromUser(
@@ -34,11 +33,10 @@ int SecondaryCreditOperations::GetIndividualSumOfCreditFromUser(
   return user_sum_of_credit;
 }
 
-int SecondaryCreditOperations::GetMonth(CashOperator &cash_operator) {
+int SecondaryCreditOperations::GetMonth() {
   cout << "\nThe number of months to repay the loan: ";
   int months = 0;
   cin >> months;
   utility_.IgnoreCinLine();
-  cash_operator.SetAmountOfCreditMonth(months);
   return months;
 }

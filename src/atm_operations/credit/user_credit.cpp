@@ -47,8 +47,11 @@ bool UserCredit::ConsiderACreditBasedOnCash(CashOperator &cash_operator,
 
 bool UserCredit::GiveACredit(CashOperator &cash_operator,
                              const string &user_login) {
-  int maximal_sum_of_credit = kMaxMultiplier * cash_operator.GetCash();
+  int user_cash_sum = cash_operator.GetCash();
+  int maximal_sum_of_credit = kMaxMultiplier * user_cash_sum;
+
   credit_messenger_.ShowCreditConditions(maximal_sum_of_credit);
+
   int choice = user_input_.GetChoiceFromUser();
   if (choice == kMaxCredit) {
     return primary_credit_operations_.MaxCreditCalculation(

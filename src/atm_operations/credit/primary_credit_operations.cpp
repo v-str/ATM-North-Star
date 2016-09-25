@@ -8,8 +8,9 @@ bool PrimaryCreditOperations::MaxCreditCalculation(CashOperator &cash_operator,
                                                    const string &user_login,
                                                    int maximal_sum_of_credit) {
   int amount_of_credit_months =
-      secondary_credit_operation_.GetAmountOfCreditMonthsFromUser(
-          cash_operator);
+      secondary_credit_operation_.GetAmountOfCreditMonthsFromUser();
+
+  cash_operator.SetAmountOfCreditMonth(amount_of_credit_months);
 
   utility_.ClearScreen();
 
@@ -36,8 +37,9 @@ bool PrimaryCreditOperations::IndividualCreditCalculation(
           maximal_sum_of_credit);
 
   int amount_of_credit_months =
-      secondary_credit_operation_.GetAmountOfCreditMonthsFromUser(
-          cash_operator);
+      secondary_credit_operation_.GetAmountOfCreditMonthsFromUser();
+
+  cash_operator.SetAmountOfCreditMonth(amount_of_credit_months);
 
   utility_.ClearScreen();
 
