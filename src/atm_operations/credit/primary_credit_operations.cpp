@@ -7,8 +7,7 @@ static const int kOneYear = 12;
 bool PrimaryCreditOperations::MaxCreditCalculation(CashOperator &cash_operator,
                                                    const string &user_login,
                                                    int maximal_sum_of_credit) {
-  int amount_of_credit_months =
-      secondary_credit_operation_.GetAmountOfCreditMonthsFromUser();
+  int amount_of_credit_months = secondary_credit_operation_.GetMonth();
 
   cash_operator.SetAmountOfCreditMonth(amount_of_credit_months);
 
@@ -36,8 +35,7 @@ bool PrimaryCreditOperations::IndividualCreditCalculation(
       secondary_credit_operation_.GetIndividualSumOfCreditFromUser(
           maximal_sum_of_credit);
 
-  int amount_of_credit_months =
-      secondary_credit_operation_.GetAmountOfCreditMonthsFromUser();
+  int amount_of_credit_months = secondary_credit_operation_.GetMonth();
 
   cash_operator.SetAmountOfCreditMonth(amount_of_credit_months);
 
@@ -68,15 +66,12 @@ double PrimaryCreditOperations::CalculateCredit(int sum, int amount_of_months) {
 bool PrimaryCreditOperations::SuggestTheCredit(
     const int choice, const int sum_of_credit, const int pay_per_month,
     CashOperator &cash_operator) const {
-
   if (choice == kEnroll) {
-
     cash_operator.GetAssignACredit(sum_of_credit);
     cash_operator.AssignAMonthlyPayment(pay_per_month);
     return secondary_credit_operation_.EnrollACredit();
 
   } else if (choice == kRepeal) {
-
     cash_operator.GetAssignACredit(0);
     cash_operator.AssignAMonthlyPayment(0.0);
     cash_operator.SetAmountOfCreditMonth(0);

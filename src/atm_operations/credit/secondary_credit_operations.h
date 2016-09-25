@@ -13,13 +13,11 @@ class SecondaryCreditOperations {
 
   bool RepealACredit() const;
 
-  int GetAmountOfCreditMonthsFromUser();
-
   int GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit);
 
+  int GetMonth();
 
  private:
-  int GetMonth();
 
   UserInput user_input_;
   SystemUtility utility_;

@@ -13,10 +13,6 @@ bool SecondaryCreditOperations::RepealACredit() const {
   return user_input_.SuggestUserToExit();
 }
 
-int SecondaryCreditOperations::GetAmountOfCreditMonthsFromUser() {
-  return GetMonth();
-}
-
 int SecondaryCreditOperations::GetIndividualSumOfCreditFromUser(
     int maximal_sum_of_credit) {
   int user_sum_of_credit = 0;
