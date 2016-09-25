@@ -5,7 +5,6 @@
 #include "system_utility.h"
 #include "user_identifier.h"
 #include "user_input.h"
-#include "cash_operator.h"
 #include "notice_about_error.h"
 
 class SecondaryCreditOperations {
@@ -25,7 +24,6 @@ class SecondaryCreditOperations {
   UserInput user_input_;
   SystemUtility utility_;
   CreditMessanger credit_messenger_;
-  CashOperator cash_operator_;
   NoticeAboutError error_;
 };
 

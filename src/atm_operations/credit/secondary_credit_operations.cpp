@@ -26,7 +26,7 @@ int SecondaryCreditOperations::GetIndividualSumOfCreditFromUser(
 }
 
 int SecondaryCreditOperations::GetMonth() {
-  cout << "\nThe number of months to repay the loan: ";
+  credit_messenger_.ShowAmountOfMonthToPayACredit();
   int months = 0;
   cin >> months;
   utility_.IgnoreCinLine();

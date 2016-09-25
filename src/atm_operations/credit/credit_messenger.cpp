@@ -122,6 +122,10 @@ void CreditMessanger::ShowCalculationOfCredit(
   cout << "\t\t\tTotal: " << all_payment << " $\n\n";
 }
 
+void CreditMessanger::ShowAmountOfMonthToPayACredit() const {
+  cout << "\nThe number of months to repay the loan: ";
+}
+
 CreditMessanger::string CreditMessanger::ShowEnter() const {
   return "\t# Enter: ";
 }

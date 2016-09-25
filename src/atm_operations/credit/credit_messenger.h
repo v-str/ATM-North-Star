@@ -31,7 +31,10 @@ class CreditMessanger {
   void ShowCalculationOfCredit(const double pay_per_month,
                                const double amount_of_months) const;
 
+  void ShowAmountOfMonthToPayACredit() const;
+
   string ShowEnter() const;
+
 
  private:
   SystemUtility utility_;
