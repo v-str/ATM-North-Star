@@ -86,7 +86,10 @@ void CreditMessanger::ShowEnrollACredit() const {
   utility_.WriteTextWithDelay(
       "\n# The loan was successfully transferred on your account.\n"
       "# You might cash your credit in our nearest bank.");
-  utility_.IgnoreCinLine();
+}
+
+void CreditMessanger::ShowRepealACreadit() const {
+  utility_.WriteTextWithDelay("\n\t# Credit is repealed...\n");
 }
 
 void CreditMessanger::ShowRefuseACredit(int sum_of_cash) const {
@@ -105,11 +108,6 @@ bool CreditMessanger::ShowExitMessage() const {
   return true;
 }
 
-void CreditMessanger::ShowRepealACreadit() const {
-  utility_.WriteTextWithDelay("\n\t# Credit is repealed...\n");
-  utility_.IgnoreCinLine();
-}
-
 void CreditMessanger::ShowCalculationOfCredit(
     const double pay_per_month, const double amount_of_months) const {
   double all_payment = 0.0;
@@ -124,6 +122,15 @@ void CreditMessanger::ShowCalculationOfCredit(
 
 void CreditMessanger::ShowAmountOfMonthToPayACredit() const {
   cout << "The number of months to repay the loan: ";
+}
+
+void CreditMessanger::ShowResultOfUserChoice(int decision_of_user) const {
+  if (decision_of_user == 1) {
+    ShowEnrollACredit();
+  } else {
+    ShowRepealACreadit();
+  }
+  utility_.IgnoreCinLine();
 }
 
 CreditMessanger::string CreditMessanger::ShowEnter() const {

@@ -33,8 +33,9 @@ class CreditMessanger {
 
   void ShowAmountOfMonthToPayACredit() const;
 
-  string ShowEnter() const;
+  void ShowResultOfUserChoice(int decision_of_user) const;
 
+  string ShowEnter() const;
 
  private:
   SystemUtility utility_;

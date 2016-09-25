@@ -10,6 +10,7 @@
 #include "system_utility.h"
 #include "user_choice.h"
 #include "user_identifier.h"
+#include "user_input.h"
 
 class PrimaryCreditOperations {
   using string = std::string;
@@ -27,15 +28,15 @@ class PrimaryCreditOperations {
 
  private:
   double CalculateCredit(int sum_of_credit, int amount_of_months);
-  bool SuggestTheCredit(const int choice, const int sum_of_credit,
-                        const int pay_per_month,
-                        CashOperator &cash_operator) const;
+  bool SuggestTheCredit(CashOperator &cash_operator, int choice,
+                        int sum_of_credit, int pay_per_month) const;
 
   NoticeAboutError error_operation_;
   SystemUtility utility_;
   CreditMessanger credit_messenger_;
   SecondaryCreditOperations secondary_credit_operation_;
   UserChoice user_choice_;
+  UserInput user_input_;
 };
 
 #endif  // PRIMARY_CREDIT_OPERATIONS_H

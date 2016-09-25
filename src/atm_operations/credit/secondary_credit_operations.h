@@ -9,16 +9,12 @@
 
 class SecondaryCreditOperations {
  public:
-  bool EnrollACredit() const;
-
-  bool RepealACredit() const;
-
   int GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit);
 
   int GetMonth();
 
  private:
-  bool IsMonthNotCorrect(int months);
+  bool IsMonthCorrect(int months);
 
   UserInput user_input_;
   SystemUtility utility_;

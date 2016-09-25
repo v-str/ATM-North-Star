@@ -14,6 +14,7 @@ bool PrimaryCreditOperations::MaxCreditCalculation(CashOperator &cash_operator,
   utility_.ClearScreen();
 
   credit_messenger_.ShowInfoAboutCredit(user_login, maximal_sum_of_credit);
+
   double pay_per_month =
       CalculateCredit(maximal_sum_of_credit, amount_of_credit_months);
 
@@ -22,8 +23,8 @@ bool PrimaryCreditOperations::MaxCreditCalculation(CashOperator &cash_operator,
   int choice = user_choice_.GetUserChoiceWithMenuText(
       menu_text, credit_messenger_.ShowEnter());
 
-  return SuggestTheCredit(choice, maximal_sum_of_credit, pay_per_month,
-                          cash_operator);
+  return SuggestTheCredit(cash_operator, choice, maximal_sum_of_credit,
+                          pay_per_month);
 }
 
 bool PrimaryCreditOperations::IndividualCreditCalculation(
@@ -52,8 +53,8 @@ bool PrimaryCreditOperations::IndividualCreditCalculation(
   int choice = user_choice_.GetUserChoiceWithMenuText(
       loan_confirmation_menu_text, credit_messenger_.ShowEnter());
 
-  return SuggestTheCredit(choice, user_sum_of_credit, pay_per_month,
-                          cash_operator);
+  return SuggestTheCredit(cash_operator, choice, user_sum_of_credit,
+                          pay_per_month);
 }
 
 double PrimaryCreditOperations::CalculateCredit(int sum_of_credit,
@@ -64,19 +65,21 @@ double PrimaryCreditOperations::CalculateCredit(int sum_of_credit,
   return pay_per_month;
 }
 
-bool PrimaryCreditOperations::SuggestTheCredit(
-    const int choice, const int sum_of_credit, const int pay_per_month,
-    CashOperator &cash_operator) const {
+bool PrimaryCreditOperations::SuggestTheCredit(CashOperator &cash_operator,
+                                               int choice, int sum_of_credit,
+                                               int pay_per_month) const {
   if (choice == kEnroll) {
     cash_operator.GetAssignACredit(sum_of_credit);
     cash_operator.AssignAMonthlyPayment(pay_per_month);
-    return secondary_credit_operation_.EnrollACredit();
+    credit_messenger_.ShowResultOfUserChoice(kEnroll);
+    return user_input_.SuggestUserToExit();
 
   } else if (choice == kRepeal) {
     cash_operator.GetAssignACredit(0);
     cash_operator.AssignAMonthlyPayment(0.0);
     cash_operator.SetAmountOfCreditMonth(0);
-    return secondary_credit_operation_.RepealACredit();
+    credit_messenger_.ShowResultOfUserChoice(kRepeal);
+    return user_input_.SuggestUserToExit();
 
   } else if (choice == kExit) {
     return credit_messenger_.ShowExitMessage();

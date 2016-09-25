@@ -1,17 +1,6 @@
 #include "secondary_credit_operations.h"
 
-static const int kMinimalCreditTerm = 1;
-static const int kMaximalCreditTerm = 60;
-
-bool SecondaryCreditOperations::EnrollACredit() const {
-  credit_messenger_.ShowEnrollACredit();
-  return user_input_.SuggestUserToExit();
-}
-
-bool SecondaryCreditOperations::RepealACredit() const {
-  credit_messenger_.ShowRepealACreadit();
-  return user_input_.SuggestUserToExit();
-}
+static const int kMaximalCreditTerm = 61;
 
 int SecondaryCreditOperations::GetIndividualSumOfCreditFromUser(
     int maximal_sum_of_credit) {
@@ -29,10 +18,10 @@ int SecondaryCreditOperations::GetMonth() {
   do {
     credit_messenger_.ShowAmountOfMonthToPayACredit();
     months = user_input_.GetChoiceFromUser();
-  } while (IsMonthNotCorrect(months));
+  } while (!IsMonthCorrect(months));
   return months;
-}  // TODO Выделить условие while в отдельный метод.
+}
 
-bool SecondaryCreditOperations::IsMonthNotCorrect(int months) {
-  return (months < kMinimalCreditTerm || months > kMaximalCreditTerm);
+bool SecondaryCreditOperations::IsMonthCorrect(int months) {
+  return months > 0 && months < kMaximalCreditTerm;
 }
