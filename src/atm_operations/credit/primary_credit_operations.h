@@ -11,7 +11,6 @@
 #include "system_utility.h"
 #include "user_choice.h"
 #include "user_identifier.h"
-#include "user_input.h"
 
 class PrimaryCreditOperations {
   using string = std::string;
@@ -35,7 +34,6 @@ class PrimaryCreditOperations {
   CreditMessanger credit_messenger_;
   SecondaryCreditOperations secondary_credit_operation_;
   UserChoice user_choice_;
-  UserInput user_input_;
   ResultOfOffer result_of_offer_;
 };
 
