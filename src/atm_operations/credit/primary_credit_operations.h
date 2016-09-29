@@ -6,6 +6,7 @@
 #include "cash_operator.h"
 #include "credit_messenger.h"
 #include "notice_about_error.h"
+#include "result_of_offer.h"
 #include "secondary_credit_operations.h"
 #include "system_utility.h"
 #include "user_choice.h"
@@ -28,8 +29,6 @@ class PrimaryCreditOperations {
 
  private:
   double CalculateCredit(int sum_of_credit, int amount_of_months);
-  bool SuggestTheCredit(CashOperator &cash_operator, int choice,
-                        int sum_of_credit, int pay_per_month) const;
 
   NoticeAboutError error_operation_;
   SystemUtility utility_;
@@ -37,6 +36,7 @@ class PrimaryCreditOperations {
   SecondaryCreditOperations secondary_credit_operation_;
   UserChoice user_choice_;
   UserInput user_input_;
+  ResultOfOffer result_of_offer_;
 };
 
 #endif  // PRIMARY_CREDIT_OPERATIONS_H
