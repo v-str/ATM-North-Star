@@ -2,7 +2,7 @@
 
 static const int kMaximalCreditTerm = 61;
 
-int SecondaryCreditOperations::GetIndividualSumOfCreditFromUser(
+int SecondaryCreditOperations::GetSumOfCreditFromUser(
     int maximal_sum_of_credit) {
   int user_sum_of_credit = 0;
   do {

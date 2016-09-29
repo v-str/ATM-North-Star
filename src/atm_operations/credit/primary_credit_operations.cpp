@@ -3,39 +3,20 @@
 static const int kRatePerYear = 14;
 static const int kFullRate = 100;
 static const int kOneYear = 12;
+static const int kConsumerCredit = 1;
 
-bool PrimaryCreditOperations::MaxCreditCalculation(CashOperator &cash_operator,
-                                                   const string &user_login,
-                                                   int maximal_sum_of_credit) {
-  int amount_of_credit_months = secondary_credit_operation_.GetMonth();
+bool PrimaryCreditOperations::CreditCalculation(CashOperator &cash_operator,
+                                                const string &user_login,
+                                                int maximal_sum_of_credit,
+                                                int credit_option) {
+  int user_sum_of_credit = 0;
 
-  cash_operator.SetAmountOfCreditMonth(amount_of_credit_months);
-
-  utility_.ClearScreen();
-
-  credit_messenger_.ShowInfoAboutCredit(user_login, maximal_sum_of_credit);
-
-  double pay_per_month =
-      CalculateCredit(maximal_sum_of_credit, amount_of_credit_months);
-
-  string menu_text = credit_messenger_.SuggestToConfirmACredit();
-
-  int choice = user_choice_.GetUserChoiceWithMenuText(
-      menu_text, credit_messenger_.ShowEnter());
-
-  return result_of_offer_.SuggestACredit(cash_operator, choice,
-                                         maximal_sum_of_credit, pay_per_month);
-}
-
-bool PrimaryCreditOperations::IndividualCreditCalculation(
-    CashOperator &cash_operator, const string &user_login,
-    int maximal_sum_of_credit) {
-  utility_.ClearScreen();
-
-  int user_sum_of_credit =
-      secondary_credit_operation_.GetIndividualSumOfCreditFromUser(
-          maximal_sum_of_credit);
-
+  if (credit_option == kConsumerCredit) {
+    user_sum_of_credit = secondary_credit_operation_.GetSumOfCreditFromUser(
+        maximal_sum_of_credit);
+  } else {
+    user_sum_of_credit = maximal_sum_of_credit;
+  }
   int amount_of_credit_months = secondary_credit_operation_.GetMonth();
 
   cash_operator.SetAmountOfCreditMonth(amount_of_credit_months);

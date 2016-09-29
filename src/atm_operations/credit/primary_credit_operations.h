@@ -18,13 +18,8 @@ class PrimaryCreditOperations {
   enum CreditSolution { kEnroll = 1, kRepeal, kExit };
 
  public:
-  bool MaxCreditCalculation(CashOperator &cash_operator,
-                            const string &user_login,
-                            int maximal_sum_of_credit);
-
-  bool IndividualCreditCalculation(CashOperator &cash_operator,
-                                   const string &user_login,
-                                   int maximal_sum_of_credit);
+  bool CreditCalculation(CashOperator &cash_operator, const string &user_login,
+                         int maximal_sum_of_credit, int credit_option);
 
  private:
   double CalculateCredit(int sum_of_credit, int amount_of_months);

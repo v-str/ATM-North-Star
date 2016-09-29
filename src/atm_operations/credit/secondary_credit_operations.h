@@ -9,7 +9,7 @@
 
 class SecondaryCreditOperations {
  public:
-  int GetIndividualSumOfCreditFromUser(int maximal_sum_of_credit);
+  int GetSumOfCreditFromUser(int maximal_sum_of_credit);
 
   int GetMonth();
 

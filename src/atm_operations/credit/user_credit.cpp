@@ -4,6 +4,8 @@ static const int kNull = 0;
 static const int kMaxMultiplier = 15;
 static const int kConsiderACredit = 1;
 static const int kMinimalSumForCredit = 1000;
+static const int kMaximalCredit = 0;
+static const int kConsumerCredit = 1;
 
 bool UserCredit::StartCreditOperation(UserIdentifier &user_identifier,
                                       CashOperator &cash_operator,
@@ -54,11 +56,11 @@ bool UserCredit::GiveACredit(CashOperator &cash_operator,
 
   int choice = user_input_.GetChoiceFromUser();
   if (choice == kMaxCredit) {
-    return primary_credit_operations_.MaxCreditCalculation(
-        cash_operator, user_login, maximal_sum_of_credit);
+    return primary_credit_operations_.CreditCalculation(
+        cash_operator, user_login, maximal_sum_of_credit, kMaximalCredit);
   } else if (choice == kUserCredit) {
-    return primary_credit_operations_.IndividualCreditCalculation(
-        cash_operator, user_login, maximal_sum_of_credit);
+    return primary_credit_operations_.CreditCalculation(
+        cash_operator, user_login, maximal_sum_of_credit, kConsumerCredit);
   } else if (choice == kMainMenu) {
     return false;
   } else if (choice == kExit) {
