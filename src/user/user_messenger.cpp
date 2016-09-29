@@ -127,7 +127,7 @@ void UserMessenger::ShowIncorrectSumInput() const {
 }
 
 void UserMessenger::ShowIncorrectData() const {
-  cout << "\tIncorrect data. Please, repeat.\n";
+  cout << "\n\tIncorrect data. Please, repeat.\n";
   cout << "\t-------------------------------\n";
   cout << "\tSelect: ";
 }

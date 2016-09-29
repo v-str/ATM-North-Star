@@ -74,7 +74,7 @@ void NoticeMessenger::ShowUnacceptableWithdrawal(int incorrect_sum,
 
 void NoticeMessenger::ShowError() const {
   utility_.WriteTextWithDelay(
-      "\t Data is not correct, please reload the program.\n\n");
+      "\tData is not correct, please reload the program.\n\n");
   cin.get();
 }
 

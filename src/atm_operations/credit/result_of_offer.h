@@ -17,6 +17,9 @@ class ResultOfOffer {
   bool DoACreditOperation(CashOperator &cash_operator, int sum_of_credit,
                           int pay_per_month) const;
   bool DoACreditOperation(CashOperator &cash_operator) const;
+  bool DoACreditOperation(CreditMessanger credit_messenger) const;
+  bool DoACreditOperation(CashOperator &cash_operator,
+                          NoticeAboutError error_operation) const;
 
   NoticeAboutError error_operation_;
   CreditMessanger credit_messenger_;

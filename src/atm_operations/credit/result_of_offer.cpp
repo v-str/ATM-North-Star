@@ -9,11 +9,12 @@ bool ResultOfOffer::SuggestACredit(CashOperator &cash_operator, int choice,
     return DoACreditOperation(cash_operator);
 
   } else if (choice == kExit) {
-    return credit_messenger_.ShowExitMessage();
+    return DoACreditOperation(credit_messenger_);
   } else {
-    return error_operation_.ShowIncorrectDataMessage();
+    return DoACreditOperation(cash_operator, error_operation_);
   }
 }
+
 bool ResultOfOffer::DoACreditOperation(CashOperator &cash_operator,
                                        int sum_of_credit,
                                        int pay_per_month) const {
@@ -29,4 +30,14 @@ bool ResultOfOffer::DoACreditOperation(CashOperator &cash_operator) const {
   cash_operator.SetAmountOfCreditMonth(0);
   credit_messenger_.ShowResultOfUserChoice(kRepeal);
   return user_input_.SuggestUserToExit();
+}
+
+bool ResultOfOffer::DoACreditOperation(CreditMessanger credit_messenger) const {
+  return credit_messenger.ShowExitMessage();
+}
+
+bool ResultOfOffer::DoACreditOperation(CashOperator &cash_operator,
+                                       NoticeAboutError error_operation) const {
+  cash_operator.SetAmountOfCreditMonth(0);
+  return error_operation.ShowIncorrectDataMessage();
 }
