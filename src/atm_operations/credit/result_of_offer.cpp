@@ -3,10 +3,10 @@
 bool ResultOfOffer::SuggestACredit(CashOperator &cash_operator, int choice,
                                    int sum_of_credit, int pay_per_month) const {
   if (choice == kEnroll) {
-    return EnrollACredit(cash_operator, sum_of_credit, pay_per_month);
+    return DoACreditOperation(cash_operator, sum_of_credit, pay_per_month);
 
   } else if (choice == kRepeal) {
-    return RepealACredit(cash_operator);
+    return DoACreditOperation(cash_operator);
 
   } else if (choice == kExit) {
     return credit_messenger_.ShowExitMessage();
@@ -14,15 +14,16 @@ bool ResultOfOffer::SuggestACredit(CashOperator &cash_operator, int choice,
     return error_operation_.ShowIncorrectDataMessage();
   }
 }
-bool ResultOfOffer::EnrollACredit(CashOperator &cash_operator,
-                                  int sum_of_credit, int pay_per_month) const {
+bool ResultOfOffer::DoACreditOperation(CashOperator &cash_operator,
+                                       int sum_of_credit,
+                                       int pay_per_month) const {
   cash_operator.GetAssignACredit(sum_of_credit);
   cash_operator.AssignAMonthlyPayment(pay_per_month);
   credit_messenger_.ShowResultOfUserChoice(kEnroll);
   return user_input_.SuggestUserToExit();
 }
 
-bool ResultOfOffer::RepealACredit(CashOperator &cash_operator) const {
+bool ResultOfOffer::DoACreditOperation(CashOperator &cash_operator) const {
   cash_operator.GetAssignACredit(0);
   cash_operator.AssignAMonthlyPayment(0.0);
   cash_operator.SetAmountOfCreditMonth(0);

@@ -14,10 +14,9 @@ class ResultOfOffer {
                       int sum_of_credit, int pay_per_month) const;
 
  private:
-  bool EnrollACredit(CashOperator &cash_operator, int sum_of_credit,
-                     int pay_per_month) const;
-
-  bool RepealACredit(CashOperator &cash_operator) const;
+  bool DoACreditOperation(CashOperator &cash_operator, int sum_of_credit,
+                          int pay_per_month) const;
+  bool DoACreditOperation(CashOperator &cash_operator) const;
 
   NoticeAboutError error_operation_;
   CreditMessanger credit_messenger_;
