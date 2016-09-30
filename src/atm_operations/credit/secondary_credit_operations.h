@@ -7,16 +7,18 @@
 #include "user_identifier.h"
 #include "user_input.h"
 
+typedef int credit;
+
 class SecondaryCreditOperations {
  public:
-  int GetCreditVariant(const int maximal_sum_of_credit,
-                         const int credit_variant);
+  credit GetCreditVariant(const credit maximal_sum_of_credit,
+                          const credit credit_variant);
 
-  int GetCreditMonth();
+  credit GetCreditMonth();
 
  private:
-  int GetSumOfCreditFromUser(int maximal_sum_of_credit);
-  bool IsMonthCorrect(int months);
+  credit GetSumOfCreditFromUser(const credit maximal_sum_of_credit);
+  bool IsMonthCorrect(credit months);
 
   UserInput user_input_;
   SystemUtility utility_;
