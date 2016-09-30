@@ -4,25 +4,24 @@ static const int kRatePerYear = 14;
 static const int kFullRate = 100;
 static const int kOneYear = 12;
 
-bool PrimaryCreditOperations::GetCreditData(
-    CashOperator &cash_operator, const string &user_login,
-    const credit maximal_sum_of_credit, const credit credit_mode) {
-  credit user_sum_of_credit =
-      GetSumOfCredit(maximal_sum_of_credit, credit_mode);
+bool PrimaryCreditOperations::GetCreditData(CashOperator &cash_operator,
+                                            const string &user_login,
+                                            const credit maximal_sum_of_credit,
+                                            const credit credit_mode) {
+  credit sum_of_credit = GetSumOfCredit(maximal_sum_of_credit, credit_mode);
 
-  credit credit_months = GetMonthOfCredit(cash_operator);
+  credit months = GetMonthOfCredit(cash_operator);
 
-  credit_messenger_.ShowCreditTitle(user_login, user_sum_of_credit);
+  credit_page_.ShowTitle(user_login, sum_of_credit);
 
-  double pay_per_month =
-      CalculateMonthlePayment(user_sum_of_credit, credit_months);
+  double pay_per_month = CalculateMonthlePayment(sum_of_credit, months);
 
   string credit_confirmation_text = credit_messenger_.SuggestToConfirmACredit();
 
   int choice = user_choice_.GetUserChoiceWithMenuText(
       credit_confirmation_text, credit_messenger_.ShowEnter());
 
-  return credit_offer_.SuggestACredit(cash_operator, choice, user_sum_of_credit,
+  return credit_offer_.SuggestACredit(cash_operator, choice, sum_of_credit,
                                       pay_per_month);
 }
 
@@ -43,7 +42,6 @@ double PrimaryCreditOperations::CalculateMonthlePayment(
   double rate = (sum_of_credit * kRatePerYear) / kFullRate;
   double pay_per_month =
       (sum_of_credit / amount_of_credit_months) + (rate / kOneYear);
-  credit_messenger_.ShowTableOfCredit(pay_per_month,
-                                            amount_of_credit_months);
+  credit_messenger_.ShowTableOfCredit(pay_per_month, amount_of_credit_months);
   return pay_per_month;
 }

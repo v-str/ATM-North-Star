@@ -11,6 +11,7 @@
 #include "system_utility.h"
 #include "user_choice.h"
 #include "user_identifier.h"
+#include "credit_page.h"
 
 typedef int credit;
 
@@ -38,6 +39,7 @@ class PrimaryCreditOperations {
   SecondaryCreditOperations secondary_credit_operation_;
   UserChoice user_choice_;
   CreditOffer credit_offer_;
+  CreditPage credit_page_;
 };
 
 #endif  // PRIMARY_CREDIT_OPERATIONS_H
