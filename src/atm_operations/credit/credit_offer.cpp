@@ -1,21 +1,24 @@
 #include "credit_offer.h"
 
-bool CreditOffer::SuggestACredit(CashOperator &cash_operator, credit choice,
-                                 credit sum_of_credit, credit pay_per_month) const {
-  if (choice == kEnroll) {
+bool CreditOffer::SuggestACredit(CashOperator &cash_operator,
+                                 credit sum_of_credit,
+                                 credit pay_per_month) const {
+  credit user_choice = GetCreditChoice();
+
+  if (user_choice == kEnroll) {
     return DoACreditOperation(cash_operator, sum_of_credit, pay_per_month);
 
-  } else if (choice == kRepeal) {
+  } else if (user_choice == kRepeal) {
     return DoACreditOperation(cash_operator);
 
-  } else if (choice == kExit) {
+  } else if (user_choice == kExit) {
     return DoACreditOperation(credit_messenger_);
   } else {
     return DoACreditOperation(cash_operator, error_operation_);
   }
 }
 
-credit CreditOffer::GetCreditChoice() {
+credit CreditOffer::GetCreditChoice() const {
   string credit_confirmation_text = credit_messenger_.SuggestToConfirmACredit();
 
   credit credit_choice = user_choice_.GetUserChoiceWithMenuText(

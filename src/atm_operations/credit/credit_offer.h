@@ -13,11 +13,11 @@ class CreditOffer {
   enum CreditSolution { kEnroll = 1, kRepeal, kExit };
 
  public:
-  bool SuggestACredit(CashOperator &cash_operator, credit choice,
-                      credit sum_of_credit, credit pay_per_month) const;
+  bool SuggestACredit(CashOperator &cash_operator, credit sum_of_credit,
+                      credit pay_per_month) const;
 
-  credit GetCreditChoice();
  private:
+  credit GetCreditChoice() const;
 
   bool DoACreditOperation(CashOperator &cash_operator, credit sum_of_credit,
                           credit pay_per_month) const;
