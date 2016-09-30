@@ -12,19 +12,17 @@ bool PrimaryCreditOperations::CollectCreditData(
 
   credit credit_months = GetMonthOfCredit(cash_operator);
 
-  utility_.ClearScreen();
-
-  credit_messenger_.ShowIndividualCreditInfo(user_login, user_sum_of_credit);
+  credit_messenger_.ShowCreditTitle(user_login, user_sum_of_credit);
 
   double pay_per_month =
-      GetMonthlyCreditPayment(user_sum_of_credit, credit_months);
+      GetMonthlyCreditPay(user_sum_of_credit, credit_months);
 
   string credit_confirmation_text = credit_messenger_.SuggestToConfirmACredit();
 
   int choice = user_choice_.GetUserChoiceWithMenuText(
       credit_confirmation_text, credit_messenger_.ShowEnter());
 
-  return result_of_offer_.SuggestACredit(cash_operator, choice,
+  return credit_offer_.SuggestACredit(cash_operator, choice,
                                          user_sum_of_credit, pay_per_month);
 }
 
@@ -40,7 +38,7 @@ credit PrimaryCreditOperations::GetMonthOfCredit(CashOperator &cash_operator) {
   return credit_months;
 }
 
-double PrimaryCreditOperations::GetMonthlyCreditPayment(
+double PrimaryCreditOperations::GetMonthlyCreditPay(
     credit sum_of_credit, credit amount_of_credit_months) {
   double rate = (sum_of_credit * kRatePerYear) / kFullRate;
   double pay_per_month =

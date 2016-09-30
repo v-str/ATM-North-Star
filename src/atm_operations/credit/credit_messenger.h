@@ -19,7 +19,7 @@ class CreditMessanger {
   void ShowInfoAboutCredit(const string &user_login, int max_sum) const;
 
   string SuggestToConfirmACredit() const;
-  void ShowIndividualCreditInfo(const string &user_login,
+  void ShowCreditTitle(const string &user_login,
                                 int sum_of_credit) const;
 
   void ShowEnrollACredit() const;

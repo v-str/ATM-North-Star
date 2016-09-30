@@ -1,12 +1,12 @@
-#ifndef RESULT_OF_OFFER_H
-#define RESULT_OF_OFFER_H
+#ifndef CREDIT_OFFER_H
+#define CREDIT_OFFER_H
 
 #include "cash_operator.h"
 #include "credit_messenger.h"
 #include "notice_about_error.h"
 #include "user_input.h"
 
-class ResultOfOffer {
+class CreditOffer {
   enum CreditSolution { kEnroll = 1, kRepeal, kExit };
 
  public:
@@ -26,4 +26,4 @@ class ResultOfOffer {
   UserInput user_input_;
 };
 
-#endif  // RESULT_OF_OFFER_H
+#endif  // CREDIT_OFFER_H

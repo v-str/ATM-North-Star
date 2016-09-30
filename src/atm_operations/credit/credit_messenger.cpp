@@ -70,8 +70,9 @@ CreditMessanger::string CreditMessanger::SuggestToConfirmACredit() const {
   return menu_text;
 }
 
-void CreditMessanger::ShowIndividualCreditInfo(
+void CreditMessanger::ShowCreditTitle(
     const CreditMessanger::string &user_login, int sum_of_credit) const {
+  utility_.ClearScreen();
   cout << "\t\tConsumer Credit\n\n";
   utility_.Sleep(kHalfASecond);
   cout << "Profile: " << user_login << "\n";
