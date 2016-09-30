@@ -4,11 +4,11 @@ static const int kIndividualCredit = 1;
 
 static const int kMaximalCreditTerm = 61;
 
-credit SecondaryCreditOperations::GetCreditVariant(
-    const credit maximal_sum_of_credit, const credit credit_variant) {
+credit SecondaryCreditOperations::GetCreditMode(
+    const credit maximal_sum_of_credit, const credit credit_mode) {
   credit sum_of_credit = 0;
 
-  if (credit_variant == kIndividualCredit) {
+  if (credit_mode == kIndividualCredit) {
     sum_of_credit = GetSumOfCreditFromUser(maximal_sum_of_credit);
   } else {
     sum_of_credit = maximal_sum_of_credit;

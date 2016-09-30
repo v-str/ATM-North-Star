@@ -7,9 +7,9 @@ static const int kOneYear = 12;
 bool PrimaryCreditOperations::CollectCreditData(CashOperator &cash_operator,
                                                 const string &user_login,
                                                 credit maximal_sum_of_credit,
-                                                credit credit_variant) {
-  credit user_sum_of_credit = secondary_credit_operation_.GetCreditVariant(
-      maximal_sum_of_credit, credit_variant);
+                                                credit credit_mode) {
+  credit user_sum_of_credit = secondary_credit_operation_.GetCreditMode(
+      maximal_sum_of_credit, credit_mode);
 
   credit amount_of_credit_months = secondary_credit_operation_.GetCreditMonth();
 
@@ -31,10 +31,12 @@ bool PrimaryCreditOperations::CollectCreditData(CashOperator &cash_operator,
                                          user_sum_of_credit, pay_per_month);
 }
 
-double PrimaryCreditOperations::GetMonthlyCreditPayment(credit sum_of_credit,
-                                                        credit amount_of_credit_months) {
+double PrimaryCreditOperations::GetMonthlyCreditPayment(
+    credit sum_of_credit, credit amount_of_credit_months) {
   double rate = (sum_of_credit * kRatePerYear) / kFullRate;
-  double pay_per_month = (sum_of_credit / amount_of_credit_months) + (rate / kOneYear);
-  credit_messenger_.ShowCalculationOfCredit(pay_per_month, amount_of_credit_months);
+  double pay_per_month =
+      (sum_of_credit / amount_of_credit_months) + (rate / kOneYear);
+  credit_messenger_.ShowCalculationOfCredit(pay_per_month,
+                                            amount_of_credit_months);
   return pay_per_month;
 }

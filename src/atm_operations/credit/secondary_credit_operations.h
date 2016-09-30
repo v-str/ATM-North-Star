@@ -11,8 +11,8 @@ typedef int credit;
 
 class SecondaryCreditOperations {
  public:
-  credit GetCreditVariant(const credit maximal_sum_of_credit,
-                          const credit credit_variant);
+  credit GetCreditMode(const credit maximal_sum_of_credit,
+                          const credit credit_mode);
 
   credit GetCreditMonth();
 

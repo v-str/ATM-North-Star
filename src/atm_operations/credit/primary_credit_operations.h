@@ -21,9 +21,10 @@ class PrimaryCreditOperations {
 
  public:
   bool CollectCreditData(CashOperator &cash_operator, const string &user_login,
-                         credit maximal_sum_of_credit, credit credit_variant);
+                         credit maximal_sum_of_credit, credit credit_mode);
 
  private:
+  credit ChooseCreditMode();
   double GetMonthlyCreditPayment(const credit sum_of_credit,
                                  const credit amount_of_credit_months);
 
