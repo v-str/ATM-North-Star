@@ -109,7 +109,7 @@ bool CreditMessanger::ShowExitMessage() const {
   return true;
 }
 
-void CreditMessanger::ShowCalculationOfCredit(
+void CreditMessanger::ShowTableOfCredit(
     const double pay_per_month, const double amount_of_months) const {
   double all_payment = 0.0;
   for (int i = kNull; i < amount_of_months; ++i) {

@@ -44,7 +44,8 @@ HEADERS += \
     src/user_identification/user_identifier.h \
     src/user/application.h \
     src/notifications_about_operations/notice_messenger.h \
-    src/atm_operations/credit/credit_offer.h
+    src/atm_operations/credit/credit_offer.h \
+    src/atm_operations/credit/credit_page.h
 
 SOURCES += \
     src/user/user_choice.cpp \
@@ -71,5 +72,6 @@ SOURCES += \
     src/user_identification/user_identifier.cpp \
     src/user/application.cpp \
     src/notifications_about_operations/notice_messenger.cpp \
-    src/atm_operations/credit/credit_offer.cpp
+    src/atm_operations/credit/credit_offer.cpp \
+    src/atm_operations/credit/credit_page.cpp
 

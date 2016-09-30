@@ -56,10 +56,10 @@ bool UserCredit::GiveACredit(CashOperator &cash_operator,
 
   int choice = user_input_.GetChoiceFromUser();
   if (choice == kMaxCredit) {
-    return primary_credit_operations_.CollectCreditData(
+    return primary_credit_operations_.GetCreditData(
         cash_operator, user_login, maximal_sum_of_credit, kMaximalCredit);
   } else if (choice == kUserCredit) {
-    return primary_credit_operations_.CollectCreditData(
+    return primary_credit_operations_.GetCreditData(
         cash_operator, user_login, maximal_sum_of_credit, kConsumerCredit);
   } else if (choice == kMainMenu) {
     return false;

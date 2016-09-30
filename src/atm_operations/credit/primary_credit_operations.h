@@ -5,8 +5,8 @@
 
 #include "cash_operator.h"
 #include "credit_messenger.h"
-#include "notice_about_error.h"
 #include "credit_offer.h"
+#include "notice_about_error.h"
 #include "secondary_credit_operations.h"
 #include "system_utility.h"
 #include "user_choice.h"
@@ -20,16 +20,16 @@ class PrimaryCreditOperations {
   enum CreditSolution { kEnroll = 1, kRepeal, kExit };
 
  public:
-  bool CollectCreditData(CashOperator &cash_operator, const string &user_login,
-                         const credit maximal_sum_of_credit,
-                         const credit credit_mode);
+  bool GetCreditData(CashOperator &cash_operator, const string &user_login,
+                     const credit maximal_sum_of_credit,
+                     const credit credit_mode);
 
  private:
   credit GetSumOfCredit(const credit maximal_sum_of_credit,
                         const credit credit_mode);
 
   credit GetMonthOfCredit(CashOperator &cash_operator);
-  double GetMonthlyCreditPay(const credit sum_of_credit,
+  double CalculateMonthlePayment(const credit sum_of_credit,
                                  const credit amount_of_credit_months);
 
   NoticeAboutError error_operation_;
@@ -42,14 +42,19 @@ class PrimaryCreditOperations {
 
 #endif  // PRIMARY_CREDIT_OPERATIONS_H
 
-// Метод CollectCreditData:
+// Метод GetCreditData:
 //
 // Получить сумму кредита
 // Получить количество месяцев кредита
+
 // Показать заголовок кредитного листа
-// Получить ежемесячный платеж
-// Вывести на экран предложение о взятии кредита
+// Расчитать ежемесячный платеж
+// Вывести на экран предложение о подтверждении кредита
 // Вернуть результат предложения взятия кредита
+
+
+
+
 
 
 
