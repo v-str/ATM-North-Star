@@ -21,19 +21,19 @@ bool PrimaryCreditOperations::CollectCreditData(CashOperator &cash_operator,
   credit_messenger_.ShowIndividualCreditInfo(user_login, user_sum_of_credit);
 
   double pay_per_month =
-      CalculateCredit(user_sum_of_credit, amount_of_credit_months);
+      GetMonthlyPayment(user_sum_of_credit, amount_of_credit_months);
 
-  string loan_confirmation_menu_text =
+  string credit_confirmation_text =
       credit_messenger_.SuggestToConfirmACredit();
 
   int choice = user_choice_.GetUserChoiceWithMenuText(
-      loan_confirmation_menu_text, credit_messenger_.ShowEnter());
+      credit_confirmation_text, credit_messenger_.ShowEnter());
 
   return result_of_offer_.SuggestACredit(cash_operator, choice,
                                          user_sum_of_credit, pay_per_month);
 }
 
-double PrimaryCreditOperations::CalculateCredit(int sum_of_credit,
+double PrimaryCreditOperations::GetMonthlyPayment(int sum_of_credit,
                                                 int amount_of_months) {
   double rate = (sum_of_credit * kRatePerYear) / kFullRate;
   double pay_per_month = (sum_of_credit / amount_of_months) + (rate / kOneYear);

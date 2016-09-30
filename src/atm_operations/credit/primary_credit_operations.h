@@ -22,7 +22,7 @@ class PrimaryCreditOperations {
                          int maximal_sum_of_credit, int credit_variant);
 
  private:
-  double CalculateCredit(int sum_of_credit, int amount_of_months);
+  double GetMonthlyPayment(int sum_of_credit, int amount_of_months);
 
   NoticeAboutError error_operation_;
   SystemUtility utility_;
@@ -33,3 +33,14 @@ class PrimaryCreditOperations {
 };
 
 #endif  // PRIMARY_CREDIT_OPERATIONS_H
+
+// Метод CollectCreditData:
+//
+// Рассчитать какой кредит выбран
+// Получить количество месяцев
+// Присвоить пользователю полученное количество месяцев
+// Очистить экран
+// Показать информацию о выбранном кредите
+// Получить ежемесячный платеж
+// Вывести на экран предложение о взятии кредита
+// Вернуть результат предложения взятия кредита
