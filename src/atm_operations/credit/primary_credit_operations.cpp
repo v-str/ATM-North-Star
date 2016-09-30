@@ -3,7 +3,6 @@
 static const int kRatePerYear = 14;
 static const int kFullRate = 100;
 static const int kOneYear = 12;
-static const int kConsumerCredit = 1;
 
 bool PrimaryCreditOperations::CollectCreditData(CashOperator &cash_operator,
                                                 const string &user_login,

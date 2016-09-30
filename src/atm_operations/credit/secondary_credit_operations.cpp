@@ -1,6 +1,6 @@
 #include "secondary_credit_operations.h"
 
-static const int kConsumerCredit = 1;
+static const int kIndividualCredit = 1;
 
 static const int kMaximalCreditTerm = 61;
 
@@ -8,7 +8,7 @@ credit SecondaryCreditOperations::GetCreditVariant(
     const credit maximal_sum_of_credit, const credit credit_variant) {
   credit sum_of_credit = 0;
 
-  if (credit_variant == kConsumerCredit) {
+  if (credit_variant == kIndividualCredit) {
     sum_of_credit = GetSumOfCreditFromUser(maximal_sum_of_credit);
   } else {
     sum_of_credit = maximal_sum_of_credit;
