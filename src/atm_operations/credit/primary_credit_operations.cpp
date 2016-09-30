@@ -4,12 +4,11 @@ static const int kRatePerYear = 14;
 static const int kFullRate = 100;
 static const int kOneYear = 12;
 
-bool PrimaryCreditOperations::CollectCreditData(CashOperator &cash_operator,
-                                                const string &user_login,
-                                                credit maximal_sum_of_credit,
-                                                credit credit_mode) {
-  credit user_sum_of_credit = secondary_credit_operation_.GetCreditMode(
-      maximal_sum_of_credit, credit_mode);
+bool PrimaryCreditOperations::CollectCreditData(
+    CashOperator &cash_operator, const string &user_login,
+    const credit maximal_sum_of_credit, const credit credit_mode) {
+  credit user_sum_of_credit =
+      GetSumOfCredit(maximal_sum_of_credit, credit_mode);
 
   credit amount_of_credit_months = secondary_credit_operation_.GetCreditMonth();
 
@@ -29,6 +28,12 @@ bool PrimaryCreditOperations::CollectCreditData(CashOperator &cash_operator,
 
   return result_of_offer_.SuggestACredit(cash_operator, choice,
                                          user_sum_of_credit, pay_per_month);
+}
+
+credit PrimaryCreditOperations::GetSumOfCredit(
+    const credit maximal_sum_of_credit, const credit credit_mode) {
+  return secondary_credit_operation_.GetCreditMode(maximal_sum_of_credit,
+                                                   credit_mode);
 }
 
 double PrimaryCreditOperations::GetMonthlyCreditPayment(
