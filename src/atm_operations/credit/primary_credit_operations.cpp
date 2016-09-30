@@ -6,9 +6,9 @@ static const int kOneYear = 12;
 static const int kConsumerCredit = 1;
 
 bool PrimaryCreditOperations::CollectCreditData(CashOperator &cash_operator,
-                                                  const string &user_login,
-                                                  int maximal_sum_of_credit,
-                                                  int credit_variant) {
+                                                const string &user_login,
+                                                int maximal_sum_of_credit,
+                                                int credit_variant) {
   int user_sum_of_credit = secondary_credit_operation_.CalculateCreditSum(
       maximal_sum_of_credit, credit_variant);
 
