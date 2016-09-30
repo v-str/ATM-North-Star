@@ -4,7 +4,7 @@
 выводом на экран.
 
 22. Найти чем отличаются 2 метода ShowEnrollACredit() и ShowRepealACreadit()
-объекта credit_messenger_, выделить общее, схлопнуть в один метод.
+объекта credit_messenger_, выделить общее, схлопнуть в один метод. +
 
 23. Работа с классом PrimaryCreditOperations:
  - в методе CalculateCredit выделить отдельные ответственности.

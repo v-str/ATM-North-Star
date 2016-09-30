@@ -9,11 +9,13 @@
 
 class SecondaryCreditOperations {
  public:
-  int GetSumOfCreditFromUser(int maximal_sum_of_credit);
+  int CalculateCreditSum(const int maximal_sum_of_credit,
+                         const int credit_variant);
 
   int GetMonth();
 
  private:
+  int GetSumOfCreditFromUser(int maximal_sum_of_credit);
   bool IsMonthCorrect(int months);
 
   UserInput user_input_;

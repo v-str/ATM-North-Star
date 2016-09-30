@@ -1,6 +1,21 @@
 #include "secondary_credit_operations.h"
 
+static const int kConsumerCredit = 1;
+
 static const int kMaximalCreditTerm = 61;
+
+int SecondaryCreditOperations::CalculateCreditSum(
+    const int maximal_sum_of_credit, const int credit_variant) {
+  int sum_of_credit = 0;
+
+  if (credit_variant == kConsumerCredit) {
+    sum_of_credit = GetSumOfCreditFromUser(maximal_sum_of_credit);
+  } else {
+    sum_of_credit = maximal_sum_of_credit;
+  }
+
+  return sum_of_credit;
+}
 
 int SecondaryCreditOperations::GetSumOfCreditFromUser(
     int maximal_sum_of_credit) {

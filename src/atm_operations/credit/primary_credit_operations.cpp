@@ -5,18 +5,13 @@ static const int kFullRate = 100;
 static const int kOneYear = 12;
 static const int kConsumerCredit = 1;
 
-bool PrimaryCreditOperations::CreditCalculation(CashOperator &cash_operator,
-                                                const string &user_login,
-                                                int maximal_sum_of_credit,
-                                                int credit_option) {
-  int user_sum_of_credit = 0;
+bool PrimaryCreditOperations::CollectCreditData(CashOperator &cash_operator,
+                                                  const string &user_login,
+                                                  int maximal_sum_of_credit,
+                                                  int credit_variant) {
+  int user_sum_of_credit = secondary_credit_operation_.CalculateCreditSum(
+      maximal_sum_of_credit, credit_variant);
 
-  if (credit_option == kConsumerCredit) {
-    user_sum_of_credit = secondary_credit_operation_.GetSumOfCreditFromUser(
-        maximal_sum_of_credit);
-  } else {
-    user_sum_of_credit = maximal_sum_of_credit;
-  }
   int amount_of_credit_months = secondary_credit_operation_.GetMonth();
 
   cash_operator.SetAmountOfCreditMonth(amount_of_credit_months);

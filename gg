@@ -1,0 +1,2 @@
+Method, that collect data about credit was renamed and little bit refactored.
+Calculation variant of credit was moved in another class. 
