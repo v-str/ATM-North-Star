@@ -25,7 +25,6 @@ HEADERS += \
     src/user/user_input.h \
     src/user/user_messenger.h \
     src/atm_operations/credit/credit_messenger.h \
-    src/atm_operations/credit/primary_credit_operations.h \
     src/atm_operations/credit/secondary_credit_operations.h \
     src/atm_operations/credit/user_credit.h \
     src/atm_operations/refill/refill.h \
@@ -45,14 +44,14 @@ HEADERS += \
     src/user/application.h \
     src/notifications_about_operations/notice_messenger.h \
     src/atm_operations/credit/credit_offer.h \
-    src/atm_operations/credit/credit_page.h
+    src/atm_operations/credit/credit_page.h \
+    src/atm_operations/credit/credit.h
 
 SOURCES += \
     src/user/user_choice.cpp \
     src/user/user_input.cpp \
     src/user/user_messenger.cpp \
     src/atm_operations/credit/credit_messenger.cpp \
-    src/atm_operations/credit/primary_credit_operations.cpp \
     src/atm_operations/credit/secondary_credit_operations.cpp \
     src/atm_operations/credit/user_credit.cpp \
     src/atm_operations/refill/refill.cpp \
@@ -73,5 +72,6 @@ SOURCES += \
     src/user/application.cpp \
     src/notifications_about_operations/notice_messenger.cpp \
     src/atm_operations/credit/credit_offer.cpp \
-    src/atm_operations/credit/credit_page.cpp
+    src/atm_operations/credit/credit_page.cpp \
+    src/atm_operations/credit/credit.cpp
 

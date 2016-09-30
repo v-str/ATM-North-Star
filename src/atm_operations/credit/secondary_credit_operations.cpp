@@ -1,12 +1,14 @@
 #include "secondary_credit_operations.h"
 
 static const int kIndividualCredit = 1;
-
+static const int kRatePerYear = 14;
+static const int kFullRate = 100;
+static const int kOneYear = 12;
 static const int kMaximalCreditTerm = 61;
 
-credit SecondaryCreditOperations::GetCreditMode(
-    const credit maximal_sum_of_credit, const credit credit_mode) {
-  credit sum_of_credit = 0;
+int SecondaryCreditOperations::GetCreditMode(const int maximal_sum_of_credit,
+                                             const int credit_mode) {
+  int sum_of_credit = 0;
 
   if (credit_mode == kIndividualCredit) {
     sum_of_credit = GetSumOfCreditFromUser(maximal_sum_of_credit);
@@ -17,9 +19,9 @@ credit SecondaryCreditOperations::GetCreditMode(
   return sum_of_credit;
 }
 
-credit SecondaryCreditOperations::GetSumOfCreditFromUser(
-    const credit maximal_sum_of_credit) {
-  credit user_sum_of_credit = 0;
+int SecondaryCreditOperations::GetSumOfCreditFromUser(
+    const int maximal_sum_of_credit) {
+  int user_sum_of_credit = 0;
   do {
     error_.NoticeAboutIncorrectMonths();
     cin >> user_sum_of_credit;
@@ -28,8 +30,8 @@ credit SecondaryCreditOperations::GetSumOfCreditFromUser(
   return user_sum_of_credit;
 }
 
-credit SecondaryCreditOperations::GetCreditMonth() {
-  credit months = 0;
+int SecondaryCreditOperations::GetCreditMonth() {
+  int months = 0;
   do {
     credit_messenger_.ShowAmountOfMonthToPayACredit();
     months = user_input_.GetChoiceFromUser();
@@ -37,6 +39,15 @@ credit SecondaryCreditOperations::GetCreditMonth() {
   return months;
 }
 
-bool SecondaryCreditOperations::IsMonthCorrect(credit months) {
+double SecondaryCreditOperations::CalculateMonthlyPayment(
+    const int sum_of_credit, const int amount_of_credit_months) const {
+  double rate = (sum_of_credit * kRatePerYear) / kFullRate;
+  double pay_per_month =
+      (sum_of_credit / amount_of_credit_months) + (rate / kOneYear);
+  credit_messenger_.ShowTableOfCredit(pay_per_month, amount_of_credit_months);
+  return pay_per_month;
+}
+
+bool SecondaryCreditOperations::IsMonthCorrect(int months) {
   return months > 0 && months < kMaximalCreditTerm;
 }

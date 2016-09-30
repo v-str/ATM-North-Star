@@ -6,7 +6,7 @@
 #include <string>
 #include "credit_messenger.h"
 #include "notice_about_error.h"
-#include "primary_credit_operations.h"
+#include "credit.h"
 #include "user_identifier.h"
 #include "user_input.h"
 #include "user_messenger.h"
@@ -36,7 +36,7 @@ class UserCredit {
   UserInput user_input_;
   CreditMessanger credit_messenger_;
   NoticeAboutError error_message;
-  PrimaryCreditOperations primary_credit_operations_;
+  Credit credit_;
 };
 
 #endif  // USER_CREDIT_H
