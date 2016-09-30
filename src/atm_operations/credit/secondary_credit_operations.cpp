@@ -4,7 +4,7 @@ static const int kConsumerCredit = 1;
 
 static const int kMaximalCreditTerm = 61;
 
-int SecondaryCreditOperations::CalculateCreditSum(
+int SecondaryCreditOperations::GetCreditVariant(
     const int maximal_sum_of_credit, const int credit_variant) {
   int sum_of_credit = 0;
 
@@ -28,7 +28,7 @@ int SecondaryCreditOperations::GetSumOfCreditFromUser(
   return user_sum_of_credit;
 }
 
-int SecondaryCreditOperations::GetMonth() {
+int SecondaryCreditOperations::GetCreditMonth() {
   int months = 0;
   do {
     credit_messenger_.ShowAmountOfMonthToPayACredit();

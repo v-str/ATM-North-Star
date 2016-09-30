@@ -7,12 +7,12 @@ static const int kConsumerCredit = 1;
 
 bool PrimaryCreditOperations::CollectCreditData(CashOperator &cash_operator,
                                                 const string &user_login,
-                                                int maximal_sum_of_credit,
-                                                int credit_variant) {
-  int user_sum_of_credit = secondary_credit_operation_.CalculateCreditSum(
+                                                credit maximal_sum_of_credit,
+                                                credit credit_variant) {
+  credit user_sum_of_credit = secondary_credit_operation_.GetCreditVariant(
       maximal_sum_of_credit, credit_variant);
 
-  int amount_of_credit_months = secondary_credit_operation_.GetMonth();
+  credit amount_of_credit_months = secondary_credit_operation_.GetCreditMonth();
 
   cash_operator.SetAmountOfCreditMonth(amount_of_credit_months);
 
@@ -21,10 +21,9 @@ bool PrimaryCreditOperations::CollectCreditData(CashOperator &cash_operator,
   credit_messenger_.ShowIndividualCreditInfo(user_login, user_sum_of_credit);
 
   double pay_per_month =
-      GetMonthlyPayment(user_sum_of_credit, amount_of_credit_months);
+      GetMonthlyCreditPayment(user_sum_of_credit, amount_of_credit_months);
 
-  string credit_confirmation_text =
-      credit_messenger_.SuggestToConfirmACredit();
+  string credit_confirmation_text = credit_messenger_.SuggestToConfirmACredit();
 
   int choice = user_choice_.GetUserChoiceWithMenuText(
       credit_confirmation_text, credit_messenger_.ShowEnter());
@@ -33,10 +32,10 @@ bool PrimaryCreditOperations::CollectCreditData(CashOperator &cash_operator,
                                          user_sum_of_credit, pay_per_month);
 }
 
-double PrimaryCreditOperations::GetMonthlyPayment(int sum_of_credit,
-                                                int amount_of_months) {
+double PrimaryCreditOperations::GetMonthlyCreditPayment(credit sum_of_credit,
+                                                        credit amount_of_credit_months) {
   double rate = (sum_of_credit * kRatePerYear) / kFullRate;
-  double pay_per_month = (sum_of_credit / amount_of_months) + (rate / kOneYear);
-  credit_messenger_.ShowCalculationOfCredit(pay_per_month, amount_of_months);
+  double pay_per_month = (sum_of_credit / amount_of_credit_months) + (rate / kOneYear);
+  credit_messenger_.ShowCalculationOfCredit(pay_per_month, amount_of_credit_months);
   return pay_per_month;
 }

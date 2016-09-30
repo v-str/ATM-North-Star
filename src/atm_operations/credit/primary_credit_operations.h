@@ -12,6 +12,8 @@
 #include "user_choice.h"
 #include "user_identifier.h"
 
+typedef int credit;
+
 class PrimaryCreditOperations {
   using string = std::string;
 
@@ -19,10 +21,11 @@ class PrimaryCreditOperations {
 
  public:
   bool CollectCreditData(CashOperator &cash_operator, const string &user_login,
-                         int maximal_sum_of_credit, int credit_variant);
+                         credit maximal_sum_of_credit, credit credit_variant);
 
  private:
-  double GetMonthlyPayment(int sum_of_credit, int amount_of_months);
+  double GetMonthlyCreditPayment(const credit sum_of_credit,
+                                 const credit amount_of_credit_months);
 
   NoticeAboutError error_operation_;
   SystemUtility utility_;
@@ -37,7 +40,7 @@ class PrimaryCreditOperations {
 // Метод CollectCreditData:
 //
 // Рассчитать какой кредит выбран
-// Получить количество месяцев
+// Получить количество месяцев кредита
 // Присвоить пользователю полученное количество месяцев
 // Очистить экран
 // Показать информацию о выбранном кредите
