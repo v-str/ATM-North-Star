@@ -1,7 +1,7 @@
 #include "credit_offer.h"
 
-bool CreditOffer::SuggestACredit(CashOperator &cash_operator, int choice,
-                                 int sum_of_credit, int pay_per_month) const {
+bool CreditOffer::SuggestACredit(CashOperator &cash_operator, credit choice,
+                                 credit sum_of_credit, credit pay_per_month) const {
   if (choice == kEnroll) {
     return DoACreditOperation(cash_operator, sum_of_credit, pay_per_month);
 
@@ -15,9 +15,18 @@ bool CreditOffer::SuggestACredit(CashOperator &cash_operator, int choice,
   }
 }
 
+credit CreditOffer::GetCreditChoice() {
+  string credit_confirmation_text = credit_messenger_.SuggestToConfirmACredit();
+
+  credit credit_choice = user_choice_.GetUserChoiceWithMenuText(
+      credit_confirmation_text, credit_messenger_.ShowEnter());
+
+  return credit_choice;
+}
+
 bool CreditOffer::DoACreditOperation(CashOperator &cash_operator,
-                                     int sum_of_credit,
-                                     int pay_per_month) const {
+                                     credit sum_of_credit,
+                                     credit pay_per_month) const {
   cash_operator.GetAssignACredit(sum_of_credit);
   cash_operator.AssignAMonthlyPayment(pay_per_month);
   credit_messenger_.ShowResultOfUserChoice(kEnroll);

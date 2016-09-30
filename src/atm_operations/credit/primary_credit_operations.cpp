@@ -16,13 +16,10 @@ bool PrimaryCreditOperations::GetCreditData(CashOperator &cash_operator,
 
   double pay_per_month = CalculateMonthlePayment(sum_of_credit, months);
 
-  string credit_confirmation_text = credit_messenger_.SuggestToConfirmACredit();
+  credit credit_choice = credit_offer_.GetCreditChoice();
 
-  int choice = user_choice_.GetUserChoiceWithMenuText(
-      credit_confirmation_text, credit_messenger_.ShowEnter());
-
-  return credit_offer_.SuggestACredit(cash_operator, choice, sum_of_credit,
-                                      pay_per_month);
+  return credit_offer_.SuggestACredit(cash_operator, credit_choice,
+                                      sum_of_credit, pay_per_month);
 }
 
 credit PrimaryCreditOperations::GetSumOfCredit(
