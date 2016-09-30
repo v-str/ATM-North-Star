@@ -27,6 +27,8 @@ class PrimaryCreditOperations {
  private:
   credit GetSumOfCredit(const credit maximal_sum_of_credit,
                         const credit credit_mode);
+
+  credit GetMonthOfCredit();
   double GetMonthlyCreditPayment(const credit sum_of_credit,
                                  const credit amount_of_credit_months);
 

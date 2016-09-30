@@ -10,7 +10,7 @@ bool PrimaryCreditOperations::CollectCreditData(
   credit user_sum_of_credit =
       GetSumOfCredit(maximal_sum_of_credit, credit_mode);
 
-  credit amount_of_credit_months = secondary_credit_operation_.GetCreditMonth();
+  credit amount_of_credit_months = GetMonthOfCredit();
 
   cash_operator.SetAmountOfCreditMonth(amount_of_credit_months);
 
@@ -34,6 +34,10 @@ credit PrimaryCreditOperations::GetSumOfCredit(
     const credit maximal_sum_of_credit, const credit credit_mode) {
   return secondary_credit_operation_.GetCreditMode(maximal_sum_of_credit,
                                                    credit_mode);
+}
+
+credit PrimaryCreditOperations::GetMonthOfCredit() {
+  return secondary_credit_operation_.GetCreditMonth();
 }
 
 double PrimaryCreditOperations::GetMonthlyCreditPayment(
