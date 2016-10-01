@@ -13,15 +13,10 @@ class Credit {
   enum CreditSolution { kEnroll = 1, kRepeal, kExit };
 
  public:
-  bool GiveCreditByMode(CashOperator &cash_operator, const string &user_login,
-                        const int maximal_sum_of_credit, const int credit_mode);
+  void GiveCreditByMode(CashOperator &cash_operator, const string &user_login,
+                        int maximal_sum_of_credit, int credit_mode);
 
  private:
-  int AmountOfCreditByMode(const int maximal_sum_of_credit,
-                           const int credit_mode);
-
-  int AmountOfCreditMonth();
-
   SecondaryCreditOperations secondary_credit_operation_;
   CreditOffer credit_offer_;
 };

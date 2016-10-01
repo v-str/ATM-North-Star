@@ -4,9 +4,9 @@
 #include <iostream>
 
 #include <string>
+#include "credit.h"
 #include "credit_messenger.h"
 #include "notice_about_error.h"
-#include "credit.h"
 #include "user_identifier.h"
 #include "user_input.h"
 #include "user_messenger.h"
@@ -19,18 +19,17 @@ class UserCredit {
   enum SuggestVariantOfCredit { kMaxCredit = 1, kUserCredit, kMainMenu, kExit };
 
  public:
-  bool StartCreditOperation(UserIdentifier &user_identifier,
-                            CashOperator &cash_operator,
-                            UserMessenger &user_messenger);
+  void StartCreditOperation(UserIdentifier &user_identifier,
+                            CashOperator &cash_operator);
 
  private:
   bool AlreadyHasACredit(const int sum_of_credit) const;
   void RefuseToGrantAnotherCredit() const;
 
-  bool SuggestACredit(CashOperator &cash_operator, const string &user_login);
-  bool ConsiderACreditBasedOnCash(CashOperator &cash_operator,
+  void SuggestACredit(CashOperator &cash_operator, const string &user_login);
+  void ConsiderACreditBasedOnCash(CashOperator &cash_operator,
                                   const string &user_login);
-  bool GiveACredit(CashOperator &cash_operator, const string &user_login);
+  void GiveACredit(CashOperator &cash_operator, const string &user_login);
   bool RefuseACredit(const int sum_of_cash) const;
 
   UserInput user_input_;

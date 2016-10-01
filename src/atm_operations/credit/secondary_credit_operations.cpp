@@ -6,7 +6,7 @@ static const int kFullRate = 100;
 static const int kOneYear = 12;
 static const int kMaximalCreditTerm = 61;
 
-int SecondaryCreditOperations::GetCreditMode(const int maximal_sum_of_credit,
+int SecondaryCreditOperations::GetAmountCreditByMode(const int maximal_sum_of_credit,
                                              const int credit_mode) {
   int sum_of_credit = 0;
 
@@ -30,7 +30,7 @@ int SecondaryCreditOperations::GetSumOfCreditFromUser(
   return user_sum_of_credit;
 }
 
-int SecondaryCreditOperations::GetCreditMonth() {
+int SecondaryCreditOperations::GetAmountCreditMonths() {
   int months = 0;
   do {
     credit_messenger_.ShowAmountOfMonthToPayACredit();

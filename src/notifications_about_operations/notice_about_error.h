@@ -19,7 +19,7 @@ class NoticeAboutError {
   void NoticeAboutIncorrectDataMessage() const;
   void NoticeAboutIncorrectSum() const;
 
-  bool ShowIncorrectDataMessage() const;
+  void ShowIncorrectDataMessage() const;
   void NoticeAboutIncorrectMonths() const;
 
  private:

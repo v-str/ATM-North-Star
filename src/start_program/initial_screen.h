@@ -5,7 +5,7 @@
 
 class InitialScreen {
  public:
-  void Welcome() const;
+  void InitialMenuBox() const;
   void Logotype() const;
   void Error() const;
 

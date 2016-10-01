@@ -70,8 +70,8 @@ CreditMessanger::string CreditMessanger::SuggestToConfirmACredit() const {
   return menu_text;
 }
 
-void CreditMessanger::ShowCreditTitle(
-    const CreditMessanger::string &user_login, int sum_of_credit) const {
+void CreditMessanger::ShowCreditTitle(const CreditMessanger::string &user_login,
+                                      int sum_of_credit) const {
   utility_.ClearScreen();
   cout << "\t\tConsumer Credit\n\n";
   utility_.Sleep(kHalfASecond);
@@ -104,13 +104,10 @@ void CreditMessanger::ShowRefuseACredit(int sum_of_cash) const {
   utility_.Sleep(kHalfASecond);
 }
 
-bool CreditMessanger::ShowExitMessage() const {
-  user_input_.ShowExitMessage();
-  return true;
-}
+void CreditMessanger::ShowExitMessage() const { user_input_.ShowExitMessage(); }
 
-void CreditMessanger::ShowTableOfCredit(
-    const double pay_per_month, const double amount_of_months) const {
+void CreditMessanger::ShowTableOfCredit(const double pay_per_month,
+                                        const double amount_of_months) const {
   double all_payment = 0.0;
   for (int i = kNull; i < amount_of_months; ++i) {
     cout << "\t* Payment month: " << i + 1 << "\tPayment sum: ";
@@ -132,6 +129,13 @@ void CreditMessanger::ShowResultOfUserChoice(int decision_of_user) const {
     ShowRepealACreadit();
   }
   utility_.IgnoreCinLine();
+}
+
+void CreditMessanger::ShowIncorrectCashInformation(
+    CashOperator &cash_operator) {
+  utility_.WriteSymbolsNTimes('-', 30);
+  cout << "Balance: " << cash_operator.GetCash();
+  utility_.WriteSymbolsNTimes('-', 30);
 }
 
 CreditMessanger::string CreditMessanger::ShowEnter() const {

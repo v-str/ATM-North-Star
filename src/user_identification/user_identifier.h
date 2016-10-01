@@ -1,5 +1,5 @@
-#ifndef IDENTIFICATION_OF_USER_H
-#define IDENTIFICATION_OF_USER_H
+#ifndef USER_IDENTIFIER_H
+#define USER_IDENTIFIER_H
 
 #include <iostream>
 #include <string>
@@ -34,4 +34,4 @@ class UserIdentifier {
 
 };
 
-#endif  // IDENTIFICATION_OF_USER_H
+#endif  // USER_IDENTIFIER_H

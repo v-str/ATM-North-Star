@@ -7,28 +7,26 @@
 #include "notice_about_error.h"
 #include "secondary_credit_operations.h"
 #include "user_choice.h"
-#include "user_input.h"
 
 class CreditOffer {
   enum CreditSolution { kEnroll = 1, kRepeal, kExit };
 
  public:
-  bool SuggestACredit(CashOperator &cash_operator, const string &user_login,
+  void SuggestACredit(CashOperator &cash_operator, const string &user_login,
                       int sum_of_credit, int amount_of_months) const;
 
  private:
   int GetCreditChoice() const;
 
-  bool DoACreditOperation(CashOperator &cash_operator, int sum_of_credit,
+  void DoACreditOperation(CashOperator &cash_operator, int sum_of_credit,
                           int pay_per_month) const;
-  bool DoACreditOperation(CashOperator &cash_operator) const;
-  bool DoACreditOperation(CreditMessanger credit_messenger) const;
-  bool DoACreditOperation(CashOperator &cash_operator,
+  void DoACreditOperation(CashOperator &cash_operator) const;
+  void DoACreditOperation(CreditMessanger credit_messenger) const;
+  void DoACreditOperation(CashOperator &cash_operator,
                           NoticeAboutError error_operation) const;
 
   NoticeAboutError error_operation_;
   CreditMessanger credit_messenger_;
-  UserInput user_input_;
   UserChoice user_choice_;
   SecondaryCreditOperations secondary_credit_operation_;
   CreditPage credit_page_;

@@ -7,16 +7,14 @@ static const int kMinimalSumForCredit = 1000;
 static const int kMaximalCredit = 0;
 static const int kConsumerCredit = 1;
 
-bool UserCredit::StartCreditOperation(UserIdentifier &user_identifier,
-                                      CashOperator &cash_operator,
-                                      UserMessenger &user_messenger) {
+void UserCredit::StartCreditOperation(UserIdentifier &user_identifier,
+                                      CashOperator &cash_operator) {
   if (AlreadyHasACredit(cash_operator.GetCredit())) {
     RefuseToGrantAnotherCredit();
-    user_messenger.ShowAccountInformation(user_identifier, cash_operator);
-    return user_input_.SuggestUserToExit();
+    credit_messenger_.ShowIncorrectCashInformation(cash_operator);
   } else {
     string user_login = user_identifier.GetLogin();
-    return SuggestACredit(cash_operator, user_login);
+    SuggestACredit(cash_operator, user_login);
   }
 }
 
@@ -28,26 +26,25 @@ void UserCredit::RefuseToGrantAnotherCredit() const {
   credit_messenger_.RefusToGrantAnotherCredit();
 }
 
-bool UserCredit::SuggestACredit(CashOperator &cash_operator,
+void UserCredit::SuggestACredit(CashOperator &cash_operator,
                                 const string &user_login) {
   credit_messenger_.ShowNotifyAboutCredit();
   if (user_input_.GetChoiceFromUser() == kConsiderACredit) {
-    return ConsiderACreditBasedOnCash(cash_operator, user_login);
+    ConsiderACreditBasedOnCash(cash_operator, user_login);
   }
-  return false;
 }
 
-bool UserCredit::ConsiderACreditBasedOnCash(CashOperator &cash_operator,
+void UserCredit::ConsiderACreditBasedOnCash(CashOperator &cash_operator,
                                             const string &user_login) {
   if (cash_operator.IsCreditAvailable()) {
-    return GiveACredit(cash_operator, user_login);
+    GiveACredit(cash_operator, user_login);
   } else {
     int sum_of_cash = cash_operator.GetCash();
-    return RefuseACredit(sum_of_cash);
+    RefuseACredit(sum_of_cash);
   }
 }
 
-bool UserCredit::GiveACredit(CashOperator &cash_operator,
+void UserCredit::GiveACredit(CashOperator &cash_operator,
                              const string &user_login) {
   int user_cash_sum = cash_operator.GetCash();
   int maximal_sum_of_credit = kMaxMultiplier * user_cash_sum;
@@ -56,17 +53,16 @@ bool UserCredit::GiveACredit(CashOperator &cash_operator,
 
   int choice = user_input_.GetChoiceFromUser();
   if (choice == kMaxCredit) {
-    return credit_.GiveCreditByMode(cash_operator, user_login,
-                                        maximal_sum_of_credit, kMaximalCredit);
+    credit_.GiveCreditByMode(cash_operator, user_login, maximal_sum_of_credit,
+                             kMaximalCredit);
   } else if (choice == kUserCredit) {
-    return credit_.GiveCreditByMode(cash_operator, user_login,
-                                        maximal_sum_of_credit, kConsumerCredit);
+    credit_.GiveCreditByMode(cash_operator, user_login, maximal_sum_of_credit,
+                             kConsumerCredit);
   } else if (choice == kMainMenu) {
-    return false;
   } else if (choice == kExit) {
-    return credit_messenger_.ShowExitMessage();
+    credit_messenger_.ShowExitMessage();
   } else {
-    return error_message.ShowIncorrectDataMessage();
+    error_message.ShowIncorrectDataMessage();
   }
 }
 

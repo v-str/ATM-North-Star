@@ -9,7 +9,7 @@ using std::string;
 using std::cout;
 using std::cin;
 
-void InitialScreen::Welcome() const {
+void InitialScreen::InitialMenuBox() const {
   cout << "\n\n\n\n\t\t##################\n"
           "\t\t#  1. Demo mode  #\n"
           "\t\t#  2. Sign-in    #\n"

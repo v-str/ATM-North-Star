@@ -9,9 +9,9 @@
 
 class SecondaryCreditOperations {
  public:
-  int GetCreditMode(const int maximal_sum_of_credit, const int credit_mode);
+  int GetAmountCreditByMode(const int maximal_sum_of_credit, const int credit_mode);
 
-  int GetCreditMonth();
+  int GetAmountCreditMonths();
 
   double CalculateMonthlyPayment(const int sum_of_credit,
                                  const int amount_of_credit_months) const;

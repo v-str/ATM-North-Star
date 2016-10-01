@@ -10,7 +10,7 @@ int main() {
   InitialScreen initial_screen;
 
   initial_screen.Logotype();
-  initial_screen.Welcome();
+  initial_screen.InitialMenuBox();
 
   UserInput user_input;
   int choice = user_input.GetChoiceFromUser();

@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "cash_operator.h"
-#include "notifications_about_operations/notice_about_error.h"
+#include "notice_about_error.h"
 #include "refill_messenger.h"
 #include "system_utility.h"
 #include "user_input.h"

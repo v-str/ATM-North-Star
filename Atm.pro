@@ -40,12 +40,12 @@ HEADERS += \
     src/notifications_about_operations/notice_about_successful_action.h \
     src/system_utility/system_utility.h \
     src/user_identification/cash_operator.h \
-    src/user_identification/user_identifier.h \
     src/user/application.h \
     src/notifications_about_operations/notice_messenger.h \
     src/atm_operations/credit/credit_offer.h \
     src/atm_operations/credit/credit_page.h \
-    src/atm_operations/credit/credit.h
+    src/atm_operations/credit/credit.h \
+    src/user_identification/user_identifier.h
 
 SOURCES += \
     src/user/user_choice.cpp \
@@ -68,10 +68,10 @@ SOURCES += \
     src/notifications_about_operations/notice_about_successful_action.cpp \
     src/system_utility/system_utility.cpp \
     src/user_identification/cash_operator.cpp \
-    src/user_identification/user_identifier.cpp \
     src/user/application.cpp \
     src/notifications_about_operations/notice_messenger.cpp \
     src/atm_operations/credit/credit_offer.cpp \
     src/atm_operations/credit/credit_page.cpp \
-    src/atm_operations/credit/credit.cpp
+    src/atm_operations/credit/credit.cpp \
+    src/user_identification/user_identifier.cpp
 

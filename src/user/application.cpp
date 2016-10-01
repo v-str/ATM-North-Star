@@ -46,7 +46,9 @@ bool Application::RunProgram() {
   user_messenger_.ShowTransactionMenu();
   return HandleUserChoice(user_input_.GetChoiceFromUser());
 }
-
+// Метод HandleUserChoice следует выделить в отдельный класс
+// который будет выполнять операции пользователя.
+// Переименовать.
 bool Application::HandleUserChoice(int choice) {
   utility_.ClearScreen();
 
@@ -78,8 +80,8 @@ bool Application::RefillOperation() {
 }
 
 bool Application::CreditApplication() {
-  return user_credit_.StartCreditOperation(user_identifier_, cash_operator_,
-                                           user_messenger_);
+  user_credit_.StartCreditOperation(user_identifier_, cash_operator_);
+  return user_input_.SuggestUserToExit();
 }
 
 bool Application::WithdrawCash() {
