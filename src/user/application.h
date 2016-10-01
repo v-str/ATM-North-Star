@@ -3,7 +3,6 @@
 
 #include "cash_operator.h"
 #include "demo_user.h"
-#include "initial_screen.h"
 #include "refill.h"
 #include "statement.h"
 #include "statement.h"
@@ -26,12 +25,13 @@ class Application {
   };
 
  public:
-  void XxX();
   void RunProgram();
+  void RegisterUser();
 
  private:
-  void DisplayProgramMenu();
+  void StartMainMenu();
   void DoProgramSection(int choice);
+  void DisplayMenu();
 
   void ShowAccountInfo();
   void RefillOperation();
@@ -51,7 +51,6 @@ class Application {
   UserStatement statement_;
   UserMessenger user_messenger_;
   UserRegistrator registrator_;
-  InitialScreen initial_screen_;
   DemoUser demo_mode_;
 };
 

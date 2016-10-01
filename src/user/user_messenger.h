@@ -42,6 +42,8 @@ class UserMessenger {
 
   void ShowIncorrectData() const;
 
+  void ShowIncorrectInitialData() const;
+
  private:
   SystemUtility utility_;
   RefillMessenger refill_messenger_;

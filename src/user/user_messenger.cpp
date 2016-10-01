@@ -131,3 +131,9 @@ void UserMessenger::ShowIncorrectData() const {
   cout << "\t-------------------------------\n";
   cout << "\tSelect: ";
 }
+
+void UserMessenger::ShowIncorrectInitialData() const {
+  utility_.WriteTextWithDelay(
+      "\n\tIncorrect input, "
+      "\n\treload the program\n");
+}

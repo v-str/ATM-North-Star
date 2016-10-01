@@ -3,13 +3,17 @@
 #include <iostream>
 #include <string>
 
-#include "system_utility.h"
-
 using std::string;
 using std::cout;
 using std::cin;
 
-void InitialScreen::InitialMenu() const {
+void InitialScreen::DisplayInitialScreen()  {
+  DisplayLogotype();
+  DisplayInitialMenu();
+  app_.RunProgram();
+}
+
+void InitialScreen::DisplayInitialMenu() const {
   cout << "\n\n\n\n\t ##################\n"
           "\t #  1. Demo mode  #\n"
           "\t #  2. Sign-in    #\n"
@@ -18,7 +22,7 @@ void InitialScreen::InitialMenu() const {
        << "\b\b";
 }
 
-void InitialScreen::Logotype() const {
+void InitialScreen::DisplayLogotype() const {
   string demo =
       "---------------------------------------------\n"
       "-  ##   ## ####### ######  ######## ##  ##  -\n"
@@ -50,8 +54,8 @@ void InitialScreen::Logotype() const {
   system("clear");
 }
 
-void InitialScreen::Error() const {
+void InitialScreen::DisplayError() const {
   utility_.WriteTextWithDelay(
       "\n\n\tData is not correct,\n"
-      "\tplease reload the program.\n\n   ");
+      "\tplease reload the program.\n\n");
 }

@@ -1,9 +1,7 @@
-#include "application.h"
-#include "demo_user.h"
 #include "initial_screen.h"
 
 int main() {
-  Application app;
+  InitialScreen screen;
 
-  app.XxX();
+  screen.DisplayInitialScreen();
 }
