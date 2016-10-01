@@ -10,11 +10,11 @@ using std::cout;
 using std::cin;
 
 void InitialScreen::InitialMenu() const {
-  cout << "\n\n\n\n\t\t##################\n"
-          "\t\t#  1. Demo mode  #\n"
-          "\t\t#  2. Sign-in    #\n"
-          "\t\t##################\n"
-          "\t\t   Enter: ___"
+  cout << "\n\n\n\n\t ##################\n"
+          "\t #  1. Demo mode  #\n"
+          "\t #  2. Sign-in    #\n"
+          "\t ##################\n"
+          "\t   Enter: ___"
        << "\b\b";
 }
 
@@ -52,6 +52,6 @@ void InitialScreen::Logotype() const {
 
 void InitialScreen::Error() const {
   utility_.WriteTextWithDelay(
-      "\n\n\t Data is not correct,"
-      "please reload the program.\n\n");
+      "\n\n\tData is not correct,\n"
+      "\tplease reload the program.\n\n   ");
 }

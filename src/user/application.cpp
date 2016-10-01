@@ -28,7 +28,7 @@ void Application::RunProgram() {
 
   do {
     DisplayProgramMenu();
-  } while (!is_user_dont_want_to_exit_);
+  } while (!is_user_want_to_exit_);
 }
 
 void Application::DisplayProgramMenu() {
@@ -51,7 +51,7 @@ void Application::DoProgramSection(int choice) {
     Statement();
   } else if (choice == kExitSection) {
     user_messenger_.SuggestUserToExit();
-    is_user_dont_want_to_exit_ =
+    is_user_want_to_exit_ =
         user_input_.SuggestUserToExitWithConfirmationMenu();
   } else {
     user_input_.ShowIncorrectMessage();
@@ -60,25 +60,25 @@ void Application::DoProgramSection(int choice) {
 
 void Application::ShowAccountInfo() {
   user_messenger_.ShowAccountInformation(user_identifier_, cash_operator_);
-  is_user_dont_want_to_exit_ = user_input_.SuggestUserToExit();
+  is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
 void Application::RefillOperation() {
   refill_.StartRefillOperation(cash_operator_);
-  is_user_dont_want_to_exit_ = user_input_.SuggestUserToExit();
+  is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
 void Application::CreditApplication() {
   user_credit_.StartCreditOperation(user_identifier_, cash_operator_);
-  is_user_dont_want_to_exit_ = user_input_.SuggestUserToExit();
+  is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
 void Application::WithdrawCash() {
   withdrawal_.WithdrawCashFromUser(cash_operator_, user_identifier_);
-  is_user_dont_want_to_exit_ = user_input_.SuggestUserToExit();
+  is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
 void Application::Statement() {
   statement_.ShowStatement(cash_operator_);
-  is_user_dont_want_to_exit_ = user_input_.SuggestUserToExit();
+  is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }

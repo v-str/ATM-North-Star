@@ -39,7 +39,7 @@ class Application {
   void WithdrawCash();
   void Statement();
 
-  bool is_user_dont_want_to_exit_ = true;
+  bool is_user_want_to_exit_ = true;
 
   UserIdentifier user_identifier_;
   CashOperator cash_operator_;
