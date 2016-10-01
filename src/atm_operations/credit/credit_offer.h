@@ -14,7 +14,7 @@ class CreditOffer {
 
  public:
   bool SuggestACredit(CashOperator &cash_operator, const string &user_login,
-                      int sum_of_credit, int months) const;
+                      int sum_of_credit, int amount_of_months) const;
 
  private:
   int GetCreditChoice() const;

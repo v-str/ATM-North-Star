@@ -14,13 +14,13 @@ class Credit {
 
  public:
   bool GiveCreditByMode(CashOperator &cash_operator, const string &user_login,
-                     const int maximal_sum_of_credit, const int credit_mode);
+                        const int maximal_sum_of_credit, const int credit_mode);
 
  private:
   int AmountOfCreditByMode(const int maximal_sum_of_credit,
-                         const int credit_mode);
+                           const int credit_mode);
 
-  int AmountOfCreditMonth(CashOperator &cash_operator);
+  int AmountOfCreditMonth();
 
   SecondaryCreditOperations secondary_credit_operation_;
   CreditOffer credit_offer_;

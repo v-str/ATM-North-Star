@@ -2,11 +2,12 @@
 
 bool CreditOffer::SuggestACredit(CashOperator &cash_operator,
                                  const std::__cxx11::string &user_login,
-                                 int sum_of_credit, int months) const {
+                                 int sum_of_credit,
+                                 int amount_of_months) const {
   credit_page_.ShowTitle(user_login, sum_of_credit);
-
+  cash_operator.SetAmountOfCreditMonth(amount_of_months);
   double pay_per_month = secondary_credit_operation_.CalculateMonthlyPayment(
-      sum_of_credit, months);
+      sum_of_credit, amount_of_months);
 
   int user_choice = GetCreditChoice();
 
