@@ -7,7 +7,7 @@ static const int kMinimalSumForCredit = 1000;
 static const int kMaximalCredit = 0;
 static const int kConsumerCredit = 1;
 
-void UserCredit::StartCreditOperation(UserIdentifier &user_identifier,
+void UserCredit::StartCreditOperation(const UserIdentifier &user_identifier,
                                       CashOperator &cash_operator) {
   if (AlreadyHasACredit(cash_operator.GetCredit())) {
     RefuseToGrantAnotherCredit();

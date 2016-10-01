@@ -4,7 +4,7 @@ static const int kNull = 0;
 static const int minimal_refill = 10;
 static const int maximal_refill = 50000;
 
-bool Refill::StartRefillOperation(CashOperator &cash_operator) {
+void Refill::StartRefillOperation(CashOperator &cash_operator) {
   refill_messenger_.ShowNotifyAboutCash();
   int money = kNull;
   cin >> money;
@@ -15,5 +15,4 @@ bool Refill::StartRefillOperation(CashOperator &cash_operator) {
     error_message_.NoticeAboutIncorrectSum();
   }
   utility_.IgnoreCinLine();
-  return user_input_.SuggestUserToExit();
 }

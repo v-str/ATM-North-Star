@@ -1,11 +1,7 @@
 #ifndef USER_H
 #define USER_H
 
-#include <string>
-
 #include "cash_operator.h"
-#include "notice_about_error.h"
-#include "notice_about_successful_action.h"
 #include "refill.h"
 #include "statement.h"
 #include "statement.h"
@@ -14,10 +10,10 @@
 #include "user_identifier.h"
 #include "user_input.h"
 #include "user_messenger.h"
+#include "user_registrator.h"
 #include "withdrawal.h"
 
 class Application {
-  using string = std::string;
   enum MenuSection {
     kAccountSection = 1,
     kRefillSection,
@@ -28,34 +24,30 @@ class Application {
   };
 
  public:
-  Application() {}
-  Application(const string &login, const string &password, double cash,
-              int credit, double monthly_payment, int amount_of_credit_month);
-
-  void Registration();
+  void RunProgram();
 
  private:
-  void RunProgramUntilUserWantToExit();
-  bool RunProgram();
-  bool HandleUserChoice(int choice);
+  void DisplayProgramMenu();
+  void DoProgramSection(int choice);
 
-  bool ShowAccountInfo();
-  bool RefillOperation();
-  bool CreditApplication();
-  bool WithdrawCash();
-  bool Statement();
+  void ShowAccountInfo();
+  void RefillOperation();
+  void CreditApplication();
+  void WithdrawCash();
+  void Statement();
+
+  bool is_user_want_to_exit_ = false;
 
   UserIdentifier user_identifier_;
   CashOperator cash_operator_;
-  UserMessenger user_messenger_;
-  NoticeAboutError error_message_;
-  NoticeAboutSuccessfulAction successful_action_;
   SystemUtility utility_;
   UserInput user_input_;
   Refill refill_;
   UserCredit user_credit_;
   Withdrawal withdrawal_;
   UserStatement statement_;
+  UserMessenger user_messenger_;
+  UserRegistrator registrator_;
 };
 
 #endif  // USER_H

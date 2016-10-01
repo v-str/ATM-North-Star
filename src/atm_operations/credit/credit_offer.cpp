@@ -39,7 +39,6 @@ void CreditOffer::DoACreditOperation(CashOperator &cash_operator,
   cash_operator.GetAssignACredit(sum_of_credit);
   cash_operator.AssignAMonthlyPayment(pay_per_month);
   credit_messenger_.ShowResultOfUserChoice(kEnroll);
-  //return user_input_.SuggestUserToExit();
 }
 
 void CreditOffer::DoACreditOperation(CashOperator &cash_operator) const {
@@ -47,7 +46,6 @@ void CreditOffer::DoACreditOperation(CashOperator &cash_operator) const {
   cash_operator.AssignAMonthlyPayment(0.0);
   cash_operator.SetAmountOfCreditMonth(0);
   credit_messenger_.ShowResultOfUserChoice(kRepeal);
-  //return user_input_.SuggestUserToExit();
 }
 
 void CreditOffer::DoACreditOperation(CreditMessanger credit_messenger) const {

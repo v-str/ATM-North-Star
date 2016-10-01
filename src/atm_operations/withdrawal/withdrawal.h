@@ -17,7 +17,7 @@ class Withdrawal {
   using string = std::string;
 
  public:
-  bool WithdrawCashFromUser(CashOperator &cash_operator,
+  void WithdrawCashFromUser(CashOperator &cash_operator,
                             UserIdentifier &user_identifier);
 
   int SumOfWithdrawal() const;

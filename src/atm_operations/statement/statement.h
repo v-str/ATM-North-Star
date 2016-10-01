@@ -12,7 +12,7 @@ class UserStatement {
   using string = std::string;
 
  public:
-  bool ShowStatement(CashOperator &cash_operator);
+  void ShowStatement(CashOperator &cash_operator);
 
  private:
   string GetSpaces(int convertation_cash_to_space) const;

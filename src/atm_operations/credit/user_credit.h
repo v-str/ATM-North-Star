@@ -19,7 +19,7 @@ class UserCredit {
   enum SuggestVariantOfCredit { kMaxCredit = 1, kUserCredit, kMainMenu, kExit };
 
  public:
-  void StartCreditOperation(UserIdentifier &user_identifier,
+  void StartCreditOperation(const UserIdentifier &user_identifier,
                             CashOperator &cash_operator);
 
  private:

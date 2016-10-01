@@ -10,7 +10,7 @@
 
 class Refill {
  public:
-  bool StartRefillOperation(CashOperator &cash_operator);
+  void StartRefillOperation(CashOperator &cash_operator);
   void soon();
 
  private:

@@ -2,7 +2,7 @@
 
 static const int kNull = 0;
 
-bool Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
+void Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
                                       UserIdentifier &user_identifier) {
   int sum_of_withdrawal = SumOfWithdrawal();
   if (IsWithdrawalAcceptable(cash_operator, sum_of_withdrawal)) {
@@ -21,7 +21,6 @@ bool Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
     error_message_.NoticeUnacceptableWithdrawal(amount_of_cash,
                                                 sum_of_withdrawal);
   }
-  return user_input_.SuggestUserToExit();
 }
 
 int Withdrawal::SumOfWithdrawal() const {

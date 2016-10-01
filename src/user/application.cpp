@@ -1,93 +1,61 @@
 #include "application.h"
 
-#include <iostream>
-#include <limits>
-
-using std::cin;
-using std::cout;
-
-Application::Application(const string &login, const string &password,
-                         double cash, int credit, double monthly_payment,
-                         int amount_of_credit_month) {
-  user_identifier_.SetLogin(login);
-  user_identifier_.SetPassword(password);
-  cash_operator_.SetCash(cash);
-  cash_operator_.SetCredit(credit);
-  cash_operator_.SetMonthlyPayment(monthly_payment);
-  cash_operator_.SetAmountOfCreditMonth(amount_of_credit_month);
-}
-
-void Application::Registration() {
-  user_messenger_.ShowRegistrationScreen();
-  user_messenger_.ShowInitialLoginText();
-  user_identifier_.EnterInitialLogin();
-  if (!user_identifier_.IsNormalLogin()) {
-    error_message_.NoticeAboutIncorrectLogin();
-  } else {
-    user_messenger_.ShowInitialPasswordText();
-    user_identifier_.EnterinitialPassword();
-    if (!user_identifier_.IsNormalPass()) {
-      error_message_.NoticeAboutIncorrectFormatPasswordMessage();
-    } else {
-      successful_action_.NoticeAboutSuccessfulRegistration(cash_operator_);
-      RunProgramUntilUserWantToExit();
-    }
-  }
-}
-
-void Application::RunProgramUntilUserWantToExit() {
+void Application::RunProgram() {
+  registrator_.Register(cash_operator_, user_identifier_);
   utility_.ClearScreen();
-  for (;;) {
-    if (RunProgram()) break;
-  }
+
+  do {
+    DisplayProgramMenu();
+  } while (is_user_want_to_exit_);
 }
 
-bool Application::RunProgram() {
+void Application::DisplayProgramMenu() {
   user_messenger_.ShowTransactionMenu();
-  return HandleUserChoice(user_input_.GetChoiceFromUser());
+  DoProgramSection(user_input_.GetChoiceFromUser());
 }
-// Метод HandleUserChoice следует выделить в отдельный класс
-// который будет выполнять операции пользователя.
-// Переименовать.
-bool Application::HandleUserChoice(int choice) {
+
+void Application::DoProgramSection(int choice) {
   utility_.ClearScreen();
 
   if (choice == kAccountSection) {
-    return ShowAccountInfo();
+    ShowAccountInfo();
   } else if (choice == kRefillSection) {
-    return RefillOperation();
+    RefillOperation();
   } else if (choice == kCreditSection) {
-    return CreditApplication();
+    CreditApplication();
   } else if (choice == kWidthdrawalSection) {
-    return WithdrawCash();
+    WithdrawCash();
   } else if (choice == kStatementSection) {
-    return Statement();
+    Statement();
   } else if (choice == kExitSection) {
     user_messenger_.SuggestUserToExit();
-    return user_input_.SuggestUserToExitWithConfirmationMenu();
+    user_input_.SuggestUserToExitWithConfirmationMenu();
   } else {
-    return user_input_.ShowIncorrectMessage();
+    user_input_.ShowIncorrectMessage();
   }
 }
 
-bool Application::ShowAccountInfo() {
+void Application::ShowAccountInfo() {
   user_messenger_.ShowAccountInformation(user_identifier_, cash_operator_);
-  return user_input_.SuggestUserToExit();
+  is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-bool Application::RefillOperation() {
-  return refill_.StartRefillOperation(cash_operator_);
+void Application::RefillOperation() {
+  refill_.StartRefillOperation(cash_operator_);
+  is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-bool Application::CreditApplication() {
+void Application::CreditApplication() {
   user_credit_.StartCreditOperation(user_identifier_, cash_operator_);
-  return user_input_.SuggestUserToExit();
+  is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-bool Application::WithdrawCash() {
-  return withdrawal_.WithdrawCashFromUser(cash_operator_, user_identifier_);
+void Application::WithdrawCash() {
+  withdrawal_.WithdrawCashFromUser(cash_operator_, user_identifier_);
+  is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-bool Application::Statement() {
-  return statement_.ShowStatement(cash_operator_);
+void Application::Statement() {
+  statement_.ShowStatement(cash_operator_);
+  is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
