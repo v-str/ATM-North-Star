@@ -2,6 +2,8 @@
 #define USER_H
 
 #include "cash_operator.h"
+#include "demo_user.h"
+#include "initial_screen.h"
 #include "refill.h"
 #include "statement.h"
 #include "statement.h"
@@ -24,6 +26,7 @@ class Application {
   };
 
  public:
+  void XxX();
   void RunProgram();
 
  private:
@@ -36,7 +39,7 @@ class Application {
   void WithdrawCash();
   void Statement();
 
-  bool is_user_want_to_exit_ = false;
+  bool is_user_dont_want_to_exit_ = true;
 
   UserIdentifier user_identifier_;
   CashOperator cash_operator_;
@@ -48,6 +51,8 @@ class Application {
   UserStatement statement_;
   UserMessenger user_messenger_;
   UserRegistrator registrator_;
+  InitialScreen initial_screen_;
+  DemoUser demo_mode_;
 };
 
 #endif  // USER_H
