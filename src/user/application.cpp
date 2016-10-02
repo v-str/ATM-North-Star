@@ -8,14 +8,14 @@ static const int kDemoMode = 1;
 static const int kRegistration = 2;
 
 void Application::RunProgram() {
-  int choice = user_input_.GetChoiceFromUser();
-  if (choice == kDemoMode) {
+  int user_choice = user_input_.GetChoiceFromUser();
+  if (user_choice == kDemoMode) {
     demo_mode_.ShowDemoMode();
     if (demo_mode_.UserWantToRegistrate()) {
       RegisterUser();
       DisplayMenu();
     }
-  } else if (choice == kRegistration) {
+  } else if (user_choice == kRegistration) {
     RegisterUser();
     DisplayMenu();
 

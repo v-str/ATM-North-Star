@@ -26,9 +26,9 @@ class Application {
 
  public:
   void RunProgram();
-  void RegisterUser();
 
  private:
+  void RegisterUser();
   void StartMainMenu();
   void DoProgramSection(int choice);
   void DisplayMenu();
