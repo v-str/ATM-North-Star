@@ -13,7 +13,10 @@ void UserRegistrator::Register(CashOperator &cash_operator,
     if (!user_identifier_.IsNormalPass()) {
       notifier_.NoticeAboutIncorrectFormatPasswordMessage();
     } else {
-      notifier_.NoticeAboutSuccessfulRegistration(cash_operator);
+      notifier_.NoticeAboutSuccessfulRegistration();
+      cash_operator.SetCredit(0);
+      cash_operator.SetMonthlyPayment(0.0);
+      cash_operator.SetAmountOfCreditMonth(0);
     }
   }
 }

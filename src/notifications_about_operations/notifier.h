@@ -3,7 +3,6 @@
 
 #include <iostream>
 
-#include "cash_operator.h"
 #include "notice_messenger.h"
 #include "system_utility.h"
 
@@ -12,9 +11,7 @@ using std::cin;
 
 class Notifier {
  public:
-  Notifier();
-
-  void NoticeAboutSuccessfulRegistration(CashOperator &cash_operator) const;
+  void NoticeAboutSuccessfulRegistration() const;
 
   void NoticeUnacceptableWithdrawal(int amount_of_cash,
                                     int incorrect_sum) const;

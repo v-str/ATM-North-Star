@@ -1,13 +1,7 @@
 #include "notifier.h"
 
-Notifier::Notifier() {}
-
-void Notifier::NoticeAboutSuccessfulRegistration(
-    CashOperator &cash_operator) const {
+void Notifier::NoticeAboutSuccessfulRegistration() const {
   notice_messenger_.ShowAcceptableMessageFrame();
-  cash_operator.SetCredit(0);
-  cash_operator.SetMonthlyPayment(0.0);
-  cash_operator.SetAmountOfCreditMonth(0);
 }
 
 void Notifier::NoticeAboutIncorrectLogin() const {
