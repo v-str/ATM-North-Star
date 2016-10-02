@@ -4,12 +4,12 @@ void UserRegistrator::Register(CashOperator &cash_operator,
                                UserIdentifier &user_identifier) {
   user_messenger_.ShowRegistrationScreen();
   user_messenger_.ShowInitialLoginText();
-  user_identifier.EnterInitialLogin();
+  user_identifier.EnterLogin();
   if (!user_identifier.IsNormalLogin()) {
     error_message_.NoticeAboutIncorrectLogin();
   } else {
     user_messenger_.ShowInitialPasswordText();
-    user_identifier.EnterinitialPassword();
+    user_identifier.EnterPassword();
     if (!user_identifier_.IsNormalPass()) {
       error_message_.NoticeAboutIncorrectFormatPasswordMessage();
     } else {

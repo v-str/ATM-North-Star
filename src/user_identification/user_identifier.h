@@ -15,8 +15,8 @@ class UserIdentifier {
   void SetLogin(const string &login);
   void SetPassword(const string &password);
 
-  void EnterInitialLogin();
-  void EnterinitialPassword();
+  void EnterLogin();
+  void EnterPassword();
 
   string GetLogin() const;
   string GetPassword() const;

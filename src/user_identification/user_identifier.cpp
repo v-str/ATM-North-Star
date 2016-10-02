@@ -13,12 +13,12 @@ UserIdentifier::string UserIdentifier::GetLogin() const { return login_; }
 
 UserIdentifier::string UserIdentifier::GetPassword() const { return password_; }
 
-void UserIdentifier::EnterInitialLogin() {
+void UserIdentifier::EnterLogin() {
   getline(cin, login_);
   cin.sync();
 }
 
-void UserIdentifier::EnterinitialPassword() {
+void UserIdentifier::EnterPassword() {
   cin >> password_;
   cin.sync();
 }
