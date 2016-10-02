@@ -10,7 +10,7 @@ void UserRegistrator::Register(CashOperator &cash_operator,
   } else {
     registation_messenger_.ShowInitialPasswordText();
     user_identifier.EnterPassword();
-    if (!user_identifier_.IsNormalPass()) {
+    if (!user_identifier.IsNormalPass()) {
       notifier_.NoticeAboutIncorrectFormatPasswordMessage();
     } else {
       notifier_.NoticeAboutSuccessfulRegistration();
