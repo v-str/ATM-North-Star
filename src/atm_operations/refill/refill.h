@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "cash_operator.h"
-#include "notice_about_error.h"
+#include "notifier.h"
 #include "refill_messenger.h"
 #include "system_utility.h"
 #include "user_input.h"
@@ -15,7 +15,7 @@ class Refill {
 
  private:
   RefillMessenger refill_messenger_;
-  NoticeAboutError error_message_;
+  Notifier error_message_;
   SystemUtility utility_;
   UserInput user_input_;
 };

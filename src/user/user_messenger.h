@@ -18,8 +18,6 @@ class UserMessenger {
  public:
   UserMessenger();
 
-  void ShowRegistrationScreen() const;
-
   void ShowTransactionMenu();
 
   void ShowNotifyAboutCash();
@@ -33,9 +31,6 @@ class UserMessenger {
   void SuggestUserToExit() const;
   void ShowAccountInformation(UserIdentifier &user_identifier,
                               CashOperator &cash_operator);
-
-  void ShowInitialLoginText() const;
-  void ShowInitialPasswordText() const;
 
   void ShowSuggestionAboutExit() const;
   void ShowIncorrectSumInput() const;

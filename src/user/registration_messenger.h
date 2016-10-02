@@ -10,6 +10,10 @@ using std::cout;
 class RegistrationMessenger {
  public:
   void ShowRegistrationScreen() const;
+  void ShowInitialLoginText() const;
+  void ShowInitialPasswordText() const;
+
+
 
  private:
   SystemUtility utility_;

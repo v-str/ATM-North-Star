@@ -53,7 +53,7 @@ void CreditOffer::DoACreditOperation(CreditMessanger credit_messenger) const {
 }
 
 void CreditOffer::DoACreditOperation(CashOperator &cash_operator,
-                                     NoticeAboutError error_operation) const {
+                                     Notifier error_operation) const {
   cash_operator.SetAmountOfCreditMonth(0);
   error_operation.ShowIncorrectDataMessage();
 }

@@ -4,11 +4,10 @@
 #include <string>
 
 #include "cash_operator.h"
-#include "notice_about_error.h"
-#include "notice_about_successful_action.h"
+#include "notifier.h"
+#include "registration_messenger.h"
 #include "user_identifier.h"
 #include "user_messenger.h"
-#include "registration_messenger.h"
 
 class UserRegistrator {
   using string = std::string;
@@ -20,8 +19,7 @@ class UserRegistrator {
   CashOperator cash_operator_;
   UserIdentifier user_identifier_;
   UserMessenger user_messenger_;
-  NoticeAboutError error_message_;
-  NoticeAboutSuccessfulAction successful_action_;
+  Notifier notifier_;
   RegistrationMessenger registation_messenger_;
 };
 

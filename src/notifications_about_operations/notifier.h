@@ -1,15 +1,20 @@
-#ifndef NOTICE_ABOUT_ERROR_H
-#define NOTICE_ABOUT_ERROR_H
+#ifndef NOTIFIER_H
+#define NOTIFIER_H
 
 #include <iostream>
+
+#include "cash_operator.h"
 #include "notice_messenger.h"
+#include "system_utility.h"
 
 using std::cout;
 using std::cin;
 
-class NoticeAboutError {
+class Notifier {
  public:
-  NoticeAboutError();
+  Notifier();
+
+  void NoticeAboutSuccessfulRegistration(CashOperator &cash_operator) const;
 
   void NoticeUnacceptableWithdrawal(int amount_of_cash,
                                     int incorrect_sum) const;
@@ -23,7 +28,8 @@ class NoticeAboutError {
   void NoticeAboutIncorrectMonths() const;
 
  private:
+  SystemUtility utility_;
   NoticeMessenger notice_messenger_;
 };
 
-#endif  // NOTICE_ABOUT_ERROR_H
+#endif  // NOTIFIER_H

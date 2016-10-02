@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-#include "notice_about_error.h"
+#include "notifier.h"
 #include "system_utility.h"
 #include "user_messenger.h"
 
@@ -32,7 +32,7 @@ class UserInput {
   string GetLineFromUser() const;
 
   SystemUtility utility_;
-  NoticeAboutError error_message;
+  Notifier error_message;
   UserMessenger user_messenger_;
 };
 

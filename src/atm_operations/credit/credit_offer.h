@@ -4,7 +4,7 @@
 #include "cash_operator.h"
 #include "credit_messenger.h"
 #include "credit_page.h"
-#include "notice_about_error.h"
+#include "notifier.h"
 #include "secondary_credit_operations.h"
 #include "user_choice.h"
 
@@ -23,9 +23,9 @@ class CreditOffer {
   void DoACreditOperation(CashOperator &cash_operator) const;
   void DoACreditOperation(CreditMessanger credit_messenger) const;
   void DoACreditOperation(CashOperator &cash_operator,
-                          NoticeAboutError error_operation) const;
+                          Notifier error_operation) const;
 
-  NoticeAboutError error_operation_;
+  Notifier error_operation_;
   CreditMessanger credit_messenger_;
   UserChoice user_choice_;
   SecondaryCreditOperations secondary_credit_operation_;

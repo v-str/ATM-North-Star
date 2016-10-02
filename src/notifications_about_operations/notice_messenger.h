@@ -9,7 +9,7 @@ using std::cout;
 
 class NoticeMessenger {
  public:
-  void ShowAcceptableMessageInFrame() const;
+  void ShowAcceptableMessageFrame() const;
   void ShowIncorrectLoginFrame() const;
 
   void ShowIncorrectFormatPassword() const;

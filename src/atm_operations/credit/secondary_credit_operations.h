@@ -2,7 +2,7 @@
 #define SECONDARY_CREDIT_OPERATIONS_H
 
 #include "credit_messenger.h"
-#include "notice_about_error.h"
+#include "notifier.h"
 #include "system_utility.h"
 #include "user_identifier.h"
 #include "user_input.h"
@@ -23,7 +23,7 @@ class SecondaryCreditOperations {
   UserInput user_input_;
   SystemUtility utility_;
   CreditMessanger credit_messenger_;
-  NoticeAboutError error_;
+  Notifier error_;
 };
 
 #endif  // SECONDARY_CREDIT_OPERATIONS_H

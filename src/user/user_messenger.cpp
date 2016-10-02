@@ -1,18 +1,8 @@
 #include "user_messenger.h"
 
-static const int kMaxLenghtOfLogin = 21;
-static const int kMaxLenghtOfPassword = 4;
 static const int kFrame = 45;
 
 UserMessenger::UserMessenger() {}
-
-void UserMessenger::ShowRegistrationScreen() const {
-  utility_.ClearScreen();
-
-  cout << "\n\t\t   ********************\n"
-          "\t\t   *   REGISTRATION   *\n"
-          "\t\t   ********************\n";
-}
 
 void UserMessenger::ShowTransactionMenu() {
   utility_.ClearScreen();
@@ -99,19 +89,6 @@ void UserMessenger::ShowAccountInformation(UserIdentifier &user_identifier,
       "Monthly payment $", std::to_string(cash_operator.GetMonthlyPayment()));
   refill_messenger_.WriteUserInfo(
       "Credit term", std::to_string(cash_operator.GetAmountOfCreditMonth()));
-}
-
-void UserMessenger::ShowInitialLoginText() const {
-  cout << "\n\n\n\t\tLogin: ";
-
-  utility_.WriteSymbolsNTimes('#', kMaxLenghtOfLogin);
-  utility_.WriteSymbolsNTimes('\b', kMaxLenghtOfLogin);
-}
-
-void UserMessenger::ShowInitialPasswordText() const {
-  cout << "\t\tPassword: XXXX\b\b\b\b";
-  utility_.WriteSymbolsNTimes('X', kMaxLenghtOfPassword);
-  utility_.WriteSymbolsNTimes('\b', kMaxLenghtOfPassword);
 }
 
 void UserMessenger::ShowSuggestionAboutExit() const {

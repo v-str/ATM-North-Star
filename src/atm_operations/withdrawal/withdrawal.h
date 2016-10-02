@@ -5,7 +5,7 @@
 #include <string>
 
 #include "cash_operator.h"
-#include "notice_about_error.h"
+#include "notifier.h"
 #include "user_identifier.h"
 #include "user_input.h"
 #include "withdrawal_messenger.h"
@@ -30,7 +30,7 @@ class Withdrawal {
 
  private:
   UserInput user_input_;
-  NoticeAboutError error_message_;
+  Notifier error_message_;
   WithdrawalMessenger messenger_;
 };
 

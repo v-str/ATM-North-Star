@@ -36,8 +36,6 @@ HEADERS += \
     src/demo_mode/demo_user.h \
     src/demo_mode/demo_user_messanger.h \
     src/start_program/initial_screen.h \
-    src/notifications_about_operations/notice_about_error.h \
-    src/notifications_about_operations/notice_about_successful_action.h \
     src/system_utility/system_utility.h \
     src/user_identification/cash_operator.h \
     src/user/application.h \
@@ -47,7 +45,8 @@ HEADERS += \
     src/atm_operations/credit/credit.h \
     src/user_identification/user_identifier.h \
     src/user/user_registrator.h \
-    src/user/registration_messenger.h
+    src/user/registration_messenger.h \
+    src/notifications_about_operations/notifier.h
 
 SOURCES += \
     src/user/user_choice.cpp \
@@ -66,7 +65,6 @@ SOURCES += \
     src/demo_mode/demo_user_messanger.cpp \
     src/start_program/initial_screen.cpp \
     src/start_program/main.cpp \
-    src/notifications_about_operations/notice_about_error.cpp \
     src/notifications_about_operations/notice_about_successful_action.cpp \
     src/system_utility/system_utility.cpp \
     src/user_identification/cash_operator.cpp \
@@ -77,5 +75,6 @@ SOURCES += \
     src/atm_operations/credit/credit.cpp \
     src/user_identification/user_identifier.cpp \
     src/user/user_registrator.cpp \
-    src/user/registration_messenger.cpp
+    src/user/registration_messenger.cpp \
+    src/notifications_about_operations/notifier.cpp
 
