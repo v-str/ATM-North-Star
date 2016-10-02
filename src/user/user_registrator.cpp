@@ -26,13 +26,11 @@ bool UserRegistrator::IsCorrectRegistration() {
 }
 
 void UserRegistrator::EnterLogin(UserIdentifier &user_identifier) {
-  registation_messenger_.ShowInitialLoginText();
-  user_identifier.EnterLogin();
+  user_identifier.SetLogin(provider_.GetLoginFromUser());
 }
 
 void UserRegistrator::EnterPassword(UserIdentifier &user_identifier) {
-  registation_messenger_.ShowInitialPasswordText();
-  user_identifier.EnterPassword();
+  user_identifier.SetPassword(provider_.GetPasswordFromUser());
 }
 
 void UserRegistrator::set_is_correct_registration(

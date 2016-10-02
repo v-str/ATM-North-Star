@@ -13,10 +13,6 @@ UserIdentifier::string UserIdentifier::GetLogin() const { return login_; }
 
 UserIdentifier::string UserIdentifier::GetPassword() const { return password_; }
 
-void UserIdentifier::EnterLogin() { getline(cin, login_); }
-
-void UserIdentifier::EnterPassword() { cin >> password_; }
-
 bool UserIdentifier::IsNormalLogin() {
   return !login_.empty() && login_.length() < kMaxLenghtOfLogin;
 }

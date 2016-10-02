@@ -4,6 +4,7 @@
 #include "cash_operator.h"
 #include "notifier.h"
 #include "registration_messenger.h"
+#include "user_identification_data_provider.h"
 #include "user_identifier.h"
 
 class UserRegistrator {
@@ -22,6 +23,7 @@ class UserRegistrator {
 
   Notifier notifier_;
   RegistrationMessenger registation_messenger_;
+  UserIdentificationDataProvider provider_;
 
   bool is_correct_registration_ = false;
 };
