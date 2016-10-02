@@ -15,7 +15,7 @@ void Application::RunProgram() {
   }
 
 
-  if (registrator_.IsNormalRegistration()) {
+  if (registrator_.IsCorrectRegistration()) {
     DisplayMenu();
   }
   user_messenger_.WishAGoodDay();

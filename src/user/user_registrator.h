@@ -11,19 +11,16 @@ class UserRegistrator {
   void RegisterUser(CashOperator &cash_operator,
                     UserIdentifier &user_identifier);
 
-  bool IsNormalRegistration();
+  bool IsCorrectRegistration();
 
  private:
   void EnterLogin(UserIdentifier &user_identifier);
-  bool IsNormalLogin(UserIdentifier &user_identifier);
-
   void EnterPassword(UserIdentifier &user_identifier);
-  bool IsNormalPassword(UserIdentifier &user_identifier);
 
   Notifier notifier_;
   RegistrationMessenger registation_messenger_;
 
-  bool correct_registration_;
+  bool is_correct_registration_ = false;
 };
 
 #endif  // USER_REGISTRATOR_H

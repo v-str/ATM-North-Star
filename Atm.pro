@@ -46,7 +46,8 @@ HEADERS += \
     src/user_identification/user_identifier.h \
     src/user/user_registrator.h \
     src/user/registration_messenger.h \
-    src/notifications_about_operations/notifier.h
+    src/notifications_about_operations/notifier.h \
+    src/user/magicclass.h
 
 SOURCES += \
     src/user/user_choice.cpp \
@@ -76,5 +77,6 @@ SOURCES += \
     src/user_identification/user_identifier.cpp \
     src/user/user_registrator.cpp \
     src/user/registration_messenger.cpp \
-    src/notifications_about_operations/notifier.cpp
+    src/notifications_about_operations/notifier.cpp \
+    src/user/magicclass.cpp
 
