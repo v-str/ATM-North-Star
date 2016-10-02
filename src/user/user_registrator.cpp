@@ -11,9 +11,7 @@ void UserRegistrator::RegisterUser(CashOperator &cash_operator,
     EnterPassword(user_identifier);
     if (user_identifier.IsNormalPass()) {
       notifier_.NoticeAboutSuccessfulRegistration();
-      cash_operator.SetCredit(0);
-      cash_operator.SetMonthlyPayment(0.0);
-      cash_operator.SetAmountOfCreditMonth(0);
+      AssignInitialValues(cash_operator);
       set_is_correct_registration(true);
     } else {
       notifier_.NoticeAboutIncorrectFormatPasswordMessage();
@@ -40,4 +38,10 @@ void UserRegistrator::EnterPassword(UserIdentifier &user_identifier) {
 void UserRegistrator::set_is_correct_registration(
     bool is_correct_registration) {
   is_correct_registration_ = is_correct_registration;
+}
+
+void UserRegistrator::AssignInitialValues(CashOperator &cash_operator) {
+  cash_operator.SetCredit(0);
+  cash_operator.SetMonthlyPayment(0.0);
+  cash_operator.SetAmountOfCreditMonth(0);
 }

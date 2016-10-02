@@ -24,10 +24,3 @@ bool UserIdentifier::IsNormalLogin() {
 bool UserIdentifier::IsNormalPass() {
   return password_.length() == kMaxLenghtOfPassword;
 }
-
-UserIdentifier::string UserIdentifier::GetPasswordFromUser() {
-  string password;
-  cin >> password;
-  utility_.IgnoreCinLine();
-  return password;
-}

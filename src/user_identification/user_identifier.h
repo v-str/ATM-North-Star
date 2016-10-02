@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include "system_utility.h"
 
 using std::cin;
 using std::cout;
@@ -24,14 +23,9 @@ class UserIdentifier {
   bool IsNormalLogin();
   bool IsNormalPass();
 
-  string GetPasswordFromUser();
-
  private:
   string login_ = "no_name";
   string password_ = "0000";
-
-  SystemUtility utility_;
-
 };
 
 #endif  // USER_IDENTIFIER_H

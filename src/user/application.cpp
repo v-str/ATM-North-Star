@@ -14,7 +14,6 @@ void Application::RunProgram() {
     user_messenger_.ShowIncorrectRegisterData();
   }
 
-
   if (registrator_.IsCorrectRegistration()) {
     DisplayMenu();
   }

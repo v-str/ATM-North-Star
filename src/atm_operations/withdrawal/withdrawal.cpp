@@ -8,7 +8,8 @@ void Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
   if (IsWithdrawalAcceptable(cash_operator, sum_of_withdrawal)) {
     messenger_.ShowSumOfWithdrawal(sum_of_withdrawal);
     messenger_.ShowPasswordString();
-    string password = user_identifier.GetPasswordFromUser();
+    string password;
+    cin >> password;
     if (IsCorrectPasswordAtWithdrawal(password, user_identifier)) {
       WithdrawFromAccount(cash_operator, sum_of_withdrawal);
       messenger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
