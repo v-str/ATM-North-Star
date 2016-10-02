@@ -4,7 +4,7 @@ static const int kFrame = 45;
 
 UserMessenger::UserMessenger() {}
 
-void UserMessenger::ShowTransactionMenu() {
+void UserMessenger::ShowMainMenu() {
   utility_.ClearScreen();
   string select =
       "\n\t################ Transaction menu ##################\n"
@@ -60,7 +60,7 @@ void UserMessenger::WishAGoodDay() const {
           "\t####################\n\n";
 }
 
-void UserMessenger::ShowTransactionMenu() const {
+void UserMessenger::ShowMainMenu() const {
   string select =
       "\n\t################ Transaction menu ##################\n"
       "\t#                                                  #\n"
@@ -109,7 +109,7 @@ void UserMessenger::ShowIncorrectData() const {
   cout << "\tSelect: ";
 }
 
-void UserMessenger::ShowIncorrectInitialData() const {
+void UserMessenger::ShowIncorrectRegisterData() const {
   utility_.WriteTextWithDelay(
       "\n\tIncorrect input, "
       "\n\treload the program\n");

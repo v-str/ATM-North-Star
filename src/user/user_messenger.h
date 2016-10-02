@@ -18,7 +18,7 @@ class UserMessenger {
  public:
   UserMessenger();
 
-  void ShowTransactionMenu();
+  void ShowMainMenu();
 
   void ShowNotifyAboutCash();
 
@@ -26,7 +26,7 @@ class UserMessenger {
   void ShowIncorrectMonthInput();
 
   void WishAGoodDay() const;
-  void ShowTransactionMenu() const;
+  void ShowMainMenu() const;
 
   void SuggestUserToExit() const;
   void ShowAccountInformation(UserIdentifier &user_identifier,
@@ -37,7 +37,7 @@ class UserMessenger {
 
   void ShowIncorrectData() const;
 
-  void ShowIncorrectInitialData() const;
+  void ShowIncorrectRegisterData() const;
 
  private:
   SystemUtility utility_;

@@ -15,6 +15,11 @@
 #include "withdrawal.h"
 
 class Application {
+  enum ProgramMode {
+    kDemoMode = 1,
+    kRegistration,
+  };
+
   enum MenuSection {
     kAccountSection = 1,
     kRefillSection,

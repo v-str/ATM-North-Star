@@ -1,32 +1,28 @@
 #include "application.h"
 
-#include <iostream>
-
-using std::cout;
-
-static const int kDemoMode = 1;
-static const int kRegistration = 2;
-
 void Application::RunProgram() {
   int user_choice = user_input_.GetChoiceFromUser();
+
   if (user_choice == kDemoMode) {
     demo_mode_.ShowDemoMode();
     if (demo_mode_.UserWantToRegistrate()) {
       RegisterUser();
-      DisplayMenu();
     }
   } else if (user_choice == kRegistration) {
     RegisterUser();
-    DisplayMenu();
-
   } else {
-    user_messenger_.ShowIncorrectInitialData();
+    user_messenger_.ShowIncorrectRegisterData();
+  }
+
+
+  if (registrator_.IsNormalRegistration()) {
+    DisplayMenu();
   }
   user_messenger_.WishAGoodDay();
 }
 
 void Application::RegisterUser() {
-  registrator_.Register(cash_operator_, user_identifier_);
+  registrator_.RegisterUser(cash_operator_, user_identifier_);
 }
 
 void Application::DisplayMenu() {
@@ -37,7 +33,7 @@ void Application::DisplayMenu() {
 
 void Application::StartMainMenu() {
   utility_.ClearScreen();
-  user_messenger_.ShowTransactionMenu();
+  user_messenger_.ShowMainMenu();
   DoProgramSection(user_input_.GetChoiceFromUser());
 }
 
