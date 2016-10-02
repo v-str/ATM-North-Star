@@ -17,6 +17,8 @@ class UserRegistrator {
   void EnterLogin(UserIdentifier &user_identifier);
   void EnterPassword(UserIdentifier &user_identifier);
 
+  void set_is_correct_registration(bool is_correct_registration);
+
   Notifier notifier_;
   RegistrationMessenger registation_messenger_;
 

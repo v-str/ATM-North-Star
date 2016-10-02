@@ -2,7 +2,7 @@
 
 void UserRegistrator::RegisterUser(CashOperator &cash_operator,
                                    UserIdentifier &user_identifier) {
-  is_correct_registration_ = false;
+  set_is_correct_registration(false);
 
   registation_messenger_.ShowRegistrationScreen();
 
@@ -14,7 +14,7 @@ void UserRegistrator::RegisterUser(CashOperator &cash_operator,
       cash_operator.SetCredit(0);
       cash_operator.SetMonthlyPayment(0.0);
       cash_operator.SetAmountOfCreditMonth(0);
-      is_correct_registration_ = true;
+      set_is_correct_registration(true);
     } else {
       notifier_.NoticeAboutIncorrectFormatPasswordMessage();
     }
@@ -35,4 +35,9 @@ void UserRegistrator::EnterLogin(UserIdentifier &user_identifier) {
 void UserRegistrator::EnterPassword(UserIdentifier &user_identifier) {
   registation_messenger_.ShowInitialPasswordText();
   user_identifier.EnterPassword();
+}
+
+void UserRegistrator::set_is_correct_registration(
+    bool is_correct_registration) {
+  is_correct_registration_ = is_correct_registration;
 }
