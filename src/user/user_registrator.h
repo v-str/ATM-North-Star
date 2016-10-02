@@ -8,6 +8,7 @@
 #include "notice_about_successful_action.h"
 #include "user_identifier.h"
 #include "user_messenger.h"
+#include "registration_messenger.h"
 
 class UserRegistrator {
   using string = std::string;
@@ -21,6 +22,7 @@ class UserRegistrator {
   UserMessenger user_messenger_;
   NoticeAboutError error_message_;
   NoticeAboutSuccessfulAction successful_action_;
+  RegistrationMessenger registation_messenger_;
 };
 
 #endif  // USER_REGISTRATOR_H

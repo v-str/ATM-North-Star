@@ -46,7 +46,8 @@ HEADERS += \
     src/atm_operations/credit/credit_page.h \
     src/atm_operations/credit/credit.h \
     src/user_identification/user_identifier.h \
-    src/user/user_registrator.h
+    src/user/user_registrator.h \
+    src/user/registration_messenger.h
 
 SOURCES += \
     src/user/user_choice.cpp \
@@ -75,5 +76,6 @@ SOURCES += \
     src/atm_operations/credit/credit_page.cpp \
     src/atm_operations/credit/credit.cpp \
     src/user_identification/user_identifier.cpp \
-    src/user/user_registrator.cpp
+    src/user/user_registrator.cpp \
+    src/user/registration_messenger.cpp
 

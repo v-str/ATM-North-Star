@@ -2,7 +2,8 @@
 
 void UserRegistrator::Register(CashOperator &cash_operator,
                                UserIdentifier &user_identifier) {
-  user_messenger_.ShowRegistrationScreen();
+  registation_messenger_.ShowRegistrationScreen();
+  // user_messenger_.ShowRegistrationScreen();
   user_messenger_.ShowInitialLoginText();
   user_identifier.EnterLogin();
   if (!user_identifier.IsNormalLogin()) {
