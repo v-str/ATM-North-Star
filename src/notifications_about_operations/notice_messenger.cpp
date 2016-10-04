@@ -5,7 +5,6 @@ const int kAccessFrame = 18;
 const int kIncorrectDataFrame = 27;
 
 void NoticeMessenger::ShowAcceptableMessageFrame() const {
-  utility_.IgnoreCinLine();
   utility_.ClearScreen();
   cout << "\n\n\t\t";
   utility_.WriteSymbolsNTimes('-', kAccessFrame);

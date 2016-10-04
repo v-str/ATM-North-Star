@@ -16,7 +16,7 @@ using std::cin;
 
 class UserCredit {
   using string = std::string;
-  enum SuggestVariantOfCredit { kMaxCredit = 1, kUserCredit, kMainMenu, kExit };
+  enum SuggestVariantOfCredit { kMaxCredit = 1, kUserCredit, kExit };
 
  public:
   void StartCreditOperation(const UserIdentifier &user_identifier,

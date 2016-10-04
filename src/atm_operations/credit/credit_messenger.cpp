@@ -48,8 +48,7 @@ void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
       "loan?\n\n"
       "# 1. Get all sum\n"
       "# 2. Change the sum of loan\n"
-      "# 3. Main menu\n"
-      "# 4. Exit\n");
+      "# 3. Exit\n");
   cout << "# Enter: ";
 }
 
@@ -65,8 +64,7 @@ CreditMessanger::string CreditMessanger::SuggestToConfirmACredit() const {
   string menu_text(
       "\n\t# Do you confirm the loan?\n"
       "\t1. Yes, I confirm.\n"
-      "\t2. No, go to the main.\n"
-      "\t3. Exit program.\n");
+      "\t2. Repeal a credit.\n");
   return menu_text;
 }
 
@@ -104,7 +102,7 @@ void CreditMessanger::ShowRefuseACredit(int sum_of_cash) const {
   utility_.Sleep(kHalfASecond);
 }
 
-void CreditMessanger::ShowExitMessage() const { user_input_.ShowExitMessage(); }
+//void CreditMessanger::ShowExitMessage() const { user_input_.ShowExitMessage(); }
 
 void CreditMessanger::ShowTableOfCredit(const double pay_per_month,
                                         const double amount_of_months) const {

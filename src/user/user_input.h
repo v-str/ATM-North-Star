@@ -22,7 +22,7 @@ class UserInput {
   int GetChoiceFromUser() const;
   bool ShowIncorrectMessage() const;
   bool GetResultFromUserAboutExit() const;
-  void ShowExitMessage() const;
+//  void ShowExitMessage() const;
 
   bool SuggestUserToExitWithConfirmationMenu();
 

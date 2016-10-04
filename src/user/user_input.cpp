@@ -17,7 +17,7 @@ bool UserInput::GetResultFromUserAboutExit() const {
     if (user_want_to_exit == kGoToMain) {
       break;
     } else if (user_want_to_exit == kExit) {
-      ShowExitMessage();
+      //      ShowExitMessage();
       utility_.Sleep(kSecond);
       result_of_choice = true;
       break;
@@ -57,9 +57,9 @@ string UserInput::GetLineFromUser() const {
   return line;
 }
 
-void UserInput::ShowExitMessage() const {
-  utility_.WriteTextWithDelay("\n\t# Thank you for using our ATM system\n");
-}
+// void UserInput::ShowExitMessage() const {
+//  utility_.WriteTextWithDelay("\n\t# Thank you for using our ATM system\n");
+//}
 
 bool UserInput::SuggestUserToExitWithConfirmationMenu() {
   return GetResultFromUserAboutExit();

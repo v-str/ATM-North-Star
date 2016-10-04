@@ -24,7 +24,7 @@ class CreditMessanger {
   void ShowEnrollACredit() const;
   void ShowRefuseACredit(int sum_of_cash) const;
 
-  void ShowExitMessage() const;
+//  void ShowExitMessage() const;
   void ShowRepealACreadit() const;
 
   void ShowTableOfCredit(const double pay_per_month,

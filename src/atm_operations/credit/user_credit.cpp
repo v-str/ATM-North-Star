@@ -58,9 +58,8 @@ void UserCredit::GiveACredit(CashOperator &cash_operator,
   } else if (choice == kUserCredit) {
     credit_.GiveCreditByMode(cash_operator, user_login, maximal_sum_of_credit,
                              kConsumerCredit);
-  } else if (choice == kMainMenu) {
   } else if (choice == kExit) {
-    credit_messenger_.ShowExitMessage();
+    //    credit_messenger_.ShowExitMessage();
   } else {
     error_message.ShowIncorrectDataMessage();
   }

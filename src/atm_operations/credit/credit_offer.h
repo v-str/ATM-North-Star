@@ -18,12 +18,11 @@ class CreditOffer {
  private:
   int GetCreditChoice() const;
 
-  void DoACreditOperation(CashOperator &cash_operator, int sum_of_credit,
-                          int pay_per_month) const;
-  void DoACreditOperation(CashOperator &cash_operator) const;
-  void DoACreditOperation(CreditMessanger credit_messenger) const;
-  void DoACreditOperation(CashOperator &cash_operator,
-                          Notifier error_operation) const;
+  void DoCreditOperation(CashOperator &cash_operator, int sum_of_credit,
+                         int pay_per_month) const;
+  void DoCreditOperation(CashOperator &cash_operator) const;
+  void DoCreditOperation(CashOperator &cash_operator,
+                         Notifier error_operation) const;
 
   Notifier error_operation_;
   CreditMessanger credit_messenger_;

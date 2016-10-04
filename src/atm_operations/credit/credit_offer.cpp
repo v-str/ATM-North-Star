@@ -12,15 +12,12 @@ void CreditOffer::SuggestACredit(CashOperator &cash_operator,
   int user_choice = GetCreditChoice();
 
   if (user_choice == kEnroll) {
-    DoACreditOperation(cash_operator, sum_of_credit, pay_per_month);
+    DoCreditOperation(cash_operator, sum_of_credit, pay_per_month);
 
   } else if (user_choice == kRepeal) {
-    DoACreditOperation(cash_operator);
-
-  } else if (user_choice == kExit) {
-    DoACreditOperation(credit_messenger_);
+    DoCreditOperation(cash_operator);
   } else {
-    DoACreditOperation(cash_operator, error_operation_);
+    DoCreditOperation(cash_operator, error_operation_);
   }
 }
 
@@ -33,48 +30,23 @@ int CreditOffer::GetCreditChoice() const {
   return credit_choice;
 }
 
-void CreditOffer::DoACreditOperation(CashOperator &cash_operator,
-                                     int sum_of_credit,
-                                     int pay_per_month) const {
+void CreditOffer::DoCreditOperation(CashOperator &cash_operator,
+                                    int sum_of_credit,
+                                    int pay_per_month) const {
   cash_operator.GetAssignACredit(sum_of_credit);
   cash_operator.AssignAMonthlyPayment(pay_per_month);
   credit_messenger_.ShowResultOfUserChoice(kEnroll);
 }
 
-void CreditOffer::DoACreditOperation(CashOperator &cash_operator) const {
+void CreditOffer::DoCreditOperation(CashOperator &cash_operator) const {
   cash_operator.GetAssignACredit(0);
   cash_operator.AssignAMonthlyPayment(0.0);
   cash_operator.SetAmountOfCreditMonth(0);
   credit_messenger_.ShowResultOfUserChoice(kRepeal);
 }
 
-void CreditOffer::DoACreditOperation(CreditMessanger credit_messenger) const {
-  credit_messenger.ShowExitMessage();
-}
-
-void CreditOffer::DoACreditOperation(CashOperator &cash_operator,
-                                     Notifier error_operation) const {
+void CreditOffer::DoCreditOperation(CashOperator &cash_operator,
+                                    Notifier error_operation) const {
   cash_operator.SetAmountOfCreditMonth(0);
   error_operation.ShowIncorrectDataMessage();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

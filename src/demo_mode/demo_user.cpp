@@ -58,6 +58,6 @@ void DemoUser::ForwardToRegistration() {
 void DemoUser::StartRegistration() { ForwardToRegistration(); }
 
 void DemoUser::SayGoodBye() {
-  user_input_.ShowExitMessage();
+  //  user_input_.ShowExitMessage();
   user_want_to_exit_ = true;
 }
