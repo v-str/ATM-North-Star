@@ -25,7 +25,7 @@ class UserRegistrator {
   RegistrationMessenger registation_messenger_;
   UserIdentificationDataProvider provider_;
 
-  bool is_correct_registration_ = false;
+  bool correct_registration_ = false;
 };
 
 #endif  // USER_REGISTRATOR_H

@@ -22,7 +22,7 @@ void UserRegistrator::RegisterUser(CashOperator &cash_operator,
 }
 
 bool UserRegistrator::IsCorrectRegistration() {
-  return is_correct_registration_;
+  return correct_registration_;
 }
 
 void UserRegistrator::EnterLogin(UserIdentifier &user_identifier) {
@@ -34,8 +34,8 @@ void UserRegistrator::EnterPassword(UserIdentifier &user_identifier) {
 }
 
 void UserRegistrator::set_is_correct_registration(
-    bool is_correct_registration) {
-  is_correct_registration_ = is_correct_registration;
+    bool correct_registration) {
+  correct_registration_ = correct_registration;
 }
 
 void UserRegistrator::AssignInitialValues(CashOperator &cash_operator) {
