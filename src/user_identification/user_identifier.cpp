@@ -20,3 +20,4 @@ bool UserIdentifier::IsNormalLogin() {
 bool UserIdentifier::IsNormalPass() {
   return password_.length() == kMaxLenghtOfPassword;
 }
+//
