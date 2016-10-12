@@ -53,7 +53,7 @@ void Application::DoProgramSection(int choice) {
     user_messenger_.SuggestUserToExit();
     is_user_want_to_exit_ = user_input_.SuggestUserToExitWithConfirmationMenu();
   } else {
-    user_input_.ShowIncorrectMessage();
+    is_user_want_to_exit_ = user_input_.ShowIncorrectMessage();
   }
 }
 
