@@ -12,6 +12,7 @@ INCLUDEPATH += \
     src/atm_operations/withdrawal \
     src/atm_operations/statement \
     src/atm_operations/refill \
+    src/atm_operations/account_info \
     src/demo_mode \
     src/user \
     src/system_utility \
@@ -47,7 +48,8 @@ HEADERS += \
     src/user/user_registrator.h \
     src/user/registration_messenger.h \
     src/notifications_about_operations/notifier.h \
-    src/user_identification/user_identification_data_provider.h
+    src/user_identification/user_identification_data_provider.h \
+    src/atm_operations/account_info/account_informator.h
 
 SOURCES += \
     src/user/user_choice.cpp \
@@ -78,5 +80,6 @@ SOURCES += \
     src/user/user_registrator.cpp \
     src/user/registration_messenger.cpp \
     src/notifications_about_operations/notifier.cpp \
-    src/user_identification/user_identification_data_provider.cpp
+    src/user_identification/user_identification_data_provider.cpp \
+    src/atm_operations/account_info/account_informator.cpp
 

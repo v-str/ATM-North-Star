@@ -1,6 +1,7 @@
 #ifndef USER_H
 #define USER_H
 
+#include "account_informator.h"
 #include "cash_operator.h"
 #include "demo_user.h"
 #include "refill.h"
@@ -57,6 +58,7 @@ class Application {
   UserMessenger user_messenger_;
   UserRegistrator registrator_;
   DemoUser demo_mode_;
+  AccountInformator account_informator_;
 };
 
 #endif  // USER_H

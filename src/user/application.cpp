@@ -50,6 +50,9 @@ void Application::DoProgramSection(int choice) {
   } else if (choice == kStatementSection) {
     Statement();
   } else if (choice == kExitSection) {
+    // GOTO где еще используется метод объекта user_input?
+    // если такого места нет, то вставить мессенджер туда.
+    // избавить класс от это мессенджера.
     user_messenger_.SuggestUserToExit();
     is_user_want_to_exit_ = user_input_.SuggestUserToExitWithConfirmationMenu();
   } else {
@@ -58,7 +61,8 @@ void Application::DoProgramSection(int choice) {
 }
 
 void Application::ShowAccountInfo() {
-  user_messenger_.ShowAccountInformation(user_identifier_, cash_operator_);
+  account_informator_.DisplayAccountInformation(user_identifier_,
+                                                cash_operator_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
