@@ -1,26 +1,28 @@
 #include "account_informator.h"
 
-static const int N = 45;
-static const int kSleep = 100;
-
 void AccountInformator::DisplayAccountInformation(
     UserIdentifier &user_identifier, CashOperator &cash_operator) {
-  cout << "\t";
-  utility_.WriteSymbolsNTimes('-', N);
+  account_messenger_.DisplayStrip();
 
-  DisplayUserInformation("Login", user_identifier.GetLogin());
-  DisplayUserInformation("Password", user_identifier.GetPassword());
-  DisplayUserInformation("Balance", std::to_string(cash_operator.GetCash()));
-  DisplayUserInformation("Credit", std::to_string(cash_operator.GetCredit()));
-  DisplayUserInformation("Monthly payment $",
-                         std::to_string(cash_operator.GetMonthlyPayment()));
-  DisplayUserInformation(
-      "Credit term", std::to_string(cash_operator.GetAmountOfCreditMonth()));
-}
+  account_messenger_.DisplayUserInformation(account_messenger_.GetLoginText(),
+                                            user_identifier.GetLogin());
 
-void AccountInformator::DisplayUserInformation(const std::string &info_title,
-                                               const std::string &value) const {
-  cout << "\n\t# " << info_title << ": " << value << "\n\t";
-  utility_.WriteSymbolsNTimes('-', N);
-  utility_.Sleep(kSleep);
+  account_messenger_.DisplayUserInformation(
+      account_messenger_.GetPasswordText(), user_identifier.GetPassword());
+
+  account_messenger_.DisplayUserInformation(
+      account_messenger_.GetBalanceText(),
+      std::to_string(cash_operator.GetCash()));
+
+  account_messenger_.DisplayUserInformation(
+      account_messenger_.GetCreditText(),
+      std::to_string(cash_operator.GetCredit()));
+
+  account_messenger_.DisplayUserInformation(
+      account_messenger_.GetPaymentText(),
+      std::to_string(cash_operator.GetMonthlyPayment()));
+
+  account_messenger_.DisplayUserInformation(
+      account_messenger_.GetTermText(),
+      std::to_string(cash_operator.GetAmountOfCreditMonth()));
 }

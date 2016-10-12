@@ -50,7 +50,8 @@ void Application::DoProgramSection(int choice) {
   } else if (choice == kStatementSection) {
     Statement();
   } else if (choice == kExitSection) {
-    // GOTO где еще используется метод объекта user_input?
+    // GOTO
+    // где еще используется метод объекта user_input?
     // если такого места нет, то вставить мессенджер туда.
     // избавить класс от это мессенджера.
     user_messenger_.SuggestUserToExit();
