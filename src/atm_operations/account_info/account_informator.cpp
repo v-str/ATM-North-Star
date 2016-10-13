@@ -4,7 +4,8 @@ void AccountInformator::DisplayAccountInformation(
     UserIdentifier &user_identifier, CashOperator &cash_operator) {
   screen_.DisplayStrip();
 
-  //  screen_.DisplayLogin(user_identifier.GetLogin());
+  screen_.DisplayLogin(user_identifier.GetLogin());
+
   //  screen_.DisplayPassword(user_identifier.GetPassword());
   //  screen_.DisplayCash(cash_operator.GetCash());
   //  screen_.DisplayCredit(cash_operator.GetCredit());
@@ -13,8 +14,8 @@ void AccountInformator::DisplayAccountInformation(
 
   // account_messenger_.DisplayStrip();
 
-  account_messenger_.DisplayUserInformation(account_messenger_.LoginText(),
-                                            user_identifier.GetLogin());
+  //  account_messenger_.DisplayUserInformation(account_messenger_.LoginText(),
+  //                                            user_identifier.GetLogin());
 
   account_messenger_.DisplayUserInformation(account_messenger_.PasswordText(),
                                             user_identifier.GetPassword());
