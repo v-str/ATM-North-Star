@@ -12,12 +12,18 @@ using std::cout;
 
 class InformationScreen {
  public:
+  void DrawStrip();
+
   void DisplayUserInformation(const std::string &info_title,
                               const std::string &value) const;
-
-  void DisplayStrip();
+  void DisplayUserInformation(const std::string &info_title,
+                              const int &value) const;
+  void DisplayUserInformation(const std::string &info_title,
+                              const double &value) const;
 
   void DisplayLogin(const std::string &login) const;
+  void DisplayPassword(const std::string &password) const;
+  void DisplayCash(const int cash) const;
 
  private:
   AccountMessenger account_messenger_;
