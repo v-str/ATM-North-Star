@@ -14,12 +14,12 @@ class AccountMessenger {
 
   void DisplayStrip();
 
-  inline std::string GetLoginText() const { return "Login"; }
-  inline std::string GetPasswordText() const { return "Password"; }
-  inline std::string GetBalanceText() const { return "Balance"; }
-  inline std::string GetCreditText() const { return "Credit"; }
-  inline std::string GetPaymentText() const { return "Monthly payment"; }
-  inline std::string GetTermText() const { return "Credit term"; }
+  inline std::string LoginText() const { return "Login"; }
+  inline std::string PasswordText() const { return "Password"; }
+  inline std::string BalanceText() const { return "Balance"; }
+  inline std::string CreditText() const { return "Credit"; }
+  inline std::string PaymentText() const { return "Monthly payment"; }
+  inline std::string TermText() const { return "Credit term"; }
 
  private:
   SystemUtility utility_;
