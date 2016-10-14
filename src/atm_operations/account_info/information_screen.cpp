@@ -34,6 +34,10 @@ void InformationScreen::DisplayCash(const int cash) const {
   DisplayUserInformation(account_messenger_.BalanceText(), cash);
 }
 
-void InformationScreen::DisplayCredit(const int credit) {
+void InformationScreen::DisplayCredit(const int credit) const {
   DisplayUserInformation(account_messenger_.CreditText(), credit);
+}
+
+void InformationScreen::DisplayPayment(const double payment) const {
+  DisplayUserInformation(account_messenger_.PaymentText(), payment);
 }

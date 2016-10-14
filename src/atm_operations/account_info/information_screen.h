@@ -23,7 +23,8 @@ class InformationScreen {
   void DisplayLogin(const std::string &login) const;
   void DisplayPassword(const std::string &password) const;
   void DisplayCash(const int cash) const;
-  void DisplayCredit(const int credit);
+  void DisplayCredit(const int credit) const;
+  void DisplayPayment(const double payment) const;
 
  private:
   AccountMessenger account_messenger_;

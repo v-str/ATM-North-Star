@@ -9,7 +9,7 @@ void AccountInformator::DisplayAccountInformation(
   screen_.DisplayPassword(user_identifier.GetPassword());
   screen_.DisplayCash(cash_operator.GetCash());
   screen_.DisplayCredit(cash_operator.GetCredit());
-  //  screen_.DisplayPayment(cash_operator.GetMonthlyPayment());
+  screen_.DisplayPayment(cash_operator.GetMonthlyPayment());
   //  screen_.DispalyCreditMonth(cash_operator.GetAmountOfCreditMonth());
 
   // account_messenger_.DisplayStrip();
@@ -28,9 +28,9 @@ void AccountInformator::DisplayAccountInformation(
   //      account_messenger_.CreditText(),
   //      std::to_string(cash_operator.GetCredit()));
 
-  account_messenger_.DisplayUserInformation(
-      account_messenger_.PaymentText(),
-      std::to_string(cash_operator.GetMonthlyPayment()));
+  //  account_messenger_.DisplayUserInformation(
+  //      account_messenger_.PaymentText(),
+  //      std::to_string(cash_operator.GetMonthlyPayment()));
 
   account_messenger_.DisplayUserInformation(
       account_messenger_.TermText(),
