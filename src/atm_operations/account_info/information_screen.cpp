@@ -41,3 +41,7 @@ void InformationScreen::DisplayCredit(const int credit) const {
 void InformationScreen::DisplayPayment(const double payment) const {
   DisplayUserInformation(account_messenger_.PaymentText(), payment);
 }
+
+void InformationScreen::DisplayCreditMonth(const int credit_month) const {
+  DisplayUserInformation(account_messenger_.TermText(), credit_month);
+}

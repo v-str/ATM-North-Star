@@ -25,6 +25,7 @@ class InformationScreen {
   void DisplayCash(const int cash) const;
   void DisplayCredit(const int credit) const;
   void DisplayPayment(const double payment) const;
+  void DisplayCreditMonth(const int credit_month) const;
 
  private:
   AccountMessenger account_messenger_;
