@@ -1,27 +1,5 @@
 #include "information_screen.h"
 
-void InformationScreen::DisplayUserInformation(const std::string &info_title,
-                                               const std::string &value) const {
-  cout << "\n\t# " << info_title << value << "\n\t";
-  utility_.WriteSymbolsNTimes('-', kNTimes);
-  utility_.Sleep(kSleep);
-}
-
-void InformationScreen::DisplayUserInformation(const std::string &info_title,
-                                               int value) const {
-  DisplayUserInformation(info_title, std::to_string(value));
-}
-
-void InformationScreen::DisplayUserInformation(const std::string &info_title,
-                                               const double &value) const {
-  DisplayUserInformation(info_title, std::to_string(value));
-}
-
-void InformationScreen::DrawStrip() {
-  cout << "\t";
-  utility_.WriteSymbolsNTimes('-', kNTimes);
-}
-
 void InformationScreen::DisplayLogin(const std::string &login) const {
   DisplayUserInformation(account_messenger_.LoginText(), login);
 }
@@ -44,4 +22,26 @@ void InformationScreen::DisplayPayment(const double payment) const {
 
 void InformationScreen::DisplayCreditMonth(const int credit_month) const {
   DisplayUserInformation(account_messenger_.TermText(), credit_month);
+}
+
+void InformationScreen::DisplayUserInformation(const std::string &info_title,
+                                               int value) const {
+  DisplayUserInformation(info_title, std::to_string(value));
+}
+
+void InformationScreen::DisplayUserInformation(const std::string &info_title,
+                                               const double &value) const {
+  DisplayUserInformation(info_title, std::to_string(value));
+}
+
+void InformationScreen::DisplayUserInformation(const std::string &info_title,
+                                               const std::string &value) const {
+  cout << "\n\t# " << info_title << value << "\n\t";
+  utility_.WriteSymbolsNTimes('-', kNTimes);
+  utility_.Sleep(kSleep);
+}
+
+void InformationScreen::DrawStrip() {
+  cout << "\t";
+  utility_.WriteSymbolsNTimes('-', kNTimes);
 }
