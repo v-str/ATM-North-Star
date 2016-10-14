@@ -16,14 +16,14 @@ class InformationScreen {
 
   void DisplayUserInformation(const std::string &info_title,
                               const std::string &value) const;
-  void DisplayUserInformation(const std::string &info_title,
-                              const int &value) const;
+  void DisplayUserInformation(const std::string &info_title, int value) const;
   void DisplayUserInformation(const std::string &info_title,
                               const double &value) const;
 
   void DisplayLogin(const std::string &login) const;
   void DisplayPassword(const std::string &password) const;
   void DisplayCash(const int cash) const;
+  void DisplayCredit(const int credit);
 
  private:
   AccountMessenger account_messenger_;
