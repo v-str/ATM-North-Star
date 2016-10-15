@@ -1,7 +1,6 @@
 #ifndef ACCOUNT_INFORMATOR_H
 #define ACCOUNT_INFORMATOR_H
 
-#include "account_messenger.h"
 #include "cash_operator.h"
 #include "user_identifier.h"
 #include "information_screen.h"
@@ -13,7 +12,6 @@ class AccountInformator {
                                  CashOperator &cash_operator);
 
  private:
-  AccountMessenger account_messenger_;
   InformationScreen screen_;
 };
 

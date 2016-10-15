@@ -12,7 +12,9 @@ class AccountMessenger {
   void DisplayUserInformation(const std::string &info_title,
                               const std::string &value) const;
 
-  void DisplayStrip();
+  void DisplayStripWithDelay() const;
+  void DisplayInfoLine(const std::string info_title,
+                       const std::string value) const;
 
   inline std::string LoginText() const { return "Login: "; }
   inline std::string PasswordText() const { return "Password: "; }
@@ -24,7 +26,7 @@ class AccountMessenger {
  private:
   SystemUtility utility_;
 
-  static const int kNTimes = 25;
+  static const int kNTimes = 45;
   static const int kSleep = 100;
 };
 

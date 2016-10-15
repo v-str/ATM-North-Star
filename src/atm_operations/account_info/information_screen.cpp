@@ -36,12 +36,7 @@ void InformationScreen::DisplayUserInformation(const std::string &info_title,
 
 void InformationScreen::DisplayUserInformation(const std::string &info_title,
                                                const std::string &value) const {
-  cout << "\n\t# " << info_title << value << "\n\t";
-  utility_.WriteSymbolsNTimes('-', kNTimes);
-  utility_.Sleep(kSleep);
+  account_messenger_.DisplayInfoLine(info_title, value);
 }
 
-void InformationScreen::DrawStrip() {
-  cout << "\t";
-  utility_.WriteSymbolsNTimes('-', kNTimes);
-}
+

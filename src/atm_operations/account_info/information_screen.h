@@ -8,8 +8,6 @@
 #include "system_utility.h"
 #include "user_identifier.h"
 
-using std::cout;
-
 class InformationScreen {
  public:
   void DisplayLogin(const std::string &login) const;
@@ -26,8 +24,6 @@ class InformationScreen {
 
   void DisplayUserInformation(const std::string &info_title,
                               const double &value) const;
-
-  void DrawStrip();
 
  private:
   AccountMessenger account_messenger_;
