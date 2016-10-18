@@ -3,17 +3,19 @@
 UserIdentificationDataProvider::string
 UserIdentificationDataProvider::GetLoginFromUser() {
   registation_messenger_.ShowInitialLoginText();
-  string login;
-  getline(cin, login);
-  return login;
+  return GetDataFromUser();
+  //  string login;
+  //  getline(cin, login);
+  //  return login;
 }
 
 UserIdentificationDataProvider::string
 UserIdentificationDataProvider::GetPasswordFromUser() {
   registation_messenger_.ShowInitialPasswordText();
-  string password;
-  getline(cin, password);
-  return password;
+  return GetDataFromUser();
+  //  string password;
+  //  getline(cin, password);
+  //  return password;
 }
 
 UserIdentificationDataProvider::string
