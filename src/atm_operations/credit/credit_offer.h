@@ -19,7 +19,7 @@ class CreditOffer {
   int GetCreditChoice() const;
 
   void DoCreditOperation(CashOperator &cash_operator, int sum_of_credit,
-                         int pay_per_month) const;
+                         double pay_per_month) const;
   void DoCreditOperation(CashOperator &cash_operator) const;
   void DoCreditOperation(CashOperator &cash_operator,
                          Notifier error_operation) const;

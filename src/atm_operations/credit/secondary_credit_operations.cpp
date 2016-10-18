@@ -6,8 +6,8 @@ static const int kFullRate = 100;
 static const int kOneYear = 12;
 static const int kMaximalCreditTerm = 61;
 
-int SecondaryCreditOperations::GetAmountCreditByMode(const int maximal_sum_of_credit,
-                                             const int credit_mode) {
+int SecondaryCreditOperations::GetAmountCreditByMode(
+    const int maximal_sum_of_credit, const int credit_mode) {
   int sum_of_credit = 0;
 
   if (credit_mode == kIndividualCredit) {
@@ -41,6 +41,7 @@ int SecondaryCreditOperations::GetAmountCreditMonths() {
 
 double SecondaryCreditOperations::CalculateMonthlyPayment(
     const int sum_of_credit, const int amount_of_credit_months) const {
+
   double rate = (sum_of_credit * kRatePerYear) / kFullRate;
   double pay_per_month =
       (sum_of_credit / amount_of_credit_months) + (rate / kOneYear);

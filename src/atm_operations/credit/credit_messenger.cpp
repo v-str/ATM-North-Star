@@ -48,7 +48,7 @@ void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
       "loan?\n\n"
       "# 1. Get all sum\n"
       "# 2. Change the sum of loan\n"
-      "# 3. Exit\n");
+      "# 3. Exit credit menu\n");
   cout << "# Enter: ";
 }
 

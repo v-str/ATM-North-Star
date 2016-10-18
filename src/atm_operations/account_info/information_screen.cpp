@@ -8,35 +8,39 @@ void InformationScreen::DisplayPassword(const std::string &password) const {
   DisplayUserInformation(account_messenger_.PasswordText(), password);
 }
 
-void InformationScreen::DisplayCash(const int cash) const {
+void InformationScreen::DisplayCash(int cash) const {
   DisplayUserInformation(account_messenger_.BalanceText(), cash);
 }
 
-void InformationScreen::DisplayCredit(const int credit) const {
+void InformationScreen::DisplayCredit(int credit) const {
   DisplayUserInformation(account_messenger_.CreditText(), credit);
 }
 
-void InformationScreen::DisplayPayment(const double payment) const {
+void InformationScreen::DisplayPayment(double payment) const {
   DisplayUserInformation(account_messenger_.PaymentText(), payment);
 }
 
-void InformationScreen::DisplayCreditMonth(const int credit_month) const {
+void InformationScreen::DisplayCreditMonth(int credit_month) const {
   DisplayUserInformation(account_messenger_.TermText(), credit_month);
 }
 
 void InformationScreen::DisplayUserInformation(const std::string &info_title,
                                                int value) const {
-  DisplayUserInformation(info_title, std::to_string(value));
+  std::stringstream stream;
+  stream << value;
+  account_messenger_.DisplayInfoLine(info_title, stream);
 }
 
 void InformationScreen::DisplayUserInformation(const std::string &info_title,
-                                               const double &value) const {
-  DisplayUserInformation(info_title, std::to_string(value));
+                                               double value) const {
+  std::stringstream stream;
+  stream << value;
+  account_messenger_.DisplayInfoLine(info_title, stream);
 }
 
 void InformationScreen::DisplayUserInformation(const std::string &info_title,
                                                const std::string &value) const {
-  account_messenger_.DisplayInfoLine(info_title, value);
+  std::stringstream stream;
+  stream << value;
+  account_messenger_.DisplayInfoLine(info_title, stream);
 }
-
-

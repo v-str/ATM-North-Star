@@ -32,7 +32,7 @@ int CreditOffer::GetCreditChoice() const {
 
 void CreditOffer::DoCreditOperation(CashOperator &cash_operator,
                                     int sum_of_credit,
-                                    int pay_per_month) const {
+                                    double pay_per_month) const {
   cash_operator.GetAssignACredit(sum_of_credit);
   cash_operator.AssignAMonthlyPayment(pay_per_month);
   credit_messenger_.ShowResultOfUserChoice(kEnroll);

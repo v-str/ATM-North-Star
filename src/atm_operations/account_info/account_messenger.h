@@ -1,6 +1,7 @@
 #ifndef ACCOUNT_MESSENGER_H
 #define ACCOUNT_MESSENGER_H
 
+#include <sstream>
 #include <string>
 
 #include "system_utility.h"
@@ -9,12 +10,9 @@ using std::cout;
 
 class AccountMessenger {
  public:
-  void DisplayUserInformation(const std::string &info_title,
-                              const std::string &value) const;
-
-  void DisplayStripWithDelay() const;
-  void DisplayInfoLine(const std::string info_title,
-                       const std::string value) const;
+  void DisplayStrip() const;
+  void DisplayInfoLine(const std::string &info_title,
+                       const std::stringstream &stream) const;
 
   inline std::string LoginText() const { return "Login: "; }
   inline std::string PasswordText() const { return "Password: "; }
