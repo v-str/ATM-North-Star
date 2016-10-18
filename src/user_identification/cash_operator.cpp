@@ -1,7 +1,5 @@
 #include "cash_operator.h"
 
-static const int kmininmal_sum_for_credit = 1000;
-
 void CashOperator::SetCash(int cash) { cash_ = cash; }
 
 void CashOperator::SetCredit(int credit) { credit_ = credit; }
