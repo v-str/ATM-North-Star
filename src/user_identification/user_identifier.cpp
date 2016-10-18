@@ -1,8 +1,5 @@
 #include "user_identifier.h"
 
-static const int kMaxLenghtOfLogin = 21;
-static const int kMaxLenghtOfPassword = 4;
-
 void UserIdentifier::SetLogin(const string &login) { login_ = login; }
 
 void UserIdentifier::SetPassword(const UserIdentifier::string &password) {

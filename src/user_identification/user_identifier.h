@@ -23,6 +23,9 @@ class UserIdentifier {
  private:
   string login_ = "no_name";
   string password_ = "0000";
+
+  static const int kMaxLenghtOfLogin = 21;
+  static const int kMaxLenghtOfPassword = 4;
 };
 
 #endif  // USER_IDENTIFIER_H
