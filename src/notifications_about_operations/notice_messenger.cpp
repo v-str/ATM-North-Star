@@ -4,6 +4,9 @@ const int kSecond = 1000;
 const int kAccessFrame = 18;
 const int kIncorrectDataFrame = 27;
 
+static const int kSleep = 100;
+static const int kFrame = 45;
+
 void NoticeMessenger::ShowAcceptableMessageFrame() const {
   utility_.ClearScreen();
   cout << "\n\n\t\t";
@@ -67,7 +70,13 @@ void NoticeMessenger::ShowUnacceptableWithdrawal(int incorrect_sum,
   utility_.ClearScreen();
   utility_.WriteTextWithDelay("\n\t# Sorry, entered sum is incorrect.\n\n");
   cout << "\t# Entered sum: " << incorrect_sum << "\n\n";
-  refill_messenger_.WriteUserInfo("Balance", std::to_string(amount_of_cash));
+
+  cout << "\n\t# "
+       << "Balance"
+       << ": " << amount_of_cash << "\n\t";
+  utility_.WriteSymbolsNTimes('-', kFrame);
+  utility_.Sleep(kSleep);
+
   utility_.IgnoreCinLine();
 }
 
