@@ -12,6 +12,10 @@ class Refill {
   void StartRefillOperation(CashOperator &cash_operator);
 
  private:
+  static const int kNull = 0;
+  static const int minimal_refill = 10;
+  static const int maximal_refill = 50000;
+
   RefillMessenger refill_messenger_;
   Notifier error_message_;
   SystemUtility utility_;

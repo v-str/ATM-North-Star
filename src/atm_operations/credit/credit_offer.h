@@ -9,14 +9,14 @@
 #include "user_choice.h"
 
 class CreditOffer {
-  enum CreditSolution { kEnroll = 1, kRepeal, kExit };
-
  public:
   void SuggestACredit(CashOperator &cash_operator,
                       const std::string &user_login, int sum_of_credit,
                       int amount_of_months) const;
 
  private:
+  enum CreditSolution { kEnroll = 1, kRepeal, kExit };
+
   int GetCreditChoice() const;
 
   void DoCreditOperation(CashOperator &cash_operator, int sum_of_credit,

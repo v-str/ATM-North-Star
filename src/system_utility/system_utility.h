@@ -2,10 +2,6 @@
 #define SYSTEM_UTILITY_H
 
 #include <string>
-#include <iostream>
-
-using std::cin;
-using std::cout;
 
 class SystemUtility {
   using string = std::string;

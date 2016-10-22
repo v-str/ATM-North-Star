@@ -1,7 +1,4 @@
-#include "statement.h"
-
-static const int kNull = 0;
-static const int kSizeOfCheckField = 12;
+#include "user_statement.h"
 
 void UserStatement::ShowStatement(CashOperator &cash_operator) {
   utility_.ClearScreen();

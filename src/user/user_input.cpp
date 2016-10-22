@@ -1,9 +1,6 @@
 #include "user_input.h"
 
-static const int kInvalidChoice = -1;
-static const int kGoToMain = 1;
-static const int kExit = 2;
-static const int kSecond = 1000;
+#include <iostream>
 
 bool UserInput::SuggestUserToExit() const {
   user_messenger_.ShowSuggestionAboutExit();
@@ -52,7 +49,7 @@ bool UserInput::LineNotEmpty(const string &str) const {
 
 std::string UserInput::GetLineFromUser() const {
   string line;
-  getline(cin, line);
+  getline(std::cin, line);
   return line;
 }
 

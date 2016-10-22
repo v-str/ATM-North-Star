@@ -1,13 +1,8 @@
 #ifndef NOTIFIER_H
 #define NOTIFIER_H
 
-#include <iostream>
-
 #include "notice_messenger.h"
 #include "system_utility.h"
-
-using std::cout;
-using std::cin;
 
 class Notifier {
  public:

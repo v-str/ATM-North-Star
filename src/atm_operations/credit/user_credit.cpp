@@ -1,12 +1,5 @@
 #include "user_credit.h"
 
-static const int kNull = 0;
-static const int kMaxMultiplier = 15;
-static const int kConsiderACredit = 1;
-static const int kMinimalSumForCredit = 1000;
-static const int kMaximalCredit = 0;
-static const int kConsumerCredit = 1;
-
 void UserCredit::StartCreditOperation(const UserIdentifier &user_identifier,
                                       CashOperator &cash_operator) {
   if (AlreadyHasACredit(cash_operator.GetCredit())) {
@@ -59,7 +52,6 @@ void UserCredit::GiveACredit(CashOperator &cash_operator,
     credit_.GiveCreditByMode(cash_operator, user_login, maximal_sum_of_credit,
                              kConsumerCredit);
   } else if (choice == kExit) {
-    //    credit_messenger_.ShowExitMessage();
   } else {
     error_message.ShowIncorrectDataMessage();
   }

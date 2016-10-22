@@ -10,13 +10,13 @@
 class Credit {
   using string = std::string;
 
-  enum CreditSolution { kEnroll = 1, kRepeal, kExit };
-
  public:
   void GiveCreditByMode(CashOperator &cash_operator, const string &user_login,
                         int maximal_sum_of_credit, int credit_mode);
 
  private:
+  enum CreditSolution { kEnroll = 1, kRepeal, kExit };
+
   SecondaryCreditOperations secondary_credit_operation_;
   CreditOffer credit_offer_;
 };

@@ -6,13 +6,14 @@
 
 #include "system_utility.h"
 
-using std::cout;
-using std::cin;
-
 class RefillMessenger {
   using string = std::string;
 
  public:
+  static const int kSecond = 1000;
+  static const int kSleep = 100;
+  static const int kFrame = 45;
+
   void ShowNotifyAboutCash() const;
   void ShowUserBalance(const int balance) const;
   void WriteUserInfo(const string &info_title, const string &value) const;

@@ -1,8 +1,5 @@
 #include "demo_user.h"
 
-#include <iostream>
-#include <string>
-
 void DemoUser::ShowDemoMode() {
   auto message_type = DemoUserMessanger::MessageType::kWelcome;
   demo_messanger_.ShowMessage(message_type);

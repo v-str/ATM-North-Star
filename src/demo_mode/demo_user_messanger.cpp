@@ -1,13 +1,5 @@
 #include "demo_user_messanger.h"
 
-#include <iostream>
-
-static const int kSleep = 100;
-
-using std::cin;
-using std::cout;
-using std::string;
-
 void DemoUserMessanger::ShowMessage(
     DemoUserMessanger::MessageType message_type) {
   switch (message_type) {
@@ -36,18 +28,19 @@ void DemoUserMessanger::ShowMessage(
 }
 
 void DemoUserMessanger::ShowDemoMenu() const {
-  cout << "\t################ Demo Transaction menu ###################\n"
-          "\t#                                                        #\n"
-          "\t#  1. Account information            2. Refill           #\n"
-          "\t#  ----------------------            ------------        #\n"
-          "\t#  3. Credit application             4. Withdrawal       #\n"
-          "\t#  ----------------------            ------------        #\n"
-          "\t#  5. Statement                      6. Exit             #\n"
-          "\t#                                                        #\n"
-          "\t#                   7. Create Account                    #\n"
-          "\t#                                                        #\n"
-          "\t##########################################################\n\n"
-          "\t# Enter: ";
+  std::cout
+      << "\t################ Demo Transaction menu ###################\n"
+         "\t#                                                        #\n"
+         "\t#  1. Account information            2. Refill           #\n"
+         "\t#  ----------------------            ------------        #\n"
+         "\t#  3. Credit application             4. Withdrawal       #\n"
+         "\t#  ----------------------            ------------        #\n"
+         "\t#  5. Statement                      6. Exit             #\n"
+         "\t#                                                        #\n"
+         "\t#                   7. Create Account                    #\n"
+         "\t#                                                        #\n"
+         "\t##########################################################\n\n"
+         "\t# Enter: ";
 }
 
 void DemoUserMessanger::ShowWelcomeDemoMessage() const {
@@ -66,17 +59,17 @@ void DemoUserMessanger::ShowDemoAccountInfoMessage() const {
   utility_.WriteTextWithDelay(
       "# This section show your account information.\n"
       "# For example, it's look like this:\n");
-  cout << "--------------------------------------------\n";
-  cout << "# Login: Mr. Anderson\n";
+  std::cout << "--------------------------------------------\n";
+  std::cout << "# Login: Mr. Anderson\n";
   utility_.Sleep(kSleep);
-  cout << "# Password: 7623\n";
+  std::cout << "# Password: 7623\n";
   utility_.Sleep(kSleep);
-  cout << "# Balance $: 7450\n";
+  std::cout << "# Balance $: 7450\n";
   utility_.Sleep(kSleep);
-  cout << "# Credit $: 20000\n";
-  cout << "# Monthly payment $: 2280\n";
-  cout << "# Credit term: 20 month(s)\n";
-  cout << "--------------------------------------------\n\n";
+  std::cout << "# Credit $: 20000\n";
+  std::cout << "# Monthly payment $: 2280\n";
+  std::cout << "# Credit term: 20 month(s)\n";
+  std::cout << "--------------------------------------------\n\n";
   utility_.Sleep(kSleep);
   utility_.WriteTextWithDelay(
       "# As you can see, your account may contain different data like\n"
@@ -93,10 +86,10 @@ void DemoUserMessanger::ShowInfoAboutRefillMessage() const {
       "# When you refill on 1005.66  supposed, that you making a\n"
       "# transfer from another account.\n\n"
       "# For example, refill account is look like this:");
-  cout << "-----------------------------------------------\n"
-          " Entered sum: 1000 $\n"
-          "-----------------------------------------------\n"
-          " (If sum is valid, money will be transferred)\n\n";
+  std::cout << "-----------------------------------------------\n"
+               " Entered sum: 1000 $\n"
+               "-----------------------------------------------\n"
+               " (If sum is valid, money will be transferred)\n\n";
 }
 
 void DemoUserMessanger::ShowDemoCreditAppMessage() const {

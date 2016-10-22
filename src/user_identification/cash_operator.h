@@ -21,12 +21,12 @@ class CashOperator {
   void AssignAMonthlyPayment(double pay_per_month);
 
  private:
+  static const int kmininmal_sum_for_credit = 1000;
+
   int cash_ = 0;
   int credit_ = 0;
   double monthly_payment_ = 0.0;
   int amount_of_credit_month_ = 0;
-
-  static const int kmininmal_sum_for_credit = 1000;
 };
 
 #endif  // CASH_OPERATOR_H

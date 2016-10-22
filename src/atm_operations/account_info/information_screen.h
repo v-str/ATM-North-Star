@@ -4,9 +4,7 @@
 #include <string>
 
 #include "account_messenger.h"
-#include "cash_operator.h"
 #include "system_utility.h"
-#include "user_identifier.h"
 
 class InformationScreen {
  public:
@@ -26,11 +24,11 @@ class InformationScreen {
                               double value) const;
 
  private:
-  AccountMessenger account_messenger_;
-  SystemUtility utility_;
-
   static const int kNTimes = 45;
   static const int kSleep = 100;
+
+  AccountMessenger account_messenger_;
+  SystemUtility utility_;
 };
 
 #endif  // INFORMATIONSCREEN_H

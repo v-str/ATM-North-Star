@@ -13,5 +13,4 @@ class CreditPage {
 
 #endif  // CREDIT_PAGE_H
 
-// Далее Класс CreditOffer тоже следует отрефакторить и переименовать.
-// далее....
+

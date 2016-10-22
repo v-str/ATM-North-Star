@@ -1,10 +1,7 @@
 #ifndef NOTICE_MESSENGER_H
 #define NOTICE_MESSENGER_H
 
-#include <iostream>
 #include "system_utility.h"
-
-using std::cout;
 
 class NoticeMessenger {
  public:
@@ -19,6 +16,13 @@ class NoticeMessenger {
   void ShowIncorrectfMonths() const;
 
  private:
+  static const int kSecond = 1000;
+  static const int kAccessFrame = 18;
+  static const int kIncorrectDataFrame = 27;
+
+  static const int kSleep = 100;
+  static const int kFrame = 45;
+
   SystemUtility utility_;
 };
 

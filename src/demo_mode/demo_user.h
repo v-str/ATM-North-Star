@@ -9,6 +9,13 @@
 class DemoUser {
   using string = std::string;
 
+ public:
+  void ShowDemoMode();
+  bool UserWantToRegistrate();
+  void UserWantToExitProgram();
+  void UserDecideToExit();
+
+ private:
   enum MenuSection {
     kAccountSection = 1,
     kRefillSection,
@@ -19,13 +26,6 @@ class DemoUser {
     kRegistrationSection
   };
 
- public:
-  void ShowDemoMode();
-  bool UserWantToRegistrate();
-  void UserWantToExitProgram();
-  void UserDecideToExit();
-
- private:
   void StartSection(DemoUserMessanger::MessageType message_type);
   void ForwardToRegistration();
   void StartRegistration();
@@ -33,6 +33,7 @@ class DemoUser {
 
   bool user_want_to_exit_ = false;
   bool user_want_to_registrate_ = false;
+
   UserInput user_input_;
   DemoUserMessanger demo_messanger_;
 };

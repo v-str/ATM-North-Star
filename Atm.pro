@@ -30,7 +30,6 @@ HEADERS += \
     src/atm_operations/credit/user_credit.h \
     src/atm_operations/refill/refill.h \
     src/atm_operations/refill/refill_messenger.h \
-    src/atm_operations/statement/statement.h \
     src/atm_operations/statement/statement_messenger.h \
     src/atm_operations/withdrawal/withdrawal.h \
     src/atm_operations/withdrawal/withdrawal_messenger.h \
@@ -52,7 +51,8 @@ HEADERS += \
     src/atm_operations/account_info/account_informator.h \
     src/atm_operations/account_info/account_messenger.h \
     src/atm_operations/account_info/information_screen.h \
-    src/user_identification/identification_messenger.h
+    src/user_identification/identification_messenger.h \
+    src/atm_operations/statement/user_statement.h
 
 SOURCES += \
     src/user/user_choice.cpp \
@@ -63,7 +63,6 @@ SOURCES += \
     src/atm_operations/credit/user_credit.cpp \
     src/atm_operations/refill/refill.cpp \
     src/atm_operations/refill/refill_messenger.cpp \
-    src/atm_operations/statement/statement.cpp \
     src/atm_operations/statement/statement_messenger.cpp \
     src/atm_operations/withdrawal/withdrawal.cpp \
     src/atm_operations/withdrawal/withdrawal_messenger.cpp \
@@ -87,5 +86,6 @@ SOURCES += \
     src/atm_operations/account_info/account_informator.cpp \
     src/atm_operations/account_info/account_messenger.cpp \
     src/atm_operations/account_info/information_screen.cpp \
-    src/user_identification/identification_messenger.cpp
+    src/user_identification/identification_messenger.cpp \
+    src/atm_operations/statement/user_statement.cpp
 

@@ -1,5 +1,7 @@
 #include "user_identification_data_provider.h"
 
+#include "iostream"
+
 UserIdentificationDataProvider::string
 UserIdentificationDataProvider::GetLoginFromUser() {
   identification_messenger_.ShowInitialLoginText();
@@ -15,6 +17,6 @@ UserIdentificationDataProvider::GetPasswordFromUser() {
 UserIdentificationDataProvider::string
 UserIdentificationDataProvider::GetDataFromUser() {
   string user_data;
-  getline(cin, user_data);
+  getline(std::cin, user_data);
   return user_data;
 }

@@ -5,8 +5,7 @@
 #include "cash_operator.h"
 #include "demo_user.h"
 #include "refill.h"
-#include "statement.h"
-#include "statement.h"
+#include "user_statement.h"
 #include "system_utility.h"
 #include "user_credit.h"
 #include "user_identifier.h"
@@ -16,6 +15,10 @@
 #include "withdrawal.h"
 
 class Application {
+ public:
+  void RunProgram();
+
+ private:
   enum ProgramMode {
     kDemoMode = 1,
     kRegistration,
@@ -30,10 +33,6 @@ class Application {
     kExitSection,
   };
 
- public:
-  void RunProgram();
-
- private:
   void RegisterUser();
   void StartMainMenu();
   void DoProgramSection(int choice);

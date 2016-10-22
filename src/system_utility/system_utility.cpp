@@ -1,12 +1,12 @@
 #include "system_utility.h"
 
 #include <chrono>
-#include <limits>
+#include <iostream>
 #include <thread>
 
 void SystemUtility::CleanFlow() const {
-  cin.clear();
-  while (cin.get() != '\n')
+  std::cin.clear();
+  while (std::cin.get() != '\n')
     ;
 }
 
@@ -22,15 +22,15 @@ void SystemUtility::ClearScreen() const { system("clear"); }
 
 void SystemUtility::WriteTextWithDelay(const string &text, int delay) const {
   for (const auto &symbol : text) {
-    cout << symbol;
-    cout.flush();
+    std::cout << symbol;
+    std::cout.flush();
     Sleep(delay);
   }
-  cout << "\n";
+  std::cout << "\n";
 }
 
 void SystemUtility::WriteSymbolsNTimes(char symbol, int n) const {
   for (int i = 0; i < n; ++i) {
-    cout << symbol;
+    std::cout << symbol;
   }
 }

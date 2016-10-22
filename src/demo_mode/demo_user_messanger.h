@@ -15,9 +15,7 @@ class DemoUserMessanger {
     kStatement
   };
 
-  void ShowMessage(MessageType message_type);
   void ShowWelcomeDemoMessage() const;
-
   void ShowDemoAccountInfoMessage() const;
   void ShowInfoAboutRefillMessage() const;
   void ShowDemoCreditAppMessage() const;
@@ -25,7 +23,11 @@ class DemoUserMessanger {
   void ShowDemoStatementMessage() const;
   void ShowDemoMenuMessage() const;
 
+  void ShowMessage(MessageType message_type);
+
  private:
+  static const int kSleep = 100;
+
   void ShowDemoMenu() const;
 
   SystemUtility utility_;

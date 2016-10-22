@@ -4,14 +4,11 @@
 #include <iostream>
 #include <string>
 
-#include "cash_operator.h"
 #include "notifier.h"
-#include "user_identifier.h"
 #include "user_input.h"
 #include "withdrawal_messenger.h"
-
-using std::cout;
-using std::cin;
+#include "cash_operator.h"
+#include "user_identifier.h"
 
 class Withdrawal {
   using string = std::string;
@@ -29,11 +26,11 @@ class Withdrawal {
   void WithdrawFromAccount(CashOperator &cash_operator, int sum_of_withdrawal);
 
  private:
+  static const int kNull = 0;
+
   UserInput user_input_;
   Notifier error_message_;
   WithdrawalMessenger messenger_;
-
-  static const int kNull = 0;
 };
 
 #endif  // WITHDRAWAL_H

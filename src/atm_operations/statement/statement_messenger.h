@@ -4,9 +4,6 @@
 #include <iostream>
 #include <string>
 
-using std::cout;
-using std::cin;
-
 class StatementMessenger {
   using string = std::string;
 

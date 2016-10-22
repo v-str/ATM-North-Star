@@ -6,8 +6,6 @@
 
 #include "system_utility.h"
 
-using std::cout;
-
 class AccountMessenger {
  public:
   void DisplayStrip() const;
@@ -22,10 +20,10 @@ class AccountMessenger {
   inline std::string TermText() const { return "Credit term: $"; }
 
  private:
-  SystemUtility utility_;
-
   static const int kNTimes = 45;
   static const int kSleep = 100;
+
+  SystemUtility utility_;
 };
 
 #endif  // ACCOUNT_MESSENGER_H

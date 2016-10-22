@@ -1,11 +1,7 @@
 #ifndef USER_IDENTIFIER_H
 #define USER_IDENTIFIER_H
 
-#include <iostream>
 #include <string>
-
-using std::cin;
-using std::cout;
 
 class UserIdentifier {
   using string = std::string;
@@ -21,11 +17,11 @@ class UserIdentifier {
   bool IsNormalPass();
 
  private:
-  string login_ = "no_name";
-  string password_ = "0000";
-
   static const int kMaxLenghtOfLogin = 21;
   static const int kMaxLenghtOfPassword = 4;
+
+  string login_ = "no_name";
+  string password_ = "0000";
 };
 
 #endif  // USER_IDENTIFIER_H

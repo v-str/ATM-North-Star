@@ -7,7 +7,7 @@ void Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
     messenger_.ShowSumOfWithdrawal(sum_of_withdrawal);
     messenger_.ShowPasswordString();
     string password;
-    cin >> password;
+    std::cin >> password;
     if (IsCorrectPasswordAtWithdrawal(password, user_identifier)) {
       WithdrawFromAccount(cash_operator, sum_of_withdrawal);
       messenger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
@@ -25,7 +25,7 @@ void Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
 int Withdrawal::SumOfWithdrawal() const {
   messenger_.ShowSentenceEnterASumOfMoney();
   int withdraw_sum = 0;
-  cin >> withdraw_sum;
+  std::cin >> withdraw_sum;
   return withdraw_sum;
 }
 

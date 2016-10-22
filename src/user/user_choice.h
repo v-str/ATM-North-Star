@@ -1,15 +1,11 @@
 #ifndef USERCHOICE_H
 #define USERCHOICE_H
 
-#include <iostream>
 #include <string>
 
 #include "system_utility.h"
 #include "user_input.h"
 #include "user_messenger.h"
-
-using std::cout;
-using std::cin;
 
 class UserChoice {
   using string = std::string;

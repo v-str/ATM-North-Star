@@ -3,11 +3,7 @@
 
 #include <iostream>
 
-#include "cash_operator.h"
 #include "system_utility.h"
-
-using std::cout;
-using std::cin;
 
 class WithdrawalMessenger {
  public:
@@ -15,7 +11,6 @@ class WithdrawalMessenger {
   void ShowPasswordString() const;
   void ShowIncorrectPasswordMessage() const;
   void ShowSentenceEnterASumOfMoney() const;
-
 
   void ShowSuccessfulWithdrawal(int sum_of_cash, int sum_of_withdrawal);
 

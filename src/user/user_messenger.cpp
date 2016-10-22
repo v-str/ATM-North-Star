@@ -1,8 +1,6 @@
 #include "user_messenger.h"
 
-static const int kFrame = 45;
-
-UserMessenger::UserMessenger() {}
+#include <iostream>
 
 void UserMessenger::ShowMainMenu() {
   utility_.ClearScreen();
@@ -16,32 +14,32 @@ void UserMessenger::ShowMainMenu() {
       "\t# 5. Statement                      6. Exit        #\n"
       "\t#                                                  #\n"
       "\t####################################################\n";
-  cout << select;
-  cout << "\tSelect: ";
+  std::cout << select;
+  std::cout << "\tSelect: ";
 }
 
 void UserMessenger::ShowNotifyAboutCash() {
-  cout << "\t";
+  std::cout << "\t";
   utility_.WriteSymbolsNTimes('-', kFrame);
-  cout << "\n\t";
+  std::cout << "\n\t";
   utility_.WriteTextWithDelay(
       "\t Notify:\n\t The sum must be more than\n"
       "\t 10$ and less than 50000$");
-  cout << "\t";
+  std::cout << "\t";
   utility_.WriteSymbolsNTimes('-', kFrame);
-  cout << "\n";
-  cout << "\t# Please enter the sum of money($): ";
+  std::cout << "\n";
+  std::cout << "\t# Please enter the sum of money($): ";
 }
 
 void UserMessenger::ShowIncorrectDataMessage() {
   utility_.WriteTextWithDelay(
       "\t Data is not correct, please reload the program.\n\n");
-  cin.get();
+  std::cin.get();
 }
 
 void UserMessenger::ShowIncorrectMonthInput() {
-  cout << "Number of credit month can't be more than 60\n";
-  cout << "The number of months to repay the loan: ";
+  std::cout << "Number of credit month can't be more than 60\n";
+  std::cout << "The number of months to repay the loan: ";
 }
 
 void UserMessenger::SuggestUserToExit() const {
@@ -49,11 +47,11 @@ void UserMessenger::SuggestUserToExit() const {
       "\n\t# Do you really want to exit?\n"
       "\t# 1. No, go to main\n"
       "\t# 2. Yes, exit\n");
-  cout << "\t# Enter: ";
+  std::cout << "\t# Enter: ";
 }
 
 void UserMessenger::WishAGoodDay() const {
-  cout << "\n\t####################\n"
+  std::cout << "\n\t####################\n"
           "\t#                  #\n"
           "\t# Have a nice day! #\n"
           "\t#                  #\n"
@@ -71,25 +69,25 @@ void UserMessenger::ShowMainMenu() const {
       "\t# 5. Statement                      6. Exit        #\n"
       "\t#                                                  #\n"
       "\t####################################################\n";
-  cout << select;
+  std::cout << select;
 }
 
 void UserMessenger::ShowSuggestionAboutExit() const {
   utility_.WriteTextWithDelay(
       "\n\t# 1. Exit to main page.\n"
       "\t# 2. Exit program.\n");
-  cout << "\t# Enter: ";
+  std::cout << "\t# Enter: ";
 }
 
 void UserMessenger::ShowIncorrectSumInput() const {
-  cout << "\t# Incorrect input, please try again:\n"
+  std::cout << "\t# Incorrect input, please try again:\n"
           "\t# Enter: ";
 }
 
 void UserMessenger::ShowIncorrectData() const {
-  cout << "\n\tIncorrect data. Please, repeat.\n";
-  cout << "\t-------------------------------\n";
-  cout << "\tSelect: ";
+  std::cout << "\n\tIncorrect data. Please, repeat.\n";
+  std::cout << "\t-------------------------------\n";
+  std::cout << "\tSelect: ";
 }
 
 void UserMessenger::ShowIncorrectRegisterData() const {

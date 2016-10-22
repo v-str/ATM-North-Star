@@ -1,7 +1,7 @@
 #include "statement_messenger.h"
 
 void StatementMessenger::ShowStatement(int cash, const string &spaces) const {
-  cout << "\t##################\n"
+  std::cout << "\t##################\n"
           "\t#                #\n"
           "\t#  28 Green st.  #\n"
           "\t#   New - York   #\n"
@@ -11,7 +11,7 @@ void StatementMessenger::ShowStatement(int cash, const string &spaces) const {
           "\t# Balance:       #\n"
           "\t#  $ "
        << cash << spaces << "#\n";
-  cout << "\t#                #\n"
+  std::cout << "\t#                #\n"
           "\t#  HAVE A NICE   #\n"
           "\t#      DAY       #\n"
           "\t#                #\n"

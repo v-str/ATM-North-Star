@@ -3,13 +3,13 @@
 #include <iostream>
 
 void IdentificationMessenger::ShowInitialLoginText() const {
-  cout << "\n\n\n\t\tLogin: ";
+  std::cout << "\n\n\n\t\tLogin: ";
   utility_.WriteSymbolsNTimes('#', kMaxLenghtOfLogin);
   utility_.WriteSymbolsNTimes('\b', kMaxLenghtOfLogin);
 }
 
 void IdentificationMessenger::ShowInitialPasswordText() const {
-  cout << "\t\tPassword: XXXX\b\b\b\b";
+  std::cout << "\t\tPassword: XXXX\b\b\b\b";
   utility_.WriteSymbolsNTimes('X', kMaxLenghtOfPassword);
   utility_.WriteSymbolsNTimes('\b', kMaxLenghtOfPassword);
 }

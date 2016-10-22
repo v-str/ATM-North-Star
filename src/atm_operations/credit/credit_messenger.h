@@ -4,10 +4,10 @@
 #include "iostream"
 #include "string"
 
+
+#include "cash_operator.h"
 #include "system_utility.h"
 #include "user_input.h"
-
-using std::cout;
 
 class CreditMessanger {
   using string = std::string;
@@ -24,7 +24,6 @@ class CreditMessanger {
   void ShowEnrollACredit() const;
   void ShowRefuseACredit(int sum_of_cash) const;
 
-//  void ShowExitMessage() const;
   void ShowRepealACreadit() const;
 
   void ShowTableOfCredit(const double pay_per_month,
@@ -39,6 +38,10 @@ class CreditMessanger {
   string ShowEnter() const;
 
  private:
+  static const int kHalfASecond = 500;
+  static const int kSleep = 75;
+  static const int kNull = 0;
+
   SystemUtility utility_;
   UserInput user_input_;
 };

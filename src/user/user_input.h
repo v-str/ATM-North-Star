@@ -1,19 +1,13 @@
-#ifndef CORRECT_INPUT_H
-#define CORRECT_INPUT_H
+#ifndef USER_INPUT_H
+#define USER_INPUT_H
 
-#include <iostream>
 #include <string>
 
 #include "notifier.h"
 #include "system_utility.h"
 #include "user_messenger.h"
 
-using std::cin;
-using std::cout;
-
 class UserInput {
-  using string = std::string;
-
  public:
   bool SuggestUserToExit() const;
   int GetChoiceFromUser() const;
@@ -23,6 +17,13 @@ class UserInput {
   bool SuggestUserToExitWithConfirmationMenu();
 
  private:
+  using string = std::string;
+
+  static const int kInvalidChoice = -1;
+  static const int kGoToMain = 1;
+  static const int kExit = 2;
+  static const int kSecond = 1000;
+
   int ConvertLineToChoice(const string &line) const;
   bool LineNotEmpty(const string &str) const;
   std::string GetLineFromUser() const;
@@ -32,4 +33,4 @@ class UserInput {
   UserMessenger user_messenger_;
 };
 
-#endif  // CORRECT_INPUT_H
+#endif  // USER_INPUT_H
