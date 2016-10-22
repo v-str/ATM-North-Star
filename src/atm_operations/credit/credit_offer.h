@@ -12,8 +12,9 @@ class CreditOffer {
   enum CreditSolution { kEnroll = 1, kRepeal, kExit };
 
  public:
-  void SuggestACredit(CashOperator &cash_operator, const string &user_login,
-                      int sum_of_credit, int amount_of_months) const;
+  void SuggestACredit(CashOperator &cash_operator,
+                      const std::string &user_login, int sum_of_credit,
+                      int amount_of_months) const;
 
  private:
   int GetCreditChoice() const;

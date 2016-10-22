@@ -17,7 +17,6 @@ bool UserInput::GetResultFromUserAboutExit() const {
     if (user_want_to_exit == kGoToMain) {
       break;
     } else if (user_want_to_exit == kExit) {
-      //      ShowExitMessage();
       utility_.Sleep(kSecond);
       result_of_choice = true;
       break;
@@ -51,15 +50,11 @@ bool UserInput::LineNotEmpty(const string &str) const {
   return !str.empty();
 }
 
-string UserInput::GetLineFromUser() const {
+std::string UserInput::GetLineFromUser() const {
   string line;
   getline(cin, line);
   return line;
 }
-
-// void UserInput::ShowExitMessage() const {
-//  utility_.WriteTextWithDelay("\n\t# Thank you for using our ATM system\n");
-//}
 
 bool UserInput::SuggestUserToExitWithConfirmationMenu() {
   return GetResultFromUserAboutExit();

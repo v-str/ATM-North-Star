@@ -5,7 +5,7 @@
 
 class CreditPage {
  public:
-  void ShowTitle(const string &user_login, const int sum_of_credit) const;
+  void ShowTitle(const std::string &user_login, const int sum_of_credit) const;
 
  private:
   CreditMessanger credit_messenger_;

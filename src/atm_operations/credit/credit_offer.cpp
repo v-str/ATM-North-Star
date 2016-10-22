@@ -1,7 +1,7 @@
 #include "credit_offer.h"
 
 void CreditOffer::SuggestACredit(CashOperator &cash_operator,
-                                 const std::__cxx11::string &user_login,
+                                 const std::string &user_login,
                                  int sum_of_credit,
                                  int amount_of_months) const {
   credit_page_.ShowTitle(user_login, sum_of_credit);
@@ -22,7 +22,8 @@ void CreditOffer::SuggestACredit(CashOperator &cash_operator,
 }
 
 int CreditOffer::GetCreditChoice() const {
-  string credit_confirmation_text = credit_messenger_.SuggestToConfirmACredit();
+  std::string credit_confirmation_text =
+      credit_messenger_.SuggestToConfirmACredit();
 
   int credit_choice = user_choice_.GetUserChoiceWithMenuText(
       credit_confirmation_text, credit_messenger_.ShowEnter());
