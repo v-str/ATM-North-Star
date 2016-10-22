@@ -1,7 +1,11 @@
+#include "application.h"
 #include "initial_screen.h"
 
 int main() {
-  InitialScreen screen;
+  Application app;
 
-  screen.DisplayInitialScreen();
+  InitialScreen init_screen;
+
+  init_screen.DisplayInitialScreen();
+  app.RunProgram();
 }

@@ -13,9 +13,10 @@ class RegistrationMessenger {
   void ShowInitialLoginText() const;
   void ShowInitialPasswordText() const;
 
-
-
  private:
+  static const int kMaxLenghtOfLogin = 21;
+  static const int kMaxLenghtOfPassword = 4;
+
   SystemUtility utility_;
 };
 

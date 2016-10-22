@@ -7,10 +7,9 @@ using std::string;
 using std::cout;
 using std::cin;
 
-void InitialScreen::DisplayInitialScreen()  {
+void InitialScreen::DisplayInitialScreen() {
   DisplayLogotype();
   DisplayInitialMenu();
-  app_.RunProgram();
 }
 
 void InitialScreen::DisplayInitialMenu() const {
@@ -22,7 +21,7 @@ void InitialScreen::DisplayInitialMenu() const {
        << "\b\b";
 }
 
-void InitialScreen::DisplayLogotype() const {
+void InitialScreen::DisplayLogotype()  {
   string demo =
       "---------------------------------------------\n"
       "-  ##   ## ####### ######  ######## ##  ##  -\n"
@@ -48,8 +47,9 @@ void InitialScreen::DisplayLogotype() const {
   utility_.WriteTextWithDelay(
       "\t    ATM - machine 4528\n"
       "  Adress - 28 Greene St, New York, NY 10012\n");
-  cout << "\t";
-  cin.get();
+  utility_.WriteTextWithDelay("\t      Press any key", 50);
+  cin.clear();
+  EatLine();
   system("pause");
   system("clear");
 }
@@ -58,4 +58,8 @@ void InitialScreen::DisplayError() const {
   utility_.WriteTextWithDelay(
       "\n\n\tData is not correct,\n"
       "\tplease reload the program.\n\n");
+}
+
+void InitialScreen::EatLine() {
+  while (std::cin.get() != '\n') continue;
 }

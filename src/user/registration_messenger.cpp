@@ -1,8 +1,5 @@
 #include "registration_messenger.h"
 
-static const int kMaxLenghtOfLogin = 21;
-static const int kMaxLenghtOfPassword = 4;
-
 void RegistrationMessenger::ShowRegistrationScreen() const {
   utility_.ClearScreen();
   cout << "\n\t\t   ********************\n"

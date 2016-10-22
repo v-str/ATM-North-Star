@@ -10,11 +10,12 @@ class InitialScreen {
 
  private:
   void DisplayInitialMenu() const;
-  void DisplayLogotype() const;
   void DisplayError() const;
 
+  void DisplayLogotype();
+  void EatLine();
+
   SystemUtility utility_;
-  Application app_;
 };
 
 #endif  // INITIAL_SCREEN_H

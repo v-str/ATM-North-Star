@@ -1,7 +1,5 @@
 #include "withdrawal.h"
 
-static const int kNull = 0;
-
 void Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
                                       UserIdentifier &user_identifier) {
   int sum_of_withdrawal = SumOfWithdrawal();
