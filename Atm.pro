@@ -16,7 +16,7 @@ INCLUDEPATH += \
     src/demo_mode \
     src/user \
     src/system_utility \
-    src/start_program
+    src/atm_application
 
 DISTFILES += \
     ToDo_List
@@ -36,10 +36,10 @@ HEADERS += \
     src/atm_operations/withdrawal/withdrawal_messenger.h \
     src/demo_mode/demo_user.h \
     src/demo_mode/demo_user_messanger.h \
-    src/start_program/initial_screen.h \
+    src/atm_application/initial_screen.h \
+    src/atm_application/application.h \
     src/system_utility/system_utility.h \
     src/user_identification/cash_operator.h \
-    src/user/application.h \
     src/notifications_about_operations/notice_messenger.h \
     src/atm_operations/credit/credit_offer.h \
     src/atm_operations/credit/credit_page.h \
@@ -69,12 +69,12 @@ SOURCES += \
     src/atm_operations/withdrawal/withdrawal_messenger.cpp \
     src/demo_mode/demo_user.cpp \
     src/demo_mode/demo_user_messanger.cpp \
-    src/start_program/initial_screen.cpp \
-    src/start_program/main.cpp \
+    src/atm_application/initial_screen.cpp \
+    src/atm_application/main.cpp \
+    src/atm_application/application.cpp \
     src/notifications_about_operations/notice_about_successful_action.cpp \
     src/system_utility/system_utility.cpp \
     src/user_identification/cash_operator.cpp \
-    src/user/application.cpp \
     src/notifications_about_operations/notice_messenger.cpp \
     src/atm_operations/credit/credit_offer.cpp \
     src/atm_operations/credit/credit_page.cpp \

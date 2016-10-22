@@ -1,7 +1,6 @@
 #include "demo_user.h"
 
 #include <iostream>
-#include <limits>
 #include <string>
 
 void DemoUser::ShowDemoMode() {
@@ -50,14 +49,11 @@ void DemoUser::StartSection(DemoUserMessanger::MessageType message_type) {
   user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
+void DemoUser::StartRegistration() { ForwardToRegistration(); }
+
 void DemoUser::ForwardToRegistration() {
   user_want_to_registrate_ = true;
   user_want_to_exit_ = user_want_to_registrate_;
 }
 
-void DemoUser::StartRegistration() { ForwardToRegistration(); }
-
-void DemoUser::SayGoodBye() {
-  //  user_input_.ShowExitMessage();
-  user_want_to_exit_ = true;
-}
+void DemoUser::SayGoodBye() { user_want_to_exit_ = true; }
