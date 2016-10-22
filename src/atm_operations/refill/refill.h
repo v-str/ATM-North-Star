@@ -10,7 +10,6 @@
 class Refill {
  public:
   void StartRefillOperation(CashOperator &cash_operator);
-  void soon();
 
  private:
   RefillMessenger refill_messenger_;

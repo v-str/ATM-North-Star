@@ -74,23 +74,6 @@ void UserMessenger::ShowMainMenu() const {
   cout << select;
 }
 
-void UserMessenger::ShowAccountInformation(UserIdentifier &user_identifier,
-                                           CashOperator &cash_operator) {
-  cout << "\t";
-  utility_.WriteSymbolsNTimes('-', kFrame);
-
-  refill_messenger_.WriteUserInfo("Login", user_identifier.GetLogin());
-  refill_messenger_.WriteUserInfo("Password", user_identifier.GetPassword());
-  refill_messenger_.WriteUserInfo("Balance",
-                                  std::to_string(cash_operator.GetCash()));
-  refill_messenger_.WriteUserInfo("Credit",
-                                  std::to_string(cash_operator.GetCredit()));
-  refill_messenger_.WriteUserInfo(
-      "Monthly payment $", std::to_string(cash_operator.GetMonthlyPayment()));
-  refill_messenger_.WriteUserInfo(
-      "Credit term", std::to_string(cash_operator.GetAmountOfCreditMonth()));
-}
-
 void UserMessenger::ShowSuggestionAboutExit() const {
   utility_.WriteTextWithDelay(
       "\n\t# 1. Exit to main page.\n"
