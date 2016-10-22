@@ -1,5 +1,5 @@
-#ifndef USER_H
-#define USER_H
+#ifndef APPLICATION_H
+#define APPLICATION_H
 
 #include "account_informator.h"
 #include "cash_operator.h"
@@ -61,4 +61,4 @@ class Application {
   AccountInformator account_informator_;
 };
 
-#endif  // USER_H
+#endif  // APPLICATION_H
