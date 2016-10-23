@@ -1,5 +1,7 @@
 #include "demo_user_messanger.h"
 
+#include <iostream>
+
 void DemoUserMessanger::ShowMessage(
     DemoUserMessanger::MessageType message_type) {
   switch (message_type) {
@@ -40,7 +42,7 @@ void DemoUserMessanger::ShowDemoMenu() const {
          "\t#                   7. Create Account                    #\n"
          "\t#                                                        #\n"
          "\t##########################################################\n\n"
-         "\t# Enter: ";
+         "\n\t# Enter: ";
 }
 
 void DemoUserMessanger::ShowWelcomeDemoMessage() const {
