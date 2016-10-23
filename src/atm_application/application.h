@@ -1,18 +1,29 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
+// atm_operations
 #include "account_informator.h"
-#include "cash_operator.h"
-#include "demo_user.h"
 #include "refill.h"
-#include "user_statement.h"
-#include "system_utility.h"
 #include "user_credit.h"
+#include "user_statement.h"
+#include "withdrawal.h"
+
+// user_identification
+#include "cash_operator.h"
+
+// demo_mode
+#include "demo_user.h"
+
+// system_utility
+#include "system_utility.h"
+
+// user_identification
 #include "user_identifier.h"
+
+// user
 #include "user_input.h"
 #include "user_messenger.h"
 #include "user_registrator.h"
-#include "withdrawal.h"
 
 class Application {
  public:
