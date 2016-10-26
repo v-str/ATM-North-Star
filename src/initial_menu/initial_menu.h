@@ -8,17 +8,8 @@
 #include "user_statement.h"
 #include "withdrawal.h"
 
-// user_identification folder
-#include "cash_operator.h"
-
 // demo_mode folder
 #include "demo_user.h"
-
-// system_utility folder
-#include "system_utility.h"
-
-// user_identification folder
-#include "user_identifier.h"
 
 // user folder
 #include "user_input.h"
