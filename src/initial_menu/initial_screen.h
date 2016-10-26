@@ -1,7 +1,6 @@
 #ifndef INITIAL_SCREEN_H
 #define INITIAL_SCREEN_H
 
-#include "application.h"
 #include "system_utility.h"
 
 class InitialScreen {

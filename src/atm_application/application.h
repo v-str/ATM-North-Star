@@ -2,15 +2,15 @@
 #define APPLICATION_H
 
 #include "initial_menu/initial_menu.h"
+#include "initial_menu/initial_screen.h"
 
 class Application {
  public:
-
-    void RunProgram();
+  void RunProgram();
 
  private:
-    InitialMenu menu_;
-
+  InitialMenu init_menu_;
+  InitialScreen init_screen_;
 };
 
 #endif  // APPLICATION_H

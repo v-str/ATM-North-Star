@@ -1,7 +1,7 @@
 #include "application.h"
 
+void Application::RunProgram() {
+  init_screen_.DisplayInitialScreen();
 
-void Application::RunProgram()
-{
-
+  init_menu_.RunProgram();
 }
