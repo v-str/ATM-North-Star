@@ -31,14 +31,11 @@ void InitialMenu::DisplayMenu() {
 }
 
 void InitialMenu::StartMainMenu() {
-  utility_.ClearScreen();
   user_messenger_.ShowMainMenu();
   DoProgramSection(user_input_.GetChoiceFromUser());
 }
 
 void InitialMenu::DoProgramSection(int choice) {
-  utility_.ClearScreen();
-
   if (choice == kAccountSection) {
     ShowAccountInfo();
   } else if (choice == kRefillSection) {

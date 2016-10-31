@@ -43,6 +43,7 @@ void UserMessenger::ShowIncorrectMonthInput() {
 }
 
 void UserMessenger::SuggestUserToExit() const {
+  utility_.ClearScreen();
   utility_.WriteTextWithDelay(
       "\n\t# Do you really want to exit?\n"
       "\t# 1. No, go to main\n"
@@ -52,13 +53,14 @@ void UserMessenger::SuggestUserToExit() const {
 
 void UserMessenger::WishAGoodDay() const {
   std::cout << "\n\t####################\n"
-          "\t#                  #\n"
-          "\t# Have a nice day! #\n"
-          "\t#                  #\n"
-          "\t####################\n\n";
+               "\t#                  #\n"
+               "\t# Have a nice day! #\n"
+               "\t#                  #\n"
+               "\t####################\n\n";
 }
 
 void UserMessenger::ShowMainMenu() const {
+  utility_.ClearScreen();
   string select =
       "\n\t################ Transaction menu ##################\n"
       "\t#                                                  #\n"
@@ -81,7 +83,7 @@ void UserMessenger::ShowSuggestionAboutExit() const {
 
 void UserMessenger::ShowIncorrectSumInput() const {
   std::cout << "\t# Incorrect input, please try again:\n"
-          "\t# Enter: ";
+               "\t# Enter: ";
 }
 
 void UserMessenger::ShowIncorrectData() const {

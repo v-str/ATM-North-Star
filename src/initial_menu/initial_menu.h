@@ -50,7 +50,6 @@ class InitialMenu {
 
   UserIdentifier user_identifier_;
   CashOperator cash_operator_;
-  SystemUtility utility_;
   UserInput user_input_;
   Refill refill_;
   UserCredit user_credit_;
