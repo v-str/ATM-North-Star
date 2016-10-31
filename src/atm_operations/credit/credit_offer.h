@@ -6,7 +6,6 @@
 #include "credit_page.h"
 #include "notifier.h"
 #include "secondary_credit_operations.h"
-#include "user_choice.h"
 
 class CreditOffer {
  public:
@@ -27,7 +26,6 @@ class CreditOffer {
 
   Notifier error_operation_;
   CreditMessanger credit_messenger_;
-  UserChoice user_choice_;
   SecondaryCreditOperations secondary_credit_operation_;
   CreditPage credit_page_;
   SystemUtility utility_;

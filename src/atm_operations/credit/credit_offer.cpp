@@ -29,9 +29,6 @@ int CreditOffer::GetCreditChoice() const {
 
   int credit_ch = user_input_.GetChoiceFromUser();
 
-  //  int credit_choice = user_choice_.GetUserChoiceWithMenuText(
-  //      credit_confirmation_text, credit_messenger_.ShowEnter());
-
   return credit_ch;
 }
 

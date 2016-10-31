@@ -26,7 +26,6 @@ void SystemUtility::WriteTextWithDelay(const string &text, int delay) const {
     std::cout.flush();
     Sleep(delay);
   }
-  std::cout << "\n";
 }
 
 void SystemUtility::WriteSymbolsNTimes(char symbol, int n) const {

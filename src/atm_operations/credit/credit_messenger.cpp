@@ -60,7 +60,8 @@ CreditMessanger::string CreditMessanger::SuggestToConfirmACredit() const {
   string menu_text(
       "\n\t# Do you confirm the loan?\n"
       "\t1. Yes, I confirm.\n"
-      "\t2. Repeal a credit.\n");
+      "\t2. Repeal a credit.\n"
+      "\t Enter: ");
   return menu_text;
 }
 

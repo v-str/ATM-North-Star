@@ -22,7 +22,6 @@ DISTFILES += \
     ToDo_List
 
 HEADERS += \
-    src/user/user_choice.h \
     src/user/user_input.h \
     src/user/user_messenger.h \
     src/atm_operations/credit/credit_messenger.h \
@@ -55,7 +54,6 @@ HEADERS += \
     src/atm_operations/statement/user_statement.h
 
 SOURCES += \
-    src/user/user_choice.cpp \
     src/user/user_input.cpp \
     src/user/user_messenger.cpp \
     src/atm_operations/credit/credit_messenger.cpp \
