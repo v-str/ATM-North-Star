@@ -40,6 +40,7 @@ class UserCredit {
   CreditMessanger credit_messenger_;
   Notifier error_message;
   Credit credit_;
+  SystemUtility utility_;
 };
 
 #endif  // USER_CREDIT_H

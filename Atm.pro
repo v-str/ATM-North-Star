@@ -13,7 +13,7 @@ INCLUDEPATH += \
     src/atm_operations/statement \
     src/atm_operations/refill \
     src/atm_operations/account_info \
-    src/demo_mode \
+    src/help_mode \
     src/user \
     src/system_utility \
     src/atm_application
@@ -32,9 +32,8 @@ HEADERS += \
     src/atm_operations/statement/statement_messenger.h \
     src/atm_operations/withdrawal/withdrawal.h \
     src/atm_operations/withdrawal/withdrawal_messenger.h \
-    src/demo_mode/demo_user.h \
-    src/demo_mode/demo_user_messanger.h \
-    src/atm_application/initial_screen.h \
+    src/help_mode/demo_user.h \
+    src/help_mode/demo_user_messanger.h \
     src/atm_application/application.h \
     src/system_utility/system_utility.h \
     src/user_identification/cash_operator.h \
@@ -51,7 +50,10 @@ HEADERS += \
     src/atm_operations/account_info/account_messenger.h \
     src/atm_operations/account_info/information_screen.h \
     src/user_identification/identification_messenger.h \
-    src/atm_operations/statement/user_statement.h
+    src/atm_operations/statement/user_statement.h \
+    src/notifications_about_operations/notice_about_successful_action.h \
+    src/initial_menu/initial_menu.h \
+    src/initial_menu/initial_screen.h
 
 SOURCES += \
     src/user/user_input.cpp \
@@ -64,9 +66,8 @@ SOURCES += \
     src/atm_operations/statement/statement_messenger.cpp \
     src/atm_operations/withdrawal/withdrawal.cpp \
     src/atm_operations/withdrawal/withdrawal_messenger.cpp \
-    src/demo_mode/demo_user.cpp \
-    src/demo_mode/demo_user_messanger.cpp \
-    src/atm_application/initial_screen.cpp \
+    src/help_mode/demo_user.cpp \
+    src/help_mode/demo_user_messanger.cpp \
     src/atm_application/main.cpp \
     src/atm_application/application.cpp \
     src/notifications_about_operations/notice_about_successful_action.cpp \
@@ -85,5 +86,7 @@ SOURCES += \
     src/atm_operations/account_info/account_messenger.cpp \
     src/atm_operations/account_info/information_screen.cpp \
     src/user_identification/identification_messenger.cpp \
-    src/atm_operations/statement/user_statement.cpp
+    src/atm_operations/statement/user_statement.cpp \
+    src/initial_menu/initial_menu.cpp \
+    src/initial_menu/initial_screen.cpp
 

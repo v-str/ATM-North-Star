@@ -31,6 +31,7 @@ class Withdrawal {
   UserInput user_input_;
   Notifier error_message_;
   WithdrawalMessenger messenger_;
+  SystemUtility utility_;
 };
 
 #endif  // WITHDRAWAL_H

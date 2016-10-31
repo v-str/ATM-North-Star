@@ -2,6 +2,7 @@
 
 void UserCredit::StartCreditOperation(const UserIdentifier &user_identifier,
                                       CashOperator &cash_operator) {
+  utility_.ClearScreen();
   if (AlreadyHasACredit(cash_operator.GetCredit())) {
     RefuseToGrantAnotherCredit();
     credit_messenger_.ShowIncorrectCashInformation(cash_operator);

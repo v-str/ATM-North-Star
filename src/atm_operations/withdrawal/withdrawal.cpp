@@ -2,6 +2,7 @@
 
 void Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
                                       UserIdentifier &user_identifier) {
+  utility_.ClearScreen();
   int sum_of_withdrawal = SumOfWithdrawal();
   if (IsWithdrawalAcceptable(cash_operator, sum_of_withdrawal)) {
     messenger_.ShowSumOfWithdrawal(sum_of_withdrawal);
