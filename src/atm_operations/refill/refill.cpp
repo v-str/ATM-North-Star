@@ -1,6 +1,7 @@
 #include "refill.h"
 
 void Refill::StartRefillOperation(CashOperator &cash_operator) {
+  utility_.ClearScreen();
   refill_messenger_.ShowNotifyAboutCash();
   int money = kNull;
   std::cin >> money;
