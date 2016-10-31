@@ -25,8 +25,9 @@ int CreditOffer::GetCreditChoice() const {
   std::string credit_confirmation_text =
       credit_messenger_.SuggestToConfirmACredit();
 
-  int credit_choice = user_choice_.GetUserChoiceWithMenuText(
-      credit_confirmation_text, credit_messenger_.ShowEnter());
+  utility_.WriteTextWithDelay(credit_confirmation_text);
+
+  int credit_choice = user_input_.GetChoiceFromUser();
 
   return credit_choice;
 }
