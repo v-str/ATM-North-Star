@@ -13,6 +13,7 @@ class AccountInformator {
 
  private:
   InformationScreen screen_;
+  SystemUtility utility_;
 };
 
 #endif  // ACCOUNT_INFORMATOR_H
