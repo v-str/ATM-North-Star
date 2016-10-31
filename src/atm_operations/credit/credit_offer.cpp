@@ -25,10 +25,14 @@ int CreditOffer::GetCreditChoice() const {
   std::string credit_confirmation_text =
       credit_messenger_.SuggestToConfirmACredit();
 
-  int credit_choice = user_choice_.GetUserChoiceWithMenuText(
-      credit_confirmation_text, credit_messenger_.ShowEnter());
+  utility_.WriteTextWithDelay(credit_confirmation_text);
 
-  return credit_choice;
+  int credit_ch = user_input_.GetChoiceFromUser();
+
+  //  int credit_choice = user_choice_.GetUserChoiceWithMenuText(
+  //      credit_confirmation_text, credit_messenger_.ShowEnter());
+
+  return credit_ch;
 }
 
 void CreditOffer::DoCreditOperation(CashOperator &cash_operator,

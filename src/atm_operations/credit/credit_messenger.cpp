@@ -120,7 +120,6 @@ void CreditMessanger::ShowResultOfUserChoice(int decision_of_user) const {
   } else {
     ShowRepealACreadit();
   }
-  utility_.IgnoreCinLine();
 }
 
 void CreditMessanger::ShowIncorrectCashInformation(

@@ -30,6 +30,8 @@ class CreditOffer {
   UserChoice user_choice_;
   SecondaryCreditOperations secondary_credit_operation_;
   CreditPage credit_page_;
+  SystemUtility utility_;
+  UserInput user_input_;
 };
 
 #endif  // CREDIT_OFFER_H
