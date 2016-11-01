@@ -15,7 +15,7 @@ void UserMessenger::ShowMainMenu() {
       "\t#                                                  #\n"
       "\t####################################################\n";
   std::cout << select;
-  std::cout << "\tSelect: ";
+  std::cout << "\tEnter: ";
 }
 
 void UserMessenger::ShowNotifyAboutCash() {
