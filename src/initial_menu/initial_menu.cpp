@@ -1,6 +1,6 @@
 #include "initial_menu.h"
 
-void InitialMenu::RunProgram() {
+void InitialMenu::RunMenu() {
   int user_choice = user_input_.GetChoiceFromUser();
 
   if (user_choice == kDemoMode) {

@@ -18,7 +18,7 @@
 
 class InitialMenu {
  public:
-  void RunProgram();
+  void RunMenu();
 
  private:
   enum ProgramMode {
