@@ -4,7 +4,6 @@
 #include "iostream"
 #include "string"
 
-
 #include "cash_operator.h"
 #include "system_utility.h"
 #include "user_input.h"
@@ -35,7 +34,7 @@ class CreditMessanger {
 
   void ShowIncorrectCashInformation(const CashOperator &cash_operator) const;
 
-  string ShowEnter() const;
+  string ShowEnterText() const;
 
  private:
   static const int kHalfASecond = 500;

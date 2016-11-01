@@ -6,8 +6,12 @@ void RefillMessenger::ShowNotifyAboutCash() const {
   std::cout << "\n\t";
   utility_.WriteTextWithDelay(
       "\t Notify:\n\t The sum must be more than\n"
+<<<<<<< HEAD
       "\t 10$ and less than 50000$");
   std::cout << "\n\t";
+=======
+      "\t 10$ and less than 50000$\n\t");
+>>>>>>> CorrectPackage
   utility_.WriteSymbolsNTimes('-', kFrame);
   std::cout << "\n";
   std::cout << "\t# Please enter the sum of money($): ";

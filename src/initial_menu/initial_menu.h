@@ -12,13 +12,15 @@
 #include "demo_user.h"
 
 // user folder
-#include "user_input.h"
 #include "user_messenger.h"
 #include "user_registrator.h"
 
+// input_processing
+#include "data_input.h"
+
 class InitialMenu {
  public:
-  void RunProgram();
+  void RunMenu();
 
  private:
   enum ProgramMode {
@@ -50,7 +52,6 @@ class InitialMenu {
 
   UserIdentifier user_identifier_;
   CashOperator cash_operator_;
-  UserInput user_input_;
   Refill refill_;
   UserCredit user_credit_;
   Withdrawal withdrawal_;
@@ -59,6 +60,7 @@ class InitialMenu {
   UserRegistrator registrator_;
   DemoUser demo_mode_;
   AccountInformator account_informator_;
+  DataInput user_input_;
 };
 
 #endif  // INITIAL_MENU_H

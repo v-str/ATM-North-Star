@@ -33,7 +33,7 @@ void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
   utility_.ClearScreen();
   utility_.WriteTextWithDelay(
       "# Your balance more than 1000$. You can afford to take the\n"
-      "# credit in our bank. The maximum amount for you is:");
+      "# credit in our bank. The maximum amount for you is:\n");
   utility_.Sleep(kHalfASecond);
   std::cout << "----------------------------------------------------------\n";
   std::cout << " \t\t\t $" << maximal_sum_of_credit << "\n";
@@ -112,7 +112,9 @@ void CreditMessanger::ShowTableOfCredit(const double pay_per_month,
 }
 
 void CreditMessanger::ShowAmountOfMonthToPayACredit() const {
-  std::cout << "The number of months to repay the loan: ";
+  std::cout << "Number of credit month can't be more than 60\n";
+  std::cout << "Please enter the number of months"
+               "\nto repay the credit: ";
 }
 
 void CreditMessanger::ShowResultOfUserChoice(int decision_of_user) const {
@@ -130,6 +132,6 @@ void CreditMessanger::ShowIncorrectCashInformation(
   utility_.WriteSymbolsNTimes('-', 30);
 }
 
-CreditMessanger::string CreditMessanger::ShowEnter() const {
+CreditMessanger::string CreditMessanger::ShowEnterText() const {
   return "\t# Enter: ";
 }

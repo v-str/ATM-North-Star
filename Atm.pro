@@ -16,7 +16,9 @@ INCLUDEPATH += \
     src/help_mode \
     src/user \
     src/system_utility \
-    src/atm_application
+    src/atm_application \
+    src/input_processing \
+    src/initial_menu
 
 DISTFILES += \
     ToDo_List
@@ -51,9 +53,11 @@ HEADERS += \
     src/atm_operations/account_info/information_screen.h \
     src/user_identification/identification_messenger.h \
     src/atm_operations/statement/user_statement.h \
-    src/notifications_about_operations/notice_about_successful_action.h \
     src/initial_menu/initial_menu.h \
-    src/initial_menu/initial_screen.h
+    src/initial_menu/initial_screen.h \
+    src/input_processing/data_input.h \
+    src/registration/registration.h \
+    src/registration/register_messenger.h
 
 SOURCES += \
     src/user/user_input.cpp \
@@ -88,5 +92,8 @@ SOURCES += \
     src/user_identification/identification_messenger.cpp \
     src/atm_operations/statement/user_statement.cpp \
     src/initial_menu/initial_menu.cpp \
-    src/initial_menu/initial_screen.cpp
+    src/initial_menu/initial_screen.cpp \
+    src/input_processing/data_input.cpp \
+    src/registration/registration.cpp \
+    src/registration/register_messenger.cpp
 

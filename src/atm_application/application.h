@@ -1,8 +1,8 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include "initial_menu/initial_menu.h"
-#include "initial_menu/initial_screen.h"
+#include "initial_menu.h"
+#include "initial_screen.h"
 
 class Application {
  public:

@@ -15,7 +15,7 @@ void UserMessenger::ShowMainMenu() {
       "\t#                                                  #\n"
       "\t####################################################\n";
   std::cout << select;
-  std::cout << "\tSelect: ";
+  std::cout << "\tEnter: ";
 }
 
 void UserMessenger::ShowNotifyAboutCash() {
@@ -35,11 +35,6 @@ void UserMessenger::ShowIncorrectDataMessage() {
   utility_.WriteTextWithDelay(
       "\t Data is not correct, please reload the program.\n\n");
   std::cin.get();
-}
-
-void UserMessenger::ShowIncorrectMonthInput() {
-  std::cout << "Number of credit month can't be more than 60\n";
-  std::cout << "The number of months to repay the loan: ";
 }
 
 void UserMessenger::SuggestUserToExit() const {

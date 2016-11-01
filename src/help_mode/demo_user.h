@@ -4,7 +4,7 @@
 #include <string>
 
 #include "demo_user_messanger.h"
-#include "user_input.h"
+#include "data_input.h"
 
 class DemoUser {
   using string = std::string;
@@ -34,7 +34,7 @@ class DemoUser {
   bool user_want_to_exit_ = false;
   bool user_want_to_registrate_ = false;
 
-  UserInput user_input_;
+  DataInput input_;
   DemoUserMessanger demo_messanger_;
 };
 
