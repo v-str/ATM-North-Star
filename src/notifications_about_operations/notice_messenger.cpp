@@ -8,7 +8,7 @@ void NoticeMessenger::ShowAcceptableMessageFrame() const {
   utility_.WriteSymbolsNTimes('-', kAccessFrame);
   std::cout << "\n";
   utility_.WriteTextWithDelay("\t\t| Access allowed |");
-  std::cout << "\t\t";
+  std::cout << "\t\t\n\t\t";
   utility_.WriteSymbolsNTimes('-', kAccessFrame);
   std::cout << "\t\t\n";
   utility_.Sleep(kSecond);
