@@ -37,11 +37,6 @@ void UserMessenger::ShowIncorrectDataMessage() {
   std::cin.get();
 }
 
-void UserMessenger::ShowIncorrectMonthInput() {
-  std::cout << "Number of credit month can't be more than 60\n";
-  std::cout << "The number of months to repay the loan: ";
-}
-
 void UserMessenger::SuggestUserToExit() const {
   utility_.ClearScreen();
   utility_.WriteTextWithDelay(

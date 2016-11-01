@@ -67,8 +67,8 @@ void NoticeMessenger::ShowUnacceptableWithdrawal(int incorrect_sum,
   std::cout << "\t# Entered sum: " << incorrect_sum << "\n\n";
 
   std::cout << "\n\t# "
-       << "Balance"
-       << ": " << amount_of_cash << "\n\t";
+            << "Balance"
+            << ": " << amount_of_cash << "\n\t";
   utility_.WriteSymbolsNTimes('-', kFrame);
   utility_.Sleep(kSleep);
 
@@ -86,5 +86,4 @@ void NoticeMessenger::ShowIncorrectfMonths() const {
       "The entered amount should not "
       "exceed the allowed credit.\n"
       "Enter the appropriate amount of credit: ");
-  std::cout << "Enter: ";
 }

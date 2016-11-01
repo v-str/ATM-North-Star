@@ -14,7 +14,6 @@ class UserMessenger {
   void ShowNotifyAboutCash();
 
   void ShowIncorrectDataMessage();
-  void ShowIncorrectMonthInput();
 
   void WishAGoodDay() const;
   void ShowMainMenu() const;
