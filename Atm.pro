@@ -55,7 +55,8 @@ HEADERS += \
     src/initial_menu/initial_menu.h \
     src/initial_menu/initial_screen.h \
     src/input_processing/data_input.h \
-    src/registration/registration.h
+    src/registration/registration.h \
+    src/registration/register_messenger.h
 
 SOURCES += \
     src/user/user_input.cpp \
@@ -92,5 +93,6 @@ SOURCES += \
     src/initial_menu/initial_menu.cpp \
     src/initial_menu/initial_screen.cpp \
     src/input_processing/data_input.cpp \
-    src/registration/registration.cpp
+    src/registration/registration.cpp \
+    src/registration/register_messenger.cpp
 
