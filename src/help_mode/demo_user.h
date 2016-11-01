@@ -4,7 +4,7 @@
 #include <string>
 
 #include "demo_user_messanger.h"
-#include "input_processing/data_input.h"
+#include "data_input.h"
 
 class DemoUser {
   using string = std::string;

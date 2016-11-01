@@ -16,7 +16,9 @@ INCLUDEPATH += \
     src/help_mode \
     src/user \
     src/system_utility \
-    src/atm_application
+    src/atm_application \
+    src/input_processing \
+    src/initial_menu
 
 DISTFILES += \
     ToDo_List

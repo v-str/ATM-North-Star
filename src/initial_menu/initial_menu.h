@@ -16,7 +16,7 @@
 #include "user_registrator.h"
 
 // input_processing
-#include "input_processing/data_input.h"
+#include "data_input.h"
 
 class InitialMenu {
  public:
