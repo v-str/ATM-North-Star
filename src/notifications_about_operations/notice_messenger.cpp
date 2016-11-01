@@ -48,7 +48,7 @@ void NoticeMessenger::ShowIncorrectData() const {
       "\n\t# Data is not correct,\n"
       "\t# return to main?\n"
       "\t# 1. Yes\n"
-      "\t# 2. No, exit");
+      "\t# 2. No, exit\n");
   std::cout << "\t# Enter: ";
   std::cin.clear();
 }
