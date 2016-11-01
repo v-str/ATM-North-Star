@@ -45,9 +45,9 @@ void InitialScreen::DisplayLogotype()  {
   cout << demo;
 
   utility_.WriteTextWithDelay(
-      "\t    ATM - machine 4528\n"
+      "\t         ATM #0001\n"
       "  Adress - 28 Greene St, New York, NY 10012\n");
-  utility_.WriteTextWithDelay("\t      Press any key", 50);
+  utility_.WriteTextWithDelay("\t      press \"Enter\"", 50);
   cin.clear();
   EatLine();
   system("pause");

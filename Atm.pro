@@ -53,7 +53,8 @@ HEADERS += \
     src/atm_operations/statement/user_statement.h \
     src/notifications_about_operations/notice_about_successful_action.h \
     src/initial_menu/initial_menu.h \
-    src/initial_menu/initial_screen.h
+    src/initial_menu/initial_screen.h \
+    src/input_processing/data_input.h
 
 SOURCES += \
     src/user/user_input.cpp \
@@ -88,5 +89,6 @@ SOURCES += \
     src/user_identification/identification_messenger.cpp \
     src/atm_operations/statement/user_statement.cpp \
     src/initial_menu/initial_menu.cpp \
-    src/initial_menu/initial_screen.cpp
+    src/initial_menu/initial_screen.cpp \
+    src/input_processing/data_input.cpp
 

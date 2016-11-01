@@ -21,7 +21,7 @@ bool DemoUser::UserWantToRegistrate() { return user_want_to_registrate_; }
 void DemoUser::UserWantToExitProgram() { SayGoodBye(); }
 
 void DemoUser::UserDecideToExit() {
-  int user_choice = user_input_.GetChoiceFromUser();
+  int user_choice = input_.GetChoiceFromUser();
   if (user_choice == kAccountSection) {
     StartSection(DemoUserMessanger::MessageType::kAccountInfo);
   } else if (user_choice == kRefillSection) {
@@ -37,13 +37,13 @@ void DemoUser::UserDecideToExit() {
   } else if (user_choice == kRegistrationSection) {
     StartRegistration();
   } else {
-    user_input_.ShowIncorrectMessage();
+    input_.ShowIncorrectMessage();
   }
 }
 
 void DemoUser::StartSection(DemoUserMessanger::MessageType message_type) {
   demo_messanger_.ShowMessage(message_type);
-  user_want_to_exit_ = user_input_.SuggestUserToExit();
+  user_want_to_exit_ = input_.SuggestUserToExit();
 }
 
 void DemoUser::StartRegistration() { ForwardToRegistration(); }
