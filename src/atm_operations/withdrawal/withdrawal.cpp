@@ -13,6 +13,7 @@ void Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
       WithdrawFromAccount(cash_operator, sum_of_withdrawal);
       messenger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
                                           cash_operator.GetCash());
+      utility_.IgnoreCinLine();
     } else {
       messenger_.ShowIncorrectPasswordMessage();
     }
