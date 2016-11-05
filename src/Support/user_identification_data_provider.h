@@ -1,9 +1,7 @@
 #ifndef USER_IDENTIFICATION_DATA_PROVIDER_H
 #define USER_IDENTIFICATION_DATA_PROVIDER_H
 
-#include "string"
-
-#include "identification_messenger.h"
+#include <string>
 
 class UserIdentificationDataProvider {
   using string = std::string;
@@ -12,10 +10,8 @@ class UserIdentificationDataProvider {
   string GetLoginFromUser();
   string GetPasswordFromUser();
 
-  string GetDataFromUser();
-
  private:
-  IdentificationMessenger identification_messenger_;
+  string GetDataFromUser();
 };
 
 #endif  // USER_IDENTIFICATION_DATA_PROVIDER_H

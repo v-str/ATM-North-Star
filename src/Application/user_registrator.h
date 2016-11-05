@@ -2,6 +2,7 @@
 #define USER_REGISTRATOR_H
 
 #include "cash_operator.h"
+#include "identification_messenger.h"
 #include "notifier.h"
 #include "registration_messenger.h"
 #include "user_identification_data_provider.h"
@@ -24,6 +25,7 @@ class UserRegistrator {
   Notifier notifier_;
   RegistrationMessenger registation_messenger_;
   UserIdentificationDataProvider provider_;
+  IdentificationMessenger identification_messenger_;
 
   bool correct_registration_ = false;
 };

@@ -21,20 +21,19 @@ void UserRegistrator::RegisterUser(CashOperator &cash_operator,
   }
 }
 
-bool UserRegistrator::IsCorrectRegistration() {
-  return correct_registration_;
-}
+bool UserRegistrator::IsCorrectRegistration() { return correct_registration_; }
 
 void UserRegistrator::EnterLogin(UserIdentifier &user_identifier) {
+  identification_messenger_.ShowInitialLoginText();
   user_identifier.SetLogin(provider_.GetLoginFromUser());
 }
 
 void UserRegistrator::EnterPassword(UserIdentifier &user_identifier) {
+  identification_messenger_.ShowInitialPasswordText();
   user_identifier.SetPassword(provider_.GetPasswordFromUser());
 }
 
-void UserRegistrator::set_is_correct_registration(
-    bool correct_registration) {
+void UserRegistrator::set_is_correct_registration(bool correct_registration) {
   correct_registration_ = correct_registration;
 }
 

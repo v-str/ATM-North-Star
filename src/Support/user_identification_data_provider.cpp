@@ -4,13 +4,11 @@
 
 UserIdentificationDataProvider::string
 UserIdentificationDataProvider::GetLoginFromUser() {
-  identification_messenger_.ShowInitialLoginText();
   return GetDataFromUser();
 }
 
 UserIdentificationDataProvider::string
 UserIdentificationDataProvider::GetPasswordFromUser() {
-  identification_messenger_.ShowInitialPasswordText();
   return GetDataFromUser();
 }
 
