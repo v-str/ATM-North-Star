@@ -3,7 +3,7 @@
 void Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
                                       UserIdentifier &user_identifier) {
   utility_.ClearScreen();
-  int sum_of_withdrawal = SumOfWithdrawal();
+  int sum_of_withdrawal = GetSumOfWithdrawal();
   if (IsWithdrawalAcceptable(cash_operator, sum_of_withdrawal)) {
     messenger_.ShowSumOfWithdrawal(sum_of_withdrawal);
     messenger_.ShowPasswordString();
@@ -24,7 +24,7 @@ void Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
   }
 }
 
-int Withdrawal::SumOfWithdrawal() const {
+int Withdrawal::GetSumOfWithdrawal() const {
   messenger_.EnterSumOfWithdrawal();
   int withdraw_sum = 0;
   std::cin >> withdraw_sum;

@@ -16,6 +16,8 @@ class UserInput {
 
   bool SuggestUserToExitWithConfirmationMenu();
 
+  int GetSum();
+
  private:
   using string = std::string;
 

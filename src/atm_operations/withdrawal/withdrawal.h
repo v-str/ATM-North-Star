@@ -17,7 +17,7 @@ class Withdrawal {
   void WithdrawCashFromUser(CashOperator &cash_operator,
                             UserIdentifier &user_identifier);
 
-  int SumOfWithdrawal() const;
+  int GetSumOfWithdrawal() const;
   bool IsWithdrawalAcceptable(const CashOperator &cash_operator,
                               double cash_sum) const;
   bool IsCorrectPasswordAtWithdrawal(const string &password,
