@@ -28,4 +28,4 @@ class Registration {
   bool correct_registration_ = false;
 };
 
-#endif  // REGISTRATION_H
+#endif  // REGISTRATION_HT

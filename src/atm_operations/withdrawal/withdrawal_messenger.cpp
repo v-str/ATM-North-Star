@@ -14,7 +14,7 @@ void WithdrawalMessenger::ShowIncorrectPasswordMessage() const {
   utility_.WriteTextWithDelay("\n\t# Sorry, entered password is incorrect.\n");
 }
 
-void WithdrawalMessenger::ShowSentenceEnterASumOfMoney() const {
+void WithdrawalMessenger::EnterSumOfWithdrawal() const {
   std::cout << "\n\t# Please, enter the required sum: ";
 }
 

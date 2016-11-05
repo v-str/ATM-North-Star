@@ -25,7 +25,7 @@ void Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
 }
 
 int Withdrawal::SumOfWithdrawal() const {
-  messenger_.ShowSentenceEnterASumOfMoney();
+  messenger_.EnterSumOfWithdrawal();
   int withdraw_sum = 0;
   std::cin >> withdraw_sum;
   return withdraw_sum;
