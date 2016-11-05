@@ -9,7 +9,8 @@ INCLUDEPATH += \
     src/Application \
     src/Atm_operations \
     src/Support \
-    src/Messengers
+    src/Messengers \
+    src/Input_processing
 
 DISTFILES += \
     ToDo_List
@@ -18,13 +19,17 @@ HEADERS += \
     $$PWD/src/Application/*.h \
     $$PWD/src/Atm_operations/*.h \
     $$PWD/src/Support/*.h \
-    $$PWD/src/Messengers/*.h
+    $$PWD/src/Messengers/*.h \
+    $$PWD/src/Input_processing/*.h
+
 
 
 SOURCES += \
     $$PWD/src/Application/*.cpp \
     $$PWD/src/Atm_operations/*.cpp \
     $$PWD/src/Support/*.cpp \
-    $$PWD/src/Messengers/*.cpp
+    $$PWD/src/Messengers/*.cpp \
+    $$PWD/src/Input_processing/*.cpp
+
 
 

@@ -24,7 +24,7 @@ class UserInput {
   static const int kInvalidChoice = -1;
   static const int kGoToMain = 1;
   static const int kExit = 2;
-  static const int kSecond = 1000;
+  static const int kHalfSecond = 500;
 
   int ConvertLineToChoice(const string &line) const;
   bool LineNotEmpty(const string &str) const;
