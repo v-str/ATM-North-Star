@@ -2,7 +2,6 @@
 #define NOTIFIER_H
 
 #include "notice_messenger.h"
-#include "system_utility.h"
 
 class Notifier {
  public:
