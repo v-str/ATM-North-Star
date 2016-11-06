@@ -7,6 +7,8 @@
 #include "system_utility.h"
 #include "user_messenger.h"
 
+#include "notice_messenger.h"
+
 class UserInput {
  public:
   bool SuggestUserToExit() const;
@@ -31,8 +33,8 @@ class UserInput {
   std::string GetLineFromUser() const;
 
   SystemUtility utility_;
-  Notifier error_message;
   UserMessenger user_messenger_;
+  NoticeMessenger notice_messenger_;
 };
 
 #endif  // USER_INPUT_H

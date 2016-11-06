@@ -58,24 +58,6 @@ bool UserInput::SuggestUserToExitWithConfirmationMenu() {
 }
 
 bool UserInput::ShowIncorrectMessage() const {
-  error_message.NoticeAboutIncorrectDataMessage();
+  notice_messenger_.ShowIncorrectData();
   return GetResultFromUserAboutExit();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

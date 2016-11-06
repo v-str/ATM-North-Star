@@ -1,9 +1,5 @@
 #include "notifier.h"
 
-void Notifier::NoticeAboutIncorrectDataMessage() const {
-  notice_messenger_.ShowIncorrectData();
-}
-
 void Notifier::NoticeAboutIncorrectSum() const {
   notice_messenger_.ShowIncorrectSum();
 }
