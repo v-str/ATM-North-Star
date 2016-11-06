@@ -7,13 +7,11 @@ void Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
   if (IsWithdrawalAcceptable(cash_operator, sum_of_withdrawal)) {
     messenger_.ShowSumOfWithdrawal(sum_of_withdrawal);
     messenger_.ShowPasswordString();
-    string password;
-    std::cin >> password;
+    string password = user_input_.GetStringFromUser();
     if (IsCorrectPasswordAtWithdrawal(password, user_identifier)) {
       WithdrawFromAccount(cash_operator, sum_of_withdrawal);
       messenger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
                                           cash_operator.GetCash());
-      utility_.IgnoreCinLine();
     } else {
       messenger_.ShowIncorrectPasswordMessage();
     }

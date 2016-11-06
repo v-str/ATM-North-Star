@@ -57,6 +57,12 @@ bool UserInput::SuggestUserToExitWithConfirmationMenu() {
   return GetResultFromUserAboutExit();
 }
 
+std::string UserInput::GetStringFromUser() {
+  std::string user_string;
+  getline(std::cin, user_string);
+  return user_string;
+}
+
 bool UserInput::ShowIncorrectMessage() const {
   notice_messenger_.ShowIncorrectData();
   return GetResultFromUserAboutExit();

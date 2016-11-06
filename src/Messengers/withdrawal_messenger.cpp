@@ -10,7 +10,6 @@ void WithdrawalMessenger::ShowPasswordString() const {
 
 void WithdrawalMessenger::ShowIncorrectPasswordMessage() const {
   utility_.ClearScreen();
-  utility_.IgnoreCinLine();
   utility_.WriteTextWithDelay("\n\t# Sorry, entered password is incorrect.\n");
 }
 
