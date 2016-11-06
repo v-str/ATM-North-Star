@@ -17,7 +17,7 @@ void UserRegistrator::RegisterUser(CashOperator &cash_operator,
       notifier_.NoticeAboutIncorrectFormatPasswordMessage();
     }
   } else {
-    notifier_.NoticeAboutIncorrectLogin();
+    notice_messenger_.ShowIncorrectLoginFrame();
   }
 }
 

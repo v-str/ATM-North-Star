@@ -24,7 +24,7 @@ void NoticeMessenger::ShowIncorrectLoginFrame() const {
       "\t|It must be more than 1 and |\n"
       "\t|less than 20 symbols.      |\n"
       "\t|Please, reload the program.|");
-  std::cout << "\t|";
+  std::cout << "\n\t|";
   utility_.WriteSymbolsNTimes('-', kIncorrectDataFrame);
   std::cout << "|\n\n";
 }
