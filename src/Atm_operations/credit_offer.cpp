@@ -28,7 +28,7 @@ int CreditOffer::GetCreditChoice() const {
 
   utility_.WriteTextWithDelay(credit_confirmation_text);
 
-  int credit_choice = user_input_.GetChoiceFromUser();
+  int credit_choice = user_input_.GetValueFromUser();
 
   return credit_choice;
 }

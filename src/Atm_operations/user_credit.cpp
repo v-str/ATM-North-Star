@@ -23,7 +23,7 @@ void UserCredit::RefuseToGrantAnotherCredit() const {
 void UserCredit::SuggestACredit(CashOperator &cash_operator,
                                 const string &user_login) {
   credit_messenger_.ShowNotifyAboutCredit();
-  if (user_input_.GetChoiceFromUser() == kConsiderACredit) {
+  if (user_input_.GetValueFromUser() == kConsiderACredit) {
     ConsiderACreditBasedOnCash(cash_operator, user_login);
   }
 }
@@ -45,7 +45,7 @@ void UserCredit::GiveACredit(CashOperator &cash_operator,
 
   credit_messenger_.ShowCreditConditions(maximal_sum_of_credit);
 
-  int choice = user_input_.GetChoiceFromUser();
+  int choice = user_input_.GetValueFromUser();
   if (choice == kMaxCredit) {
     credit_.GiveCreditByMode(cash_operator, user_login, maximal_sum_of_credit,
                              kMaximalCredit);

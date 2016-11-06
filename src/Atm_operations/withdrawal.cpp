@@ -26,7 +26,7 @@ void Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
 
 int Withdrawal::GetSumOfWithdrawal() const {
   messenger_.EnterSumOfWithdrawal();
-  int withdraw_sum = user_input_.GetChoiceFromUser();
+  int withdraw_sum = user_input_.GetValueFromUser();
   return withdraw_sum;
 }
 

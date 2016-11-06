@@ -10,7 +10,7 @@
 class UserInput {
  public:
   bool SuggestUserToExit() const;
-  int GetChoiceFromUser() const;
+  int GetValueFromUser() const;
   bool ShowIncorrectMessage() const;
   bool GetResultFromUserAboutExit() const;
 

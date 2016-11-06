@@ -21,7 +21,7 @@ bool DemoUser::UserWantToRegistrate() { return user_want_to_registrate_; }
 void DemoUser::UserWantToExitProgram() { SayGoodBye(); }
 
 void DemoUser::UserDecideToExit() {
-  int user_choice = input_.GetChoiceFromUser();
+  int user_choice = input_.GetValueFromUser();
   if (user_choice == kAccountSection) {
     StartSection(DemoUserMessanger::MessageType::kAccountInfo);
   } else if (user_choice == kRefillSection) {

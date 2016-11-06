@@ -10,7 +10,7 @@ bool UserInput::SuggestUserToExit() const {
 bool UserInput::GetResultFromUserAboutExit() const {
   bool result_of_choice = false;
   for (;;) {
-    int user_want_to_exit = GetChoiceFromUser();
+    int user_want_to_exit = GetValueFromUser();
     if (user_want_to_exit == kGoToMain) {
       break;
     } else if (user_want_to_exit == kExit) {
@@ -24,7 +24,7 @@ bool UserInput::GetResultFromUserAboutExit() const {
   return result_of_choice;
 }
 
-int UserInput::GetChoiceFromUser() const {
+int UserInput::GetValueFromUser() const {
   return ConvertLineToChoice(GetLineFromUser());
 }
 

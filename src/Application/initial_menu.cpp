@@ -1,7 +1,7 @@
 #include "initial_menu.h"
 
 void InitialMenu::RunMenu() {
-  int user_choice = user_input_.GetChoiceFromUser();
+  int user_choice = user_input_.GetValueFromUser();
 
   if (user_choice == kDemoMode) {
     demo_mode_.ShowDemoMode();
@@ -32,7 +32,7 @@ void InitialMenu::DisplayMenu() {
 
 void InitialMenu::StartMainMenu() {
   user_messenger_.ShowMainMenu();
-  DoProgramSection(user_input_.GetChoiceFromUser());
+  DoProgramSection(user_input_.GetValueFromUser());
 }
 
 void InitialMenu::DoProgramSection(int choice) {

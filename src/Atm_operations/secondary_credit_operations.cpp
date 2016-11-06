@@ -19,7 +19,7 @@ int SecondaryCreditOperations::GetSumOfCreditFromUser(
 
   do {
     notice_messenger_.ShowSumCreditInfo();
-    user_sum_of_credit = user_input_.GetChoiceFromUser();
+    user_sum_of_credit = user_input_.GetValueFromUser();
   } while (user_sum_of_credit > maximal_sum_of_credit ||
            user_sum_of_credit == kInvalidChoice || user_sum_of_credit < 0);
 
@@ -30,7 +30,7 @@ int SecondaryCreditOperations::GetAmountCreditMonths() {
   int months = 0;
   do {
     credit_messenger_.ShowAmountOfMonthToPayACredit();
-    months = user_input_.GetChoiceFromUser();
+    months = user_input_.GetValueFromUser();
   } while (!IsMonthCorrect(months));
   return months;
 }
