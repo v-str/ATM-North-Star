@@ -60,24 +60,17 @@ void NoticeMessenger::ShowIncorrectSum() const {
   std::cin.clear();
 }
 
-void NoticeMessenger::ShowUnacceptableWithdrawal(int incorrect_sum,
-                                                 int amount_of_cash) const {
+void NoticeMessenger::ShowUnacceptableWithdrawal(int amount_of_cash) const {
   utility_.ClearScreen();
   utility_.WriteTextWithDelay("\n\t# Sorry, entered sum is incorrect.\n\n");
-  std::cout << "\t# Entered sum: " << incorrect_sum << "\n\n";
+  std::cout << "\t# Balance: " << amount_of_cash << "\n\n\t";
 
-  std::cout << "\n\t# "
-            << "Balance"
-            << ": " << amount_of_cash << "\n\t";
   utility_.WriteSymbolsNTimes('-', kFrame);
   utility_.Sleep(kSleep);
-
-  utility_.IgnoreCinLine();
 }
 
 void NoticeMessenger::ShowError() const {
-  utility_.WriteTextWithDelay(
-      "\n\tData is not correct.\n\n");
+  utility_.WriteTextWithDelay("\tData is not correct.\n\n");
 }
 
 void NoticeMessenger::ShowIncorrectfMonths() const {

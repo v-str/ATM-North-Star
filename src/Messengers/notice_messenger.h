@@ -11,7 +11,7 @@ class NoticeMessenger {
   void ShowIncorrectFormatPassword() const;
   void ShowIncorrectData() const;
   void ShowIncorrectSum() const;
-  void ShowUnacceptableWithdrawal(int incorrect_sum, int amount_of_cash) const;
+  void ShowUnacceptableWithdrawal(int amount_of_cash) const;
   void ShowError() const;
   void ShowIncorrectfMonths() const;
 
