@@ -9,7 +9,7 @@ void Refill::StartRefillOperation(CashOperator &cash_operator) {
     cash_operator.AddCash(money);
     refill_messenger_.ShowUserBalance(cash_operator.GetCash());
   } else {
-    error_message_.NoticeAboutIncorrectSum();
+    notice_messenger_.ShowIncorrectSum();
   }
   utility_.IgnoreCinLine();
 }

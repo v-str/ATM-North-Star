@@ -17,7 +17,7 @@ class Refill {
   static const int maximal_refill = 50000;
 
   RefillMessenger refill_messenger_;
-  Notifier error_message_;
+  NoticeMessenger notice_messenger_;
   SystemUtility utility_;
   UserInput user_input_;
 };
