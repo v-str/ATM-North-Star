@@ -7,8 +7,8 @@
 #include "credit.h"
 #include "credit_messenger.h"
 #include "notifier.h"
-#include "user_input.h"
 #include "user_identifier.h"
+#include "user_input.h"
 
 class UserCredit {
   using string = std::string;
@@ -41,6 +41,8 @@ class UserCredit {
   Notifier error_message;
   Credit credit_;
   SystemUtility utility_;
+
+  NoticeMessenger notice_messenger_;
 };
 
 #endif  // USER_CREDIT_H

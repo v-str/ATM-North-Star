@@ -54,7 +54,7 @@ void UserCredit::GiveACredit(CashOperator &cash_operator,
                              kConsumerCredit);
   } else if (choice == kExit) {
   } else {
-    error_message.ShowIncorrectDataMessage();
+    notice_messenger_.ShowError();
   }
 }
 

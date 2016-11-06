@@ -77,7 +77,7 @@ void NoticeMessenger::ShowUnacceptableWithdrawal(int incorrect_sum,
 
 void NoticeMessenger::ShowError() const {
   utility_.WriteTextWithDelay(
-      "\tData is not correct.\n\n");
+      "\n\tData is not correct.\n\n");
 }
 
 void NoticeMessenger::ShowIncorrectfMonths() const {
