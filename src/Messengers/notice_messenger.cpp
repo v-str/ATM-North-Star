@@ -55,8 +55,7 @@ void NoticeMessenger::ShowIncorrectData() const {
 
 void NoticeMessenger::ShowIncorrectSum() const {
   utility_.WriteTextWithDelay(
-      "\n\tIncorrect sum, Reconnect to repeat.\n"
-      "\t\t- Press any key - \n\n");
+      "\n\tIncorrect sum, Reconnect to repeat.\n\n");
   std::cin.clear();
 }
 
