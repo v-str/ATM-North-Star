@@ -1,9 +1,5 @@
 #include "notifier.h"
 
-void Notifier::NoticeAboutSuccessfulRegistration() const {
-  notice_messenger_.ShowAcceptableMessageFrame();
-}
-
 void Notifier::NoticeAboutIncorrectLogin() const {
   notice_messenger_.ShowIncorrectLoginFrame();
 }
