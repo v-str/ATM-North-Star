@@ -77,8 +77,7 @@ void NoticeMessenger::ShowUnacceptableWithdrawal(int incorrect_sum,
 
 void NoticeMessenger::ShowError() const {
   utility_.WriteTextWithDelay(
-      "\tData is not correct, please reload the program.\n\n");
-  std::cin.get();
+      "\tData is not correct.\n\n");
 }
 
 void NoticeMessenger::ShowIncorrectfMonths() const {

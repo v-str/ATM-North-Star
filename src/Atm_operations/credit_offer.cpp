@@ -17,7 +17,8 @@ void CreditOffer::SuggestACredit(CashOperator &cash_operator,
   } else if (user_choice == kRepeal) {
     DoCreditOperation(cash_operator);
   } else {
-    DoCreditOperation(cash_operator, error_operation_);
+    cash_operator.SetAmountOfCreditMonth(0);
+    notice_messenger_.ShowError();
   }
 }
 
@@ -45,10 +46,4 @@ void CreditOffer::DoCreditOperation(CashOperator &cash_operator) const {
   cash_operator.AssignAMonthlyPayment(0.0);
   cash_operator.SetAmountOfCreditMonth(0);
   credit_messenger_.ShowResultOfUserChoice(kRepeal);
-}
-
-void CreditOffer::DoCreditOperation(CashOperator &cash_operator,
-                                    Notifier error_operation) const {
-  cash_operator.SetAmountOfCreditMonth(0);
-  error_operation.ShowIncorrectDataMessage();
 }
