@@ -16,6 +16,7 @@ class SecondaryCreditOperations {
                                  const int amount_of_credit_months) const;
 
  private:
+  static const int kInvalidChoice = -1;
   static const int kIndividualCredit = 1;
   static const int kRatePerYear = 14;
   static const int kFullRate = 100;

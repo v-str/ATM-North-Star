@@ -13,7 +13,7 @@ class NoticeMessenger {
   void ShowIncorrectSum() const;
   void ShowUnacceptableWithdrawal(int amount_of_cash) const;
   void ShowError() const;
-  void ShowIncorrectfMonths() const;
+  void ShowSumCreditInfo() const;
 
  private:
   static const int kSecond = 1000;

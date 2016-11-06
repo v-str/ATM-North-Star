@@ -72,9 +72,9 @@ void NoticeMessenger::ShowError() const {
   utility_.WriteTextWithDelay("\tData is not correct.\n\n");
 }
 
-void NoticeMessenger::ShowIncorrectfMonths() const {
+void NoticeMessenger::ShowSumCreditInfo() const {
   utility_.WriteTextWithDelay(
-      "The entered amount should not "
-      "exceed the allowed credit.\n"
-      "Enter the appropriate amount of credit: ");
+      "\nThe entered sum should not "
+      "exceed the allowed credit.\n\n"
+      "Enter the appropriate sum of credit: $");
 }

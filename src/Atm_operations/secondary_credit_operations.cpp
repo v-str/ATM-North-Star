@@ -16,11 +16,13 @@ int SecondaryCreditOperations::GetAmountCreditByMode(
 int SecondaryCreditOperations::GetSumOfCreditFromUser(
     const int maximal_sum_of_credit) {
   int user_sum_of_credit = 0;
+
   do {
-    notice_messenger_.ShowIncorrectfMonths();
-    std::cin >> user_sum_of_credit;
-    utility_.IgnoreCinLine();
-  } while (user_sum_of_credit > maximal_sum_of_credit);
+    notice_messenger_.ShowSumCreditInfo();
+    user_sum_of_credit = user_input_.GetChoiceFromUser();
+  } while (user_sum_of_credit > maximal_sum_of_credit ||
+           user_sum_of_credit == kInvalidChoice || user_sum_of_credit < 0);
+
   return user_sum_of_credit;
 }
 

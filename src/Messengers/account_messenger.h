@@ -17,7 +17,7 @@ class AccountMessenger {
   inline std::string BalanceText() const { return "Balance: $"; }
   inline std::string CreditText() const { return "Credit: $"; }
   inline std::string PaymentText() const { return "Monthly payment: $"; }
-  inline std::string TermText() const { return "Credit term: $"; }
+  inline std::string TermText() const { return "Credit term: "; }
 
  private:
   static const int kNTimes = 45;
