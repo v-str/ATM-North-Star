@@ -38,7 +38,7 @@ void NoticeMessenger::ShowIncorrectFormatPassword() const {
       "\t|Incorrect password.        |\n"
       "\t|It must be in XXXX format. |\n"
       "\t|Please, reload the program.|");
-  std::cout << "\t|";
+  std::cout << "\n\t|";
   utility_.WriteSymbolsNTimes('-', kIncorrectDataFrame);
   std::cout << "|\n\n\t\t\t";
 }

@@ -14,7 +14,7 @@ void UserRegistrator::RegisterUser(CashOperator &cash_operator,
       AssignInitialValues(cash_operator);
       set_is_correct_registration(true);
     } else {
-      notifier_.NoticeAboutIncorrectFormatPasswordMessage();
+      notice_messenger_.ShowIncorrectFormatPassword();
     }
   } else {
     notice_messenger_.ShowIncorrectLoginFrame();

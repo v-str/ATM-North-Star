@@ -1,9 +1,5 @@
 #include "notifier.h"
 
-void Notifier::NoticeAboutIncorrectFormatPasswordMessage() const {
-  notice_messenger_.ShowIncorrectFormatPassword();
-}
-
 void Notifier::NoticeAboutIncorrectDataMessage() const {
   notice_messenger_.ShowIncorrectData();
 }
