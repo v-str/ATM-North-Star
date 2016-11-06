@@ -17,7 +17,7 @@ int SecondaryCreditOperations::GetSumOfCreditFromUser(
     const int maximal_sum_of_credit) {
   int user_sum_of_credit = 0;
   do {
-    error_.NoticeAboutIncorrectMonths();
+    notice_messenger_.ShowIncorrectfMonths();
     std::cin >> user_sum_of_credit;
     utility_.IgnoreCinLine();
   } while (user_sum_of_credit > maximal_sum_of_credit);

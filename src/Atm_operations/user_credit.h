@@ -6,7 +6,6 @@
 
 #include "credit.h"
 #include "credit_messenger.h"
-#include "notifier.h"
 #include "user_identifier.h"
 #include "user_input.h"
 
@@ -38,10 +37,8 @@ class UserCredit {
 
   UserInput user_input_;
   CreditMessanger credit_messenger_;
-  Notifier error_message;
   Credit credit_;
   SystemUtility utility_;
-
   NoticeMessenger notice_messenger_;
 };
 

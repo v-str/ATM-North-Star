@@ -3,11 +3,9 @@
 
 #include <string>
 
-#include "notifier.h"
+#include "notice_messenger.h"
 #include "system_utility.h"
 #include "user_messenger.h"
-
-#include "notice_messenger.h"
 
 class UserInput {
  public:
@@ -30,6 +28,7 @@ class UserInput {
 
   int ConvertLineToChoice(const string &line) const;
   bool LineNotEmpty(const string &str) const;
+
   std::string GetLineFromUser() const;
 
   SystemUtility utility_;

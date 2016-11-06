@@ -21,7 +21,6 @@ class CreditOffer {
                          double pay_per_month) const;
   void DoCreditOperation(CashOperator &cash_operator) const;
 
-  Notifier error_operation_;
   CreditMessanger credit_messenger_;
   SecondaryCreditOperations secondary_credit_operation_;
   CreditPage credit_page_;
