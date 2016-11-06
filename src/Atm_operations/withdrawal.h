@@ -4,11 +4,12 @@
 #include <iostream>
 #include <string>
 
-#include "notifier.h"
-#include "user_input.h"
-#include "withdrawal_messenger.h"
 #include "cash_operator.h"
 #include "user_identifier.h"
+#include "user_input.h"
+#include "withdrawal_messenger.h"
+
+#include "notice_messenger.h"
 
 class Withdrawal {
   using string = std::string;
@@ -29,9 +30,10 @@ class Withdrawal {
   static const int kNull = 0;
 
   UserInput user_input_;
-  Notifier error_message_;
   WithdrawalMessenger messenger_;
   SystemUtility utility_;
+
+  NoticeMessenger notice_messenger_;
 };
 
 #endif  // WITHDRAWAL_H
