@@ -18,7 +18,6 @@ void RefillMessenger::ShowUserBalance(const int balance) const {
   utility_.WriteTextWithDelay("\n\t# Balance refill completed successfully.");
   WriteUserInfo("Balance", std::to_string(balance));
   std::cout << "\n\t";
-  std::cin.sync();
   utility_.Sleep(kSecond);
 }
 

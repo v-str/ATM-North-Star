@@ -34,7 +34,6 @@ void UserMessenger::ShowNotifyAboutCash() {
 void UserMessenger::ShowIncorrectDataMessage() {
   utility_.WriteTextWithDelay(
       "\t Data is not correct, please reload the program.\n\n");
-  std::cin.get();
 }
 
 void UserMessenger::SuggestUserToExit() const {

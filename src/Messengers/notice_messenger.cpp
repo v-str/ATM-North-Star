@@ -50,13 +50,10 @@ void NoticeMessenger::ShowIncorrectData() const {
       "\t# 1. Yes\n"
       "\t# 2. No, exit\n");
   std::cout << "\t# Enter: ";
-  std::cin.clear();
 }
 
 void NoticeMessenger::ShowIncorrectSum() const {
-  utility_.WriteTextWithDelay(
-      "\n\tIncorrect sum, Reconnect to repeat.\n\n");
-  std::cin.clear();
+  utility_.WriteTextWithDelay("\n\tIncorrect sum, Reconnect to repeat.\n\n");
 }
 
 void NoticeMessenger::ShowUnacceptableWithdrawal(int amount_of_cash) const {
