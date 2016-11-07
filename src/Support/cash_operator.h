@@ -23,10 +23,10 @@ class CashOperator {
  private:
   static const int kmininmal_sum_for_credit = 1000;
 
-  int cash_ = 0;
-  int credit_ = 0;
-  double monthly_payment_ = 0.0;
-  int amount_of_credit_month_ = 0;
+  int cash_;
+  int credit_ ;
+  double monthly_payment_;
+  int amount_of_credit_month_ ;
 };
 
 #endif  // CASH_OPERATOR_H
