@@ -2,7 +2,7 @@
 #define APPLICATION_H
 
 #include "initial_menu.h"
-#include "initial_screen.h"
+#include "initial_messenger.h"
 
 class Application {
  public:
@@ -10,7 +10,7 @@ class Application {
 
  private:
   InitialMenu init_menu_;
-  InitialScreen init_screen_;
+  InitialMessenger init_screen_;
 };
 
 #endif  // APPLICATION_H

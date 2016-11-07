@@ -1,9 +1,9 @@
-#ifndef INITIAL_SCREEN_H
-#define INITIAL_SCREEN_H
+#ifndef INITIAL_MESSENGER_H
+#define INITIAL_MESSENGER_H
 
 #include "system_utility.h"
 
-class InitialScreen {
+class InitialMessenger {
  public:
   void DisplayInitialScreen();
 
@@ -17,4 +17,4 @@ class InitialScreen {
   SystemUtility utility_;
 };
 
-#endif  // INITIAL_SCREEN_H
+#endif  // INITIAL_MESSENGER_H
