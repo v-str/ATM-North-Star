@@ -15,7 +15,7 @@ class UserInput {
 
   bool SuggestUserToExitWithConfirmationMenu();
 
-  std::string GetStringFromUser();
+  std::string GetDataFromUser();
 
  private:
   using string = std::string;

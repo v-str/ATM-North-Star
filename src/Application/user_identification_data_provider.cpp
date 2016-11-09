@@ -14,7 +14,5 @@ UserIdentificationDataProvider::GetPasswordFromUser() {
 
 UserIdentificationDataProvider::string
 UserIdentificationDataProvider::GetDataFromUser() {
-  string user_data;
-  getline(std::cin, user_data);
-  return user_data;
+  return user_input_.GetDataFromUser();
 }

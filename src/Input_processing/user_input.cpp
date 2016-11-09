@@ -56,7 +56,7 @@ bool UserInput::SuggestUserToExitWithConfirmationMenu() {
   return GetResultFromUserAboutExit();
 }
 
-std::string UserInput::GetStringFromUser() {
+std::string UserInput::GetDataFromUser() {
   std::string user_string;
   getline(std::cin, user_string);
   return user_string;
