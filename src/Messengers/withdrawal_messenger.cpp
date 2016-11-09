@@ -1,5 +1,7 @@
 #include "withdrawal_messenger.h"
 
+#include <iostream>
+
 void WithdrawalMessenger::ShowSumOfWithdrawal(int sum_of_cash) const {
   std::cout << "\t#Sum($): " << sum_of_cash << "\n";
 }

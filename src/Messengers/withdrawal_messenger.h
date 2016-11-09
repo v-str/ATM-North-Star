@@ -1,8 +1,6 @@
 #ifndef WITHDRAWAL_MESSENGER_H
 #define WITHDRAWAL_MESSENGER_H
 
-#include <iostream>
-
 #include "system_utility.h"
 
 class WithdrawalMessenger {

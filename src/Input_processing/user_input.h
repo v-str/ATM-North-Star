@@ -4,7 +4,6 @@
 #include <string>
 
 #include "notice_messenger.h"
-#include "system_utility.h"
 #include "user_messenger.h"
 
 class UserInput {
@@ -31,7 +30,6 @@ class UserInput {
 
   std::string GetLineFromUser() const;
 
-  SystemUtility utility_;
   UserMessenger user_messenger_;
   NoticeMessenger notice_messenger_;
 };

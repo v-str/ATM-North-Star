@@ -1,8 +1,6 @@
 #ifndef USER_MESSANGER_H
 #define USER_MESSANGER_H
 
-#include <string>
-
 #include "system_utility.h"
 
 class UserMessenger {

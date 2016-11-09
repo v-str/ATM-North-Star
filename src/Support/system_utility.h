@@ -7,7 +7,6 @@ class SystemUtility {
   using string = std::string;
 
  public:
-  void CleanFlow() const;
   void Sleep(int latency_ms) const;
   void IgnoreCinLine() const;
   void ClearScreen() const;

@@ -1,10 +1,8 @@
 #ifndef CREDIT_MESSANGER_H
 #define CREDIT_MESSANGER_H
 
-#include "iostream"
 #include "string"
 
-#include "cash_operator.h"
 #include "system_utility.h"
 
 class CreditMessanger {

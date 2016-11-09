@@ -1,7 +1,6 @@
 #ifndef STATEMENT_MESSENGER_H
 #define STATEMENT_MESSENGER_H
 
-#include <iostream>
 #include <string>
 
 class StatementMessenger {

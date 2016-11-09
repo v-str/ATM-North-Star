@@ -14,7 +14,6 @@ bool UserInput::GetResultFromUserAboutExit() const {
     if (user_want_to_exit == kGoToMain) {
       break;
     } else if (user_want_to_exit == kExit) {
-      utility_.Sleep(kHalfSecond);
       result_of_choice = true;
       break;
     } else {
