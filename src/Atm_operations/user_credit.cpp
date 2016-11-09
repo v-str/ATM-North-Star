@@ -5,7 +5,7 @@ void UserCredit::StartCreditOperation(const UserIdentifier &user_identifier,
   utility_.ClearScreen();
   if (AlreadyHasACredit(cash_operator.GetCredit())) {
     RefuseToGrantAnotherCredit();
-    credit_messenger_.ShowIncorrectCashInformation(cash_operator);
+    credit_messenger_.ShowIncorrectCashInformation(cash_operator.GetCash());
   } else {
     string user_login = user_identifier.GetLogin();
     SuggestACredit(cash_operator, user_login);

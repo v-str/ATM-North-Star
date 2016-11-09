@@ -31,7 +31,7 @@ class CreditMessanger {
 
   void ShowResultOfUserChoice(int decision_of_user) const;
 
-  void ShowIncorrectCashInformation(const CashOperator &cash_operator) const;
+  void ShowIncorrectCashInformation(int cash) const;
 
   string ShowEnterText() const;
 

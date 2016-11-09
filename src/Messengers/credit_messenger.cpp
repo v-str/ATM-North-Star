@@ -125,10 +125,9 @@ void CreditMessanger::ShowResultOfUserChoice(int decision_of_user) const {
   }
 }
 
-void CreditMessanger::ShowIncorrectCashInformation(
-    const CashOperator &cash_operator) const {
+void CreditMessanger::ShowIncorrectCashInformation(int cash) const {
   utility_.WriteSymbolsNTimes('-', 30);
-  std::cout << "Balance: " << cash_operator.GetCash();
+  std::cout << "Balance: " << cash;
   utility_.WriteSymbolsNTimes('-', 30);
 }
 
