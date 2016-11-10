@@ -1,14 +1,14 @@
 #ifndef REGISTRATION_MESSENGER_H
 #define REGISTRATION_MESSENGER_H
 
-#include "system_utility.h"
+#include "text_editor.h"
 
 class RegistrationMessenger {
  public:
   void ShowRegistrationScreen() const;
 
  private:
-  SystemUtility utility_;
+  TextEditor text_editor_;
 };
 
 #endif  // REGISTRATION_MESSENGER_H

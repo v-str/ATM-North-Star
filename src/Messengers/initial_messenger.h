@@ -1,7 +1,7 @@
 #ifndef INITIAL_MESSENGER_H
 #define INITIAL_MESSENGER_H
 
-#include "system_utility.h"
+#include "text_editor.h"
 
 class InitialMessenger {
  public:
@@ -14,7 +14,7 @@ class InitialMessenger {
   void DisplayLogotype();
   void EatLine();
 
-  SystemUtility utility_;
+  TextEditor text_editor_;
 };
 
 #endif  // INITIAL_MESSENGER_H

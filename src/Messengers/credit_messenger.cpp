@@ -3,7 +3,7 @@
 #include "iostream"
 
 void CreditMessanger::RefusToGrantAnotherCredit() const {
-  utility_.WriteTextWithDelay(
+  text_editor_.WriteTextWithDelay(
       "\n #Sorry, but you have already a "
       "loan in our bank.\n"
       " #You can't get a second loan, "
@@ -12,8 +12,8 @@ void CreditMessanger::RefusToGrantAnotherCredit() const {
 }
 
 void CreditMessanger::ShowNotifyAboutCredit() const {
-  utility_.ClearScreen();
-  utility_.WriteTextWithDelay(
+  text_editor_.ClearScreen();
+  text_editor_.WriteTextWithDelay(
       "# You can get a loan in our bank if your\n"
       "  balance more than $1000.\n"
       "# We draw your attention to the fact that\n"
@@ -32,16 +32,16 @@ void CreditMessanger::ShowNotifyAboutCredit() const {
 }
 
 void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
-  utility_.ClearScreen();
-  utility_.WriteTextWithDelay(
+  text_editor_.ClearScreen();
+  text_editor_.WriteTextWithDelay(
       "# Your balance more than 1000$. You can afford to take the\n"
       "# credit in our bank. The maximum amount for you is:\n");
-  utility_.Sleep(kHalfASecond);
+  text_editor_.Sleep(kHalfASecond);
   std::cout << "----------------------------------------------------------\n";
   std::cout << " \t\t\t $" << maximal_sum_of_credit << "\n";
   std::cout << "----------------------------------------------------------\n";
-  utility_.Sleep(kHalfASecond);
-  utility_.WriteTextWithDelay(
+  text_editor_.Sleep(kHalfASecond);
+  text_editor_.WriteTextWithDelay(
       "\n# Do you prefer get all sum or you want to change the sum of "
       "loan?\n\n"
       "# 1. Get all sum\n"
@@ -69,36 +69,36 @@ CreditMessanger::string CreditMessanger::SuggestToConfirmACredit() const {
 
 void CreditMessanger::ShowCreditTitle(const CreditMessanger::string &user_login,
                                       int sum_of_credit) const {
-  utility_.ClearScreen();
+  text_editor_.ClearScreen();
   std::cout << "\t\tConsumer Credit\n\n";
-  utility_.Sleep(kHalfASecond);
+  text_editor_.Sleep(kHalfASecond);
   std::cout << "Profile: " << user_login << "\n";
-  utility_.Sleep(kHalfASecond);
+  text_editor_.Sleep(kHalfASecond);
   std::cout << "Sum $: " << sum_of_credit << "\n";
-  utility_.Sleep(kHalfASecond);
+  text_editor_.Sleep(kHalfASecond);
   std::cout << "Persent per year: 14%\n\n";
-  utility_.Sleep(kHalfASecond);
+  text_editor_.Sleep(kHalfASecond);
 }
 
 void CreditMessanger::ShowEnrollACredit() const {
-  utility_.WriteTextWithDelay(
+  text_editor_.WriteTextWithDelay(
       "\n# The loan was successfully transferred on your account.\n"
       "# You might cash your credit in our nearest bank.");
 }
 
 void CreditMessanger::ShowRepealACreadit() const {
-  utility_.WriteTextWithDelay("\n\t# Credit is repealed...\n");
+  text_editor_.WriteTextWithDelay("\n\t# Credit is repealed...\n");
 }
 
 void CreditMessanger::ShowRefuseACredit(int sum_of_cash) const {
-  utility_.ClearScreen();
-  utility_.WriteTextWithDelay("# We checked your balance.\n");
-  utility_.Sleep(kHalfASecond);
+  text_editor_.ClearScreen();
+  text_editor_.WriteTextWithDelay("# We checked your balance.\n");
+  text_editor_.Sleep(kHalfASecond);
   std::cout << "# Available cash = $" << sum_of_cash << "\n";
-  utility_.WriteTextWithDelay(
+  text_editor_.WriteTextWithDelay(
       "# Sorry, for getting a loan your balance must be "
       "$1000 or more.\n");
-  utility_.Sleep(kHalfASecond);
+  text_editor_.Sleep(kHalfASecond);
 }
 
 void CreditMessanger::ShowTableOfCredit(const double pay_per_month,
@@ -107,7 +107,7 @@ void CreditMessanger::ShowTableOfCredit(const double pay_per_month,
   for (int i = kNull; i < amount_of_months; ++i) {
     std::cout << "\t* Payment month: " << i + 1 << "\tPayment sum: ";
     std::cout << pay_per_month << " $\n";
-    utility_.Sleep(kSleep);
+    text_editor_.Sleep(kSleep);
     all_payment += pay_per_month;
   }
   std::cout << "\t\t\tTotal: " << all_payment << " $\n\n";
@@ -128,9 +128,9 @@ void CreditMessanger::ShowResultOfUserChoice(int decision_of_user) const {
 }
 
 void CreditMessanger::ShowIncorrectCashInformation(int cash) const {
-  utility_.WriteSymbolsNTimes('-', 30);
+  text_editor_.WriteSymbolsNTimes('-', 30);
   std::cout << "Balance: " << cash;
-  utility_.WriteSymbolsNTimes('-', 30);
+  text_editor_.WriteSymbolsNTimes('-', 30);
 }
 
 CreditMessanger::string CreditMessanger::ShowEnterText() const {

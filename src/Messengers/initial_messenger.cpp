@@ -44,10 +44,10 @@ void InitialMessenger::DisplayLogotype()  {
       "---------------------------------------------\n";
   cout << demo;
 
-  utility_.WriteTextWithDelay(
+  text_editor_.WriteTextWithDelay(
       "\t         ATM #0001\n"
       "  Adress - 28 Greene St, New York, NY 10012\n");
-  utility_.WriteTextWithDelay("\t      press \"Enter\"", 50);
+  text_editor_.WriteTextWithDelay("\t      press \"Enter\"", 50);
   cin.clear();
   EatLine();
   system("pause");
@@ -55,7 +55,7 @@ void InitialMessenger::DisplayLogotype()  {
 }
 
 void InitialMessenger::DisplayError() const {
-  utility_.WriteTextWithDelay(
+  text_editor_.WriteTextWithDelay(
       "\n\n\tData is not correct,\n"
       "\tplease reload the program.\n\n");
 }

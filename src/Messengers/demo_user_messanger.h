@@ -1,7 +1,7 @@
 #ifndef DEMO_USER_MESSANGER_H
 #define DEMO_USER_MESSANGER_H
 
-#include "system_utility.h"
+#include "text_editor.h"
 
 class DemoUserMessanger {
  public:
@@ -30,7 +30,7 @@ class DemoUserMessanger {
 
   void ShowDemoMenu() const;
 
-  SystemUtility utility_;
+  TextEditor text_editor_;
 };
 
 #endif  // DEMO_USER_MESSANGER_H

@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "system_utility.h"
+#include "text_editor.h"
 
 class RefillMessenger {
   using string = std::string;
@@ -18,7 +18,7 @@ class RefillMessenger {
   void WriteUserInfo(const string &info_title, const string &value) const;
 
  private:
-  SystemUtility utility_;
+  TextEditor text_editor_;
 };
 
 #endif  // REFILL_MESSENGER_H

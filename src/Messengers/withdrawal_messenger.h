@@ -1,7 +1,7 @@
 #ifndef WITHDRAWAL_MESSENGER_H
 #define WITHDRAWAL_MESSENGER_H
 
-#include "system_utility.h"
+#include "text_editor.h"
 
 class WithdrawalMessenger {
  public:
@@ -13,7 +13,7 @@ class WithdrawalMessenger {
   void ShowSuccessfulWithdrawal(int sum_of_cash, int sum_of_withdrawal);
 
  private:
-  SystemUtility utility_;
+  TextEditor text_editor_;
 };
 
 #endif  // WITHDRAWAL_MESSENGER_H

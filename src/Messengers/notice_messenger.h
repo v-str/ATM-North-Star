@@ -1,7 +1,7 @@
 #ifndef NOTICE_MESSENGER_H
 #define NOTICE_MESSENGER_H
 
-#include "system_utility.h"
+#include "text_editor.h"
 
 class NoticeMessenger {
  public:
@@ -23,7 +23,7 @@ class NoticeMessenger {
   static const int kSleep = 100;
   static const int kFrame = 45;
 
-  SystemUtility utility_;
+  TextEditor text_editor_;
 };
 
 #endif  // NOTICE_MESSENGER_H

@@ -20,7 +20,8 @@ HEADERS += \
     $$PWD/src/Atm_operations/*.h \
     $$PWD/src/Support/*.h \
     $$PWD/src/Messengers/*.h \
-    $$PWD/src/Input_processing/*.h
+    $$PWD/src/Input_processing/*.h \
+
 
 
 
@@ -29,7 +30,8 @@ SOURCES += \
     $$PWD/src/Atm_operations/*.cpp \
     $$PWD/src/Support/*.cpp \
     $$PWD/src/Messengers/*.cpp \
-    $$PWD/src/Input_processing/*.cpp
+    $$PWD/src/Input_processing/*.cpp \
+
 
 
 

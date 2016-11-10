@@ -1,7 +1,7 @@
 #ifndef IDENTIFICATION_MESSENGER_H
 #define IDENTIFICATION_MESSENGER_H
 
-#include "system_utility.h"
+#include "text_editor.h"
 
 class IdentificationMessenger {
  public:
@@ -12,7 +12,7 @@ class IdentificationMessenger {
   static const int kMaxLenghtOfLogin = 21;
   static const int kMaxLenghtOfPassword = 4;
 
-  SystemUtility utility_;
+  TextEditor text_editor_;
 };
 
 #endif  // IDENTIFICATION_MESSENGER_H
