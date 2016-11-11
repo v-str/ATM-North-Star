@@ -8,10 +8,6 @@ void SystemUtility::Sleep(int latency_ms) const {
   std::this_thread::sleep_for(std::chrono::milliseconds(latency_ms));
 }
 
-void SystemUtility::IgnoreCinLine() const {
-  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-}
-
 void SystemUtility::ClearScreen() const { system("clear"); }
 
 void SystemUtility::WriteTextWithDelay(const string &text, int delay) const {
