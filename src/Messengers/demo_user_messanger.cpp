@@ -31,7 +31,7 @@ void DemoUserMessanger::ShowMessage(
 
 void DemoUserMessanger::ShowDemoMenu() const {
   std::cout
-      << "\t################ Demo Transaction menu ###################\n"
+      << "\n\n\t################ Demo Transaction menu ###################\n"
          "\t#                                                        #\n"
          "\t#  1. Account information            2. Refill           #\n"
          "\t#  ----------------------            ------------        #\n"
@@ -46,42 +46,42 @@ void DemoUserMessanger::ShowDemoMenu() const {
 }
 
 void DemoUserMessanger::ShowWelcomeDemoMessage() const {
-  text_editor_.ClearScreen();
-  text_editor_.WriteTextWithDelay(
+  console_editor_.ClearScreen();
+  console_editor_.WriteTextWithDelay(
       "# Welcome to demo mode. This chapter\n"
       "# contains basic information about ATM North Star.\n\n"
       "# First of all, look at the main menu:\n");
 
-  text_editor_.WriteTextWithDelay("# Please, choose interested you chapter:\n");
+  console_editor_.WriteTextWithDelay("# Please, choose interested you chapter:\n");
   ShowDemoMenu();
 }
 
 void DemoUserMessanger::ShowDemoAccountInfoMessage() const {
-  text_editor_.ClearScreen();
-  text_editor_.WriteTextWithDelay(
+  console_editor_.ClearScreen();
+  console_editor_.WriteTextWithDelay(
       "# This section show your account information.\n"
       "# For example, it's look like this:\n");
   std::cout << "--------------------------------------------\n";
   std::cout << "# Login: Mr. Anderson\n";
-  text_editor_.Sleep(kSleep);
+  console_editor_.Sleep(kSleep);
   std::cout << "# Password: 7623\n";
-  text_editor_.Sleep(kSleep);
+  console_editor_.Sleep(kSleep);
   std::cout << "# Balance $: 7450\n";
-  text_editor_.Sleep(kSleep);
+  console_editor_.Sleep(kSleep);
   std::cout << "# Credit $: 20000\n";
   std::cout << "# Monthly payment $: 2280\n";
   std::cout << "# Credit term: 20 month(s)\n";
   std::cout << "--------------------------------------------\n\n";
-  text_editor_.Sleep(kSleep);
-  text_editor_.WriteTextWithDelay(
+  console_editor_.Sleep(kSleep);
+  console_editor_.WriteTextWithDelay(
       "# As you can see, your account may contain different data like\n"
       "# balance or credit balance, almost you can see more details such as\n"
       "# how many month you must to pay a loan  etc.\n\n");
 }
 
 void DemoUserMessanger::ShowInfoAboutRefillMessage() const {
-  text_editor_.ClearScreen();
-  text_editor_.WriteTextWithDelay(
+  console_editor_.ClearScreen();
+  console_editor_.WriteTextWithDelay(
       "# In this section user may refill balance\n"
       "# on any sum from 10 to 50000 dollars.\n"
       "# You can enter any sum such as 100 or 1005.66.\n"
@@ -95,8 +95,8 @@ void DemoUserMessanger::ShowInfoAboutRefillMessage() const {
 }
 
 void DemoUserMessanger::ShowDemoCreditAppMessage() const {
-  text_editor_.ClearScreen();
-  text_editor_.WriteTextWithDelay(
+  console_editor_.ClearScreen();
+  console_editor_.WriteTextWithDelay(
       "# Our bank may allow you to get a loan on the amount\n"
       "# of not more than 15x of your cash on account at the "
       "# moment.\n\n"
@@ -106,21 +106,21 @@ void DemoUserMessanger::ShowDemoCreditAppMessage() const {
 }
 
 void DemoUserMessanger::ShowDemoWidthdrawalMessage() const {
-  text_editor_.ClearScreen();
-  text_editor_.WriteTextWithDelay(
+  console_editor_.ClearScreen();
+  console_editor_.WriteTextWithDelay(
       "# Withdrawal happens to your existing account.\n"
       "# Optionally, you can withdraw the entire amount at\n"
       "# once or choose the amount that you need to be.\n");
 }
 
 void DemoUserMessanger::ShowDemoStatementMessage() const {
-  text_editor_.ClearScreen();
-  text_editor_.WriteTextWithDelay(
+  console_editor_.ClearScreen();
+  console_editor_.WriteTextWithDelay(
       "# Standart statement which contain information\n"
       "# about your cash.\n");
 }
 
 void DemoUserMessanger::ShowDemoMenuMessage() const {
-  text_editor_.ClearScreen();
+  console_editor_.ClearScreen();
   ShowDemoMenu();
 }

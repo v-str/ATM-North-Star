@@ -3,7 +3,7 @@
 
 #include "string"
 
-#include "text_editor.h"
+#include "console_editor.h"
 
 class CreditMessanger {
   using string = std::string;
@@ -38,7 +38,7 @@ class CreditMessanger {
   static const int kSleep = 75;
   static const int kNull = 0;
 
-  TextEditor text_editor_;
+  ConsoleEditor text_editor_;
 };
 
 #endif  // CREDIT_MESSANGER_H

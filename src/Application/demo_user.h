@@ -3,6 +3,8 @@
 
 #include <string>
 
+
+#include "notice_messenger.h"
 #include "demo_user_messanger.h"
 #include "user_input.h"
 
@@ -36,6 +38,7 @@ class DemoUser {
 
   UserInput input_;
   DemoUserMessanger demo_messanger_;
+  NoticeMessenger notice_messenger_;
 };
 
 #endif  // DEMO_USER_H

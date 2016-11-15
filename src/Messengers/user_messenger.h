@@ -1,7 +1,7 @@
 #ifndef USER_MESSANGER_H
 #define USER_MESSANGER_H
 
-#include "text_editor.h"
+#include "console_editor.h"
 
 class UserMessenger {
   using string = std::string;
@@ -28,7 +28,7 @@ class UserMessenger {
  private:
   static const int kFrame = 45;
 
-  TextEditor text_editor_;
+  ConsoleEditor text_editor_;
 };
 
 #endif  // USER_MESSANGER_H

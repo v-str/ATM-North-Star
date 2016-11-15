@@ -4,7 +4,7 @@
 #include <sstream>
 #include <string>
 
-#include "text_editor.h"
+#include "console_editor.h"
 
 class AccountMessenger {
  public:
@@ -23,7 +23,7 @@ class AccountMessenger {
   static const int kNTimes = 45;
   static const int kSleep = 100;
 
-  TextEditor text_editor_;
+  ConsoleEditor text_editor_;
 };
 
 #endif  // ACCOUNT_MESSENGER_H
