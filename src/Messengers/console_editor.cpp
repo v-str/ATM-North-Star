@@ -17,6 +17,7 @@ void ConsoleEditor::ClearScreen() const { system("clear"); }
 void ConsoleEditor::WriteTextWithDelay(const string &text, int delay) const {
   for (unsigned int i = 0; i < text.length(); ++i) {
     std::cout << text[i];
+    std::cout.flush();
     Sleep(delay);
   }
 }

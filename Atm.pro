@@ -1,8 +1,13 @@
+TARGET = Atm
+
 TEMPLATE = app
-CONFIG += console c++11
+
+CONFIG += c++11
+
 QMAKE_CXXFLAGS += -std=c++11
-CONFIG -= app_bundle
-CONFIG -= qt
+
+CONFIG -= app_bundle \
+    qt
 
 INCLUDEPATH += \
     src \
@@ -21,9 +26,6 @@ HEADERS += \
     $$PWD/src/Support/*.h \
     $$PWD/src/Messengers/*.h \
     $$PWD/src/Input_processing/*.h \
-
-
-
 
 SOURCES += \
     $$PWD/src/Application/*.cpp \

@@ -7,7 +7,7 @@ class ConsoleEditor {
   using string = std::string;
 
  public:
-  void Sleep(int latency_ms) const;
+  void Sleep(int latency_ms = 25) const;
   void IgnoreCinLine() const;
   void ClearScreen() const;
   void WriteTextWithDelay(const string &text, int delay = 15) const;
