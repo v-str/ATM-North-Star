@@ -38,7 +38,7 @@ class CreditMessanger {
   static const int kSleep = 75;
   static const int kNull = 0;
 
-  ConsoleEditor text_editor_;
+  ConsoleEditor console_editor_;
 };
 
 #endif  // CREDIT_MESSANGER_H
