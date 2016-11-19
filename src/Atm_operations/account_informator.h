@@ -2,9 +2,8 @@
 #define ACCOUNT_INFORMATOR_H
 
 #include "cash_operator.h"
-#include "user_identifier.h"
 #include "information_screen.h"
-
+#include "user_identifier.h"
 
 class AccountInformator {
  public:
@@ -13,8 +12,6 @@ class AccountInformator {
 
  private:
   InformationScreen screen_;
-  SystemUtility utility_;
-
 };
 
 #endif  // ACCOUNT_INFORMATOR_H
