@@ -9,16 +9,3 @@ void SystemUtility::Sleep(int latency_ms) const {
 }
 
 void SystemUtility::ClearScreen() const { system("clear"); }
-
-void SystemUtility::WriteTextWithDelay(const string &text, int delay) const {
-  for (const auto &symbol : text) {
-    std::cout << symbol;
-    Sleep(delay);
-  }
-}
-
-void SystemUtility::WriteSymbolsNTimes(char symbol, int n) const {
-  for (int i = 0; i < n; ++i) {
-    std::cout << symbol;
-  }
-}

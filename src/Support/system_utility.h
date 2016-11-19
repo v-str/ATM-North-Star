@@ -9,8 +9,6 @@ class SystemUtility {
  public:
   void Sleep(int latency_ms) const;
   void ClearScreen() const;
-  void WriteTextWithDelay(const string &text, int delay = 5) const;
-  void WriteSymbolsNTimes(char symbol, int n) const;
 };
 
 #endif  // SYSTEM_UTILITY_H
