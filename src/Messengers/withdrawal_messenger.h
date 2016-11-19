@@ -13,7 +13,7 @@ class WithdrawalMessenger {
   void ShowSuccessfulWithdrawal(int sum_of_cash, int sum_of_withdrawal);
 
  private:
-  ConsoleEditor text_editor_;
+  ConsoleEditor console_editor_;
 };
 
 #endif  // WITHDRAWAL_MESSENGER_H

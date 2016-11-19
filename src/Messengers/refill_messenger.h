@@ -18,7 +18,7 @@ class RefillMessenger {
   void WriteUserInfo(const string &info_title, const string &value) const;
 
  private:
-  ConsoleEditor text_editor_;
+  ConsoleEditor console_editor_;
 };
 
 #endif  // REFILL_MESSENGER_H

@@ -23,7 +23,7 @@ class NoticeMessenger {
   static const int kSleep = 100;
   static const int kFrame = 45;
 
-  ConsoleEditor text_editor_;
+  ConsoleEditor console_editor_;
 };
 
 #endif  // NOTICE_MESSENGER_H

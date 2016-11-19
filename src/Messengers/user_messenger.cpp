@@ -3,7 +3,7 @@
 #include <iostream>
 
 void UserMessenger::ShowMainMenu() {
-  text_editor_.ClearScreen();
+  console_editor_.ClearScreen();
   string select =
       "\n\t################ Transaction menu ##################\n"
       "\t#                                                  #\n"
@@ -20,25 +20,25 @@ void UserMessenger::ShowMainMenu() {
 
 void UserMessenger::ShowNotifyAboutCash() {
   std::cout << "\t";
-  text_editor_.WriteSymbolsNTimes('-', kFrame);
+  console_editor_.WriteSymbolsNTimes('-', kFrame);
   std::cout << "\n\t";
-  text_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelay(
       "\t Notify:\n\t The sum must be more than\n"
       "\t 10$ and less than 50000$");
   std::cout << "\t";
-  text_editor_.WriteSymbolsNTimes('-', kFrame);
+  console_editor_.WriteSymbolsNTimes('-', kFrame);
   std::cout << "\n";
   std::cout << "\t# Please enter the sum of money($): ";
 }
 
 void UserMessenger::ShowIncorrectDataMessage() {
-  text_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelay(
       "\t Data is not correct, please reload the program.\n\n");
 }
 
 void UserMessenger::SuggestUserToExit() const {
-  text_editor_.ClearScreen();
-  text_editor_.WriteTextWithDelay(
+  console_editor_.ClearScreen();
+  console_editor_.WriteTextWithDelay(
       "\n\t# Do you really want to exit?\n"
       "\t# 1. No, go to main\n"
       "\t# 2. Yes, exit\n");
@@ -54,7 +54,7 @@ void UserMessenger::WishAGoodDay() const {
 }
 
 void UserMessenger::ShowMainMenu() const {
-  text_editor_.ClearScreen();
+  console_editor_.ClearScreen();
   string select =
       "\n\t################ Transaction menu ##################\n"
       "\t#                                                  #\n"
@@ -69,7 +69,7 @@ void UserMessenger::ShowMainMenu() const {
 }
 
 void UserMessenger::ShowSuggestionAboutExit() const {
-  text_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelay(
       "\n\t# 1. Exit to main page.\n"
       "\t# 2. Exit program.\n");
   std::cout << "\t# Enter: ";
@@ -87,7 +87,7 @@ void UserMessenger::ShowIncorrectData() const {
 }
 
 void UserMessenger::ShowIncorrectRegisterData() const {
-  text_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelay(
       "\n\tIncorrect input, "
       "\n\treload the program\n");
 }

@@ -12,7 +12,7 @@ class IdentificationMessenger {
   static const int kMaxLenghtOfLogin = 21;
   static const int kMaxLenghtOfPassword = 4;
 
-  ConsoleEditor text_editor_;
+  ConsoleEditor console_editor_;
 };
 
 #endif  // IDENTIFICATION_MESSENGER_H

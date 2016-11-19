@@ -23,7 +23,7 @@ class AccountMessenger {
   static const int kNTimes = 45;
   static const int kSleep = 100;
 
-  ConsoleEditor text_editor_;
+  ConsoleEditor console_editor_;
 };
 
 #endif  // ACCOUNT_MESSENGER_H

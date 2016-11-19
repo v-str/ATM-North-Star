@@ -28,7 +28,7 @@ class UserMessenger {
  private:
   static const int kFrame = 45;
 
-  ConsoleEditor text_editor_;
+  ConsoleEditor console_editor_;
 };
 
 #endif  // USER_MESSANGER_H
