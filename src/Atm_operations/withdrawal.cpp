@@ -1,8 +1,9 @@
 #include "withdrawal.h"
+#include "system_utility.h"
 
 void Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
                                       UserIdentifier &user_identifier) {
-  utility_.ClearScreen();
+  SystemUtility::ClearScreen();
   int sum_of_withdrawal = GetSumOfWithdrawal();
   if (IsWithdrawalAcceptable(cash_operator, sum_of_withdrawal)) {
     messenger_.ShowSumOfWithdrawal(sum_of_withdrawal);

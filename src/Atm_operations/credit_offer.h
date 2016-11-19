@@ -24,7 +24,6 @@ class CreditOffer {
   CreditMessanger credit_messenger_;
   SecondaryCreditOperations secondary_credit_operation_;
   CreditPage credit_page_;
-  SystemUtility utility_;
   UserInput user_input_;
   NoticeMessenger notice_messenger_;
 };

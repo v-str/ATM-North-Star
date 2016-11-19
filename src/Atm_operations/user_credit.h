@@ -38,7 +38,6 @@ class UserCredit {
   UserInput user_input_;
   CreditMessanger credit_messenger_;
   Credit credit_;
-  SystemUtility utility_;
   NoticeMessenger notice_messenger_;
 };
 

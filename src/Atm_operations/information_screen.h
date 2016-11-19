@@ -4,7 +4,6 @@
 #include <string>
 
 #include "account_messenger.h"
-#include "system_utility.h"
 
 class InformationScreen {
  public:
@@ -28,7 +27,6 @@ class InformationScreen {
   static const int kSleep = 100;
 
   AccountMessenger account_messenger_;
-  SystemUtility utility_;
 };
 
 #endif  // INFORMATIONSCREEN_H

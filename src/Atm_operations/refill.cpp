@@ -1,7 +1,8 @@
 #include "refill.h"
+#include "system_utility.h"
 
 void Refill::StartRefillOperation(CashOperator &cash_operator) {
-  utility_.ClearScreen();
+  SystemUtility::ClearScreen();
   refill_messenger_.ShowNotifyAboutCash();
   int money = user_input_.GetValueFromUser();
   if (money >= minimal_refill && money <= maximal_refill) {

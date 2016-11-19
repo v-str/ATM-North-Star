@@ -3,10 +3,9 @@
 
 #include <string>
 
-#include "statement_messenger.h"
-#include "system_utility.h"
-#include "user_input.h"
 #include "cash_operator.h"
+#include "statement_messenger.h"
+#include "user_input.h"
 
 class UserStatement {
   using string = std::string;
@@ -21,7 +20,6 @@ class UserStatement {
   string GetSpaces(int convertation_cash_to_space) const;
   int NumberOfDigits(int value) const;
 
-  SystemUtility utility_;
   UserInput user_input_;
   StatementMessenger statement_messenger_;
 };

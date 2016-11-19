@@ -1,8 +1,9 @@
 #include "user_credit.h"
+#include "system_utility.h"
 
 void UserCredit::StartCreditOperation(const UserIdentifier &user_identifier,
                                       CashOperator &cash_operator) {
-  utility_.ClearScreen();
+  SystemUtility::ClearScreen();
   if (AlreadyHasACredit(cash_operator.GetCredit())) {
     RefuseToGrantAnotherCredit();
     credit_messenger_.ShowIncorrectCashInformation(cash_operator.GetCash());

@@ -4,7 +4,6 @@
 #include <iostream>
 #include "cash_operator.h"
 #include "refill_messenger.h"
-#include "system_utility.h"
 #include "user_input.h"
 
 class Refill {
@@ -18,7 +17,6 @@ class Refill {
 
   RefillMessenger refill_messenger_;
   NoticeMessenger notice_messenger_;
-  SystemUtility utility_;
   UserInput user_input_;
 };
 
