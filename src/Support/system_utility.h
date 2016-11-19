@@ -7,7 +7,6 @@ class SystemUtility {
   using string = std::string;
 
  public:
-  void Sleep(int latency_ms) const;
   void ClearScreen() const;
 };
 

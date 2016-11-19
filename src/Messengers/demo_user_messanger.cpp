@@ -87,7 +87,7 @@ void DemoUserMessanger::ShowInfoAboutRefillMessage() const {
       "# You can enter any sum such as 100 or 1005.66.\n"
       "# When you refill on 1005.66  supposed, that you making a\n"
       "# transfer from another account.\n\n"
-      "# For example, refill account is look like this:");
+      "# For example, refill account is look like this:\n");
   std::cout << "-----------------------------------------------\n"
                " Entered sum: 1000 $\n"
                "-----------------------------------------------\n"
