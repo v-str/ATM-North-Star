@@ -9,10 +9,7 @@ void CreditOffer::SuggestACredit(CashOperator &cash_operator,
   double pay_per_month = secondary_credit_operation_.CalculateMonthlyPayment(
       sum_of_credit, amount_of_months);
 
-  std::string credit_confirmation_text =
-      credit_messenger_.SuggestToConfirmACredit();
-
-  utility_.WriteTextWithDelay(credit_confirmation_text);
+  credit_messenger_.SuggestToConfirmACredit();
 
   int user_choice = user_input_.GetValueFromUser();
 
@@ -28,10 +25,7 @@ void CreditOffer::SuggestACredit(CashOperator &cash_operator,
 }
 
 int CreditOffer::GetCreditChoice() const {
-  std::string credit_confirmation_text =
-      credit_messenger_.SuggestToConfirmACredit();
-
-  utility_.WriteTextWithDelay(credit_confirmation_text);
+  credit_messenger_.SuggestToConfirmACredit();
 
   int credit_choice = user_input_.GetValueFromUser();
 

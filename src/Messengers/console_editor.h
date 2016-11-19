@@ -7,9 +7,10 @@ class ConsoleEditor {
   using string = std::string;
 
  public:
-  void Sleep(int latency_ms = 25) const;
+  static void ClearScreen();
+
+  void Sleep(int latency_ms = 15) const;
   void IgnoreCinLine() const;
-  void ClearScreen() const;
   void WriteTextWithDelay(const string &text, int delay = 15) const;
   void WriteSymbolsNTimes(char symbol, int n) const;
 };

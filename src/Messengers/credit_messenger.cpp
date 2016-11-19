@@ -58,13 +58,13 @@ void CreditMessanger::ShowInfoAboutCredit(
             << "\n\t* Persent per year: 14%\n\n ";
 }
 
-CreditMessanger::string CreditMessanger::SuggestToConfirmACredit() const {
+void CreditMessanger::SuggestToConfirmACredit() const {
   string menu_text(
       "\n\t# Do you confirm the loan?\n"
       "\t1. Yes, I confirm.\n"
       "\t2. Repeal a credit.\n"
-      "\t Enter: ");
-  return menu_text;
+      "\tEnter: ");
+  text_editor_.WriteTextWithDelay(menu_text);
 }
 
 void CreditMessanger::ShowCreditTitle(const CreditMessanger::string &user_login,

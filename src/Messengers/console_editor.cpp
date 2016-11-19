@@ -12,7 +12,7 @@ void ConsoleEditor::IgnoreCinLine() const {
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
-void ConsoleEditor::ClearScreen() const { system("clear"); }
+void ConsoleEditor::ClearScreen() { system("clear"); }
 
 void ConsoleEditor::WriteTextWithDelay(const string &text, int delay) const {
   for (unsigned int i = 0; i < text.length(); ++i) {

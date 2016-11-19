@@ -2,8 +2,10 @@
 
 #include <iostream>
 
-void RegistrationMessenger::ShowRegistrationScreen() const {
-  text_editor_.ClearScreen();
+#include "console_editor.h"
+
+void RegistrationMessenger::ShowRegistrationScreen() {
+  ConsoleEditor::ClearScreen();
   std::cout << "\n\t\t   ********************\n"
                "\t\t   *   REGISTRATION   *\n"
                "\t\t   ********************\n";
