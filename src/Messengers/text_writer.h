@@ -1,18 +1,16 @@
-#ifndef TEXTWRITER_H
-#define TEXTWRITER_H
+#ifndef TEXT_WRITER_H
+#define TEXT_WRITER_H
 
 #include <string>
 
 class TextWriter {
-  enum WriteCondition { kConsoleOutput, kFileOutput };
-
  public:
-  static void Write(const std::string &);
+  static void Write(const std::string &text);
 
-  static void SetOutput(int output);
+  static void SetOutputStream(std::ostream *output_stream);
 
  private:
-  static int output_condition_;
+  static std::ostream *output_stream_;
 };
 
-#endif  // TEXTWRITER_H
+#endif  // TEXT_WRITER_H
