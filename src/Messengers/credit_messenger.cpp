@@ -36,34 +36,31 @@ void CreditMessanger::ShowNotifyAboutCredit() const {
 }
 
 void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
-  console_editor_.ClearScreen();
+  std::string string_value =
+      console_editor_.ConvertValueToString(maximal_sum_of_credit);
 
+  console_editor_.ClearScreen();
   console_editor_.WriteTextWithInterrupt(
       "# Your balance more than 1000$. You can afford to take the\n"
       "# credit in our bank. The maximum amount for you is:\n",
       kHalfASecond);
-
-  TextWriter::Write(
+  console_editor_.WriteText(
       "----------------------------------------------------------\n");
+  console_editor_.WriteText(" \t\t\t $");
+  console_editor_.WriteText(string_value);
+  console_editor_.WriteText("\n");
 
-  std::stringstream stream;
-
-  stream << maximal_sum_of_credit;
-
-  TextWriter::Write(" \t\t\t $" + stream.str() + "\n");
-  TextWriter::Write(
-      "----------------------------------------------------------\n");
-
-  console_editor_.Sleep(kHalfASecond);
-
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithInterrupt(
+      "----------------------------------------------------------\n",
+      kHalfASecond);
+  console_editor_.WriteTextWithInterrupt(
       "\n# Do you prefer get all sum or you want to change the sum of "
       "loan?\n\n"
       "# 1. Get all sum\n"
       "# 2. Change the sum of loan\n"
-      "# 3. Exit credit menu\n");
-
-  TextWriter::Write("# Enter: ");
+      "# 3. Exit credit menu\n",
+      kHalfASecond);
+  console_editor_.WriteText("# Enter: ");
 }
 
 void CreditMessanger::ShowInfoAboutCredit(

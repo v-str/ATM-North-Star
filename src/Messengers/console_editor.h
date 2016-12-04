@@ -1,6 +1,9 @@
 #ifndef CONSOLE_EDITOR_H
 #define CONSOLE_EDITOR_H
 
+#include "text_writer.h"
+
+#include <sstream>
 #include <string>
 
 class ConsoleEditor {
@@ -16,6 +19,16 @@ class ConsoleEditor {
 
   void WriteText(const string &text) const;
   void WriteTextWithInterrupt(const string &text, const int interrupt) const;
+
+  template <typename T>
+  std::string ConvertValueToString(const T &value) const;
 };
+
+template <typename T>
+std::string ConsoleEditor::ConvertValueToString(const T &value) const{
+  std::stringstream stream;
+  stream << value;
+  return stream.str();
+}
 
 #endif  // CONSOLE_EDITOR_H

@@ -1,5 +1,4 @@
 #include "console_editor.h"
-#include "text_writer.h"
 
 #include <chrono>
 #include <iostream>
