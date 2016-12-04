@@ -9,7 +9,7 @@ int main() {
   stream_output.open("Atm_file.txt");
   stream_output << "Atm file:" << std::endl << std::endl;
 
-  TextWriter::SetOutputStream(&stream_output);
+  //TextWriter::SetOutputStream(&stream_output);
   Application app;
   app.RunProgram();
 
