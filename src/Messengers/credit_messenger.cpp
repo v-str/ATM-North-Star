@@ -1,4 +1,5 @@
 #include "credit_messenger.h"
+#include "text_writer.h"
 
 #include "iostream"
 
@@ -21,14 +22,15 @@ void CreditMessanger::ShowNotifyAboutCredit() const {
       "  without giving any reason.\n"
       "# Nowadays, the all loans are set on 14% per year\n"
       "# The loan depend from sum on account at the moment.\n");
-  std::cout << "\n\t*********************\n"
+
+  TextWriter::Write("\n\t*********************\n"
                "\t*   Continue?       *\n"
                "\t*                   *\n"
                "\t*   1. Yes          *\n"
                "\t*   2. No           *\n"
                "\t*                   *\n"
                "\t*********************\n"
-               "\tEnter: ";
+               "\tEnter: ");
 }
 
 void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {

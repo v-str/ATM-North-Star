@@ -16,16 +16,13 @@ void ConsoleEditor::IgnoreCinLine() const {
 void ConsoleEditor::ClearScreen() { system("clear"); }
 
 void ConsoleEditor::WriteTextWithDelay(const string &text, int delay) const {
-  for (unsigned int i = 0; i < text.length(); ++i) {
+  for (const auto symbol : text) {
 
-    std::string *temp = new std::string;
-    *temp = text[i];
+    std::string temp(1, symbol);
 
-    TextWriter::Write(*temp);
+    TextWriter::Write(temp);
 
     Sleep(delay);
-
-    delete temp;
   }
 }
 
