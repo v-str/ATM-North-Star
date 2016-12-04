@@ -13,7 +13,7 @@ class ConsoleEditor {
   void IgnoreCinLine() const;
   void WriteTextWithDelay(const string &text, int delay = 15) const;
   void WriteSymbolsNTimes(char symbol, int n) const;
-
+  void WriteText(const string &text) const;
 };
 
 #endif  // CONSOLE_EDITOR_H

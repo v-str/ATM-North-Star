@@ -17,7 +17,6 @@ void ConsoleEditor::ClearScreen() { system("clear"); }
 
 void ConsoleEditor::WriteTextWithDelay(const string &text, int delay) const {
   for (const auto symbol : text) {
-
     std::string temp(1, symbol);
 
     TextWriter::Write(temp);
@@ -30,4 +29,8 @@ void ConsoleEditor::WriteSymbolsNTimes(char symbol, int n) const {
   for (int i = 0; i < n; ++i) {
     std::cout << symbol;
   }
+}
+
+void ConsoleEditor::WriteText(const ConsoleEditor::string &text) const {
+  TextWriter::Write(text);
 }

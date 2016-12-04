@@ -24,7 +24,7 @@ void CreditMessanger::ShowNotifyAboutCredit() const {
       "# Nowadays, the all loans are set on 14% per year\n"
       "# The loan depend from sum on account at the moment.\n");
 
-  TextWriter::Write(
+  console_editor_.WriteText(
       "\n\t*********************\n"
       "\t*   Continue?       *\n"
       "\t*                   *\n"
@@ -33,6 +33,16 @@ void CreditMessanger::ShowNotifyAboutCredit() const {
       "\t*                   *\n"
       "\t*********************\n"
       "\tEnter: ");
+
+  //  TextWriter::Write(
+  //      "\n\t*********************\n"
+  //      "\t*   Continue?       *\n"
+  //      "\t*                   *\n"
+  //      "\t*   1. Yes          *\n"
+  //      "\t*   2. No           *\n"
+  //      "\t*                   *\n"
+  //      "\t*********************\n"
+  //      "\tEnter: ");
 }
 
 void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
