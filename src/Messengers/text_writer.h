@@ -10,8 +10,6 @@ class TextWriter {
  public:
   static void Write(const std::string &text);
 
-  static void AddEmptyLine();
-
   static void SetWriter(std::unique_ptr<Writer> writer);
 
  private:
