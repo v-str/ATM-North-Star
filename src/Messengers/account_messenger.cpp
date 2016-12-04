@@ -1,10 +1,12 @@
 #include "account_messenger.h"
+#include "text_writer.h"
 
 #include <iostream>
 
 void AccountMessenger::DisplayInfoLine(const std::string &info_title,
-                                       const std::stringstream &stream) const {
-  std::cout << "\n\t# " << info_title << stream.str() << "\n\t";
+                                       const std::string &info_line) const {
+  TextWriter::Write("\n\t#" + info_title + info_line + "\n\t");
+
   DisplayStrip();
 }
 

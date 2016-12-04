@@ -27,23 +27,7 @@ void InformationScreen::DisplayCreditMonth(int credit_month) const {
   DisplayUserInformation(account_messenger_.TermText(), credit_month);
 }
 
-void InformationScreen::DisplayUserInformation(const std::string &info_title,
-                                               int value) const {
-  std::stringstream stream;
-  stream << value;
-  account_messenger_.DisplayInfoLine(info_title, stream);
-}
-
-void InformationScreen::DisplayUserInformation(const std::string &info_title,
-                                               double value) const {
-  std::stringstream stream;
-  stream << value;
-  account_messenger_.DisplayInfoLine(info_title, stream);
-}
-
-void InformationScreen::DisplayUserInformation(const std::string &info_title,
-                                               const std::string &value) const {
-  std::stringstream stream;
-  stream << value;
-  account_messenger_.DisplayInfoLine(info_title, stream);
+void InformationScreen::DisplayInfoLine(const std::string &info_title,
+                                        const std::string &info_line) const {
+  account_messenger_.DisplayInfoLine(info_title, info_line);
 }

@@ -10,7 +10,7 @@ class AccountMessenger {
  public:
   void DisplayStrip() const;
   void DisplayInfoLine(const std::string &info_title,
-                       const std::stringstream &stream) const;
+                       const std::string &info_line) const;
 
   inline std::string LoginText() const { return "Login: "; }
   inline std::string PasswordText() const { return "Password: "; }
