@@ -33,24 +33,16 @@ void CreditMessanger::ShowNotifyAboutCredit() const {
       "\t*                   *\n"
       "\t*********************\n"
       "\tEnter: ");
-
-  //  TextWriter::Write(
-  //      "\n\t*********************\n"
-  //      "\t*   Continue?       *\n"
-  //      "\t*                   *\n"
-  //      "\t*   1. Yes          *\n"
-  //      "\t*   2. No           *\n"
-  //      "\t*                   *\n"
-  //      "\t*********************\n"
-  //      "\tEnter: ");
 }
 
 void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
   console_editor_.ClearScreen();
-  console_editor_.WriteTextWithDelay(
+
+  console_editor_.WriteTextWithInterrupt(
       "# Your balance more than 1000$. You can afford to take the\n"
-      "# credit in our bank. The maximum amount for you is:\n");
-  console_editor_.Sleep(kHalfASecond);
+      "# credit in our bank. The maximum amount for you is:\n",
+      kHalfASecond);
+
   TextWriter::Write(
       "----------------------------------------------------------\n");
 

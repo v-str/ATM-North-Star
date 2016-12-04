@@ -34,3 +34,9 @@ void ConsoleEditor::WriteSymbolsNTimes(char symbol, int n) const {
 void ConsoleEditor::WriteText(const ConsoleEditor::string &text) const {
   TextWriter::Write(text);
 }
+
+void ConsoleEditor::WriteTextWithInterrupt(const ConsoleEditor::string &text,
+                                           const int interrupt) const {
+  WriteTextWithDelay(text);
+  Sleep(interrupt);
+}
