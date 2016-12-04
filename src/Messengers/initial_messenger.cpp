@@ -38,7 +38,7 @@ void InitialMessenger::DisplayLogotype() {
   console_editor_.WriteTextWithDelay(
       "\t         ATM #0001\n"
       "      28 Greene St, New York, NY 10012\n");
-  console_editor_.WriteTextWithDelay("\t      press \"Enter\"", 50);
+  console_editor_.WriteTextWithDelay("\t      press \"Enter\"\n", 50);
   cin.clear();
   EatLine();
   system("pause");

@@ -1,4 +1,5 @@
 #include "demo_user_messanger.h"
+#include "text_writer.h"
 
 #include <iostream>
 
@@ -30,19 +31,19 @@ void DemoUserMessanger::ShowMessage(
 }
 
 void DemoUserMessanger::ShowDemoMenu() const {
-  std::cout
-      << "\n\n\t################ Demo Transaction menu ###################\n"
-         "\t#                                                        #\n"
-         "\t#  1. Account information            2. Refill           #\n"
-         "\t#  ----------------------            ------------        #\n"
-         "\t#  3. Credit application             4. Withdrawal       #\n"
-         "\t#  ----------------------            ------------        #\n"
-         "\t#  5. Statement                      6. Exit             #\n"
-         "\t#                                                        #\n"
-         "\t#                   7. Create Account                    #\n"
-         "\t#                                                        #\n"
-         "\t##########################################################\n\n"
-         "\n\t# Enter: ";
+  TextWriter::Write(
+      "\n\n\t################ Demo Transaction menu ###################\n"
+      "\t#                                                        #\n"
+      "\t#  1. Account information            2. Refill           #\n"
+      "\t#  ----------------------            ------------        #\n"
+      "\t#  3. Credit application             4. Withdrawal       #\n"
+      "\t#  ----------------------            ------------        #\n"
+      "\t#  5. Statement                      6. Exit             #\n"
+      "\t#                                                        #\n"
+      "\t#                   7. Create Account                    #\n"
+      "\t#                                                        #\n"
+      "\t##########################################################\n\n"
+      "\n\t# Enter: ");
 }
 
 void DemoUserMessanger::ShowWelcomeDemoMessage() const {
@@ -52,7 +53,8 @@ void DemoUserMessanger::ShowWelcomeDemoMessage() const {
       "# contains basic information about ATM North Star.\n\n"
       "# First of all, look at the main menu:\n");
 
-  console_editor_.WriteTextWithDelay("# Please, choose interested you chapter:\n");
+  console_editor_.WriteTextWithDelay(
+      "# Please, choose interested you chapter:\n");
   ShowDemoMenu();
 }
 

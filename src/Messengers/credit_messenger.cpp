@@ -66,10 +66,15 @@ void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
 
 void CreditMessanger::ShowInfoAboutCredit(
     const CreditMessanger::string &user_login, int max_sum) const {
-  std::cout << "\t             Consumer credit\n"
-               "\t* Profile: "
-            << user_login << "\n\t* Sum $: " << max_sum
-            << "\n\t* Persent per year: 14%\n\n ";
+  std::stringstream stream;
+
+  stream << max_sum;
+
+  TextWriter::Write(
+      "\t             Consumer credit\n"
+      "\t* Profile: " +
+      user_login + "\n\t* Sum $: " + stream.str() +
+      "\n\t* Persent per year: 14%\n\n ");
 }
 
 void CreditMessanger::SuggestToConfirmACredit() const {
