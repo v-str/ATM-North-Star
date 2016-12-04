@@ -1,7 +1,8 @@
 #include "credit_messenger.h"
 #include "text_writer.h"
 
-#include "iostream"
+#include <iostream>
+#include <sstream>
 
 void CreditMessanger::RefusToGrantAnotherCredit() const {
   console_editor_.WriteTextWithDelay(
@@ -23,14 +24,15 @@ void CreditMessanger::ShowNotifyAboutCredit() const {
       "# Nowadays, the all loans are set on 14% per year\n"
       "# The loan depend from sum on account at the moment.\n");
 
-  TextWriter::Write("\n\t*********************\n"
-               "\t*   Continue?       *\n"
-               "\t*                   *\n"
-               "\t*   1. Yes          *\n"
-               "\t*   2. No           *\n"
-               "\t*                   *\n"
-               "\t*********************\n"
-               "\tEnter: ");
+  TextWriter::Write(
+      "\n\t*********************\n"
+      "\t*   Continue?       *\n"
+      "\t*                   *\n"
+      "\t*   1. Yes          *\n"
+      "\t*   2. No           *\n"
+      "\t*                   *\n"
+      "\t*********************\n"
+      "\tEnter: ");
 }
 
 void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
@@ -39,17 +41,27 @@ void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
       "# Your balance more than 1000$. You can afford to take the\n"
       "# credit in our bank. The maximum amount for you is:\n");
   console_editor_.Sleep(kHalfASecond);
-  std::cout << "----------------------------------------------------------\n";
-  std::cout << " \t\t\t $" << maximal_sum_of_credit << "\n";
-  std::cout << "----------------------------------------------------------\n";
+  TextWriter::Write(
+      "----------------------------------------------------------\n");
+
+  std::stringstream stream;
+
+  stream << maximal_sum_of_credit;
+
+  TextWriter::Write(" \t\t\t $" + stream.str() + "\n");
+  TextWriter::Write(
+      "----------------------------------------------------------\n");
+
   console_editor_.Sleep(kHalfASecond);
+
   console_editor_.WriteTextWithDelay(
       "\n# Do you prefer get all sum or you want to change the sum of "
       "loan?\n\n"
       "# 1. Get all sum\n"
       "# 2. Change the sum of loan\n"
       "# 3. Exit credit menu\n");
-  std::cout << "# Enter: ";
+
+  TextWriter::Write("# Enter: ");
 }
 
 void CreditMessanger::ShowInfoAboutCredit(
