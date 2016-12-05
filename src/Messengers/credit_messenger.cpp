@@ -36,7 +36,7 @@ void CreditMessanger::ShowNotifyAboutCredit() const {
 }
 
 void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
-  std::string string_value =
+  std::string convertible_string_value =
       console_editor_.ConvertValueToString(maximal_sum_of_credit);
 
   console_editor_.ClearScreen();
@@ -47,7 +47,7 @@ void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
   console_editor_.WriteText(
       "----------------------------------------------------------\n");
   console_editor_.WriteText(" \t\t\t $");
-  console_editor_.WriteText(string_value);
+  console_editor_.WriteText(convertible_string_value);
   console_editor_.WriteText("\n");
 
   console_editor_.WriteTextWithInterrupt(
@@ -65,14 +65,13 @@ void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
 
 void CreditMessanger::ShowInfoAboutCredit(
     const CreditMessanger::string &user_login, int max_sum) const {
-  std::stringstream stream;
+  std::string convertible_string_value =
+      console_editor_.ConvertValueToString(max_sum);
 
-  stream << max_sum;
-
-  TextWriter::Write(
+  console_editor_.WriteText(
       "\t             Consumer credit\n"
       "\t* Profile: " +
-      user_login + "\n\t* Sum $: " + stream.str() +
+      user_login + "\n\t* Sum $: " + convertible_string_value +
       "\n\t* Persent per year: 14%\n\n ");
 }
 
