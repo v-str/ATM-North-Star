@@ -40,6 +40,7 @@ void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
       console_editor_.ConvertValueToString(maximal_sum_of_credit);
 
   console_editor_.ClearScreen();
+
   console_editor_.WriteTextWithInterrupt(
       "# Your balance more than 1000$. You can afford to take the\n"
       "# credit in our bank. The maximum amount for you is:\n",
@@ -50,9 +51,9 @@ void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
   console_editor_.WriteText(convertible_string_value);
   console_editor_.WriteText("\n");
 
-  console_editor_.WriteTextWithInterrupt(
-      "----------------------------------------------------------\n",
-      kHalfASecond);
+  console_editor_.WriteText(
+      "----------------------------------------------------------\n");
+
   console_editor_.WriteTextWithInterrupt(
       "\n# Do you prefer get all sum or you want to change the sum of "
       "loan?\n\n"
@@ -76,12 +77,11 @@ void CreditMessanger::ShowInfoAboutCredit(
 }
 
 void CreditMessanger::SuggestToConfirmACredit() const {
-  string menu_text(
+  console_editor_.WriteTextWithDelay(
       "\n\t# Do you confirm the loan?\n"
       "\t1. Yes, I confirm.\n"
       "\t2. Repeal a credit.\n"
       "\tEnter: ");
-  console_editor_.WriteTextWithDelay(menu_text);
 }
 
 void CreditMessanger::ShowCreditTitle(const CreditMessanger::string &user_login,
