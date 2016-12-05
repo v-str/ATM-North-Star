@@ -113,13 +113,15 @@ void CreditMessanger::ShowRepealACreadit() const {
 
 void CreditMessanger::ShowRefuseACredit(int sum_of_cash) const {
   console_editor_.ClearScreen();
-  console_editor_.WriteTextWithDelay("# We checked your balance.\n");
-  console_editor_.Sleep(kHalfASecond);
-  std::cout << "# Available cash = $" << sum_of_cash << "\n";
-  console_editor_.WriteTextWithDelay(
-      "# Sorry, for getting a loan your balance must be "
-      "$1000 or more.\n");
-  console_editor_.Sleep(kHalfASecond);
+
+  console_editor_.WriteTextWithInterrupt("# We checked your balance.\n",
+                                         kHalfASecond);
+
+  console_editor_.WriteTextWithInterrupt(
+      "# Available cash = $" + std::to_string(sum_of_cash) + "\n" +
+          "# Sorry, for getting a loan your balance must be "
+          "$1000 or more.\n",
+      kHalfASecond);
 }
 
 void CreditMessanger::ShowTableOfCredit(const double pay_per_month,
