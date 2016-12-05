@@ -87,18 +87,18 @@ void CreditMessanger::SuggestToConfirmACredit() const {
 void CreditMessanger::ShowCreditTitle(const CreditMessanger::string &user_login,
                                       int sum_of_credit) const {
   console_editor_.ClearScreen();
-  TextWriter::Write("\t\tConsumer Credit\n\n");
-  console_editor_.Sleep(kHalfASecond);
-  TextWriter::Write("Profile: " + user_login + "\n");
-  console_editor_.Sleep(kHalfASecond);
 
-  TextWriter::Write("Sum $: " + std::to_string(sum_of_credit) + "\n");
+  console_editor_.WriteTextWithInterrupt("\t\tConsumer Credit\n\n",
+                                         kHalfASecond);
 
-  console_editor_.Sleep(kHalfASecond);
+  console_editor_.WriteTextWithInterrupt("Profile: " + user_login + "\n",
+                                         kHalfASecond);
 
-  TextWriter::Write("Persent per year: 14%\n\n");
+  console_editor_.WriteTextWithInterrupt(
+      "Sum $: " + std::to_string(sum_of_credit) + "\n", kHalfASecond);
 
-  console_editor_.Sleep(kHalfASecond);
+  console_editor_.WriteTextWithInterrupt("Persent per year: 14%\n\n",
+                                         kHalfASecond);
 }
 
 void CreditMessanger::ShowEnrollACredit() const {
