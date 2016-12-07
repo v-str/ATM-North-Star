@@ -11,6 +11,7 @@ class IdentificationMessenger {
  private:
   static const int kMaxLenghtOfLogin = 21;
   static const int kMaxLenghtOfPassword = 4;
+  static const int kDelay = 50;
 
   ConsoleEditor console_editor_;
 };
