@@ -16,17 +16,16 @@ void NoticeMessenger::ShowAcceptableMessageFrame() const {
 
 void NoticeMessenger::ShowIncorrectLoginFrame() const {
   console_editor_.ClearScreen();
-  std::cout << "\n\n\n\n\t|";
+  console_editor_.WriteText("\t|");
   console_editor_.WriteSymbolsNTimes('-', kIncorrectDataFrame);
-  std::cout << "|\n";
+  console_editor_.WriteText("|\n");
   console_editor_.WriteTextWithDelayPerSymbol(
       "\t|Incorrect login.           |\n"
       "\t|It must be more than 1 and |\n"
       "\t|less than 20 symbols.      |\n"
-      "\t|Please, reload the program.|");
-  std::cout << "\n\t|";
+      "\t|Please, reload the program.|\n\t|");
   console_editor_.WriteSymbolsNTimes('-', kIncorrectDataFrame);
-  std::cout << "|\n\n";
+  console_editor_.WriteText("|\n\n");
 }
 
 void NoticeMessenger::ShowIncorrectFormatPassword() const {
