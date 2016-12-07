@@ -1,7 +1,5 @@
 #include "notice_messenger.h"
 
-#include <iostream>
-
 void NoticeMessenger::ShowAcceptableMessageFrame() const {
   console_editor_.ClearScreen();
   console_editor_.WriteText("\n\n\t\t");
