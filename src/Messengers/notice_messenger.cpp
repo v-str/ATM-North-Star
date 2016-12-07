@@ -47,8 +47,7 @@ void NoticeMessenger::ShowIncorrectData() const {
       "\n\t# Data is not correct,\n"
       "\t# return to main?\n"
       "\t# 1. Yes\n"
-      "\t# 2. No, exit\n");
-  std::cout << "\t# Enter: ";
+      "\t# 2. No, exit\n\t# Enter: ");
 }
 
 void NoticeMessenger::ShowIncorrectSum() const {
