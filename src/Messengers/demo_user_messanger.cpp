@@ -1,5 +1,4 @@
 #include "demo_user_messanger.h"
-#include "text_writer.h"
 
 #include <iostream>
 
@@ -30,8 +29,18 @@ void DemoUserMessanger::ShowMessage(
   }
 }
 
+void DemoUserMessanger::ShowWelcomeDemoMessage() const {
+  console_editor_.ClearScreen();
+  console_editor_.WriteTextWithDelayPerSymbol(
+      "# Welcome to demo mode. This chapter\n"
+      "# contains basic information about ATM North Star.\n\n"
+      "# First of all, look at the main menu:\n"
+      "# Please, choose interested you chapter:\n");
+  ShowDemoMenu();
+}
+
 void DemoUserMessanger::ShowDemoMenu() const {
-  TextWriter::Write(
+  console_editor_.WriteText(
       "\n\n\t################ Demo Transaction menu ###################\n"
       "\t#                                                        #\n"
       "\t#  1. Account information            2. Refill           #\n"
@@ -46,35 +55,27 @@ void DemoUserMessanger::ShowDemoMenu() const {
       "\n\t# Enter: ");
 }
 
-void DemoUserMessanger::ShowWelcomeDemoMessage() const {
-  console_editor_.ClearScreen();
-  console_editor_.WriteTextWithDelayPerSymbol(
-      "# Welcome to demo mode. This chapter\n"
-      "# contains basic information about ATM North Star.\n\n"
-      "# First of all, look at the main menu:\n");
-
-  console_editor_.WriteTextWithDelayPerSymbol(
-      "# Please, choose interested you chapter:\n");
-  ShowDemoMenu();
-}
-
 void DemoUserMessanger::ShowDemoAccountInfoMessage() const {
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
       "# This section show your account information.\n"
-      "# For example, it's look like this:\n");
-  std::cout << "--------------------------------------------\n";
-  std::cout << "# Login: Mr. Anderson\n";
-  console_editor_.Sleep(kSleep);
-  std::cout << "# Password: 7623\n";
-  console_editor_.Sleep(kSleep);
-  std::cout << "# Balance $: 7450\n";
-  console_editor_.Sleep(kSleep);
-  std::cout << "# Credit $: 20000\n";
-  std::cout << "# Monthly payment $: 2280\n";
-  std::cout << "# Credit term: 20 month(s)\n";
-  std::cout << "--------------------------------------------\n\n";
-  console_editor_.Sleep(kSleep);
+      "# For example, it's look like this:\n\n");
+
+  console_editor_.WriteTextWithInterrupt(
+      "--------------------------------------------\n# Login: Mr. Anderson\n",
+      kSleep);
+
+  console_editor_.WriteTextWithInterrupt("# Password: 7623\n", kSleep);
+
+  console_editor_.WriteTextWithInterrupt("# Credit $: 20000\n", kSleep);
+
+  console_editor_.WriteTextWithInterrupt("# Monthly payment $: 2280\n", kSleep);
+
+  console_editor_.WriteTextWithInterrupt(
+      "# Credit term: 20 "
+      "month(s)\n--------------------------------------------\n\n",
+      kSleep);
+
   console_editor_.WriteTextWithDelayPerSymbol(
       "# As you can see, your account may contain different data like\n"
       "# balance or credit balance, almost you can see more details such as\n"
