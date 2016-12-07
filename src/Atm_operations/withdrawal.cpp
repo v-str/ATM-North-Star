@@ -6,15 +6,15 @@ void Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
   SystemUtility::ClearScreen();
   int sum_of_withdrawal = GetSumOfWithdrawal();
   if (IsWithdrawalAcceptable(cash_operator, sum_of_withdrawal)) {
-    messenger_.ShowSumOfWithdrawal(sum_of_withdrawal);
-    messenger_.ShowPasswordString();
+    withdrawal_messenger_.ShowSumOfWithdrawal(sum_of_withdrawal);
+    withdrawal_messenger_.ShowPasswordString();
     string password = user_input_.GetDataFromUser();
     if (IsCorrectPasswordAtWithdrawal(password, user_identifier)) {
       WithdrawFromAccount(cash_operator, sum_of_withdrawal);
-      messenger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
+      withdrawal_messenger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
                                           cash_operator.GetCash());
     } else {
-      messenger_.ShowIncorrectPasswordMessage();
+      withdrawal_messenger_.ShowIncorrectPasswordMessage();
     }
   } else {
     int amount_of_cash = cash_operator.GetCash();
@@ -24,7 +24,7 @@ void Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
 }
 
 int Withdrawal::GetSumOfWithdrawal() const {
-  messenger_.EnterSumOfWithdrawal();
+  withdrawal_messenger_.EnterSumOfWithdrawal();
   int withdraw_sum = user_input_.GetValueFromUser();
   return withdraw_sum;
 }

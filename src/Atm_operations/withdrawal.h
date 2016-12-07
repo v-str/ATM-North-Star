@@ -30,7 +30,7 @@ class Withdrawal {
   static const int kNull = 0;
 
   UserInput user_input_;
-  WithdrawalMessenger messenger_;
+  WithdrawalMessenger withdrawal_messenger_;
 
   NoticeMessenger notice_messenger_;
 };

@@ -2,12 +2,12 @@
 
 void WithdrawalMessenger::ShowSumOfWithdrawal(int sum_of_cash) const {
   console_editor_.WriteTextWithDelayPerSymbol(
-      "\t# Sum($): " + std::to_string(sum_of_cash) + "\n");
+      "\n\t# Sum($): " + std::to_string(sum_of_cash) + "\n");
 }
 
 void WithdrawalMessenger::ShowPasswordString() const {
   console_editor_.WriteTextWithDelayPerSymbol(
-      "\t# Please enter your password: XXXX");
+      "\t# Please enter your password: XXXX\b\b\b\b");
 }
 
 void WithdrawalMessenger::ShowIncorrectPasswordMessage() const {

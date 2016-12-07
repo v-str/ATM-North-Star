@@ -8,6 +8,7 @@
 #include "credit_messenger.h"
 #include "user_identifier.h"
 #include "user_input.h"
+#include "console_editor.h"
 
 class UserCredit {
   using string = std::string;
@@ -39,6 +40,7 @@ class UserCredit {
   CreditMessanger credit_messenger_;
   Credit credit_;
   NoticeMessenger notice_messenger_;
+  ConsoleEditor console_editor_;
 };
 
 #endif  // USER_CREDIT_H

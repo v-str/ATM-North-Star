@@ -1,7 +1,7 @@
 #include "credit_messenger.h"
 #include "text_writer.h"
 
-void CreditMessanger::RefusToGrantAnotherCredit() const {
+void CreditMessanger::RefuseToGrantAnotherCredit() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n #Sorry, but you have already a "
       "loan in our bank.\n"

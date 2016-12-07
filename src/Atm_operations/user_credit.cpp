@@ -18,7 +18,7 @@ bool UserCredit::AlreadyHasACredit(const int sum_of_credit) const {
 }
 
 void UserCredit::RefuseToGrantAnotherCredit() const {
-  credit_messenger_.RefusToGrantAnotherCredit();
+  credit_messenger_.RefuseToGrantAnotherCredit();
 }
 
 void UserCredit::SuggestACredit(CashOperator &cash_operator,
@@ -43,7 +43,7 @@ void UserCredit::GiveACredit(CashOperator &cash_operator,
                              const string &user_login) {
   int user_cash_sum = cash_operator.GetCash();
   int maximal_sum_of_credit = kMaxMultiplier * user_cash_sum;
-
+  console_editor_.AddEmptyLineNTimes(1);
   credit_messenger_.ShowCreditConditions(maximal_sum_of_credit);
 
   int choice = user_input_.GetValueFromUser();
