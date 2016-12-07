@@ -17,7 +17,6 @@
 
 #include "console_editor.h"
 
-
 class InitialMenu {
  public:
   void RunMenu();
@@ -35,6 +34,12 @@ class InitialMenu {
     kWidthdrawalSection,
     kStatementSection,
     kExitSection,
+  };
+
+  enum AmountOfEmptyLine {
+    kOone = 1,
+    kTwo,
+    kThree,
   };
 
   void RegisterUser();

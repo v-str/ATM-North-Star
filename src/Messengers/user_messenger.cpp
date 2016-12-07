@@ -18,16 +18,24 @@ void UserMessenger::ShowMainMenu() {
 }
 
 void UserMessenger::ShowNotifyAboutCash() {
-  std::cout << "\t";
+  console_editor_.AddEmptyLineNTimes(1);
+  //  std::cout << "\t";
+  console_editor_.WriteText("\t");
   console_editor_.WriteSymbolsNTimes('-', kFrame);
-  std::cout << "\n\t";
+  //  //  std::cout << "\n\t";
+  //  console_editor_.WriteText("\n\t");
+
   console_editor_.WriteTextWithDelayPerSymbol(
-      "\t Notify:\n\t The sum must be more than\n"
+      "\n\t\t Notify:\n\t The sum must be more than\n"
       "\t 10$ and less than 50000$");
-  std::cout << "\t";
+  //  std::cout << "\t";
+  console_editor_.WriteText("\t");
+
   console_editor_.WriteSymbolsNTimes('-', kFrame);
-  std::cout << "\n";
-  std::cout << "\t# Please enter the sum of money($): ";
+  //  std::cout << "\n";
+  //  std::cout << "\t# Please enter the sum of money($): ";
+
+  console_editor_.WriteText("\n\t# Please enter the sum of money($): ");
 }
 
 void UserMessenger::ShowIncorrectDataMessage() {
