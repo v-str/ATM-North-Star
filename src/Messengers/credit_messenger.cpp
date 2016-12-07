@@ -146,9 +146,10 @@ void CreditMessanger::ShowTableOfCredit(const double pay_per_month,
 }
 
 void CreditMessanger::ShowAmountOfMonthToPayACredit() const {
-  std::cout << "Number of credit month can't be more than 60\n";
-  std::cout << "Please enter the number of months"
-               "\nto repay the credit: ";
+  console_editor_.WriteTextWithDelayPerSymbol(
+      "\nNumber of credit month can't be more than 60.\n");
+  console_editor_.WriteTextWithDelayPerSymbol(
+      "Please enter the number of months\nto repay the credit: ");
 }
 
 void CreditMessanger::ShowResultOfUserChoice(int decision_of_user) const {
