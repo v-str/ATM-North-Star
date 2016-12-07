@@ -7,7 +7,7 @@ void NoticeMessenger::ShowAcceptableMessageFrame() const {
   std::cout << "\n\n\t\t";
   console_editor_.WriteSymbolsNTimes('-', kAccessFrame);
   std::cout << "\n";
-  console_editor_.WriteTextWithDelay("\t\t| Access allowed |");
+  console_editor_.WriteTextWithDelayPerSymbol("\t\t| Access allowed |");
   std::cout << "\t\t\n\t\t";
   console_editor_.WriteSymbolsNTimes('-', kAccessFrame);
   std::cout << "\t\t\n";
@@ -19,7 +19,7 @@ void NoticeMessenger::ShowIncorrectLoginFrame() const {
   std::cout << "\n\n\n\n\t|";
   console_editor_.WriteSymbolsNTimes('-', kIncorrectDataFrame);
   std::cout << "|\n";
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "\t|Incorrect login.           |\n"
       "\t|It must be more than 1 and |\n"
       "\t|less than 20 symbols.      |\n"
@@ -34,7 +34,7 @@ void NoticeMessenger::ShowIncorrectFormatPassword() const {
   std::cout << "\n\n\n\n\t|";
   console_editor_.WriteSymbolsNTimes('-', kIncorrectDataFrame);
   std::cout << "|\n";
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "\t|Incorrect password.        |\n"
       "\t|It must be in XXXX format. |\n"
       "\t|Please, reload the program.|");
@@ -44,7 +44,7 @@ void NoticeMessenger::ShowIncorrectFormatPassword() const {
 }
 
 void NoticeMessenger::ShowIncorrectData() const {
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "\n\t# Data is not correct,\n"
       "\t# return to main?\n"
       "\t# 1. Yes\n"
@@ -53,12 +53,12 @@ void NoticeMessenger::ShowIncorrectData() const {
 }
 
 void NoticeMessenger::ShowIncorrectSum() const {
-  console_editor_.WriteTextWithDelay("\n\tIncorrect sum, Reconnect to repeat.\n\n");
+  console_editor_.WriteTextWithDelayPerSymbol("\n\tIncorrect sum, Reconnect to repeat.\n\n");
 }
 
 void NoticeMessenger::ShowUnacceptableWithdrawal(int amount_of_cash) const {
   console_editor_.ClearScreen();
-  console_editor_.WriteTextWithDelay("\n\t# Sorry, entered sum is incorrect.\n\n");
+  console_editor_.WriteTextWithDelayPerSymbol("\n\t# Sorry, entered sum is incorrect.\n\n");
   std::cout << "\t# Balance: " << amount_of_cash << "\n\n\t";
 
   console_editor_.WriteSymbolsNTimes('-', kFrame);
@@ -66,11 +66,11 @@ void NoticeMessenger::ShowUnacceptableWithdrawal(int amount_of_cash) const {
 }
 
 void NoticeMessenger::ShowError() const {
-  console_editor_.WriteTextWithDelay("\tData is not correct.\n\n");
+  console_editor_.WriteTextWithDelayPerSymbol("\tData is not correct.\n\n");
 }
 
 void NoticeMessenger::ShowSumCreditInfo() const {
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "\nThe entered sum should not "
       "exceed the allowed credit.\n\n"
       "Enter the appropriate sum of credit: $");

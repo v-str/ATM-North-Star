@@ -12,7 +12,7 @@ void WithdrawalMessenger::ShowPasswordString() const {
 
 void WithdrawalMessenger::ShowIncorrectPasswordMessage() const {
   console_editor_.ClearScreen();
-  console_editor_.WriteTextWithDelay("\n\t# Sorry, entered password is incorrect.\n");
+  console_editor_.WriteTextWithDelayPerSymbol("\n\t# Sorry, entered password is incorrect.\n");
 }
 
 void WithdrawalMessenger::EnterSumOfWithdrawal() const {
@@ -21,7 +21,7 @@ void WithdrawalMessenger::EnterSumOfWithdrawal() const {
 
 void WithdrawalMessenger::ShowSuccessfulWithdrawal(int sum_of_cash,
                                                    int sum_of_withdrawal) {
-  console_editor_.WriteTextWithDelay("\n\t# Withdrawal completed successfully\n");
+  console_editor_.WriteTextWithDelayPerSymbol("\n\t# Withdrawal completed successfully\n");
   std::cout << "\t# Sum($): " << sum_of_cash << "\n";
   std::cout << "\t# Balance($): " << sum_of_withdrawal << "\n\n";
 }

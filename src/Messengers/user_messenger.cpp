@@ -22,7 +22,7 @@ void UserMessenger::ShowNotifyAboutCash() {
   std::cout << "\t";
   console_editor_.WriteSymbolsNTimes('-', kFrame);
   std::cout << "\n\t";
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "\t Notify:\n\t The sum must be more than\n"
       "\t 10$ and less than 50000$");
   std::cout << "\t";
@@ -32,13 +32,13 @@ void UserMessenger::ShowNotifyAboutCash() {
 }
 
 void UserMessenger::ShowIncorrectDataMessage() {
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "\t Data is not correct, please reload the program.\n\n");
 }
 
 void UserMessenger::SuggestUserToExit() const {
   console_editor_.ClearScreen();
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "\n\t# Do you really want to exit?\n"
       "\t# 1. No, go to main\n"
       "\t# 2. Yes, exit\n");
@@ -69,7 +69,7 @@ void UserMessenger::ShowMainMenu() const {
 }
 
 void UserMessenger::ShowSuggestionAboutExit() const {
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "\n\t# 1. Exit to main page.\n"
       "\t# 2. Exit program.\n");
   std::cout << "\t# Enter: ";
@@ -87,7 +87,7 @@ void UserMessenger::ShowIncorrectData() const {
 }
 
 void UserMessenger::ShowIncorrectRegisterData() const {
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "\n\tIncorrect input, "
       "\n\treload the program\n");
 }

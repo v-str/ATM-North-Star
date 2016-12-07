@@ -48,19 +48,19 @@ void DemoUserMessanger::ShowDemoMenu() const {
 
 void DemoUserMessanger::ShowWelcomeDemoMessage() const {
   console_editor_.ClearScreen();
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "# Welcome to demo mode. This chapter\n"
       "# contains basic information about ATM North Star.\n\n"
       "# First of all, look at the main menu:\n");
 
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "# Please, choose interested you chapter:\n");
   ShowDemoMenu();
 }
 
 void DemoUserMessanger::ShowDemoAccountInfoMessage() const {
   console_editor_.ClearScreen();
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "# This section show your account information.\n"
       "# For example, it's look like this:\n");
   std::cout << "--------------------------------------------\n";
@@ -75,7 +75,7 @@ void DemoUserMessanger::ShowDemoAccountInfoMessage() const {
   std::cout << "# Credit term: 20 month(s)\n";
   std::cout << "--------------------------------------------\n\n";
   console_editor_.Sleep(kSleep);
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "# As you can see, your account may contain different data like\n"
       "# balance or credit balance, almost you can see more details such as\n"
       "# how many month you must to pay a loan  etc.\n\n");
@@ -83,7 +83,7 @@ void DemoUserMessanger::ShowDemoAccountInfoMessage() const {
 
 void DemoUserMessanger::ShowInfoAboutRefillMessage() const {
   console_editor_.ClearScreen();
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "# In this section user may refill balance\n"
       "# on any sum from 10 to 50000 dollars.\n"
       "# You can enter any sum such as 100 or 1005.66.\n"
@@ -98,7 +98,7 @@ void DemoUserMessanger::ShowInfoAboutRefillMessage() const {
 
 void DemoUserMessanger::ShowDemoCreditAppMessage() const {
   console_editor_.ClearScreen();
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "# Our bank may allow you to get a loan on the amount\n"
       "# of not more than 15x of your cash on account at the "
       "# moment.\n\n"
@@ -109,7 +109,7 @@ void DemoUserMessanger::ShowDemoCreditAppMessage() const {
 
 void DemoUserMessanger::ShowDemoWidthdrawalMessage() const {
   console_editor_.ClearScreen();
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "# Withdrawal happens to your existing account.\n"
       "# Optionally, you can withdraw the entire amount at\n"
       "# once or choose the amount that you need to be.\n");
@@ -117,7 +117,7 @@ void DemoUserMessanger::ShowDemoWidthdrawalMessage() const {
 
 void DemoUserMessanger::ShowDemoStatementMessage() const {
   console_editor_.ClearScreen();
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "# Standart statement which contain information\n"
       "# about your cash.\n");
 }

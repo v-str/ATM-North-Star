@@ -5,7 +5,7 @@
 #include <sstream>
 
 void CreditMessanger::RefusToGrantAnotherCredit() const {
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "\n #Sorry, but you have already a "
       "loan in our bank.\n"
       " #You can't get a second loan, "
@@ -15,7 +15,7 @@ void CreditMessanger::RefusToGrantAnotherCredit() const {
 
 void CreditMessanger::ShowNotifyAboutCredit() const {
   console_editor_.ClearScreen();
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "# You can get a loan in our bank if your\n"
       "  balance more than $1000.\n"
       "# We draw your attention to the fact that\n"
@@ -72,12 +72,12 @@ void CreditMessanger::ShowInfoAboutCredit(
   console_editor_.WriteText(
       "\t             Consumer credit\n"
       "\t* Profile: " +
-      user_login + "\n\t* Sum $: " + convertible_string_value +
+      user_login + "\n\t* Sum $: " + std::to_string(max_sum) +
       "\n\t* Persent per year: 14%\n\n ");
 }
 
 void CreditMessanger::SuggestToConfirmACredit() const {
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "\n\t# Do you confirm the loan?\n"
       "\t1. Yes, I confirm.\n"
       "\t2. Repeal a credit.\n"
@@ -102,13 +102,13 @@ void CreditMessanger::ShowCreditTitle(const CreditMessanger::string &user_login,
 }
 
 void CreditMessanger::ShowEnrollACredit() const {
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "\n# The loan was successfully transferred on your account.\n"
       "# You might cash your credit in our nearest bank.");
 }
 
 void CreditMessanger::ShowRepealACreadit() const {
-  console_editor_.WriteTextWithDelay("\n\t# Credit is repealed...\n");
+  console_editor_.WriteTextWithDelayPerSymbol("\n\t# Credit is repealed...\n");
 }
 
 void CreditMessanger::ShowRefuseACredit(int sum_of_cash) const {
@@ -127,13 +127,22 @@ void CreditMessanger::ShowRefuseACredit(int sum_of_cash) const {
 void CreditMessanger::ShowTableOfCredit(const double pay_per_month,
                                         const double amount_of_months) const {
   double all_payment = 0.0;
-  for (int i = kNull; i < amount_of_months; ++i) {
-    std::cout << "\t* Payment month: " << i + 1 << "\tPayment sum: ";
-    std::cout << pay_per_month << " $\n";
-    console_editor_.Sleep(kSleep);
+
+  for (int i = kNull + 1; i <= amount_of_months; ++i) {
+    console_editor_.WriteText("\t* Payment month: " + std::to_string(i) +
+                              "\tPayment sum: ");
+
+    std::string convertible_pay_per_month_value =
+        console_editor_.ConvertValueToString(pay_per_month);
+
+    console_editor_.WriteTextWithInterrupt(
+        convertible_pay_per_month_value + "$\n", kSleep);
     all_payment += pay_per_month;
   }
-  std::cout << "\t\t\tTotal: " << all_payment << " $\n\n";
+  std::string convertible_all_payment_value =
+      console_editor_.ConvertValueToString(pay_per_month);
+  console_editor_.WriteText("\t\t\tTotal: " + convertible_all_payment_value +
+                            " $\n\n");
 }
 
 void CreditMessanger::ShowAmountOfMonthToPayACredit() const {

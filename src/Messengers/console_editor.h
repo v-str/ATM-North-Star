@@ -14,7 +14,7 @@ class ConsoleEditor {
 
   void Sleep(int latency_ms = 15) const;
   void IgnoreCinLine() const;
-  void WriteTextWithDelay(const string &text, int delay = 5) const;
+  void WriteTextWithDelayPerSymbol(const string &text, int delay = 5) const;
   void WriteSymbolsNTimes(char symbol, int n) const;
 
   void WriteText(const string &text) const;

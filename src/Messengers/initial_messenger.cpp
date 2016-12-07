@@ -35,10 +35,10 @@ void InitialMessenger::DisplayLogotype() {
       "---------------------------------------------\n";
   cout << demo;
 
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "\t         ATM #0001\n"
       "      28 Greene St, New York, NY 10012\n");
-  console_editor_.WriteTextWithDelay("\t      press \"Enter\"\n", 50);
+  console_editor_.WriteTextWithDelayPerSymbol("\t      press \"Enter\"\n", 50);
   cin.clear();
   EatLine();
   system("pause");
@@ -55,7 +55,7 @@ void InitialMessenger::DisplayInitialMenu() const {
 }
 
 void InitialMessenger::DisplayError() const {
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "\n\n\tData is not correct,\n"
       "\tplease reload the program.\n\n");
 }

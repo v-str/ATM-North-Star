@@ -6,7 +6,7 @@ void RefillMessenger::ShowNotifyAboutCash() const {
   std::cout << "\t";
   console_editor_.WriteSymbolsNTimes('-', kFrame);
   std::cout << "\n\t";
-  console_editor_.WriteTextWithDelay(
+  console_editor_.WriteTextWithDelayPerSymbol(
       "\t Notify:\n\t The sum must be more than\n"
       "\t 10$ and less than 50000$\n\t");
   console_editor_.WriteSymbolsNTimes('-', kFrame);
@@ -17,7 +17,7 @@ void RefillMessenger::ShowNotifyAboutCash() const {
 void RefillMessenger::ShowUserBalance(const int balance) const {
   std::cout << "\n\t";
   console_editor_.WriteSymbolsNTimes('-', kFrame);
-  console_editor_.WriteTextWithDelay("\n\t# Balance refill completed successfully.");
+  console_editor_.WriteTextWithDelayPerSymbol("\n\t# Balance refill completed successfully.");
   WriteUserInfo("Balance", std::to_string(balance));
   std::cout << "\n\t";
   console_editor_.Sleep(kSecond);

@@ -14,7 +14,7 @@ void ConsoleEditor::IgnoreCinLine() const {
 
 void ConsoleEditor::ClearScreen() { system("clear"); }
 
-void ConsoleEditor::WriteTextWithDelay(const string &text, int delay) const {
+void ConsoleEditor::WriteTextWithDelayPerSymbol(const string &text, int delay) const {
   for (const auto symbol : text) {
     std::string temp(1, symbol);
 
@@ -36,6 +36,6 @@ void ConsoleEditor::WriteText(const ConsoleEditor::string &text) const {
 
 void ConsoleEditor::WriteTextWithInterrupt(const ConsoleEditor::string &text,
                                            const int interrupt) const {
-  WriteTextWithDelay(text);
+  WriteTextWithDelayPerSymbol(text);
   Sleep(interrupt);
 }
