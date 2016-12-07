@@ -3,8 +3,9 @@
 #include <iostream>
 
 void UserMessenger::ShowMainMenu() {
+  console_editor_.AddEmptyLineNTimes(1);
   console_editor_.ClearScreen();
-  string select =
+  console_editor_.WriteText(
       "\n\t################ Transaction menu ##################\n"
       "\t#                                                  #\n"
       "\t# 1. Account information            2. Refill      #\n"
@@ -13,9 +14,7 @@ void UserMessenger::ShowMainMenu() {
       "\t# ----------------------            ------------   #\n"
       "\t# 5. Statement                      6. Exit        #\n"
       "\t#                                                  #\n"
-      "\t####################################################\n";
-  std::cout << select;
-  std::cout << "\tEnter: ";
+      "\t####################################################\n\tEnter: ");
 }
 
 void UserMessenger::ShowNotifyAboutCash() {

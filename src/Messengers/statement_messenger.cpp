@@ -1,7 +1,5 @@
 #include "statement_messenger.h"
 
-#include <iostream>
-
 void StatementMessenger::ShowStatement(int cash,
                                        const std::string &spaces) const {
   console_editor_.WriteText(
