@@ -1,9 +1,6 @@
 #include "credit_messenger.h"
 #include "text_writer.h"
 
-#include <iostream>
-#include <sstream>
-
 void CreditMessanger::RefusToGrantAnotherCredit() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n #Sorry, but you have already a "
