@@ -1,7 +1,5 @@
 #include "user_messenger.h"
 
-#include <iostream>
-
 void UserMessenger::ShowMainMenu() {
   console_editor_.AddEmptyLineNTimes(1);
   console_editor_.ClearScreen();
@@ -27,21 +25,22 @@ void UserMessenger::SuggestUserToExit() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n\t# Do you really want to exit?\n"
       "\t# 1. No, go to main\n"
-      "\t# 2. Yes, exit\n");
-  std::cout << "\t# Enter: ";
+      "\t# 2. Yes, exit\n"
+      "\t# Enter: ");
 }
 
 void UserMessenger::WishAGoodDay() const {
-  std::cout << "\n\t####################\n"
-               "\t#                  #\n"
-               "\t# Have a nice day! #\n"
-               "\t#                  #\n"
-               "\t####################\n\n";
+  console_editor_.WriteText(
+      "\n\t####################\n"
+      "\t#                  #\n"
+      "\t# Have a nice day! #\n"
+      "\t#                  #\n"
+      "\t####################\n\n");
 }
 
 void UserMessenger::ShowMainMenu() const {
   console_editor_.ClearScreen();
-  string select =
+  console_editor_.WriteText(
       "\n\t################ Transaction menu ##################\n"
       "\t#                                                  #\n"
       "\t# 1. Account information            2. Refill      #\n"
@@ -50,26 +49,27 @@ void UserMessenger::ShowMainMenu() const {
       "\t# ----------------------            ------------   #\n"
       "\t# 5. Statement                      6. Exit        #\n"
       "\t#                                                  #\n"
-      "\t####################################################\n";
-  std::cout << select;
+      "\t####################################################\n");
 }
 
 void UserMessenger::ShowSuggestionAboutExit() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n\t# 1. Exit to main page.\n"
-      "\t# 2. Exit program.\n");
-  std::cout << "\t# Enter: ";
+      "\t# 2. Exit program.\n"
+      "\t# Enter: ");
 }
 
 void UserMessenger::ShowIncorrectSumInput() const {
-  std::cout << "\t# Incorrect input, please try again:\n"
-               "\t# Enter: ";
+  console_editor_.WriteTextWithDelayPerSymbol(
+      "\t# Incorrect input, please try again:\n"
+      "\t# Enter: ");
 }
 
 void UserMessenger::ShowIncorrectData() const {
-  std::cout << "\n\tIncorrect data. Please, repeat.\n";
-  std::cout << "\t-------------------------------\n";
-  std::cout << "\tSelect: ";
+  console_editor_.WriteTextWithDelayPerSymbol(
+      "\n\tIncorrect data. Please, "
+      "repeat.\n"
+      "\t-------------------------------\n\tSelect: ");
 }
 
 void UserMessenger::ShowIncorrectRegisterData() const {
