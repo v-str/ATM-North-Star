@@ -12,7 +12,6 @@ class InitialMessenger {
   void DisplayError() const;
 
   void DisplayLogotype();
-  void EatLine();
 
   ConsoleEditor console_editor_;
 };

@@ -13,7 +13,7 @@ void InitialMessenger::DisplayInitialScreen() {
 }
 
 void InitialMessenger::DisplayLogotype() {
-  string demo =
+  console_editor_.WriteText(
       "---------------------------------------------\n"
       "-  ##   ## ####### ######  ######## ##  ##  -\n"
       "-  ###  ## ##   ## ##   ##    ##    ##  ##  -\n"
@@ -32,17 +32,15 @@ void InitialMessenger::DisplayLogotype() {
       "-      ##    ##     ##     ## ## ## ##      -\n"
       "-     ## ### ##     ##     ##  ###  ##      -\n"
       "-     ##     ##     ##     ##   #   ##      -\n"
-      "---------------------------------------------\n";
-  cout << demo;
+      "---------------------------------------------\n");
 
   console_editor_.WriteTextWithDelayPerSymbol(
       "\t         ATM #0001\n"
       "      28 Greene St, New York, NY 10012\n");
   console_editor_.WriteTextWithDelayPerSymbol("\t      press \"Enter\"\n", 50);
-  cin.clear();
-  EatLine();
+  console_editor_.IgnoreCinLine();
   system("pause");
-  system("clear");
+  console_editor_.ClearScreen();
 }
 
 void InitialMessenger::DisplayInitialMenu() const {
@@ -58,8 +56,4 @@ void InitialMessenger::DisplayError() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n\n\tData is not correct,\n"
       "\tplease reload the program.\n\n");
-}
-
-void InitialMessenger::EatLine() {
-  while (std::cin.get() != '\n') continue;
 }

@@ -12,9 +12,12 @@ void ConsoleEditor::IgnoreCinLine() const {
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
+void ConsoleEditor::Pause() { system("pause"); }
+
 void ConsoleEditor::ClearScreen() { system("clear"); }
 
-void ConsoleEditor::WriteTextWithDelayPerSymbol(const string &text, int delay) const {
+void ConsoleEditor::WriteTextWithDelayPerSymbol(const string &text,
+                                                int delay) const {
   for (const auto symbol : text) {
     std::string temp(1, symbol);
 
