@@ -9,9 +9,9 @@ void RegistrationMessenger::ShowRegistrationScreen() {
   ConsoleEditor::ClearScreen();
 
   std::string text =
-      "\n\t\t   ********************\n"
-      "\t\t   *   REGISTRATION   *\n"
-      "\t\t   ********************\n";
+      "\n\t   ********************\n"
+      "\t   *   REGISTRATION   *\n"
+      "\t   ********************\n\n";
 
   TextWriter::Write(text);
 }

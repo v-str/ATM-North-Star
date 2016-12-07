@@ -30,16 +30,16 @@ void NoticeMessenger::ShowIncorrectLoginFrame() const {
 
 void NoticeMessenger::ShowIncorrectFormatPassword() const {
   console_editor_.ClearScreen();
-  std::cout << "\n\n\n\n\t|";
+  console_editor_.WriteText("\n\n\n\n\t|");
   console_editor_.WriteSymbolsNTimes('-', kIncorrectDataFrame);
-  std::cout << "|\n";
+  console_editor_.WriteText("|\n");
   console_editor_.WriteTextWithDelayPerSymbol(
       "\t|Incorrect password.        |\n"
       "\t|It must be in XXXX format. |\n"
       "\t|Please, reload the program.|");
-  std::cout << "\n\t|";
+  console_editor_.WriteText("\n\t|");
   console_editor_.WriteSymbolsNTimes('-', kIncorrectDataFrame);
-  std::cout << "|\n\n\t\t\t";
+  console_editor_.WriteText("|\n\n\t\t\t");
 }
 
 void NoticeMessenger::ShowIncorrectData() const {

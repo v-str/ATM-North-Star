@@ -35,6 +35,12 @@ void ConsoleEditor::WriteSymbolsNTimes(char symbol, int n) const {
   }
 }
 
+void ConsoleEditor::AddEmptyLineNTimes(const int amount_of_empty_lines) {
+  for (int i = 0; i < amount_of_empty_lines; ++i) {
+    TextWriter::Write("\n");
+  }
+}
+
 void ConsoleEditor::WriteText(const ConsoleEditor::string &text) const {
   TextWriter::Write(text);
 }
