@@ -161,9 +161,12 @@ void CreditMessanger::ShowResultOfUserChoice(int decision_of_user) const {
 }
 
 void CreditMessanger::ShowIncorrectCashInformation(int cash) const {
-  console_editor_.WriteSymbolsNTimes('-', 30);
-  std::cout << "Balance: " << cash;
-  console_editor_.WriteSymbolsNTimes('-', 30);
+  console_editor_.WriteText("\n");
+  console_editor_.WriteSymbolsNTimes('-', 25);
+  console_editor_.WriteText(" Balance: $" + std::to_string(cash) + " ");
+
+  console_editor_.WriteSymbolsNTimes('-', 25);
+  console_editor_.WriteText("\n");
 }
 
 CreditMessanger::string CreditMessanger::ShowEnterText() const {
