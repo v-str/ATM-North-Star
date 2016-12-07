@@ -38,10 +38,10 @@ void InitialMessenger::DisplayLogotype() {
 
 void InitialMessenger::DisplayInitialMenu() const {
   console_editor_.WriteText(
-      "\n\n\n\n\t ##################\n"
-      "\t #  1. Demo mode  #\n"
-      "\t #  2. Sign-in    #\n"
-      "\t ##################\n"
+      "\n\n\n\n\t #######################\n"
+      "\t #  1. Demo mode       #\n"
+      "\t #  2. Registration    #\n"
+      "\t #######################\n"
       "\t   Enter: ___\b\b");
 }
 

@@ -2,6 +2,7 @@
 
 void InitialMenu::RunMenu() {
   int user_choice = user_input_.GetValueFromUser();
+  console_editor_.AddEmptyLineNTimes(3);
 
   if (user_choice == kDemoMode) {
     demo_mode_.ShowDemoMode();

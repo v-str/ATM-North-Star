@@ -15,6 +15,7 @@
 #include "user_messenger.h"
 #include "user_registrator.h"
 
+#include "console_editor.h"
 
 
 class InitialMenu {
@@ -60,6 +61,7 @@ class InitialMenu {
   DemoUser demo_mode_;
   AccountInformator account_informator_;
   UserInput user_input_;
+  ConsoleEditor console_editor_;
 };
 
 #endif  // INITIAL_MENU_H
