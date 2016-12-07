@@ -7,7 +7,7 @@ void IdentificationMessenger::ShowInitialLoginText() const {
 }
 
 void IdentificationMessenger::ShowInitialPasswordText() const {
-  console_editor_.WriteTextWithDelayPerSymbol("\t\tPassword: XXXX\b\b\b\b",
+  console_editor_.WriteTextWithDelayPerSymbol("\n\t\tPassword: XXXX\b\b\b\b",
                                               kDelay);
   console_editor_.WriteSymbolsNTimes('X', kMaxLenghtOfPassword);
   console_editor_.WriteSymbolsNTimes('\b', kMaxLenghtOfPassword);
