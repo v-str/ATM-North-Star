@@ -1,9 +1,9 @@
 #ifndef REFILL_MESSENGER_H
 #define REFILL_MESSENGER_H
 
-#include <string>
-
 #include "console_editor.h"
+
+#include <string>
 
 class RefillMessenger {
   using string = std::string;

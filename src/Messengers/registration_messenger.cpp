@@ -1,17 +1,10 @@
 #include "registration_messenger.h"
 
-#include <iostream>
-#include <string>
-#include "console_editor.h"
-#include "text_writer.h"
-
 void RegistrationMessenger::ShowRegistrationScreen() {
-  ConsoleEditor::ClearScreen();
+  console_editor_.ClearScreen();
 
-  std::string text =
+  console_editor_.WriteText(
       "\n\t   ********************\n"
       "\t   *   REGISTRATION   *\n"
-      "\t   ********************\n\n";
-
-  TextWriter::Write(text);
+      "\t   ********************\n\n");
 }

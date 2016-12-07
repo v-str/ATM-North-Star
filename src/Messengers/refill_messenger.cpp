@@ -1,7 +1,5 @@
 #include "refill_messenger.h"
 
-#include <iostream>
-
 void RefillMessenger::ShowNotifyAboutCash() const {
   console_editor_.WriteText("\t");
   console_editor_.WriteSymbolsNTimes('-', kFrame);
