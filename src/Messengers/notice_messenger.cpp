@@ -59,7 +59,8 @@ void NoticeMessenger::ShowUnacceptableWithdrawal(int amount_of_cash) const {
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n\t# Sorry, entered sum is incorrect.\n\n");
-  std::cout << "\t# Balance: " << amount_of_cash << "\n\n\t";
+  console_editor_.WriteText("\t# Balance: " + std::to_string(amount_of_cash) +
+                            "\n\n\t");
 
   console_editor_.WriteSymbolsNTimes('-', kFrame);
   console_editor_.Sleep(kSleep);
