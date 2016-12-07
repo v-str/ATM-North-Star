@@ -15,12 +15,6 @@ class DemoUserMessanger {
     kStatement
   };
 
-  void ShowWelcomeDemoMessage() const;
-  void ShowDemoAccountInfoMessage() const;
-  void ShowInfoAboutRefillMessage() const;
-  void ShowDemoCreditAppMessage() const;
-  void ShowDemoWidthdrawalMessage() const;
-  void ShowDemoStatementMessage() const;
   void ShowDemoMenuMessage() const;
 
   void ShowMessage(MessageType message_type);
@@ -29,6 +23,13 @@ class DemoUserMessanger {
   static const int kSleep = 100;
 
   void ShowDemoMenu() const;
+
+  void ShowWelcomeDemoMessage() const;
+  void ShowDemoAccountInfoMessage() const;
+  void ShowInfoAboutRefillMessage() const;
+  void ShowDemoCreditAppMessage() const;
+  void ShowDemoWidthdrawalMessage() const;
+  void ShowDemoStatementMessage() const;
 
   ConsoleEditor console_editor_;
 };

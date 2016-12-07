@@ -1,6 +1,4 @@
-#include "demo_user_messanger.h"
-
-#include <iostream>
+#include "demo_user_messenger.h"
 
 void DemoUserMessanger::ShowMessage(
     DemoUserMessanger::MessageType message_type) {
@@ -102,8 +100,8 @@ void DemoUserMessanger::ShowInfoAboutRefillMessage() const {
 void DemoUserMessanger::ShowDemoCreditAppMessage() const {
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
-      "# Our bank may allow you to get a loan on the amount\n"
-      "# of not more than 15x of your cash on account at the "
+      "# Our bank may allow you to get a loan in the amount\n"
+      "# of not more than 15x of your cash on account at the\n"
       "# moment.\n\n"
       "# For example: \n"
       "# If your balance at the moment equal $2000, you may\n"
