@@ -27,11 +27,11 @@ void ConsoleEditor::WriteTextWithDelayPerSymbol(const string &text,
   }
 }
 
-void ConsoleEditor::WriteSymbolsNTimes(char symbol, int n) const {
+void ConsoleEditor::WriteSymbolsNTimes(std::string symbol, int n) const {
   for (int i = 0; i < n; ++i) {
-    std::string temp(1, symbol);
+   // std::string temp(1, symbol);
 
-    TextWriter::Write(temp);
+    TextWriter::Write(symbol);
   }
 }
 

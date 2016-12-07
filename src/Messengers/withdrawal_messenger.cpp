@@ -8,8 +8,6 @@ void WithdrawalMessenger::ShowSumOfWithdrawal(int sum_of_cash) const {
 void WithdrawalMessenger::ShowPasswordString() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\t# Please enter your password: XXXX");
-
-  console_editor_.WriteTextWithDelayPerSymbol("\b\b\b\b", 50);
 }
 
 void WithdrawalMessenger::ShowIncorrectPasswordMessage() const {

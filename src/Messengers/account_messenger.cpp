@@ -11,6 +11,6 @@ void AccountMessenger::DisplayInfoLine(const std::string &info_title,
 }
 
 void AccountMessenger::DisplayStrip() const {
-  console_editor_.WriteSymbolsNTimes('-', kNTimes);
+  console_editor_.WriteSymbolsNTimes("-", kNTimes);
   console_editor_.Sleep(kSleep);
 }

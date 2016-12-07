@@ -16,7 +16,7 @@ class ConsoleEditor {
   void IgnoreCinLine() const;
   void Pause();
   void WriteTextWithDelayPerSymbol(const string &text, int delay = 5) const;
-  void WriteSymbolsNTimes(char symbol, int n) const;
+  void WriteSymbolsNTimes(std::string symbol, int n) const;
 
   void AddEmptyLineNTimes(const int amount_of_empty_lines);
   void WriteText(const string &text) const;
@@ -27,7 +27,7 @@ class ConsoleEditor {
 };
 
 template <typename T>
-std::string ConsoleEditor::ConvertValueToString(const T &value) const{
+std::string ConsoleEditor::ConvertValueToString(const T &value) const {
   std::stringstream stream;
   stream << value;
   return stream.str();

@@ -3,11 +3,11 @@
 void NoticeMessenger::ShowAcceptableMessageFrame() const {
   console_editor_.ClearScreen();
   console_editor_.WriteText("\n\n\t\t");
-  console_editor_.WriteSymbolsNTimes('-', kAccessFrame);
+  console_editor_.WriteSymbolsNTimes("-", kAccessFrame);
   console_editor_.WriteText("\n");
   console_editor_.WriteTextWithDelayPerSymbol("\t\t| Access allowed |");
   console_editor_.WriteText("\t\t\n\t\t");
-  console_editor_.WriteSymbolsNTimes('-', kAccessFrame);
+  console_editor_.WriteSymbolsNTimes("-", kAccessFrame);
   console_editor_.WriteText("\t\t\n");
   console_editor_.Sleep(kSecond);
 }
@@ -15,28 +15,28 @@ void NoticeMessenger::ShowAcceptableMessageFrame() const {
 void NoticeMessenger::ShowIncorrectLoginFrame() const {
   console_editor_.ClearScreen();
   console_editor_.WriteText("\t|");
-  console_editor_.WriteSymbolsNTimes('-', kIncorrectDataFrame);
+  console_editor_.WriteSymbolsNTimes("-", kIncorrectDataFrame);
   console_editor_.WriteText("|\n");
   console_editor_.WriteTextWithDelayPerSymbol(
       "\t|Incorrect login.           |\n"
       "\t|It must be more than 1 and |\n"
       "\t|less than 20 symbols.      |\n"
       "\t|Please, reload the program.|\n\t|");
-  console_editor_.WriteSymbolsNTimes('-', kIncorrectDataFrame);
+  console_editor_.WriteSymbolsNTimes("-", kIncorrectDataFrame);
   console_editor_.WriteText("|\n\n");
 }
 
 void NoticeMessenger::ShowIncorrectFormatPassword() const {
   console_editor_.ClearScreen();
   console_editor_.WriteText("\n\n\n\n\t|");
-  console_editor_.WriteSymbolsNTimes('-', kIncorrectDataFrame);
+  console_editor_.WriteSymbolsNTimes("-", kIncorrectDataFrame);
   console_editor_.WriteText("|\n");
   console_editor_.WriteTextWithDelayPerSymbol(
       "\t|Incorrect password.        |\n"
       "\t|It must be in XXXX format. |\n"
       "\t|Please, reload the program.|");
   console_editor_.WriteText("\n\t|");
-  console_editor_.WriteSymbolsNTimes('-', kIncorrectDataFrame);
+  console_editor_.WriteSymbolsNTimes("-", kIncorrectDataFrame);
   console_editor_.WriteText("|\n\n\t\t\t");
 }
 
@@ -60,7 +60,7 @@ void NoticeMessenger::ShowUnacceptableWithdrawal(int amount_of_cash) const {
   console_editor_.WriteText("\t# Balance: " + std::to_string(amount_of_cash) +
                             "\n\n\t");
 
-  console_editor_.WriteSymbolsNTimes('-', kFrame);
+  console_editor_.WriteSymbolsNTimes("-", kFrame);
   console_editor_.Sleep(kSleep);
 }
 
