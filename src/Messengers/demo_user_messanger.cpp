@@ -84,17 +84,19 @@ void DemoUserMessanger::ShowDemoAccountInfoMessage() const {
 
 void DemoUserMessanger::ShowInfoAboutRefillMessage() const {
   console_editor_.ClearScreen();
-  console_editor_.WriteTextWithDelayPerSymbol(
+  console_editor_.WriteTextWithInterrupt(
       "# In this section user may refill balance\n"
       "# on any sum from 10 to 50000 dollars.\n"
       "# You can enter any sum such as 100 or 1005.66.\n"
       "# When you refill on 1005.66  supposed, that you making a\n"
       "# transfer from another account.\n\n"
-      "# For example, refill account is look like this:\n");
-  std::cout << "-----------------------------------------------\n"
-               " Entered sum: 1000 $\n"
-               "-----------------------------------------------\n"
-               " (If sum is valid, money will be transferred)\n\n";
+      "# For example, refill account is look like this:\n",
+      kSleep);
+  console_editor_.WriteText(
+      "-----------------------------------------------\n"
+      " Entered sum: 1700 $\n"
+      "-----------------------------------------------\n"
+      " (If sum is valid, money will be transferred)\n\n");
 }
 
 void DemoUserMessanger::ShowDemoCreditAppMessage() const {
