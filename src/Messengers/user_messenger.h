@@ -9,8 +9,6 @@ class UserMessenger {
  public:
   void ShowMainMenu();
 
-  void ShowNotifyAboutCash();
-
   void ShowIncorrectDataMessage();
 
   void WishAGoodDay() const;
