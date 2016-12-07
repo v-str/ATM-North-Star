@@ -1,13 +1,16 @@
 #ifndef STATEMENT_MESSENGER_H
 #define STATEMENT_MESSENGER_H
 
+#include "console_editor.h"
+
 #include <string>
 
 class StatementMessenger {
-  using string = std::string;
-
  public:
-  void ShowStatement(int cash, const string &spaces) const;
+  void ShowStatement(int cash, const std::string &spaces) const;
+
+ private:
+  ConsoleEditor console_editor_;
 };
 
 #endif  // STATEMENT_MESSENGER_H
