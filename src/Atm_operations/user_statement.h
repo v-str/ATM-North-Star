@@ -4,6 +4,7 @@
 #include <string>
 
 #include "cash_operator.h"
+#include "console_editor.h"
 #include "statement_messenger.h"
 #include "user_input.h"
 
@@ -22,6 +23,7 @@ class UserStatement {
 
   UserInput user_input_;
   StatementMessenger statement_messenger_;
+  ConsoleEditor console_editor_;
 };
 
 #endif  // USER_STATEMENT_H

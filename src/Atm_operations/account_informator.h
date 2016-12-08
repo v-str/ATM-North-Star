@@ -4,6 +4,7 @@
 #include "cash_operator.h"
 #include "information_screen.h"
 #include "user_identifier.h"
+#include "console_editor.h"
 
 class AccountInformator {
  public:
@@ -12,6 +13,7 @@ class AccountInformator {
 
  private:
   InformationScreen screen_;
+  ConsoleEditor console_editor_;
 };
 
 #endif  // ACCOUNT_INFORMATOR_H

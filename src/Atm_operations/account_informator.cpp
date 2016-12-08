@@ -3,7 +3,8 @@
 
 void AccountInformator::DisplayAccountInformation(
     UserIdentifier &user_identifier, CashOperator &cash_operator) {
-  SystemUtility::ClearScreen();
+  console_editor_.AddEmptyLineNTimes(2);
+  console_editor_.ClearScreen();
   screen_.DisplayLogin(user_identifier.GetLogin());
   screen_.DisplayPassword(user_identifier.GetPassword());
   screen_.DisplayCash(cash_operator.GetCash());

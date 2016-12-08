@@ -2,6 +2,8 @@
 
 void DemoUserMessanger::ShowMessage(
     DemoUserMessanger::MessageType message_type) {
+  console_editor_.AddEmptyLineNTimes(2);
+
   switch (message_type) {
     case kWelcome:
       ShowWelcomeDemoMessage();

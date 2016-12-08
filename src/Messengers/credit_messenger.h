@@ -12,7 +12,6 @@ class CreditMessanger {
   void RefuseToGrantAnotherCredit() const;
   void ShowNotifyAboutCredit() const;
   void ShowCreditConditions(int maximal_sum_of_credit) const;
-  void ShowInfoAboutCredit(const string &user_login, int max_sum) const;
 
   void SuggestToConfirmACredit() const;
   void ShowCreditTitle(const string &user_login, int sum_of_credit) const;

@@ -15,8 +15,6 @@
 #include "user_messenger.h"
 #include "user_registrator.h"
 
-#include "console_editor.h"
-
 class InitialMenu {
  public:
   void RunMenu();
@@ -34,12 +32,6 @@ class InitialMenu {
     kWidthdrawalSection,
     kStatementSection,
     kExitSection,
-  };
-
-  enum AmountOfEmptyLine {
-    kOone = 1,
-    kTwo,
-    kThree,
   };
 
   void RegisterUser();
@@ -66,7 +58,6 @@ class InitialMenu {
   DemoUser demo_mode_;
   AccountInformator account_informator_;
   UserInput user_input_;
-  ConsoleEditor console_editor_;
 };
 
 #endif  // INITIAL_MENU_H

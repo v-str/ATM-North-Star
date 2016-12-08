@@ -21,6 +21,7 @@ void UserMessenger::ShowIncorrectDataMessage() {
 }
 
 void UserMessenger::SuggestUserToExit() const {
+  console_editor_.AddEmptyLineNTimes(1);
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n\t# Do you really want to exit?\n"

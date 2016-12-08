@@ -35,7 +35,7 @@ void CreditMessanger::ShowNotifyAboutCredit() const {
 void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
   std::string convertible_string_value =
       console_editor_.ConvertValueToString(maximal_sum_of_credit);
-
+  console_editor_.AddEmptyLineNTimes(2);
   console_editor_.ClearScreen();
 
   console_editor_.WriteTextWithInterrupt(
@@ -61,18 +61,6 @@ void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
   console_editor_.WriteText("# Enter: ");
 }
 
-void CreditMessanger::ShowInfoAboutCredit(
-    const CreditMessanger::string &user_login, int max_sum) const {
-  std::string convertible_string_value =
-      console_editor_.ConvertValueToString(max_sum);
-
-  console_editor_.WriteText(
-      "\t             Consumer credit\n"
-      "\t* Profile: " +
-      user_login + "\n\t* Sum $: " + std::to_string(max_sum) +
-      "\n\t* Persent per year: 14%\n\n ");
-}
-
 void CreditMessanger::SuggestToConfirmACredit() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n\t# Do you confirm the loan?\n"
@@ -83,6 +71,7 @@ void CreditMessanger::SuggestToConfirmACredit() const {
 
 void CreditMessanger::ShowCreditTitle(const CreditMessanger::string &user_login,
                                       int sum_of_credit) const {
+  console_editor_.AddEmptyLineNTimes(2);
   console_editor_.ClearScreen();
 
   console_editor_.WriteTextWithInterrupt("\t\tConsumer Credit\n\n",
@@ -99,9 +88,10 @@ void CreditMessanger::ShowCreditTitle(const CreditMessanger::string &user_login,
 }
 
 void CreditMessanger::ShowEnrollACredit() const {
+  console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n# The loan was successfully transferred on your account.\n"
-      "# You might cash your credit in our nearest bank.");
+      "# You might cash your credit in our nearest bank.\n");
 }
 
 void CreditMessanger::ShowRepealACreadit() const {
@@ -143,6 +133,7 @@ void CreditMessanger::ShowTableOfCredit(const double pay_per_month,
 }
 
 void CreditMessanger::ShowAmountOfMonthToPayACredit() const {
+  console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteTextWithDelayPerSymbol(
       "\nNumber of credit month can't be more than 60.\n");
   console_editor_.WriteTextWithDelayPerSymbol(

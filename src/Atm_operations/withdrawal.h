@@ -1,15 +1,14 @@
 #ifndef WITHDRAWAL_H
 #define WITHDRAWAL_H
 
-#include <iostream>
 #include <string>
 
 #include "cash_operator.h"
+#include "console_editor.h"
+#include "notice_messenger.h"
 #include "user_identifier.h"
 #include "user_input.h"
 #include "withdrawal_messenger.h"
-
-#include "notice_messenger.h"
 
 class Withdrawal {
   using string = std::string;
@@ -31,7 +30,7 @@ class Withdrawal {
 
   UserInput user_input_;
   WithdrawalMessenger withdrawal_messenger_;
-
+  ConsoleEditor console_editor_;
   NoticeMessenger notice_messenger_;
 };
 

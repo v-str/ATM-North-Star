@@ -3,7 +3,8 @@
 
 void Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
                                       UserIdentifier &user_identifier) {
-  SystemUtility::ClearScreen();
+  console_editor_.AddEmptyLineNTimes(2);
+  console_editor_.ClearScreen();
   int sum_of_withdrawal = GetSumOfWithdrawal();
   if (IsWithdrawalAcceptable(cash_operator, sum_of_withdrawal)) {
     withdrawal_messenger_.ShowSumOfWithdrawal(sum_of_withdrawal);
@@ -12,7 +13,7 @@ void Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
     if (IsCorrectPasswordAtWithdrawal(password, user_identifier)) {
       WithdrawFromAccount(cash_operator, sum_of_withdrawal);
       withdrawal_messenger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
-                                          cash_operator.GetCash());
+                                                     cash_operator.GetCash());
     } else {
       withdrawal_messenger_.ShowIncorrectPasswordMessage();
     }

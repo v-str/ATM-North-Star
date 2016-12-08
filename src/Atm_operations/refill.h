@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "cash_operator.h"
+#include "console_editor.h"
 #include "refill_messenger.h"
 #include "user_input.h"
 
@@ -18,6 +19,7 @@ class Refill {
   RefillMessenger refill_messenger_;
   NoticeMessenger notice_messenger_;
   UserInput user_input_;
+  ConsoleEditor console_editor_;
 };
 
 #endif  // REFILL_H

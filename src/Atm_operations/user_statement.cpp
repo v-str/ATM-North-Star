@@ -2,7 +2,8 @@
 #include "system_utility.h"
 
 void UserStatement::ShowStatement(CashOperator &cash_operator) {
-  SystemUtility::ClearScreen();
+  console_editor_.AddEmptyLineNTimes(2);
+  console_editor_.ClearScreen();
   string spaces = GetSpaces(cash_operator.GetCash());
   int cash = cash_operator.GetCash();
   statement_messenger_.ShowStatement(cash, spaces);

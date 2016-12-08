@@ -41,6 +41,7 @@ void NoticeMessenger::ShowIncorrectFormatPassword() const {
 }
 
 void NoticeMessenger::ShowIncorrectData() const {
+  console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n\t# Data is not correct,\n"
       "\t# return to main?\n"

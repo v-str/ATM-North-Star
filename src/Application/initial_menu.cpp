@@ -2,7 +2,6 @@
 
 void InitialMenu::RunMenu() {
   int user_choice = user_input_.GetValueFromUser();
-  console_editor_.AddEmptyLineNTimes(kThree);
 
   if (user_choice == kDemoMode) {
     demo_mode_.ShowDemoMode();
@@ -56,32 +55,27 @@ void InitialMenu::DoProgramSection(int choice) {
 }
 
 void InitialMenu::ShowAccountInfo() {
-  console_editor_.AddEmptyLineNTimes(kTwo);
   account_informator_.DisplayAccountInformation(user_identifier_,
                                                 cash_operator_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
 void InitialMenu::RefillOperation() {
-  console_editor_.AddEmptyLineNTimes(kTwo);
   refill_.StartRefillOperation(cash_operator_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
 void InitialMenu::CreditApplication() {
-  console_editor_.AddEmptyLineNTimes(kTwo);
   user_credit_.StartCreditOperation(user_identifier_, cash_operator_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
 void InitialMenu::WithdrawCash() {
-  console_editor_.AddEmptyLineNTimes(kTwo);
   withdrawal_.WithdrawCashFromUser(cash_operator_, user_identifier_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
 void InitialMenu::Statement() {
-  console_editor_.AddEmptyLineNTimes(kTwo);
   statement_.ShowStatement(cash_operator_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
