@@ -14,7 +14,7 @@ class MultiWriter : public Writer {
   void Write(const std::string& text) override;
 
  private:
-  std::unique_ptr<FileWriter> PrepareFileWriter(const std::string name_of_file,
+  std::unique_ptr<FileWriter> PrepareFileWriter(const std::string &name_of_file,
                                                 FileWriter* file_writer);
 
   std::vector<std::unique_ptr<Writer> > writers_;

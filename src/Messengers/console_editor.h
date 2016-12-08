@@ -18,7 +18,7 @@ class ConsoleEditor {
   void WriteTextWithDelayPerSymbol(const string &text, int delay = 5) const;
   void WriteSymbolsNTimes(std::string symbol, int n) const;
 
-  void AddEmptyLineNTimes(const int amount_of_empty_lines);
+  void AddEmptyLineNTimes(const int amount_of_empty_lines) const;
   void WriteText(const string &text) const;
   void WriteTextWithInterrupt(const string &text, const int interrupt) const;
 

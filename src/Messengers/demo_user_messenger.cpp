@@ -58,22 +58,16 @@ void DemoUserMessanger::ShowDemoAccountInfoMessage() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "# This section show your account information.\n"
       "# For example, it's look like this:\n\n");
-
   console_editor_.WriteTextWithInterrupt(
       "--------------------------------------------\n# Login: Mr. Anderson\n",
       kSleep);
-
   console_editor_.WriteTextWithInterrupt("# Password: 7623\n", kSleep);
-
   console_editor_.WriteTextWithInterrupt("# Credit $: 20000\n", kSleep);
-
   console_editor_.WriteTextWithInterrupt("# Monthly payment $: 2280\n", kSleep);
-
   console_editor_.WriteTextWithInterrupt(
       "# Credit term: 20 "
       "month(s)\n--------------------------------------------\n\n",
       kSleep);
-
   console_editor_.WriteTextWithDelayPerSymbol(
       "# As you can see, your account may contain different data like\n"
       "# balance or credit balance, almost you can see more details such as\n"

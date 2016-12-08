@@ -1,9 +1,6 @@
 #include "text_writer.h"
 #include "consolewriter.h"
 
-#include <fstream>
-#include <iostream>
-
 std::unique_ptr<Writer> TextWriter::writer_ = TextWriter::CreateDefaultWriter();
 
 void TextWriter::Write(const std::string &text) { writer_->Write(text); }

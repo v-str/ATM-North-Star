@@ -10,7 +10,7 @@ void MultiWriter::Write(const std::string &text) {
 }
 
 std::unique_ptr<FileWriter> MultiWriter::PrepareFileWriter(
-    const std::string name_of_file, FileWriter *file_writer) {
+    const std::string &name_of_file, FileWriter *file_writer) {
   file_writer->OpenFile(name_of_file);
 
   return std::unique_ptr<FileWriter>(file_writer);

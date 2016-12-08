@@ -29,13 +29,11 @@ void ConsoleEditor::WriteTextWithDelayPerSymbol(const string &text,
 
 void ConsoleEditor::WriteSymbolsNTimes(std::string symbol, int n) const {
   for (int i = 0; i < n; ++i) {
-   // std::string temp(1, symbol);
-
     TextWriter::Write(symbol);
   }
 }
 
-void ConsoleEditor::AddEmptyLineNTimes(const int amount_of_empty_lines) {
+void ConsoleEditor::AddEmptyLineNTimes(const int amount_of_empty_lines) const{
   for (int i = 0; i < amount_of_empty_lines; ++i) {
     TextWriter::Write("\n");
   }
