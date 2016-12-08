@@ -54,6 +54,7 @@ void DemoUserMessanger::ShowDemoMenu() const {
 }
 
 void DemoUserMessanger::ShowDemoAccountInfoMessage() const {
+  console_editor_.AddEmptyLineNTimes(3);
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
       "# This section show your account information.\n"
@@ -75,6 +76,7 @@ void DemoUserMessanger::ShowDemoAccountInfoMessage() const {
 }
 
 void DemoUserMessanger::ShowInfoAboutRefillMessage() const {
+  console_editor_.AddEmptyLineNTimes(3);
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithInterrupt(
       "# In this section user may refill balance\n"
@@ -92,6 +94,7 @@ void DemoUserMessanger::ShowInfoAboutRefillMessage() const {
 }
 
 void DemoUserMessanger::ShowDemoCreditAppMessage() const {
+  console_editor_.AddEmptyLineNTimes(3);
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
       "# Our bank may allow you to get a loan in the amount\n"
@@ -103,6 +106,7 @@ void DemoUserMessanger::ShowDemoCreditAppMessage() const {
 }
 
 void DemoUserMessanger::ShowDemoWidthdrawalMessage() const {
+  console_editor_.AddEmptyLineNTimes(3);
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
       "# Withdrawal happens to your existing account.\n"
@@ -111,6 +115,7 @@ void DemoUserMessanger::ShowDemoWidthdrawalMessage() const {
 }
 
 void DemoUserMessanger::ShowDemoStatementMessage() const {
+  console_editor_.AddEmptyLineNTimes(3);
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
       "# Standart statement which contain information\n"

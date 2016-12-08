@@ -30,6 +30,7 @@ void UserMessenger::SuggestUserToExit() const {
 }
 
 void UserMessenger::WishAGoodDay() const {
+  console_editor_.AddEmptyLineNTimes(2);
   console_editor_.WriteText(
       "\n\t####################\n"
       "\t#                  #\n"
