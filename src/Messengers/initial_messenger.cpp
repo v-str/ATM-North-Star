@@ -42,7 +42,7 @@ void InitialMessenger::DisplayInitialMenu() const {
       "\t #  1. Demo mode       #\n"
       "\t #  2. Registration    #\n"
       "\t #######################\n"
-      "\t   Enter: ___\b\b");
+      "\t   Enter: ");
 }
 
 void InitialMessenger::DisplayError() const {
