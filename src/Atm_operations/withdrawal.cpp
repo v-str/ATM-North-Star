@@ -1,5 +1,4 @@
 #include "withdrawal.h"
-#include "system_utility.h"
 
 void Withdrawal::WithdrawCashFromUser(CashOperator &cash_operator,
                                       UserIdentifier &user_identifier) {

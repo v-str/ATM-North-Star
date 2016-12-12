@@ -1,5 +1,4 @@
 #include "refill.h"
-#include "system_utility.h"
 
 void Refill::StartRefillOperation(CashOperator &cash_operator) {
   console_editor_.AddEmptyLineNTimes(2);

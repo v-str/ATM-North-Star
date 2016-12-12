@@ -1,5 +1,4 @@
 #include "user_credit.h"
-#include "system_utility.h"
 
 void UserCredit::StartCreditOperation(const UserIdentifier &user_identifier,
                                       CashOperator &cash_operator) {

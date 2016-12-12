@@ -1,5 +1,4 @@
 #include "user_statement.h"
-#include "system_utility.h"
 
 void UserStatement::ShowStatement(CashOperator &cash_operator) {
   console_editor_.AddEmptyLineNTimes(2);
