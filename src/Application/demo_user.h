@@ -3,7 +3,6 @@
 
 #include <string>
 
-
 #include "notice_messenger.h"
 #include "demo_user_messenger.h"
 #include "user_input.h"

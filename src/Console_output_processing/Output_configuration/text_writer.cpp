@@ -1,5 +1,5 @@
 #include "text_writer.h"
-#include "consolewriter.h"
+#include "console_writer.h"
 
 std::unique_ptr<Writer> TextWriter::writer_ = TextWriter::CreateDefaultWriter();
 

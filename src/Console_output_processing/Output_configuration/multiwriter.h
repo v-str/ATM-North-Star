@@ -1,7 +1,7 @@
 #ifndef MULTIWRITER_H
 #define MULTIWRITER_H
 
-#include "filewriter.h"
+#include "file_writer.h"
 #include "writer.h"
 
 #include <memory>

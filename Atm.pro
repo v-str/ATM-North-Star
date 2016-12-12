@@ -14,7 +14,8 @@ INCLUDEPATH += \
     src/Application \
     src/Atm_operations \
     src/Support \
-    src/Messengers \
+    src/Console_output_processing/Messengers \
+    src/Console_output_processing/Output_configuration \
     src/Input_processing
 
 DISTFILES += \
@@ -24,14 +25,16 @@ HEADERS += \
     $$PWD/src/Application/*.h \
     $$PWD/src/Atm_operations/*.h \
     $$PWD/src/Support/*.h \
-    $$PWD/src/Messengers/*.h \
+    $$PWD/src/Console_output_processing/Messengers/*.h \
+    $$PWD/src/Console_output_processing/Output_configuration/*.h \
     $$PWD/src/Input_processing/*.h \
 
 SOURCES += \
     $$PWD/src/Application/*.cpp \
     $$PWD/src/Atm_operations/*.cpp \
     $$PWD/src/Support/*.cpp \
-    $$PWD/src/Messengers/*.cpp \
+    $$PWD/src/Console_output_processing/Messengers/*.cpp \
+    $$PWD/src/Console_output_processing/Output_configuration/*.cpp \
     $$PWD/src/Input_processing/*.cpp \
 
 

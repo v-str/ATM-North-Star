@@ -1,4 +1,4 @@
-#include "filewriter.h"
+#include "file_writer.h"
 
 FileWriter::FileWriter() : file_stream_(new std::ofstream) {}
 

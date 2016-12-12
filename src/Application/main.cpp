@@ -1,5 +1,5 @@
 #include "application.h"
-#include "consolewriter.h"
+#include "console_writer.h"
 #include "multiwriter.h"
 #include "text_writer.h"
 

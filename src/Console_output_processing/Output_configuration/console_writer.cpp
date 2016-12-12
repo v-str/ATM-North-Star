@@ -1,4 +1,4 @@
-#include "consolewriter.h"
+#include "console_writer.h"
 
 ConsoleWriter::ConsoleWriter() : console_stream_(&std::cout) {}
 
