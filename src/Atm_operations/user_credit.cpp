@@ -60,8 +60,7 @@ void UserCredit::GiveACredit(CashOperator &cash_operator,
   }
 }
 
-bool UserCredit::RefuseACredit(const int sum_of_cash) const {
+void UserCredit::RefuseACredit(const int sum_of_cash) const {
   console_editor_.AddEmptyLineNTimes(1);
   credit_messenger_.ShowRefuseACredit(sum_of_cash);
-  return user_input_.SuggestUserToExit();
 }

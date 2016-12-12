@@ -29,7 +29,7 @@ class UserCredit {
 
   bool AlreadyHasACredit(const int sum_of_credit) const;
   void RefuseToGrantAnotherCredit() const;
-  bool RefuseACredit(const int sum_of_cash) const;
+  void RefuseACredit(const int sum_of_cash) const;
 
   void SuggestACredit(CashOperator &cash_operator, const string &user_login);
   void ConsiderACreditBasedOnCash(CashOperator &cash_operator,
