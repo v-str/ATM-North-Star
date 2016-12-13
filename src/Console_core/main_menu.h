@@ -1,19 +1,19 @@
 #ifndef MAIN_MENU_H
 #define MAIN_MENU_H
 
-// atm_operations folder
 #include "account_informator.h"
 #include "refill.h"
 #include "user_credit.h"
 #include "user_statement.h"
 #include "withdrawal.h"
 
-// demo_mode folder
 #include "demo_user.h"
 
-// user folder
 #include "user_messenger.h"
 #include "user_registrator.h"
+
+#include "initial_messenger.h"
+
 
 class MainMenu {
  public:
@@ -58,6 +58,8 @@ class MainMenu {
   DemoUser demo_mode_;
   AccountInformator account_informator_;
   UserInput user_input_;
+  InitialMessenger init_screen_;
+
 };
 
 #endif  // MAIN_MENU_H

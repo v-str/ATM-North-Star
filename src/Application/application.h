@@ -3,8 +3,6 @@
 
 #include "main_menu.h"
 
-#include "initial_messenger.h"
-
 class Application {
  public:
   enum ProgramMode { kConsoleMode, kGraphicalMode };
@@ -13,8 +11,6 @@ class Application {
 
  private:
   MainMenu main_menu_;
-
-  InitialMessenger init_screen_;
 };
 
 #endif  // APPLICATION_H

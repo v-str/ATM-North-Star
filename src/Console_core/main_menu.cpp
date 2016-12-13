@@ -1,6 +1,11 @@
 #include "main_menu.h"
+#include "output_setup.h"
 
 void MainMenu::RunMenu() {
+  OutputSetup::SetupTwoStreamsForOutput();
+
+  init_screen_.DisplayInitialScreen();
+
   int user_choice = user_input_.GetValueFromUser();
 
   if (user_choice == kDemoMode) {
