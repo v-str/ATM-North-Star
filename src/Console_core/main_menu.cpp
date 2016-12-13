@@ -1,7 +1,7 @@
 #include "main_menu.h"
 #include "output_setup.h"
 
-void MainMenu::RunMenu() {
+void MainMenu::RunProgram() {
   OutputSetup::SetupTwoStreamsForOutput();
 
   init_screen_.DisplayInitialScreen();

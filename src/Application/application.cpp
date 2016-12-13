@@ -2,6 +2,6 @@
 
 void Application::RunProgramByMode(ProgramMode mode) {
   if (mode == kConsoleMode) {
-    main_menu_.RunMenu();
+    main_menu_.RunProgram();
   }
 }
