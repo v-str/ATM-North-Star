@@ -6,6 +6,15 @@ void ConsoleApplication::RunProgram() {
 
   int user_choice = GetProgramMode();
 
+  RunProgramModeBasedOnChoice(user_choice);
+}
+
+int ConsoleApplication::GetProgramMode() {
+  init_screen_.DisplayInitialScreen();
+  return user_input_.GetValueFromUser();
+}
+
+void ConsoleApplication::RunProgramModeBasedOnChoice(int user_choice) {
   if (user_choice == kDemoMode) {
     demo_mode_.ShowDemoMode();
     if (demo_mode_.UserWantToRegistrate()) {
@@ -21,11 +30,6 @@ void ConsoleApplication::RunProgram() {
     DisplayMenu();
   }
   user_messenger_.WishAGoodDay();
-}
-
-int ConsoleApplication::GetProgramMode() {
-  init_screen_.DisplayInitialScreen();
-  return user_input_.GetValueFromUser();
 }
 
 void ConsoleApplication::RegisterUser() {

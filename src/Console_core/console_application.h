@@ -14,7 +14,6 @@
 
 #include "initial_messenger.h"
 
-
 class ConsoleApplication {
  public:
   void RunProgram();
@@ -36,7 +35,7 @@ class ConsoleApplication {
 
   int GetProgramMode();
 
-
+  void RunProgramModeBasedOnChoice(int user_choice);
 
   void RegisterUser();
   void StartMainMenu();
@@ -63,7 +62,6 @@ class ConsoleApplication {
   AccountInformator account_informator_;
   UserInput user_input_;
   InitialMessenger init_screen_;
-
 };
 
 #endif  // CONSOLE_APPLICATION_H
