@@ -6,14 +6,12 @@
 #include <string>
 
 class UserIdentificationDataProvider {
-  using string = std::string;
-
  public:
-  string GetLoginFromUser();
-  string GetPasswordFromUser();
+  std::string GetLoginFromUser();
+  std::string GetPasswordFromUser();
 
  private:
-  string GetDataFromUser();
+  std::string GetDataFromUser();
 
   UserInput user_input_;
 };
