@@ -34,6 +34,10 @@ class ConsoleApplication {
     kExitSection,
   };
 
+  int GetProgramMode();
+
+
+
   void RegisterUser();
   void StartMainMenu();
   void DoProgramSection(int choice);

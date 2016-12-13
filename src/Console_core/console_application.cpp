@@ -4,9 +4,7 @@
 void ConsoleApplication::RunProgram() {
   OutputSetup::SetupTwoStreamsForOutput();
 
-  init_screen_.DisplayInitialScreen();
-
-  int user_choice = user_input_.GetValueFromUser();
+  int user_choice = GetProgramMode();
 
   if (user_choice == kDemoMode) {
     demo_mode_.ShowDemoMode();
@@ -23,6 +21,11 @@ void ConsoleApplication::RunProgram() {
     DisplayMenu();
   }
   user_messenger_.WishAGoodDay();
+}
+
+int ConsoleApplication::GetProgramMode() {
+  init_screen_.DisplayInitialScreen();
+  return user_input_.GetValueFromUser();
 }
 
 void ConsoleApplication::RegisterUser() {
