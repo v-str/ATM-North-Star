@@ -9,18 +9,12 @@
 
 class OutputSetup {
  public:
+  static void SetupDefaultStream();
 
-    static void SetupDefaultStream();
-
-    static void SetupDoubleStream(const std::string & name_of_file);
+  static void SetupTwoStreamsForOutput();
 
  private:
-
-
-
-
-
-  std::string* name_of_file_;
+  static std::string name_of_file_;
 };
 
 #endif  // OUTPUTSETUP_H
