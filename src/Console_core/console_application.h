@@ -1,5 +1,5 @@
-#ifndef MAIN_MENU_H
-#define MAIN_MENU_H
+#ifndef CONSOLE_APPLICATION_H
+#define CONSOLE_APPLICATION_H
 
 #include "account_informator.h"
 #include "refill.h"
@@ -15,9 +15,9 @@
 #include "initial_messenger.h"
 
 
-class MainMenu {
+class ConsoleApplication {
  public:
-  void RunMainMenu();
+  void RunProgram();
 
  private:
   enum ProgramMode {
@@ -62,4 +62,4 @@ class MainMenu {
 
 };
 
-#endif  // MAIN_MENU_H
+#endif  // CONSOLE_APPLICATION_H

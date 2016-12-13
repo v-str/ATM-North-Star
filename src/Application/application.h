@@ -1,7 +1,7 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include "main_menu.h"
+#include "console_application.h"
 
 class Application {
  public:
@@ -10,7 +10,7 @@ class Application {
   void RunProgramByMode(ProgramMode mode);
 
  private:
-  MainMenu main_menu_;
+  ConsoleApplication console_app_;
 };
 
 #endif  // APPLICATION_H

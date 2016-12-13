@@ -1,7 +1,7 @@
-#include "main_menu.h"
+#include "console_application.h"
 #include "output_setup.h"
 
-void MainMenu::RunMainMenu() {
+void ConsoleApplication::RunProgram() {
   OutputSetup::SetupTwoStreamsForOutput();
 
   init_screen_.DisplayInitialScreen();
@@ -25,22 +25,22 @@ void MainMenu::RunMainMenu() {
   user_messenger_.WishAGoodDay();
 }
 
-void MainMenu::RegisterUser() {
+void ConsoleApplication::RegisterUser() {
   registrator_.RegisterUser(cash_operator_, user_identifier_);
 }
 
-void MainMenu::DisplayMenu() {
+void ConsoleApplication::DisplayMenu() {
   do {
     StartMainMenu();
   } while (!is_user_want_to_exit_);
 }
 
-void MainMenu::StartMainMenu() {
+void ConsoleApplication::StartMainMenu() {
   user_messenger_.ShowMainMenu();
   DoProgramSection(user_input_.GetValueFromUser());
 }
 
-void MainMenu::DoProgramSection(int choice) {
+void ConsoleApplication::DoProgramSection(int choice) {
   if (choice == kAccountSection) {
     ShowAccountInfo();
   } else if (choice == kRefillSection) {
@@ -59,28 +59,28 @@ void MainMenu::DoProgramSection(int choice) {
   }
 }
 
-void MainMenu::ShowAccountInfo() {
+void ConsoleApplication::ShowAccountInfo() {
   account_informator_.DisplayAccountInformation(user_identifier_,
                                                 cash_operator_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-void MainMenu::RefillOperation() {
+void ConsoleApplication::RefillOperation() {
   refill_.StartRefillOperation(cash_operator_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-void MainMenu::CreditApplication() {
+void ConsoleApplication::CreditApplication() {
   user_credit_.StartCreditOperation(user_identifier_, cash_operator_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-void MainMenu::WithdrawCash() {
+void ConsoleApplication::WithdrawCash() {
   withdrawal_.WithdrawCashFromUser(cash_operator_, user_identifier_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-void MainMenu::Statement() {
+void ConsoleApplication::Statement() {
   statement_.ShowStatement(cash_operator_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
