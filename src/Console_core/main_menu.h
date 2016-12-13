@@ -17,7 +17,7 @@
 
 class MainMenu {
  public:
-  void RunProgram();
+  void RunMainMenu();
 
  private:
   enum ProgramMode {
