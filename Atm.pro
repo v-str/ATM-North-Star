@@ -13,10 +13,10 @@ INCLUDEPATH += \
     src \
     src/Application \
     src/Console_core \
-    src/Console_user_data_processing \
-    src/Console_output_processing/Messengers \
-    src/Console_output_processing/Output_configuration \
-    src/Console_input_processing
+    src/Console_user_data \
+    src/Console_output/Messengers \
+    src/Console_output/Output_configuration \
+    src/Console_input
 
 DISTFILES += \
     ToDo_List
@@ -24,19 +24,19 @@ DISTFILES += \
 HEADERS += \
     $$PWD/src/Application/*.h \
     $$PWD/src/Console_core/*.h \
-    $$PWD/src/Console_user_data_processing/*.h \
-    $$PWD/src/Console_output_processing/Messengers/*.h \
-    $$PWD/src/Console_output_processing/Output_configuration/*.h \
-    $$PWD/src/Console_input_processing/*.h \
+    $$PWD/src/Console_user_data/*.h \
+    $$PWD/src/Console_output/Messengers/*.h \
+    $$PWD/src/Console_output/Output_configuration/*.h \
+    $$PWD/src/Console_input/*.h \
 
 
 SOURCES += \
     $$PWD/src/Application/*.cpp \
     $$PWD/src/Console_core/*.cpp \
-    $$PWD/src/Console_user_data_processing/*.cpp \
-    $$PWD/src/Console_output_processing/Messengers/*.cpp \
-    $$PWD/src/Console_output_processing/Output_configuration/*.cpp \
-    $$PWD/src/Console_input_processing/*.cpp \
+    $$PWD/src/Console_user_data/*.cpp \
+    $$PWD/src/Console_output/Messengers/*.cpp \
+    $$PWD/src/Console_output/Output_configuration/*.cpp \
+    $$PWD/src/Console_input/*.cpp \
 
 
 

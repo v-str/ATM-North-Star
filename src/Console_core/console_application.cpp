@@ -27,7 +27,7 @@ void ConsoleApplication::RunProgramModeBasedOnChoice(int user_choice) {
   }
 
   if (registrator_.IsCorrectRegistration()) {
-    DisplayMenu();
+    DisplayMainMenu();
   }
   user_messenger_.WishAGoodDay();
 }
@@ -36,7 +36,7 @@ void ConsoleApplication::RegisterUser() {
   registrator_.RegisterUser(cash_operator_, user_identifier_);
 }
 
-void ConsoleApplication::DisplayMenu() {
+void ConsoleApplication::DisplayMainMenu() {
   do {
     StartMainMenu();
   } while (!is_user_want_to_exit_);

@@ -40,7 +40,7 @@ class ConsoleApplication {
   void RegisterUser();
   void StartMainMenu();
   void DoProgramSection(int choice);
-  void DisplayMenu();
+  void DisplayMainMenu();
 
   void ShowAccountInfo();
   void RefillOperation();
