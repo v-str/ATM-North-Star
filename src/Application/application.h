@@ -1,15 +1,19 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include "initial_menu.h"
+#include "main_menu.h"
+
 #include "initial_messenger.h"
 
 class Application {
  public:
-  void RunProgram();
+  enum ProgramMode { kConsoleMode, kGraphicalMode };
+
+  void RunProgramByMode(ProgramMode mode);
 
  private:
-  InitialMenu init_menu_;
+  MainMenu main_menu_;
+
   InitialMessenger init_screen_;
 };
 

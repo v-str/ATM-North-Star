@@ -1,6 +1,6 @@
-#include "initial_menu.h"
+#include "main_menu.h"
 
-void InitialMenu::RunMenu() {
+void MainMenu::RunMenu() {
   int user_choice = user_input_.GetValueFromUser();
 
   if (user_choice == kDemoMode) {
@@ -20,22 +20,22 @@ void InitialMenu::RunMenu() {
   user_messenger_.WishAGoodDay();
 }
 
-void InitialMenu::RegisterUser() {
+void MainMenu::RegisterUser() {
   registrator_.RegisterUser(cash_operator_, user_identifier_);
 }
 
-void InitialMenu::DisplayMenu() {
+void MainMenu::DisplayMenu() {
   do {
     StartMainMenu();
   } while (!is_user_want_to_exit_);
 }
 
-void InitialMenu::StartMainMenu() {
+void MainMenu::StartMainMenu() {
   user_messenger_.ShowMainMenu();
   DoProgramSection(user_input_.GetValueFromUser());
 }
 
-void InitialMenu::DoProgramSection(int choice) {
+void MainMenu::DoProgramSection(int choice) {
   if (choice == kAccountSection) {
     ShowAccountInfo();
   } else if (choice == kRefillSection) {
@@ -54,28 +54,28 @@ void InitialMenu::DoProgramSection(int choice) {
   }
 }
 
-void InitialMenu::ShowAccountInfo() {
+void MainMenu::ShowAccountInfo() {
   account_informator_.DisplayAccountInformation(user_identifier_,
                                                 cash_operator_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-void InitialMenu::RefillOperation() {
+void MainMenu::RefillOperation() {
   refill_.StartRefillOperation(cash_operator_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-void InitialMenu::CreditApplication() {
+void MainMenu::CreditApplication() {
   user_credit_.StartCreditOperation(user_identifier_, cash_operator_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-void InitialMenu::WithdrawCash() {
+void MainMenu::WithdrawCash() {
   withdrawal_.WithdrawCashFromUser(cash_operator_, user_identifier_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-void InitialMenu::Statement() {
+void MainMenu::Statement() {
   statement_.ShowStatement(cash_operator_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }

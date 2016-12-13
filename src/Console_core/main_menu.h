@@ -1,5 +1,5 @@
-#ifndef INITIAL_MENU_H
-#define INITIAL_MENU_H
+#ifndef MAIN_MENU_H
+#define MAIN_MENU_H
 
 // atm_operations folder
 #include "account_informator.h"
@@ -15,7 +15,7 @@
 #include "user_messenger.h"
 #include "user_registrator.h"
 
-class InitialMenu {
+class MainMenu {
  public:
   void RunMenu();
 
@@ -60,4 +60,4 @@ class InitialMenu {
   UserInput user_input_;
 };
 
-#endif  // INITIAL_MENU_H
+#endif  // MAIN_MENU_H

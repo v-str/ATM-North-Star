@@ -5,5 +5,5 @@ int main() {
   OutputSetup::SetupTwoStreamsForOutput();
 
   Application app;
-  app.RunProgram();
+  app.RunProgramByMode(Application::ProgramMode::kConsoleMode);
 }

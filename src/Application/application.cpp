@@ -1,6 +1,8 @@
 #include "application.h"
 
-void Application::RunProgram() {
-  init_screen_.DisplayInitialScreen();
-  init_menu_.RunMenu();
+void Application::RunProgramByMode(ProgramMode mode) {
+  if (mode == kConsoleMode) {
+    init_screen_.DisplayInitialScreen();
+    main_menu_.RunMenu();
+  }
 }
