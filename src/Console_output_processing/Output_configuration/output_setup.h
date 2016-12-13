@@ -14,6 +14,9 @@ class OutputSetup {
   static void SetupTwoStreamsForOutput();
 
  private:
+  void SetVectorForOutput(std::unique_ptr<Writer> console_output,
+                          std::unique_ptr<Writer> file_output);
+
   static std::string name_of_file_;
 };
 
