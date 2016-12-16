@@ -18,6 +18,15 @@ public:
     void SetMonthlyPayment(double monthly_payment);
     void SetAmountOfCreditMonth(int amount_credit_month);
 
+    std::string GetLogin() const;
+    std::string GetPassword() const;
+
+    int GetCash() const;
+    int GetCredit() const;
+    double GetMonthlyPayment() const;
+    int GetAmountOfCreditMonth() const;
+    int GetAssignACredit(int sum_of_credit);
+    int WithdrawCashFromUser(int amount);
 
 
 private:

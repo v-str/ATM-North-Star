@@ -22,3 +22,29 @@ void AtmUser::SetMonthlyPayment(double monthly_payment) {
 void AtmUser::SetAmountOfCreditMonth(int amount_credit_month) {
   cash_operator_->SetAmountOfCreditMonth(amount_credit_month);
 }
+
+std::string AtmUser::GetLogin() const { return user_identifier_->GetLogin(); }
+
+std::string AtmUser::GetPassword() const {
+  return user_identifier_->GetPassword();
+}
+
+int AtmUser::GetCash() const { return cash_operator_->GetCash(); }
+
+int AtmUser::GetCredit() const { return cash_operator_->GetCredit(); }
+
+double AtmUser::GetMonthlyPayment() const {
+  return cash_operator_->GetMonthlyPayment();
+}
+
+int AtmUser::GetAmountOfCreditMonth() const {
+  return cash_operator_->GetAmountOfCreditMonth();
+}
+
+int AtmUser::GetAssignACredit(int sum_of_credit) {
+  return cash_operator_->GetAssignACredit(sum_of_credit);
+}
+
+int AtmUser::WithdrawCashFromUser(int amount) {
+  return cash_operator_->WithdrawCashFromUser(amount);
+}
