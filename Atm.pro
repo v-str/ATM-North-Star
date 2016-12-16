@@ -28,7 +28,6 @@ HEADERS += \
     $$PWD/src/Console_output/Messengers/*.h \
     $$PWD/src/Console_output/Output_configuration/*.h \
     $$PWD/src/Console_input/*.h \
-    src/Console_user_data/atm_user.h
 
 
 SOURCES += \
@@ -38,7 +37,6 @@ SOURCES += \
     $$PWD/src/Console_output/Messengers/*.cpp \
     $$PWD/src/Console_output/Output_configuration/*.cpp \
     $$PWD/src/Console_input/*.cpp \
-    src/Console_user_data/atm_user.cpp
 
 
 
