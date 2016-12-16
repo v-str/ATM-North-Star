@@ -12,6 +12,12 @@ public:
     AtmUser();
 
     void SetLogin(const std::string &login);
+    void SetPassord(const std::string &password);
+    void SetCash(int cash);
+    void SetCredit(int credit);
+    void SetMonthlyPayment(double monthly_payment);
+    void SetAmountOfCreditMonth(int amount_credit_month);
+
 
 
 private:
