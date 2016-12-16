@@ -1,13 +1,13 @@
 #include "account_informator.h"
 
 void AccountInformator::DisplayAccountInformation(
-    UserIdentifier &user_identifier, CashOperator &cash_operator) {
+    AtmUser &atm_user) {
   console_editor_.AddEmptyLineNTimes(2);
   console_editor_.ClearScreen();
-  screen_.DisplayLogin(user_identifier.GetLogin());
-  screen_.DisplayPassword(user_identifier.GetPassword());
-  screen_.DisplayCash(cash_operator.GetCash());
-  screen_.DisplayCredit(cash_operator.GetCredit());
-  screen_.DisplayPayment(cash_operator.GetMonthlyPayment());
-  screen_.DisplayCreditMonth(cash_operator.GetAmountOfCreditMonth());
+  screen_.DisplayLogin(atm_user.GetLogin());
+  screen_.DisplayPassword(atm_user.GetPassword());
+  screen_.DisplayCash(atm_user.GetCash());
+  screen_.DisplayCredit(atm_user.GetCredit());
+  screen_.DisplayPayment(atm_user.GetMonthlyPayment());
+  screen_.DisplayCreditMonth(atm_user.GetAmountOfCreditMonth());
 }

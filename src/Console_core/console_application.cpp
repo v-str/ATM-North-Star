@@ -33,7 +33,7 @@ void ConsoleApplication::RunProgramModeBasedOnChoice(int user_choice) {
 }
 
 void ConsoleApplication::RegisterUser() {
-  registrator_.RegisterUser(cash_operator_, user_identifier_);
+  registrator_.RegisterUser(atm_user_);
 }
 
 void ConsoleApplication::DisplayMainMenu() {
@@ -67,27 +67,26 @@ void ConsoleApplication::DoProgramSection(int choice) {
 }
 
 void ConsoleApplication::ShowAccountInfo() {
-  account_informator_.DisplayAccountInformation(user_identifier_,
-                                                cash_operator_);
+  account_informator_.DisplayAccountInformation(atm_user_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
 void ConsoleApplication::RefillOperation() {
-  refill_.StartRefillOperation(cash_operator_);
+  refill_.StartRefillOperation(atm_user_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
 void ConsoleApplication::CreditApplication() {
-  user_credit_.StartCreditOperation(user_identifier_, cash_operator_);
+  user_credit_.StartCreditOperation(atm_user_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
 void ConsoleApplication::WithdrawCash() {
-  withdrawal_.WithdrawCashFromUser(cash_operator_, user_identifier_);
+  withdrawal_.WithdrawCashFromUser(atm_user_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
 void ConsoleApplication::Statement() {
-  statement_.ShowStatement(cash_operator_);
+  statement_.ShowStatement(atm_user_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }

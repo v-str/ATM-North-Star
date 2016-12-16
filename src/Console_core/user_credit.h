@@ -1,21 +1,20 @@
 #ifndef USER_CREDIT_H
 #define USER_CREDIT_H
 
-#include <iostream>
-#include <string>
-
+#include "atm_user.h"
+#include "console_editor.h"
 #include "credit.h"
 #include "credit_messenger.h"
-#include "user_identifier.h"
 #include "user_input.h"
-#include "console_editor.h"
+
+#include <iostream>
+#include <string>
 
 class UserCredit {
   using string = std::string;
 
  public:
-  void StartCreditOperation(const UserIdentifier &user_identifier,
-                            CashOperator &cash_operator);
+  void StartCreditOperation(AtmUser &atm_user);
 
  private:
   enum SuggestVariantOfCredit { kMaxCredit = 1, kUserCredit, kExit };
@@ -31,10 +30,9 @@ class UserCredit {
   void RefuseToGrantAnotherCredit() const;
   void RefuseACredit(const int sum_of_cash) const;
 
-  void SuggestACredit(CashOperator &cash_operator, const string &user_login);
-  void ConsiderACreditBasedOnCash(CashOperator &cash_operator,
-                                  const string &user_login);
-  void GiveACredit(CashOperator &cash_operator, const string &user_login);
+  void SuggestACredit(AtmUser &atm_user, const string &user_login);
+  void ConsiderACreditBasedOnCash(AtmUser &atm_user, const string &user_login);
+  void GiveACredit(AtmUser &atm_user, const string &user_login);
 
   UserInput user_input_;
   CreditMessanger credit_messenger_;

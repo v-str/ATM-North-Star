@@ -1,17 +1,17 @@
 #ifndef CREDIT_H
 #define CREDIT_H
 
-#include <string>
-
-#include "cash_operator.h"
+#include "atm_user.h"
 #include "credit_offer.h"
 #include "secondary_credit_operations.h"
+
+#include <string>
 
 class Credit {
   using string = std::string;
 
  public:
-  void GiveCreditByMode(CashOperator &cash_operator, const string &user_login,
+  void GiveCreditByMode(AtmUser &atm_user, const string &user_login,
                         int maximal_sum_of_credit, int credit_mode);
 
  private:

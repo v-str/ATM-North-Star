@@ -1,15 +1,16 @@
 #ifndef REFILL_H
 #define REFILL_H
 
-#include <iostream>
-#include "cash_operator.h"
+#include "atm_user.h"
 #include "console_editor.h"
 #include "refill_messenger.h"
 #include "user_input.h"
 
+#include <iostream>
+
 class Refill {
  public:
-  void StartRefillOperation(CashOperator &cash_operator);
+  void StartRefillOperation(AtmUser &atm_user);
 
  private:
   static const int kNull = 0;

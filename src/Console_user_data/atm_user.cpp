@@ -7,7 +7,7 @@ void AtmUser::SetLogin(const std::string &login) {
   user_identifier_->SetLogin(login);
 }
 
-void AtmUser::SetPassord(const std::string &password) {
+void AtmUser::SetPassword(const std::string &password) {
   user_identifier_->SetPassword(password);
 }
 
@@ -47,4 +47,18 @@ int AtmUser::GetAssignACredit(int sum_of_credit) {
 
 int AtmUser::WithdrawCashFromUser(int amount) {
   return cash_operator_->WithdrawCashFromUser(amount);
+}
+
+bool AtmUser::IsCreditAvailable() {
+  return cash_operator_->IsCreditAvailable();
+}
+
+bool AtmUser::IsNormalLogin() { return user_identifier_->IsNormalLogin(); }
+
+bool AtmUser::IsNormalPass() { return user_identifier_->IsNormalPass(); }
+
+void AtmUser::AddCash(int sum_of_cash) { cash_operator_->AddCash(sum_of_cash); }
+
+void AtmUser::AssignAMonthlyPayment(double pay_per_month) {
+  cash_operator_->AssignAMonthlyPayment(pay_per_month);
 }

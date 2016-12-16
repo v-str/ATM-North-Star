@@ -1,6 +1,6 @@
 #include "credit.h"
 
-void Credit::GiveCreditByMode(CashOperator &cash_operator,
+void Credit::GiveCreditByMode(AtmUser &atm_user,
                               const string &user_login,
                               int maximal_sum_of_credit, int credit_mode) {
   int amount_of_credit = secondary_credit_operation_.GetAmountCreditByMode(
@@ -8,6 +8,6 @@ void Credit::GiveCreditByMode(CashOperator &cash_operator,
 
   int amount_of_months = secondary_credit_operation_.GetAmountCreditMonths();
 
-  credit_offer_.SuggestACredit(cash_operator, user_login,
+  credit_offer_.SuggestACredit(atm_user, user_login,
                                       amount_of_credit, amount_of_months);
 }

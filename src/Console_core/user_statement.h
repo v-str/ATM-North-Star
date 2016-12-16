@@ -1,18 +1,18 @@
 #ifndef USER_STATEMENT_H
 #define USER_STATEMENT_H
 
-#include <string>
-
-#include "cash_operator.h"
+#include "atm_user.h"
 #include "console_editor.h"
 #include "statement_messenger.h"
 #include "user_input.h"
+
+#include <string>
 
 class UserStatement {
   using string = std::string;
 
  public:
-  void ShowStatement(CashOperator &cash_operator);
+  void ShowStatement(AtmUser &atm_user);
 
  private:
   static const int kNull = 0;

@@ -14,6 +14,8 @@
 
 #include "initial_messenger.h"
 
+#include "atm_user.h"
+
 class ConsoleApplication {
  public:
   void RunProgram();
@@ -50,8 +52,7 @@ class ConsoleApplication {
 
   bool is_user_want_to_exit_ = true;
 
-  UserIdentifier user_identifier_;
-  CashOperator cash_operator_;
+  AtmUser atm_user_;
   Refill refill_;
   UserCredit user_credit_;
   Withdrawal withdrawal_;

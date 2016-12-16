@@ -1,10 +1,10 @@
 #include "user_statement.h"
 
-void UserStatement::ShowStatement(CashOperator &cash_operator) {
+void UserStatement::ShowStatement(AtmUser &atm_user) {
   console_editor_.AddEmptyLineNTimes(2);
   console_editor_.ClearScreen();
-  string spaces = GetSpaces(cash_operator.GetCash());
-  int cash = cash_operator.GetCash();
+  string spaces = GetSpaces(atm_user.GetCash());
+  int cash = atm_user.GetCash();
   statement_messenger_.ShowStatement(cash, spaces);
 }
 

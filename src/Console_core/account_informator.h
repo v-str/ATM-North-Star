@@ -1,15 +1,13 @@
 #ifndef ACCOUNT_INFORMATOR_H
 #define ACCOUNT_INFORMATOR_H
 
-#include "cash_operator.h"
+#include "atm_user.h"
 #include "information_screen.h"
-#include "user_identifier.h"
 #include "console_editor.h"
 
 class AccountInformator {
  public:
-  void DisplayAccountInformation(UserIdentifier &user_identifier,
-                                 CashOperator &cash_operator);
+  void DisplayAccountInformation(AtmUser &atm_user);
 
  private:
   InformationScreen screen_;

@@ -1,17 +1,16 @@
 #include "user_registrator.h"
 
-void UserRegistrator::RegisterUser(CashOperator &cash_operator,
-                                   UserIdentifier &user_identifier) {
+void UserRegistrator::RegisterUser(AtmUser &atm_user) {
   set_is_correct_registration(false);
 
   registation_messenger_.ShowRegistrationScreen();
 
-  EnterLogin(user_identifier);
-  if (user_identifier.IsNormalLogin()) {
-    EnterPassword(user_identifier);
-    if (user_identifier.IsNormalPass()) {
+  EnterLogin(atm_user);
+  if (atm_user.IsNormalLogin()) {
+    EnterPassword(atm_user);
+    if (atm_user.IsNormalPass()) {
       notice_messenger_.ShowAcceptableMessageFrame();
-      AssignInitialValues(cash_operator);
+      AssignInitialValues(atm_user);
       set_is_correct_registration(true);
     } else {
       notice_messenger_.ShowIncorrectFormatPassword();
@@ -23,23 +22,23 @@ void UserRegistrator::RegisterUser(CashOperator &cash_operator,
 
 bool UserRegistrator::IsCorrectRegistration() { return correct_registration_; }
 
-void UserRegistrator::EnterLogin(UserIdentifier &user_identifier) {
+void UserRegistrator::EnterLogin(AtmUser &atm_user) {
   identification_messenger_.ShowInitialLoginText();
-  user_identifier.SetLogin(provider_.GetLoginFromUser());
+  atm_user.SetLogin(provider_.GetLoginFromUser());
 }
 
-void UserRegistrator::EnterPassword(UserIdentifier &user_identifier) {
+void UserRegistrator::EnterPassword(AtmUser &atm_user) {
   identification_messenger_.ShowInitialPasswordText();
-  user_identifier.SetPassword(provider_.GetPasswordFromUser());
+  atm_user.SetPassword(provider_.GetPasswordFromUser());
 }
 
 void UserRegistrator::set_is_correct_registration(bool correct_registration) {
   correct_registration_ = correct_registration;
 }
 
-void UserRegistrator::AssignInitialValues(CashOperator &cash_operator) {
-  cash_operator.SetCash(0);
-  cash_operator.SetCredit(0);
-  cash_operator.SetMonthlyPayment(0.0);
-  cash_operator.SetAmountOfCreditMonth(0);
+void UserRegistrator::AssignInitialValues(AtmUser &atm_user) {
+  atm_user.SetCash(0);
+  atm_user.SetCredit(0);
+  atm_user.SetMonthlyPayment(0.0);
+  atm_user.SetAmountOfCreditMonth(0);
 }

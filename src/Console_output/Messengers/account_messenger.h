@@ -1,10 +1,10 @@
 #ifndef ACCOUNT_MESSENGER_H
 #define ACCOUNT_MESSENGER_H
 
+#include "console_editor.h"
+
 #include <sstream>
 #include <string>
-
-#include "console_editor.h"
 
 class AccountMessenger {
  public:

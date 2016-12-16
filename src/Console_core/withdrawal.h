@@ -1,29 +1,26 @@
 #ifndef WITHDRAWAL_H
 #define WITHDRAWAL_H
 
-#include <string>
-
-#include "cash_operator.h"
+#include "atm_user.h"
 #include "console_editor.h"
 #include "notice_messenger.h"
-#include "user_identifier.h"
 #include "user_input.h"
 #include "withdrawal_messenger.h"
+
+#include <string>
 
 class Withdrawal {
   using string = std::string;
 
  public:
-  void WithdrawCashFromUser(CashOperator &cash_operator,
-                            UserIdentifier &user_identifier);
+  void WithdrawCashFromUser(AtmUser &atm_user);
 
   int GetSumOfWithdrawal() const;
-  bool IsWithdrawalAcceptable(const CashOperator &cash_operator,
-                              double cash_sum) const;
+  bool IsWithdrawalAcceptable(AtmUser &atm_user, double cash_sum) const;
   bool IsCorrectPasswordAtWithdrawal(const string &password,
-                                     UserIdentifier &user_identifier) const;
+                                     AtmUser &atm_user) const;
 
-  void WithdrawFromAccount(CashOperator &cash_operator, int sum_of_withdrawal);
+  void WithdrawFromAccount(AtmUser &atm_user, int sum_of_withdrawal);
 
  private:
   static const int kNull = 0;

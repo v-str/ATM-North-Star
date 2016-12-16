@@ -1,14 +1,14 @@
 #ifndef CREDIT_OFFER_H
 #define CREDIT_OFFER_H
 
-#include "cash_operator.h"
+#include "atm_user.h"
 #include "credit_messenger.h"
 #include "credit_page.h"
 #include "secondary_credit_operations.h"
 
 class CreditOffer {
  public:
-  void SuggestACredit(CashOperator &cash_operator,
+  void SuggestACredit(AtmUser &atm_user,
                       const std::string &user_login, int sum_of_credit,
                       int amount_of_months) const;
 
@@ -17,9 +17,9 @@ class CreditOffer {
 
   int GetCreditChoice() const;
 
-  void DoCreditOperation(CashOperator &cash_operator, int sum_of_credit,
+  void DoCreditOperation(AtmUser &atm_user, int sum_of_credit,
                          double pay_per_month) const;
-  void DoCreditOperation(CashOperator &cash_operator) const;
+  void DoCreditOperation(AtmUser &atm_user) const;
 
   CreditMessanger credit_messenger_;
   SecondaryCreditOperations secondary_credit_operation_;

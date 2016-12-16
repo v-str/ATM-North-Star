@@ -1,10 +1,10 @@
 #ifndef USER_INPUT_H
 #define USER_INPUT_H
 
-#include <string>
-
 #include "notice_messenger.h"
 #include "user_messenger.h"
+
+#include <string>
 
 class UserInput {
  public:
