@@ -12,12 +12,12 @@ class AccountMessenger {
   void DisplayInfoLine(const std::string &info_title,
                        const std::string &info_line) const;
 
-  inline std::string LoginText() const { return "Login: "; }
-  inline std::string PasswordText() const { return "Password: "; }
-  inline std::string BalanceText() const { return "Balance: $"; }
-  inline std::string CreditText() const { return "Credit: $"; }
-  inline std::string PaymentText() const { return "Monthly payment: $"; }
-  inline std::string TermText() const { return "Credit term: "; }
+  static std::string LoginText() { return "Login: "; }
+  static std::string PasswordText() { return "Password: "; }
+  static std::string BalanceText() { return "Balance: $"; }
+  static std::string CreditText() { return "Credit: $"; }
+  static std::string PaymentText() { return "Monthly payment: $"; }
+  static std::string TermText() { return "Credit term: "; }
 
  private:
   static const int kNTimes = 45;

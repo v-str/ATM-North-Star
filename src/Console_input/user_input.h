@@ -9,13 +9,12 @@
 class UserInput {
  public:
   bool SuggestUserToExit() const;
-  int GetValueFromUser() const;
   bool ShowIncorrectMessage() const;
   bool GetResultFromUserAboutExit() const;
+  bool SuggestUserToExitWithConfirmationMenu() const;
 
-  bool SuggestUserToExitWithConfirmationMenu();
-
-  std::string GetDataFromUser();
+  static int GetValueFromUser();
+  static std::string GetDataFromUser();
 
  private:
   using string = std::string;
@@ -24,11 +23,9 @@ class UserInput {
   static const int kGoToMain = 1;
   static const int kExit = 2;
   static const int kHalfSecond = 500;
-
-  int ConvertLineToChoice(const string &line) const;
-  bool LineNotEmpty(const string &str) const;
-
-  std::string GetLineFromUser() const;
+  static bool LineNotEmpty(const string &str);
+  static int ConvertLineToChoice(const string &line);
+  static std::string GetLineFromUser();
 
   UserMessenger user_messenger_;
   NoticeMessenger notice_messenger_;

@@ -7,9 +7,9 @@
 class SecondaryCreditOperations {
  public:
   int GetAmountCreditByMode(const int maximal_sum_of_credit,
-                            const int credit_mode);
+                            const int credit_mode) const;
 
-  int GetAmountCreditMonths();
+  int GetAmountCreditMonths() const;
 
   double CalculateMonthlyPayment(const int sum_of_credit,
                                  const int amount_of_credit_months) const;
@@ -21,9 +21,10 @@ class SecondaryCreditOperations {
   static const int kFullRate = 100;
   static const int kOneYear = 12;
   static const int kMaximalCreditTerm = 61;
+  static bool IsMonthCorrect(int months);
 
-  int GetSumOfCreditFromUser(const int maximal_sum_of_credit);
-  bool IsMonthCorrect(int months);
+
+  int GetSumOfCreditFromUser(const int maximal_sum_of_credit) const;
 
   UserInput user_input_;
   CreditMessanger credit_messenger_;

@@ -15,7 +15,7 @@ void UserMessenger::ShowMainMenu() {
       "\t####################################################\n\tEnter: ");
 }
 
-void UserMessenger::ShowIncorrectDataMessage() {
+void UserMessenger::ShowIncorrectDataMessage() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\t Data is not correct, please reload the program.\n\n");
 }

@@ -1,7 +1,7 @@
 #include "secondary_credit_operations.h"
 
 int SecondaryCreditOperations::GetAmountCreditByMode(
-    const int maximal_sum_of_credit, const int credit_mode) {
+    const int maximal_sum_of_credit, const int credit_mode) const {
   int sum_of_credit = 0;
 
   if (credit_mode == kIndividualCredit) {
@@ -14,7 +14,7 @@ int SecondaryCreditOperations::GetAmountCreditByMode(
 }
 
 int SecondaryCreditOperations::GetSumOfCreditFromUser(
-    const int maximal_sum_of_credit) {
+    const int maximal_sum_of_credit) const {
   int user_sum_of_credit = 0;
 
   do {
@@ -26,7 +26,7 @@ int SecondaryCreditOperations::GetSumOfCreditFromUser(
   return user_sum_of_credit;
 }
 
-int SecondaryCreditOperations::GetAmountCreditMonths() {
+int SecondaryCreditOperations::GetAmountCreditMonths() const {
   int months = 0;
   do {
     credit_messenger_.ShowAmountOfMonthToPayACredit();

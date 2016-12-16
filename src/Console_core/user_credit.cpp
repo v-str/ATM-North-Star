@@ -12,7 +12,7 @@ void UserCredit::StartCreditOperation(AtmUser &atm_user) {
   }
 }
 
-bool UserCredit::AlreadyHasACredit(const int sum_of_credit) const {
+bool UserCredit::AlreadyHasACredit(const int sum_of_credit) {
   return sum_of_credit > kNull;
 }
 
@@ -20,7 +20,7 @@ void UserCredit::RefuseToGrantAnotherCredit() const {
   credit_messenger_.RefuseToGrantAnotherCredit();
 }
 
-void UserCredit::SuggestACredit(AtmUser &atm_user, const string &user_login) {
+void UserCredit::SuggestACredit(AtmUser &atm_user, const string &user_login) const {
   credit_messenger_.ShowNotifyAboutCredit();
   if (user_input_.GetValueFromUser() == kConsiderACredit) {
     ConsiderACreditBasedOnCash(atm_user, user_login);
@@ -28,7 +28,7 @@ void UserCredit::SuggestACredit(AtmUser &atm_user, const string &user_login) {
 }
 
 void UserCredit::ConsiderACreditBasedOnCash(AtmUser &atm_user,
-                                            const string &user_login) {
+                                            const string &user_login) const{
   if (atm_user.IsCreditAvailable()) {
     GiveACredit(atm_user, user_login);
   } else {
@@ -38,7 +38,7 @@ void UserCredit::ConsiderACreditBasedOnCash(AtmUser &atm_user,
 }
 
 void UserCredit::GiveACredit(AtmUser &atm_user,
-                             const string &user_login) {
+                             const string &user_login) const {
   int user_cash_sum = atm_user.GetCash();
   int maximal_sum_of_credit = kMaxMultiplier * user_cash_sum;
 

@@ -30,7 +30,7 @@ class CreditMessanger {
 
   void ShowIncorrectCashInformation(int cash) const;
 
-  string ShowEnterText() const;
+  static string ShowEnterText();
 
  private:
   static const int kHalfASecond = 500;

@@ -45,8 +45,3 @@ void InitialMessenger::DisplayInitialMenu() const {
       "\t   Enter: ");
 }
 
-void InitialMessenger::DisplayError() const {
-  console_editor_.WriteTextWithDelayPerSymbol(
-      "\n\n\tData is not correct,\n"
-      "\tplease reload the program.\n\n");
-}

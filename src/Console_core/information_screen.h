@@ -22,7 +22,7 @@ class InformationScreen {
   void DisplayUserInformation(const std::string &info_title,
                               const T &value) const;
   template <typename T>
-  std::string ConvertToString(const T &value) const;
+  static std::string ConvertToString(const T &value);
 
   static const int kNTimes = 45;
   static const int kSleep = 100;
@@ -37,7 +37,7 @@ void InformationScreen::DisplayUserInformation(const std::string &info_title,
 }
 
 template <typename T>
-std::string InformationScreen::ConvertToString(const T &value) const {
+std::string InformationScreen::ConvertToString(const T &value) {
   std::stringstream stream;
   stream << value;
   return stream.str();

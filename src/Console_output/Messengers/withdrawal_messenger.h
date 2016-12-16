@@ -9,8 +9,7 @@ class WithdrawalMessenger {
   void ShowPasswordString() const;
   void ShowIncorrectPasswordMessage() const;
   void EnterSumOfWithdrawal() const;
-
-  void ShowSuccessfulWithdrawal(int sum_of_cash, int sum_of_withdrawal);
+  void ShowSuccessfulWithdrawal(int sum_of_cash, int sum_of_withdrawal) const;
 
  private:
   ConsoleEditor console_editor_;

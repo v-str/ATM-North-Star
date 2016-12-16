@@ -16,7 +16,7 @@ void DemoUser::ShowDemoMode() {
   }
 }
 
-bool DemoUser::UserWantToRegistrate() { return user_want_to_registrate_; }
+bool DemoUser::UserWantToRegistrate() const { return user_want_to_registrate_; }
 
 void DemoUser::UserWantToExitProgram() { SayGoodBye(); }
 

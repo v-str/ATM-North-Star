@@ -16,11 +16,11 @@ class Withdrawal {
   void WithdrawCashFromUser(AtmUser &atm_user);
 
   int GetSumOfWithdrawal() const;
-  bool IsWithdrawalAcceptable(AtmUser &atm_user, double cash_sum) const;
-  bool IsCorrectPasswordAtWithdrawal(const string &password,
-                                     AtmUser &atm_user) const;
+  static bool IsWithdrawalAcceptable(AtmUser &atm_user, double cash_sum);
+  static bool IsCorrectPasswordAtWithdrawal(const string &password,
+                                     AtmUser &atm_user);
 
-  void WithdrawFromAccount(AtmUser &atm_user, int sum_of_withdrawal);
+  static void WithdrawFromAccount(AtmUser &atm_user, int sum_of_withdrawal);
 
  private:
   static const int kNull = 0;

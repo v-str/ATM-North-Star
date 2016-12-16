@@ -9,13 +9,13 @@ void UserStatement::ShowStatement(AtmUser &atm_user) {
 }
 
 UserStatement::string UserStatement::GetSpaces(
-    int convertation_cash_to_space) const {
+    int convertation_cash_to_space) {
   const char space = ' ';
   return string(kSizeOfCheckField - NumberOfDigits(convertation_cash_to_space),
                 space);
 }
 
-int UserStatement::NumberOfDigits(int value) const {
+int UserStatement::NumberOfDigits(int value) {
   int number_of_digits = kNull;
   if (value == kNull) {
     return number_of_digits = 1;

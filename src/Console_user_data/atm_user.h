@@ -34,7 +34,6 @@ class AtmUser {
   void AddCash(int sum_of_cash);
   void AssignAMonthlyPayment(double pay_per_month);
 
-
  private:
   std::unique_ptr<CashOperator> cash_operator_;
   std::unique_ptr<UserIdentifier> user_identifier_;

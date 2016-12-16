@@ -24,16 +24,7 @@ void CreditOffer::SuggestACredit(AtmUser &atm_user,
   }
 }
 
-int CreditOffer::GetCreditChoice() const {
-  credit_messenger_.SuggestToConfirmACredit();
-
-  int credit_choice = user_input_.GetValueFromUser();
-
-  return credit_choice;
-}
-
-void CreditOffer::DoCreditOperation(AtmUser &atm_user,
-                                    int sum_of_credit,
+void CreditOffer::DoCreditOperation(AtmUser &atm_user, int sum_of_credit,
                                     double pay_per_month) const {
   atm_user.GetAssignACredit(sum_of_credit);
   atm_user.AssignAMonthlyPayment(pay_per_month);

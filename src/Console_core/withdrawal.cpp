@@ -29,12 +29,12 @@ int Withdrawal::GetSumOfWithdrawal() const {
 }
 
 bool Withdrawal::IsWithdrawalAcceptable(AtmUser &atm_user,
-                                        double cash_sum) const {
+                                        double cash_sum) {
   return cash_sum > 0 && cash_sum <= atm_user.GetCash();
 }
 
 bool Withdrawal::IsCorrectPasswordAtWithdrawal(
-    const Withdrawal::string &password, AtmUser &atm_user) const {
+    const Withdrawal::string &password, AtmUser &atm_user) {
   return password == atm_user.GetPassword();
 }
 

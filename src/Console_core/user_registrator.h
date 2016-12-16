@@ -12,14 +12,15 @@ class UserRegistrator {
  public:
   void RegisterUser(AtmUser &atm_user);
 
-  bool IsCorrectRegistration();
+  bool IsCorrectRegistration() const;
 
  private:
+  static void AssignInitialValues(AtmUser &atm_user);
+
   void EnterLogin(AtmUser &atm_user);
   void EnterPassword(AtmUser &atm_user);
   void set_is_correct_registration(bool is_correct_registration);
 
-  void AssignInitialValues(AtmUser &atm_user);
 
   bool correct_registration_ = false;
 

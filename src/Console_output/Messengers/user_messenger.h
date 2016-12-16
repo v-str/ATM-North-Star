@@ -9,7 +9,7 @@ class UserMessenger {
  public:
   void ShowMainMenu();
 
-  void ShowIncorrectDataMessage();
+  void ShowIncorrectDataMessage() const;
 
   void WishAGoodDay() const;
   void ShowMainMenu() const;

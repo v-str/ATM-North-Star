@@ -23,11 +23,11 @@ bool UserInput::GetResultFromUserAboutExit() const {
   return result_of_choice;
 }
 
-int UserInput::GetValueFromUser() const {
+int UserInput::GetValueFromUser() {
   return ConvertLineToChoice(GetLineFromUser());
 }
 
-int UserInput::ConvertLineToChoice(const string &line) const {
+int UserInput::ConvertLineToChoice(const string &line) {
   if (LineNotEmpty(line)) {
     try {
       return std::stoi(line);
@@ -37,7 +37,7 @@ int UserInput::ConvertLineToChoice(const string &line) const {
   return kInvalidChoice;
 }
 
-bool UserInput::LineNotEmpty(const string &str) const {
+bool UserInput::LineNotEmpty(const string &str) {
   for (size_t i = 0; i < str.length(); ++i) {
     if (!isdigit(str[i])) {
       return false;
@@ -46,13 +46,13 @@ bool UserInput::LineNotEmpty(const string &str) const {
   return !str.empty();
 }
 
-std::string UserInput::GetLineFromUser() const {
+std::string UserInput::GetLineFromUser() {
   string line;
   getline(std::cin, line);
   return line;
 }
 
-bool UserInput::SuggestUserToExitWithConfirmationMenu() {
+bool UserInput::SuggestUserToExitWithConfirmationMenu() const {
   return GetResultFromUserAboutExit();
 }
 

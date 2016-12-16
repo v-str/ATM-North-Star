@@ -8,14 +8,11 @@
 
 class CreditOffer {
  public:
-  void SuggestACredit(AtmUser &atm_user,
-                      const std::string &user_login, int sum_of_credit,
-                      int amount_of_months) const;
+  void SuggestACredit(AtmUser &atm_user, const std::string &user_login,
+                      int sum_of_credit, int amount_of_months) const;
 
  private:
   enum CreditSolution { kEnroll = 1, kRepeal, kExit };
-
-  int GetCreditChoice() const;
 
   void DoCreditOperation(AtmUser &atm_user, int sum_of_credit,
                          double pay_per_month) const;

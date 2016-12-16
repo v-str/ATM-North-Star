@@ -12,7 +12,7 @@ class DemoUser {
 
  public:
   void ShowDemoMode();
-  bool UserWantToRegistrate();
+  bool UserWantToRegistrate() const;
   void UserWantToExitProgram();
   void UserDecideToExit();
 

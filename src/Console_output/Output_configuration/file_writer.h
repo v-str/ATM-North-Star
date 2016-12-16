@@ -9,7 +9,7 @@
 class FileWriter : public Writer {
  public:
   FileWriter();
-  FileWriter(const std::string &name_of_file);
+  explicit FileWriter(const std::string &name_of_file);
 
   ~FileWriter();
 

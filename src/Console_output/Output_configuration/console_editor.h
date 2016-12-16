@@ -12,22 +12,21 @@ class ConsoleEditor {
  public:
   static void ClearScreen();
 
-  void Sleep(int latency_ms = 15) const;
-  void IgnoreCinLine() const;
-  void Pause();
-  void WriteTextWithDelayPerSymbol(const string &text, int delay = 5) const;
-  void WriteSymbolsNTimes(std::string symbol, int n) const;
-
-  void AddEmptyLineNTimes(const int amount_of_empty_lines) const;
-  void WriteText(const string &text) const;
-  void WriteTextWithInterrupt(const string &text, const int interrupt) const;
+  static void Sleep(int latency_ms = 15);
+  static void IgnoreCinLine();
+  static void Pause();
+  static void WriteTextWithDelayPerSymbol(const string &text, int delay = 5);
+  static void WriteSymbolsNTimes(std::string symbol, int n);
+  static void AddEmptyLineNTimes(int amount_of_empty_lines);
+  static void WriteText(const string &text);
+  static void WriteTextWithInterrupt(const string &text, int interrupt);
 
   template <typename T>
-  std::string ConvertValueToString(const T &value) const;
+  static std::string ConvertValueToString(const T &value);
 };
 
 template <typename T>
-std::string ConsoleEditor::ConvertValueToString(const T &value) const {
+  std::string ConsoleEditor::ConvertValueToString(const T &value){
   std::stringstream stream;
   stream << value;
   return stream.str();

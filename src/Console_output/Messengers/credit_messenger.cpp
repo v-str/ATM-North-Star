@@ -157,6 +157,6 @@ void CreditMessanger::ShowIncorrectCashInformation(int cash) const {
   console_editor_.WriteText("\n");
 }
 
-CreditMessanger::string CreditMessanger::ShowEnterText() const {
+CreditMessanger::string CreditMessanger::ShowEnterText() {
   return "\t# Enter: ";
 }

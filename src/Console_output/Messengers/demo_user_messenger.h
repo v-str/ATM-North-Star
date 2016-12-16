@@ -16,8 +16,7 @@ class DemoUserMessanger {
   };
 
   void ShowDemoMenuMessage() const;
-
-  void ShowMessage(MessageType message_type);
+  void ShowMessage(MessageType message_type) const;
 
  private:
   static const int kSleep = 100;

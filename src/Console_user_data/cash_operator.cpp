@@ -26,7 +26,7 @@ int CashOperator::GetAssignACredit(int sum_of_credit) {
   return credit_ = sum_of_credit;
 }
 
-bool CashOperator::IsCreditAvailable() {
+bool CashOperator::IsCreditAvailable() const {
   return GetCash() >= kmininmal_sum_for_credit;
 }
 

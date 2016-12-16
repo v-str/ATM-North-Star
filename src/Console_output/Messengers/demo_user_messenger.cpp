@@ -1,7 +1,7 @@
 #include "demo_user_messenger.h"
 
 void DemoUserMessanger::ShowMessage(
-    DemoUserMessanger::MessageType message_type) {
+    DemoUserMessanger::MessageType message_type) const {
   console_editor_.AddEmptyLineNTimes(2);
 
   switch (message_type) {

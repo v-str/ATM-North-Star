@@ -12,7 +12,7 @@ class Credit {
 
  public:
   void GiveCreditByMode(AtmUser &atm_user, const string &user_login,
-                        int maximal_sum_of_credit, int credit_mode);
+                        int maximal_sum_of_credit, int credit_mode) const;
 
  private:
   enum CreditSolution { kEnroll = 1, kRepeal, kExit };

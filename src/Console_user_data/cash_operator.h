@@ -15,7 +15,7 @@ class CashOperator {
   int GetAssignACredit(int sum_of_credit);
   int WithdrawCashFromUser(int amount);
 
-  bool IsCreditAvailable();
+  bool IsCreditAvailable() const;
 
   void AddCash(int sum_of_cash);
   void AssignAMonthlyPayment(double pay_per_month);
@@ -23,10 +23,10 @@ class CashOperator {
  private:
   static const int kmininmal_sum_for_credit = 1000;
 
-  int cash_;
-  int credit_ ;
-  double monthly_payment_;
-  int amount_of_credit_month_ ;
+  int cash_ = 0;
+  int credit_ = 0;
+  double monthly_payment_ = 0.0;
+  int amount_of_credit_month_ = 0;
 };
 
 #endif  // CASH_OPERATOR_H

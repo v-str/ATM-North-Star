@@ -20,7 +20,9 @@ void UserRegistrator::RegisterUser(AtmUser &atm_user) {
   }
 }
 
-bool UserRegistrator::IsCorrectRegistration() { return correct_registration_; }
+bool UserRegistrator::IsCorrectRegistration() const {
+  return correct_registration_;
+}
 
 void UserRegistrator::EnterLogin(AtmUser &atm_user) {
   identification_messenger_.ShowInitialLoginText();
