@@ -16,7 +16,7 @@ class OutputSetup {
                                  std::unique_ptr<Writer> file_output);
 
   static void SetMultistream(
-      std::vector<std::unique_ptr<Writer> > output_vector);
+      std::vector<std::unique_ptr<Writer>> output_vector);
 
   static std::string name_of_file_;
 };

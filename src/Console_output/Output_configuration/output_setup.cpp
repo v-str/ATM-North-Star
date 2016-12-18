@@ -28,7 +28,7 @@ void OutputSetup::SetVectorForOutput(std::unique_ptr<Writer> console_output,
 }
 
 void OutputSetup::SetMultistream(
-    std::vector<std::unique_ptr<Writer> > output_vector) {
+    std::vector<std::unique_ptr<Writer>> output_vector) {
   std::unique_ptr<Writer> multiwriter(
       new MultiWriter(std::move(output_vector)));
 

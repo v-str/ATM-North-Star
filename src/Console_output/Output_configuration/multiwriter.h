@@ -14,7 +14,7 @@ class MultiWriter : public Writer {
   void Write(const std::string& text) override;
 
  private:
-  std::vector<std::unique_ptr<Writer> > writers_;
+  std::vector<std::unique_ptr<Writer>> writers_;
 };
 
 #endif  // MULTIWRITER_H
