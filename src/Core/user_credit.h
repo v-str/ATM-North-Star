@@ -31,7 +31,8 @@ class UserCredit {
   void RefuseACredit(const int sum_of_cash) const;
 
   void SuggestACredit(AtmUser &atm_user, const string &user_login) const;
-  void ConsiderACreditBasedOnCash(AtmUser &atm_user, const string &user_login) const;
+  void ConsiderACreditBasedOnCash(AtmUser &atm_user,
+                                  const string &user_login) const;
   void GiveACredit(AtmUser &atm_user, const string &user_login) const;
 
   UserInput user_input_;
