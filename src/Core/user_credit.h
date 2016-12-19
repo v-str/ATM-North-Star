@@ -17,7 +17,7 @@ class UserCredit {
   void StartCreditOperation(AtmUser &atm_user);
 
  private:
-  enum SuggestVariantOfCredit { kMaxCredit = 1, kUserCredit, kExit };
+  enum SuggestVariantOfCredit { kMaxCredit = 1, kUserCredit };
 
   static const int kNull = 0;
   static const int kMaxMultiplier = 15;

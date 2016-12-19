@@ -52,7 +52,7 @@ void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
       "----------------------------------------------------------\n");
 
   console_editor_.WriteTextWithInterrupt(
-      "\n# Do you prefer get all sum or you want to change the sum of "
+      "\n# Do you prefer get all sum or you want to change\nthe sum of "
       "loan?\n\n"
       "# 1. Get all sum\n"
       "# 2. Change the sum of loan\n"

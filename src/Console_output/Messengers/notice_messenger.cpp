@@ -66,7 +66,7 @@ void NoticeMessenger::ShowUnacceptableWithdrawal(int amount_of_cash) const {
 }
 
 void NoticeMessenger::ShowError() const {
-  console_editor_.WriteTextWithDelayPerSymbol("\tData is not correct.\n\n");
+  console_editor_.WriteTextWithDelayPerSymbol("\nData is not correct.\n\n");
 }
 
 void NoticeMessenger::ShowSumCreditInfo() const {

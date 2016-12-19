@@ -20,7 +20,8 @@ void UserCredit::RefuseToGrantAnotherCredit() const {
   credit_messenger_.RefuseToGrantAnotherCredit();
 }
 
-void UserCredit::SuggestACredit(AtmUser &atm_user, const string &user_login) const {
+void UserCredit::SuggestACredit(AtmUser &atm_user,
+                                const string &user_login) const {
   credit_messenger_.ShowNotifyAboutCredit();
   if (user_input_.GetValueFromUser() == kConsiderACredit) {
     ConsiderACreditBasedOnCash(atm_user, user_login);
@@ -28,7 +29,7 @@ void UserCredit::SuggestACredit(AtmUser &atm_user, const string &user_login) con
 }
 
 void UserCredit::ConsiderACreditBasedOnCash(AtmUser &atm_user,
-                                            const string &user_login) const{
+                                            const string &user_login) const {
   if (atm_user.IsCreditAvailable()) {
     GiveACredit(atm_user, user_login);
   } else {
@@ -52,7 +53,7 @@ void UserCredit::GiveACredit(AtmUser &atm_user,
   } else if (choice == kUserCredit) {
     credit_.GiveCreditByMode(atm_user, user_login, maximal_sum_of_credit,
                              kConsumerCredit);
-  } else if (choice == kExit) {
+
   } else {
     notice_messenger_.ShowError();
   }
