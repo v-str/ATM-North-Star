@@ -26,12 +26,12 @@ bool UserRegistrator::IsCorrectRegistration() const {
 
 void UserRegistrator::EnterLogin(AtmUser &atm_user) {
   identification_messenger_.ShowInitialLoginText();
-  atm_user.SetLogin(provider_.GetLoginFromUser());
+  atm_user.set_login(provider_.GetLoginFromUser());
 }
 
 void UserRegistrator::EnterPassword(AtmUser &atm_user) {
   identification_messenger_.ShowInitialPasswordText();
-  atm_user.SetPassword(provider_.GetPasswordFromUser());
+  atm_user.set_password(provider_.GetPasswordFromUser());
 }
 
 void UserRegistrator::set_is_correct_registration(bool correct_registration) {
@@ -39,8 +39,8 @@ void UserRegistrator::set_is_correct_registration(bool correct_registration) {
 }
 
 void UserRegistrator::AssignInitialValues(AtmUser &atm_user) {
-  atm_user.SetCash(0);
-  atm_user.SetCredit(0);
-  atm_user.SetMonthlyPayment(0.0);
-  atm_user.SetAmountOfCreditMonth(0);
+  atm_user.set_cash(0);
+  atm_user.set_credit(0);
+  atm_user.set_monthly_payment(0.0);
+  atm_user.set_amount_of_credit_month(0);
 }

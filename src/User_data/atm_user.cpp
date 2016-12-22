@@ -3,49 +3,49 @@
 AtmUser::AtmUser()
     : cash_operator_(new CashOperator), user_identifier_(new UserIdentifier) {}
 
-void AtmUser::SetLogin(const std::string &login) {
+void AtmUser::set_login(const std::string &login) {
   user_identifier_->SetLogin(login);
 }
 
-void AtmUser::SetPassword(const std::string &password) {
+void AtmUser::set_password(const std::string &password) {
   user_identifier_->SetPassword(password);
 }
 
-void AtmUser::SetCash(int cash) { cash_operator_->SetCash(cash); }
+void AtmUser::set_cash(int cash) { cash_operator_->SetCash(cash); }
 
-void AtmUser::SetCredit(int credit) { cash_operator_->SetCredit(credit); }
+void AtmUser::set_credit(int credit) { cash_operator_->SetCredit(credit); }
 
-void AtmUser::SetMonthlyPayment(double monthly_payment) {
+void AtmUser::set_monthly_payment(double monthly_payment) {
   cash_operator_->SetMonthlyPayment(monthly_payment);
 }
 
-void AtmUser::SetAmountOfCreditMonth(int amount_credit_month) {
+void AtmUser::set_amount_of_credit_month(int amount_credit_month) {
   cash_operator_->SetAmountOfCreditMonth(amount_credit_month);
 }
 
-std::string AtmUser::GetLogin() const { return user_identifier_->GetLogin(); }
+std::string AtmUser::get_login() const { return user_identifier_->GetLogin(); }
 
-std::string AtmUser::GetPassword() const {
+std::string AtmUser::get_password() const {
   return user_identifier_->GetPassword();
 }
 
-int AtmUser::GetCash() const { return cash_operator_->GetCash(); }
+int AtmUser::get_cash() const { return cash_operator_->GetCash(); }
 
-int AtmUser::GetCredit() const { return cash_operator_->GetCredit(); }
+int AtmUser::get_credit() const { return cash_operator_->GetCredit(); }
 
-double AtmUser::GetMonthlyPayment() const {
+double AtmUser::get_monthly_payment() const {
   return cash_operator_->GetMonthlyPayment();
 }
 
-int AtmUser::GetAmountOfCreditMonth() const {
+int AtmUser::get_amount_of_credit_month() const {
   return cash_operator_->GetAmountOfCreditMonth();
 }
 
-int AtmUser::GetAssignACredit(int sum_of_credit) {
+int AtmUser::get_assigned_credit(int sum_of_credit) {
   return cash_operator_->GetAssignACredit(sum_of_credit);
 }
 
-int AtmUser::WithdrawCashFromUser(int amount) {
+int AtmUser::withdraw_cash(int amount) {
   return cash_operator_->WithdrawCashFromUser(amount);
 }
 
