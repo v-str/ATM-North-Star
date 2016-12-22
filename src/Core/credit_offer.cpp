@@ -5,7 +5,7 @@ void CreditOffer::SuggestACredit(AtmUser &atm_user,
                                  int sum_of_credit,
                                  int amount_of_months) const {
 
-  credit_page_.ShowTitle(user_login, sum_of_credit);
+  credit_messenger_.ShowCreditTitle(user_login, sum_of_credit);
 
   atm_user.SetAmountOfCreditMonth(amount_of_months);
 

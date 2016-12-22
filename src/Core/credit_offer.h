@@ -3,7 +3,6 @@
 
 #include "atm_user.h"
 #include "credit_messenger.h"
-#include "credit_page.h"
 #include "secondary_credit_operations.h"
 
 class CreditOffer {
@@ -20,7 +19,6 @@ class CreditOffer {
 
   CreditMessanger credit_messenger_;
   SecondaryCreditOperations secondary_credit_operation_;
-  CreditPage credit_page_;
   UserInput user_input_;
   NoticeMessenger notice_messenger_;
 };
