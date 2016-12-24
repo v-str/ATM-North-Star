@@ -2,12 +2,12 @@
 #define ACCOUNT_INFORMATOR_H
 
 #include "atm_user.h"
-#include "information_screen.h"
 #include "console_editor.h"
+#include "information_screen.h"
 
 class AccountInformator {
  public:
-  void DisplayAccountInformation(AtmUser &atm_user);
+  void DisplayAccountInformation(AtmUser *atm_user);
 
  private:
   InformationScreen screen_;

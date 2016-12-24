@@ -67,7 +67,7 @@ void ConsoleApplication::DoProgramSection(int choice) {
 }
 
 void ConsoleApplication::ShowAccountInfo() {
-  account_informator_.DisplayAccountInformation(atm_user_);
+  account_informator_.DisplayAccountInformation(&atm_user_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
