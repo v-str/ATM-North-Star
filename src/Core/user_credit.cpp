@@ -12,7 +12,7 @@ void UserCredit::StartCreditOperation(AtmUser &atm_user) {
   }
 }
 
-bool UserCredit::AlreadyHasACredit(const int sum_of_credit) {
+bool UserCredit::AlreadyHasACredit(int sum_of_credit) {
   return sum_of_credit > kNull;
 }
 
@@ -59,7 +59,7 @@ void UserCredit::GiveACredit(AtmUser &atm_user,
   }
 }
 
-void UserCredit::RefuseACredit(const int sum_of_cash) const {
+void UserCredit::RefuseACredit(int sum_of_cash) const {
   console_editor_.AddEmptyLineNTimes(1);
   credit_messenger_.ShowRefuseACredit(sum_of_cash);
 }
