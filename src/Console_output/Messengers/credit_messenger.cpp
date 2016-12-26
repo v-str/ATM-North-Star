@@ -111,8 +111,8 @@ void CreditMessanger::ShowRefuseACredit(int sum_of_cash) const {
       kHalfASecond);
 }
 
-void CreditMessanger::ShowTableOfCredit(const double pay_per_month,
-                                        const double amount_of_months) const {
+void CreditMessanger::ShowTableOfCredit(double pay_per_month,
+                                        double amount_of_months) const {
   double all_payment = 0.0;
 
   for (int i = kNull + 1; i <= amount_of_months; ++i) {

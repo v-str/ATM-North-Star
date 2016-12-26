@@ -21,8 +21,7 @@ class CreditMessanger {
 
   void ShowRepealACreadit() const;
 
-  void ShowTableOfCredit(const double pay_per_month,
-                         const double amount_of_months) const;
+  void ShowTableOfCredit(double pay_per_month, double amount_of_months) const;
 
   void ShowAmountOfMonthToPayACredit() const;
 

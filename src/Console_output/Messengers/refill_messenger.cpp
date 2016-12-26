@@ -11,7 +11,7 @@ void RefillMessenger::ShowNotifyAboutCash() const {
   console_editor_.WriteText("\n\t# Please enter the sum of money($): ");
 }
 
-void RefillMessenger::ShowUserBalance(const int balance) const {
+void RefillMessenger::ShowUserBalance(int balance) const {
   console_editor_.WriteText("\n\t");
   console_editor_.WriteSymbolsNTimes("-", kFrame);
   console_editor_.WriteTextWithDelayPerSymbol(

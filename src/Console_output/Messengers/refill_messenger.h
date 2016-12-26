@@ -14,7 +14,7 @@ class RefillMessenger {
   static const int kFrame = 45;
 
   void ShowNotifyAboutCash() const;
-  void ShowUserBalance(const int balance) const;
+  void ShowUserBalance(int balance) const;
   void WriteUserInfo(const string &info_title, const string &value) const;
 
  private:

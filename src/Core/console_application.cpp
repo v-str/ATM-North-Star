@@ -72,7 +72,7 @@ void ConsoleApplication::ShowAccountInfo() {
 }
 
 void ConsoleApplication::RefillOperation() {
-  refill_.StartRefillOperation(atm_user_);
+  refill_.StartRefillOperation(&atm_user_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
