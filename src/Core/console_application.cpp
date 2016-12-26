@@ -82,7 +82,7 @@ void ConsoleApplication::CreditApplication() {
 }
 
 void ConsoleApplication::WithdrawCash() {
-  withdrawal_.WithdrawCashFromUser(atm_user_);
+  withdrawal_.WithdrawCashFromUser(&atm_user_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
