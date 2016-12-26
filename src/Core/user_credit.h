@@ -14,7 +14,7 @@ class UserCredit {
   using string = std::string;
 
  public:
-  void StartCreditOperation(AtmUser &atm_user);
+  void StartCreditOperation(AtmUser *atm_user);
 
  private:
   enum SuggestVariantOfCredit { kMaxCredit = 1, kUserCredit };
@@ -30,10 +30,10 @@ class UserCredit {
   void RefuseToGrantAnotherCredit() const;
   void RefuseACredit(int sum_of_cash) const;
 
-  void SuggestACredit(AtmUser &atm_user, const string &user_login) const;
-  void ConsiderACreditBasedOnCash(AtmUser &atm_user,
+  void SuggestACredit(AtmUser *atm_user, const string &user_login) const;
+  void ConsiderACreditBasedOnCash(AtmUser *atm_user,
                                   const string &user_login) const;
-  void GiveACredit(AtmUser &atm_user, const string &user_login) const;
+  void GiveACredit(AtmUser *atm_user, const string &user_login) const;
 
   UserInput user_input_;
   CreditMessanger credit_messenger_;

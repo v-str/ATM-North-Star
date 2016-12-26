@@ -7,15 +7,15 @@
 
 class CreditOffer {
  public:
-  void SuggestACredit(AtmUser &atm_user, const std::string &user_login,
+  void SuggestACredit(AtmUser *atm_user, const std::string &user_login,
                       int sum_of_credit, int amount_of_months) const;
 
  private:
   enum CreditSolution { kEnroll = 1, kRepeal };
 
-  void EnrollCredit(AtmUser &atm_user, int sum_of_credit,
-                         double pay_per_month) const;
-  void RepealCredit(AtmUser &atm_user) const;
+  void EnrollCredit(AtmUser *atm_user, int sum_of_credit,
+                    double pay_per_month) const;
+  void RepealCredit(AtmUser *atm_user) const;
 
   CreditMessanger credit_messenger_;
   SecondaryCreditOperations secondary_credit_operation_;

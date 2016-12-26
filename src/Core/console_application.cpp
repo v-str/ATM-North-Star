@@ -77,7 +77,7 @@ void ConsoleApplication::RefillOperation() {
 }
 
 void ConsoleApplication::CreditApplication() {
-  user_credit_.StartCreditOperation(atm_user_);
+  user_credit_.StartCreditOperation(&atm_user_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 

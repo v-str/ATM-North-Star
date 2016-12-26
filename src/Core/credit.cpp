@@ -1,6 +1,6 @@
 #include "credit.h"
 
-void Credit::GiveCreditByMode(AtmUser &atm_user,
+void Credit::GiveCreditByMode(AtmUser *atm_user,
                               const string &user_login,
                               int maximal_sum_of_credit, int credit_mode) const {
   int amount_of_credit = secondary_credit_operation_.GetAmountCreditByMode(
