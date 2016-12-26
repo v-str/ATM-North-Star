@@ -37,7 +37,7 @@ class ConsoleApplication {
 
   int GetProgramMode();
 
-  void RunProgramModeBasedOnChoice(int user_choice);
+  void RunProgramModeBasedOnUserChoice(int user_choice);
 
   void RegisterUser();
   void StartMainMenu();

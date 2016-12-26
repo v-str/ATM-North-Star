@@ -6,7 +6,7 @@ void ConsoleApplication::RunProgram() {
 
   int user_choice = GetProgramMode();
 
-  RunProgramModeBasedOnChoice(user_choice);
+  RunProgramModeBasedOnUserChoice(user_choice);
 }
 
 int ConsoleApplication::GetProgramMode() {
@@ -14,7 +14,7 @@ int ConsoleApplication::GetProgramMode() {
   return user_input_.GetValueFromUser();
 }
 
-void ConsoleApplication::RunProgramModeBasedOnChoice(int user_choice) {
+void ConsoleApplication::RunProgramModeBasedOnUserChoice(int user_choice) {
   if (user_choice == kDemoMode) {
     demo_mode_.ShowDemoMode();
     if (demo_mode_.UserWantToRegistrate()) {
