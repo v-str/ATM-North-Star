@@ -87,6 +87,6 @@ void ConsoleApplication::WithdrawCash() {
 }
 
 void ConsoleApplication::Statement() {
-  statement_.ShowStatement(atm_user_);
+  statement_.ShowStatement(&atm_user_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
