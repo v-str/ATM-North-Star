@@ -1,8 +1,5 @@
 #include "information_screen.h"
 
-//#include "cash_operator.h"
-//#include "user_identifier.h"
-
 void InformationScreen::DisplayLogin(const std::string &login) const {
   DisplayUserInformation(account_messenger_.LoginText(), login);
 }
