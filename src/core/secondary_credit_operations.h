@@ -1,8 +1,8 @@
 #ifndef SECONDARY_CREDIT_OPERATIONS_H
 #define SECONDARY_CREDIT_OPERATIONS_H
 
-#include "input/user_input.h"
-#include "messengers/credit_messenger.h"
+#include "credit_messenger.h"
+#include "user_input.h"
 
 class SecondaryCreditOperations {
  public:

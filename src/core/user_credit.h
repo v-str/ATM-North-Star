@@ -4,11 +4,11 @@
 #include <iostream>
 #include <string>
 
+#include "atm_user.h"
+#include "console_editor.h"
 #include "credit.h"
-#include "input/user_input.h"
-#include "messengers/credit_messenger.h"
-#include "output_configuration/console_editor.h"
-#include "user_data/atm_user.h"
+#include "credit_messenger.h"
+#include "user_input.h"
 
 class UserCredit {
   using string = std::string;

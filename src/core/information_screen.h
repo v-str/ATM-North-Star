@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "messengers/account_messenger.h"
+#include "account_messenger.h"
 
 class InformationScreen {
  public:

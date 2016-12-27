@@ -1,11 +1,11 @@
 #ifndef USER_REGISTRATOR_H
 #define USER_REGISTRATOR_H
 
-#include "core/user_identification_data_provider.h"
-#include "messengers/identification_messenger.h"
-#include "messengers/notice_messenger.h"
-#include "messengers/registration_messenger.h"
-#include "user_data/atm_user.h"
+#include "atm_user.h"
+#include "identification_messenger.h"
+#include "notice_messenger.h"
+#include "registration_messenger.h"
+#include "user_identification_data_provider.h"
 
 class UserRegistrator {
  public:

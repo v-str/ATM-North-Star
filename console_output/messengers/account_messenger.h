@@ -4,7 +4,7 @@
 #include <sstream>
 #include <string>
 
-#include "output_configuration/console_editor.h"
+#include "console_editor.h"
 
 class AccountMessenger {
  public:

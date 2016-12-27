@@ -1,7 +1,7 @@
 #ifndef NOTICE_MESSENGER_H
 #define NOTICE_MESSENGER_H
 
-#include "output_configuration/console_editor.h"
+#include "console_editor.h"
 
 class NoticeMessenger {
  public:

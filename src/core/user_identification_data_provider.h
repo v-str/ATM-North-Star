@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "input/user_input.h"
+#include "user_input.h"
 
 class UserIdentificationDataProvider {
  public:

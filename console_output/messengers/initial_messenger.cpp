@@ -44,4 +44,3 @@ void InitialMessenger::DisplayInitialMenu() const {
       "\t #######################\n"
       "\t   Enter: ");
 }
-

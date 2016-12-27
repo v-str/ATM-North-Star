@@ -8,4 +8,3 @@ void MultiWriter::Write(const std::string &text) {
     writer->Write(text);
   }
 }
-

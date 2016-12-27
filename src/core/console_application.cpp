@@ -1,5 +1,5 @@
 #include "console_application.h"
-#include "output_configuration/output_setup.h"
+#include "output_setup.h"
 
 void ConsoleApplication::RunProgram() {
   OutputSetup::SetupTwoStreamsForOutput();

@@ -3,10 +3,10 @@
 
 #include <string>
 
+#include "atm_user.h"
+#include "console_editor.h"
 #include "input/user_input.h"
-#include "messengers/statement_messenger.h"
-#include "output_configuration/console_editor.h"
-#include "user_data/atm_user.h"
+#include "statement_messenger.h"
 
 class UserStatement {
   using string = std::string;

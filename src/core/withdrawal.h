@@ -3,11 +3,11 @@
 
 #include <string>
 
-#include "input/user_input.h"
-#include "messengers/notice_messenger.h"
-#include "messengers/withdrawal_messenger.h"
-#include "output_configuration/console_editor.h"
-#include "user_data/atm_user.h"
+#include "atm_user.h"
+#include "console_editor.h"
+#include "notice_messenger.h"
+#include "user_input.h"
+#include "withdrawal_messenger.h"
 
 class Withdrawal {
   using string = std::string;

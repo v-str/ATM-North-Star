@@ -1,7 +1,7 @@
 #ifndef REGISTRATION_MESSENGER_H
 #define REGISTRATION_MESSENGER_H
 
-#include "output_configuration/console_editor.h"
+#include "console_editor.h"
 
 class RegistrationMessenger {
  public:

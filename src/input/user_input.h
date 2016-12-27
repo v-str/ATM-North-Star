@@ -3,8 +3,8 @@
 
 #include <string>
 
-#include "messengers/notice_messenger.h"
-#include "messengers/user_messenger.h"
+#include "notice_messenger.h"
+#include "user_messenger.h"
 
 class UserInput {
  public:

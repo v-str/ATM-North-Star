@@ -1,8 +1,8 @@
 #ifndef ACCOUNT_INFORMATOR_H
 #define ACCOUNT_INFORMATOR_H
 
+#include "console_editor.h"
 #include "information_screen.h"
-#include "output_configuration/console_editor.h"
 #include "user_data/atm_user.h"
 
 class AccountInformator {

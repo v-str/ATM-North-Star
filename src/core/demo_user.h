@@ -3,9 +3,9 @@
 
 #include <string>
 
+#include "demo_user_messenger.h"
 #include "input/user_input.h"
-#include "messengers/demo_user_messenger.h"
-#include "messengers/notice_messenger.h"
+#include "notice_messenger.h"
 
 class DemoUser {
   using string = std::string;

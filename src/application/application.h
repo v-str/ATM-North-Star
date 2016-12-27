@@ -1,7 +1,7 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include "core/console_application.h"
+#include "console_application.h"
 
 class Application {
  public:

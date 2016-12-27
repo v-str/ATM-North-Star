@@ -1,7 +1,7 @@
 #ifndef WITHDRAWAL_MESSENGER_H
 #define WITHDRAWAL_MESSENGER_H
 
-#include "output_configuration/console_editor.h"
+#include "console_editor.h"
 
 class WithdrawalMessenger {
  public:

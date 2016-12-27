@@ -3,10 +3,10 @@
 
 #include <iostream>
 
-#include "input/user_input.h"
-#include "messengers/refill_messenger.h"
-#include "output_configuration/console_editor.h"
-#include "user_data/atm_user.h"
+#include "atm_user.h"
+#include "console_editor.h"
+#include "refill_messenger.h"
+#include "user_input.h"
 
 class Refill {
  public:

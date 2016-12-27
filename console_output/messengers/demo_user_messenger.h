@@ -1,7 +1,7 @@
 #ifndef DEMO_USER_MESSANGER_H
 #define DEMO_USER_MESSANGER_H
 
-#include "output_configuration/console_editor.h"
+#include "console_editor.h"
 
 class DemoUserMessanger {
  public:

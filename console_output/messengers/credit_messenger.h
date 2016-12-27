@@ -3,8 +3,7 @@
 
 #include <string>
 
-#include "output_configuration/console_editor.h"
-
+#include "console_editor.h"
 
 class CreditMessanger {
   using string = std::string;
