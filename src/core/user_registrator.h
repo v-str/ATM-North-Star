@@ -1,12 +1,11 @@
 #ifndef USER_REGISTRATOR_H
 #define USER_REGISTRATOR_H
 
-#include "user_data/atm_user.h"
-#include "messengers/identification_messenger.h"
-#include "messengers/registration_messenger.h"
 #include "core/user_identification_data_provider.h"
-
+#include "messengers/identification_messenger.h"
 #include "messengers/notice_messenger.h"
+#include "messengers/registration_messenger.h"
+#include "user_data/atm_user.h"
 
 class UserRegistrator {
  public:
@@ -21,7 +20,6 @@ class UserRegistrator {
   void EnterPassword(AtmUser &atm_user);
   void set_is_correct_registration(bool is_correct_registration);
 
-
   bool correct_registration_ = false;
 
   RegistrationMessenger registation_messenger_;
@@ -29,7 +27,6 @@ class UserRegistrator {
   IdentificationMessenger identification_messenger_;
 
   NoticeMessenger notice_messenger_;
-
 };
 
 #endif  // USER_REGISTRATOR_H

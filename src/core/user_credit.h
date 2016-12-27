@@ -1,14 +1,14 @@
 #ifndef USER_CREDIT_H
 #define USER_CREDIT_H
 
-#include "user_data/atm_user.h"
-#include "output_configuration/console_editor.h"
-#include "credit.h"
-#include "messengers/credit_messenger.h"
-#include "input/user_input.h"
-
 #include <iostream>
 #include <string>
+
+#include "credit.h"
+#include "input/user_input.h"
+#include "messengers/credit_messenger.h"
+#include "output_configuration/console_editor.h"
+#include "user_data/atm_user.h"
 
 class UserCredit {
   using string = std::string;

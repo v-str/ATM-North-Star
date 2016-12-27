@@ -1,10 +1,10 @@
 #ifndef ATMUSER_H
 #define ATMUSER_H
 
+#include <memory>
+
 #include "cash_operator.h"
 #include "user_identifier.h"
-
-#include <memory>
 
 class AtmUser {
  public:

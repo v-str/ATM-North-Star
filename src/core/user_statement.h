@@ -1,12 +1,12 @@
 #ifndef USER_STATEMENT_H
 #define USER_STATEMENT_H
 
-#include "user_data/atm_user.h"
-#include "output_configuration/console_editor.h"
-#include "messengers/statement_messenger.h"
-#include "input/user_input.h"
-
 #include <string>
+
+#include "input/user_input.h"
+#include "messengers/statement_messenger.h"
+#include "output_configuration/console_editor.h"
+#include "user_data/atm_user.h"
 
 class UserStatement {
   using string = std::string;

@@ -2,19 +2,15 @@
 #define CONSOLE_APPLICATION_H
 
 #include "account_informator.h"
+#include "demo_user.h"
+#include "messengers/initial_messenger.h"
+#include "messengers/user_messenger.h"
 #include "refill.h"
 #include "user_credit.h"
+#include "user_data/atm_user.h"
+#include "user_registrator.h"
 #include "user_statement.h"
 #include "withdrawal.h"
-
-#include "demo_user.h"
-
-#include "messengers/user_messenger.h"
-#include "user_registrator.h"
-
-#include "messengers/initial_messenger.h"
-
-#include "user_data/atm_user.h"
 
 class ConsoleApplication {
  public:

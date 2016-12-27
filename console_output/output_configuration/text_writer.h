@@ -1,10 +1,10 @@
 #ifndef TEXT_WRITER_H
 #define TEXT_WRITER_H
 
-#include "writer.h"
-
 #include <memory>
 #include <string>
+
+#include "writer.h"
 
 class TextWriter {
  public:

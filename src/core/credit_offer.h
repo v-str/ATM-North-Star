@@ -1,9 +1,9 @@
 #ifndef CREDIT_OFFER_H
 #define CREDIT_OFFER_H
 
-#include "user_data/atm_user.h"
 #include "messengers/credit_messenger.h"
 #include "secondary_credit_operations.h"
+#include "user_data/atm_user.h"
 
 class CreditOffer {
  public:

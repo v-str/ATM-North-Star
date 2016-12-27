@@ -1,9 +1,9 @@
 #ifndef INFORMATION_SCREEN_H
 #define INFORMATION_SCREEN_H
 
-#include "messengers/account_messenger.h"
-
 #include <string>
+
+#include "messengers/account_messenger.h"
 
 class InformationScreen {
  public:

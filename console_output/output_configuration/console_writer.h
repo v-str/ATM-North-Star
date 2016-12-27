@@ -1,10 +1,10 @@
 #ifndef CONSOLE_WRITER_H
 #define CONSOLE_WRITER_H
 
-#include "writer.h"
-
 #include <iostream>
 #include <string>
+
+#include "writer.h"
 
 class ConsoleWriter : public Writer {
  public:

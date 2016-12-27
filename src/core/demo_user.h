@@ -1,11 +1,11 @@
 #ifndef DEMO_USER_H
 #define DEMO_USER_H
 
+#include <string>
+
+#include "input/user_input.h"
 #include "messengers/demo_user_messenger.h"
 #include "messengers/notice_messenger.h"
-#include "input/user_input.h"
-
-#include <string>
 
 class DemoUser {
   using string = std::string;

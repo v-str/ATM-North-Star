@@ -1,11 +1,11 @@
 #ifndef CREDIT_H
 #define CREDIT_H
 
-#include "user_data/atm_user.h"
+#include <string>
+
 #include "credit_offer.h"
 #include "secondary_credit_operations.h"
-
-#include <string>
+#include "user_data/atm_user.h"
 
 class Credit {
   using string = std::string;

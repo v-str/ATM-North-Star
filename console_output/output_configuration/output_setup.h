@@ -1,9 +1,9 @@
 #ifndef OUTPUTSETUP_H
 #define OUTPUTSETUP_H
 
-#include "multiwriter.h"
-
 #include <string>
+
+#include "multiwriter.h"
 
 class OutputSetup {
  public:

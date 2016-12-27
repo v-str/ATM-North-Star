@@ -1,9 +1,10 @@
 #ifndef CREDIT_MESSANGER_H
 #define CREDIT_MESSANGER_H
 
+#include <string>
+
 #include "output_configuration/console_editor.h"
 
-#include <string>
 
 class CreditMessanger {
   using string = std::string;

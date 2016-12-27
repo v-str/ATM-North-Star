@@ -8,8 +8,7 @@ void UserStatement::ShowStatement(AtmUser *atm_user) {
   statement_messenger_.ShowStatement(cash, spaces);
 }
 
-UserStatement::string UserStatement::GetSpaces(
-    int convertation_cash_to_space) {
+UserStatement::string UserStatement::GetSpaces(int convertation_cash_to_space) {
   const char space = ' ';
   return string(kSizeOfCheckField - NumberOfDigits(convertation_cash_to_space),
                 space);

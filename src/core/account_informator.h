@@ -1,10 +1,9 @@
 #ifndef ACCOUNT_INFORMATOR_H
 #define ACCOUNT_INFORMATOR_H
 
-#include "output_configuration/console_editor.h"
-
-#include "user_data/atm_user.h"
 #include "information_screen.h"
+#include "output_configuration/console_editor.h"
+#include "user_data/atm_user.h"
 
 class AccountInformator {
  public:

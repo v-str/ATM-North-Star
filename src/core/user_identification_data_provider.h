@@ -1,9 +1,9 @@
 #ifndef USER_IDENTIFICATION_DATA_PROVIDER_H
 #define USER_IDENTIFICATION_DATA_PROVIDER_H
 
-#include "input/user_input.h"
-
 #include <string>
+
+#include "input/user_input.h"
 
 class UserIdentificationDataProvider {
  public:

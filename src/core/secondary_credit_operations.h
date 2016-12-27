@@ -1,8 +1,8 @@
 #ifndef SECONDARY_CREDIT_OPERATIONS_H
 #define SECONDARY_CREDIT_OPERATIONS_H
 
-#include "messengers/credit_messenger.h"
 #include "input/user_input.h"
+#include "messengers/credit_messenger.h"
 
 class SecondaryCreditOperations {
  public:
@@ -22,7 +22,6 @@ class SecondaryCreditOperations {
   static const int kOneYear = 12;
   static const int kMaximalCreditTerm = 61;
   static bool IsMonthCorrect(int months);
-
 
   int GetSumOfCreditFromUser(const int maximal_sum_of_credit) const;
 

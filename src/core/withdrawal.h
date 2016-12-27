@@ -1,13 +1,13 @@
 #ifndef WITHDRAWAL_H
 #define WITHDRAWAL_H
 
-#include "user_data/atm_user.h"
-#include "output_configuration/console_editor.h"
-#include "messengers/notice_messenger.h"
-#include "input/user_input.h"
-#include "messengers/withdrawal_messenger.h"
-
 #include <string>
+
+#include "input/user_input.h"
+#include "messengers/notice_messenger.h"
+#include "messengers/withdrawal_messenger.h"
+#include "output_configuration/console_editor.h"
+#include "user_data/atm_user.h"
 
 class Withdrawal {
   using string = std::string;

@@ -1,10 +1,10 @@
 #ifndef CONSOLE_EDITOR_H
 #define CONSOLE_EDITOR_H
 
-#include "text_writer.h"
-
 #include <sstream>
 #include <string>
+
+#include "text_writer.h"
 
 class ConsoleEditor {
   using string = std::string;
@@ -26,7 +26,7 @@ class ConsoleEditor {
 };
 
 template <typename T>
-  std::string ConsoleEditor::ConvertValueToString(const T &value){
+std::string ConsoleEditor::ConvertValueToString(const T &value) {
   std::stringstream stream;
   stream << value;
   return stream.str();

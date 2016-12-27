@@ -1,12 +1,12 @@
 #ifndef REFILL_H
 #define REFILL_H
 
-#include "user_data/atm_user.h"
-#include "output_configuration/console_editor.h"
-#include "messengers/refill_messenger.h"
-#include "input/user_input.h"
-
 #include <iostream>
+
+#include "input/user_input.h"
+#include "messengers/refill_messenger.h"
+#include "output_configuration/console_editor.h"
+#include "user_data/atm_user.h"
 
 class Refill {
  public:

@@ -1,5 +1,4 @@
 #include "output_setup.h"
-
 #include "console_writer.h"
 #include "text_writer.h"
 
@@ -19,7 +18,7 @@ void OutputSetup::SetupTwoStreamsForOutput() {
 
 void OutputSetup::SetVectorForOutput(std::unique_ptr<Writer> console_output,
                                      std::unique_ptr<Writer> file_output) {
-  std::vector<std::unique_ptr<Writer> > output_vector;
+  std::vector<std::unique_ptr<Writer>> output_vector;
 
   output_vector.push_back(std::move(console_output));
   output_vector.push_back(std::move(file_output));

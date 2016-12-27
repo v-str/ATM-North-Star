@@ -1,9 +1,9 @@
 #ifndef STATEMENT_MESSENGER_H
 #define STATEMENT_MESSENGER_H
 
-#include "output_configuration/console_editor.h"
-
 #include <string>
+
+#include "output_configuration/console_editor.h"
 
 class StatementMessenger {
  public:

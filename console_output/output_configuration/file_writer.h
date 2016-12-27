@@ -1,15 +1,15 @@
 #ifndef FILE_WRITER_H
 #define FILE_WRITER_H
 
-#include "writer.h"
-
 #include <fstream>
 #include <string>
+
+#include "writer.h"
 
 class FileWriter : public Writer {
  public:
   FileWriter();
-  explicit FileWriter(const std::string &name_of_file);
+  explicit FileWriter(const std::string& name_of_file);
 
   ~FileWriter();
 
