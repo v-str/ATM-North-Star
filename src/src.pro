@@ -8,8 +8,8 @@ CONFIG -= app_bundle \
     qt
 
 INCLUDEPATH += \
-    ../console_output/messengers \
-    ../console_output/output_configuration \
+    ../lib_console_output/messengers \
+    ../lib_console_output/output_configuration \
     ../src/application \
     ../src/core \
     ../src/user_data \
@@ -29,6 +29,6 @@ SOURCES += \
     $$PWD/input/*.cpp \
 
 
-LIBS += -L../console_output -lconsole_output
+LIBS += -L../lib_console_output -llib_console_output
 
 
