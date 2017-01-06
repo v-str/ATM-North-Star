@@ -2,6 +2,6 @@
 
 void ModeSelector::RunProgramByMode(ProgramMode mode) {
   if (mode == kConsoleMode) {
-    console_app_.RunProgram();
+    console_app_->RunProgram();
   }
 }

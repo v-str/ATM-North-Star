@@ -1,6 +1,8 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
+#include <memory>
+
 #include "console_application.h"
 
 class ModeSelector {
@@ -10,7 +12,7 @@ class ModeSelector {
   void RunProgramByMode(ProgramMode mode);
 
  private:
-  ConsoleApplication console_app_;
+  std::unique_ptr<ConsoleApplication> console_app_;
 };
 
 #endif  // APPLICATION_H
