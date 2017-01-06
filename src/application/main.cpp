@@ -1,4 +1,4 @@
-#include "application.h"
+#include "mode_selector.h"
 
 int main() {
   ModeSelector app;
