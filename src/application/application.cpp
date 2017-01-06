@@ -1,6 +1,6 @@
 #include "application.h"
 
-void Application::RunProgramByMode(ProgramMode mode) {
+void ModeSelector::RunProgramByMode(ProgramMode mode) {
   if (mode == kConsoleMode) {
     console_app_.RunProgram();
   }

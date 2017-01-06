@@ -3,7 +3,7 @@
 
 #include "console_application.h"
 
-class Application {
+class ModeSelector {
  public:
   enum ProgramMode { kConsoleMode, kGraphicalMode };
 
