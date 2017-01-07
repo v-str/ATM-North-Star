@@ -27,7 +27,7 @@ class DemoUser {
     kRegistrationSection
   };
 
-  void StartSection(DemoUserMessanger::MessageType message_type);
+  void StartSection(DemoMessanger::MessageType message_type);
   void ForwardToRegistration();
   void StartRegistration();
   void SayGoodBye();
@@ -36,7 +36,7 @@ class DemoUser {
   bool user_want_to_registrate_ = false;
 
   UserInput input_;
-  DemoUserMessanger demo_messanger_;
+  DemoMessanger demo_messenger_;
   NoticeMessenger notice_messenger_;
 };
 

@@ -1,14 +1,14 @@
 #include "demo_user.h"
 
 void DemoUser::ShowDemoMode() {
-  auto message_type = DemoUserMessanger::MessageType::kWelcome;
-  demo_messanger_.ShowMessage(message_type);
+  auto message_type = DemoMessanger::MessageType::kWelcome;
+  demo_messenger_.ShowMessage(message_type);
   UserDecideToExit();
   if (user_want_to_exit_) {
     return;
   }
   for (;;) {
-    demo_messanger_.ShowDemoMenuMessage();
+    demo_messenger_.ShowDemoMenuMessage();
     UserDecideToExit();
     if (user_want_to_exit_) {
       return;
@@ -23,27 +23,27 @@ void DemoUser::UserWantToExitProgram() { SayGoodBye(); }
 void DemoUser::UserDecideToExit() {
   int user_choice = input_.GetValueFromUser();
   if (user_choice == kAccountSection) {
-    StartSection(DemoUserMessanger::MessageType::kAccountInfo);
+    StartSection(DemoMessanger::MessageType::kAccountInfo);
   } else if (user_choice == kRefillSection) {
-    StartSection(DemoUserMessanger::MessageType::kRefill);
+    StartSection(DemoMessanger::MessageType::kRefill);
   } else if (user_choice == kCreditSection) {
-    StartSection(DemoUserMessanger::MessageType::kCreditApp);
+    StartSection(DemoMessanger::MessageType::kCreditApp);
   } else if (user_choice == kWidthdrawalSection) {
-    StartSection(DemoUserMessanger::MessageType::kWithdrawal);
+    StartSection(DemoMessanger::MessageType::kWithdrawal);
   } else if (user_choice == kStatementSection) {
-    StartSection(DemoUserMessanger::MessageType::kStatement);
+    StartSection(DemoMessanger::MessageType::kStatement);
   } else if (user_choice == kExitSection) {
     UserWantToExitProgram();
   } else if (user_choice == kRegistrationSection) {
     StartRegistration();
   } else {
-    notice_messenger_.ShowIncorrectData();
-    input_.GetResultFromUserAboutExit();
+    user_want_to_exit_ = input_.ShowIncorrectMessage();
   }
 }
 
-void DemoUser::StartSection(DemoUserMessanger::MessageType message_type) {
-  demo_messanger_.ShowMessage(message_type);
+void DemoUser::StartSection(DemoMessanger::MessageType message_type) {
+  demo_messenger_.ShowMessage(message_type);
+  demo_messenger_.ShowSuggestionAboutExit();
   user_want_to_exit_ = input_.SuggestUserToExit();
 }
 

@@ -1,7 +1,6 @@
 #include "demo_user_messenger.h"
 
-void DemoUserMessanger::ShowMessage(
-    DemoUserMessanger::MessageType message_type) const {
+void DemoMessanger::ShowMessage(DemoMessanger::MessageType message_type) const {
   console_editor_.AddEmptyLineNTimes(2);
 
   switch (message_type) {
@@ -29,7 +28,7 @@ void DemoUserMessanger::ShowMessage(
   }
 }
 
-void DemoUserMessanger::ShowWelcomeDemoMessage() const {
+void DemoMessanger::ShowWelcomeDemoMessage() const {
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
       "# Welcome to demo mode. This chapter\n"
@@ -39,7 +38,7 @@ void DemoUserMessanger::ShowWelcomeDemoMessage() const {
   ShowDemoMenu();
 }
 
-void DemoUserMessanger::ShowDemoMenu() const {
+void DemoMessanger::ShowDemoMenu() const {
   console_editor_.WriteText(
       "\n\n\t################ Demo Transaction menu ###################\n"
       "\t#                                                        #\n"
@@ -55,7 +54,7 @@ void DemoUserMessanger::ShowDemoMenu() const {
       "\n\t# Enter: ");
 }
 
-void DemoUserMessanger::ShowDemoAccountInfoMessage() const {
+void DemoMessanger::ShowDemoAccountInfoMessage() const {
   console_editor_.AddEmptyLineNTimes(3);
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
@@ -77,7 +76,7 @@ void DemoUserMessanger::ShowDemoAccountInfoMessage() const {
       "# how many month you must to pay a loan  etc.\n\n");
 }
 
-void DemoUserMessanger::ShowInfoAboutRefillMessage() const {
+void DemoMessanger::ShowInfoAboutRefillMessage() const {
   console_editor_.AddEmptyLineNTimes(3);
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithInterrupt(
@@ -95,7 +94,7 @@ void DemoUserMessanger::ShowInfoAboutRefillMessage() const {
       " (If sum is valid, money will be transferred)\n\n");
 }
 
-void DemoUserMessanger::ShowDemoCreditAppMessage() const {
+void DemoMessanger::ShowDemoCreditAppMessage() const {
   console_editor_.AddEmptyLineNTimes(3);
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
@@ -107,7 +106,7 @@ void DemoUserMessanger::ShowDemoCreditAppMessage() const {
       "# get a $30000 loan on individual conditions.\n\n");
 }
 
-void DemoUserMessanger::ShowDemoWidthdrawalMessage() const {
+void DemoMessanger::ShowDemoWidthdrawalMessage() const {
   console_editor_.AddEmptyLineNTimes(3);
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
@@ -116,7 +115,7 @@ void DemoUserMessanger::ShowDemoWidthdrawalMessage() const {
       "# once or choose the amount that you need to be.\n");
 }
 
-void DemoUserMessanger::ShowDemoStatementMessage() const {
+void DemoMessanger::ShowDemoStatementMessage() const {
   console_editor_.AddEmptyLineNTimes(3);
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
@@ -124,7 +123,20 @@ void DemoUserMessanger::ShowDemoStatementMessage() const {
       "# about your cash.\n");
 }
 
-void DemoUserMessanger::ShowDemoMenuMessage() const {
+void DemoMessanger::ShowDemoMenuMessage() const {
   console_editor_.ClearScreen();
   ShowDemoMenu();
+}
+
+void DemoMessanger::ShowIncorrectSumInput() const {
+  console_editor_.WriteTextWithDelayPerSymbol(
+      "\t# Incorrect input, please try again:\n"
+      "\t# Enter: ");
+}
+
+void DemoMessanger::ShowSuggestionAboutExit() const {
+  console_editor_.WriteTextWithDelayPerSymbol(
+      "\n\t# 1. Exit to main page.\n"
+      "\t# 2. Exit program.\n"
+      "\t# Enter: ");
 }

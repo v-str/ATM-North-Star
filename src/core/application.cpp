@@ -67,25 +67,30 @@ void Application::DoProgramSection(int choice) {
 
 void Application::ShowAccountInfo() {
   account_informator_.DisplayAccountInformation(&atm_user_);
+  user_messenger_.ShowSuggestionAboutExit();
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
 void Application::RefillOperation() {
   refill_.StartRefillOperation(&atm_user_);
+  user_messenger_.ShowSuggestionAboutExit();
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
 void Application::CreditApplication() {
   user_credit_.StartCreditOperation(&atm_user_);
+  user_messenger_.ShowSuggestionAboutExit();
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
 void Application::WithdrawCash() {
   withdrawal_.WithdrawCashFromUser(&atm_user_);
+  user_messenger_.ShowSuggestionAboutExit();
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
 void Application::Statement() {
   statement_.ShowStatement(&atm_user_);
+  user_messenger_.ShowSuggestionAboutExit();
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }

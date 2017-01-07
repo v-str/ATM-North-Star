@@ -3,7 +3,6 @@
 #include <iostream>
 
 bool UserInput::SuggestUserToExit() const {
-  user_messenger_.ShowSuggestionAboutExit();
   return GetResultFromUserAboutExit();
 }
 

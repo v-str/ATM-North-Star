@@ -3,7 +3,7 @@
 
 #include "console_editor.h"
 #include "information_screen.h"
-#include "user_data/atm_user.h"
+#include "atm_user.h"
 
 class AccountInformator {
  public:

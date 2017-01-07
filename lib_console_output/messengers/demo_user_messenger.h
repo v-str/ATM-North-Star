@@ -3,7 +3,7 @@
 
 #include "console_editor.h"
 
-class DemoUserMessanger {
+class DemoMessanger {
  public:
   enum MessageType {
     kWelcome,
@@ -17,6 +17,8 @@ class DemoUserMessanger {
 
   void ShowDemoMenuMessage() const;
   void ShowMessage(MessageType message_type) const;
+  void ShowIncorrectSumInput() const;
+  void ShowSuggestionAboutExit() const;
 
  private:
   static const int kSleep = 100;
