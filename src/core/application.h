@@ -14,11 +14,13 @@
 
 class Application {
  public:
-  void RunProgram();
+  enum ProgramMode { kConsoleMode = 1, kGraphicalMode };
+
+  void RunProgram(std::size_t mode);
 
  private:
-  enum ProgramMode {
-    kDemoMode = 1,
+  enum ProgramSection {
+    kDemonstration = 1,
     kRegistration,
   };
 
@@ -31,9 +33,9 @@ class Application {
     kExitSection,
   };
 
-  int GetProgramMode();
+  int GetProgramSection();
 
-  void RunProgramModeBasedOnUserChoice(int user_choice);
+  void RunSectionBasedOnChoice(int user_choice);
 
   void RegisterUser();
   void StartMainMenu();

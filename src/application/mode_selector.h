@@ -9,7 +9,7 @@ class ModeSelector {
  public:
   ModeSelector();
 
-  enum ProgramMode { kConsoleMode, kGraphicalMode };
+  enum ProgramMode { kConsoleMode = 1, kGraphicalMode };
 
   void RunProgramByMode(ProgramMode mode);
 

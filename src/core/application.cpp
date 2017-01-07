@@ -1,21 +1,22 @@
 #include "application.h"
 #include "output_setup.h"
 
-void Application::RunProgram() {
-  OutputSetup::SetupTwoStreamsForOutput();
+void Application::RunProgram(std::size_t mode) {
+  if (mode == kConsoleMode) {
+    OutputSetup::SetupTwoStreamsForOutput();
+  }
+  int user_choice = GetProgramSection();
 
-  int user_choice = GetProgramMode();
-
-  RunProgramModeBasedOnUserChoice(user_choice);
+  RunSectionBasedOnChoice(user_choice);
 }
 
-int Application::GetProgramMode() {
+int Application::GetProgramSection() {
   init_screen_.DisplayInitialScreen();
   return user_input_.GetValueFromUser();
 }
 
-void Application::RunProgramModeBasedOnUserChoice(int user_choice) {
-  if (user_choice == kDemoMode) {
+void Application::RunSectionBasedOnChoice(int user_choice) {
+  if (user_choice == kDemonstration) {
     demo_mode_.ShowDemoMode();
     if (demo_mode_.UserWantToRegistrate()) {
       RegisterUser();
@@ -32,9 +33,7 @@ void Application::RunProgramModeBasedOnUserChoice(int user_choice) {
   user_messenger_.WishAGoodDay();
 }
 
-void Application::RegisterUser() {
-  registrator_.RegisterUser(atm_user_);
-}
+void Application::RegisterUser() { registrator_.RegisterUser(atm_user_); }
 
 void Application::DisplayMainMenu() {
   do {
