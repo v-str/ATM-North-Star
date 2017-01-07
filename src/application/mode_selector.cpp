@@ -1,7 +1,9 @@
 #include "mode_selector.h"
 
+ModeSelector::ModeSelector() : app_(new Application) {}
+
 void ModeSelector::RunProgramByMode(ProgramMode mode) {
   if (mode == kConsoleMode) {
-    console_app_->RunProgram();
+    app_->RunProgram();
   }
 }

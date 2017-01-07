@@ -12,7 +12,7 @@
 #include "user_statement.h"
 #include "withdrawal.h"
 
-class ConsoleApplication {
+class Application {
  public:
   void RunProgram();
 

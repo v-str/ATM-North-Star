@@ -1,7 +1,7 @@
-#include "console_application.h"
+#include "application.h"
 #include "output_setup.h"
 
-void ConsoleApplication::RunProgram() {
+void Application::RunProgram() {
   OutputSetup::SetupTwoStreamsForOutput();
 
   int user_choice = GetProgramMode();
@@ -9,12 +9,12 @@ void ConsoleApplication::RunProgram() {
   RunProgramModeBasedOnUserChoice(user_choice);
 }
 
-int ConsoleApplication::GetProgramMode() {
+int Application::GetProgramMode() {
   init_screen_.DisplayInitialScreen();
   return user_input_.GetValueFromUser();
 }
 
-void ConsoleApplication::RunProgramModeBasedOnUserChoice(int user_choice) {
+void Application::RunProgramModeBasedOnUserChoice(int user_choice) {
   if (user_choice == kDemoMode) {
     demo_mode_.ShowDemoMode();
     if (demo_mode_.UserWantToRegistrate()) {
@@ -32,22 +32,22 @@ void ConsoleApplication::RunProgramModeBasedOnUserChoice(int user_choice) {
   user_messenger_.WishAGoodDay();
 }
 
-void ConsoleApplication::RegisterUser() {
+void Application::RegisterUser() {
   registrator_.RegisterUser(atm_user_);
 }
 
-void ConsoleApplication::DisplayMainMenu() {
+void Application::DisplayMainMenu() {
   do {
     StartMainMenu();
   } while (!is_user_want_to_exit_);
 }
 
-void ConsoleApplication::StartMainMenu() {
+void Application::StartMainMenu() {
   user_messenger_.ShowMainMenu();
   DoProgramSection(user_input_.GetValueFromUser());
 }
 
-void ConsoleApplication::DoProgramSection(int choice) {
+void Application::DoProgramSection(int choice) {
   if (choice == kAccountSection) {
     ShowAccountInfo();
   } else if (choice == kRefillSection) {
@@ -66,27 +66,27 @@ void ConsoleApplication::DoProgramSection(int choice) {
   }
 }
 
-void ConsoleApplication::ShowAccountInfo() {
+void Application::ShowAccountInfo() {
   account_informator_.DisplayAccountInformation(&atm_user_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-void ConsoleApplication::RefillOperation() {
+void Application::RefillOperation() {
   refill_.StartRefillOperation(&atm_user_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-void ConsoleApplication::CreditApplication() {
+void Application::CreditApplication() {
   user_credit_.StartCreditOperation(&atm_user_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-void ConsoleApplication::WithdrawCash() {
+void Application::WithdrawCash() {
   withdrawal_.WithdrawCashFromUser(&atm_user_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }
 
-void ConsoleApplication::Statement() {
+void Application::Statement() {
   statement_.ShowStatement(&atm_user_);
   is_user_want_to_exit_ = user_input_.SuggestUserToExit();
 }

@@ -3,16 +3,18 @@
 
 #include <memory>
 
-#include "console_application.h"
+#include "application.h"
 
 class ModeSelector {
  public:
+  ModeSelector();
+
   enum ProgramMode { kConsoleMode, kGraphicalMode };
 
   void RunProgramByMode(ProgramMode mode);
 
  private:
-  std::unique_ptr<ConsoleApplication> console_app_;
+  std::unique_ptr<Application> app_;
 };
 
 #endif  // APPLICATION_H
