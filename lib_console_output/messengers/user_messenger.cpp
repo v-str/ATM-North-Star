@@ -54,7 +54,7 @@ void UserMessenger::ShowMainMenu() const {
       "\t####################################################\n");
 }
 
-void UserMessenger::ShowSuggestionAboutExit() const {
+void UserMessenger::SuggestExit() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n\t# 1. Exit to main page.\n"
       "\t# 2. Exit program.\n"
