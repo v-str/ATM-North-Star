@@ -61,7 +61,7 @@ void UserMessenger::SuggestExit() const {
       "\t# Enter: ");
 }
 
-void UserMessenger::ShowIncorrectSumInput() const {
+void UserMessenger::ShowIncorrectInput() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\t# Incorrect input, please try again:\n"
       "\t# Enter: ");

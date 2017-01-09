@@ -17,6 +17,8 @@ class UserInput {
   static std::string GetDataFromUser();
 
  private:
+  enum DicisionState { kMainMenu, kExitProgram, kError };
+
   using string = std::string;
 
   static const int kInvalidChoice = -1;

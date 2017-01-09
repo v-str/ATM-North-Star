@@ -128,7 +128,7 @@ void DemoMessanger::ShowDemoMenuMessage() const {
   ShowDemoMenu();
 }
 
-void DemoMessanger::ShowIncorrectSumInput() const {
+void DemoMessanger::ShowIncorrectInput() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\t# Incorrect input, please try again:\n"
       "\t# Enter: ");

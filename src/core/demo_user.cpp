@@ -37,7 +37,8 @@ void DemoUser::UserDecideToExit() {
   } else if (user_choice == kRegistrationSection) {
     StartRegistration();
   } else {
-    user_want_to_exit_ = input_.ShowIncorrectMessage();
+    demo_messenger_.ShowIncorrectInput();
+    user_want_to_exit_ = input_.SuggestUserToExit();
   }
 }
 

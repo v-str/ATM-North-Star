@@ -19,6 +19,8 @@ class Application {
   void RunProgram(std::size_t mode);
 
  private:
+  enum UserDecision { kMainMenu = 1, kExit };
+
   enum ProgramSection {
     kDemonstration = 1,
     kRegistration,
@@ -47,6 +49,10 @@ class Application {
   void CreditApplication();
   void WithdrawCash();
   void Statement();
+
+  void GetExitResult();
+
+
 
   bool is_user_want_to_exit_ = true;
 

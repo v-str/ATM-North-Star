@@ -59,7 +59,7 @@ void Application::DoProgramSection(int choice) {
     Statement();
   } else if (choice == kExitSection) {
     user_messenger_.SuggestUserToExit();
-    is_user_want_to_exit_ = user_input_.SuggestUserToExitWithConfirmationMenu();
+    is_user_want_to_exit_ = user_input_.SuggestUserToExit();
   } else {
     is_user_want_to_exit_ = user_input_.ShowIncorrectMessage();
   }
@@ -67,30 +67,43 @@ void Application::DoProgramSection(int choice) {
 
 void Application::ShowAccountInfo() {
   account_informator_.DisplayAccountInformation(&atm_user_);
-  user_messenger_.SuggestExit();
-  is_user_want_to_exit_ = user_input_.SuggestUserToExit();
+  GetExitResult();
 }
 
 void Application::RefillOperation() {
   refill_.StartRefillOperation(&atm_user_);
-  user_messenger_.SuggestExit();
-  is_user_want_to_exit_ = user_input_.SuggestUserToExit();
+  GetExitResult();
 }
 
 void Application::CreditApplication() {
   user_credit_.StartCreditOperation(&atm_user_);
-  user_messenger_.SuggestExit();
-  is_user_want_to_exit_ = user_input_.SuggestUserToExit();
+  GetExitResult();
 }
 
 void Application::WithdrawCash() {
   withdrawal_.WithdrawCashFromUser(&atm_user_);
-  user_messenger_.SuggestExit();
-  is_user_want_to_exit_ = user_input_.SuggestUserToExit();
+  GetExitResult();
 }
 
 void Application::Statement() {
   statement_.ShowStatement(&atm_user_);
+  GetExitResult();
+}
+
+void Application::GetExitResult() {
   user_messenger_.SuggestExit();
-  is_user_want_to_exit_ = user_input_.SuggestUserToExit();
+  int result_of_exit = 0;
+  for (;;) {
+    result_of_exit = user_input_.GetValueFromUser();
+
+    if (result_of_exit == kMainMenu) {
+      is_user_want_to_exit_ = false;
+      break;
+    } else if (result_of_exit == kExit) {
+      is_user_want_to_exit_ = true;
+      break;
+    } else {
+      user_messenger_.ShowIncorrectInput();
+    }
+  }
 }

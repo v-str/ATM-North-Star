@@ -17,7 +17,7 @@ class DemoMessanger {
 
   void ShowDemoMenuMessage() const;
   void ShowMessage(MessageType message_type) const;
-  void ShowIncorrectSumInput() const;
+  void ShowIncorrectInput() const;
   void ShowSuggestionAboutExit() const;
 
  private:

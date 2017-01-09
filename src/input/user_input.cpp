@@ -8,17 +8,17 @@ bool UserInput::SuggestUserToExit() const {
 
 bool UserInput::GetResultFromUserAboutExit() const {
   bool result_of_choice = false;
-  for (;;) {
-    int user_want_to_exit = GetValueFromUser();
-    if (user_want_to_exit == kGoToMain) {
-      break;
-    } else if (user_want_to_exit == kExit) {
-      result_of_choice = true;
-      break;
-    } else {
-      user_messenger_.ShowIncorrectSumInput();
-    }
+
+  int user_want_to_exit = GetValueFromUser();
+
+  if (user_want_to_exit == kGoToMain) {
+    result_of_choice = false;
+  } else if (user_want_to_exit == kExit) {
+    result_of_choice = true;
+  } else {
+    user_messenger_.ShowIncorrectInput();
   }
+
   return result_of_choice;
 }
 

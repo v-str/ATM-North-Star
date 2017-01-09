@@ -17,7 +17,7 @@ class UserMessenger {
   void SuggestUserToExit() const;
 
   void SuggestExit() const;
-  void ShowIncorrectSumInput() const;
+  void ShowIncorrectInput() const;
 
   void ShowIncorrectData() const;
 
