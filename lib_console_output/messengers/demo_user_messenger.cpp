@@ -133,6 +133,11 @@ void DemoMessanger::ShowIncorrectInput() const {
       "\t# Enter: ");
 }
 
+void DemoMessanger::ShowIncorrectMenuInput() const {
+  console_editor_.ClearScreen();
+  ShowIncorrectInput();
+}
+
 void DemoMessanger::SuggestExit() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n\t# 1. Exit to main page.\n"

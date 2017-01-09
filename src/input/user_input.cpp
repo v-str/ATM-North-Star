@@ -2,26 +2,6 @@
 
 #include <iostream>
 
-bool UserInput::SuggestUserToExit() const {
-  return GetResultFromUserAboutExit();
-}
-
-bool UserInput::GetResultFromUserAboutExit() const {
-  bool result_of_choice = false;
-
-  int user_want_to_exit = GetValueFromUser();
-
-  if (user_want_to_exit == kGoToMain) {
-    result_of_choice = false;
-  } else if (user_want_to_exit == kExit) {
-    result_of_choice = true;
-  } else {
-    user_messenger_.ShowIncorrectInput();
-  }
-
-  return result_of_choice;
-}
-
 int UserInput::GetValueFromUser() {
   return ConvertLineToChoice(GetLineFromUser());
 }
@@ -51,17 +31,8 @@ std::string UserInput::GetLineFromUser() {
   return line;
 }
 
-bool UserInput::SuggestUserToExitWithConfirmationMenu() const {
-  return GetResultFromUserAboutExit();
-}
-
 std::string UserInput::GetDataFromUser() {
   std::string user_string;
   getline(std::cin, user_string);
   return user_string;
-}
-
-bool UserInput::ShowIncorrectMessage() const {
-  notice_messenger_.ShowIncorrectData();
-  return GetResultFromUserAboutExit();
 }

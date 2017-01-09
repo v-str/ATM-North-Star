@@ -14,7 +14,7 @@ class UserMessenger {
   void WishAGoodDay() const;
   void ShowMainMenu() const;
 
-  void SuggestUserToExit() const;
+  void AskToExit() const;
 
   void SuggestExit() const;
   void ShowIncorrectInput() const;

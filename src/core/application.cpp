@@ -58,10 +58,10 @@ void Application::DoProgramSection(int choice) {
   } else if (choice == kStatement) {
     Statement();
   } else if (choice == kExitProgram) {
-    user_messenger_.SuggestUserToExit();
-    user_want_to_exit_ = user_input_.SuggestUserToExit();
+    user_messenger_.AskToExit();
+    GetExitResult();
   } else {
-    user_want_to_exit_ = user_input_.ShowIncorrectMessage();
+    user_messenger_.ShowIncorrectInput();
   }
 }
 

@@ -7,6 +7,7 @@
 #include "console_editor.h"
 #include "refill_messenger.h"
 #include "user_input.h"
+#include "notice_messenger.h"
 
 class Refill {
  public:

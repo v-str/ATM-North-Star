@@ -18,6 +18,7 @@ class DemoMessanger {
   void ShowDemoMenuAgain() const;
   void ShowMessage(MessageType message_type) const;
   void ShowIncorrectInput() const;
+  void ShowIncorrectMenuInput() const;
   void SuggestExit() const;
   void ShowDemoMenu() const;
 

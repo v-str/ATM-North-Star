@@ -3,16 +3,8 @@
 
 #include <string>
 
-#include "notice_messenger.h"
-#include "user_messenger.h"
-
 class UserInput {
  public:
-  bool SuggestUserToExit() const;
-  bool ShowIncorrectMessage() const;
-  bool GetResultFromUserAboutExit() const;
-  bool SuggestUserToExitWithConfirmationMenu() const;
-
   static int GetValueFromUser();
   static std::string GetDataFromUser();
 
@@ -28,9 +20,6 @@ class UserInput {
   static bool LineNotEmpty(const string &str);
   static int ConvertLineToChoice(const string &line);
   static std::string GetLineFromUser();
-
-  UserMessenger user_messenger_;
-  NoticeMessenger notice_messenger_;
 };
 
 #endif  // USER_INPUT_H

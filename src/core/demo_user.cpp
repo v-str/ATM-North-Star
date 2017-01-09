@@ -4,13 +4,21 @@ void DemoUser::ShowDemoMode() {
   demo_messenger_.ShowMessage(DemoMessanger::MessageType::kWelcome);
   demo_messenger_.ShowDemoMenu();
   GetUserDecision();
-  do {
+  //  do {
+  //    if (user_want_to_registrate_) {
+  //      break;
+  //    }
+  //    demo_messenger_.ShowDemoMenuAgain();
+  //    GetUserDecision();
+  //  } while (!user_want_to_exit_);
+
+  while (!user_want_to_exit_) {
     if (user_want_to_registrate_) {
       break;
     }
     demo_messenger_.ShowDemoMenuAgain();
     GetUserDecision();
-  } while (!user_want_to_exit_);
+  }
 }
 
 bool DemoUser::UserWantToRegistrate() const { return user_want_to_registrate_; }
@@ -34,8 +42,8 @@ void DemoUser::GetUserDecision() {
   } else if (user_choice == kRegistrationSection) {
     StartRegistration();
   } else {
-    demo_messenger_.ShowIncorrectInput();
-    user_want_to_exit_ = user_input_.SuggestUserToExit();
+    demo_messenger_.ShowIncorrectMenuInput();
+    GetExitResult();
   }
 }
 

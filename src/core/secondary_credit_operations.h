@@ -1,6 +1,7 @@
 #ifndef SECONDARY_CREDIT_OPERATIONS_H
 #define SECONDARY_CREDIT_OPERATIONS_H
 
+#include "notice_messenger.h"
 #include "credit_messenger.h"
 #include "user_input.h"
 

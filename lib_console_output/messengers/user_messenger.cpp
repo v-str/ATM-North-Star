@@ -20,14 +20,11 @@ void UserMessenger::ShowIncorrectDataMessage() const {
       "\t Data is not correct, please reload the program.\n\n");
 }
 
-void UserMessenger::SuggestUserToExit() const {
+void UserMessenger::AskToExit() const {
   console_editor_.AddEmptyLineNTimes(1);
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
-      "\n\t# Do you really want to exit?\n"
-      "\t# 1. No, go to main\n"
-      "\t# 2. Yes, exit\n"
-      "\t# Enter: ");
+      "\t# Do you really want to exit?");
 }
 
 void UserMessenger::WishAGoodDay() const {
@@ -56,7 +53,7 @@ void UserMessenger::ShowMainMenu() const {
 
 void UserMessenger::SuggestExit() const {
   console_editor_.WriteTextWithDelayPerSymbol(
-      "\n\t# 1. Exit to main page.\n"
+      "\t# 1. Exit to main page.\n"
       "\t# 2. Exit program.\n"
       "\t# Enter: ");
 }
