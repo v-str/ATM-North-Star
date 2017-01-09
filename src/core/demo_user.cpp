@@ -5,6 +5,9 @@ void DemoUser::ShowDemoMode() {
   demo_messenger_.ShowDemoMenu();
   GetUserDecision();
   do {
+    if (user_want_to_registrate_) {
+      break;
+    }
     demo_messenger_.ShowDemoMenuAgain();
     GetUserDecision();
   } while (!user_want_to_exit_);

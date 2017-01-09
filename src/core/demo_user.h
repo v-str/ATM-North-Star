@@ -4,7 +4,7 @@
 #include <string>
 
 #include "demo_user_messenger.h"
-#include "input/user_input.h"
+#include "user_input.h"
 #include "notice_messenger.h"
 
 class DemoUser {
