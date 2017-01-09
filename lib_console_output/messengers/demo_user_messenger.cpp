@@ -35,7 +35,6 @@ void DemoMessanger::ShowWelcomeDemoMessage() const {
       "# contains basic information about ATM North Star.\n\n"
       "# First of all, look at the main menu:\n"
       "# Please, choose interested you chapter:\n");
-  ShowDemoMenu();
 }
 
 void DemoMessanger::ShowDemoMenu() const {
@@ -123,7 +122,7 @@ void DemoMessanger::ShowDemoStatementMessage() const {
       "# about your cash.\n");
 }
 
-void DemoMessanger::ShowDemoMenuMessage() const {
+void DemoMessanger::ShowDemoMenuAgain() const {
   console_editor_.ClearScreen();
   ShowDemoMenu();
 }
@@ -134,7 +133,7 @@ void DemoMessanger::ShowIncorrectInput() const {
       "\t# Enter: ");
 }
 
-void DemoMessanger::ShowSuggestionAboutExit() const {
+void DemoMessanger::SuggestExit() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n\t# 1. Exit to main page.\n"
       "\t# 2. Exit program.\n"

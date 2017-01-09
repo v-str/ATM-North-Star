@@ -21,18 +21,18 @@ class Application {
  private:
   enum UserDecision { kMainMenu = 1, kExit };
 
-  enum ProgramSection {
+  enum Program {
     kDemonstration = 1,
     kRegistration,
   };
 
-  enum MenuSection {
-    kAccountSection = 1,
-    kRefillSection,
-    kCreditSection,
-    kWidthdrawalSection,
-    kStatementSection,
-    kExitSection,
+  enum Menu {
+    kAccount = 1,
+    kRefill,
+    kCredit,
+    kWidthdrawal,
+    kStatement,
+    kExitProgram,
   };
 
   int GetProgramSection();
@@ -52,9 +52,7 @@ class Application {
 
   void GetExitResult();
 
-
-
-  bool is_user_want_to_exit_ = true;
+  bool user_want_to_exit_ = true;
 
   AtmUser atm_user_;
   Refill refill_;

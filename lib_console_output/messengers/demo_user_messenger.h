@@ -15,15 +15,14 @@ class DemoMessanger {
     kStatement
   };
 
-  void ShowDemoMenuMessage() const;
+  void ShowDemoMenuAgain() const;
   void ShowMessage(MessageType message_type) const;
   void ShowIncorrectInput() const;
-  void ShowSuggestionAboutExit() const;
+  void SuggestExit() const;
+  void ShowDemoMenu() const;
 
  private:
   static const int kSleep = 100;
-
-  void ShowDemoMenu() const;
 
   void ShowWelcomeDemoMessage() const;
   void ShowDemoAccountInfoMessage() const;

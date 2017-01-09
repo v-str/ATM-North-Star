@@ -14,9 +14,11 @@ class DemoUser {
   void ShowDemoMode();
   bool UserWantToRegistrate() const;
   void UserWantToExitProgram();
-  void UserDecideToExit();
+  void GetUserDecision();
 
  private:
+  enum UserDecision { kMainMenu = 1, kExit };
+
   enum MenuSection {
     kAccountSection = 1,
     kRefillSection,
@@ -30,12 +32,13 @@ class DemoUser {
   void StartSection(DemoMessanger::MessageType message_type);
   void ForwardToRegistration();
   void StartRegistration();
+  void GetExitResult();
   void SayGoodBye();
 
-  bool user_want_to_exit_ = false;
+  bool user_want_to_exit_ = true;
   bool user_want_to_registrate_ = false;
 
-  UserInput input_;
+  UserInput user_input_;
   DemoMessanger demo_messenger_;
   NoticeMessenger notice_messenger_;
 };

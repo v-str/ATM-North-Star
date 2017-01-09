@@ -38,7 +38,7 @@ void Application::RegisterUser() { registrator_.RegisterUser(atm_user_); }
 void Application::DisplayMainMenu() {
   do {
     StartMainMenu();
-  } while (!is_user_want_to_exit_);
+  } while (!user_want_to_exit_);
 }
 
 void Application::StartMainMenu() {
@@ -47,21 +47,21 @@ void Application::StartMainMenu() {
 }
 
 void Application::DoProgramSection(int choice) {
-  if (choice == kAccountSection) {
+  if (choice == kAccount) {
     ShowAccountInfo();
-  } else if (choice == kRefillSection) {
+  } else if (choice == kRefill) {
     RefillOperation();
-  } else if (choice == kCreditSection) {
+  } else if (choice == kCredit) {
     CreditApplication();
-  } else if (choice == kWidthdrawalSection) {
+  } else if (choice == kWidthdrawal) {
     WithdrawCash();
-  } else if (choice == kStatementSection) {
+  } else if (choice == kStatement) {
     Statement();
-  } else if (choice == kExitSection) {
+  } else if (choice == kExitProgram) {
     user_messenger_.SuggestUserToExit();
-    is_user_want_to_exit_ = user_input_.SuggestUserToExit();
+    user_want_to_exit_ = user_input_.SuggestUserToExit();
   } else {
-    is_user_want_to_exit_ = user_input_.ShowIncorrectMessage();
+    user_want_to_exit_ = user_input_.ShowIncorrectMessage();
   }
 }
 
@@ -97,10 +97,10 @@ void Application::GetExitResult() {
     result_of_exit = user_input_.GetValueFromUser();
 
     if (result_of_exit == kMainMenu) {
-      is_user_want_to_exit_ = false;
+      user_want_to_exit_ = false;
       break;
     } else if (result_of_exit == kExit) {
-      is_user_want_to_exit_ = true;
+      user_want_to_exit_ = true;
       break;
     } else {
       user_messenger_.ShowIncorrectInput();
