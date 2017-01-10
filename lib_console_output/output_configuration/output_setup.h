@@ -7,8 +7,6 @@
 
 class OutputSetup {
  public:
-  static void SetupDefaultStream();
-
   static void SetupTwoStreamsForOutput();
 
  private:

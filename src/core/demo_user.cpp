@@ -56,8 +56,8 @@ void DemoUser::StartRegistration() { ForwardToRegistration(); }
 
 void DemoUser::GetExitResult() {
   demo_messenger_.SuggestExit();
-  int result_of_exit = 0;
   for (;;) {
+    int result_of_exit = 0;
     result_of_exit = user_input_.GetValueFromUser();
 
     if (result_of_exit == kMainMenu) {

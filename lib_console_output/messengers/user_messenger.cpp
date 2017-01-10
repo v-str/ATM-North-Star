@@ -15,11 +15,6 @@ void UserMessenger::ShowMainMenu() {
       "\t####################################################\n\tEnter: ");
 }
 
-void UserMessenger::ShowIncorrectDataMessage() const {
-  console_editor_.WriteTextWithDelayPerSymbol(
-      "\t Data is not correct, please reload the program.\n\n");
-}
-
 void UserMessenger::AskToExit() const {
   console_editor_.AddEmptyLineNTimes(1);
   console_editor_.ClearScreen();
@@ -52,6 +47,7 @@ void UserMessenger::ShowMainMenu() const {
 }
 
 void UserMessenger::SuggestExit() const {
+  console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteTextWithDelayPerSymbol(
       "\t# 1. Exit to main page.\n"
       "\t# 2. Exit program.\n"
@@ -60,15 +56,8 @@ void UserMessenger::SuggestExit() const {
 
 void UserMessenger::ShowIncorrectInput() const {
   console_editor_.WriteTextWithDelayPerSymbol(
-      "\t# Incorrect input, please try again:\n"
-      "\t# Enter: ");
-}
-
-void UserMessenger::ShowIncorrectData() const {
-  console_editor_.WriteTextWithDelayPerSymbol(
-      "\n\tIncorrect data. Please, "
-      "repeat.\n"
-      "\t-------------------------------\n\tSelect: ");
+      "\t# Incorrect input, please try again", 10);
+  console_editor_.WriteTextWithDelayPerSymbol("...", 500);
 }
 
 void UserMessenger::ShowIncorrectRegisterData() const {

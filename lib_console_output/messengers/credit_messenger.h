@@ -29,8 +29,6 @@ class CreditMessanger {
 
   void ShowIncorrectCashInformation(int cash) const;
 
-  static string ShowEnterText();
-
  private:
   static const int kHalfASecond = 500;
   static const int kSleep = 75;

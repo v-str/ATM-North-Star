@@ -9,7 +9,6 @@ class NoticeMessenger {
   void ShowIncorrectLoginFrame() const;
 
   void ShowIncorrectFormatPassword() const;
-  void ShowIncorrectData() const;
   void ShowIncorrectSum() const;
   void ShowUnacceptableWithdrawal(int amount_of_cash) const;
   void ShowError() const;

@@ -62,6 +62,7 @@ void Application::DoProgramSection(int choice) {
     GetExitResult();
   } else {
     user_messenger_.ShowIncorrectInput();
+    user_want_to_exit_ = false;
   }
 }
 

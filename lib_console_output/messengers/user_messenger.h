@@ -9,8 +9,6 @@ class UserMessenger {
  public:
   void ShowMainMenu();
 
-  void ShowIncorrectDataMessage() const;
-
   void WishAGoodDay() const;
   void ShowMainMenu() const;
 
@@ -18,8 +16,6 @@ class UserMessenger {
 
   void SuggestExit() const;
   void ShowIncorrectInput() const;
-
-  void ShowIncorrectData() const;
 
   void ShowIncorrectRegisterData() const;
 

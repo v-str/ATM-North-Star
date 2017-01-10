@@ -40,15 +40,6 @@ void NoticeMessenger::ShowIncorrectFormatPassword() const {
   console_editor_.WriteText("|\n\n\t\t\t");
 }
 
-void NoticeMessenger::ShowIncorrectData() const {
-  console_editor_.AddEmptyLineNTimes(1);
-  console_editor_.WriteTextWithDelayPerSymbol(
-      "\n\t# Data is not correct,\n"
-      "\t# return to main?\n"
-      "\t# 1. Yes\n"
-      "\t# 2. No, exit\n\t# Enter: ");
-}
-
 void NoticeMessenger::ShowIncorrectSum() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n\tIncorrect sum, Reconnect to repeat.\n\n");
