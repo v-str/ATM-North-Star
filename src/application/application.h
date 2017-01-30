@@ -7,7 +7,7 @@ class Application {
  public:
   enum ProgramMode { kConsoleMode = 1, kGraphicalMode };
 
-  void RunProgram(size_t mode);
+  void RunProgram(ProgramMode mode);
 
  private:
   ProgramLauncher launcher_;

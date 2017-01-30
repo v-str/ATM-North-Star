@@ -1,6 +1,7 @@
-#include "mode_selector.h"
+#include "application.h"
+#include "app_manager.h"
 
 int main() {
-  ModeSelector selector;
-  selector.RunProgramByMode(ModeSelector::kConsoleMode);
+  Application app;
+  app.RunProgram(Application::kConsoleMode);
 }
