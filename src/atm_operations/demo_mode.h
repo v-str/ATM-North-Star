@@ -1,5 +1,5 @@
-#ifndef DEMO_USER_H
-#define DEMO_USER_H
+#ifndef DEMO_MODE_H
+#define DEMO_MODE_H
 
 #include <string>
 
@@ -7,7 +7,7 @@
 #include "user_input.h"
 #include "notice_messenger.h"
 
-class DemoUser {
+class DemoMode {
   using string = std::string;
 
  public:
@@ -43,4 +43,4 @@ class DemoUser {
   NoticeMessenger notice_messenger_;
 };
 
-#endif  // DEMO_USER_H
+#endif  // DEMO_MODE_H

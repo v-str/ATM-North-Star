@@ -1,6 +1,6 @@
-#include "demo_user.h"
+#include "demo_mode.h"
 
-void DemoUser::ShowDemoMode() {
+void DemoMode::ShowDemoMode() {
   demo_messenger_.ShowMessage(DemoMessanger::MessageType::kWelcome);
   demo_messenger_.ShowDemoMenu();
   GetUserDecision();
@@ -21,11 +21,11 @@ void DemoUser::ShowDemoMode() {
   }
 }
 
-bool DemoUser::UserWantToRegistrate() const { return user_want_to_registrate_; }
+bool DemoMode::UserWantToRegistrate() const { return user_want_to_registrate_; }
 
-void DemoUser::UserWantToExitProgram() { SayGoodBye(); }
+void DemoMode::UserWantToExitProgram() { SayGoodBye(); }
 
-void DemoUser::GetUserDecision() {
+void DemoMode::GetUserDecision() {
   int user_choice = user_input_.GetValueFromUser();
   if (user_choice == kAccountSection) {
     StartSection(DemoMessanger::kAccountInfo);
@@ -47,14 +47,14 @@ void DemoUser::GetUserDecision() {
   }
 }
 
-void DemoUser::StartSection(DemoMessanger::MessageType message_type) {
+void DemoMode::StartSection(DemoMessanger::MessageType message_type) {
   demo_messenger_.ShowMessage(message_type);
   GetExitResult();
 }
 
-void DemoUser::StartRegistration() { ForwardToRegistration(); }
+void DemoMode::StartRegistration() { ForwardToRegistration(); }
 
-void DemoUser::GetExitResult() {
+void DemoMode::GetExitResult() {
   demo_messenger_.SuggestExit();
   for (;;) {
     int result_of_exit = 0;
@@ -72,9 +72,9 @@ void DemoUser::GetExitResult() {
   }
 }
 
-void DemoUser::ForwardToRegistration() {
+void DemoMode::ForwardToRegistration() {
   user_want_to_registrate_ = true;
   user_want_to_exit_ = user_want_to_registrate_;
 }
 
-void DemoUser::SayGoodBye() { user_want_to_exit_ = true; }
+void DemoMode::SayGoodBye() { user_want_to_exit_ = true; }
