@@ -20,12 +20,14 @@ HEADERS += \
     $$PWD/atm_operations/*.h \
     $$PWD/user_data/*.h \
     $$PWD/input/*.h \
+    atm_operations/operation_selector.h
 
 SOURCES += \
     $$PWD/application/*.cpp \
     $$PWD/atm_operations/*.cpp \
     $$PWD/user_data/*.cpp \
     $$PWD/input/*.cpp \
+    atm_operations/operation_selector.cpp
 
 
 
