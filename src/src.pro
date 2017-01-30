@@ -11,22 +11,22 @@ INCLUDEPATH += \
     ../lib_console_output/messengers \
     ../lib_console_output/output_configuration \
     ../src/application \
-    ../src/core \
+    ../src/atm_operations \
     ../src/user_data \
     ../src/input \
 
 HEADERS += \
     $$PWD/application/*.h \
-    $$PWD/core/*.h \
+    $$PWD/atm_operations/*.h \
     $$PWD/user_data/*.h \
     $$PWD/input/*.h \
 
-
 SOURCES += \
     $$PWD/application/*.cpp \
-    $$PWD/core/*.cpp \
+    $$PWD/atm_operations/*.cpp \
     $$PWD/user_data/*.cpp \
     $$PWD/input/*.cpp \
+
 
 
 LIBS += -L../lib_console_output -llib_console_output
