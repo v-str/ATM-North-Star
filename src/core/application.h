@@ -21,7 +21,7 @@ class Application {
  private:
   enum UserDecision { kMainMenu = 1, kExit };
 
-  enum Program {
+  enum ProgramAction {
     kDemonstration = 1,
     kRegistration,
   };
