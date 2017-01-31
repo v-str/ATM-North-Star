@@ -1,18 +1,20 @@
 #include "app_manager.h"
 
-#include <iostream>
+int AppManager::choice_ = 0;
 
 void AppManager::SuggestAppMode() {
   for (;;) {
     WriteWelcome();
-    int choice = user_input_.GetValueFromUser();
-    if (choice == 1 || choice == 2) {
+    choice_ = user_input_.GetValueFromUser();
+    if (choice_ == 1 || choice_ == 2) {
       break;
     }
   }
 
   console_editor_.ClearScreen();
 }
+
+int AppManager::GetMode() { return choice_; }
 
 void AppManager::WriteWelcome() {
   console_editor_.ClearScreen();

@@ -1,7 +1,7 @@
 #include "application.h"
 #include "output_setup.h"
 
-void Application::RunProgram(ProgramMode mode) {
+void Application::RunProgram(int mode) {
   if (mode == kConsoleMode) {
     OutputSetup::SetupTwoStreamsForOutput();
   }

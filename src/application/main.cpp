@@ -2,9 +2,8 @@
 #include "application.h"
 
 int main() {
-  AppManager manager;
-  manager.SuggestAppMode();
+  AppManager::SuggestAppMode();
 
   Application app;
-  app.RunProgram(Application::kConsoleMode);
+  app.RunProgram(AppManager::GetMode());
 }
