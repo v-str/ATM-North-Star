@@ -1,4 +1,5 @@
 #include "app_manager.h"
+#include "output_setup.h"
 
 int AppManager::choice_ = 0;
 
@@ -6,7 +7,10 @@ void AppManager::SuggestMode() {
   for (;;) {
     WriteWelcome();
     choice_ = user_input_.GetValueFromUser();
-    if (choice_ == 1 || choice_ == 2) {
+    if (choice_ == 1) {
+      OutputSetup::SetupTwoStreamsForOutput();
+      break;
+    } else if (choice_ == 2) {
       break;
     }
   }
