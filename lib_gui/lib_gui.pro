@@ -1,0 +1,10 @@
+TEMPLATE = lib
+CONFIG = GUI
+
+INCLUDEPATH += \
+
+
+HEADERS += \
+
+
+SOURCES += \

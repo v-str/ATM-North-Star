@@ -4,7 +4,8 @@
 void Application::RunProgram(int mode) {
   if (mode == kConsoleMode) {
     OutputSetup::SetupTwoStreamsForOutput();
+    launcher_.RunInitialScreen();
+  } else if (mode == kGraphicalMode) {
+    // Temporary unavailable.
   }
-
-  launcher_.RunInitialScreen();
 }

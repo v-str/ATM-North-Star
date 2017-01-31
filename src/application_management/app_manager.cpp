@@ -2,7 +2,7 @@
 
 int AppManager::choice_ = 0;
 
-void AppManager::SuggestAppMode() {
+void AppManager::SuggestMode() {
   for (;;) {
     WriteWelcome();
     choice_ = user_input_.GetValueFromUser();
@@ -20,7 +20,7 @@ void AppManager::WriteWelcome() {
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol("version 1.0.1");
   console_editor_.AddEmptyLineNTimes(4);
-  console_editor_.WriteTextWithDelayPerSymbol("Welcome to program ATM");
+  console_editor_.WriteTextWithDelayPerSymbol("Welcome to ATM program");
   console_editor_.AddEmptyLineNTimes(3);
   console_editor_.WriteTextWithDelayPerSymbol(
       "Please, choose program mode:\n"

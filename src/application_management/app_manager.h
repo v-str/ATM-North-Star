@@ -6,7 +6,7 @@
 
 class AppManager {
  public:
-  static void SuggestAppMode();
+  static void SuggestMode();
 
   static int GetMode();
 

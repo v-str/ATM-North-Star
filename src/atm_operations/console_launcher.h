@@ -1,5 +1,5 @@
-#ifndef PROGRAM_LAUNCHER_H
-#define PROGRAM_LAUNCHER_H
+#ifndef CONSOLE_LAUNCHER_H
+#define CONSOLE_LAUNCHER_H
 
 #include "atm_user.h"
 #include "demo_mode.h"
@@ -14,7 +14,7 @@
 #include "user_statement.h"
 #include "withdrawal.h"
 
-class ProgramLauncher {
+class ConsoleLauncher {
  public:
   void RunInitialScreen();
 
@@ -70,4 +70,4 @@ class ProgramLauncher {
   bool user_want_to_exit_ = true;
 };
 
-#endif  // PROGRAM_LAUNCHER_H
+#endif  // CONSOLE_LAUNCHER_H

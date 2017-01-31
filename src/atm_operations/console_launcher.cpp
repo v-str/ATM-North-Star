@@ -1,13 +1,13 @@
-#include "program_launcher.h"
+#include "console_launcher.h"
 
-void ProgramLauncher::RunInitialScreen() {
+void ConsoleLauncher::RunInitialScreen() {
   initial_messenger_.DisplayInitialScreen();
   size_t user_choice = user_input_.GetValueFromUser();
 
   RunInitialProgamMenu(user_choice);
 }
 
-void ProgramLauncher::RunInitialProgamMenu(const size_t user_choice) {
+void ConsoleLauncher::RunInitialProgamMenu(const size_t user_choice) {
   RunInitialMenuOperation(user_choice);
 
   if (IsCorrectRegistration()) {
@@ -17,7 +17,7 @@ void ProgramLauncher::RunInitialProgamMenu(const size_t user_choice) {
   EndProgram();
 }
 
-void ProgramLauncher::RunInitialMenuOperation(const size_t user_choice) {
+void ConsoleLauncher::RunInitialMenuOperation(const size_t user_choice) {
   if (user_choice == kDemo) {
     RunDemoMode();
   } else if (user_choice == kRegistration) {
@@ -27,25 +27,25 @@ void ProgramLauncher::RunInitialMenuOperation(const size_t user_choice) {
   }
 }
 
-void ProgramLauncher::RunDemoMode() {
+void ConsoleLauncher::RunDemoMode() {
   demo_mode_.ShowDemoMode();
   if (demo_mode_.UserWantToRegistrate()) {
     RegistrateUser();
   }
 }
 
-void ProgramLauncher::RegistrateUser() {
+void ConsoleLauncher::RegistrateUser() {
   registrator_.RegisterUser(atm_user_profile_);
 }
 
-void ProgramLauncher::RunMainProgramMenu() {
+void ConsoleLauncher::RunMainProgramMenu() {
   do {
     user_messenger_.ShowMainMenu();
     ExecuteATMOperation(user_input_.GetValueFromUser());
   } while (!user_want_to_exit_);
 }
 
-void ProgramLauncher::ExecuteATMOperation(size_t user_choice) {
+void ConsoleLauncher::ExecuteATMOperation(size_t user_choice) {
   if (user_choice == kAccount) {
     RunAccountInfo();
   } else if (user_choice == kRefill) {
@@ -65,32 +65,32 @@ void ProgramLauncher::ExecuteATMOperation(size_t user_choice) {
   }
 }
 
-void ProgramLauncher::RunAccountInfo() {
+void ConsoleLauncher::RunAccountInfo() {
   account_informator_.DisplayAccountInformation(&atm_user_profile_);
   GetExitResult();
 }
 
-void ProgramLauncher::RunRefill() {
+void ConsoleLauncher::RunRefill() {
   refill_.StartRefillOperation(&atm_user_profile_);
   GetExitResult();
 }
 
-void ProgramLauncher::RunCredit() {
+void ConsoleLauncher::RunCredit() {
   user_credit_.StartCreditOperation(&atm_user_profile_);
   GetExitResult();
 }
 
-void ProgramLauncher::RunWithdraw() {
+void ConsoleLauncher::RunWithdraw() {
   withdrawal_.WithdrawCashFromUser(&atm_user_profile_);
   GetExitResult();
 }
 
-void ProgramLauncher::RunStatement() {
+void ConsoleLauncher::RunStatement() {
   statement_.ShowStatement(&atm_user_profile_);
   GetExitResult();
 }
 
-void ProgramLauncher::GetExitResult() {
+void ConsoleLauncher::GetExitResult() {
   user_messenger_.SuggestExit();
   int result_of_exit = 0;
   for (;;) {
@@ -108,12 +108,12 @@ void ProgramLauncher::GetExitResult() {
   }
 }
 
-bool ProgramLauncher::IsCorrectRegistration() {
+bool ConsoleLauncher::IsCorrectRegistration() {
   return registrator_.IsCorrectRegistration();
 }
 
-void ProgramLauncher::EndProgram() { user_messenger_.WishAGoodDay(); }
+void ConsoleLauncher::EndProgram() { user_messenger_.WishAGoodDay(); }
 
-void ProgramLauncher::ShowIncorrectRegistration() const {
+void ConsoleLauncher::ShowIncorrectRegistration() const {
   user_messenger_.ShowIncorrectRegisterData();
 }

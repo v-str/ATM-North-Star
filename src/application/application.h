@@ -1,7 +1,7 @@
 #ifndef CONSOLE_APPLICATION_H
 #define CONSOLE_APPLICATION_H
 
-#include "program_launcher.h"
+#include "console_launcher.h"
 
 class Application {
  public:
@@ -10,7 +10,7 @@ class Application {
   void RunProgram(int mode);
 
  private:
-  ProgramLauncher launcher_;
+  ConsoleLauncher launcher_;
 };
 
 #endif  // CONSOLE_APPLICATION_H

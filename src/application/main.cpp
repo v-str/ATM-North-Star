@@ -2,7 +2,7 @@
 #include "application.h"
 
 int main() {
-  AppManager::SuggestAppMode();
+  AppManager::SuggestMode();
 
   Application app;
   app.RunProgram(AppManager::GetMode());
