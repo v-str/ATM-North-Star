@@ -1,5 +1,5 @@
-#ifndef CONSOLE_APPLICATION_H
-#define CONSOLE_APPLICATION_H
+#ifndef APPLICATION_H
+#define APPLICATION_H
 
 #include "console_launcher.h"
 
@@ -13,4 +13,4 @@ class Application {
   ConsoleLauncher launcher_;
 };
 
-#endif  // CONSOLE_APPLICATION_H
+#endif  // APPLICATION_H
