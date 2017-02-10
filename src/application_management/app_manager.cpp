@@ -21,7 +21,6 @@ void AppManager::SuggestMode() {
 int AppManager::GetMode() { return choice_; }
 
 void AppManager::WriteWelcome() {
-  console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol("version 1.0.1");
   console_editor_.AddEmptyLineNTimes(4);
   console_editor_.WriteTextWithDelayPerSymbol("Welcome to ATM program");

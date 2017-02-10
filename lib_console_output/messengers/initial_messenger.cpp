@@ -32,7 +32,6 @@ void InitialMessenger::DisplayLogotype() {
       "      28 Greene St, New York, NY 10012\n");
   console_editor_.WriteTextWithDelayPerSymbol("\t      press \"Enter\"\n");
   console_editor_.IgnoreCinLine();
-  console_editor_.Pause();
   console_editor_.ClearScreen();
 }
 
