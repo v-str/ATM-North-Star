@@ -12,7 +12,7 @@ void ConsoleEditor::IgnoreCinLine() {
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
-void ConsoleEditor::Pause() { system("pause"); }
+void ConsoleEditor::Pause() { std::cin.get(); }
 
 void ConsoleEditor::ClearScreen() { system("clear"); }
 
