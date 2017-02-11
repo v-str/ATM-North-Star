@@ -14,7 +14,6 @@ class ConsoleEditor {
 
   static void Sleep(int latency_ms = 15);
   static void IgnoreCinLine();
-  static void Pause();
   static void WriteTextWithDelayPerSymbol(const string &text, int delay = 5);
   static void WriteSymbolsNTimes(std::string symbol, int n);
   static void AddEmptyLineNTimes(int amount_of_empty_lines);

@@ -48,9 +48,9 @@ class ConsoleLauncher {
 
   void GetExitResult();
 
-  bool IsCorrectRegistration();
+  bool IsCorrectRegistration() const;
 
-  void EndProgram();
+  void EndProgram() const;
 
   void ShowIncorrectRegistration() const;
 

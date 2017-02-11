@@ -92,8 +92,8 @@ void ConsoleLauncher::RunStatement() {
 
 void ConsoleLauncher::GetExitResult() {
   user_messenger_.SuggestExit();
-  int result_of_exit = 0;
   for (;;) {
+    int result_of_exit = 0;
     result_of_exit = user_input_.GetValueFromUser();
 
     if (result_of_exit == kMainMenu) {
@@ -108,11 +108,11 @@ void ConsoleLauncher::GetExitResult() {
   }
 }
 
-bool ConsoleLauncher::IsCorrectRegistration() {
+bool ConsoleLauncher::IsCorrectRegistration() const {
   return registrator_.IsCorrectRegistration();
 }
 
-void ConsoleLauncher::EndProgram() { user_messenger_.WishAGoodDay(); }
+void ConsoleLauncher::EndProgram() const { user_messenger_.WishAGoodDay(); }
 
 void ConsoleLauncher::ShowIncorrectRegistration() const {
   user_messenger_.ShowIncorrectRegisterData();
