@@ -7,14 +7,19 @@ QMAKE_CXXFLAGS += -std=c++11
 CONFIG -= app_bundle \
     qt
 
+DEPENDPATH += \
+    ../lib_console_output
+
+LIBS += -L../lib_console_output -llib_console_output
+
 INCLUDEPATH += \
     ../lib_console_output/messengers \
     ../lib_console_output/output_configuration \
-    ../src/application \
-    ../src/atm_operations \
-    ../src/user_data \
-    ../src/input \
-    ../src/application_management \
+    $$PWD/application \
+    $$PWD/atm_operations \
+    $$PWD/user_data \
+    $$PWD/input \
+    $$PWD/application_management \
 
 HEADERS += \
     $$PWD/application/*.h \
@@ -30,6 +35,5 @@ SOURCES += \
     $$PWD/input/*.cpp \
     $$PWD/application_management/*.cpp \
 
-LIBS += -L../lib_console_output -llib_console_output
 
 

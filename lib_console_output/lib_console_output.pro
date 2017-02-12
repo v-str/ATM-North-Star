@@ -2,8 +2,8 @@ TEMPLATE = lib
 CONFIG = staticlib
 
 INCLUDEPATH += \
-    ../lib_console_output/messengers \
-    ../lib_console_output/output_configuration \
+    $$PWD/messengers \
+    $$PWD/output_configuration \
 
 HEADERS += \
     $$PWD/messengers/*.h \
