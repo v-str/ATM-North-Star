@@ -1,4 +1,5 @@
 TEMPLATE = lib
+TARGET = lib_gui
 CONFIG = GUI
 
 INCLUDEPATH += \

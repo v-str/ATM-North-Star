@@ -1,4 +1,5 @@
 TEMPLATE = lib
+TARGET = lib_console_output
 CONFIG = staticlib
 
 INCLUDEPATH += \

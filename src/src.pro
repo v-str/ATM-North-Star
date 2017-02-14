@@ -1,16 +1,11 @@
 TEMPLATE = app
+TARGET = app
 CONFIG += console c++11
-CONFIG += c++11
 
 QMAKE_CXXFLAGS += -std=c++11
 
 CONFIG -= app_bundle \
     qt
-
-DEPENDPATH += \
-    ../lib_console_output
-
-LIBS += -L../lib_console_output -llib_console_output
 
 INCLUDEPATH += \
     ../lib_console_output/messengers \
@@ -35,5 +30,5 @@ SOURCES += \
     $$PWD/input/*.cpp \
     $$PWD/application_management/*.cpp \
 
-
+LIBS += -L../lib_console_output/ -llib_console_output
 
