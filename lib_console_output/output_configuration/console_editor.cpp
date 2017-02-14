@@ -14,6 +14,7 @@ void ConsoleEditor::IgnoreCinLine() {
 
 void ConsoleEditor::ClearScreen() {
   if (system("clear")) {
+    return;
   }
 }
 void ConsoleEditor::WriteTextWithDelayPerSymbol(const string &text, int delay) {
