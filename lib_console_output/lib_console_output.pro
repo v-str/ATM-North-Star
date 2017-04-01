@@ -2,6 +2,11 @@ TEMPLATE = lib
 TARGET = lib_console_output
 CONFIG = staticlib
 
+QMAKE_CXXFLAGS += -std=c++11
+
+QMAKE_CXX = ccache g++
+
+
 INCLUDEPATH += \
     $$PWD/messengers \
     $$PWD/output_configuration \

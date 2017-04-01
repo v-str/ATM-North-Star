@@ -12,14 +12,10 @@ void ConsoleEditor::IgnoreCinLine() {
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
-void ConsoleEditor::ClearScreen() {
-  if (system("clear")) {
-    return;
-  } else {
-    WriteSymbolsNTimes("\n", 20);
-  }
-}
-void ConsoleEditor::WriteTextWithDelayPerSymbol(const string &text, int delay) {
+void ConsoleEditor::ClearScreen() { system("clear"); }
+
+void ConsoleEditor::WriteTextWithDelayPerSymbol(const std::string &text,
+                                                int delay) {
   for (const auto symbol : text) {
     std::string temp(1, symbol);
 
@@ -41,11 +37,11 @@ void ConsoleEditor::AddEmptyLineNTimes(int amount_of_empty_lines) {
   }
 }
 
-void ConsoleEditor::WriteText(const ConsoleEditor::string &text) {
+void ConsoleEditor::WriteText(const std::string &text) {
   TextWriter::Write(text);
 }
 
-void ConsoleEditor::WriteTextWithInterrupt(const ConsoleEditor::string &text,
+void ConsoleEditor::WriteTextWithInterrupt(const std::string &text,
                                            int interrupt) {
   WriteTextWithDelayPerSymbol(text);
   Sleep(interrupt);

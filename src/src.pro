@@ -4,6 +4,8 @@ CONFIG += console c++11
 
 QMAKE_CXXFLAGS += -std=c++11
 
+QMAKE_CXX = ccache g++
+
 CONFIG -= app_bundle \
     qt
 
