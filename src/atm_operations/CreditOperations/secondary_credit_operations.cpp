@@ -1,35 +1,20 @@
-#include "secondary_credit_operations.h"
+﻿#include "secondary_credit_operations.h"
 
 int SecondaryCreditOperations::GetAmountCreditByMode(
     const int maximal_sum_of_credit, const int credit_mode) const {
   int sum_of_credit = 0;
 
-  if (credit_mode == kIndividualCredit) {
-    sum_of_credit = GetSumOfCreditFromUser(maximal_sum_of_credit);
+  if (credit_mode == kUserCredit) {
+    return sum_of_credit = GetCreditSumFromUser(maximal_sum_of_credit);
   } else {
-    sum_of_credit = maximal_sum_of_credit;
+    return sum_of_credit = maximal_sum_of_credit;
   }
-
-  return sum_of_credit;
-}
-
-int SecondaryCreditOperations::GetSumOfCreditFromUser(
-    const int maximal_sum_of_credit) const {
-  int user_sum_of_credit = 0;
-
-  do {
-    notice_messenger_.ShowSumCreditInfo();
-    user_sum_of_credit = user_input_.GetValueFromUser();
-  } while (user_sum_of_credit > maximal_sum_of_credit ||
-           user_sum_of_credit == kInvalidChoice || user_sum_of_credit < 0);
-
-  return user_sum_of_credit;
 }
 
 int SecondaryCreditOperations::GetAmountCreditMonths() const {
   int months = 0;
   do {
-    credit_messenger_.ShowAmountOfMonthToPayACredit();
+    credit_messenger_.ShowMonthCreditInfo();
     months = user_input_.GetValueFromUser();
   } while (!IsMonthCorrect(months));
   return months;
@@ -46,4 +31,17 @@ double SecondaryCreditOperations::CalculateMonthlyPayment(
 
 bool SecondaryCreditOperations::IsMonthCorrect(int months) {
   return months > 0 && months < kMaximalCreditTerm;
+}
+
+int SecondaryCreditOperations::GetCreditSumFromUser(
+    int maximal_sum_of_credit) const {
+  int user_credit_sum = 0;
+
+  do {
+    credit_messenger_.ShowSumCreditInfo();
+    user_credit_sum = user_input_.GetValueFromUser();
+  } while (user_credit_sum > maximal_sum_of_credit ||
+           user_credit_sum == kInvalidValue || user_credit_sum < 0);
+
+  return user_credit_sum;
 }

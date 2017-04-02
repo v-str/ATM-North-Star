@@ -1,7 +1,7 @@
 ﻿#include "credit_messenger.h"
 #include "text_writer.h"
 
-void CreditMessanger::RefuseFromCredit() const {
+void CreditMessanger::RefuseACredit() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n #Sorry, but you have already a "
       "loan in our bank.\n"
@@ -132,12 +132,20 @@ void CreditMessanger::ShowTableOfCredit(double pay_per_month,
                             " $\n\n");
 }
 
-void CreditMessanger::ShowAmountOfMonthToPayACredit() const {
+void CreditMessanger::ShowSumCreditInfo() const {
+  console_editor_.WriteTextWithDelayPerSymbol(
+      "\nThe entered sum should not\n"
+      "exceed the allowed credit.\n\n"
+      "Enter the desired sum of credit: $");
+}
+
+void CreditMessanger::ShowMonthCreditInfo() const {
   console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteTextWithDelayPerSymbol(
-      "\nNumber of credit month can't be more than 60.\n");
+      "\nNumber of credit month can't be more than 60.\n\n");
   console_editor_.WriteTextWithDelayPerSymbol(
-      "Please enter the number of months\nto repay the credit: ");
+      "Please, enter the number of\n"
+      "months to repay the credit: ");
 }
 
 void CreditMessanger::ShowResultOfUserChoice(int decision_of_user) const {

@@ -1,4 +1,4 @@
-#include "notice_messenger.h"
+﻿#include "notice_messenger.h"
 
 void NoticeMessenger::ShowAcceptableMessageFrame() const {
   console_editor_.ClearScreen();
@@ -62,7 +62,7 @@ void NoticeMessenger::ShowError() const {
 
 void NoticeMessenger::ShowSumCreditInfo() const {
   console_editor_.WriteTextWithDelayPerSymbol(
-      "\nThe entered sum should not "
+      "\nThe entered sum should not\n"
       "exceed the allowed credit.\n\n"
-      "Enter the appropriate sum of credit: $");
+      "Enter the desired sum of credit: $");
 }

@@ -1,5 +1,5 @@
-﻿#ifndef ATMUSER_H
-#define ATMUSER_H
+﻿#ifndef ATM_USER_H
+#define ATM_USER_H
 
 #include <memory>
 
@@ -39,4 +39,4 @@ class AtmUser {
   std::unique_ptr<UserIdentifier> user_identifier_;
 };
 
-#endif  // ATMUSER_H
+#endif  // ATM_USER_H

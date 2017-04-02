@@ -1,4 +1,4 @@
-#ifndef CREDIT_MESSANGER_H
+﻿#ifndef CREDIT_MESSANGER_H
 #define CREDIT_MESSANGER_H
 
 #include <string>
@@ -9,12 +9,12 @@ class CreditMessanger {
   using string = std::string;
 
  public:
-  void RefuseFromCredit() const;
+  void RefuseACredit() const;
   void ShowNotifyAboutCredit() const;
   void ShowCreditConditions(int maximal_sum_of_credit) const;
 
   void SuggestToConfirmACredit() const;
-  void ShowCreditTitle(const string &user_login, int sum_of_credit) const;
+  void ShowCreditTitle(const string& user_login, int sum_of_credit) const;
 
   void ShowEnrollACredit() const;
   void ShowRefuseACredit(int sum_of_cash) const;
@@ -23,7 +23,8 @@ class CreditMessanger {
 
   void ShowTableOfCredit(double pay_per_month, double amount_of_months) const;
 
-  void ShowAmountOfMonthToPayACredit() const;
+  void ShowSumCreditInfo() const;
+  void ShowMonthCreditInfo() const;
 
   void ShowResultOfUserChoice(int decision_of_user) const;
 

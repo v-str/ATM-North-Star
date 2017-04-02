@@ -3,7 +3,7 @@
 void UserCredit::StartCreditOperation(AtmUser* atm_user) {
   console_editor_.ClearScreen();
   if (AlreadyHasACredit(atm_user->GetCredit())) {
-    RefuseFromCredit();
+    RefuseACredit();
     credit_messenger_.ShowIncorrectCashInformation(atm_user->GetCash());
   } else {
     string user_login = atm_user->GetLogin();
@@ -15,9 +15,7 @@ bool UserCredit::AlreadyHasACredit(int sum_of_credit) {
   return sum_of_credit > kNull;
 }
 
-void UserCredit::RefuseFromCredit() const {
-  credit_messenger_.RefuseFromCredit();
-}
+void UserCredit::RefuseACredit() const { credit_messenger_.RefuseACredit(); }
 
 void UserCredit::SuggestACredit(AtmUser* atm_user,
                                 const string& user_login) const {
@@ -46,12 +44,12 @@ void UserCredit::GiveACredit(AtmUser* atm_user,
   credit_messenger_.ShowCreditConditions(maximal_sum_of_credit);
 
   int choice = user_input_.GetValueFromUser();
-  if (choice == kMaxCredit) {
-    credit_.GiveCreditByMode(atm_user, user_login, maximal_sum_of_credit,
-                             kMaximalCredit);
-  } else if (choice == kUserCredit) {
-    credit_.GiveCreditByMode(atm_user, user_login, maximal_sum_of_credit,
-                             kConsumerCredit);
+  if (choice == kMaxCreditSum) {
+    credit_.GiveCredit(atm_user, user_login, maximal_sum_of_credit,
+                       kMaximalCredit);
+  } else if (choice == kUserCreditSum) {
+    credit_.GiveCredit(atm_user, user_login, maximal_sum_of_credit,
+                       kConsumerCredit);
 
   } else {
     notice_messenger_.ShowError();
