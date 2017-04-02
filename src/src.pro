@@ -16,6 +16,7 @@ INCLUDEPATH += \
     ../lib_console_output/output_configuration \
     $$PWD/application \
     $$PWD/atm_operations \
+    $$PWD/atm_operations/CreditOperations \
     $$PWD/user_data \
     $$PWD/input \
     $$PWD/application_management \
@@ -23,6 +24,7 @@ INCLUDEPATH += \
 HEADERS += \
     $$PWD/application/*.h \
     $$PWD/atm_operations/*.h \
+    $$PWD/atm_operations/CreditOperations/*.h \
     $$PWD/user_data/*.h \
     $$PWD/input/*.h \
     $$PWD/application_management/*.h \
@@ -30,6 +32,7 @@ HEADERS += \
 SOURCES += \
     $$PWD/application/*.cpp \
     $$PWD/atm_operations/*.cpp \
+    $$PWD/atm_operations/CreditOperations/*.cpp \
     $$PWD/user_data/*.cpp \
     $$PWD/input/*.cpp \
     $$PWD/application_management/*.cpp \
