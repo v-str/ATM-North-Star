@@ -3,7 +3,7 @@
 void UserCredit::StartCreditOperation(AtmUser* atm_user) {
   console_editor_.ClearScreen();
   if (AlreadyHasACredit(atm_user->GetCredit())) {
-    RefuseToGrantAnotherCredit();
+    RefuseFromCredit();
     credit_messenger_.ShowIncorrectCashInformation(atm_user->GetCash());
   } else {
     string user_login = atm_user->GetLogin();
@@ -15,8 +15,8 @@ bool UserCredit::AlreadyHasACredit(int sum_of_credit) {
   return sum_of_credit > kNull;
 }
 
-void UserCredit::RefuseToGrantAnotherCredit() const {
-  credit_messenger_.RefuseToGrantAnotherCredit();
+void UserCredit::RefuseFromCredit() const {
+  credit_messenger_.RefuseFromCredit();
 }
 
 void UserCredit::SuggestACredit(AtmUser* atm_user,

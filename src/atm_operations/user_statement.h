@@ -1,4 +1,4 @@
-#ifndef USER_STATEMENT_H
+﻿#ifndef USER_STATEMENT_H
 #define USER_STATEMENT_H
 
 #include <string>
@@ -12,7 +12,7 @@ class UserStatement {
   using string = std::string;
 
  public:
-  void ShowStatement(AtmUser *atm_user);
+  void ShowStatement(AtmUser* atm_user);
 
  private:
   static const int kNull = 0;
@@ -21,7 +21,6 @@ class UserStatement {
   static string GetSpaces(int convertation_cash_to_space);
   static int NumberOfDigits(int value);
 
-  UserInput user_input_;
   StatementMessenger statement_messenger_;
   ConsoleEditor console_editor_;
 };

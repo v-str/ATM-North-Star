@@ -1,7 +1,7 @@
-#include "credit_messenger.h"
+﻿#include "credit_messenger.h"
 #include "text_writer.h"
 
-void CreditMessanger::RefuseToGrantAnotherCredit() const {
+void CreditMessanger::RefuseFromCredit() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n #Sorry, but you have already a "
       "loan in our bank.\n"
@@ -69,7 +69,7 @@ void CreditMessanger::SuggestToConfirmACredit() const {
       "\tEnter: ");
 }
 
-void CreditMessanger::ShowCreditTitle(const CreditMessanger::string &user_login,
+void CreditMessanger::ShowCreditTitle(const CreditMessanger::string& user_login,
                                       int sum_of_credit) const {
   console_editor_.AddEmptyLineNTimes(2);
   console_editor_.ClearScreen();
@@ -150,9 +150,10 @@ void CreditMessanger::ShowResultOfUserChoice(int decision_of_user) const {
 
 void CreditMessanger::ShowIncorrectCashInformation(int cash) const {
   console_editor_.WriteText("\n");
-  console_editor_.WriteSymbolsNTimes("-", 25);
+  console_editor_.WriteSymbolsNTimes("-", 65);
+  console_editor_.WriteText("\n");
   console_editor_.WriteText(" Balance: $" + std::to_string(cash) + " ");
-
-  console_editor_.WriteSymbolsNTimes("-", 25);
+  console_editor_.WriteText("\n");
+  console_editor_.WriteSymbolsNTimes("-", 65);
   console_editor_.WriteText("\n");
 }

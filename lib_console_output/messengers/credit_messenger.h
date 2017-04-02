@@ -9,7 +9,7 @@ class CreditMessanger {
   using string = std::string;
 
  public:
-  void RefuseToGrantAnotherCredit() const;
+  void RefuseFromCredit() const;
   void ShowNotifyAboutCredit() const;
   void ShowCreditConditions(int maximal_sum_of_credit) const;
 

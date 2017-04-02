@@ -8,7 +8,8 @@ CONFIG -= app_bundle \
     qt
 
 DEPENDPATH += \
-    ../lib_console_output
+    ../lib_console_output/messengers \
+    ../lib_console_output/output_configuration
 
 INCLUDEPATH += \
     ../lib_console_output/messengers \

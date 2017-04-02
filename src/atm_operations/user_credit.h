@@ -27,7 +27,7 @@ class UserCredit {
   static const int kConsumerCredit = 1;
 
   static bool AlreadyHasACredit(int sum_of_credit);
-  void RefuseToGrantAnotherCredit() const;
+  void RefuseFromCredit() const;
   void RefuseACredit(int sum_of_cash) const;
 
   void SuggestACredit(AtmUser *atm_user, const string &user_login) const;
