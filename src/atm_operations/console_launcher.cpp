@@ -39,11 +39,11 @@ void ConsoleLauncher::RegistrateUser() { registrator_.RegisterUser(user_); }
 void ConsoleLauncher::MainProgramMenu() {
   do {
     user_messenger_.ShowMainMenu();
-    ExecuteATMOperation(user_input_.GetValueFromUser());
+    ATMOperation(user_input_.GetValueFromUser());
   } while (!user_want_to_exit_);
 }
 
-void ConsoleLauncher::ExecuteATMOperation(int user_choice) {
+void ConsoleLauncher::ATMOperation(int user_choice) {
   if (user_choice == kAccount) {
     AccountInfoMenu();
   } else if (user_choice == kRefill) {

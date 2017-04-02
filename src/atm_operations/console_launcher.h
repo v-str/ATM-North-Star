@@ -38,7 +38,7 @@ class ConsoleLauncher {
   void RegistrateUser();
 
   void MainProgramMenu();
-  void ExecuteATMOperation(int user_choice);
+  void ATMOperation(int user_choice);
 
   void AccountInfoMenu();
   void RefillMenu();
@@ -55,17 +55,21 @@ class ConsoleLauncher {
   void ShowIncorrectRegistration() const;
 
   InitialMessenger initial_messenger_;
-  UserInput user_input_;
+
   DemoMode demo_mode_;
+
   AtmUser user_;
-  UserRegistrator registrator_;
   UserMessenger user_messenger_;
+
+  UserRegistrator registrator_;
 
   AccountInformator account_informator_;
   Refill refill_;
   UserCredit user_credit_;
   Withdrawal withdrawal_;
   UserStatement statement_;
+
+  UserInput user_input_;
 
   bool user_want_to_exit_ = true;
 };
