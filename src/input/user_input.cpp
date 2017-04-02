@@ -1,4 +1,4 @@
-#include "user_input.h"
+﻿#include "user_input.h"
 
 #include <iostream>
 
@@ -6,17 +6,17 @@ int UserInput::GetValueFromUser() {
   return ConvertLineToChoice(GetLineFromUser());
 }
 
-int UserInput::ConvertLineToChoice(const string &line) {
+int UserInput::ConvertLineToChoice(const string& line) {
   if (LineNotEmpty(line)) {
     try {
       return std::stoi(line);
-    } catch (const std::invalid_argument &) {
+    } catch (const std::invalid_argument&) {
     }
   }
   return kInvalidChoice;
 }
 
-bool UserInput::LineNotEmpty(const string &str) {
+bool UserInput::LineNotEmpty(const string& str) {
   for (size_t i = 0; i < str.length(); ++i) {
     if (!isdigit(str[i])) {
       return false;

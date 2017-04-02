@@ -1,4 +1,4 @@
-#ifndef USER_MESSANGER_H
+﻿#ifndef USER_MESSANGER_H
 #define USER_MESSANGER_H
 
 #include "console_editor.h"
@@ -6,7 +6,7 @@
 class UserMessenger {
   using string = std::string;
 
- public:
+public:
   void ShowMainMenu();
 
   void WishAGoodDay() const;
@@ -16,13 +16,14 @@ class UserMessenger {
 
   void SuggestExit() const;
   void ShowIncorrectInput() const;
+  void ShowIncorrectMainMenuInput() const;
 
   void ShowIncorrectRegisterData() const;
 
- private:
+private:
   static const int kFrame = 45;
 
   ConsoleEditor console_editor_;
 };
 
-#endif  // USER_MESSANGER_H
+#endif // USER_MESSANGER_H

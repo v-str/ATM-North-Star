@@ -1,4 +1,4 @@
-#include "console_launcher.h"
+﻿#include "console_launcher.h"
 
 void ConsoleLauncher::RunInitialScreen() {
   initial_messenger_.DisplayInitialScreen();
@@ -60,7 +60,7 @@ void ConsoleLauncher::ExecuteATMOperation(size_t user_choice) {
     user_messenger_.AskToExit();
     GetExitResult();
   } else {
-    user_messenger_.ShowIncorrectInput();
+    user_messenger_.ShowIncorrectMainMenuInput();
     user_want_to_exit_ = false;
   }
 }

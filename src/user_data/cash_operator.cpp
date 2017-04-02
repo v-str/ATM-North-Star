@@ -1,4 +1,4 @@
-#include "cash_operator.h"
+﻿#include "cash_operator.h"
 
 void CashOperator::SetCash(int cash) { cash_ = cash; }
 

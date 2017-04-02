@@ -1,4 +1,4 @@
-#include "user_messenger.h"
+﻿#include "user_messenger.h"
 
 void UserMessenger::ShowMainMenu() {
   console_editor_.AddEmptyLineNTimes(1);
@@ -12,7 +12,8 @@ void UserMessenger::ShowMainMenu() {
       "\t# ----------------------            ------------   #\n"
       "\t# 5. Statement                      6. Exit        #\n"
       "\t#                                                  #\n"
-      "\t####################################################\n\tEnter: ");
+      "\t####################################################\n"
+      "\tEnter: ");
 }
 
 void UserMessenger::AskToExit() const {
@@ -24,12 +25,11 @@ void UserMessenger::AskToExit() const {
 
 void UserMessenger::WishAGoodDay() const {
   console_editor_.AddEmptyLineNTimes(2);
-  console_editor_.WriteText(
-      "\n\t####################\n"
-      "\t#                  #\n"
-      "\t# Have a nice day! #\n"
-      "\t#                  #\n"
-      "\t####################\n\n");
+  console_editor_.WriteText("\n\t####################\n"
+                            "\t#                  #\n"
+                            "\t# Have a nice day! #\n"
+                            "\t#                  #\n"
+                            "\t####################\n\n");
 }
 
 void UserMessenger::ShowMainMenu() const {
@@ -48,20 +48,25 @@ void UserMessenger::ShowMainMenu() const {
 
 void UserMessenger::SuggestExit() const {
   console_editor_.AddEmptyLineNTimes(1);
-  console_editor_.WriteTextWithDelayPerSymbol(
-      "\t# 1. Exit to main page.\n"
-      "\t# 2. Exit program.\n"
-      "\t# Enter: ");
+  console_editor_.WriteTextWithDelayPerSymbol("\t# 1. Exit to main page.\n"
+                                              "\t# 2. Exit program.\n"
+                                              "\t# Enter: ");
 }
 
 void UserMessenger::ShowIncorrectInput() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\t# Incorrect input, please try again", 10);
-  console_editor_.WriteTextWithDelayPerSymbol("...", 500);
+  console_editor_.WriteTextWithDelayPerSymbol("...", 100);
+  console_editor_.WriteTextWithDelayPerSymbol("\n\t# Enter: ");
+}
+
+void UserMessenger::ShowIncorrectMainMenuInput() const {
+  console_editor_.WriteTextWithDelayPerSymbol(
+      "\t# Incorrect input, please try again", 20);
+  console_editor_.Sleep(200);
 }
 
 void UserMessenger::ShowIncorrectRegisterData() const {
-  console_editor_.WriteTextWithDelayPerSymbol(
-      "\n\tIncorrect input, "
-      "\n\treload the program\n");
+  console_editor_.WriteTextWithDelayPerSymbol("\n\tIncorrect input, "
+                                              "\n\treload the program\n");
 }

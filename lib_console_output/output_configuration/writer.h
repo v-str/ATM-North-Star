@@ -1,13 +1,13 @@
-#ifndef WRITER_H
+﻿#ifndef WRITER_H
 #define WRITER_H
 
 #include <string>
 
 class Writer {
- public:
-  virtual void Write(const std::string& text) = 0;
+public:
+  virtual ~Writer() = default;
 
-  virtual ~Writer() {}
+  virtual void Write(const std::string &text) = 0;
 };
 
-#endif  // WRITER_H
+#endif // WRITER_H
