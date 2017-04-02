@@ -1,4 +1,4 @@
-#include "console_editor.h"
+﻿#include "console_editor.h"
 
 #include <chrono>
 #include <iostream>
@@ -12,9 +12,15 @@ void ConsoleEditor::IgnoreCinLine() {
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
-void ConsoleEditor::ClearScreen() { system("clear"); }
+void ConsoleEditor::ClearScreen() {
+  int system_status = system("clear");
 
-void ConsoleEditor::WriteTextWithDelayPerSymbol(const std::string &text,
+  if (system_status == -1) {
+    WriteSymbolsNTimes("\n", 50);
+  }
+}
+
+void ConsoleEditor::WriteTextWithDelayPerSymbol(const std::string& text,
                                                 int delay) {
   for (const auto symbol : text) {
     std::string temp(1, symbol);
@@ -37,11 +43,11 @@ void ConsoleEditor::AddEmptyLineNTimes(int amount_of_empty_lines) {
   }
 }
 
-void ConsoleEditor::WriteText(const std::string &text) {
+void ConsoleEditor::WriteText(const std::string& text) {
   TextWriter::Write(text);
 }
 
-void ConsoleEditor::WriteTextWithInterrupt(const std::string &text,
+void ConsoleEditor::WriteTextWithInterrupt(const std::string& text,
                                            int interrupt) {
   WriteTextWithDelayPerSymbol(text);
   Sleep(interrupt);

@@ -2,18 +2,7 @@ TEMPLATE = app
 TARGET = app
 CONFIG += console c++11
 
-#QMAKE_CXX = ccache g++
-#QMAKE_CXX = ccache clang++
-
-QMAKE_CXXFLAGS += \
-    -Wall \
-    -Wextra \
-    -Wshadow \
-    -Wnon-virtual-dtor \
-    -pedantic \
-    -Weverything \
-    -Wno-c++98-compat \
-    -Wno-c++98-compat-pedantic
+QMAKE_CXX = ccache g++
 
 CONFIG -= app_bundle \
     qt

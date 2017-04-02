@@ -1,4 +1,4 @@
-#ifndef CONSOLE_LAUNCHER_H
+﻿#ifndef CONSOLE_LAUNCHER_H
 #define CONSOLE_LAUNCHER_H
 
 #include "atm_user.h"
@@ -32,13 +32,13 @@ class ConsoleLauncher {
 
   enum ResultOfDecision { kMainMenu = 1, kExit };
 
-  void RunInitialProgamMenu(const size_t user_choice);
-  void RunInitialMenuOperation(const size_t user_choice);
+  void RunInitialProgamMenu(int user_choice);
+  void RunInitialMenuOperation(int user_choice);
   void RunDemoMode();
   void RegistrateUser();
 
   void RunMainProgramMenu();
-  void ExecuteATMOperation(size_t user_choice);
+  void ExecuteATMOperation(int user_choice);
 
   void RunAccountInfo();
   void RunRefill();
@@ -57,8 +57,8 @@ class ConsoleLauncher {
   InitialMessenger initial_messenger_;
   UserInput user_input_;
   DemoMode demo_mode_;
-  UserRegistrator registrator_;
   AtmUser atm_user_profile_;
+  UserRegistrator registrator_;
   UserMessenger user_messenger_;
 
   AccountInformator account_informator_;

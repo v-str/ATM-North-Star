@@ -1,9 +1,9 @@
-#include "text_writer.h"
+﻿#include "text_writer.h"
 #include "console_writer.h"
 
 std::unique_ptr<Writer> TextWriter::writer_ = TextWriter::CreateDefaultWriter();
 
-void TextWriter::Write(const std::string &text) { writer_->Write(text); }
+void TextWriter::Write(const std::string& text) { writer_->Write(text); }
 
 void TextWriter::SetWriter(std::unique_ptr<Writer> writer) {
   writer_ = std::move(writer);

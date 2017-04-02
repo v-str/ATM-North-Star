@@ -4,10 +4,10 @@
 #include <string>
 
 class Writer {
-public:
-  virtual ~Writer() = default;
+ public:
+  virtual ~Writer() = 0;
 
-  virtual void Write(const std::string &text) = 0;
+  virtual void Write(const std::string& text) = 0;
 };
 
-#endif // WRITER_H
+#endif  // WRITER_H

@@ -4,18 +4,7 @@ CONFIG = staticlib
 
 QMAKE_CXXFLAGS += -std=c++11
 
-#QMAKE_CXX = ccache g++
-#QMAKE_CXX = ccache clang++
-
-QMAKE_CXXFLAGS += \
-    -Wall \
-    -Wextra \
-    -Wshadow \
-    -Wnon-virtual-dtor \
-    -pedantic \
-    -Weverything \
-    -Wno-c++98-compat \
-    -Wno-c++98-compat-pedantic
+QMAKE_CXX = ccache g++
 
 INCLUDEPATH += \
     $$PWD/messengers \

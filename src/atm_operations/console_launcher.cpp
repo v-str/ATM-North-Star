@@ -2,12 +2,12 @@
 
 void ConsoleLauncher::RunInitialScreen() {
   initial_messenger_.DisplayInitialScreen();
-  size_t user_choice = user_input_.GetValueFromUser();
+  int user_choice = user_input_.GetValueFromUser();
 
   RunInitialProgamMenu(user_choice);
 }
 
-void ConsoleLauncher::RunInitialProgamMenu(const size_t user_choice) {
+void ConsoleLauncher::RunInitialProgamMenu(int user_choice) {
   RunInitialMenuOperation(user_choice);
 
   if (IsCorrectRegistration()) {
@@ -17,7 +17,7 @@ void ConsoleLauncher::RunInitialProgamMenu(const size_t user_choice) {
   EndProgram();
 }
 
-void ConsoleLauncher::RunInitialMenuOperation(const size_t user_choice) {
+void ConsoleLauncher::RunInitialMenuOperation(int user_choice) {
   if (user_choice == kDemo) {
     RunDemoMode();
   } else if (user_choice == kRegistration) {
@@ -45,7 +45,7 @@ void ConsoleLauncher::RunMainProgramMenu() {
   } while (!user_want_to_exit_);
 }
 
-void ConsoleLauncher::ExecuteATMOperation(size_t user_choice) {
+void ConsoleLauncher::ExecuteATMOperation(int user_choice) {
   if (user_choice == kAccount) {
     RunAccountInfo();
   } else if (user_choice == kRefill) {
