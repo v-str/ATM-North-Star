@@ -4,22 +4,22 @@ void ConsoleLauncher::RunInitialScreen() {
   initial_messenger_.DisplayInitialScreen();
   int user_choice = user_input_.GetValueFromUser();
 
-  RunInitialProgamMenu(user_choice);
+  InitialProgamMenu(user_choice);
 }
 
-void ConsoleLauncher::RunInitialProgamMenu(int user_choice) {
-  RunInitialMenuOperation(user_choice);
+void ConsoleLauncher::InitialProgamMenu(int user_choice) {
+  InitialMenuOperation(user_choice);
 
   if (IsCorrectRegistration()) {
-    RunMainProgramMenu();
+    MainProgramMenu();
   }
 
   EndProgram();
 }
 
-void ConsoleLauncher::RunInitialMenuOperation(int user_choice) {
+void ConsoleLauncher::InitialMenuOperation(int user_choice) {
   if (user_choice == kDemo) {
-    RunDemoMode();
+    DemoMenu();
   } else if (user_choice == kRegistration) {
     RegistrateUser();
   } else {
@@ -27,7 +27,7 @@ void ConsoleLauncher::RunInitialMenuOperation(int user_choice) {
   }
 }
 
-void ConsoleLauncher::RunDemoMode() {
+void ConsoleLauncher::DemoMenu() {
   demo_mode_.ShowDemoMode();
   if (demo_mode_.UserWantToRegistrate()) {
     RegistrateUser();
@@ -36,7 +36,7 @@ void ConsoleLauncher::RunDemoMode() {
 
 void ConsoleLauncher::RegistrateUser() { registrator_.RegisterUser(user_); }
 
-void ConsoleLauncher::RunMainProgramMenu() {
+void ConsoleLauncher::MainProgramMenu() {
   do {
     user_messenger_.ShowMainMenu();
     ExecuteATMOperation(user_input_.GetValueFromUser());
@@ -45,15 +45,15 @@ void ConsoleLauncher::RunMainProgramMenu() {
 
 void ConsoleLauncher::ExecuteATMOperation(int user_choice) {
   if (user_choice == kAccount) {
-    RunAccountInfo();
+    AccountInfoMenu();
   } else if (user_choice == kRefill) {
-    RunRefill();
+    RefillMenu();
   } else if (user_choice == kCredit) {
-    RunCredit();
+    CreditMenu();
   } else if (user_choice == kWidthdrawal) {
-    RunWithdraw();
+    WithdrawMenu();
   } else if (user_choice == kStatement) {
-    RunStatement();
+    StatementMenu();
   } else if (user_choice == kExitProgram) {
     user_messenger_.AskToExit();
     GetExitResult();
@@ -63,27 +63,27 @@ void ConsoleLauncher::ExecuteATMOperation(int user_choice) {
   }
 }
 
-void ConsoleLauncher::RunAccountInfo() {
+void ConsoleLauncher::AccountInfoMenu() {
   account_informator_.DisplayAccountInformation(&user_);
   GetExitResult();
 }
 
-void ConsoleLauncher::RunRefill() {
+void ConsoleLauncher::RefillMenu() {
   refill_.StartRefillOperation(&user_);
   GetExitResult();
 }
 
-void ConsoleLauncher::RunCredit() {
+void ConsoleLauncher::CreditMenu() {
   user_credit_.StartCreditOperation(&user_);
   GetExitResult();
 }
 
-void ConsoleLauncher::RunWithdraw() {
+void ConsoleLauncher::WithdrawMenu() {
   withdrawal_.WithdrawCashFromUser(&user_);
   GetExitResult();
 }
 
-void ConsoleLauncher::RunStatement() {
+void ConsoleLauncher::StatementMenu() {
   statement_.ShowStatement(&user_);
   GetExitResult();
 }

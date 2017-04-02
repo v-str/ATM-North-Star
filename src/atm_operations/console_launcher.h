@@ -32,19 +32,19 @@ class ConsoleLauncher {
 
   enum ResultOfDecision { kMainMenu = 1, kExit };
 
-  void RunInitialProgamMenu(int user_choice);
-  void RunInitialMenuOperation(int user_choice);
-  void RunDemoMode();
+  void InitialProgamMenu(int user_choice);
+  void InitialMenuOperation(int user_choice);
+  void DemoMenu();
   void RegistrateUser();
 
-  void RunMainProgramMenu();
+  void MainProgramMenu();
   void ExecuteATMOperation(int user_choice);
 
-  void RunAccountInfo();
-  void RunRefill();
-  void RunCredit();
-  void RunWithdraw();
-  void RunStatement();
+  void AccountInfoMenu();
+  void RefillMenu();
+  void CreditMenu();
+  void WithdrawMenu();
+  void StatementMenu();
 
   void GetExitResult();
 
