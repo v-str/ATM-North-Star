@@ -4,19 +4,18 @@
 #include <string>
 
 #include "demo_user_messenger.h"
-#include "notice_messenger.h"
 #include "user_input.h"
 
 class DemoMode {
   using string = std::string;
 
-public:
+ public:
   void ShowDemoMode();
   bool UserWantToRegistrate() const;
   void UserWantToExitProgram();
   void GetUserDecision();
 
-private:
+ private:
   enum UserDecision { kMainMenu = 1, kExit };
 
   enum MenuSection {
@@ -40,7 +39,6 @@ private:
 
   UserInput user_input_;
   DemoMessanger demo_messenger_;
-  NoticeMessenger notice_messenger_;
 };
 
-#endif // DEMO_MODE_H
+#endif  // DEMO_MODE_H

@@ -2,7 +2,7 @@ TEMPLATE = lib
 TARGET = lib_gui
 CONFIG = GUI
 
-QMAKE_CXX = ccache g++
+QMAKE_CXX = ccache clang++
 
 INCLUDEPATH += \
 

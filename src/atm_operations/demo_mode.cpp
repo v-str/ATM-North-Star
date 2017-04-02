@@ -1,17 +1,9 @@
-#include "demo_mode.h"
+﻿#include "demo_mode.h"
 
 void DemoMode::ShowDemoMode() {
   demo_messenger_.ShowMessage(DemoMessanger::MessageType::kWelcome);
   demo_messenger_.ShowDemoMenu();
   GetUserDecision();
-  //  do {
-  //    if (user_want_to_registrate_) {
-  //      break;
-  //    }
-  //    demo_messenger_.ShowDemoMenuAgain();
-  //    GetUserDecision();
-  //  } while (!user_want_to_exit_);
-
   while (!user_want_to_exit_) {
     if (user_want_to_registrate_) {
       break;
