@@ -14,7 +14,7 @@ public:
 
   void AskToExit() const;
 
-  void SuggestExit() const;
+  void SuggestToExit() const;
   void ShowIncorrectInput() const;
   void ShowIncorrectMainMenuInput() const;
 

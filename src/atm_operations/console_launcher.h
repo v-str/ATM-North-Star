@@ -46,7 +46,7 @@ class ConsoleLauncher {
   void WithdrawMenu();
   void StatementMenu();
 
-  void GetExitResult();
+  void SuggestToExit();
 
   bool IsCorrectRegistration() const;
 

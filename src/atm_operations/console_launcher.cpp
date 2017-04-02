@@ -56,7 +56,7 @@ void ConsoleLauncher::ATMOperation(int user_choice) {
     StatementMenu();
   } else if (user_choice == kExitProgram) {
     user_messenger_.AskToExit();
-    GetExitResult();
+    SuggestToExit();
   } else {
     user_messenger_.ShowIncorrectMainMenuInput();
     user_want_to_exit_ = false;
@@ -65,31 +65,31 @@ void ConsoleLauncher::ATMOperation(int user_choice) {
 
 void ConsoleLauncher::AccountInfoMenu() {
   account_informator_.DisplayAccountInformation(&user_);
-  GetExitResult();
+  SuggestToExit();
 }
 
 void ConsoleLauncher::RefillMenu() {
   refill_.StartRefillOperation(&user_);
-  GetExitResult();
+  SuggestToExit();
 }
 
 void ConsoleLauncher::CreditMenu() {
   user_credit_.StartCreditOperation(&user_);
-  GetExitResult();
+  SuggestToExit();
 }
 
 void ConsoleLauncher::WithdrawMenu() {
   withdrawal_.WithdrawCashFromUser(&user_);
-  GetExitResult();
+  SuggestToExit();
 }
 
 void ConsoleLauncher::StatementMenu() {
   statement_.ShowStatement(&user_);
-  GetExitResult();
+  SuggestToExit();
 }
 
-void ConsoleLauncher::GetExitResult() {
-  user_messenger_.SuggestExit();
+void ConsoleLauncher::SuggestToExit() {
+  user_messenger_.SuggestToExit();
   for (;;) {
     int result_of_exit = 0;
     result_of_exit = user_input_.GetValueFromUser();
