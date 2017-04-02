@@ -7,7 +7,7 @@ void Refill::StartRefillOperation(AtmUser *atm_user) {
   int money = user_input_.GetValueFromUser();
   if (money >= minimal_refill && money <= maximal_refill) {
     atm_user->AddCash(money);
-    refill_messenger_.ShowUserBalance(atm_user->get_cash());
+    refill_messenger_.ShowUserBalance(atm_user->GetCash());
   } else {
     notice_messenger_.ShowIncorrectSum();
   }

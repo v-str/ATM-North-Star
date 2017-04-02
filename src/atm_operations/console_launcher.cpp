@@ -34,9 +34,7 @@ void ConsoleLauncher::RunDemoMode() {
   }
 }
 
-void ConsoleLauncher::RegistrateUser() {
-  registrator_.RegisterUser(atm_user_profile_);
-}
+void ConsoleLauncher::RegistrateUser() { registrator_.RegisterUser(user_); }
 
 void ConsoleLauncher::RunMainProgramMenu() {
   do {
@@ -66,27 +64,27 @@ void ConsoleLauncher::ExecuteATMOperation(int user_choice) {
 }
 
 void ConsoleLauncher::RunAccountInfo() {
-  account_informator_.DisplayAccountInformation(&atm_user_profile_);
+  account_informator_.DisplayAccountInformation(&user_);
   GetExitResult();
 }
 
 void ConsoleLauncher::RunRefill() {
-  refill_.StartRefillOperation(&atm_user_profile_);
+  refill_.StartRefillOperation(&user_);
   GetExitResult();
 }
 
 void ConsoleLauncher::RunCredit() {
-  user_credit_.StartCreditOperation(&atm_user_profile_);
+  user_credit_.StartCreditOperation(&user_);
   GetExitResult();
 }
 
 void ConsoleLauncher::RunWithdraw() {
-  withdrawal_.WithdrawCashFromUser(&atm_user_profile_);
+  withdrawal_.WithdrawCashFromUser(&user_);
   GetExitResult();
 }
 
 void ConsoleLauncher::RunStatement() {
-  statement_.ShowStatement(&atm_user_profile_);
+  statement_.ShowStatement(&user_);
   GetExitResult();
 }
 

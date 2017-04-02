@@ -1,4 +1,4 @@
-#ifndef APP_MANAGER_H
+﻿#ifndef APP_MANAGER_H
 #define APP_MANAGER_H
 
 #include "console_editor.h"
@@ -6,17 +6,17 @@
 
 class AppManager {
  public:
-  static void SuggestMode();
+  void SuggestMode();
 
-  static int GetMode();
+  int GetMode();
 
  private:
-  static void WriteWelcome();
+  void WriteWelcome();
 
-  static ConsoleEditor console_editor_;
-  static UserInput user_input_;
+  ConsoleEditor console_editor_;
+  UserInput user_input_;
 
-  static int choice_;
+  int choice_ = 0;
 };
 
 #endif  // APP_MANAGER_H

@@ -57,7 +57,7 @@ class ConsoleLauncher {
   InitialMessenger initial_messenger_;
   UserInput user_input_;
   DemoMode demo_mode_;
-  AtmUser atm_user_profile_;
+  AtmUser user_;
   UserRegistrator registrator_;
   UserMessenger user_messenger_;
 

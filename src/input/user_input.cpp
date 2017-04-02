@@ -17,7 +17,7 @@ int UserInput::ConvertLineToChoice(const string& line) {
 }
 
 bool UserInput::LineNotEmpty(const string& str) {
-  for (auto i : str) {
+  for (unsigned int i = 0; i < str.size(); ++i) {
     if (!isdigit(str[i])) {
       return false;
     }

@@ -1,9 +1,10 @@
-#include "app_manager.h"
+﻿#include "app_manager.h"
 #include "application.h"
 
 int main() {
-  AppManager::SuggestMode();
+  AppManager app_manager;
+  app_manager.SuggestMode();
 
   Application app;
-  app.RunProgram(AppManager::GetMode());
+  app.RunProgram(app_manager.GetMode());
 }

@@ -1,7 +1,5 @@
-#include "app_manager.h"
+﻿#include "app_manager.h"
 #include "output_setup.h"
-
-int AppManager::choice_ = 0;
 
 void AppManager::SuggestMode() {
   for (;;) {

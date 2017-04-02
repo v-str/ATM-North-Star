@@ -1,4 +1,4 @@
-#ifndef ATMUSER_H
+﻿#ifndef ATMUSER_H
 #define ATMUSER_H
 
 #include <memory>
@@ -10,22 +10,22 @@ class AtmUser {
  public:
   AtmUser();
 
-  std::string get_login() const;
-  std::string get_password() const;
-  int get_cash() const;
-  int get_credit() const;
-  double get_monthly_payment() const;
-  int get_amount_of_credit_month() const;
+  std::string GetLogin() const;
+  std::string GetPassword() const;
+  int GetCash() const;
+  int GetCredit() const;
+  double GetMonthlyPayment() const;
+  int GetAmountOfCreditMonth() const;
 
-  void set_login(const std::string &login);
-  void set_password(const std::string &password);
-  void set_cash(int cash);
-  void set_credit(int credit);
-  void set_monthly_payment(double monthly_payment);
-  void set_amount_of_credit_month(int amount_credit_month);
+  void SetLogin(const std::string& login);
+  void SetPassword(const std::string& password);
+  void SetCash(int cash);
+  void SetCredit(int credit);
+  void SetMonthlyPayment(double monthly_payment);
+  void SetAmountOfCreditMonth(int amount_credit_month);
 
-  int get_assigned_credit(int sum_of_credit);
-  int withdraw_cash(int amount);
+  int GetAssignedCredit(int sum_of_credit);
+  int WithdrawCash(int amount);
 
   bool IsCreditAvailable();
   bool IsNormalLogin();
