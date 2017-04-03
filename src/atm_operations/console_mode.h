@@ -9,12 +9,12 @@
 #include "user_registrator.h"
 
 #include "account_informator.h"
+#include "credit_menu.h"
 #include "refill.h"
-#include "user_credit.h"
 #include "user_statement.h"
 #include "withdrawal.h"
 
-class ConsoleLauncher {
+class ConsoleMode {
  public:
   void RunInitialScreen();
 
@@ -33,18 +33,12 @@ class ConsoleLauncher {
   enum ResultOfDecision { kMainMenu = 1, kExit };
 
   void InitialProgamMenu(int user_choice);
-  void InitialMenuOperation(int user_choice);
+  void UserModeChoice(int user_choice);
   void DemoMenu();
   void RegistrateUser();
 
   void MainProgramMenu();
   void ATMOperation(int user_choice);
-
-  void AccountInfoMenu();
-  void RefillMenu();
-  void CreditMenu();
-  void WithdrawMenu();
-  void StatementMenu();
 
   void SuggestToExit();
 
@@ -65,7 +59,7 @@ class ConsoleLauncher {
 
   AccountInformator account_informator_;
   Refill refill_;
-  UserCredit user_credit_;
+  CreditMenu credit_menu_;
   Withdrawal withdrawal_;
   UserStatement statement_;
 

@@ -1,8 +1,8 @@
-#include "application.h"
+﻿#include "application.h"
 
 void Application::RunProgram(int mode) {
   if (mode == kConsoleMode) {
-    launcher_.RunInitialScreen();
+    console_mode_.RunInitialScreen();
   } else if (mode == kGraphicalMode) {
     // gui
   }

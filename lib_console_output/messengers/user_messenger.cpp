@@ -16,7 +16,7 @@ void UserMessenger::ShowMainMenu() {
       "\tEnter: ");
 }
 
-void UserMessenger::AskToExit() const {
+void UserMessenger::ReRequestAboutExit() const {
   console_editor_.AddEmptyLineNTimes(1);
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
@@ -25,11 +25,12 @@ void UserMessenger::AskToExit() const {
 
 void UserMessenger::WishAGoodDay() const {
   console_editor_.AddEmptyLineNTimes(2);
-  console_editor_.WriteText("\n\t####################\n"
-                            "\t#                  #\n"
-                            "\t# Have a nice day! #\n"
-                            "\t#                  #\n"
-                            "\t####################\n\n");
+  console_editor_.WriteText(
+      "\n\t####################\n"
+      "\t#                  #\n"
+      "\t# Have a nice day! #\n"
+      "\t#                  #\n"
+      "\t####################\n\n");
 }
 
 void UserMessenger::ShowMainMenu() const {
@@ -48,9 +49,10 @@ void UserMessenger::ShowMainMenu() const {
 
 void UserMessenger::SuggestToExit() const {
   console_editor_.AddEmptyLineNTimes(1);
-  console_editor_.WriteTextWithDelayPerSymbol("\t# 1. Exit to main page.\n"
-                                              "\t# 2. Exit program.\n"
-                                              "\t# Enter: ");
+  console_editor_.WriteTextWithDelayPerSymbol(
+      "\t# 1. Exit to main page.\n"
+      "\t# 2. Exit program.\n"
+      "\t# Enter: ");
 }
 
 void UserMessenger::ShowIncorrectInput() const {
@@ -67,6 +69,7 @@ void UserMessenger::ShowIncorrectMainMenuInput() const {
 }
 
 void UserMessenger::ShowIncorrectRegisterData() const {
-  console_editor_.WriteTextWithDelayPerSymbol("\n\tIncorrect input, "
-                                              "\n\treload the program\n");
+  console_editor_.WriteTextWithDelayPerSymbol(
+      "\n\tIncorrect input, "
+      "\n\treload the program\n");
 }

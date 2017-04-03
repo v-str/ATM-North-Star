@@ -12,7 +12,7 @@ public:
   void WishAGoodDay() const;
   void ShowMainMenu() const;
 
-  void AskToExit() const;
+  void ReRequestAboutExit() const;
 
   void SuggestToExit() const;
   void ShowIncorrectInput() const;

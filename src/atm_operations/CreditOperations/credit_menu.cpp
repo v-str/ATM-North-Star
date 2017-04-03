@@ -1,6 +1,6 @@
-﻿#include "user_credit.h"
+﻿#include "credit_menu.h"
 
-void UserCredit::StartCreditOperation(AtmUser* atm_user) {
+void CreditMenu::ShowCreditMenu(AtmUser* atm_user) {
   console_editor_.ClearScreen();
   if (AlreadyHasACredit(atm_user->GetCredit())) {
     RefuseACredit();
@@ -11,13 +11,13 @@ void UserCredit::StartCreditOperation(AtmUser* atm_user) {
   }
 }
 
-bool UserCredit::AlreadyHasACredit(int sum_of_credit) {
+bool CreditMenu::AlreadyHasACredit(int sum_of_credit) {
   return sum_of_credit > kNull;
 }
 
-void UserCredit::RefuseACredit() const { credit_messenger_.RefuseACredit(); }
+void CreditMenu::RefuseACredit() const { credit_messenger_.RefuseACredit(); }
 
-void UserCredit::SuggestACredit(AtmUser* atm_user,
+void CreditMenu::SuggestACredit(AtmUser* atm_user,
                                 const string& user_login) const {
   credit_messenger_.ShowNotifyAboutCredit();
   if (user_input_.GetValueFromUser() == kConsiderACredit) {
@@ -25,7 +25,7 @@ void UserCredit::SuggestACredit(AtmUser* atm_user,
   }
 }
 
-void UserCredit::ConsiderACreditBasedOnCash(AtmUser* atm_user,
+void CreditMenu::ConsiderACreditBasedOnCash(AtmUser* atm_user,
                                             const string& user_login) const {
   if (atm_user->IsCreditAvailable()) {
     GiveACredit(atm_user, user_login);
@@ -35,7 +35,7 @@ void UserCredit::ConsiderACreditBasedOnCash(AtmUser* atm_user,
   }
 }
 
-void UserCredit::GiveACredit(AtmUser* atm_user,
+void CreditMenu::GiveACredit(AtmUser* atm_user,
                              const string& user_login) const {
   int user_cash_sum = atm_user->GetCash();
   int maximal_sum_of_credit = kMaxMultiplier * user_cash_sum;
@@ -56,7 +56,7 @@ void UserCredit::GiveACredit(AtmUser* atm_user,
   }
 }
 
-void UserCredit::RefuseACredit(int sum_of_cash) const {
+void CreditMenu::RefuseACredit(int sum_of_cash) const {
   console_editor_.AddEmptyLineNTimes(1);
   credit_messenger_.ShowRefuseACredit(sum_of_cash);
 }

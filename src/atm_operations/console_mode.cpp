@@ -1,14 +1,14 @@
-﻿#include "console_launcher.h"
+﻿#include "console_mode.h"
 
-void ConsoleLauncher::RunInitialScreen() {
+void ConsoleMode::RunInitialScreen() {
   initial_messenger_.DisplayInitialScreen();
   int user_choice = user_input_.GetValueFromUser();
 
   InitialProgamMenu(user_choice);
 }
 
-void ConsoleLauncher::InitialProgamMenu(int user_choice) {
-  InitialMenuOperation(user_choice);
+void ConsoleMode::InitialProgamMenu(int user_choice) {
+  UserModeChoice(user_choice);
 
   if (IsCorrectRegistration()) {
     MainProgramMenu();
@@ -17,7 +17,7 @@ void ConsoleLauncher::InitialProgamMenu(int user_choice) {
   EndProgram();
 }
 
-void ConsoleLauncher::InitialMenuOperation(int user_choice) {
+void ConsoleMode::UserModeChoice(int user_choice) {
   if (user_choice == kDemo) {
     DemoMenu();
   } else if (user_choice == kRegistration) {
@@ -27,68 +27,43 @@ void ConsoleLauncher::InitialMenuOperation(int user_choice) {
   }
 }
 
-void ConsoleLauncher::DemoMenu() {
+void ConsoleMode::DemoMenu() {
   demo_mode_.ShowDemoMode();
   if (demo_mode_.UserWantToRegistrate()) {
     RegistrateUser();
   }
 }
 
-void ConsoleLauncher::RegistrateUser() { registrator_.RegisterUser(user_); }
+void ConsoleMode::RegistrateUser() { registrator_.RegisterUser(user_); }
 
-void ConsoleLauncher::MainProgramMenu() {
+void ConsoleMode::MainProgramMenu() {
   do {
     user_messenger_.ShowMainMenu();
     ATMOperation(user_input_.GetValueFromUser());
   } while (!user_want_to_exit_);
 }
 
-void ConsoleLauncher::ATMOperation(int user_choice) {
+void ConsoleMode::ATMOperation(int user_choice) {
   if (user_choice == kAccount) {
-    AccountInfoMenu();
+    account_informator_.DisplayAccountInformation(&user_);
   } else if (user_choice == kRefill) {
-    RefillMenu();
+    refill_.StartRefillOperation(&user_);
   } else if (user_choice == kCredit) {
-    CreditMenu();
+    credit_menu_.ShowCreditMenu(&user_);
   } else if (user_choice == kWidthdrawal) {
-    WithdrawMenu();
+    withdrawal_.WithdrawCashFromUser(&user_);
   } else if (user_choice == kStatement) {
-    StatementMenu();
+    statement_.ShowStatement(&user_);
   } else if (user_choice == kExitProgram) {
-    user_messenger_.AskToExit();
-    SuggestToExit();
+    user_messenger_.ReRequestAboutExit();
   } else {
     user_messenger_.ShowIncorrectMainMenuInput();
     user_want_to_exit_ = false;
   }
-}
-
-void ConsoleLauncher::AccountInfoMenu() {
-  account_informator_.DisplayAccountInformation(&user_);
   SuggestToExit();
 }
 
-void ConsoleLauncher::RefillMenu() {
-  refill_.StartRefillOperation(&user_);
-  SuggestToExit();
-}
-
-void ConsoleLauncher::CreditMenu() {
-  user_credit_.StartCreditOperation(&user_);
-  SuggestToExit();
-}
-
-void ConsoleLauncher::WithdrawMenu() {
-  withdrawal_.WithdrawCashFromUser(&user_);
-  SuggestToExit();
-}
-
-void ConsoleLauncher::StatementMenu() {
-  statement_.ShowStatement(&user_);
-  SuggestToExit();
-}
-
-void ConsoleLauncher::SuggestToExit() {
+void ConsoleMode::SuggestToExit() {
   user_messenger_.SuggestToExit();
   for (;;) {
     int result_of_exit = 0;
@@ -106,12 +81,12 @@ void ConsoleLauncher::SuggestToExit() {
   }
 }
 
-bool ConsoleLauncher::IsCorrectRegistration() const {
+bool ConsoleMode::IsCorrectRegistration() const {
   return registrator_.IsCorrectRegistration();
 }
 
-void ConsoleLauncher::EndProgram() const { user_messenger_.WishAGoodDay(); }
+void ConsoleMode::EndProgram() const { user_messenger_.WishAGoodDay(); }
 
-void ConsoleLauncher::ShowIncorrectRegistration() const {
+void ConsoleMode::ShowIncorrectRegistration() const {
   user_messenger_.ShowIncorrectRegisterData();
 }

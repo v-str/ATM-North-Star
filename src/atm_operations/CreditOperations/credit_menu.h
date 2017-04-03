@@ -1,5 +1,5 @@
-﻿#ifndef USER_CREDIT_H
-#define USER_CREDIT_H
+﻿#ifndef CREDIT_MENU_H
+#define CREDIT_MENU_H
 
 #include <iostream>
 #include <string>
@@ -10,11 +10,11 @@
 #include "credit_messenger.h"
 #include "user_input.h"
 
-class UserCredit {
+class CreditMenu {
   using string = std::string;
 
  public:
-  void StartCreditOperation(AtmUser* atm_user);
+  void ShowCreditMenu(AtmUser* atm_user);
 
  private:
   enum SuggestVariantOfCredit { kMaxCreditSum = 1, kUserCreditSum };
@@ -43,4 +43,4 @@ class UserCredit {
   UserInput user_input_;
 };
 
-#endif  // USER_CREDIT_H
+#endif  // CREDIT_MENU_H
