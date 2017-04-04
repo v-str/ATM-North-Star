@@ -1,7 +1,7 @@
-#include "credit_offer.h"
+﻿#include "credit_offer.h"
 
-void CreditOffer::SuggestACredit(AtmUser *atm_user,
-                                 const std::string &user_login,
+void CreditOffer::SuggestACredit(AtmUser* atm_user,
+                                 const std::string& user_login,
                                  int sum_of_credit,
                                  int amount_of_months) const {
   credit_messenger_.ShowCreditTitle(user_login, sum_of_credit);
@@ -26,14 +26,15 @@ void CreditOffer::SuggestACredit(AtmUser *atm_user,
   }
 }
 
-void CreditOffer::EnrollCredit(AtmUser *atm_user, int sum_of_credit,
+void CreditOffer::EnrollCredit(AtmUser* atm_user,
+                               int sum_of_credit,
                                double pay_per_month) const {
   atm_user->GetAssignedCredit(sum_of_credit);
   atm_user->AssignAMonthlyPayment(pay_per_month);
   credit_messenger_.ShowResultOfUserChoice(kEnroll);
 }
 
-void CreditOffer::RepealCredit(AtmUser *atm_user) const {
+void CreditOffer::RepealCredit(AtmUser* atm_user) const {
   atm_user->GetAssignedCredit(0);
   atm_user->AssignAMonthlyPayment(0.0);
   atm_user->SetAmountOfCreditMonth(0);

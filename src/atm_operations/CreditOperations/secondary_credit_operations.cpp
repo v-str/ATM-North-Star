@@ -1,7 +1,7 @@
 ﻿#include "secondary_credit_operations.h"
 
-int SecondaryCreditOperations::GetAmountCreditByMode(
-    const int maximal_sum_of_credit, const int credit_mode) const {
+int SecondaryCreditOperations::GetAmountCreditByMode(int maximal_sum_of_credit,
+                                                     int credit_mode) const {
   int sum_of_credit = 0;
 
   if (credit_mode == kUserCredit) {
@@ -21,7 +21,7 @@ int SecondaryCreditOperations::GetAmountCreditMonths() const {
 }
 
 double SecondaryCreditOperations::CalculateMonthlyPayment(
-    const int sum_of_credit, const int amount_of_credit_months) const {
+    int sum_of_credit, int amount_of_credit_months) const {
   double rate = (sum_of_credit * kRatePerYear) / kFullRate;
   double pay_per_month =
       (sum_of_credit / amount_of_credit_months) + (rate / kOneYear);
@@ -29,7 +29,7 @@ double SecondaryCreditOperations::CalculateMonthlyPayment(
   return pay_per_month;
 }
 
-bool SecondaryCreditOperations::IsMonthCorrect(int months) {
+bool SecondaryCreditOperations::IsMonthCorrect(int months) const {
   return months > 0 && months < kMaximalCreditTerm;
 }
 
