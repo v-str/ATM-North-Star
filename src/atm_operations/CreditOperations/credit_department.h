@@ -2,6 +2,7 @@
 #define CREDIT_DEPARTMENT_H
 
 #include "credit_calculator.h"
+#include "credit_check.h"
 #include "credit_data.h"
 
 class CreditDepartment {
