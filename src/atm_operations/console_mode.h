@@ -1,5 +1,5 @@
-﻿#ifndef CONSOLE_LAUNCHER_H
-#define CONSOLE_LAUNCHER_H
+﻿#ifndef CONSOLE_MODE_H
+#define CONSOLE_MODE_H
 
 #include "atm_user.h"
 #include "demo_mode.h"
@@ -68,4 +68,4 @@ class ConsoleMode {
   bool user_want_to_exit_ = true;
 };
 
-#endif  // CONSOLE_LAUNCHER_H
+#endif  // CONSOLE_MODE_H
