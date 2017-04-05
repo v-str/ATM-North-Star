@@ -3,7 +3,7 @@
 
 struct CreditData {
   int sum_of_credit_ = 0;
-  int amount_of_credit_month_ = 0;
+  int number_of_credit_month_ = 0;
   double interest_rate_ = 0.0;
 };
 
