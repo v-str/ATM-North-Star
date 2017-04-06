@@ -32,6 +32,8 @@ class AtmUser {
   /// new code
   bool IsCreditExist() const;
 
+  /// end of new code
+
   bool IsNormalLogin();
   bool IsNormalPass();
 
