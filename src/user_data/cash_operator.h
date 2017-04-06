@@ -1,4 +1,4 @@
-#ifndef CASH_OPERATOR_H
+﻿#ifndef CASH_OPERATOR_H
 #define CASH_OPERATOR_H
 
 class CashOperator {
@@ -19,6 +19,10 @@ class CashOperator {
 
   void AddCash(int sum_of_cash);
   void AssignAMonthlyPayment(double pay_per_month);
+
+  /// new methods
+
+  bool IsCreditExist() const;
 
  private:
   static const int kmininmal_sum_for_credit = 1000;

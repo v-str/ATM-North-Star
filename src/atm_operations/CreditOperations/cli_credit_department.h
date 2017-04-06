@@ -6,6 +6,8 @@
 class CLICreditDepartment : public CreditDepartment {
  public:
   CLICreditDepartment();
+
+  void StartCreditOperation(AtmUser* user) override;
 };
 
 #endif  // CLI_CREDIT_DEPARTMENT_H

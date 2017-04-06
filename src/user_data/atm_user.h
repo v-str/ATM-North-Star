@@ -28,6 +28,10 @@ class AtmUser {
   int WithdrawCash(int amount);
 
   bool IsCreditAvailable();
+
+  /// new code
+  bool IsCreditExist() const;
+
   bool IsNormalLogin();
   bool IsNormalPass();
 

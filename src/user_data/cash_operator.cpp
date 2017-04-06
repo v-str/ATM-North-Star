@@ -37,3 +37,7 @@ void CashOperator::AddCash(int sum_of_cash) { cash_ += sum_of_cash; }
 void CashOperator::AssignAMonthlyPayment(double pay_per_month) {
   monthly_payment_ = pay_per_month;
 }
+
+bool CashOperator::IsCreditExist() const {
+  return (credit_ > 0) ? true : false;
+}

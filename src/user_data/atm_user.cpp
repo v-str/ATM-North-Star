@@ -53,6 +53,8 @@ bool AtmUser::IsCreditAvailable() {
   return cash_operator_->IsCreditAvailable();
 }
 
+bool AtmUser::IsCreditExist() const { return cash_operator_->IsCreditExist(); }
+
 bool AtmUser::IsNormalLogin() { return user_identifier_->IsNormalLogin(); }
 
 bool AtmUser::IsNormalPass() { return user_identifier_->IsNormalPass(); }

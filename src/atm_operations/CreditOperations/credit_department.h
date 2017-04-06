@@ -5,9 +5,17 @@
 #include "credit_check.h"
 #include "credit_data.h"
 
+#include "atm_user.h"
+
 class CreditDepartment {
  public:
-  CreditDepartment();
+  virtual void StartCreditOperation(AtmUser* user) = 0;
+
+ protected:
+ private:
+  CreditCalculator calculator_;
+  CreditCheck checker_;
+  CreditData credit_data_;
 };
 
 #endif  // CREDIT_DEPARTMENT_H

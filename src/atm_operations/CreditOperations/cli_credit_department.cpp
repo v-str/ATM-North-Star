@@ -1,6 +1,5 @@
 ﻿#include "cli_credit_department.h"
 
-CLICreditDepartment::CLICreditDepartment()
-{
+CLICreditDepartment::CLICreditDepartment() {}
 
-}
+void CLICreditDepartment::StartCreditOperation(AtmUser* user) {}

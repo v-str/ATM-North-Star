@@ -14,6 +14,8 @@
 #include "user_statement.h"
 #include "withdrawal.h"
 
+#include "cli_credit_department.h"
+
 class ConsoleMode {
  public:
   void RunInitialScreen();
@@ -66,6 +68,8 @@ class ConsoleMode {
   UserInput user_input_;
 
   bool user_want_to_exit_ = true;
+
+  CLICreditDepartment credit_department_;
 };
 
 #endif  // CONSOLE_MODE_H
