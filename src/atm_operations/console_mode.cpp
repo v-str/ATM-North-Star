@@ -50,7 +50,7 @@ void ConsoleMode::ATMOperation(int user_choice) {
     refill_.StartRefillOperation(&user_);
   } else if (user_choice == kCredit) {
     credit_menu_.ShowCreditMenu(&user_);
-    credit_department_.StartCreditOperation(&user_);
+    credit_department_.StartCreditOperationFor(&user_);
   } else if (user_choice == kWidthdrawal) {
     withdrawal_.WithdrawCashFromUser(&user_);
   } else if (user_choice == kStatement) {

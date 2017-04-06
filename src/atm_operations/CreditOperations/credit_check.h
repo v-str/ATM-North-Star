@@ -5,13 +5,13 @@
 
 class CreditCheck {
  public:
-  bool IsCheckPositive(AtmUser& user) const;
+  bool IsCheckPositive(const AtmUser& user) const;
 
  private:
-  bool IsBalanceAppropriate(AtmUser& user) const;
-  bool IsCreditExist(AtmUser& user) const;
+  bool IsBalanceAppropriate(const AtmUser& user) const;
+  bool IsCreditExist(const AtmUser& user) const;
 
-  const int kAppropriateSumForCredit = 1000;
+  const int AppropriateSumForCredit = 1000;
   const int kNull = 0;
 };
 

@@ -1,5 +1,7 @@
 ﻿#include "cli_credit_department.h"
 
-CLICreditDepartment::CLICreditDepartment() {}
-
-void CLICreditDepartment::StartCreditOperation(AtmUser* user) {}
+void CLICreditDepartment::StartCreditOperationFor(AtmUser* user) {
+  if (IsCreditAllowed(*user)) {
+  } else {
+  }
+}

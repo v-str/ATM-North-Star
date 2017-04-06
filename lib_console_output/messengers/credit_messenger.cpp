@@ -165,3 +165,11 @@ void CreditMessanger::ShowIncorrectCashInformation(int cash) const {
   console_editor_.WriteSymbolsNTimes("-", 65);
   console_editor_.WriteText("\n");
 }
+
+void CreditMessanger::ShowUnavailableCreditInfo() const {
+  console_editor_.ClearScreen();
+  console_editor_.WriteText("\n\n\t");
+  console_editor_.WriteTextWithDelayPerSymbol("Credit is not available!");
+  console_editor_.WriteText("\n\n");
+  console_editor_.Sleep(500);
+}

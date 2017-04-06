@@ -9,9 +9,11 @@
 
 class CreditDepartment {
  public:
-  virtual void StartCreditOperation(AtmUser* user) = 0;
+  virtual void StartCreditOperationFor(AtmUser* user) = 0;
 
  protected:
+  bool IsCreditAllowed(const AtmUser& user) const;
+
  private:
   CreditCalculator calculator_;
   CreditCheck checker_;
