@@ -39,7 +39,7 @@ class CreditMenu {
 
   NoticeMessenger notice_messenger_;
   ConsoleEditor console_editor_;
-  CreditMessanger credit_messenger_;
+  CreditMessenger credit_messenger_;
   UserInput user_input_;
 };
 

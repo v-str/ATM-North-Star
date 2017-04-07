@@ -1,7 +1,7 @@
 ﻿#include "credit_messenger.h"
 #include "text_writer.h"
 
-void CreditMessanger::RefuseACredit() const {
+void CreditMessenger::RefuseACredit() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n #Sorry, but you have already a "
       "loan in our bank.\n"
@@ -10,7 +10,7 @@ void CreditMessanger::RefuseACredit() const {
       "not complete.\n");
 }
 
-void CreditMessanger::ShowNotifyAboutCredit() const {
+void CreditMessenger::ShowNotifyAboutCredit() const {
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
       "# You can get a loan in our bank if your\n"
@@ -32,7 +32,7 @@ void CreditMessanger::ShowNotifyAboutCredit() const {
       "\tEnter: ");
 }
 
-void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
+void CreditMessenger::ShowCreditConditions(int maximal_sum_of_credit) const {
   std::string convertible_string_value =
       console_editor_.ConvertValueToString(maximal_sum_of_credit);
   console_editor_.AddEmptyLineNTimes(2);
@@ -61,7 +61,7 @@ void CreditMessanger::ShowCreditConditions(int maximal_sum_of_credit) const {
   console_editor_.WriteText("# Enter: ");
 }
 
-void CreditMessanger::SuggestToConfirmACredit() const {
+void CreditMessenger::SuggestToConfirmACredit() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n\t# Do you confirm the loan?\n"
       "\t1. Yes, I confirm.\n"
@@ -69,7 +69,7 @@ void CreditMessanger::SuggestToConfirmACredit() const {
       "\tEnter: ");
 }
 
-void CreditMessanger::ShowCreditTitle(const CreditMessanger::string& user_login,
+void CreditMessenger::ShowCreditTitle(const CreditMessenger::string& user_login,
                                       int sum_of_credit) const {
   console_editor_.AddEmptyLineNTimes(2);
   console_editor_.ClearScreen();
@@ -87,18 +87,18 @@ void CreditMessanger::ShowCreditTitle(const CreditMessanger::string& user_login,
                                          kHalfASecond);
 }
 
-void CreditMessanger::ShowEnrollACredit() const {
+void CreditMessenger::ShowEnrollACredit() const {
   console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n# The loan was successfully transferred on your account.\n"
       "# You might cash your credit in our nearest bank.\n");
 }
 
-void CreditMessanger::ShowRepealACreadit() const {
+void CreditMessenger::ShowRepealACreadit() const {
   console_editor_.WriteTextWithDelayPerSymbol("\n\t# Credit is repealed...\n");
 }
 
-void CreditMessanger::ShowRefuseACredit(int sum_of_cash) const {
+void CreditMessenger::ShowRefuseACredit(int sum_of_cash) const {
   console_editor_.ClearScreen();
 
   console_editor_.WriteTextWithInterrupt("# We checked your balance.\n",
@@ -111,7 +111,7 @@ void CreditMessanger::ShowRefuseACredit(int sum_of_cash) const {
       kHalfASecond);
 }
 
-void CreditMessanger::ShowTableOfCredit(double pay_per_month,
+void CreditMessenger::ShowTableOfCredit(double pay_per_month,
                                         double amount_of_months) const {
   double all_payment = 0.0;
 
@@ -132,14 +132,14 @@ void CreditMessanger::ShowTableOfCredit(double pay_per_month,
                             " $\n\n");
 }
 
-void CreditMessanger::ShowSumCreditInfo() const {
+void CreditMessenger::ShowSumCreditInfo() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\nThe entered sum should not\n"
       "exceed the allowed credit.\n\n"
       "Enter the desired sum of credit: $");
 }
 
-void CreditMessanger::ShowMonthCreditInfo() const {
+void CreditMessenger::ShowMonthCreditInfo() const {
   console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteTextWithDelayPerSymbol(
       "\nNumber of credit month can't be more than 60.\n\n");
@@ -148,7 +148,7 @@ void CreditMessanger::ShowMonthCreditInfo() const {
       "months to repay the credit: ");
 }
 
-void CreditMessanger::ShowResultOfUserChoice(int decision_of_user) const {
+void CreditMessenger::ShowResultOfUserChoice(int decision_of_user) const {
   if (decision_of_user == 1) {
     ShowEnrollACredit();
   } else {
@@ -156,7 +156,7 @@ void CreditMessanger::ShowResultOfUserChoice(int decision_of_user) const {
   }
 }
 
-void CreditMessanger::ShowIncorrectCashInformation(int cash) const {
+void CreditMessenger::ShowIncorrectCashInformation(int cash) const {
   console_editor_.WriteText("\n");
   console_editor_.WriteSymbolsNTimes("-", 65);
   console_editor_.WriteText("\n");
@@ -166,7 +166,7 @@ void CreditMessanger::ShowIncorrectCashInformation(int cash) const {
   console_editor_.WriteText("\n");
 }
 
-void CreditMessanger::ShowUnavailableCreditInfo() const {
+void CreditMessenger::ShowUnavailableCreditInfo() const {
   console_editor_.ClearScreen();
   console_editor_.WriteText("\n\n\t");
   console_editor_.WriteTextWithDelayPerSymbol("Credit is not available!");

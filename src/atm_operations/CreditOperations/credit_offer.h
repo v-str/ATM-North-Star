@@ -21,7 +21,7 @@ class CreditOffer {
                     double pay_per_month) const;
   void RepealCredit(AtmUser* atm_user) const;
 
-  CreditMessanger credit_messenger_;
+  CreditMessenger credit_messenger_;
   SecondaryCreditOperations secondary_credit_operation_;
   UserInput user_input_;
   NoticeMessenger notice_messenger_;

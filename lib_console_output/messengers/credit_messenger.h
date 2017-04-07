@@ -5,7 +5,7 @@
 
 #include "console_editor.h"
 
-class CreditMessanger {
+class CreditMessenger {
   using string = std::string;
 
  public:

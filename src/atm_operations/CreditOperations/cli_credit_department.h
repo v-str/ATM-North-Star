@@ -9,7 +9,7 @@ class CLICreditDepartment : public CreditDepartment {
   void StartCreditOperationFor(AtmUser* user) override;
 
  private:
-  CreditMessanger messanger_;
+  CreditMessenger messanger_;
 };
 
 #endif  // CLI_CREDIT_DEPARTMENT_H

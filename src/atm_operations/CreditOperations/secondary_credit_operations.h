@@ -26,7 +26,7 @@ class SecondaryCreditOperations {
   bool IsMonthCorrect(int months) const;
 
   UserInput user_input_;
-  CreditMessanger credit_messenger_;
+  CreditMessenger credit_messenger_;
 };
 
 #endif  // SECONDARY_CREDIT_OPERATIONS_H
