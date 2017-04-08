@@ -5,6 +5,14 @@ furthermore make different sum of credit loan in different times.
 
 66. Add credit table for best look.
 
+-------------------------------------------------------------------------
+
+67. Remove const qualifier from standard types.
+
+68. Gathering information separate from way of showing to user.
+
+69. Assignment of credit only after user confirmation.
+
 
 
 

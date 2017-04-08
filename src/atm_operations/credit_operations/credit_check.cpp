@@ -1,11 +1,7 @@
 ﻿#include "credit_check.h"
 
 bool CreditCheck::IsCheckPositive(const AtmUser& user) const {
-  if (IsBalanceAppropriate(user) && !IsCreditExist(user)) {
-    return true;
-  } else {
-    return false;
-  }
+  return (IsBalanceAppropriate(user) && !IsCreditExist(user)) ? true : false;
 }
 
 bool CreditCheck::IsBalanceAppropriate(const AtmUser& user) const {
