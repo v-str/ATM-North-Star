@@ -10,6 +10,10 @@ class CLICreditDepartment : public CreditDepartment {
 
  private:
   CreditMessenger messanger_;
+
+  const int kPositiveCheck = 0;
+  const int kCreditExist = 1;
+  const int kInappropriateBalance = 2;
 };
 
 #endif  // CLI_CREDIT_DEPARTMENT_H

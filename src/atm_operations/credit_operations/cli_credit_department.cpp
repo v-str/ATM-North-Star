@@ -1,7 +1,10 @@
 ﻿#include "cli_credit_department.h"
 
 void CLICreditDepartment::StartCreditOperationFor(AtmUser* user) {
-  if (IsCreditAllowed(*user)) {
-  } else {
+  const int result_of_check = GetResultOfUserCheck(*user);
+
+  if (result_of_check == kPositiveCheck) {
+  } else if (result_of_check == kCreditExist) {
+  } else if (result_of_check == kInappropriateBalance) {
   }
 }

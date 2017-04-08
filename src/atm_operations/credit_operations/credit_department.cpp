@@ -1,5 +1,5 @@
 ﻿#include "credit_department.h"
 
-bool CreditDepartment::IsCreditAllowed(const AtmUser& user) const {
-  return checker_.IsCheckPositive(user);
+int CreditDepartment::GetResultOfUserCheck(const AtmUser& user) const {
+  return checker_.GetResultOfUserCheck(user);
 }

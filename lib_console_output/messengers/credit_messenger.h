@@ -12,22 +12,15 @@ class CreditMessenger {
   void RefuseACredit() const;
   void ShowNotifyAboutCredit() const;
   void ShowCreditConditions(int maximal_sum_of_credit) const;
-
   void SuggestToConfirmACredit() const;
   void ShowCreditTitle(const string& user_login, int sum_of_credit) const;
-
   void ShowEnrollACredit() const;
   void ShowRefuseACredit(int sum_of_cash) const;
-
   void ShowRepealACreadit() const;
-
   void ShowTableOfCredit(double pay_per_month, double amount_of_months) const;
-
   void ShowSumCreditInfo() const;
   void ShowMonthCreditInfo() const;
-
   void ShowResultOfUserChoice(int decision_of_user) const;
-
   void ShowIncorrectCashInformation(int cash) const;
 
   /// new code
