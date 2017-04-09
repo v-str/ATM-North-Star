@@ -9,7 +9,7 @@ class CLICreditDepartment : public CreditDepartment {
   void StartCreditOperationFor(AtmUser* user) override;
 
  private:
-  CreditMessenger messanger_;
+  CreditMessenger messenger_;
 
   const int kPositiveCheck = 0;
   const int kCreditExist = 1;

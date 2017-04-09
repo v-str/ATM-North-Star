@@ -5,6 +5,8 @@ void CLICreditDepartment::StartCreditOperationFor(AtmUser* user) {
 
   if (result_of_check == kPositiveCheck) {
   } else if (result_of_check == kCreditExist) {
+    messenger_.RefuseACredit();
+    messenger_.ShowIncorrectCashInformation(user->GetCash());
   } else if (result_of_check == kInappropriateBalance) {
   }
 }
