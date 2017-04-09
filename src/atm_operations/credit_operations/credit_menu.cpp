@@ -19,7 +19,7 @@ void CreditMenu::RefuseACredit() const { credit_messenger_.RefuseACredit(); }
 
 void CreditMenu::SuggestACredit(AtmUser* atm_user,
                                 const string& user_login) const {
-  credit_messenger_.ShowNotifyAboutCredit();
+  credit_messenger_.NotifyAboutCredit();
   if (user_input_.GetValueFromUser() == kConsiderACredit) {
     ConsiderACreditBasedOnCash(atm_user, user_login);
   }
@@ -58,5 +58,5 @@ void CreditMenu::GiveACredit(AtmUser* atm_user,
 
 void CreditMenu::RefuseACredit(int sum_of_cash) const {
   console_editor_.AddEmptyLineNTimes(1);
-  credit_messenger_.ShowRefuseACredit(sum_of_cash);
+  credit_messenger_.RefuseACredit(sum_of_cash);
 }

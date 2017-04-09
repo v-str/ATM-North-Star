@@ -14,7 +14,7 @@ int SecondaryCreditOperations::GetAmountCreditByMode(int maximal_sum_of_credit,
 int SecondaryCreditOperations::GetAmountCreditMonths() const {
   int months = 0;
   do {
-    credit_messenger_.ShowMonthCreditInfo();
+    credit_messenger_.ShowInfoAboutCreditMonth();
     months = user_input_.GetValueFromUser();
   } while (!IsMonthCorrect(months));
   return months;
@@ -25,7 +25,7 @@ double SecondaryCreditOperations::CalculateMonthlyPayment(
   double rate = (sum_of_credit * kRatePerYear) / kFullRate;
   double pay_per_month =
       (sum_of_credit / amount_of_credit_months) + (rate / kOneYear);
-  credit_messenger_.ShowTableOfCredit(pay_per_month, amount_of_credit_months);
+  credit_messenger_.ShowCreditTable(pay_per_month, amount_of_credit_months);
   return pay_per_month;
 }
 
@@ -38,7 +38,7 @@ int SecondaryCreditOperations::GetCreditSumFromUser(
   int user_credit_sum = 0;
 
   do {
-    credit_messenger_.ShowSumCreditInfo();
+    credit_messenger_.ShowInfoAboutCreditSum();
     user_credit_sum = user_input_.GetValueFromUser();
   } while (user_credit_sum > maximal_sum_of_credit ||
            user_credit_sum == kInvalidValue || user_credit_sum < 0);

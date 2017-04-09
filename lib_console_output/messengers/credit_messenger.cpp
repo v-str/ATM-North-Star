@@ -10,7 +10,20 @@ void CreditMessenger::RefuseACredit() const {
       "not complete.\n");
 }
 
-void CreditMessenger::ShowNotifyAboutCredit() const {
+void CreditMessenger::RefuseACredit(int sum_of_cash) const {
+  console_editor_.ClearScreen();
+
+  console_editor_.WriteTextWithInterrupt("# We checked your balance.\n",
+                                         kHalfASecond);
+
+  console_editor_.WriteTextWithInterrupt(
+      "# Available cash = $" + std::to_string(sum_of_cash) + "\n" +
+          "# Sorry, for getting a loan your balance must be "
+          "$1000 or more.\n",
+      kHalfASecond);
+}
+
+void CreditMessenger::NotifyAboutCredit() const {
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
       "# You can get a loan in our bank if your\n"
@@ -87,32 +100,19 @@ void CreditMessenger::ShowCreditTitle(const CreditMessenger::string& user_login,
                                          kHalfASecond);
 }
 
-void CreditMessenger::ShowEnrollACredit() const {
+void CreditMessenger::EnrollACredit() const {
   console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n# The loan was successfully transferred on your account.\n"
       "# You might cash your credit in our nearest bank.\n");
 }
 
-void CreditMessenger::ShowRepealACreadit() const {
+void CreditMessenger::RepealACreadit() const {
   console_editor_.WriteTextWithDelayPerSymbol("\n\t# Credit is repealed...\n");
 }
 
-void CreditMessenger::ShowRefuseACredit(int sum_of_cash) const {
-  console_editor_.ClearScreen();
-
-  console_editor_.WriteTextWithInterrupt("# We checked your balance.\n",
-                                         kHalfASecond);
-
-  console_editor_.WriteTextWithInterrupt(
-      "# Available cash = $" + std::to_string(sum_of_cash) + "\n" +
-          "# Sorry, for getting a loan your balance must be "
-          "$1000 or more.\n",
-      kHalfASecond);
-}
-
-void CreditMessenger::ShowTableOfCredit(double pay_per_month,
-                                        double amount_of_months) const {
+void CreditMessenger::ShowCreditTable(double pay_per_month,
+                                      double amount_of_months) const {
   double all_payment = 0.0;
 
   for (int i = kNull + 1; i <= amount_of_months; ++i) {
@@ -132,14 +132,14 @@ void CreditMessenger::ShowTableOfCredit(double pay_per_month,
                             " $\n\n");
 }
 
-void CreditMessenger::ShowSumCreditInfo() const {
+void CreditMessenger::ShowInfoAboutCreditSum() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\nThe entered sum should not\n"
       "exceed the allowed credit.\n\n"
       "Enter the desired sum of credit: $");
 }
 
-void CreditMessenger::ShowMonthCreditInfo() const {
+void CreditMessenger::ShowInfoAboutCreditMonth() const {
   console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteTextWithDelayPerSymbol(
       "\nNumber of credit month can't be more than 60.\n\n");
@@ -150,9 +150,9 @@ void CreditMessenger::ShowMonthCreditInfo() const {
 
 void CreditMessenger::ShowResultOfUserChoice(int decision_of_user) const {
   if (decision_of_user == 1) {
-    ShowEnrollACredit();
+    EnrollACredit();
   } else {
-    ShowRepealACreadit();
+    RepealACreadit();
   }
 }
 
