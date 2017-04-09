@@ -1,4 +1,4 @@
-#ifndef ACCOUNT_MESSENGER_H
+﻿#ifndef ACCOUNT_MESSENGER_H
 #define ACCOUNT_MESSENGER_H
 
 #include <sstream>
@@ -9,19 +9,19 @@
 class AccountMessenger {
  public:
   void DisplayStrip() const;
-  void DisplayInfoLine(const std::string &info_title,
-                       const std::string &info_line) const;
+  void DisplayInfoLine(const std::string& info_title,
+                       const std::string& info_line) const;
 
-  static std::string LoginText() { return "Login: "; }
-  static std::string PasswordText() { return "Password: "; }
-  static std::string BalanceText() { return "Balance: $"; }
-  static std::string CreditText() { return "Credit: $"; }
-  static std::string PaymentText() { return "Monthly payment: $"; }
-  static std::string TermText() { return "Credit term: "; }
+  std::string LoginText() const { return "Login: "; }
+  std::string PasswordText() const { return "Password: "; }
+  std::string BalanceText() const { return "Balance: $"; }
+  std::string CreditText() const { return "Credit: $"; }
+  std::string PaymentText() const { return "Monthly payment: $"; }
+  std::string TermText() const { return "Credit term: "; }
 
  private:
-  static const int kNTimes = 45;
-  static const int kSleep = 100;
+  const int kNTimes = 45;
+  const int kSleep = 100;
 
   ConsoleEditor console_editor_;
 };

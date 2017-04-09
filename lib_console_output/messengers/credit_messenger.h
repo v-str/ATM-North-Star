@@ -23,7 +23,7 @@ class CreditMessenger {
   void ShowResultOfUserChoice(int decision_of_user) const;
   void ShowIncorrectCashInformation(int cash) const;
 
-  /// new code
+  /// temporary remark
   void ShowUnavailableCreditInfo() const;
 
  private:

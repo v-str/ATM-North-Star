@@ -1,4 +1,4 @@
-#ifndef CONSOLE_EDITOR_H
+﻿#ifndef CONSOLE_EDITOR_H
 #define CONSOLE_EDITOR_H
 
 #include <sstream>
@@ -8,22 +8,23 @@
 
 class ConsoleEditor {
  public:
-  static void ClearScreen();
+  void ClearScreen() const;
 
-  static void Sleep(int latency_ms = 15);
-  static void IgnoreCinLine();
-  static void WriteTextWithDelayPerSymbol(const std::string &text, int delay = 5);
-  static void WriteSymbolsNTimes(std::string symbol, int n);
-  static void AddEmptyLineNTimes(int amount_of_empty_lines);
-  static void WriteText(const std::string &text);
-  static void WriteTextWithInterrupt(const std::string &text, int interrupt);
+  void Sleep(int latency_ms = 15) const;
+  void IgnoreCinLine() const;
+  void WriteTextWithDelayPerSymbol(const std::string& text,
+                                   int delay = 5) const;
+  void WriteSymbolsNTimes(std::string symbol, int n) const;
+  void AddEmptyLineNTimes(int amount_of_empty_lines) const;
+  void WriteText(const std::string& text) const;
+  void WriteTextWithInterrupt(const std::string& text, int interrupt) const;
 
   template <typename T>
-  static std::string ConvertValueToString(const T &value);
+  std::string ConvertValueToString(const T& value) const;
 };
 
 template <typename T>
-std::string ConsoleEditor::ConvertValueToString(const T &value) {
+std::string ConsoleEditor::ConvertValueToString(const T& value) const {
   std::stringstream stream;
   stream << value;
   return stream.str();
