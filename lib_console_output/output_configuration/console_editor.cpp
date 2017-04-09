@@ -31,7 +31,7 @@ void ConsoleEditor::WriteTextWithDelayPerSymbol(const std::string& text,
   }
 }
 
-void ConsoleEditor::WriteSymbolsNTimes(std::string symbol, int n) const {
+void ConsoleEditor::WriteSymbolsNTimes(const std::string& symbol, int n) const {
   for (int i = 0; i < n; ++i) {
     TextWriter::Write(symbol);
   }
@@ -52,3 +52,6 @@ void ConsoleEditor::WriteTextWithInterrupt(const std::string& text,
   WriteTextWithDelayPerSymbol(text);
   Sleep(interrupt);
 }
+
+void ConsoleEditor::WriteTextInFrame(const std::string& text,
+                                     const std::string& frame_symbol) const {}
