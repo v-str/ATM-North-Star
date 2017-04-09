@@ -1,6 +1,6 @@
 #include "user_statement.h"
 
-void UserStatement::ShowStatement(AtmUser *atm_user) {
+void UserStatement::ShowStatementFor(AtmUser *atm_user) {
   console_editor_.AddEmptyLineNTimes(2);
   console_editor_.ClearScreen();
   string spaces = GetSpaces(atm_user->GetCash());

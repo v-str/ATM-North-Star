@@ -1,6 +1,6 @@
 ﻿#include "withdrawal.h"
 
-void Withdrawal::WithdrawCashFromUser(AtmUser* atm_user) {
+void Withdrawal::WithdrawCashFrom(AtmUser* atm_user) {
   console_editor_.AddEmptyLineNTimes(2);
   console_editor_.ClearScreen();
   int sum_of_withdrawal = GetSumOfWithdrawal();

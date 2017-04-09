@@ -1,6 +1,6 @@
 #include "account_informator.h"
 
-void AccountInformator::DisplayAccountInformation(AtmUser *atm_user) {
+void AccountInformator::DisplayAccountInformationFor(AtmUser *atm_user) {
   console_editor_.AddEmptyLineNTimes(2);
   console_editor_.ClearScreen();
   screen_.DisplayLogin(atm_user->GetLogin());

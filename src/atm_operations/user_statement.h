@@ -12,7 +12,7 @@ class UserStatement {
   using string = std::string;
 
  public:
-  void ShowStatement(AtmUser* atm_user);
+  void ShowStatementFor(AtmUser* atm_user);
 
  private:
   static const int kNull = 0;

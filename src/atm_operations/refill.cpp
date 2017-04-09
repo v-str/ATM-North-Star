@@ -1,6 +1,6 @@
 #include "refill.h"
 
-void Refill::StartRefillOperation(AtmUser *atm_user) {
+void Refill::StartRefillOperationFor(AtmUser *atm_user) {
   console_editor_.AddEmptyLineNTimes(2);
   console_editor_.ClearScreen();
   refill_messenger_.ShowNotifyAboutCash();

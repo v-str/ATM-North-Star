@@ -1,6 +1,6 @@
 ﻿#include "credit_menu.h"
 
-void CreditMenu::ShowCreditMenu(AtmUser* atm_user) {
+void CreditMenu::ShowCreditMenuFor(AtmUser* atm_user) {
   console_editor_.ClearScreen();
   if (AlreadyHasACredit(atm_user->GetCredit())) {
     RefuseACredit();

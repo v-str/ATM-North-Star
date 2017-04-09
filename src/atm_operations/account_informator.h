@@ -7,7 +7,7 @@
 
 class AccountInformator {
  public:
-  void DisplayAccountInformation(AtmUser *atm_user);
+  void DisplayAccountInformationFor(AtmUser *atm_user);
 
  private:
   InformationScreen screen_;

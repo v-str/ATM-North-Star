@@ -13,7 +13,7 @@ class Withdrawal {
   using string = std::string;
 
  public:
-  void WithdrawCashFromUser(AtmUser *atm_user);
+  void WithdrawCashFrom(AtmUser *atm_user);
 
  private:
   static bool IsWithdrawalAcceptable(AtmUser *atm_user, double cash_sum);

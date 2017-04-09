@@ -39,22 +39,22 @@ void ConsoleMode::RegistrateUser() { registrator_.RegisterUser(user_); }
 void ConsoleMode::MainProgramMenu() {
   do {
     user_messenger_.ShowMainMenu();
-    ATMOperation(user_input_.GetValueFromUser());
+    ExecuteOperation(user_input_.GetValueFromUser());
   } while (!user_want_to_exit_);
 }
 
-void ConsoleMode::ATMOperation(int user_choice) {
+void ConsoleMode::ExecuteOperation(int user_choice) {
   if (user_choice == kAccount) {
-    account_informator_.DisplayAccountInformation(&user_);
+    account_informator_.DisplayAccountInformationFor(&user_);
   } else if (user_choice == kRefill) {
-    refill_.StartRefillOperation(&user_);
+    refill_.StartRefillOperationFor(&user_);
   } else if (user_choice == kCredit) {
-    credit_menu_.ShowCreditMenu(&user_);
+    credit_menu_.ShowCreditMenuFor(&user_);
     credit_department_.StartCreditOperationFor(&user_);
   } else if (user_choice == kWidthdrawal) {
-    withdrawal_.WithdrawCashFromUser(&user_);
+    withdrawal_.WithdrawCashFrom(&user_);
   } else if (user_choice == kStatement) {
-    statement_.ShowStatement(&user_);
+    statement_.ShowStatementFor(&user_);
   } else if (user_choice == kExitProgram) {
     user_messenger_.ReRequestAboutExit();
   } else {

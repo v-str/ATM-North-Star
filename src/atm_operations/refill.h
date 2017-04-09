@@ -11,7 +11,7 @@
 
 class Refill {
  public:
-  void StartRefillOperation(AtmUser *atm_user);
+  void StartRefillOperationFor(AtmUser *atm_user);
 
  private:
   static const int kNull = 0;

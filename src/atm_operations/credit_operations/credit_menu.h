@@ -14,7 +14,7 @@ class CreditMenu {
   using string = std::string;
 
  public:
-  void ShowCreditMenu(AtmUser* atm_user);
+  void ShowCreditMenuFor(AtmUser* atm_user);
 
  private:
   enum SuggestVariantOfCredit { kMaxCreditSum = 1, kUserCreditSum };
