@@ -1,10 +1,9 @@
 ﻿#include "credit_menu.h"
 
 void CreditMenu::ShowCreditMenuFor(AtmUser* atm_user) {
-  console_editor_.ClearScreen();
   if (AlreadyHasACredit(atm_user->GetCredit())) {
-    RefuseACredit();
-    credit_messenger_.ShowIncorrectCashInformation(atm_user->GetCash());
+    // RefuseACredit();
+    // credit_messenger_.ShowIncorrectCashInformation(atm_user->GetCash());
   } else {
     string user_login = atm_user->GetLogin();
     SuggestACredit(atm_user, user_login);
@@ -32,8 +31,8 @@ void CreditMenu::ConsiderACreditBasedOnCash(AtmUser* atm_user,
   if (atm_user->IsCreditAvailable()) {
     GiveACredit(atm_user, user_login);
   } else {
-    int sum_of_cash = atm_user->GetCash();
-    RefuseACredit(sum_of_cash);
+    // int sum_of_cash = atm_user->GetCash();
+    // RefuseACredit(sum_of_cash);
   }
 }
 

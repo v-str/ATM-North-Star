@@ -2,10 +2,11 @@
 #include "text_writer.h"
 
 void CreditMessenger::RefuseACreditBasedOnAnotherCredit() const {
+  console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
-      "\n #Sorry, but you have already credit in our bank.\n"
-      " #You can't get a second credit, "
-      "while your first loan not complete.\n");
+      "# Sorry, but you have already credit in our bank.\n"
+      "# You can't get a second credit, while your first\n"
+      "# credit is not complete.\n");
 }
 
 void CreditMessenger::RefuseACreditBasedOnCash(int sum_of_cash) const {
