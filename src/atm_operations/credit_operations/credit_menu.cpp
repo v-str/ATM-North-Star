@@ -15,7 +15,9 @@ bool CreditMenu::AlreadyHasACredit(int sum_of_credit) {
   return sum_of_credit > kNull;
 }
 
-void CreditMenu::RefuseACredit() const { credit_messenger_.RefuseACredit(); }
+void CreditMenu::RefuseACredit() const {
+  credit_messenger_.RefuseACreditBasedOnCredit();
+}
 
 void CreditMenu::SuggestACredit(AtmUser* atm_user,
                                 const string& user_login) const {
@@ -58,5 +60,5 @@ void CreditMenu::GiveACredit(AtmUser* atm_user,
 
 void CreditMenu::RefuseACredit(int sum_of_cash) const {
   console_editor_.AddEmptyLineNTimes(1);
-  credit_messenger_.RefuseACredit(sum_of_cash);
+  credit_messenger_.RefuseACreditBasedOnCash(sum_of_cash);
 }

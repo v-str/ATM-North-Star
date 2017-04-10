@@ -1,7 +1,7 @@
 ﻿#include "credit_messenger.h"
 #include "text_writer.h"
 
-void CreditMessenger::RefuseACredit() const {
+void CreditMessenger::RefuseACreditBasedOnCredit() const {
   console_editor_.WriteTextWithDelayPerSymbol(
       "\n #Sorry, but you have already a "
       "loan in our bank.\n"
@@ -10,7 +10,7 @@ void CreditMessenger::RefuseACredit() const {
       "not complete.\n");
 }
 
-void CreditMessenger::RefuseACredit(int sum_of_cash) const {
+void CreditMessenger::RefuseACreditBasedOnCash(int sum_of_cash) const {
   console_editor_.ClearScreen();
 
   console_editor_.WriteTextWithInterrupt("# We checked your balance.\n",

@@ -52,6 +52,3 @@ void ConsoleEditor::WriteTextWithInterrupt(const std::string& text,
   WriteTextWithDelayPerSymbol(text);
   Sleep(interrupt);
 }
-
-void ConsoleEditor::WriteTextInFrame(const std::string& text,
-                                     const std::string& frame_symbol) const {}

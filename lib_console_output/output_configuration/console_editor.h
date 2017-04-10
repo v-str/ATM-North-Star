@@ -18,8 +18,6 @@ class ConsoleEditor {
   void AddEmptyLineNTimes(int amount_of_empty_lines) const;
   void WriteText(const std::string& text) const;
   void WriteTextWithInterrupt(const std::string& text, int interrupt) const;
-  void WriteTextInFrame(const std::string& text,
-                        const std::string& frame_symbol) const;
 
   template <typename T>
   std::string ConvertValueToString(const T& value) const;
