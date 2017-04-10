@@ -172,3 +172,14 @@ void CreditMessenger::ShowUnavailableCreditInfo() const {
   console_editor_.WriteText("\n\n");
   console_editor_.Sleep(500);
 }
+
+void CreditMessenger::UnavailableCreditState() const {
+  console_editor_.ClearScreen();
+  console_editor_.WriteSymbolsNTimes("#", 65);
+  console_editor_.WriteTextWithDelayPerSymbol(
+      "\n"
+      " # Sorry, credit section is not available at the moment,\n"
+      " # Try later . . .\n");
+  console_editor_.WriteSymbolsNTimes("#", 65);
+  console_editor_.WriteText("\n");
+}

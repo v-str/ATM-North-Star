@@ -2,18 +2,20 @@
 
 int CreditCheck::GetResultOfUserCheck(const AtmUser& user) const {
   if (IsCreditExist(user)) {
-    return kCreditExist;
+    return state_.kCreditExist;
   } else if (!IsBalanceAppropriate(user)) {
-    return kInappropriateBalance;
+    return state_.kInappropriateBalance;
+  } else if (!IsCreditExist(user) && IsBalanceAppropriate(user)) {
+    return state_.kPositiveCheck;
   }
 
-  return kPositiveCheck;
+  return state_.kInvalidCheck;
 }
 
 bool CreditCheck::IsBalanceAppropriate(const AtmUser& user) const {
-  return (user.GetCash() >= kAppropriateSumForCredit) ? true : false;
+  return (user.GetCash() >= state_.kAppropriateSumForCredit) ? true : false;
 }
 
 bool CreditCheck::IsCreditExist(const AtmUser& user) const {
-  return (user.GetCredit() > kNull) ? true : false;
+  return (user.GetCredit() > state_.kNull) ? true : false;
 }

@@ -26,6 +26,8 @@ class CreditMessenger {
   /// temporary remark
   void ShowUnavailableCreditInfo() const;
 
+  void UnavailableCreditState() const;
+
  private:
   static const int kHalfASecond = 500;
   static const int kSleep = 75;

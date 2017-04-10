@@ -2,6 +2,7 @@
 #define CREDIT_CHECK_H
 
 #include "atm_user.h"
+#include "check_state.h"
 
 class CreditCheck {
  public:
@@ -11,12 +12,7 @@ class CreditCheck {
   bool IsBalanceAppropriate(const AtmUser& user) const;
   bool IsCreditExist(const AtmUser& user) const;
 
-  const int kAppropriateSumForCredit = 1000;
-  const int kNull = 0;
-
-  const int kPositiveCheck = 0;
-  const int kCreditExist = 1;
-  const int kInappropriateBalance = 2;
+  CheckState state_;
 };
 
 #endif  // CREDIT_CHECK_H
