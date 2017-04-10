@@ -16,7 +16,7 @@ bool CreditMenu::AlreadyHasACredit(int sum_of_credit) {
 }
 
 void CreditMenu::RefuseACredit() const {
-  credit_messenger_.RefuseACreditBasedOnCredit();
+  credit_messenger_.RefuseACreditBasedOnAnotherCredit();
 }
 
 void CreditMenu::SuggestACredit(AtmUser* atm_user,
