@@ -26,22 +26,22 @@ void CreditMessenger::NotifyAboutCredit() const {
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
       "# You can get a loan in our bank if your\n"
-      "  balance more than $1000.\n"
+      "# balance more than $1000.\n"
       "# We draw your attention to the fact that\n"
-      "  our bank may refuse you in getting a loan\n"
-      "  without giving any reason.\n"
+      "# our bank may refuse you in getting a loan\n"
+      "# without giving any reason.\n"
       "# Nowadays, the all loans are set on 14% per year\n"
       "# The loan depend from sum on account at the moment.\n");
 
   console_editor_.WriteText(
-      "\n\t*********************\n"
-      "\t*   Continue?       *\n"
-      "\t*                   *\n"
-      "\t*   1. Yes          *\n"
-      "\t*   2. No           *\n"
-      "\t*                   *\n"
-      "\t*********************\n"
-      "\tEnter: ");
+      "\n#####################\n"
+      "#   Continue?       #\n"
+      "#                   #\n"
+      "#   1. Yes          #\n"
+      "#   2. No           #\n"
+      "#                   #\n"
+      "#####################\n\n"
+      "Enter: ");
 }
 
 void CreditMessenger::ShowCreditConditions(int maximal_sum_of_credit) const {
