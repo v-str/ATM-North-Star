@@ -12,7 +12,9 @@ class CreditDepartment {
   virtual void StartCreditOperationFor(AtmUser* user) = 0;
 
  protected:
-  int GetResultOfUserCheck(const AtmUser& user) const;
+  virtual void SuggestCredit(AtmUser* user) = 0;
+
+  int ResultOfUserCheck(const AtmUser& user) const;
 
  private:
   CreditCalculator calculator_;
