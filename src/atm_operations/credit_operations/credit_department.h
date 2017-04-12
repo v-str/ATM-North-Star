@@ -19,6 +19,8 @@ class CreditDepartment {
 
   int MaxCreditSum(int cash);
 
+  void SetCreditSum(int credit_sum);
+
  private:
   CreditCalculator calculator_;
   CreditCheck checker_;
