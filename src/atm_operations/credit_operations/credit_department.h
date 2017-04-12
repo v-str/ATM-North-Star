@@ -17,6 +17,8 @@ class CreditDepartment {
 
   int ResultOfUserCheck(const AtmUser& user) const;
 
+  int MaxCreditSum(int cash);
+
  private:
   CreditCalculator calculator_;
   CreditCheck checker_;

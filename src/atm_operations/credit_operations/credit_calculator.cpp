@@ -1,3 +1,5 @@
 ﻿#include "credit_calculator.h"
 
-CreditCalculator::CreditCalculator() {}
+int CreditCalculator::CalculateMaxCreditSum(int cash) {
+  return max_credit_sum_ = multiplier_ * cash;
+}
