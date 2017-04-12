@@ -51,6 +51,6 @@ int CLICreditDepartment::GetCreditTermFromUser() const {
   do {
     messenger_.ShowInfoAboutCreditMonth();
     months = input_.GetValueFromUser();
-  } while (months < 0 && months > state_.kMaximalCreditTerm);
+  } while (months < 0 || months > state_.kMaximalCreditTerm);
   return months;
 }

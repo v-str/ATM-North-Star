@@ -49,8 +49,8 @@ void ConsoleMode::ExecuteOperation(int user_choice) {
   } else if (user_choice == kRefill) {
     refill_.StartRefillOperationFor(&user_);
   } else if (user_choice == kCredit) {
-    credit_menu_.ShowCreditMenuFor(&user_);
-    // credit_department_.StartCreditOperationFor(&user_);
+    // credit_menu_.ShowCreditMenuFor(&user_);
+    credit_department_.StartCreditOperationFor(&user_);
   } else if (user_choice == kWidthdrawal) {
     withdrawal_.WithdrawCashFrom(&user_);
   } else if (user_choice == kStatement) {
