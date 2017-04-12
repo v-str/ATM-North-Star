@@ -28,8 +28,10 @@ void CLICreditDepartment::ConsiderCredit(AtmUser* user) {
   int user_choice = input_.GetValueFromUser();
   if (user_choice == kMaxCreditSum) {
     SetCreditSum(max_credit_sum);
+    SetCreditTerm(GetCreditTermFromUser());
   } else if (user_choice == kUserCreditSum) {
     SetCreditSum(GetCreditSumFromUser(max_credit_sum));
+    SetCreditTerm(GetCreditTermFromUser());
   }
 }
 
@@ -42,4 +44,13 @@ int CLICreditDepartment::GetCreditSumFromUser(int max_credit_sum) const {
            user_credit_sum == state_.kInvalidCheck || user_credit_sum < 0);
 
   return user_credit_sum;
+}
+
+int CLICreditDepartment::GetCreditTermFromUser() const {
+  int months = 0;
+  do {
+    messenger_.ShowInfoAboutCreditMonth();
+    months = input_.GetValueFromUser();
+  } while (months < 0 && months > state_.kMaximalCreditTerm);
+  return months;
 }

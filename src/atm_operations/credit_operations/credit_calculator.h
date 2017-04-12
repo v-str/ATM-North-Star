@@ -7,12 +7,14 @@ class CreditCalculator {
  public:
   int CalculateMaxCreditSum(int cash);
 
-  void SetUserCreditSum(int credit_sum);
+  void SetCreditSum(int credit_sum);
+  void SetCreditTerm(int months);
 
  private:
   int multiplier_ = 15;
   int max_credit_sum_ = 0;
   int user_credit_sum_ = 0;
+  int credit_term_ = 0;
 
   std::vector<double> payments_;
 };

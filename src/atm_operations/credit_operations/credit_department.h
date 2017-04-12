@@ -20,6 +20,7 @@ class CreditDepartment {
   int MaxCreditSum(int cash);
 
   void SetCreditSum(int credit_sum);
+  void SetCreditTerm(int months);
 
  private:
   CreditCalculator calculator_;

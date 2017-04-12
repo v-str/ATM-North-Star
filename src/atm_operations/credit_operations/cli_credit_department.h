@@ -17,6 +17,7 @@ class CLICreditDepartment : public CreditDepartment {
   enum kSizeOfCredit { kMaxCreditSum = 1, kUserCreditSum };
 
   int GetCreditSumFromUser(int max_credit_sum) const;
+  int GetCreditTermFromUser() const;
 
   CreditMessenger messenger_;
   CheckState state_;

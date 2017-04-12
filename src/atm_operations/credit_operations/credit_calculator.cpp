@@ -4,6 +4,8 @@ int CreditCalculator::CalculateMaxCreditSum(int cash) {
   return max_credit_sum_ = multiplier_ * cash;
 }
 
-void CreditCalculator::SetUserCreditSum(int credit_sum) {
+void CreditCalculator::SetCreditSum(int credit_sum) {
   user_credit_sum_ = credit_sum;
 }
+
+void CreditCalculator::SetCreditTerm(int months) { credit_term_ = months; }

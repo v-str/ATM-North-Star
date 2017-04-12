@@ -10,5 +10,10 @@ int CreditDepartment::MaxCreditSum(int cash) {
 
 void CreditDepartment::SetCreditSum(int credit_sum) {
   credit_data_.credit_sum_ = credit_sum;
-  calculator_.SetUserCreditSum(credit_sum);
+  calculator_.SetCreditSum(credit_sum);
+}
+
+void CreditDepartment::SetCreditTerm(int months) {
+  credit_data_.credit_term_ = months;
+  calculator_.SetCreditTerm(months);
 }

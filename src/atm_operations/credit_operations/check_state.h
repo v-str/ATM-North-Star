@@ -8,6 +8,7 @@ struct CheckState {
   const int kCreditExist = 1;
   const int kInappropriateBalance = 2;
   const int kInvalidCheck = -1;
+  const int kMaximalCreditTerm = 60;
 };
 
 #endif  // CHECK_STATE_H
