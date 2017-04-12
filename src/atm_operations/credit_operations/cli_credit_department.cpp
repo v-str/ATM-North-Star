@@ -22,4 +22,10 @@ void CLICreditDepartment::SuggestCredit(AtmUser* user) {
   }
 }
 
-void CLICreditDepartment::ConsiderCredit(AtmUser* user) {}
+void CLICreditDepartment::ConsiderCredit(AtmUser* user) {
+  messenger_.ShowCreditConditions(MaxCreditSum(user->GetCash()));
+  int user_choice = input_.GetValueFromUser();
+  if (user_choice == kMaxCreditSum) {
+  } else if (user_choice == kUserCreditSum) {
+  }
+}

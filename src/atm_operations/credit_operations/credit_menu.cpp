@@ -51,9 +51,6 @@ void CreditMenu::GiveACredit(AtmUser* atm_user,
   } else if (choice == kUserCreditSum) {
     credit_.GiveCredit(atm_user, user_login, maximal_sum_of_credit,
                        kConsumerCredit);
-
-  } else {
-    notice_messenger_.ShowError();
   }
 }
 

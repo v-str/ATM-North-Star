@@ -14,6 +14,8 @@ class CLICreditDepartment : public CreditDepartment {
   void ConsiderCredit(AtmUser* user) override;
 
  private:
+  enum kSizeOfCredit { kMaxCreditSum = 1, kUserCreditSum };
+
   CreditMessenger messenger_;
   CheckState state_;
   UserInput input_;

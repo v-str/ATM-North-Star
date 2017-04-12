@@ -45,11 +45,7 @@ void CreditMessenger::NotifyAboutCredit() const {
 }
 
 void CreditMessenger::ShowCreditConditions(int maximal_sum_of_credit) const {
-  std::string convertible_string_value =
-      console_editor_.ConvertValueToString(maximal_sum_of_credit);
-  console_editor_.AddEmptyLineNTimes(2);
   console_editor_.ClearScreen();
-
   console_editor_.WriteTextWithInterrupt(
       "# Your balance more than 1000$. You can afford to take the\n"
       "# credit in our bank. The maximum amount for you is:\n",
@@ -57,6 +53,8 @@ void CreditMessenger::ShowCreditConditions(int maximal_sum_of_credit) const {
   console_editor_.WriteText(
       "----------------------------------------------------------\n");
   console_editor_.WriteText(" \t\t\t $");
+  std::string convertible_string_value =
+      console_editor_.ConvertValueToString(maximal_sum_of_credit);
   console_editor_.WriteText(convertible_string_value);
   console_editor_.WriteText("\n");
 
