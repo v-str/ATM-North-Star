@@ -17,7 +17,7 @@ void CreditMessenger::RefuseACreditBasedOnCash(int sum_of_cash) const {
 
   console_editor_.WriteTextWithInterrupt(
       "# Available cash = $" + std::to_string(sum_of_cash) + "\n" +
-          "# Sorry, for getting a loan your balance must be "
+          "# Sorry, for getting a credit your balance must be "
           "$1000 or more.\n",
       kHalfASecond);
 }
@@ -25,13 +25,13 @@ void CreditMessenger::RefuseACreditBasedOnCash(int sum_of_cash) const {
 void CreditMessenger::NotifyAboutCredit() const {
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithDelayPerSymbol(
-      "# You can get a loan in our bank if your\n"
+      "# You can get a credit in our bank if your\n"
       "# balance more than $1000.\n"
       "# We draw your attention to the fact that\n"
-      "# our bank may refuse you in getting a loan\n"
+      "# our bank may refuse you in getting a credit\n"
       "# without giving any reason.\n"
-      "# Nowadays, the all loans are set on 14% per year\n"
-      "# The loan depend from sum on account at the moment.\n");
+      "# Nowadays, all credits are set on 14% per year\n"
+      "# The credit depend from sum on account at the moment.\n");
 
   console_editor_.WriteText(
       "\n#####################\n"
@@ -65,9 +65,9 @@ void CreditMessenger::ShowCreditConditions(int maximal_sum_of_credit) const {
 
   console_editor_.WriteTextWithInterrupt(
       "\n# Do you prefer get all sum or you want to change\nthe sum of "
-      "loan?\n\n"
+      "credit?\n\n"
       "# 1. Get all sum\n"
-      "# 2. Change the sum of loan\n"
+      "# 2. Change the sum of credit\n"
       "# 3. Exit credit menu\n",
       kHalfASecond);
   console_editor_.WriteText("# Enter: ");
@@ -75,7 +75,7 @@ void CreditMessenger::ShowCreditConditions(int maximal_sum_of_credit) const {
 
 void CreditMessenger::SuggestToConfirmACredit() const {
   console_editor_.WriteTextWithDelayPerSymbol(
-      "\n\t# Do you confirm the loan?\n"
+      "\n\t# Do you confirm the credit?\n"
       "\t1. Yes, I confirm.\n"
       "\t2. Repeal a credit.\n"
       "\tEnter: ");
@@ -102,7 +102,7 @@ void CreditMessenger::ShowCreditTitle(const CreditMessenger::string& user_login,
 void CreditMessenger::EnrollACredit() const {
   console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteTextWithDelayPerSymbol(
-      "\n# The loan was successfully transferred on your account.\n"
+      "\n# The credit was successfully transferred on your account.\n"
       "# You might cash your credit in our nearest bank.\n");
 }
 

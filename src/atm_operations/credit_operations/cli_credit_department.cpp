@@ -17,4 +17,9 @@ void CLICreditDepartment::StartCreditOperationFor(AtmUser* user) {
 
 void CLICreditDepartment::SuggestCredit(AtmUser* user) {
   messenger_.NotifyAboutCredit();
+  if (input_.GetValueFromUser() == kConsiderCredit) {
+    ConsiderCredit(user);
+  }
 }
+
+void CLICreditDepartment::ConsiderCredit(AtmUser* user) {}

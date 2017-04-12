@@ -11,10 +11,14 @@ class CLICreditDepartment : public CreditDepartment {
 
  protected:
   void SuggestCredit(AtmUser* user) override;
+  void ConsiderCredit(AtmUser* user) override;
 
  private:
   CreditMessenger messenger_;
   CheckState state_;
+  UserInput input_;
+
+  const int kConsiderCredit = 1;
 };
 
 #endif  // CLI_CREDIT_DEPARTMENT_H
