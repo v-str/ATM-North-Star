@@ -35,6 +35,8 @@ void CLICreditDepartment::ConsiderCredit(AtmUser* user) {
   }
 }
 
+void CLICreditDepartment::CalculateCredit() {}
+
 int CLICreditDepartment::GetCreditSumFromUser(int max_credit_sum) const {
   int user_credit_sum = 0;
   do {

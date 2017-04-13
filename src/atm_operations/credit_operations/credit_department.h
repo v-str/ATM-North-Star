@@ -14,6 +14,7 @@ class CreditDepartment {
  protected:
   virtual void SuggestCredit(AtmUser* user) = 0;
   virtual void ConsiderCredit(AtmUser* user) = 0;
+  virtual void CalculateCredit() = 0;
 
   int ResultOfUserCheck(const AtmUser& user) const;
 
