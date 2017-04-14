@@ -10,6 +10,8 @@ class CreditCalculator {
   void SetCreditSum(int credit_sum);
   void SetCreditTerm(int months);
 
+  void CalculateCredit();
+
  private:
   int multiplier_ = 15;
   int max_credit_sum_ = 0;

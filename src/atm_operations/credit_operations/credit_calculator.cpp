@@ -9,3 +9,5 @@ void CreditCalculator::SetCreditSum(int credit_sum) {
 }
 
 void CreditCalculator::SetCreditTerm(int months) { credit_term_ = months; }
+
+void CreditCalculator::CalculateCredit() {}
