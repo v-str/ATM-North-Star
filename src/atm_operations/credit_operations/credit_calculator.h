@@ -17,9 +17,9 @@ class CreditCalculator {
   double AnnuityMonthlyPayment();
 
   int multiplier_ = 15;
-  int max_credit_sum_ = 0;
   int credit_sum_ = 0;
   int credit_term_ = 0;
+  double credit_overpayment_ = 0.0;
   double interest_rate_ = 14.0;
 
   std::vector<std::pair<double, double>> payments_;

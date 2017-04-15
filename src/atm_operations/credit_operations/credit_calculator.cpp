@@ -3,7 +3,7 @@
 #include <cmath>
 
 int CreditCalculator::CalculateMaxCreditSum(int cash) {
-  return max_credit_sum_ = multiplier_ * cash;
+  return multiplier_ * cash;
 }
 
 void CreditCalculator::SetCreditSum(int credit_sum) {
