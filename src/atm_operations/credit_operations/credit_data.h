@@ -1,14 +1,6 @@
 ﻿#ifndef CREDIT_DATA_H
 #define CREDIT_DATA_H
 
-// struct CreditData {
-//  int multiplier_ = 15;
-//  int credit_sum_ = 0;
-//  int credit_term_ = 0;
-//  double credit_overpayment_ = 0.0;
-//  double interest_rate_ = 14.0;
-//};
-
 class CreditData {
  public:
   void SetMultiplier(int multiplier) { multiplier_ = multiplier; }
