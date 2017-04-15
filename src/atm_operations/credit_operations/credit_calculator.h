@@ -4,12 +4,14 @@
 #include <utility>
 #include <vector>
 
+#include "credit_data.h"
+
 class CreditCalculator {
  public:
-  int CalculateMaxCreditSum(int cash);
+  int CalculateMaxCreditSum(int cash, int multiplier);
 
-  void SetCreditSum(int credit_sum);
-  void SetCreditTerm(int months);
+  void SetCreditSum(CreditData* credit_data, int credit_sum);
+  void SetCreditTerm(CreditData* credit_data, int months);
 
   void CalculateCredit();
 

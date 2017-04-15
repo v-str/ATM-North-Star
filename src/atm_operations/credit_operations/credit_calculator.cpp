@@ -2,15 +2,17 @@
 
 #include <cmath>
 
-int CreditCalculator::CalculateMaxCreditSum(int cash) {
-  return multiplier_ * cash;
+int CreditCalculator::CalculateMaxCreditSum(int cash, int multiplier) {
+  return cash * multiplier;
 }
 
-void CreditCalculator::SetCreditSum(int credit_sum) {
-  credit_sum_ = credit_sum;
+void CreditCalculator::SetCreditSum(CreditData* credit_data, int credit_sum) {
+  credit_data->SetCreditSum(credit_sum);
 }
 
-void CreditCalculator::SetCreditTerm(int months) { credit_term_ = months; }
+void CreditCalculator::SetCreditTerm(CreditData* credit_data, int months) {
+  credit_data->SetCreditTerm(months);
+}
 
 void CreditCalculator::CalculateCredit() { payments_.resize(credit_term_); }
 
