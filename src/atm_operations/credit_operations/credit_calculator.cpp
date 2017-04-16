@@ -21,6 +21,8 @@ void CreditCalculator::CalculateCredit(CreditData* credit_data) {
   double total_overpayment = annuity_credit_payment * credit_data->CreditTerm();
 
   FillCreditPaysheet(annuity_credit_payment, total_overpayment);
+
+  credit_data->SetPaysheet(paysheet_);
 }
 
 double CreditCalculator::AnnuityMonthlyPayment(const CreditData& credit_data) {

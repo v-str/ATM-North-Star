@@ -1,6 +1,9 @@
 ﻿#ifndef CREDIT_DATA_H
 #define CREDIT_DATA_H
 
+#include <utility>
+#include <vector>
+
 class CreditData {
  public:
   void SetMultiplier(int multiplier) { multiplier_ = multiplier; }
@@ -10,6 +13,9 @@ class CreditData {
     credit_overpayment_ = credit_overpayment;
   }
   void SetInterestRate(double interest_rate) { interest_rate_ = interest_rate; }
+  void SetPaysheet(const std::vector<std::pair<double, double>>& paysheet) {
+    paysheet_ = paysheet;
+  }
 
   int Multiplier() const { return multiplier_; }
   int CreditSum() const { return credit_sum_; }
@@ -23,6 +29,8 @@ class CreditData {
   int credit_term_ = 0;
   double credit_overpayment_ = 0.0;
   double interest_rate_ = 14.0;
+
+  std::vector<std::pair<double, double>> paysheet_;
 };
 
 #endif  // CREDIT_DATA_H
