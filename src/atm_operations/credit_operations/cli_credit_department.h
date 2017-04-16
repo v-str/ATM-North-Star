@@ -21,6 +21,7 @@ class CLICreditDepartment : public CreditDepartment {
   int GetCreditTermFromUser() const;
 
   bool IsValid(int credit_sum, int max_credit_sum) const;
+  bool IsValid(int months) const;
 
   void PerformCreditCalculations(int credit_sum);
 

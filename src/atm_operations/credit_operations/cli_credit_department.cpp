@@ -53,13 +53,17 @@ int CLICreditDepartment::GetCreditTermFromUser() const {
   do {
     messenger_.ShowInfoAboutCreditMonth();
     months = input_.GetValueFromUser();
-  } while (months < 0 || months > CheckState::kMaximalCreditTerm);
+  } while (!IsValid(months));
   return months;
 }
 
 bool CLICreditDepartment::IsValid(int credit_sum, int max_credit_sum) const {
   return credit_sum < max_credit_sum &&
          credit_sum != CheckState::kInvalidCheck && credit_sum > 0;
+}
+
+bool CLICreditDepartment::IsValid(int months) const {
+  return months > 0 && months < CheckState::kMaximalCreditTerm;
 }
 
 void CLICreditDepartment::PerformCreditCalculations(int credit_sum) {
