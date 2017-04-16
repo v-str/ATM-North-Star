@@ -3,14 +3,14 @@
 void CLICreditDepartment::StartCreditOperationFor(AtmUser* user) {
   int result_of_check = ResultOfUserCheck(*user);
 
-  if (result_of_check == state_.kPositiveCheck) {
+  if (result_of_check == CheckState::kPositiveCheck) {
     SuggestCredit(user);
-  } else if (result_of_check == state_.kCreditExist) {
+  } else if (result_of_check == CheckState::kCreditExist) {
     messenger_.RefuseACreditBasedOnAnotherCredit();
     messenger_.ShowIncorrectCashInformation(user->GetCash());
-  } else if (result_of_check == state_.kInappropriateBalance) {
+  } else if (result_of_check == CheckState::kInappropriateBalance) {
     messenger_.RefuseACreditBasedOnCash(user->GetCash());
-  } else if (result_of_check == state_.kInvalidCheck) {
+  } else if (result_of_check == CheckState::kInvalidCheck) {
     messenger_.UnavailableCreditState();
   }
 }
@@ -33,10 +33,7 @@ bool CLICreditDepartment::ConsiderCredit(int user_cash) {
     int credit_sum = GetCreditSumFromUser(max_credit_sum);
     PerformCreditCalculations(credit_sum);
   }
-
-  return (user_choice == kMaxCreditSum || user_choice == kUserCreditSum)
-             ? true
-             : false;
+  return user_choice == kMaxCreditSum || user_choice == kUserCreditSum;
 }
 
 void CLICreditDepartment::ShowCredit() {}
@@ -47,7 +44,7 @@ int CLICreditDepartment::GetCreditSumFromUser(int max_credit_sum) const {
     messenger_.ShowInfoAboutCreditSum();
     user_credit_sum = input_.GetValueFromUser();
   } while (user_credit_sum > max_credit_sum ||
-           user_credit_sum == state_.kInvalidCheck || user_credit_sum < 0);
+           user_credit_sum == CheckState::kInvalidCheck || user_credit_sum < 0);
 
   return user_credit_sum;
 }
@@ -57,7 +54,7 @@ int CLICreditDepartment::GetCreditTermFromUser() const {
   do {
     messenger_.ShowInfoAboutCreditMonth();
     months = input_.GetValueFromUser();
-  } while (months < 0 || months > state_.kMaximalCreditTerm);
+  } while (months < 0 || months > CheckState::kMaximalCreditTerm);
   return months;
 }
 

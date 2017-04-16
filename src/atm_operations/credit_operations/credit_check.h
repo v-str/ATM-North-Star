@@ -11,8 +11,6 @@ class CreditCheck {
  private:
   bool IsBalanceAppropriate(const AtmUser& user) const;
   bool IsCreditExist(const AtmUser& user) const;
-
-  CheckState state_;
 };
 
 #endif  // CREDIT_CHECK_H

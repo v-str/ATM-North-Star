@@ -23,7 +23,6 @@ class CLICreditDepartment : public CreditDepartment {
   void PerformCreditCalculations(int credit_sum);
 
   CreditMessenger messenger_;
-  CheckState state_;
   UserInput input_;
 
   const int kConsiderCredit = 1;
