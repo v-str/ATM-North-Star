@@ -11,7 +11,8 @@ class CLICreditDepartment : public CreditDepartment {
 
  protected:
   void SuggestCredit(AtmUser* user) override;
-  void ConsiderCredit(AtmUser* user) override;
+  bool ConsiderCredit(int user_cash) override;
+  void ShowCredit() override;
 
  private:
   enum CreditSum { kMaxCreditSum = 1, kUserCreditSum };

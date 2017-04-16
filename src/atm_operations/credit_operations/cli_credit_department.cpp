@@ -18,12 +18,13 @@ void CLICreditDepartment::StartCreditOperationFor(AtmUser* user) {
 void CLICreditDepartment::SuggestCredit(AtmUser* user) {
   messenger_.NotifyAboutCredit();
   if (input_.GetValueFromUser() == kConsiderCredit) {
-    ConsiderCredit(user);
+    if (ConsiderCredit(user->GetCash())) {
+    }
   }
 }
 
-void CLICreditDepartment::ConsiderCredit(AtmUser* user) {
-  int max_credit_sum = MaxCreditSum(user->GetCash());
+bool CLICreditDepartment::ConsiderCredit(int user_cash) {
+  int max_credit_sum = MaxCreditSum(user_cash);
   messenger_.ShowCreditConditions(max_credit_sum);
   int user_choice = input_.GetValueFromUser();
   if (user_choice == kMaxCreditSum) {
@@ -32,7 +33,13 @@ void CLICreditDepartment::ConsiderCredit(AtmUser* user) {
     int credit_sum = GetCreditSumFromUser(max_credit_sum);
     PerformCreditCalculations(credit_sum);
   }
+
+  return (user_choice == kMaxCreditSum || user_choice == kUserCreditSum)
+             ? true
+             : false;
 }
+
+void CLICreditDepartment::ShowCredit() {}
 
 int CLICreditDepartment::GetCreditSumFromUser(int max_credit_sum) const {
   int user_credit_sum = 0;
