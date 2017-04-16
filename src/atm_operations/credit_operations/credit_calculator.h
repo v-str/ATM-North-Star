@@ -18,7 +18,10 @@ class CreditCalculator {
  private:
   double AnnuityMonthlyPayment(const CreditData& credit_data);
 
-  std::vector<std::pair<double, double>> payments_;
+  void FillCreditPaysheet(double annuity_credit_payment,
+                          double total_overpayment);
+
+  std::vector<std::pair<double, double>> paysheet_;
 };
 
 #endif  // CREDIT_CALCULATOR_H

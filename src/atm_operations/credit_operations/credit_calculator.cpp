@@ -15,7 +15,12 @@ void CreditCalculator::SetCreditTerm(CreditData* credit_data, int months) {
 }
 
 void CreditCalculator::CalculateCredit(CreditData* credit_data) {
-  payments_.resize(credit_data->CreditTerm());
+  paysheet_.resize(credit_data->CreditTerm());
+
+  double annuity_credit_payment = AnnuityMonthlyPayment(*credit_data);
+  double total_overpayment = annuity_credit_payment * credit_data->CreditTerm();
+
+  FillCreditPaysheet(annuity_credit_payment, total_overpayment);
 }
 
 double CreditCalculator::AnnuityMonthlyPayment(const CreditData& credit_data) {
@@ -37,4 +42,14 @@ double CreditCalculator::AnnuityMonthlyPayment(const CreditData& credit_data) {
       annuity_coefficient * credit_data.CreditSum();
 
   return annuity_monthly_payment;
+}
+
+void CreditCalculator::FillCreditPaysheet(double annuity_credit_payment,
+                                          double total_overpayment) {
+  double credit_debt = total_overpayment;
+
+  for (auto it = paysheet_.begin(); it != paysheet_.end(); ++it) {
+    *it = std::make_pair(annuity_credit_payment, credit_debt);
+    credit_debt -= annuity_credit_payment;
+  }
 }
