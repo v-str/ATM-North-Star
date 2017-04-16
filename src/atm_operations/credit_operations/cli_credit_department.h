@@ -19,6 +19,8 @@ class CLICreditDepartment : public CreditDepartment {
   int GetCreditSumFromUser(int max_credit_sum) const;
   int GetCreditTermFromUser() const;
 
+  void PerformCreditCalculations(int credit_sum);
+
   CreditMessenger messenger_;
   CheckState state_;
   UserInput input_;
