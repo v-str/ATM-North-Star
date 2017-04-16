@@ -19,21 +19,27 @@ void CLICreditDepartment::SuggestCredit(AtmUser* user) {
   messenger_.NotifyAboutCredit();
   if (input_.GetValueFromUser() == kConsiderCredit) {
     if (ConsiderCredit(user->GetCash())) {
+      // ShowCreditTable();
     }
   }
 }
 
 bool CLICreditDepartment::ConsiderCredit(int user_cash) {
   int max_credit_sum = MaxCreditSum(user_cash);
+  int credit_sum = 0;
   messenger_.ShowCreditConditions(max_credit_sum);
   int user_choice = input_.GetValueFromUser();
   if (user_choice == kMaxCreditSum) {
-    PerformCreditCalculations(max_credit_sum);
+    credit_sum = max_credit_sum;
   } else if (user_choice == kUserCreditSum) {
-    int credit_sum = GetCreditSumFromUser(max_credit_sum);
-    PerformCreditCalculations(credit_sum);
+    credit_sum = GetCreditSumFromUser(max_credit_sum);
+  } else if (user_choice == kExit || user_choice == CheckState::kInvalidCheck) {
+    return false;
+  } else {
+    return false;
   }
-  return user_choice == kMaxCreditSum || user_choice == kUserCreditSum;
+  PerformCreditCalculations(credit_sum);
+  return true;
 }
 
 void CLICreditDepartment::ShowCredit() {}

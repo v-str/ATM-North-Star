@@ -15,7 +15,7 @@ class CLICreditDepartment : public CreditDepartment {
   void ShowCredit() override;
 
  private:
-  enum CreditSum { kMaxCreditSum = 1, kUserCreditSum };
+  enum CreditMenuItem { kMaxCreditSum = 1, kUserCreditSum, kExit };
 
   int GetCreditSumFromUser(int max_credit_sum) const;
   int GetCreditTermFromUser() const;
