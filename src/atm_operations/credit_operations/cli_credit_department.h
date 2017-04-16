@@ -14,7 +14,7 @@ class CLICreditDepartment : public CreditDepartment {
   void ConsiderCredit(AtmUser* user) override;
 
  private:
-  enum kSizeOfCredit { kMaxCreditSum = 1, kUserCreditSum };
+  enum CreditSum { kMaxCreditSum = 1, kUserCreditSum };
 
   int GetCreditSumFromUser(int max_credit_sum) const;
   int GetCreditTermFromUser() const;
