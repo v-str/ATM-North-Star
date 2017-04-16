@@ -1,5 +1,7 @@
 ﻿#include "credit_department.h"
 
+void CreditDepartment::CalculateCredit() {}
+
 int CreditDepartment::ResultOfUserCheck(const AtmUser& user) const {
   return checker_.GetResultOfUserCheck(user);
 }

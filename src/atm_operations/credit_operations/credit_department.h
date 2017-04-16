@@ -14,10 +14,9 @@ class CreditDepartment {
  protected:
   virtual void SuggestCredit(AtmUser* user) = 0;
   virtual void ConsiderCredit(AtmUser* user) = 0;
-  virtual void CalculateCredit() = 0;
+  void CalculateCredit();
 
   int ResultOfUserCheck(const AtmUser& user) const;
-
   int MaxCreditSum(int cash);
 
   void SetCreditSum(int credit_sum);

@@ -12,7 +12,6 @@ class CLICreditDepartment : public CreditDepartment {
  protected:
   void SuggestCredit(AtmUser* user) override;
   void ConsiderCredit(AtmUser* user) override;
-  void CalculateCredit() override;
 
  private:
   enum kSizeOfCredit { kMaxCreditSum = 1, kUserCreditSum };

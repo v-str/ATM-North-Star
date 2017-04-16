@@ -11,11 +11,11 @@ class CreditData {
   }
   void SetInterestRate(double interest_rate) { interest_rate_ = interest_rate; }
 
-  int Multiplier() { return multiplier_; }
-  int CreditSum() { return credit_sum_; }
-  int CreditTerm() { return credit_term_; }
-  double CreditOverpayment() { return credit_overpayment_; }
-  double InterestRate() { return interest_rate_; }
+  int Multiplier() const { return multiplier_; }
+  int CreditSum() const { return credit_sum_; }
+  int CreditTerm() const { return credit_term_; }
+  double CreditOverpayment() const { return credit_overpayment_; }
+  double InterestRate() const { return interest_rate_; }
 
  private:
   int multiplier_ = 15;

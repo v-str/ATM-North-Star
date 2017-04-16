@@ -14,22 +14,27 @@ void CreditCalculator::SetCreditTerm(CreditData* credit_data, int months) {
   credit_data->SetCreditTerm(months);
 }
 
-void CreditCalculator::CalculateCredit() { payments_.resize(credit_term_); }
+void CreditCalculator::CalculateCredit(CreditData* credit_data) {
+  payments_.resize(credit_data->CreditTerm());
+}
 
-double CreditCalculator::AnnuityMonthlyPayment() {
-  double persent_interest_rate_per_year = (interest_rate_ / 100) / 12;
+double CreditCalculator::AnnuityMonthlyPayment(const CreditData& credit_data) {
+  double persent_interest_rate_per_year =
+      (credit_data.InterestRate() / 100) / 12;
 
   double annuity_coefficient_numerator =
       persent_interest_rate_per_year *
-      std::pow((1 + persent_interest_rate_per_year), credit_term_);
+      std::pow((1 + persent_interest_rate_per_year), credit_data.CreditTerm());
 
   double annuity_coefficient_denumerator =
-      std::pow(1 + persent_interest_rate_per_year, credit_term_) - 1;
+      std::pow(1 + persent_interest_rate_per_year, credit_data.CreditTerm()) -
+      1;
 
   double annuity_coefficient =
       annuity_coefficient_numerator / annuity_coefficient_denumerator;
 
-  double annuity_monthly_payment = annuity_coefficient * credit_sum_;
+  double annuity_monthly_payment =
+      annuity_coefficient * credit_data.CreditSum();
 
   return annuity_monthly_payment;
 }

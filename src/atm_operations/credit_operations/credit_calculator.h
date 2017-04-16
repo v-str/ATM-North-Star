@@ -13,16 +13,10 @@ class CreditCalculator {
   void SetCreditSum(CreditData* credit_data, int credit_sum);
   void SetCreditTerm(CreditData* credit_data, int months);
 
-  void CalculateCredit();
+  void CalculateCredit(CreditData* credit_data);
 
  private:
-  double AnnuityMonthlyPayment();
-
-  int multiplier_ = 15;
-  int credit_sum_ = 0;
-  int credit_term_ = 0;
-  double credit_overpayment_ = 0.0;
-  double interest_rate_ = 14.0;
+  double AnnuityMonthlyPayment(const CreditData& credit_data);
 
   std::vector<std::pair<double, double>> payments_;
 };
