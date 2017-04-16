@@ -43,8 +43,7 @@ int CLICreditDepartment::GetCreditSumFromUser(int max_credit_sum) const {
   do {
     messenger_.ShowInfoAboutCreditSum();
     user_credit_sum = input_.GetValueFromUser();
-  } while (user_credit_sum > max_credit_sum ||
-           user_credit_sum == CheckState::kInvalidCheck || user_credit_sum < 0);
+  } while (!IsValid(user_credit_sum, max_credit_sum));
 
   return user_credit_sum;
 }
@@ -56,6 +55,11 @@ int CLICreditDepartment::GetCreditTermFromUser() const {
     months = input_.GetValueFromUser();
   } while (months < 0 || months > CheckState::kMaximalCreditTerm);
   return months;
+}
+
+bool CLICreditDepartment::IsValid(int credit_sum, int max_credit_sum) const {
+  return credit_sum < max_credit_sum &&
+         credit_sum != CheckState::kInvalidCheck && credit_sum > 0;
 }
 
 void CLICreditDepartment::PerformCreditCalculations(int credit_sum) {

@@ -20,6 +20,8 @@ class CLICreditDepartment : public CreditDepartment {
   int GetCreditSumFromUser(int max_credit_sum) const;
   int GetCreditTermFromUser() const;
 
+  bool IsValid(int credit_sum, int max_credit_sum) const;
+
   void PerformCreditCalculations(int credit_sum);
 
   CreditMessenger messenger_;
