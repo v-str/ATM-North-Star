@@ -1,7 +1,9 @@
+QT += core gui widgets
+
 TEMPLATE = subdirs
 TARGET = Atm
 
-QMAKE_CXX = ccache clang++
+QMAKE_CXX = ccache g++
 
 SUBDIRS += \
     src \

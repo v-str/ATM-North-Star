@@ -2,7 +2,7 @@ TEMPLATE = app
 TARGET = app
 CONFIG += console c++11
 
-QMAKE_CXX = ccache clang++
+QMAKE_CXX = ccache g++
 
 CONFIG -= app_bundle \
     qt
