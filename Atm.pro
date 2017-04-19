@@ -1,5 +1,3 @@
-QT += core gui widgets
-
 TEMPLATE = subdirs
 TARGET = Atm
 

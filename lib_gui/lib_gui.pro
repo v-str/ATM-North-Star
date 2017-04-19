@@ -11,10 +11,10 @@ QMAKE_CXX = ccache g++
 INCLUDEPATH += \
 
 HEADERS += \
-    $$PWD/*.h
+    $$PWD/*.h \
 
 SOURCES += \
-    $$PWD/*.cpp
+    $$PWD/*.cpp \
 
 FORMS += \
-    $$PWD/*.ui
+    $$PWD/*.ui \

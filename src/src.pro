@@ -1,20 +1,21 @@
+QT += gui core widgets
+
 TEMPLATE = app
-TARGET = app
+TARGET = src
 CONFIG += console c++11
 
 QMAKE_CXX = ccache g++
 
-CONFIG -= app_bundle \
-    qt
-
 DEPENDPATH += \
     ../lib_console_output/messengers \
-    ../lib_console_output/output_configuration
+    ../lib_console_output/output_configuration \
+    ../lib_gui \
 
 INCLUDEPATH += \
     ../lib_console_output/messengers \
     ../lib_console_output/output_configuration \
-    $$PWD/application \
+    ../lib_gui \
+    $$PWD/atm_operations \
     $$PWD/atm_operations \
     $$PWD/atm_operations/credit_operations \
     $$PWD/user_data \
@@ -22,7 +23,6 @@ INCLUDEPATH += \
     $$PWD/application_management \
 
 HEADERS += \
-    $$PWD/application/*.h \
     $$PWD/atm_operations/*.h \
     $$PWD/atm_operations/credit_operations/*.h \
     $$PWD/user_data/*.h \
@@ -37,5 +37,8 @@ SOURCES += \
     $$PWD/input/*.cpp \
     $$PWD/application_management/*.cpp \
 
-LIBS += -L../lib_console_output/ -llib_console_output
+LIBS += -L../lib_console_output -llib_console_output \
+    -L$$PWD/../../build-Atm-Desktop_Qt_5_8_0_Clang_64bit-Debug/lib_gui -llib_gui
+
+
 

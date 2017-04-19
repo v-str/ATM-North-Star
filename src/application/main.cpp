@@ -1,10 +1,29 @@
-﻿#include "app_manager.h"
-#include "application.h"
+﻿#include <QApplication>
 
-int main() {
+#include "app_manager.h"
+#include "console_mode.h"
+#include "main_form.h"
+
+int main(int argc, char* argv[]) {
+  QApplication app(argc, argv);
+
+  enum ProgramMode { kConsoleMode = 1, kGuiMode };
+
   AppManager app_manager;
   app_manager.SuggestMode();
 
-  Application app;
-  app.RunProgram(app_manager.GetMode());
+  ConsoleMode console_mode;
+  MainForm main_form;
+
+  switch (app_manager.GetMode()) {
+    case kConsoleMode:
+      console_mode.RunInitialScreen();
+      break;
+    case kGuiMode:
+      main_form.show();
+      app.exec();
+      break;
+    default:
+      break;
+  }
 }
