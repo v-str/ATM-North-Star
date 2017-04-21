@@ -20,8 +20,12 @@ class CLICreditDepartment : public CreditDepartment {
   int GetCreditSumFromUser(int max_credit_sum) const;
   int GetCreditTermFromUser() const;
 
-  bool IsValid(int credit_sum, int max_credit_sum) const;
-  bool IsValid(int months) const;
+  bool IsValid(int comparable_variable,
+               int condition_1,
+               int condition_2,
+               int condition_3,
+               const std::string& phrase_1,
+               const std::string& phrase_2) const;
 
   void PerformCreditCalculations(int credit_sum);
 

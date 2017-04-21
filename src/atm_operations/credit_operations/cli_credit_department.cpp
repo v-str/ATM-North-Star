@@ -50,7 +50,8 @@ int CLICreditDepartment::GetCreditSumFromUser(int max_credit_sum) const {
   do {
     messenger_.SuggestEnterCreditSum();
     user_credit_sum = input_.GetValueFromUser();
-  } while (!IsValid(user_credit_sum, max_credit_sum));
+  } while (!IsValid(user_credit_sum, max_credit_sum, CheckState::kInvalidCheck,
+                    CheckState::kMinimalCreditSum, "sum", "$500"));
 
   return user_credit_sum;
 }
@@ -61,34 +62,27 @@ int CLICreditDepartment::GetCreditTermFromUser() const {
   do {
     messenger_.SuggestEnterCreditTerm();
     months = input_.GetValueFromUser();
-  } while (!IsValid(months));
+  } while (!IsValid(months, CheckState::kMaximalCreditTerm,
+                    CheckState::kInvalidCheck, CheckState::kMinimalCreditTerm,
+                    "term", "6 month"));
   return months;
 }
 
-bool CLICreditDepartment::IsValid(int credit_sum, int max_credit_sum) const {
-  if (credit_sum > max_credit_sum) {
-    messenger_.ShowError("Error! Exceeding of desired credit sum.");
+bool CLICreditDepartment::IsValid(int comparable_variable,
+                                  int condition_1,
+                                  int condition_2,
+                                  int condition_3,
+                                  const std::string& phrase_1,
+                                  const std::string& phrase_2) const {
+  if (comparable_variable > condition_1) {
+    messenger_.ShowError("Error! Exceeding of desired credit " + phrase_1);
     return false;
-  } else if (credit_sum == CheckState::kInvalidCheck) {
-    messenger_.ShowError("Error! Incorrect credit sum.");
+  } else if (comparable_variable == condition_2) {
+    messenger_.ShowError("Error! Incorrect credit " + phrase_1);
     return false;
-  } else if (credit_sum < CheckState::kMinimalCreditSum) {
-    messenger_.ShowError("Error! Credit sum should be greater than $500.");
-    return false;
-  }
-  messenger_.ShowDataConfirmation();
-  return true;
-}
-
-bool CLICreditDepartment::IsValid(int months) const {
-  if (months > CheckState::kMaximalCreditTerm) {
-    messenger_.ShowError("Error! Exceeding of desired credit term.");
-    return false;
-  } else if (months == CheckState::kInvalidCheck) {
-    messenger_.ShowError("Error! Incorrect credit term.");
-    return false;
-  } else if (months < CheckState::kMinimalCreditTerm) {
-    messenger_.ShowError("Error! Credit term should be greater than 6 months.");
+  } else if (comparable_variable < condition_3) {
+    messenger_.ShowError("Error! Credit " + phrase_1 +
+                         " should be greater than " + phrase_2);
     return false;
   }
   messenger_.ShowDataConfirmation();
