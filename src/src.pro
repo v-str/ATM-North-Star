@@ -37,8 +37,8 @@ SOURCES += \
     $$PWD/input/*.cpp \
     $$PWD/application_management/*.cpp \
 
-LIBS += -L../lib_console_output -llib_console_output \
-    -L$$PWD/../../build-Atm-Desktop_Qt_5_8_0_Clang_64bit-Debug/lib_gui -llib_gui
-
+LIBS += \
+    -L$$OUT_PWD/../lib_console_output -llib_console_output \
+    -L$$OUT_PWD/../lib_gui -llib_gui
 
 
