@@ -40,5 +40,3 @@ SOURCES += \
 LIBS += \
     -L$$OUT_PWD/../lib_console_output -llib_console_output \
     -L$$OUT_PWD/../lib_gui -llib_gui
-
-

@@ -22,9 +22,7 @@ int CashOperator::GetAmountOfCreditMonth() const {
   return amount_of_credit_month_;
 }
 
-int CashOperator::GetAssignACredit(int sum_of_credit) {
-  return credit_ = sum_of_credit;
-}
+void CashOperator::AssignACredit(int sum_of_credit) { credit_ = sum_of_credit; }
 
 bool CashOperator::IsCreditAvailable() const {
   return GetCash() >= kmininmal_sum_for_credit;

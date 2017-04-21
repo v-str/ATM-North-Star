@@ -12,7 +12,9 @@ class CashOperator {
   int GetCredit() const;
   double GetMonthlyPayment() const;
   int GetAmountOfCreditMonth() const;
-  int GetAssignACredit(int sum_of_credit);
+
+  void AssignACredit(int sum_of_credit);
+
   int WithdrawCashFromUser(int amount);
 
   bool IsCreditAvailable() const;

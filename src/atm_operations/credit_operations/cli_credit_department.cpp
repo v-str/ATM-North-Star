@@ -19,7 +19,7 @@ void CLICreditDepartment::SuggestCredit(AtmUser* user) {
   messenger_.NotifyAboutCredit();
   if (input_.GetValueFromUser() == kConsiderCredit) {
     if (ConsiderCredit(user->GetCash())) {
-      // ShowCreditTable();
+      // ShowCreditPaymentStatement();
     }
   }
 }

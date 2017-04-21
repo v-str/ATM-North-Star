@@ -23,9 +23,8 @@ class CreditDepartment {
   void SetCreditTerm(int months);
   void CalculateCredit();
 
-  CreditData credit_data_;
-
  private:
+  CreditData credit_data_;
   CreditCalculator calculator_;
   CreditCheck checker_;
 };

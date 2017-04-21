@@ -29,13 +29,13 @@ void CreditOffer::SuggestACredit(AtmUser* atm_user,
 void CreditOffer::EnrollCredit(AtmUser* atm_user,
                                int sum_of_credit,
                                double pay_per_month) const {
-  atm_user->GetAssignedCredit(sum_of_credit);
+  atm_user->AssignedCredit(sum_of_credit);
   atm_user->AssignAMonthlyPayment(pay_per_month);
   credit_messenger_.ShowResultOfUserChoice(kEnroll);
 }
 
 void CreditOffer::RepealCredit(AtmUser* atm_user) const {
-  atm_user->GetAssignedCredit(0);
+  atm_user->AssignedCredit(0);
   atm_user->AssignAMonthlyPayment(0.0);
   atm_user->SetAmountOfCreditMonth(0);
   credit_messenger_.ShowResultOfUserChoice(kRepeal);
