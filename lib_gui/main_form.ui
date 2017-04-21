@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>495</width>
-    <height>234</height>
+    <width>600</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,63 +15,122 @@
   </property>
   <property name="styleSheet">
    <string notr="true">background: black;
-border: 2px solid rgb(206, 92, 0);</string>
+border: 1px solid  rgb(32, 74, 135);</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+  <widget class="QWidget" name="CentralWidget">
+   <widget class="QLabel" name="version_label">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>80</y>
-      <width>251</width>
-      <height>61</height>
+      <x>530</x>
+      <y>380</y>
+      <width>60</width>
+      <height>15</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>15</pointsize>
-     </font>
-    </property>
     <property name="styleSheet">
-     <string notr="true">background: transparent;
-color: rgb(206, 92, 0);
-border: 2px solid rgb(206, 92, 0);
-border-radius: 5px;</string>
+     <string notr="true">border: 0px solid black;
+color: rgb(32, 74, 135);</string>
     </property>
     <property name="text">
-     <string>Graphical interface
-is under construction.</string>
+     <string>v.1.0.1</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>25</x>
+      <y>25</y>
+      <width>550</width>
+      <height>350</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10px;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="atm_name_label">
+     <property name="geometry">
+      <rect>
+       <x>125</x>
+       <y>40</y>
+       <width>300</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>35</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 0px;
+color:rgb(32, 74, 135);</string>
+     </property>
+     <property name="text">
+      <string>North star</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="atm_label">
+     <property name="geometry">
+      <rect>
+       <x>125</x>
+       <y>90</y>
+       <width>300</width>
+       <height>165</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>90</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 0px;
+color:rgb(32, 74, 135);</string>
+     </property>
+     <property name="text">
+      <string>ATM</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>150</y>
-      <width>101</width>
-      <height>31</height>
+      <x>5</x>
+      <y>5</y>
+      <width>20</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton{
-background: transparent;
-color: rgb(206, 92, 0);
-border: 2px solid rgb(206, 92, 0);
+     <string notr="true">QPushButton {
 border-radius: 5px;
+color: rgb(32, 74, 135);
 }
 QPushButton:hover {
-border: 2px solid rgb(164, 0, 0);
-color: rgb(164, 0, 0);
+border: 1px solid rgb(50, 250, 6);
+color: rgb(50, 250, 6);
 }
 QPushButton:pressed {
 background: rgb(21, 24, 46);
 }</string>
     </property>
     <property name="text">
-     <string>Close</string>
+     <string>X</string>
     </property>
    </widget>
   </widget>
@@ -85,12 +144,12 @@ background: rgb(21, 24, 46);
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>297</x>
-     <y>166</y>
+     <x>15</x>
+     <y>22</y>
     </hint>
     <hint type="destinationlabel">
-     <x>202</x>
-     <y>172</y>
+     <x>16</x>
+     <y>51</y>
     </hint>
    </hints>
   </connection>

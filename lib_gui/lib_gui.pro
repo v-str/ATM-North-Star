@@ -18,3 +18,4 @@ SOURCES += \
 
 FORMS += \
     $$PWD/*.ui \
+

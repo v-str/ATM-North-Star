@@ -15,6 +15,8 @@ class MainForm : public QMainWindow {
   ~MainForm();
 
  private:
+  void SetWidgetProperties();
+
   Ui::MainForm* ui = nullptr;
 };
 
