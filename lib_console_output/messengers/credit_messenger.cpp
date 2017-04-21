@@ -48,18 +48,18 @@ void CreditMessenger::ShowCreditConditions(int maximal_sum_of_credit) const {
   console_editor_.ClearScreen();
   console_editor_.WriteTextWithInterrupt(
       "# Your balance more than 1000$. You can afford to take the\n"
-      "# credit in our bank. The maximum amount for you is:\n",
+      "# credit in our bank. The maximal credit sum for you is:\n",
       kHalfASecond);
-  console_editor_.WriteText(
-      "----------------------------------------------------------\n");
-  console_editor_.WriteText(" \t\t\t $");
+
+  console_editor_.WriteSymbolsNTimes("-", 60);
+  console_editor_.WriteText("\n");
+  console_editor_.WriteText(" \t\t\t | $");
   std::string convertible_string_value =
       console_editor_.ConvertValueToString(maximal_sum_of_credit);
   console_editor_.WriteText(convertible_string_value);
+  console_editor_.WriteText(" |\n");
+  console_editor_.WriteSymbolsNTimes("-", 60);
   console_editor_.WriteText("\n");
-
-  console_editor_.WriteText(
-      "----------------------------------------------------------\n");
 
   console_editor_.WriteTextWithInterrupt(
       "\n# Do you prefer get all sum or you want to change\nthe sum of "
@@ -130,9 +130,18 @@ void CreditMessenger::ShowCreditTable(double pay_per_month,
 }
 
 void CreditMessenger::ShowInfoAboutCreditSum() const {
+  console_editor_.WriteText("\n");
+  console_editor_.WriteSymbolsNTimes("-", 60);
   console_editor_.WriteTextWithDelayPerSymbol(
-      "\nThe entered sum should not\n"
-      "exceed the allowed credit.\n\n"
+      "\nThe entered sum should:\n\n"
+      "\t- not exceed the allowed credit.\n"
+      "\t- be greater than minimal sum of credit equal $500.\n");
+  console_editor_.WriteSymbolsNTimes("-", 60);
+  console_editor_.WriteText("\n");
+}
+
+void CreditMessenger::SuggestEnterCreditSum() const {
+  console_editor_.WriteTextWithDelayPerSymbol(
       "Enter the desired sum of credit: $");
 }
 

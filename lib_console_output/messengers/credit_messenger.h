@@ -18,7 +18,10 @@ class CreditMessenger {
   void EnrollACredit() const;
   void RepealACreadit() const;
   void ShowCreditTable(double pay_per_month, double amount_of_months) const;
+
   void ShowInfoAboutCreditSum() const;
+  void SuggestEnterCreditSum() const;
+
   void ShowInfoAboutCreditMonth() const;
   void ShowResultOfUserChoice(int decision_of_user) const;
   void ShowIncorrectCashInformation(int cash) const;
