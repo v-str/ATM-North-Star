@@ -98,9 +98,9 @@ void CreditMessenger::ShowCreditTitle(const string& user_login,
 }
 
 void CreditMessenger::EnrollACredit() const {
-  console_editor_.AddEmptyLineNTimes(1);
+  console_editor_.AddEmptyLineNTimes(2);
   console_editor_.WriteTextWithDelayPerSymbol(
-      "\n# The credit was successfully transferred on your account.\n"
+      "# The credit was successfully transferred on your account.\n"
       "# You might cash your credit in our nearest bank.\n");
 }
 
@@ -126,37 +126,51 @@ void CreditMessenger::ShowCreditTable(double pay_per_month,
   std::string convertible_all_payment_value =
       console_editor_.ConvertValueToString(pay_per_month);
   console_editor_.WriteText("\t\t\tTotal: " + convertible_all_payment_value +
-                            " $\n\n");
+                            " $");
+  console_editor_.AddEmptyLineNTimes(2);
 }
 
 void CreditMessenger::ShowInfoAboutCreditSum() const {
-  console_editor_.WriteText("\n");
+  console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteSymbolsNTimes("-", 60);
+  console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteTextWithDelayPerSymbol(
-      "\nThe entered sum should:\n\n"
+      "The entered sum should:\n\n"
       "\t- not exceed the allowed credit.\n"
       "\t- be greater than minimal sum of credit equal $500.\n");
   console_editor_.WriteSymbolsNTimes("-", 60);
 }
 
 void CreditMessenger::SuggestEnterCreditSum() const {
+  console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteTextWithDelayPerSymbol(
-      "\nEnter the desired sum of credit: $");
+      "Enter the desired sum of credit: $");
 }
 
 void CreditMessenger::ShowError(const string& error_message) const {
-  console_editor_.WriteText("\n");
+  console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteSymbolsNTimes(" . ", 20);
   console_editor_.WriteText("\n    ");
   console_editor_.WriteTextWithDelayPerSymbol(error_message);
-  console_editor_.WriteText("\n");
+  console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteSymbolsNTimes(" . ", 20);
-  console_editor_.WriteText("\n");
+  console_editor_.AddEmptyLineNTimes(1);
   console_editor_.Sleep(500);
 }
 
+void CreditMessenger::ShowDataConfirmation() const {
+  console_editor_.AddEmptyLineNTimes(1);
+  console_editor_.WriteSymbolsNTimes(":", 20);
+  console_editor_.AddEmptyLineNTimes(1);
+  console_editor_.WriteTextWithDelayPerSymbol(":: Data confirmed ::");
+  console_editor_.AddEmptyLineNTimes(1);
+  console_editor_.WriteSymbolsNTimes(":", 20);
+  console_editor_.AddEmptyLineNTimes(1);
+  console_editor_.Sleep(750);
+}
+
 void CreditMessenger::ShowInfoAboutCreditTerm() const {
-  console_editor_.WriteText("\n\n");
+  console_editor_.AddEmptyLineNTimes(2);
   console_editor_.WriteSymbolsNTimes("-", 60);
   console_editor_.WriteTextWithDelayPerSymbol(
       "\nThe entered credit term should:\n\n"
@@ -166,8 +180,9 @@ void CreditMessenger::ShowInfoAboutCreditTerm() const {
 }
 
 void CreditMessenger::SuggestEnterCreditTerm() const {
+  console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteTextWithDelayPerSymbol(
-      "\nEnter the desired term of credit: $");
+      "Enter the desired term of credit: $");
 }
 
 void CreditMessenger::ShowResultOfUserChoice(int decision_of_user) const {
@@ -179,30 +194,30 @@ void CreditMessenger::ShowResultOfUserChoice(int decision_of_user) const {
 }
 
 void CreditMessenger::ShowIncorrectCashInformation(int cash) const {
-  console_editor_.WriteText("\n");
+  console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteSymbolsNTimes("-", 65);
-  console_editor_.WriteText("\n");
+  console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteText(" Balance: $" + std::to_string(cash) + " ");
-  console_editor_.WriteText("\n");
+  console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteSymbolsNTimes("-", 65);
-  console_editor_.WriteText("\n");
+  console_editor_.AddEmptyLineNTimes(1);
 }
 
 void CreditMessenger::ShowUnavailableCreditInfo() const {
   console_editor_.ClearScreen();
-  console_editor_.WriteText("\n\n\t");
-  console_editor_.WriteTextWithDelayPerSymbol("Credit is not available!");
-  console_editor_.WriteText("\n\n");
+  console_editor_.AddEmptyLineNTimes(2);
+  console_editor_.WriteTextWithDelayPerSymbol("\tCredit is not available!");
+  console_editor_.AddEmptyLineNTimes(2);
   console_editor_.Sleep(500);
 }
 
 void CreditMessenger::UnavailableCreditState() const {
   console_editor_.ClearScreen();
   console_editor_.WriteSymbolsNTimes("#", 65);
+  console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteTextWithDelayPerSymbol(
-      "\n"
       " # Sorry, credit section is not available at the moment,\n"
       " # Try later . . .\n");
   console_editor_.WriteSymbolsNTimes("#", 65);
-  console_editor_.WriteText("\n");
+  console_editor_.AddEmptyLineNTimes(1);
 }

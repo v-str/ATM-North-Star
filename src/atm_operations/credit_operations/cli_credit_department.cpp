@@ -76,6 +76,7 @@ bool CLICreditDepartment::IsValid(int credit_sum, int max_credit_sum) const {
     messenger_.ShowError("Error! Credit sum should be greater than $500.");
     return false;
   }
+  messenger_.ShowDataConfirmation();
   return true;
 }
 
@@ -90,9 +91,8 @@ bool CLICreditDepartment::IsValid(int months) const {
     messenger_.ShowError("Error! Credit term should be greater than 6 months.");
     return false;
   }
+  messenger_.ShowDataConfirmation();
   return true;
-
-  // return months > 0 && months <= CheckState::kMaximalCreditTerm;
 }
 
 void CLICreditDepartment::PerformCreditCalculations(int credit_sum) {

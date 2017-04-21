@@ -21,10 +21,13 @@ class CreditMessenger {
 
   void ShowInfoAboutCreditSum() const;
   void SuggestEnterCreditSum() const;
-  void ShowError(const string& error_message) const;
 
   void ShowInfoAboutCreditTerm() const;
   void SuggestEnterCreditTerm() const;
+
+  void ShowError(const string& error_message) const;
+  void ShowDataConfirmation() const;
+
   void ShowResultOfUserChoice(int decision_of_user) const;
   void ShowIncorrectCashInformation(int cash) const;
 
