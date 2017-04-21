@@ -1,3 +1,4 @@
 *.pro.user
 *.clang-tidy
 *.clang-format
+*.autosave
