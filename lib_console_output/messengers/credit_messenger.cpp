@@ -79,7 +79,7 @@ void CreditMessenger::SuggestToConfirmACredit() const {
       "\tEnter: ");
 }
 
-void CreditMessenger::ShowCreditTitle(const CreditMessenger::string& user_login,
+void CreditMessenger::ShowCreditTitle(const string& user_login,
                                       int sum_of_credit) const {
   console_editor_.AddEmptyLineNTimes(2);
   console_editor_.ClearScreen();
@@ -144,11 +144,11 @@ void CreditMessenger::SuggestEnterCreditSum() const {
       "\nEnter the desired sum of credit: $");
 }
 
-void CreditMessenger::ShowExceedDesiredCreditSum() const {
+void CreditMessenger::ShowError(const string& error_message) const {
   console_editor_.WriteSymbolsNTimes("-", 60);
+  console_editor_.WriteText("\n\t");
+  console_editor_.WriteTextWithDelayPerSymbol(error_message);
   console_editor_.WriteText("\n");
-  console_editor_.WriteTextWithDelayPerSymbol(
-      "\tError! Exceeding of desired credit sum.\n");
   console_editor_.WriteSymbolsNTimes("-", 60);
 }
 
