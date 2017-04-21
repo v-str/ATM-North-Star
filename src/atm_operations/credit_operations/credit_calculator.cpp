@@ -15,16 +15,18 @@ void CreditCalculator::SetCreditTerm(CreditData* credit_data, int months) {
 }
 
 void CreditCalculator::CalculateCredit(CreditData* credit_data) {
-  paysheet_.resize(credit_data->CreditTerm());
+  if (credit_data->CreditSum() > 0) {
+    paysheet_.resize(credit_data->CreditTerm());
 
-  double annuity_credit_payment = AnnuityMonthlyPayment(*credit_data);
-  double total_overpayment = annuity_credit_payment * credit_data->CreditTerm();
+    double annuity_credit_payment = AnnuityMonthlyPayment(*credit_data);
+    double total_overpayment =
+        annuity_credit_payment * credit_data->CreditTerm();
 
-  FillCreditPaysheet(annuity_credit_payment, total_overpayment);
+    FillCreditPaysheet(annuity_credit_payment, total_overpayment);
 
-  credit_data->SetPaysheet(paysheet_);
+    credit_data->SetPaysheet(paysheet_);
+  }
 }
-
 double CreditCalculator::AnnuityMonthlyPayment(const CreditData& credit_data) {
   double persent_interest_rate_per_year =
       (credit_data.InterestRate() / 100) / 12;

@@ -2,7 +2,8 @@
 #define CHECK_STATE_H
 
 struct CheckState {
-  static const int kAppropriateSumForCredit = 1000;
+  static const int kAppropriateCashForCredit = 1000;
+  static const int kMinimalCreditSum = 500;
   static const int kNull = 0;
   static const int kPositiveCheck = 0;
   static const int kCreditExist = 1;

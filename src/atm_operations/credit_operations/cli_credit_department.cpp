@@ -69,7 +69,7 @@ bool CLICreditDepartment::IsValid(int credit_sum, int max_credit_sum) const {
 }
 
 bool CLICreditDepartment::IsValid(int months) const {
-  return months > 0 && months < CheckState::kMaximalCreditTerm;
+  return months > 0 && months <= CheckState::kMaximalCreditTerm;
 }
 
 void CLICreditDepartment::PerformCreditCalculations(int credit_sum) {
