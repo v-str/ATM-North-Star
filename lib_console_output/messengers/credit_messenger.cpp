@@ -145,20 +145,29 @@ void CreditMessenger::SuggestEnterCreditSum() const {
 }
 
 void CreditMessenger::ShowError(const string& error_message) const {
-  console_editor_.WriteSymbolsNTimes("-", 60);
-  console_editor_.WriteText("\n\t");
+  console_editor_.WriteText("\n");
+  console_editor_.WriteSymbolsNTimes(" . ", 20);
+  console_editor_.WriteText("\n    ");
   console_editor_.WriteTextWithDelayPerSymbol(error_message);
   console_editor_.WriteText("\n");
+  console_editor_.WriteSymbolsNTimes(" . ", 20);
+  console_editor_.WriteText("\n");
+  console_editor_.Sleep(500);
+}
+
+void CreditMessenger::ShowInfoAboutCreditTerm() const {
+  console_editor_.WriteText("\n\n");
+  console_editor_.WriteSymbolsNTimes("-", 60);
+  console_editor_.WriteTextWithDelayPerSymbol(
+      "\nThe entered credit term should:\n\n"
+      "\t- not exceed 60 months ( 5 years )\n"
+      "\t- be greater than minimal credit term equal 6 months.\n");
   console_editor_.WriteSymbolsNTimes("-", 60);
 }
 
-void CreditMessenger::ShowInfoAboutCreditMonth() const {
-  console_editor_.AddEmptyLineNTimes(1);
+void CreditMessenger::SuggestEnterCreditTerm() const {
   console_editor_.WriteTextWithDelayPerSymbol(
-      "\nNumber of credit month can't be more than 60.\n\n");
-  console_editor_.WriteTextWithDelayPerSymbol(
-      "Please, enter the number of\n"
-      "months to repay the credit: ");
+      "\nEnter the desired term of credit: $");
 }
 
 void CreditMessenger::ShowResultOfUserChoice(int decision_of_user) const {

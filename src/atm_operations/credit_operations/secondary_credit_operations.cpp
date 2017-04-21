@@ -14,7 +14,7 @@ int SecondaryCreditOperations::GetAmountCreditByMode(int maximal_sum_of_credit,
 int SecondaryCreditOperations::GetAmountCreditMonths() const {
   int months = 0;
   do {
-    credit_messenger_.ShowInfoAboutCreditMonth();
+    credit_messenger_.ShowInfoAboutCreditTerm();
     months = user_input_.GetValueFromUser();
   } while (!IsMonthCorrect(months));
   return months;

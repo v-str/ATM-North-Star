@@ -57,8 +57,9 @@ int CLICreditDepartment::GetCreditSumFromUser(int max_credit_sum) const {
 
 int CLICreditDepartment::GetCreditTermFromUser() const {
   int months = 0;
+  messenger_.ShowInfoAboutCreditTerm();
   do {
-    messenger_.ShowInfoAboutCreditMonth();
+    messenger_.SuggestEnterCreditTerm();
     months = input_.GetValueFromUser();
   } while (!IsValid(months));
   return months;
@@ -79,7 +80,19 @@ bool CLICreditDepartment::IsValid(int credit_sum, int max_credit_sum) const {
 }
 
 bool CLICreditDepartment::IsValid(int months) const {
-  return months > 0 && months <= CheckState::kMaximalCreditTerm;
+  if (months > CheckState::kMaximalCreditTerm) {
+    messenger_.ShowError("Error! Exceeding of desired credit term.");
+    return false;
+  } else if (months == CheckState::kInvalidCheck) {
+    messenger_.ShowError("Error! Incorrect credit term.");
+    return false;
+  } else if (months < CheckState::kMinimalCreditTerm) {
+    messenger_.ShowError("Error! Credit term should be greater than 6 months.");
+    return false;
+  }
+  return true;
+
+  // return months > 0 && months <= CheckState::kMaximalCreditTerm;
 }
 
 void CLICreditDepartment::PerformCreditCalculations(int credit_sum) {
