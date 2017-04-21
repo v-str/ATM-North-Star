@@ -137,12 +137,19 @@ void CreditMessenger::ShowInfoAboutCreditSum() const {
       "\t- not exceed the allowed credit.\n"
       "\t- be greater than minimal sum of credit equal $500.\n");
   console_editor_.WriteSymbolsNTimes("-", 60);
-  console_editor_.WriteText("\n");
 }
 
 void CreditMessenger::SuggestEnterCreditSum() const {
   console_editor_.WriteTextWithDelayPerSymbol(
-      "Enter the desired sum of credit: $");
+      "\nEnter the desired sum of credit: $");
+}
+
+void CreditMessenger::ShowExceedDesiredCreditSum() const {
+  console_editor_.WriteSymbolsNTimes("-", 60);
+  console_editor_.WriteText("\n");
+  console_editor_.WriteTextWithDelayPerSymbol(
+      "\tError! Exceeding of desired credit sum.\n");
+  console_editor_.WriteSymbolsNTimes("-", 60);
 }
 
 void CreditMessenger::ShowInfoAboutCreditMonth() const {

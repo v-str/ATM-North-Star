@@ -21,6 +21,7 @@ class CreditMessenger {
 
   void ShowInfoAboutCreditSum() const;
   void SuggestEnterCreditSum() const;
+  void ShowExceedDesiredCreditSum() const;
 
   void ShowInfoAboutCreditMonth() const;
   void ShowResultOfUserChoice(int decision_of_user) const;

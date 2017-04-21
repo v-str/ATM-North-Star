@@ -65,6 +65,10 @@ int CLICreditDepartment::GetCreditTermFromUser() const {
 }
 
 bool CLICreditDepartment::IsValid(int credit_sum, int max_credit_sum) const {
+  if (credit_sum > max_credit_sum) {
+    messenger_.ShowExceedDesiredCreditSum();
+  }
+
   return credit_sum < max_credit_sum &&
          credit_sum != CheckState::kInvalidCheck &&
          credit_sum >= CheckState::kMinimalCreditSum;
