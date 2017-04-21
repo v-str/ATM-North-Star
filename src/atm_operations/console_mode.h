@@ -9,7 +9,6 @@
 #include "user_registrator.h"
 
 #include "account_informator.h"
-#include "credit_menu.h"
 #include "refill.h"
 #include "user_statement.h"
 #include "withdrawal.h"
@@ -53,7 +52,6 @@ class ConsoleMode {
   UserRegistrator registrator_;
   AccountInformator account_informator_;
   Refill refill_;
-  CreditMenu credit_menu_;
   Withdrawal withdrawal_;
   UserStatement statement_;
   UserInput user_input_;
