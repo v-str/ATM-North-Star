@@ -151,7 +151,7 @@ void CreditMessenger::ShowError(const string& error_message) const {
   console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteSymbolsNTimes(" . ", 20);
   console_editor_.WriteText("\n    ");
-  console_editor_.WriteTextWithDelayPerSymbol(error_message);
+  console_editor_.WriteTextWithDelayPerSymbol("Error! " + error_message);
   console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteSymbolsNTimes(" . ", 20);
   console_editor_.AddEmptyLineNTimes(1);

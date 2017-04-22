@@ -11,6 +11,8 @@ struct CheckState {
   static const int kInappropriateBalance = 2;
   static const int kInvalidCheck = -1;
   static const int kMaximalCreditTerm = 60;
+  static const int kInvalidCreditSum = -1;
+  static const int kInvalidCreditTerm = -1;
 };
 
 #endif  // CHECK_STATE_H
