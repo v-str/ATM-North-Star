@@ -1,6 +1,6 @@
-#include "user_registrator.h"
+﻿#include "user_registrator.h"
 
-void UserRegistrator::RegisterUser(AtmUser &atm_user) {
+void UserRegistrator::RegisterUser(AtmUser& atm_user) {
   set_is_correct_registration(false);
 
   registation_messenger_.ShowRegistrationScreen();
@@ -24,12 +24,12 @@ bool UserRegistrator::IsCorrectRegistration() const {
   return correct_registration_;
 }
 
-void UserRegistrator::EnterLogin(AtmUser &atm_user) {
+void UserRegistrator::EnterLogin(AtmUser& atm_user) {
   identification_messenger_.ShowInitialLoginText();
   atm_user.SetLogin(provider_.GetLoginFromUser());
 }
 
-void UserRegistrator::EnterPassword(AtmUser &atm_user) {
+void UserRegistrator::EnterPassword(AtmUser& atm_user) {
   identification_messenger_.ShowInitialPasswordText();
   atm_user.SetPassword(provider_.GetPasswordFromUser());
 }
@@ -38,9 +38,9 @@ void UserRegistrator::set_is_correct_registration(bool correct_registration) {
   correct_registration_ = correct_registration;
 }
 
-void UserRegistrator::AssignInitialValues(AtmUser &atm_user) {
+void UserRegistrator::AssignInitialValues(AtmUser& atm_user) {
   atm_user.SetCash(0);
-  atm_user.SetCredit(0);
+  atm_user.SetCreditSum(0);
   atm_user.SetMonthlyPayment(0.0);
-  atm_user.SetAmountOfCreditMonth(0);
+  atm_user.SetCreditTerm(0);
 }

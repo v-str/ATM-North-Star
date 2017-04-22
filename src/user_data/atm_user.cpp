@@ -12,15 +12,15 @@ void AtmUser::SetPassword(const std::string& password) {
 
 void AtmUser::SetCash(int cash) { cash_operator_.SetCash(cash); }
 
-void AtmUser::SetCredit(int credit) { cash_operator_.SetCredit(credit); }
+void AtmUser::SetCreditSum(int credit_sum) {
+  credit_data_.SetCreditSum(credit_sum);
+}
 
 void AtmUser::SetMonthlyPayment(double monthly_payment) {
-  cash_operator_.SetMonthlyPayment(monthly_payment);
+  credit_data_.SetMonthlyPayment(monthly_payment);
 }
 
-void AtmUser::SetAmountOfCreditMonth(int amount_credit_month) {
-  cash_operator_.SetAmountOfCreditMonth(amount_credit_month);
-}
+void AtmUser::SetCreditTerm(int months) { credit_data_.SetCreditTerm(months); }
 
 std::string AtmUser::GetLogin() const { return user_identifier_.GetLogin(); }
 
@@ -30,15 +30,11 @@ std::string AtmUser::GetPassword() const {
 
 int AtmUser::GetCash() const { return cash_operator_.GetCash(); }
 
-int AtmUser::GetCredit() const { return cash_operator_.GetCredit(); }
+int AtmUser::CreditSum() const { return credit_data_.CreditSum(); }
 
-double AtmUser::GetMonthlyPayment() const {
-  return cash_operator_.GetMonthlyPayment();
-}
+double AtmUser::MonthlyPayment() const { return credit_data_.MonthlyPayment(); }
 
-int AtmUser::GetAmountOfCreditMonth() const {
-  return cash_operator_.GetAmountOfCreditMonth();
-}
+int AtmUser::CreditTerm() const { return credit_data_.CreditTerm(); }
 
 int AtmUser::WithdrawCash(int amount) {
   return cash_operator_.WithdrawCashFromUser(amount);
@@ -46,7 +42,7 @@ int AtmUser::WithdrawCash(int amount) {
 
 bool AtmUser::IsCreditAvailable() { return cash_operator_.IsCreditAvailable(); }
 
-bool AtmUser::IsCreditExist() const { return cash_operator_.IsCreditExist(); }
+bool AtmUser::IsCreditExist() const { return credit_data_.IsCreditExist(); }
 
 bool AtmUser::IsNormalLogin() { return user_identifier_.IsNormalLogin(); }
 

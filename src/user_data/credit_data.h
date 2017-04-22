@@ -17,12 +17,18 @@ class CreditData {
     paysheet_ = std::move(paysheet);
   }
   void SetMonthlyPayment() { monthly_payment_ = paysheet_[0].first; }
+  void SetMonthlyPayment(double monthly_payment) {
+    monthly_payment_ = monthly_payment;
+  };
 
   int Multiplier() const { return multiplier_; }
   int CreditSum() const { return credit_sum_; }
   int CreditTerm() const { return credit_term_; }
   double CreditOverpayment() const { return credit_overpayment_; }
   double InterestRate() const { return interest_rate_; }
+  double MonthlyPayment() const { return monthly_payment_; }
+
+  bool IsCreditExist() const { return credit_sum_ > 0; }
 
  private:
   int multiplier_ = 15;

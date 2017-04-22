@@ -6,7 +6,7 @@ void AccountInformator::DisplayAccountInformationFor(AtmUser *atm_user) {
   screen_.DisplayLogin(atm_user->GetLogin());
   screen_.DisplayPassword(atm_user->GetPassword());
   screen_.DisplayCash(atm_user->GetCash());
-  screen_.DisplayCredit(atm_user->GetCredit());
-  screen_.DisplayPayment(atm_user->GetMonthlyPayment());
-  screen_.DisplayCreditMonth(atm_user->GetAmountOfCreditMonth());
+  screen_.DisplayCredit(atm_user->CreditSum());
+  screen_.DisplayPayment(atm_user->MonthlyPayment());
+  screen_.DisplayCreditMonth(atm_user->CreditTerm());
 }

@@ -4,6 +4,7 @@
 #include <memory>
 
 #include "cash_operator.h"
+#include "credit_data.h"
 #include "user_identifier.h"
 
 class AtmUser {
@@ -13,16 +14,16 @@ class AtmUser {
   std::string GetLogin() const;
   std::string GetPassword() const;
   int GetCash() const;
-  int GetCredit() const;
-  double GetMonthlyPayment() const;
-  int GetAmountOfCreditMonth() const;
+  int CreditSum() const;
+  double MonthlyPayment() const;
+  int CreditTerm() const;
 
   void SetLogin(const std::string& login);
   void SetPassword(const std::string& password);
   void SetCash(int cash);
-  void SetCredit(int credit);
+  void SetCreditSum(int credit);
   void SetMonthlyPayment(double monthly_payment);
-  void SetAmountOfCreditMonth(int amount_credit_month);
+  void SetCreditTerm(int months);
 
   int WithdrawCash(int amount);
 
@@ -41,6 +42,7 @@ class AtmUser {
 
  private:
   CashOperator cash_operator_;
+  CreditData credit_data_;
   UserIdentifier user_identifier_;
 };
 
