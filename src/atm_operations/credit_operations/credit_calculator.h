@@ -4,6 +4,7 @@
 #include <utility>
 #include <vector>
 
+#include "atm_user.h"
 #include "credit_data.h"
 
 class CreditCalculator {
