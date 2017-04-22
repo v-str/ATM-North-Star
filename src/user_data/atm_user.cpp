@@ -41,10 +41,6 @@ int AtmUser::GetAmountOfCreditMonth() const {
   return cash_operator_->GetAmountOfCreditMonth();
 }
 
-void AtmUser::AssignedCredit(int sum_of_credit) {
-  cash_operator_->AssignACredit(sum_of_credit);
-}
-
 int AtmUser::WithdrawCash(int amount) {
   return cash_operator_->WithdrawCashFromUser(amount);
 }

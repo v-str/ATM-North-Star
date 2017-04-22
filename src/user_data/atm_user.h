@@ -24,7 +24,6 @@ class AtmUser {
   void SetMonthlyPayment(double monthly_payment);
   void SetAmountOfCreditMonth(int amount_credit_month);
 
-  void AssignedCredit(int sum_of_credit);
   int WithdrawCash(int amount);
 
   bool IsCreditAvailable();
