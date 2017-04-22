@@ -27,6 +27,7 @@ void CreditCalculator::CalculateCredit(CreditData* credit_data) {
     credit_data->SetPaysheet(paysheet_);
   }
 }
+
 double CreditCalculator::AnnuityMonthlyPayment(const CreditData& credit_data) {
   double persent_interest_rate_per_year =
       (credit_data.InterestRate() / 100) / 12;

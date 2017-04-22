@@ -14,8 +14,9 @@ class CreditData {
   }
   void SetInterestRate(double interest_rate) { interest_rate_ = interest_rate; }
   void SetPaysheet(const std::vector<std::pair<double, double>>& paysheet) {
-    paysheet_ = paysheet;
+    paysheet_ = std::move(paysheet);
   }
+  void SetMonthlyPayment() { monthly_payment_ = paysheet_[0].first; }
 
   int Multiplier() const { return multiplier_; }
   int CreditSum() const { return credit_sum_; }
@@ -29,6 +30,7 @@ class CreditData {
   int credit_term_ = 0;
   double credit_overpayment_ = 0.0;
   double interest_rate_ = 14.0;
+  double monthly_payment_ = 0.0;
 
   std::vector<std::pair<double, double>> paysheet_;
 };
