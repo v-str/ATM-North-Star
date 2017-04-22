@@ -1,22 +1,26 @@
-﻿65. Give a credit section more strictly and clarity appearance.
+﻿65. Give a credit section more strictly and clarity appearance. -
 
-66. Add credit table for best look.
-
--------------------------------------------------------------------------
-
-67. Remove const qualifier from standard types.
-
-68. Gathering information separate from way of showing to user.
-
-69. Assignment of credit only after user confirmation.
+66. Add credit table for best look. -
 
 -------------------------------------------------------------------------
 
-70. Continue credit calculation with simultaneous assignment in credit data.
+67. Remove const qualifier from standard types. -
+
+68. Gathering information separate from way of showing to user. -
+
+69. Assignment of credit only after user confirmation. -
 
 -------------------------------------------------------------------------
 
-71. Begin make credit table for console mode.
+70. Continue credit calculation with simultaneous assignment in credit data. -
+
+-------------------------------------------------------------------------
+
+71. Begin make credit table for console mode. +
+
+72. Add KeyEvent on key "Enter" and
+    - open new widget for main work
+    - close first widget
 
 
 

@@ -51,14 +51,14 @@ void CreditMessenger::ShowCreditConditions(int maximal_sum_of_credit) const {
       "# credit in our bank. The maximal credit sum for you is:\n",
       kHalfASecond);
 
-  console_editor_.WriteSymbolsNTimes("-", 60);
+  console_editor_.WriteSymbolsNTimes("-", 70);
   console_editor_.WriteText("\n");
   console_editor_.WriteText(" \t\t\t | $");
   std::string convertible_string_value =
       console_editor_.ConvertValueToString(maximal_sum_of_credit);
   console_editor_.WriteText(convertible_string_value);
   console_editor_.WriteText(" |\n");
-  console_editor_.WriteSymbolsNTimes("-", 60);
+  console_editor_.WriteSymbolsNTimes("-", 70);
   console_editor_.WriteText("\n");
 
   console_editor_.WriteTextWithInterrupt(
@@ -132,13 +132,13 @@ void CreditMessenger::ShowCreditTable(double pay_per_month,
 
 void CreditMessenger::ShowInfoAboutCreditSum() const {
   console_editor_.AddEmptyLineNTimes(1);
-  console_editor_.WriteSymbolsNTimes("-", 60);
+  console_editor_.WriteSymbolsNTimes("-", 70);
   console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteTextWithDelayPerSymbol(
       "The entered sum should:\n\n"
       "\t- not exceed the allowed credit.\n"
       "\t- be greater than minimal sum of credit equal $500.\n");
-  console_editor_.WriteSymbolsNTimes("-", 60);
+  console_editor_.WriteSymbolsNTimes("-", 70);
 }
 
 void CreditMessenger::SuggestEnterCreditSum() const {
@@ -171,12 +171,12 @@ void CreditMessenger::ShowDataConfirmation() const {
 
 void CreditMessenger::ShowInfoAboutCreditTerm() const {
   console_editor_.AddEmptyLineNTimes(2);
-  console_editor_.WriteSymbolsNTimes("-", 60);
+  console_editor_.WriteSymbolsNTimes("-", 70);
   console_editor_.WriteTextWithDelayPerSymbol(
       "\nThe entered credit term should:\n\n"
       "\t- not exceed 60 months ( 5 years )\n"
       "\t- be greater than minimal credit term equal 6 months.\n");
-  console_editor_.WriteSymbolsNTimes("-", 60);
+  console_editor_.WriteSymbolsNTimes("-", 70);
 }
 
 void CreditMessenger::SuggestEnterCreditTerm() const {

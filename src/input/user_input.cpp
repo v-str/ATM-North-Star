@@ -11,6 +11,7 @@ int UserInput::ConvertLineToChoice(const string& line) {
     try {
       return std::stoi(line);
     } catch (const std::invalid_argument&) {
+    } catch (const std::out_of_range&) {
     }
   }
   return kInvalidChoice;
