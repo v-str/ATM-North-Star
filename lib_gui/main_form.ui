@@ -114,6 +114,32 @@ color:rgb(32, 74, 135);
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
+    <widget class="QLabel" name="running_label">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>270</y>
+       <width>500</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+       <underline>false</underline>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid rgb(138, 226, 52);
+color:rgb(32, 74, 135);</string>
+     </property>
+     <property name="text">
+      <string>press &quot;Enter&quot; to start                                                                                                                                                             </string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </widget>
    <widget class="QPushButton" name="exit_button">
     <property name="geometry">
