@@ -8,8 +8,6 @@ QMAKE_CXXFLAGS += -std=c++11
 
 QMAKE_CXX = ccache g++
 
-INCLUDEPATH += \
-
 HEADERS += \
     $$PWD/*.h \
 
@@ -18,4 +16,6 @@ SOURCES += \
 
 FORMS += \
     $$PWD/*.ui \
+
+
 

@@ -15,7 +15,8 @@
   </property>
   <property name="styleSheet">
    <string notr="true">background: black;
-border: 1px solid  rgb(32, 74, 135);</string>
+border: 1px solid  rgb(32, 74, 135);
+</string>
   </property>
   <widget class="QWidget" name="CentralWidget">
    <widget class="QLabel" name="version_label">
@@ -92,12 +93,19 @@ color:rgb(32, 74, 135);</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>90</pointsize>
+       <family>FreeMono</family>
+       <pointsize>110</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+       <underline>false</underline>
+       <strikeout>false</strikeout>
+       <kerning>false</kerning>
       </font>
      </property>
      <property name="styleSheet">
       <string notr="true">border: 0px;
-color:rgb(32, 74, 135);</string>
+color:rgb(32, 74, 135);
+</string>
      </property>
      <property name="text">
       <string>ATM</string>
@@ -107,7 +115,7 @@ color:rgb(32, 74, 135);</string>
      </property>
     </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="exit_button">
     <property name="geometry">
      <rect>
       <x>5</x>
@@ -122,11 +130,11 @@ border-radius: 5px;
 color: rgb(32, 74, 135);
 }
 QPushButton:hover {
-border: 1px solid rgb(50, 250, 6);
-color: rgb(50, 250, 6);
+border: 1px solid rgb(138, 226, 52);
+color: rgb(138, 226, 52);
 }
 QPushButton:pressed {
-background: rgb(21, 24, 46);
+background: rgb(46, 52, 54);
 }</string>
     </property>
     <property name="text">
@@ -138,7 +146,7 @@ background: rgb(21, 24, 46);
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton</sender>
+   <sender>exit_button</sender>
    <signal>clicked()</signal>
    <receiver>MainForm</receiver>
    <slot>close()</slot>
