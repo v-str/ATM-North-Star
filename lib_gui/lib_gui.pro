@@ -10,15 +10,19 @@ QMAKE_CXX = ccache g++
 
 DEPENDPATH += \
     ../initial_form \
+    ../features \
 
 INCLUDEPATH += \
     $$PWD/initial_form \
+    $$PWD/features \
 
 HEADERS += \
     $$PWD/initial_form/*.h \
+    $$PWD/features/*.h \
 
 SOURCES += \
     $$PWD/initial_form/*.cpp \
+    $$PWD/features/*.cpp \
 
 FORMS += \
     $$PWD/initial_form/*.ui \
