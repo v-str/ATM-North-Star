@@ -20,3 +20,11 @@ void CreditDepartment::SetCreditTerm(int months) {
 void CreditDepartment::CalculateCredit() {
   calculator_.CalculateCredit(&credit_data_);
 }
+
+int CreditDepartment::CreditSum() const { return credit_data_.CreditSum(); }
+
+int CreditDepartment::CreditTerm() const { return credit_data_.CreditTerm(); }
+
+double CreditDepartment::InterestRate() const {
+  return credit_data_.InterestRate();
+}

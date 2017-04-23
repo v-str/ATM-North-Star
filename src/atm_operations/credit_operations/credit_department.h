@@ -22,6 +22,10 @@ class CreditDepartment {
   void SetCreditTerm(int months);
   void CalculateCredit();
 
+  int CreditSum() const;
+  int CreditTerm() const;
+  double InterestRate() const;
+
  private:
   CreditData credit_data_;
   CreditCalculator calculator_;
