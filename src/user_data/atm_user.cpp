@@ -1,7 +1,5 @@
 ﻿#include "atm_user.h"
 
-AtmUser::AtmUser() {}
-
 void AtmUser::SetLogin(const std::string& login) {
   identification_data_.SetLogin(login);
 }
@@ -38,10 +36,6 @@ double AtmUser::MonthlyPayment() const { return credit_data_.MonthlyPayment(); }
 
 int AtmUser::CreditTerm() const { return credit_data_.CreditTerm(); }
 
-int AtmUser::WithdrawCash(int amount) {
-  return cash_operator_.WithdrawCash(amount);
-}
-
 bool AtmUser::IsCreditExist() const { return credit_data_.IsCreditExist(); }
 
 bool AtmUser::IsNormalLogin() { return identification_data_.IsNormalLogin(); }
@@ -49,3 +43,7 @@ bool AtmUser::IsNormalLogin() { return identification_data_.IsNormalLogin(); }
 bool AtmUser::IsNormalPass() { return identification_data_.IsNormalPass(); }
 
 void AtmUser::AddCash(int sum_of_cash) { cash_operator_.AddCash(sum_of_cash); }
+
+int AtmUser::WithdrawCash(int amount) {
+  return cash_operator_.WithdrawCash(amount);
+}

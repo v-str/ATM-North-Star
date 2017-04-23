@@ -9,7 +9,12 @@
 
 class AtmUser {
  public:
-  AtmUser();
+  void SetLogin(const std::string& login);
+  void SetPassword(const std::string& password);
+  void SetCash(int cash);
+  void SetCreditSum(int credit);
+  void SetMonthlyPayment(double monthly_payment);
+  void SetCreditTerm(int months);
 
   std::string GetLogin() const;
   std::string GetPassword() const;
@@ -18,24 +23,12 @@ class AtmUser {
   double MonthlyPayment() const;
   int CreditTerm() const;
 
-  void SetLogin(const std::string& login);
-  void SetPassword(const std::string& password);
-  void SetCash(int cash);
-  void SetCreditSum(int credit);
-  void SetMonthlyPayment(double monthly_payment);
-  void SetCreditTerm(int months);
-
-  int WithdrawCash(int amount);
-
-  /// new code
   bool IsCreditExist() const;
-
-  /// end of new code
-
   bool IsNormalLogin();
   bool IsNormalPass();
 
   void AddCash(int sum_of_cash);
+  int WithdrawCash(int amount);
 
  private:
   CashOperator cash_operator_;
