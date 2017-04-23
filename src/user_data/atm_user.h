@@ -22,8 +22,8 @@ class AtmUser {
   int CreditTerm() const;
 
   bool IsCreditExist() const;
-  bool IsNormalLogin();
-  bool IsNormalPass();
+  bool IsNormalLogin() const;
+  bool IsNormalPass() const;
 
   void AddCash(int sum_of_cash);
   int WithdrawCash(int amount);

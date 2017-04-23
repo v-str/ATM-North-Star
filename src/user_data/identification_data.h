@@ -11,8 +11,8 @@ class IdentificationData {
   std::string Login() const;
   std::string Password() const;
 
-  bool IsNormalLogin();
-  bool IsNormalPass();
+  bool IsNormalLogin() const;
+  bool IsNormalPass() const;
 
  private:
   static const int kMaxLenghtOfLogin = 21;

@@ -10,10 +10,10 @@ std::string IdentificationData::Login() const { return login_; }
 
 std::string IdentificationData::Password() const { return password_; }
 
-bool IdentificationData::IsNormalLogin() {
+bool IdentificationData::IsNormalLogin() const {
   return !login_.empty() && login_.length() < kMaxLenghtOfLogin;
 }
 
-bool IdentificationData::IsNormalPass() {
+bool IdentificationData::IsNormalPass() const {
   return password_.length() == kMaxLenghtOfPassword;
 }
