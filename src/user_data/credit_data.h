@@ -29,6 +29,9 @@ class CreditData {
   double CreditOverpayment() const { return credit_overpayment_; }
   double InterestRate() const { return interest_rate_; }
   double MonthlyPayment() const { return monthly_payment_; }
+  const std::vector<std::pair<double, double>>& Paysheet() const {
+    return paysheet_;
+  }
 
   bool IsCreditExist() const { return credit_sum_ > 0; }
 
@@ -39,6 +42,8 @@ class CreditData {
     credit_overpayment_ = credit_data.CreditOverpayment();
     interest_rate_ = credit_data.InterestRate();
     monthly_payment_ = credit_data.MonthlyPayment();
+
+    paysheet_ = credit_data.Paysheet();
 
     return *this;
   }
