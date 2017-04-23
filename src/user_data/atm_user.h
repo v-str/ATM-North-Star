@@ -5,7 +5,7 @@
 
 #include "cash_operator.h"
 #include "credit_data.h"
-#include "user_identifier.h"
+#include "identification_data.h"
 
 class AtmUser {
  public:
@@ -43,7 +43,7 @@ class AtmUser {
  private:
   CashOperator cash_operator_;
   CreditData credit_data_;
-  UserIdentifier user_identifier_;
+  IdentificationData identification_data_;
 };
 
 #endif  // ATM_USER_H
