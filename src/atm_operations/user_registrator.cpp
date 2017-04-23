@@ -10,7 +10,6 @@ void UserRegistrator::RegisterUser(AtmUser& atm_user) {
     EnterPassword(atm_user);
     if (atm_user.IsNormalPass()) {
       notice_messenger_.ShowAcceptableMessageFrame();
-      AssignInitialValues(atm_user);
       set_is_correct_registration(true);
     } else {
       notice_messenger_.ShowIncorrectFormatPassword();
@@ -36,11 +35,4 @@ void UserRegistrator::EnterPassword(AtmUser& atm_user) {
 
 void UserRegistrator::set_is_correct_registration(bool correct_registration) {
   correct_registration_ = correct_registration;
-}
-
-void UserRegistrator::AssignInitialValues(AtmUser& atm_user) {
-  atm_user.SetCash(0);
-  atm_user.SetCreditSum(0);
-  atm_user.SetMonthlyPayment(0.0);
-  atm_user.SetCreditTerm(0);
 }

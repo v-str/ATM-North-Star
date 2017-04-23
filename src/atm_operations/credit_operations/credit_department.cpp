@@ -5,7 +5,7 @@ int CreditDepartment::ResultOfUserCheck(const AtmUser& user) const {
 }
 
 int CreditDepartment::MaxCreditSum(int cash) {
-  return calculator_.CalculateMaxCreditSum(cash, credit_data_.Multiplier());
+  return calculator_.CalculateMaxCreditSum(cash, credit_data_.CreditMultiplier());
 }
 
 void CreditDepartment::SetCreditSum(int credit_sum) {

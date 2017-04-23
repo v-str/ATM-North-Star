@@ -12,13 +12,11 @@ class AtmUser {
   void SetLogin(const std::string& login);
   void SetPassword(const std::string& password);
   void SetCash(int cash);
-  void SetCreditSum(int credit);
-  void SetMonthlyPayment(double monthly_payment);
-  void SetCreditTerm(int months);
+  void SetCreditData(const CreditData& credit_data);
 
-  std::string GetLogin() const;
-  std::string GetPassword() const;
-  int GetCash() const;
+  std::string Login() const;
+  std::string Password() const;
+  int Cash() const;
   int CreditSum() const;
   double MonthlyPayment() const;
   int CreditTerm() const;

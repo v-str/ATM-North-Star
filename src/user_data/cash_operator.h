@@ -6,7 +6,7 @@ class CashOperator {
   void SetCash(int cash);
   void AddCash(int cash);
 
-  int GetCash() const;
+  int Cash() const;
 
   int WithdrawCash(int cash);
 

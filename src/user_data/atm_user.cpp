@@ -10,25 +10,17 @@ void AtmUser::SetPassword(const std::string& password) {
 
 void AtmUser::SetCash(int cash) { cash_operator_.SetCash(cash); }
 
-void AtmUser::SetCreditSum(int credit_sum) {
-  credit_data_.SetCreditSum(credit_sum);
+void AtmUser::SetCreditData(const CreditData& credit_data) {
+  credit_data_ = credit_data;
 }
 
-void AtmUser::SetMonthlyPayment(double monthly_payment) {
-  credit_data_.SetMonthlyPayment(monthly_payment);
+std::string AtmUser::Login() const { return identification_data_.Login(); }
+
+std::string AtmUser::Password() const {
+  return identification_data_.Password();
 }
 
-void AtmUser::SetCreditTerm(int months) { credit_data_.SetCreditTerm(months); }
-
-std::string AtmUser::GetLogin() const {
-  return identification_data_.GetLogin();
-}
-
-std::string AtmUser::GetPassword() const {
-  return identification_data_.GetPassword();
-}
-
-int AtmUser::GetCash() const { return cash_operator_.GetCash(); }
+int AtmUser::Cash() const { return cash_operator_.Cash(); }
 
 int AtmUser::CreditSum() const { return credit_data_.CreditSum(); }
 

@@ -13,7 +13,7 @@ int CreditCheck::GetResultOfUserCheck(const AtmUser& user) const {
 }
 
 bool CreditCheck::IsBalanceAppropriate(const AtmUser& user) const {
-  return user.GetCash() >= CheckState::kAppropriateCashForCredit;
+  return user.Cash() >= CheckState::kAppropriateCashForCredit;
 }
 
 bool CreditCheck::IsCreditExist(const AtmUser& user) const {

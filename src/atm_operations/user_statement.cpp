@@ -3,8 +3,8 @@
 void UserStatement::ShowStatementFor(AtmUser *atm_user) {
   console_editor_.AddEmptyLineNTimes(2);
   console_editor_.ClearScreen();
-  string spaces = GetSpaces(atm_user->GetCash());
-  int cash = atm_user->GetCash();
+  string spaces = GetSpaces(atm_user->Cash());
+  int cash = atm_user->Cash();
   statement_messenger_.ShowStatement(cash, spaces);
 }
 

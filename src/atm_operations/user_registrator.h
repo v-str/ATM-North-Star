@@ -14,8 +14,6 @@ class UserRegistrator {
   bool IsCorrectRegistration() const;
 
  private:
-  static void AssignInitialValues(AtmUser& atm_user);
-
   void EnterLogin(AtmUser& atm_user);
   void EnterPassword(AtmUser& atm_user);
 

@@ -9,9 +9,9 @@ void CLICreditDepartment::StartCreditOperationFor(AtmUser* user) {
     SuggestCredit(user);
   } else if (result_of_check == CheckState::kCreditExist) {
     messenger_.RefuseACreditBasedOnAnotherCredit();
-    messenger_.ShowIncorrectCashInformation(user->GetCash());
+    messenger_.ShowIncorrectCashInformation(user->Cash());
   } else if (result_of_check == CheckState::kInappropriateBalance) {
-    messenger_.RefuseACreditBasedOnCash(user->GetCash());
+    messenger_.RefuseACreditBasedOnCash(user->Cash());
   } else if (result_of_check == CheckState::kInvalidCheck) {
     messenger_.UnavailableCreditState();
   }
@@ -20,7 +20,7 @@ void CLICreditDepartment::StartCreditOperationFor(AtmUser* user) {
 void CLICreditDepartment::SuggestCredit(AtmUser* user) {
   messenger_.NotifyAboutCredit();
   if (input_.GetValueFromUser() == kConsiderCredit) {
-    if (ConsiderCredit(user->GetCash())) {
+    if (ConsiderCredit(user->Cash())) {
       // ShowCreditPaymentStatement();
     }
   }

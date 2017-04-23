@@ -2,7 +2,7 @@
 
 void CashOperator::SetCash(int cash) { cash_ = cash; }
 
-int CashOperator::GetCash() const { return cash_; }
+int CashOperator::Cash() const { return cash_; }
 
 int CashOperator::WithdrawCash(int cash) { return cash_ -= cash; }
 

@@ -6,9 +6,11 @@
 
 class CreditData {
  public:
-  void SetMultiplier(int multiplier) { multiplier_ = multiplier; }
   void SetCreditSum(int credit_sum) { credit_sum_ = credit_sum; }
   void SetCreditTerm(int credit_term) { credit_term_ = credit_term; }
+  void SetCreditMultiplier(int credit_multiplier) {
+    credit_multiplier_ = credit_multiplier;
+  }
   void SetCreditOverPayment(double credit_overpayment) {
     credit_overpayment_ = credit_overpayment;
   }
@@ -21,7 +23,7 @@ class CreditData {
     monthly_payment_ = monthly_payment;
   }
 
-  int Multiplier() const { return multiplier_; }
+  int CreditMultiplier() const { return credit_multiplier_; }
   int CreditSum() const { return credit_sum_; }
   int CreditTerm() const { return credit_term_; }
   double CreditOverpayment() const { return credit_overpayment_; }
@@ -30,8 +32,19 @@ class CreditData {
 
   bool IsCreditExist() const { return credit_sum_ > 0; }
 
+  CreditData& operator=(const CreditData& credit_data) {
+    credit_multiplier_ = credit_data.CreditMultiplier();
+    credit_sum_ = credit_data.CreditSum();
+    credit_term_ = credit_data.CreditTerm();
+    credit_overpayment_ = credit_data.CreditOverpayment();
+    interest_rate_ = credit_data.InterestRate();
+    monthly_payment_ = credit_data.MonthlyPayment();
+
+    return *this;
+  }
+
  private:
-  int multiplier_ = 15;
+  int credit_multiplier_ = 15;
   int credit_sum_ = 0;
   int credit_term_ = 0;
   double credit_overpayment_ = 0.0;

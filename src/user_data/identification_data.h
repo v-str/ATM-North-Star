@@ -5,11 +5,11 @@
 
 class IdentificationData {
  public:
-  void SetLogin(const std::string &login);
-  void SetPassword(const std::string &password);
+  void SetLogin(const std::string& login);
+  void SetPassword(const std::string& password);
 
-  std::string GetLogin() const;
-  std::string GetPassword() const;
+  std::string Login() const;
+  std::string Password() const;
 
   bool IsNormalLogin();
   bool IsNormalPass();
