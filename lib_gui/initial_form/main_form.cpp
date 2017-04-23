@@ -16,14 +16,12 @@ MainForm::~MainForm() {
   delete color_timer_;
   delete running_text_timer_;
   delete running_text_;
+  delete color_swapper_;
 }
 
-void MainForm::ChangeColor() {
-  if (is_state_changed_) {
-    ChangeTextColor(ui->atm_label, "rgb(138, 226, 52)", false);
-  } else {
-    ChangeTextColor(ui->atm_label, "rgb(32, 74, 135)", true);
-  }
+void MainForm::ChangeTextColor() {
+  color_swapper_->ChangeColor(ui->atm_label, "rgb(138, 226, 52)",
+                              "rgb(32, 74, 135)");
 }
 
 void MainForm::RunText() { running_text_->UpdateText(ui->running_label); }
@@ -34,29 +32,18 @@ void MainForm::SetMainFormProperties() {
 }
 
 void MainForm::SetConnections() {
-  connect(color_timer_, SIGNAL(timeout()), SLOT(ChangeColor()));
+  connect(color_timer_, SIGNAL(timeout()), SLOT(ChangeTextColor()));
   connect(running_text_timer_, SIGNAL(timeout()), SLOT(RunText()));
-}
-
-void MainForm::ChangeTextColor(QWidget* widget,
-                               const QString& text_color,
-                               bool state) {
-  QString stylesheet = QString(
-                           "color: %1;"
-                           "border: 0px solid black;")
-                           .arg(text_color);
-
-  widget->setStyleSheet(stylesheet);
-  is_state_changed_ = state;
 }
 
 void MainForm::InitializeObjects() {
   color_timer_ = new QTimer(ui->atm_label);
   running_text_timer_ = new QTimer(ui->running_label);
   running_text_ = new RunningText();
+  color_swapper_ = new TextColorSwapper();
 }
 
 void MainForm::RunTimers() {
-  color_timer_->start(250);
+  color_timer_->start(350);
   running_text_timer_->start(15);
 }

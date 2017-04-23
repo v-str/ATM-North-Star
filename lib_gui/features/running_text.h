@@ -3,7 +3,7 @@
 
 #include <QLabel>
 
-class RunningText : public QLabel {
+class RunningText {
  public:
   void UpdateText(QLabel* label);
 };

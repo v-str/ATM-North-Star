@@ -6,6 +6,7 @@
 #include <QTimer>
 
 #include "running_text.h"
+#include "text_color_swapper.h"
 
 namespace Ui {
 class MainForm;
@@ -19,7 +20,7 @@ class MainForm : public QMainWindow {
   ~MainForm();
 
  public slots:
-  void ChangeColor();
+  void ChangeTextColor();
   void RunText();
 
  private:
@@ -34,8 +35,7 @@ class MainForm : public QMainWindow {
   QTimer* running_text_timer_ = nullptr;
 
   RunningText* running_text_ = nullptr;
-
-  bool is_state_changed_ = false;
+  TextColorSwapper* color_swapper_ = nullptr;
 };
 
 #endif  // MAIN_FORM_H
