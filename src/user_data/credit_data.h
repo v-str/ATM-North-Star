@@ -14,12 +14,12 @@ class CreditData {
   }
   void SetInterestRate(double interest_rate) { interest_rate_ = interest_rate; }
   void SetPaysheet(const std::vector<std::pair<double, double>>& paysheet) {
-    paysheet_ = std::move(paysheet);
+    paysheet_ = paysheet;
   }
   void SetMonthlyPayment() { monthly_payment_ = paysheet_[0].first; }
   void SetMonthlyPayment(double monthly_payment) {
     monthly_payment_ = monthly_payment;
-  };
+  }
 
   int Multiplier() const { return multiplier_; }
   int CreditSum() const { return credit_sum_; }
