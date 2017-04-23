@@ -19,9 +19,9 @@ void CLICreditDepartment::StartCreditOperationFor(AtmUser* user) {
 
 void CLICreditDepartment::SuggestCredit(AtmUser* user) {
   messenger_.NotifyAboutCredit();
-  if (input_.GetValueFromUser() == kConsiderCredit) {
+  if (user_input_.GetValueFromUser() == kConsiderCredit) {
     if (ConsiderCredit(user->Cash())) {
-      ShowCredit();
+      // ShowCredit();
     }
   }
 }
@@ -30,7 +30,7 @@ bool CLICreditDepartment::ConsiderCredit(int user_cash) {
   int max_credit_sum = MaxCreditSum(user_cash);
   int credit_sum = 0;
   messenger_.ShowCreditConditions(max_credit_sum);
-  int user_choice = input_.GetValueFromUser();
+  int user_choice = user_input_.GetValueFromUser();
   if (user_choice == kMaxCreditSum) {
     credit_sum = max_credit_sum;
   } else if (user_choice == kUserCreditSum) {
@@ -44,14 +44,12 @@ bool CLICreditDepartment::ConsiderCredit(int user_cash) {
   return true;
 }
 
-void CLICreditDepartment::ShowCredit() {}
-
 int CLICreditDepartment::GetCreditSumFromUser(int max_credit_sum) const {
   int user_credit_sum = 0;
   messenger_.ShowInfoAboutCreditSum();
   do {
     messenger_.SuggestEnterCreditSum();
-    user_credit_sum = input_.GetValueFromUser();
+    user_credit_sum = user_input_.GetValueFromUser();
   } while (!IsValid(user_credit_sum, max_credit_sum));
 
   return user_credit_sum;
@@ -62,7 +60,7 @@ int CLICreditDepartment::GetCreditTermFromUser() const {
   messenger_.ShowInfoAboutCreditTerm();
   do {
     messenger_.SuggestEnterCreditTerm();
-    months = input_.GetValueFromUser();
+    months = user_input_.GetValueFromUser();
   } while (!IsValid(months));
   return months;
 }

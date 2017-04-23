@@ -79,24 +79,6 @@ void CreditMessenger::SuggestToConfirmACredit() const {
       "\tEnter: ");
 }
 
-void CreditMessenger::ShowCreditTitle(const string& user_login,
-                                      int sum_of_credit) const {
-  console_editor_.AddEmptyLineNTimes(2);
-  console_editor_.ClearScreen();
-
-  console_editor_.WriteTextWithInterrupt("\t\tConsumer Credit\n\n",
-                                         kHalfASecond);
-
-  console_editor_.WriteTextWithInterrupt("Profile: " + user_login + "\n",
-                                         kHalfASecond);
-
-  console_editor_.WriteTextWithInterrupt(
-      "Sum $: " + std::to_string(sum_of_credit) + "\n", kHalfASecond);
-
-  console_editor_.WriteTextWithInterrupt("Persent per year: 14%\n\n",
-                                         kHalfASecond);
-}
-
 void CreditMessenger::EnrollACredit() const {
   console_editor_.AddEmptyLineNTimes(2);
   console_editor_.WriteTextWithDelayPerSymbol(
@@ -106,28 +88,6 @@ void CreditMessenger::EnrollACredit() const {
 
 void CreditMessenger::RepealACreadit() const {
   console_editor_.WriteTextWithDelayPerSymbol("\n\t# Credit is repealed...\n");
-}
-
-void CreditMessenger::ShowCreditTable(double pay_per_month,
-                                      double amount_of_months) const {
-  double all_payment = 0.0;
-
-  for (int i = kNull + 1; i <= amount_of_months; ++i) {
-    console_editor_.WriteText("\t* Payment month: " + std::to_string(i) +
-                              "\tPayment sum: ");
-
-    std::string convertible_pay_per_month_value =
-        console_editor_.ConvertValueToString(pay_per_month);
-
-    console_editor_.WriteTextWithInterrupt(
-        convertible_pay_per_month_value + "$\n", kSleep);
-    all_payment += pay_per_month;
-  }
-  std::string convertible_all_payment_value =
-      console_editor_.ConvertValueToString(pay_per_month);
-  console_editor_.WriteText("\t\t\tTotal: " + convertible_all_payment_value +
-                            " $");
-  console_editor_.AddEmptyLineNTimes(2);
 }
 
 void CreditMessenger::ShowInfoAboutCreditSum() const {
@@ -147,7 +107,7 @@ void CreditMessenger::SuggestEnterCreditSum() const {
       "Enter the desired sum of credit: $");
 }
 
-void CreditMessenger::ShowError(const string& error_message) const {
+void CreditMessenger::ShowError(const std::string& error_message) const {
   console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteSymbolsNTimes(" . ", 20);
   console_editor_.WriteText("\n    ");
@@ -185,14 +145,6 @@ void CreditMessenger::SuggestEnterCreditTerm() const {
       "Enter the desired term of credit: $");
 }
 
-void CreditMessenger::ShowResultOfUserChoice(int decision_of_user) const {
-  if (decision_of_user == 1) {
-    EnrollACredit();
-  } else {
-    RepealACreadit();
-  }
-}
-
 void CreditMessenger::ShowIncorrectCashInformation(int cash) const {
   console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteSymbolsNTimes("-", 65);
@@ -201,14 +153,6 @@ void CreditMessenger::ShowIncorrectCashInformation(int cash) const {
   console_editor_.AddEmptyLineNTimes(1);
   console_editor_.WriteSymbolsNTimes("-", 65);
   console_editor_.AddEmptyLineNTimes(1);
-}
-
-void CreditMessenger::ShowUnavailableCreditInfo() const {
-  console_editor_.ClearScreen();
-  console_editor_.AddEmptyLineNTimes(2);
-  console_editor_.WriteTextWithDelayPerSymbol("\tCredit is not available!");
-  console_editor_.AddEmptyLineNTimes(2);
-  console_editor_.Sleep(500);
 }
 
 void CreditMessenger::UnavailableCreditState() const {

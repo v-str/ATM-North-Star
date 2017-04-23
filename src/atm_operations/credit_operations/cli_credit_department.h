@@ -12,7 +12,6 @@ class CLICreditDepartment : public CreditDepartment {
  protected:
   void SuggestCredit(AtmUser* user) override;
   bool ConsiderCredit(int user_cash) override;
-  void ShowCredit() override;
 
  private:
   enum CreditMenuItem { kMaxCreditSum = 1, kUserCreditSum, kExit };
@@ -26,7 +25,7 @@ class CLICreditDepartment : public CreditDepartment {
   void PerformCreditCalculations(int credit_sum);
 
   CreditMessenger messenger_;
-  UserInput input_;
+  UserInput user_input_;
 
   const int kConsiderCredit = 1;
 };
