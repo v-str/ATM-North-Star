@@ -8,6 +8,8 @@
 #include "credit_data.h"
 
 class CreditCalculator {
+  typedef std::vector<std::pair<double, double>> PaysheetVector;
+
  public:
   int CalculateMaxCreditSum(int cash, int multiplier);
 
@@ -22,7 +24,7 @@ class CreditCalculator {
   void FillCreditPaysheet(double annuity_credit_payment,
                           double total_overpayment);
 
-  std::vector<std::pair<double, double>> paysheet_;
+  PaysheetVector paysheet_;
 };
 
 #endif  // CREDIT_CALCULATOR_H
