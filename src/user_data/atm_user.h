@@ -27,8 +27,6 @@ class AtmUser {
 
   int WithdrawCash(int amount);
 
-  bool IsCreditAvailable();
-
   /// new code
   bool IsCreditExist() const;
 
@@ -38,7 +36,6 @@ class AtmUser {
   bool IsNormalPass();
 
   void AddCash(int sum_of_cash);
-  void AssignAMonthlyPayment(double pay_per_month);
 
  private:
   CashOperator cash_operator_;
