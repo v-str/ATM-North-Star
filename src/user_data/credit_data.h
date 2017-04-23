@@ -5,6 +5,8 @@
 #include <vector>
 
 class CreditData {
+  typedef std::vector<std::pair<double, double>> PaysheetVector;
+
  public:
   void SetCreditSum(int credit_sum) { credit_sum_ = credit_sum; }
   void SetCreditTerm(int credit_term) { credit_term_ = credit_term; }
@@ -15,9 +17,7 @@ class CreditData {
     credit_overpayment_ = credit_overpayment;
   }
   void SetInterestRate(double interest_rate) { interest_rate_ = interest_rate; }
-  void SetPaysheet(const std::vector<std::pair<double, double>>& paysheet) {
-    paysheet_ = paysheet;
-  }
+  void SetPaysheet(const PaysheetVector& paysheet) { paysheet_ = paysheet; }
   void SetMonthlyPayment() { monthly_payment_ = paysheet_[0].first; }
   void SetMonthlyPayment(double monthly_payment) {
     monthly_payment_ = monthly_payment;
@@ -29,9 +29,7 @@ class CreditData {
   double CreditOverpayment() const { return credit_overpayment_; }
   double InterestRate() const { return interest_rate_; }
   double MonthlyPayment() const { return monthly_payment_; }
-  const std::vector<std::pair<double, double>>& Paysheet() const {
-    return paysheet_;
-  }
+  const PaysheetVector& Paysheet() const { return paysheet_; }
 
   bool IsCreditExist() const { return credit_sum_ > 0; }
 
@@ -56,7 +54,7 @@ class CreditData {
   double interest_rate_ = 14.0;
   double monthly_payment_ = 0.0;
 
-  std::vector<std::pair<double, double>> paysheet_;
+  PaysheetVector paysheet_;
 };
 
 #endif  // CREDIT_DATA_H
