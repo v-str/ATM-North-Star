@@ -14,7 +14,7 @@ DEPENDPATH += \
 INCLUDEPATH += \
     ../lib_console_output/messengers \
     ../lib_console_output/output_configuration \
-    ../lib_gui \
+    ../lib_gui/initial_form \
     $$PWD/atm_operations \
     $$PWD/atm_operations \
     $$PWD/atm_operations/credit_operations \

@@ -33,7 +33,7 @@ class MainForm : public QMainWindow {
   QTimer* color_timer_ = nullptr;
   QTimer* running_text_timer_ = nullptr;
 
-  RunningText* running_text_;
+  RunningText* running_text_ = nullptr;
 
   bool is_state_changed_ = false;
 };

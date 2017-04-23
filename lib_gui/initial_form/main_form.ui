@@ -93,10 +93,10 @@ color:rgb(32, 74, 135);</string>
      </property>
      <property name="font">
       <font>
-       <family>FreeMono</family>
-       <pointsize>110</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
+       <family>FreeSans</family>
+       <pointsize>100</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
        <underline>false</underline>
        <strikeout>false</strikeout>
        <kerning>false</kerning>
@@ -130,7 +130,7 @@ color:rgb(32, 74, 135);
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">border: 1px solid rgb(138, 226, 52);
+      <string notr="true">border: 1px solid  rgb(32, 74, 135);
 color:rgb(32, 74, 135);</string>
      </property>
      <property name="text">
@@ -146,9 +146,17 @@ color:rgb(32, 74, 135);</string>
      <rect>
       <x>5</x>
       <y>5</y>
-      <width>20</width>
-      <height>20</height>
+      <width>35</width>
+      <height>35</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Tlwg Mono</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -157,10 +165,9 @@ color: rgb(32, 74, 135);
 }
 QPushButton:hover {
 border: 1px solid rgb(138, 226, 52);
-color: rgb(138, 226, 52);
 }
 QPushButton:pressed {
-background: rgb(46, 52, 54);
+color: rgb(138, 226, 52);
 }</string>
     </property>
     <property name="text">
