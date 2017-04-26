@@ -68,16 +68,21 @@ color: rgb(32, 74, 135);</string>
      </property>
      <property name="font">
       <font>
-       <family>URW Gothic L</family>
-       <pointsize>35</pointsize>
+       <family>DejaVu Sans</family>
+       <pointsize>30</pointsize>
        <weight>50</weight>
        <italic>false</italic>
        <bold>false</bold>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">border: 0px;
-color:rgb(32, 74, 135);</string>
+      <string notr="true">QLabel {
+border: 0px solid rgb(32, 74, 135);
+color: rgb(32, 74, 135);
+}
+QLabel:hover {
+color: rgb(164, 0, 0);
+}</string>
      </property>
      <property name="text">
       <string>North star</string>
@@ -90,9 +95,9 @@ color:rgb(32, 74, 135);</string>
      <property name="geometry">
       <rect>
        <x>125</x>
-       <y>90</y>
+       <y>100</y>
        <width>300</width>
-       <height>165</height>
+       <height>150</height>
       </rect>
      </property>
      <property name="font">
@@ -168,10 +173,10 @@ border-radius: 5px;
 color: rgb(32, 74, 135);
 }
 QPushButton:hover {
-border: 1px solid rgb(138, 226, 52);
+border: 1px solid rgb(164, 0, 0);
 }
 QPushButton:pressed {
-color: rgb(138, 226, 52);
+color: rgb(164, 0, 0);
 }</string>
     </property>
     <property name="text">
@@ -196,9 +201,13 @@ color: rgb(138, 226, 52);
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel{
+     <string notr="true">QLabel {
 border-radius: 5px;
+border: 1px solid rgb(32, 74, 135);
 color: rgb(32, 74, 135);
+}
+QLabel:hover {
+color: rgb(164, 0, 0);
 }
 </string>
     </property>
