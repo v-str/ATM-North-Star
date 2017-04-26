@@ -68,7 +68,11 @@ color: rgb(32, 74, 135);</string>
      </property>
      <property name="font">
       <font>
+       <family>URW Gothic L</family>
        <pointsize>35</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
       </font>
      </property>
      <property name="styleSheet">
@@ -117,10 +121,10 @@ color:rgb(32, 74, 135);
     <widget class="QLabel" name="running_label">
      <property name="geometry">
       <rect>
-       <x>25</x>
-       <y>270</y>
-       <width>500</width>
-       <height>40</height>
+       <x>10</x>
+       <y>280</y>
+       <width>530</width>
+       <height>30</height>
       </rect>
      </property>
      <property name="font">
@@ -130,7 +134,7 @@ color:rgb(32, 74, 135);
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">border: 1px solid  rgb(32, 74, 135);
+      <string notr="true">border: 0px solid  rgb(32, 74, 135);
 color:rgb(32, 74, 135);</string>
      </property>
      <property name="text">
@@ -172,6 +176,37 @@ color: rgb(138, 226, 52);
     </property>
     <property name="text">
      <string>X</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="timedate_label">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>5</y>
+      <width>400</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Tlwg Mono</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+border-radius: 5px;
+color: rgb(32, 74, 135);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>

@@ -22,6 +22,7 @@ class MainForm : public QMainWindow {
  public slots:
   void ChangeTextColor();
   void RunText();
+  void ChangeTimeDate();
 
  private:
   void SetMainFormProperties();
@@ -32,6 +33,7 @@ class MainForm : public QMainWindow {
   Ui::MainForm* ui = nullptr;
   QTimer* color_timer_ = nullptr;
   QTimer* running_text_timer_ = nullptr;
+  QTimer* time_date_timer_ = nullptr;
 
   RunningText* running_text_ = nullptr;
   TextColorSwapper* color_swapper_ = nullptr;
