@@ -26,7 +26,6 @@ class MainForm : public QMainWindow {
  private:
   void SetMainFormProperties();
   void SetConnections();
-  void ChangeTextColor(QWidget* widget, const QString& text_color, bool state);
   void InitializeObjects();
   void RunTimers();
 
