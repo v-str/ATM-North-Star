@@ -3,6 +3,8 @@
 
 #include <QApplication>
 
+#include <widget_centerer.h>
+
 MainForm::MainForm(QWidget* parent)
     : QMainWindow(parent), ui(new Ui::MainForm) {
   ui->setupUi(this);
@@ -31,6 +33,7 @@ void MainForm::RunText() { running_text_->UpdateText(ui->running_label); }
 void MainForm::SetMainFormProperties() {
   setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
   setFixedSize(600, 400);
+  WidgetCenterer::MoveToCenter(this);
 }
 
 void MainForm::SetConnections() {
