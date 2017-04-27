@@ -31,6 +31,7 @@ class MainForm : public QMainWindow {
   void RunTimers();
 
   Ui::MainForm* ui = nullptr;
+
   QTimer* color_timer_ = nullptr;
   QTimer* running_text_timer_ = nullptr;
   QTimer* time_date_timer_ = nullptr;
