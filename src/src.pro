@@ -7,13 +7,13 @@ CONFIG += console c++11
 QMAKE_CXX = ccache g++
 
 DEPENDPATH += \
-    ../lib_console_output/messengers \
-    ../lib_console_output/output_configuration \
+    ../lib_console/messengers \
+    ../lib_console/output_configuration \
     ../lib_gui \
 
 INCLUDEPATH += \
-    ../lib_console_output/messengers \
-    ../lib_console_output/output_configuration \
+    ../lib_console/messengers \
+    ../lib_console/output_configuration \
     ../lib_gui \
     $$PWD/atm_operations \
     $$PWD/atm_operations \
@@ -38,5 +38,5 @@ SOURCES += \
     $$PWD/application_management/*.cpp \
 
 LIBS += \
-    -L$$OUT_PWD/../lib_console_output -llib_console_output \
+    -L$$OUT_PWD/../lib_console -llib_console \
     -L$$OUT_PWD/../lib_gui -llib_gui
