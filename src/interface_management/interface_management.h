@@ -1,10 +1,10 @@
-﻿#ifndef APP_MANAGER_H
-#define APP_MANAGER_H
+﻿#ifndef INTERFACE_MANAGER_H
+#define INTERFACE_MANAGER_H
 
 #include "console_editor.h"
 #include "user_input.h"
 
-class AppManager {
+class InterfaceManager {
  public:
   void SuggestMode();
 
@@ -19,4 +19,4 @@ class AppManager {
   int choice_ = 0;
 };
 
-#endif  // APP_MANAGER_H
+#endif  // INTERFACE_MANAGER_H

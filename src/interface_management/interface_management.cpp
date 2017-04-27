@@ -1,7 +1,7 @@
-﻿#include "app_manager.h"
+﻿#include "interface_management.h"
 #include "output_setup.h"
 
-void AppManager::SuggestMode() {
+void InterfaceManager::SuggestMode() {
   for (;;) {
     WriteWelcome();
     choice_ = user_input_.GetValueFromUser();
@@ -16,9 +16,9 @@ void AppManager::SuggestMode() {
   console_editor_.ClearScreen();
 }
 
-int AppManager::GetMode() { return choice_; }
+int InterfaceManager::GetMode() { return choice_; }
 
-void AppManager::WriteWelcome() {
+void InterfaceManager::WriteWelcome() {
   console_editor_.WriteTextWithDelayPerSymbol("version 1.0.1");
   console_editor_.AddEmptyLineNTimes(4);
   console_editor_.WriteTextWithDelayPerSymbol("Welcome to ATM program");

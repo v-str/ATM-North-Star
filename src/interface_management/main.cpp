@@ -1,7 +1,7 @@
 ﻿#include <QApplication>
 
-#include "app_manager.h"
 #include "console_mode.h"
+#include "interface_management.h"
 #include "main_form.h"
 
 int main(int argc, char* argv[]) {
@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
 
   enum ProgramMode { kConsoleMode = 1, kGuiMode };
 
-  AppManager app_manager;
+  InterfaceManager app_manager;
   app_manager.SuggestMode();
 
   ConsoleMode console_mode;
