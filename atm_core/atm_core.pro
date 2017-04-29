@@ -12,8 +12,9 @@ INCLUDEPATH += \
 
 HEADERS += \
     $$PWD/credit_department/*.h \
-    $$PWD/user_data/*.h /
+    $$PWD/user_data/*.h / \
 
 SOURCES += \
     $$PWD/credit_department/*.cpp \
     $$PWD/user_data/*.cpp \
+

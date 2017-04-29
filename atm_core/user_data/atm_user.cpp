@@ -1,1 +1,3 @@
-#include "atm_user.h"
+﻿#include "atm_user.h"
+
+AtmUser::AtmUser() {}
