@@ -16,21 +16,7 @@
 
 -------------------------------------------------------------------------
 
-71. Begin make credit table for console mode. +
-
-72. Add KeyEvent on key "Enter" and
-    - open new widget for main work
-    - close first widget
-
-
-73. Continue move credit data in cli_credit_department,
-credit_calculator, etc...
-
-73. Create credit table, using new class.
-
-74. Declare method for credit overpayment.
-
-75. Create vector in credit table for table demonstration.
+76. Implement separate independent module atm_core.
 
 
 
