@@ -18,7 +18,9 @@
 
 76. Implement separate independent module atm_core.
 
+77. Continue amt_core.
 
+78. How implement AtmUser data modification without direct access to fields of this class?
 
 
 
