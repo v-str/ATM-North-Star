@@ -26,7 +26,7 @@ MainForm::~MainForm() {
 }
 
 void MainForm::ChangeTextColor() {
-  color_swapper_->ChangeColor(ui->atm_label, "rgb(164, 0, 0)",
+  color_swapper_->ChangeColor(ui->atm_label, "rgb(138, 226, 52)",
                               "rgb(32, 74, 135)");
 }
 

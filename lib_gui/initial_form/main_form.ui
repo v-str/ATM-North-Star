@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background: black;
+   <string notr="true">background:  rgb(19, 23, 31);
 border: 1px solid  rgb(32, 74, 135);
 </string>
   </property>
@@ -81,7 +81,7 @@ border: 0px solid rgb(32, 74, 135);
 color: rgb(32, 74, 135);
 }
 QLabel:hover {
-color: rgb(164, 0, 0);
+color: rgb(138, 226, 52);
 }</string>
      </property>
      <property name="text">
@@ -173,10 +173,10 @@ border-radius: 5px;
 color: rgb(32, 74, 135);
 }
 QPushButton:hover {
-border: 1px solid rgb(164, 0, 0);
+border: 1px solid rgb(138, 226, 52);
 }
 QPushButton:pressed {
-color: rgb(164, 0, 0);
+color: rgb(138, 226, 52);
 }</string>
     </property>
     <property name="text">
@@ -207,7 +207,7 @@ border: 1px solid rgb(32, 74, 135);
 color: rgb(32, 74, 135);
 }
 QLabel:hover {
-color: rgb(164, 0, 0);
+color: rgb(138, 226, 52);
 }
 </string>
     </property>
