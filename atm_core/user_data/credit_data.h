@@ -4,6 +4,22 @@
 class CreditData {
  public:
   CreditData();
+
+  void SetCreditSum(double credit_sum);
+  void SetCreditTerm(int credit_term);
+  void SetInterestRate(double interest_rate);
+  void SetMonthlyPayment(double monthly_payment);
+
+  double CreditSum() const;
+  int CreditTerm() const;
+  double InterestRate() const;
+  double MonthlyPayment() const;
+
+ private:
+  double credit_sum_;
+  int credit_term_;
+  double interest_rate_;
+  double monthly_payment_;
 };
 
 #endif  // CREDIT_DATA_H
