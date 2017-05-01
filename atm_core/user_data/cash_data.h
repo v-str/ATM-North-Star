@@ -4,7 +4,6 @@
 class CashData {
  public:
   CashData();
-  CashData(double cash);
 
   void SetCash(double cash);
   void AddCash(double cash);
