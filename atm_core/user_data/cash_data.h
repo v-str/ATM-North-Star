@@ -9,7 +9,7 @@ class CashData {
   void AddCash(double cash);
   void WithdrawCash(double cash);
 
-  double GetCash() const;
+  double Cash() const;
 
  private:
   double cash_;

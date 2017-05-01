@@ -8,4 +8,4 @@ void CashData::AddCash(double cash) { cash_ += cash; }
 
 void CashData::WithdrawCash(double cash) { cash_ -= cash; }
 
-double CashData::GetCash() const { return cash_; }
+double CashData::Cash() const { return cash_; }
