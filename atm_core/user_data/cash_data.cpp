@@ -2,6 +2,8 @@
 
 CashData::CashData() : cash_(0.0) {}
 
+CashData::CashData(double cash) : cash_(cash) {}
+
 void CashData::SetCash(double cash) { cash_ = cash; }
 
 void CashData::AddCash(double cash) { cash_ += cash; }
