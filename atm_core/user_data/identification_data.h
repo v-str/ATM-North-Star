@@ -11,6 +11,9 @@ class IdentificationData {
   void SetLogin(const std::string& login);
   void SetPassword(const std::string& password);
 
+  std::string Login();
+  std::string Password();
+
  private:
   std::string login_;
   std::string password_;
