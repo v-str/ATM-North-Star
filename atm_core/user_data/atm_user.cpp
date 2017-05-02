@@ -1,5 +1,9 @@
 ﻿#include "atm_user.h"
 
+#include <cash_data.h>
+#include <credit_data.h>
+#include <identification_data.h>
+
 AtmUser::AtmUser()
     : identification_data_(new IdentificationData),
       cash_data_(new CashData),

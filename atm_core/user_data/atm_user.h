@@ -1,9 +1,11 @@
 ﻿#ifndef ATM_USER_H
 #define ATM_USER_H
 
-#include "cash_data.h"
-#include "credit_data.h"
-#include "identification_data.h"
+#include <string>
+
+class CashData;
+class CreditData;
+class IdentificationData;
 
 class AtmUser {
  public:
@@ -37,3 +39,7 @@ class AtmUser {
 };
 
 #endif  // ATM_USER_H
+
+///  change brackets
+///  use forward declaration
+///  add const

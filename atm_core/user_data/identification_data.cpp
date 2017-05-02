@@ -9,6 +9,6 @@ void IdentificationData::SetPassword(const std::string& password) {
   password_ = password;
 }
 
-std::string IdentificationData::Login() { return login_; }
+std::string IdentificationData::Login() const { return login_; }
 
-std::string IdentificationData::Password() { return password_; }
+std::string IdentificationData::Password() const { return password_; }

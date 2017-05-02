@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "atm_user.h"
+#include <atm_user.h>
 
 class AccountInformator {
  public:
