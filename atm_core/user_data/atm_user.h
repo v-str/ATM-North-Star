@@ -39,7 +39,3 @@ class AtmUser {
 };
 
 #endif  // ATM_USER_H
-
-///  change brackets
-///  use forward declaration
-///  add const

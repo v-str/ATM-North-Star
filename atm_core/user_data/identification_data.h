@@ -6,6 +6,9 @@
 class IdentificationData {
  public:
   IdentificationData();
+  IdentificationData(const IdentificationData& identification_data);
+
+  IdentificationData& operator=(const IdentificationData& identification_data);
 
   void SetLogin(const std::string& login);
   void SetPassword(const std::string& password);
