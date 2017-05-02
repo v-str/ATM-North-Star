@@ -2,6 +2,8 @@
 #include "ui_main_form.h"
 
 #include <QApplication>
+#include <QCoreApplication>
+#include <QString>
 
 #include "timedate_changer.h"
 #include "widget_centerer.h"
@@ -26,7 +28,7 @@ MainForm::~MainForm() {
 }
 
 void MainForm::ChangeTextColor() {
-  color_swapper_->ChangeColor(ui->atm_label, "rgb(138, 226, 52)",
+  color_swapper_->ChangeColor(ui->atm_label, "rgb(114, 159, 207)",
                               "rgb(32, 74, 135)");
 }
 

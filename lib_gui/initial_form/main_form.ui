@@ -14,16 +14,14 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background:  rgb(19, 23, 31);
-border: 1px solid  rgb(32, 74, 135);
-</string>
+   <string notr="true">background-image: url(:/images/north_star_background.jpg);</string>
   </property>
   <widget class="QWidget" name="CentralWidget">
    <widget class="QLabel" name="version_label">
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>380</y>
+      <x>520</x>
+      <y>17</y>
       <width>60</width>
       <height>15</height>
      </rect>
@@ -42,14 +40,16 @@ color: rgb(32, 74, 135);</string>
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>25</x>
-      <y>25</y>
-      <width>550</width>
-      <height>350</height>
+      <x>10</x>
+      <y>10</y>
+      <width>580</width>
+      <height>380</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius: 10px;</string>
+     <string notr="true">background: transparent;
+border: 1px solid  rgb(32, 74, 135);
+border-radius: 10px;</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -60,10 +60,10 @@ color: rgb(32, 74, 135);</string>
     <widget class="QLabel" name="atm_name_label">
      <property name="geometry">
       <rect>
-       <x>125</x>
-       <y>40</y>
-       <width>300</width>
-       <height>51</height>
+       <x>185</x>
+       <y>70</y>
+       <width>210</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
@@ -80,9 +80,7 @@ color: rgb(32, 74, 135);</string>
 border: 0px solid rgb(32, 74, 135);
 color: rgb(32, 74, 135);
 }
-QLabel:hover {
-color: rgb(138, 226, 52);
-}</string>
+</string>
      </property>
      <property name="text">
       <string>North star</string>
@@ -94,7 +92,7 @@ color: rgb(138, 226, 52);
     <widget class="QLabel" name="atm_label">
      <property name="geometry">
       <rect>
-       <x>125</x>
+       <x>140</x>
        <y>100</y>
        <width>300</width>
        <height>150</height>
@@ -112,7 +110,8 @@ color: rgb(138, 226, 52);
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">border: 0px;
+      <string notr="true">background: transparent;
+border: 0px;
 color:rgb(32, 74, 135);
 </string>
      </property>
@@ -126,7 +125,7 @@ color:rgb(32, 74, 135);
     <widget class="QLabel" name="running_label">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>25</x>
        <y>280</y>
        <width>530</width>
        <height>30</height>
@@ -140,7 +139,7 @@ color:rgb(32, 74, 135);
      </property>
      <property name="styleSheet">
       <string notr="true">border: 0px solid  rgb(32, 74, 135);
-color:rgb(32, 74, 135);</string>
+color: rgb(114, 159, 207);</string>
      </property>
      <property name="text">
       <string>press &quot;Enter&quot; to start                                                                                                                                                             </string>
@@ -153,8 +152,8 @@ color:rgb(32, 74, 135);</string>
    <widget class="QPushButton" name="exit_button">
     <property name="geometry">
      <rect>
-      <x>5</x>
-      <y>5</y>
+      <x>15</x>
+      <y>15</y>
       <width>35</width>
       <height>35</height>
      </rect>
@@ -173,10 +172,10 @@ border-radius: 5px;
 color: rgb(32, 74, 135);
 }
 QPushButton:hover {
-border: 1px solid rgb(138, 226, 52);
+border: 1px solid rgb(114, 159, 207);;
 }
 QPushButton:pressed {
-color: rgb(138, 226, 52);
+color: rgb(114, 159, 207);
 }</string>
     </property>
     <property name="text">
@@ -186,29 +185,27 @@ color: rgb(138, 226, 52);
    <widget class="QLabel" name="timedate_label">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>5</y>
-      <width>400</width>
-      <height>35</height>
+      <x>383</x>
+      <y>360</y>
+      <width>200</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Tlwg Mono</family>
-      <pointsize>20</pointsize>
+      <pointsize>12</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QLabel {
-border-radius: 5px;
-border: 1px solid rgb(32, 74, 135);
-color: rgb(32, 74, 135);
+background: transparent;
+border: 0px solid rgb(32, 74, 135);
+color:rgb(32, 74, 135);
 }
-QLabel:hover {
-color: rgb(138, 226, 52);
-}
+
 </string>
     </property>
     <property name="text">

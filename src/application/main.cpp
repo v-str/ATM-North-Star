@@ -6,6 +6,7 @@
 
 int main(int argc, char* argv[]) {
   QApplication app(argc, argv);
+  Q_INIT_RESOURCE(atm_resources);
 
   enum ProgramMode { kConsoleMode = 1, kGuiMode };
 

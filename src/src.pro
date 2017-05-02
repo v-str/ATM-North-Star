@@ -1,4 +1,4 @@
-QT += gui core widgets
+QT += core gui widgets
 
 TEMPLATE = app
 TARGET = src
