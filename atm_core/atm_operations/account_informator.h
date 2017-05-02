@@ -9,7 +9,7 @@ class AccountInformator {
  public:
   AccountInformator();
 
-  void ConfigureAccountInformation(const AtmUser& user);
+  void UpdataUserData(const AtmUser& user);
 
   std::string Login() const;
   std::string Cash() const;

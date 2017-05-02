@@ -8,7 +8,7 @@ AccountInformator::AccountInformator()
       interest_rate_("non specified"),
       monthly_payment_("non specified") {}
 
-void AccountInformator::ConfigureAccountInformation(const AtmUser& user) {
+void AccountInformator::UpdataUserData(const AtmUser& user) {
   login_ = user.Login();
   cash_ = std::to_string(user.Cash());
   credit_sum_ = std::to_string(user.CreditSum());
