@@ -3,15 +3,12 @@
 
 #include <string>
 
-class CashData;
-class CreditData;
-class IdentificationData;
+#include <cash_data.h>
+#include <credit_data.h>
+#include <identification_data.h>
 
 class AtmUser {
  public:
-  AtmUser();
-  ~AtmUser();
-
   void SetLogin(const std::string& login);
   void SetPassword(const std::string& password);
 
@@ -33,9 +30,9 @@ class AtmUser {
   double MonthlyPayment() const;
 
  private:
-  IdentificationData* identification_data_ = nullptr;
-  CashData* cash_data_ = nullptr;
-  CreditData* credit_data_ = nullptr;
+  IdentificationData identification_data_;
+  CashData cash_data_;
+  CreditData credit_data_;
 };
 
 #endif  // ATM_USER_H
