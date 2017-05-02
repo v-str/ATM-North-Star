@@ -10,11 +10,11 @@ AccountInformator::AccountInformator()
 
 void AccountInformator::ConfigureAccountInformation(const AtmUser& user) {
   login_ = user.Login();
-  cash_ = user.Cash();
-  credit_sum_ = user.CreditSum();
-  credit_term_ = user.CreditTerm();
-  interest_rate_ = user.InterestRate();
-  monthly_payment_ = user.MonthlyPayment();
+  cash_ = std::to_string(user.Cash());
+  credit_sum_ = std::to_string(user.CreditSum());
+  credit_term_ = std::to_string(user.CreditTerm());
+  interest_rate_ = std::to_string(user.InterestRate());
+  monthly_payment_ = std::to_string(user.MonthlyPayment());
 }
 
 std::string AccountInformator::Login() const { return login_; }
