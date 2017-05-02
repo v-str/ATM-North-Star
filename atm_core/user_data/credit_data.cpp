@@ -6,22 +6,6 @@ CreditData::CreditData()
       interest_rate_(0.0),
       monthly_payment_(0.0) {}
 
-CreditData::CreditData(const CreditData& credit_data) {
-  credit_sum_ = credit_data.CreditSum();
-  credit_term_ = credit_data.CreditTerm();
-  interest_rate_ = credit_data.InterestRate();
-  monthly_payment_ = credit_data.MonthlyPayment();
-}
-
-CreditData& CreditData::operator=(const CreditData& credit_data) {
-  credit_sum_ = credit_data.CreditSum();
-  credit_term_ = credit_data.CreditTerm();
-  interest_rate_ = credit_data.InterestRate();
-  monthly_payment_ = credit_data.MonthlyPayment();
-
-  return *this;
-}
-
 void CreditData::SetCreditSum(double credit_sum) { credit_sum_ = credit_sum; }
 
 void CreditData::SetCreditTerm(int credit_term) { credit_term_ = credit_term; }
