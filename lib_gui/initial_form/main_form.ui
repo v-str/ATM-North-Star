@@ -142,7 +142,7 @@ color:rgb(32, 74, 135);
 color: rgb(114, 159, 207);</string>
      </property>
      <property name="text">
-      <string>press &quot;Enter&quot; to start                                                                                                                                                             </string>
+      <string>press &lt;Enter&gt; to start                                                                                                                                                             </string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
