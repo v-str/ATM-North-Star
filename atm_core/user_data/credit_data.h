@@ -4,6 +4,9 @@
 class CreditData {
  public:
   CreditData();
+  CreditData(const CreditData& credit_data);
+
+  CreditData& operator=(const CreditData& credit_data);
 
   void SetCreditSum(double credit_sum);
   void SetCreditTerm(int credit_term);
