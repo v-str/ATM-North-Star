@@ -1,6 +1,6 @@
 ﻿#include "user_registrator.h"
 
-void UserRegistrator::Register(AtmUser* user,
+void UserRegistrator::RegisterUser(AtmUser* user,
                                const std::string& login,
                                const std::string& password) {
   AssignLogin(user, login);

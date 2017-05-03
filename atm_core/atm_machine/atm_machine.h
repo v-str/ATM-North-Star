@@ -3,7 +3,6 @@
 
 #include <string>
 
-#include <account_informator.h>
 #include <atm_user.h>
 
 class AtmMachine {

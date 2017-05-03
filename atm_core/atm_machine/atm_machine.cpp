@@ -4,5 +4,5 @@
 
 void AtmMachine::RegisterUser(const std::string& login,
                               const std::string& password) {
-  UserRegistrator::Register(&user_, login, password);
+  UserRegistrator::RegisterUser(&user_, login, password);
 }

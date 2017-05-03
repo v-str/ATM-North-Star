@@ -5,7 +5,7 @@
 
 class UserRegistrator {
  public:
-  static void Register(AtmUser* user,
+  static void RegisterUser(AtmUser* user,
                        const std::string& login,
                        const std::string& password);
 
