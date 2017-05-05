@@ -16,8 +16,8 @@ bool InputDataValidator::IsPasswordLengthRight(const std::string& login) {
   return login.length() == k_password_length_;
 }
 
-bool InputDataValidator::IsIntegerSum(double sum) {
+bool InputDataValidator::IsIntegerValue(double value) {
   double integer_part = k_null_;
-  double fractional_part = std::modf(sum, &integer_part);
+  double fractional_part = std::modf(value, &integer_part);
   return fractional_part == k_null_;
 }

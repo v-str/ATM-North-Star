@@ -7,7 +7,7 @@ class InputDataValidator {
  public:
   static bool IsLoginLengthRight(const std::string& login);
   static bool IsPasswordLengthRight(const std::string& login);
-  static bool IsIntegerSum(double sum);
+  static bool IsIntegerValue(double value);
 
  private:
   static int k_login_max_length_;
