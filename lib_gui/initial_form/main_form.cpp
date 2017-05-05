@@ -19,7 +19,7 @@ MainForm::MainForm(QWidget* parent)
 
 MainForm::~MainForm() {
   delete ui;
-  delete color_timer_;
+  delete color_swap_timer_;
   delete color_swapper_;
   delete time_date_timer_;
 }
@@ -46,17 +46,17 @@ void MainForm::SetMainFormProperties() {
 }
 
 void MainForm::SetConnections() {
-  connect(color_timer_, SIGNAL(timeout()), SLOT(ChangeTextColor()));
+  connect(color_swap_timer_, SIGNAL(timeout()), SLOT(ChangeTextColor()));
   connect(time_date_timer_, SIGNAL(timeout()), SLOT(ChangeTimeDate()));
 }
 
 void MainForm::InitializeObjects() {
-  color_timer_ = new QTimer(ui->atm_label);
+  color_swap_timer_ = new QTimer(ui->atm_label);
   color_swapper_ = new TextColorSwapper();
   time_date_timer_ = new QTimer(ui->timedate_label);
 }
 
 void MainForm::RunTimers() {
-  color_timer_->start(350);
+  color_swap_timer_->start(350);
   time_date_timer_->start(1000);
 }

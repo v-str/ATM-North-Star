@@ -10,6 +10,11 @@
     <height>400</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>11</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -127,7 +132,7 @@ color:rgb(32, 74, 135);
       <rect>
        <x>170</x>
        <y>270</y>
-       <width>80</width>
+       <width>240</width>
        <height>30</height>
       </rect>
      </property>
@@ -142,59 +147,7 @@ color:rgb(32, 74, 135);
 color: rgb(114, 159, 207);</string>
      </property>
      <property name="text">
-      <string>press</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="text_label2">
-     <property name="geometry">
-      <rect>
-       <x>250</x>
-       <y>270</y>
-       <width>80</width>
-       <height>30</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-       <underline>false</underline>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 0px solid  rgb(32, 74, 135);
-color: rgb(114, 159, 207);</string>
-     </property>
-     <property name="text">
-      <string>&lt;Enter&gt;</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="text_label3">
-     <property name="geometry">
-      <rect>
-       <x>330</x>
-       <y>270</y>
-       <width>80</width>
-       <height>30</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-       <underline>false</underline>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 0px solid  rgb(32, 74, 135);
-color: rgb(114, 159, 207);</string>
-     </property>
-     <property name="text">
-      <string>to start</string>
+      <string>press &lt;Enter&gt; to start</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -206,14 +159,14 @@ color: rgb(114, 159, 207);</string>
      <rect>
       <x>15</x>
       <y>15</y>
-      <width>35</width>
-      <height>35</height>
+      <width>20</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Tlwg Mono</family>
-      <pointsize>20</pointsize>
+      <pointsize>12</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -221,13 +174,13 @@ color: rgb(114, 159, 207);</string>
     <property name="styleSheet">
      <string notr="true">QPushButton {
 border-radius: 5px;
-color: rgb(32, 74, 135);
+color: rgb(114, 159, 207);;
 }
 QPushButton:hover {
-border: 1px solid rgb(114, 159, 207);;
+border: 1px solid rgb(136, 138, 133);
 }
 QPushButton:pressed {
-color: rgb(114, 159, 207);
+color:rgb(136, 138, 133);
 }</string>
     </property>
     <property name="text">

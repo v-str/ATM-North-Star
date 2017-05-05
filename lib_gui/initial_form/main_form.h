@@ -33,7 +33,7 @@ class MainForm : public QMainWindow {
 
   Ui::MainForm* ui = nullptr;
 
-  QTimer* color_timer_ = nullptr;
+  QTimer* color_swap_timer_ = nullptr;
   QTimer* time_date_timer_ = nullptr;
 
   TextColorSwapper* color_swapper_ = nullptr;
