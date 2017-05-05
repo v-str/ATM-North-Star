@@ -122,12 +122,12 @@ color:rgb(32, 74, 135);
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="running_label">
+    <widget class="QLabel" name="text_label">
      <property name="geometry">
       <rect>
-       <x>25</x>
-       <y>280</y>
-       <width>530</width>
+       <x>170</x>
+       <y>270</y>
+       <width>80</width>
        <height>30</height>
       </rect>
      </property>
@@ -142,7 +142,59 @@ color:rgb(32, 74, 135);
 color: rgb(114, 159, 207);</string>
      </property>
      <property name="text">
-      <string>press &lt;Enter&gt; to start                                                                                                                                                             </string>
+      <string>press</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="text_label2">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>270</y>
+       <width>80</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+       <underline>false</underline>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 0px solid  rgb(32, 74, 135);
+color: rgb(114, 159, 207);</string>
+     </property>
+     <property name="text">
+      <string>&lt;Enter&gt;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="text_label3">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>270</y>
+       <width>80</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+       <underline>false</underline>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 0px solid  rgb(32, 74, 135);
+color: rgb(114, 159, 207);</string>
+     </property>
+     <property name="text">
+      <string>to start</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

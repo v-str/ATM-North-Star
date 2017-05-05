@@ -1,22 +1,4 @@
-﻿65. Give a credit section more strictly and clarity appearance.
-
-66. Add credit table for best look.
-
--------------------------------------------------------------------------
-
-67. Remove const qualifier from standard types.
-
-68. Gathering information separate from way of showing to user.
-
-69. Assignment of credit only after user confirmation.
-
--------------------------------------------------------------------------
-
-70. Continue credit calculation with simultaneous assignment in credit data.
-
--------------------------------------------------------------------------
-
-78.
+﻿78. Implement key event on key Enter, Space, Escape.
 
 
 
