@@ -17,7 +17,7 @@ bool DataValidator::IsPasswordLengthRight(const std::string& login) {
 }
 
 bool DataValidator::IsIntegerSum(double sum) {
-  double integer_part = 0.0;
+  double integer_part = k_null_;
   double fractional_part = std::modf(sum, &integer_part);
   return fractional_part == k_null_;
 }
