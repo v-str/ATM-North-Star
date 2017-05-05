@@ -8,11 +8,11 @@ class InterestRateGenerator {
  private:
   static double GenerateInterestRate(int cash);
 
-  static double kMinimalCash_;
-  static double kMaximalCash_;
+  static double minimal_cash_;
+  static double maximal_cash_;
 
-  static double kMinimalRate_;
-  static double kMaximalRate_;
+  static double minimal_rate_;
+  static double maximal_rate_;
 };
 
 #endif  // INTEREST_RATE_GENERATOR_H
