@@ -1,9 +1,9 @@
-﻿#ifndef DATA_VALIDATOR_H
-#define DATA_VALIDATOR_H
+﻿#ifndef INPUT_DATA_VALIDATOR_H
+#define INPUT_DATA_VALIDATOR_H
 
 #include <string>
 
-class DataValidator {
+class InputDataValidator {
  public:
   static bool IsLoginLengthRight(const std::string& login);
   static bool IsPasswordLengthRight(const std::string& login);
@@ -18,4 +18,4 @@ class DataValidator {
   static double k_null_;
 };
 
-#endif  // DATA_VALIDATOR_H
+#endif  // INPUT_DATA_VALIDATOR_H
