@@ -3,7 +3,6 @@
 
 #include <QApplication>
 #include <QCoreApplication>
-#include <QString>
 
 #include "timedate_changer.h"
 #include "widget_centerer.h"
@@ -32,6 +31,12 @@ void MainForm::ChangeTextColor() {
 
 void MainForm::ChangeTimeDate() {
   TimeDateChanger::ChangeTimeData(ui->timedate_label);
+}
+
+void MainForm::keyPressEvent(QKeyEvent* event) {
+  if (event->key() == Qt::Key_Escape) {
+    this->close();
+  }
 }
 
 void MainForm::SetMainFormProperties() {

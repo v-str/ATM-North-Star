@@ -1,8 +1,8 @@
 ﻿#ifndef MAIN_FORM_H
 #define MAIN_FORM_H
 
+#include <QKeyEvent>
 #include <QMainWindow>
-#include <QString>
 #include <QTimer>
 
 #include "text_color_swapper.h"
@@ -21,6 +21,9 @@ class MainForm : public QMainWindow {
  public slots:
   void ChangeTextColor();
   void ChangeTimeDate();
+
+ protected:
+  void keyPressEvent(QKeyEvent* event);
 
  private:
   void SetMainFormProperties();
