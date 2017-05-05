@@ -1,11 +1,11 @@
-﻿#ifndef ATM_MACHINE_H
-#define ATM_MACHINE_H
+﻿#ifndef ATM_h
+#define ATM_h
 
 #include <string>
 
 #include <atm_user.h>
 
-class AtmMachine {
+class Atm {
  public:
   void RegisterUser(const std::string& login, const std::string& password);
 
@@ -13,4 +13,4 @@ class AtmMachine {
   AtmUser user_;
 };
 
-#endif  // ATM_MACHINE_H
+#endif  // ATM_h
