@@ -3,7 +3,7 @@
 #include <iostream>
 
 int StringTransformer::GetDigitalValueFromUser() {
-  return ConvertStringToDigit(GetStringFromUser());
+  return TrasformStringToDigit(GetStringFromUser());
 }
 
 std::string StringTransformer::GetStringFromUser() {
@@ -12,7 +12,7 @@ std::string StringTransformer::GetStringFromUser() {
   return user_string;
 }
 
-int StringTransformer::ConvertStringToDigit(const std::string& string) {
+int StringTransformer::TrasformStringToDigit(const std::string& string) {
   if (StringNotEmpty(string)) {
     try {
       return std::stoi(string);

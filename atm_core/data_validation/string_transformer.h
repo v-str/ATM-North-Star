@@ -9,7 +9,7 @@ class StringTransformer {
   static std::string GetStringFromUser();
 
  private:
-  static int ConvertStringToDigit(const std::string& string);
+  static int TrasformStringToDigit(const std::string& string);
   static bool StringNotEmpty(const std::string& string);
 
   static constexpr int kInvalidValue = -1;
