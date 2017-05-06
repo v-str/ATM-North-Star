@@ -12,13 +12,8 @@ class InputDataValidator {
  private:
   static constexpr int k_login_max_length_ = 35;
   static constexpr int k_login_min_length_ = 4;
-
   static constexpr int k_password_length_ = 4;
-
   static constexpr double k_null_ = 0.0;
 };
-// int InputDataValidator::k_login_max_length_ = 35;
-// int InputDataValidator::k_login_min_length_ = 4;
-// int InputDataValidator::k_password_length_ = 4;
-// double InputDataValidator::k_null_ = 0.0;
+
 #endif  // INPUT_DATA_VALIDATOR_H

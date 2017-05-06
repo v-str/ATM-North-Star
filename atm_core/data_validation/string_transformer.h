@@ -12,7 +12,7 @@ class StringTransformer {
   static int ConvertStringToDigit(const std::string& string);
   static bool StringNotEmpty(const std::string& string);
 
-  static const int kInvalidValue = -1;
+  static constexpr int kInvalidValue = -1;
 };
 
 #endif  // STRING_TRANSFORMER_H
