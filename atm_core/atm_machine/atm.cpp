@@ -1,30 +1,31 @@
 ﻿#include "atm.h"
 
+#include <account_informator.h>
 #include <user_registrator.h>
 
 void Atm::RegisterUser(const std::string& login, const std::string& password) {
   UserRegistrator::RegisterUser(&user_, login, password);
 }
 
-const std::string Atm::AccountInfo(Atm::AccountData account_data) {
-  account_informator_.UpdataUserData(user_);
+std::string Atm::AccountInfo(Atm::AccountData account_data) {
+  AccountInformator::UpdataUserData(user_);
   switch (account_data) {
     case kLogin:
-      return account_informator_.Login();
+      return AccountInformator::Login();
     case kCash:
-      return account_informator_.Cash();
+      return AccountInformator::Cash();
     case kCreditSum:
-      return account_informator_.CreditSum();
+      return AccountInformator::CreditSum();
     case kCreditTerm:
-      return account_informator_.CreditTerm();
+      return AccountInformator::CreditTerm();
     case kInterestRate:
-      return account_informator_.InterestRate();
+      return AccountInformator::InterestRate();
     case kMonthlyPayment:
-      return account_informator_.MonthlyPayment();
+      return AccountInformator::MonthlyPayment();
   }
 }
 
-const std::string Atm::Statement() {
-  account_informator_.UpdataUserData(user_);
-  return account_informator_.Cash();
+std::string Atm::Statement() {
+  AccountInformator::UpdataUserData(user_);
+  return AccountInformator::Cash();
 }

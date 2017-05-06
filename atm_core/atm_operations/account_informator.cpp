@@ -1,12 +1,13 @@
 ﻿#include "account_informator.h"
 
-AccountInformator::AccountInformator()
-    : login_("non specified"),
-      cash_("non specified"),
-      credit_sum_("non specified"),
-      credit_term_("non specified"),
-      interest_rate_("non specified"),
-      monthly_payment_("non specified") {}
+#include <atm_user.h>
+
+std::string AccountInformator::login_ = "not specified";
+std::string AccountInformator::cash_ = "not specified";
+std::string AccountInformator::credit_sum_ = "not specified";
+std::string AccountInformator::credit_term_ = "not specified";
+std::string AccountInformator::interest_rate_ = "not specified";
+std::string AccountInformator::monthly_payment_ = "not specified";
 
 void AccountInformator::UpdataUserData(const AtmUser& user) {
   login_ = user.Login();
@@ -17,16 +18,14 @@ void AccountInformator::UpdataUserData(const AtmUser& user) {
   monthly_payment_ = std::to_string(user.MonthlyPayment());
 }
 
-std::string AccountInformator::Login() const { return login_; }
+std::string AccountInformator::Login() { return login_; }
 
-std::string AccountInformator::Cash() const { return cash_; }
+std::string AccountInformator::Cash() { return cash_; }
 
-std::string AccountInformator::CreditSum() const { return credit_sum_; }
+std::string AccountInformator::CreditSum() { return credit_sum_; }
 
-std::string AccountInformator::CreditTerm() const { return credit_term_; }
+std::string AccountInformator::CreditTerm() { return credit_term_; }
 
-std::string AccountInformator::InterestRate() const { return interest_rate_; }
+std::string AccountInformator::InterestRate() { return interest_rate_; }
 
-std::string AccountInformator::MonthlyPayment() const {
-  return monthly_payment_;
-}
+std::string AccountInformator::MonthlyPayment() { return monthly_payment_; }

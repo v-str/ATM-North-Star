@@ -3,28 +3,26 @@
 
 #include <string>
 
-#include <atm_user.h>
+class AtmUser;
 
 class AccountInformator {
  public:
-  AccountInformator();
+  static void UpdataUserData(const AtmUser& user);
 
-  void UpdataUserData(const AtmUser& user);
-
-  std::string Login() const;
-  std::string Cash() const;
-  std::string CreditSum() const;
-  std::string CreditTerm() const;
-  std::string InterestRate() const;
-  std::string MonthlyPayment() const;
+  static std::string Login();
+  static std::string Cash();
+  static std::string CreditSum();
+  static std::string CreditTerm();
+  static std::string InterestRate();
+  static std::string MonthlyPayment();
 
  private:
-  std::string login_;
-  std::string cash_;
-  std::string credit_sum_;
-  std::string credit_term_;
-  std::string interest_rate_;
-  std::string monthly_payment_;
+  static std::string login_;
+  static std::string cash_;
+  static std::string credit_sum_;
+  static std::string credit_term_;
+  static std::string interest_rate_;
+  static std::string monthly_payment_;
 };
 
 #endif  // ACCOUNT_INFORMATOR_H

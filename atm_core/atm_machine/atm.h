@@ -3,7 +3,6 @@
 
 #include <string>
 
-#include <account_informator.h>
 #include <atm_user.h>
 
 class Atm {
@@ -19,12 +18,12 @@ class Atm {
 
   void RegisterUser(const std::string& login, const std::string& password);
 
-  const std::string AccountInfo(Atm::AccountData account_data);
-  const std::string Statement();
+  std::string AccountInfo(Atm::AccountData account_data);
+
+  std::string Statement();
 
  private:
   AtmUser user_;
-  AccountInformator account_informator_;
 };
 
 #endif  // ATM_h
