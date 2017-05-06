@@ -4,6 +4,7 @@
 #include <QApplication>
 #include <QCoreApplication>
 
+#include "text_color_changer.h"
 #include "timedate_changer.h"
 #include "widget_centerer.h"
 
@@ -12,7 +13,7 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
   ui->setupUi(this);
 
   InitializeObjects();
-  SetMainFormProperties();
+  SetWidgetAppearance();
   SetConnections();
   RunTimers();
 }
@@ -24,9 +25,23 @@ AtmSplashScreen::~AtmSplashScreen() {
   delete time_date_timer_;
 }
 
-void AtmSplashScreen::SetAtmCompanyName(const QString& atm_company_name) {
+void AtmSplashScreen::SetCompanyName(const QString& atm_company_name) {
   ui->atm_company_name_label->setText(atm_company_name);
 }
+
+void AtmSplashScreen::SetTextColor(const QString& main_color,
+                                   const QString additional_color) {
+  TextColorChanger::ChangeLabelColor(ui->atm_company_name_label, main_color);
+  TextColorChanger::ChangeLabelColor(ui->text_label, main_color);
+  TextColorChanger::ChangeLabelColor(ui->timedate_label, main_color);
+  TextColorChanger::ChangeLabelColor(ui->version_label, main_color);
+  TextColorChanger::ChangeButtonColor(ui->exit_button, main_color,
+                                      additional_color);
+  TextColorChanger::ChangeFrameColor(ui->frame, main_color);
+}
+
+void AtmSplashScreen::SetAtmBlinkColor(const QString& color_one,
+                                       const QString& color_two) {}
 
 void AtmSplashScreen::ChangeTextColor() {
   color_swapper_->ChangeColor(ui->atm_label, "rgb(114, 159, 207)",
@@ -43,7 +58,7 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
   }
 }
 
-void AtmSplashScreen::SetMainFormProperties() {
+void AtmSplashScreen::SetWidgetAppearance() {
   setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
   setFixedSize(600, 400);
   WidgetCenterer::MoveToCenter(this);

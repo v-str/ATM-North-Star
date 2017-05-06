@@ -32,8 +32,12 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border: 0px solid black;
-color: rgb(32, 74, 135);</string>
+     <string notr="true">QLabel{
+border: 0px solid black;
+}
+QLabel{
+color: rgb(32, 74, 135);
+}</string>
     </property>
     <property name="text">
      <string>v.1.0.1</string>
@@ -52,9 +56,11 @@ color: rgb(32, 74, 135);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: transparent;
+     <string notr="true">QFrame{
+background: transparent;
 border: 1px solid  rgb(32, 74, 135);
-border-radius: 10px;</string>
+border-radius: 10px;
+}</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -83,9 +89,10 @@ border-radius: 10px;</string>
      <property name="styleSheet">
       <string notr="true">QLabel {
 border: 0px solid rgb(32, 74, 135);
-color: rgb(32, 74, 135);
 }
-</string>
+QLabel{
+color: rgb(32, 74, 135);
+}</string>
      </property>
      <property name="text">
       <string>Company name</string>
@@ -115,10 +122,13 @@ color: rgb(32, 74, 135);
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background: transparent;
-border: 0px;
-color:rgb(32, 74, 135);
-</string>
+      <string notr="true">QLabel{
+background: transparent;
+border: 0px solid black;
+}
+QLabel{
+color: rgb(32, 74, 135);
+}</string>
      </property>
      <property name="text">
       <string>ATM</string>
@@ -143,8 +153,12 @@ color:rgb(32, 74, 135);
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">border: 0px solid  rgb(32, 74, 135);
-color: rgb(114, 159, 207);</string>
+      <string notr="true">QLabel{
+border: 0px solid  rgb(32, 74, 135);
+}
+QLabel{
+color: rgb(32, 74, 135);
+}</string>
      </property>
      <property name="text">
       <string>press &lt;Enter&gt; to start</string>
@@ -172,16 +186,7 @@ color: rgb(114, 159, 207);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton {
-border-radius: 5px;
-color: rgb(114, 159, 207);;
-}
-QPushButton:hover {
-border: 1px solid rgb(136, 138, 133);
-}
-QPushButton:pressed {
-color:rgb(136, 138, 133);
-}</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>X</string>
@@ -208,7 +213,9 @@ color:rgb(136, 138, 133);
      <string notr="true">QLabel {
 background: transparent;
 border: 0px solid rgb(32, 74, 135);
-color:rgb(32, 74, 135);
+}
+QLabel{
+color: rgb(32, 74, 135);
 }
 
 </string>

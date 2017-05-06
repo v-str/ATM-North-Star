@@ -11,6 +11,7 @@ class GuiMode {
   void RunSplashScreen();
 
  private:
+  void ConfigureSplashScreen();
   AtmSplashScreen* splash_screen_ = nullptr;
 };
 

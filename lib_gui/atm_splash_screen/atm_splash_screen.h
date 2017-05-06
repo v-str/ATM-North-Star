@@ -3,6 +3,7 @@
 
 #include <QKeyEvent>
 #include <QMainWindow>
+#include <QString>
 #include <QTimer>
 
 #include "text_color_swapper.h"
@@ -18,7 +19,10 @@ class AtmSplashScreen : public QMainWindow {
   explicit AtmSplashScreen(QWidget* parent = nullptr);
   ~AtmSplashScreen();
 
-  void SetAtmCompanyName(const QString& atm_company_name = "Default Name");
+  void SetCompanyName(const QString& atm_company_name = "Default Name");
+  void SetTextColor(const QString& main_color = "black",
+                    const QString additional_color = "grey");
+  void SetAtmBlinkColor(const QString& color_one, const QString& color_two);
 
  public slots:
   void ChangeTextColor();
@@ -28,7 +32,7 @@ class AtmSplashScreen : public QMainWindow {
   void keyPressEvent(QKeyEvent* event);
 
  private:
-  void SetMainFormProperties();
+  void SetWidgetAppearance();
   void SetConnections();
   void InitializeObjects();
   void RunTimers();
