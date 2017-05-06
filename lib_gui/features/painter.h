@@ -1,12 +1,12 @@
-﻿#ifndef TEXT_COLOR_CHANGER_H
-#define TEXT_COLOR_CHANGER_H
+﻿#ifndef PAINTER_H
+#define PAINTER_H
 
 class QLabel;
 class QPushButton;
 class QString;
 class QFrame;
 
-class TextColorChanger {
+class Painter {
  public:
   static void ChangeLabelColor(QLabel* label, const QString& text_color);
   static void ChangeButtonColor(QPushButton* push_button,
@@ -15,4 +15,4 @@ class TextColorChanger {
   static void ChangeFrameColor(QFrame* frame, const QString& color);
 };
 
-#endif  // TEXT_COLOR_CHANGER_H
+#endif  // PAINTER_H

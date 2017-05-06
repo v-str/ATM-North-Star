@@ -1,11 +1,11 @@
-﻿#include "text_color_changer.h"
+﻿#include "painter.h"
 
 #include <QFrame>
 #include <QLabel>
 #include <QPushButton>
 #include <QString>
 
-void TextColorChanger::ChangeLabelColor(QLabel* label,
+void Painter::ChangeLabelColor(QLabel* label,
                                         const QString& text_color) {
   QString string_text_color =
       "QLabel{"
@@ -16,7 +16,7 @@ void TextColorChanger::ChangeLabelColor(QLabel* label,
   label->setStyleSheet(string_text_color.arg(text_color));
 }
 
-void TextColorChanger::ChangeButtonColor(QPushButton* push_button,
+void Painter::ChangeButtonColor(QPushButton* push_button,
                                          const QString& main_color,
                                          const QString& additional_color) {
   QString string_color =
@@ -35,7 +35,7 @@ void TextColorChanger::ChangeButtonColor(QPushButton* push_button,
   push_button->setStyleSheet(string_color.arg(main_color, additional_color));
 }
 
-void TextColorChanger::ChangeFrameColor(QFrame* frame, const QString& color) {
+void Painter::ChangeFrameColor(QFrame* frame, const QString& color) {
   QString string_color =
       "QFrame{"
       "background:transparent;"

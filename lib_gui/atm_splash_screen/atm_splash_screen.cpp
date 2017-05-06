@@ -4,7 +4,7 @@
 #include <QApplication>
 #include <QCoreApplication>
 
-#include "text_color_changer.h"
+#include "painter.h"
 #include "timedate_changer.h"
 #include "widget_centerer.h"
 
@@ -34,13 +34,12 @@ void AtmSplashScreen::SetCompanyName(const QString& atm_company_name) {
 
 void AtmSplashScreen::SetTextColor(const QString& main_color,
                                    const QString additional_color) {
-  TextColorChanger::ChangeLabelColor(ui->atm_company_name_label, main_color);
-  TextColorChanger::ChangeLabelColor(ui->text_label, main_color);
-  TextColorChanger::ChangeLabelColor(ui->timedate_label, main_color);
-  TextColorChanger::ChangeLabelColor(ui->version_label, main_color);
-  TextColorChanger::ChangeButtonColor(ui->exit_button, main_color,
-                                      additional_color);
-  TextColorChanger::ChangeFrameColor(ui->frame, main_color);
+  Painter::ChangeLabelColor(ui->atm_company_name_label, main_color);
+  Painter::ChangeLabelColor(ui->text_label, main_color);
+  Painter::ChangeLabelColor(ui->timedate_label, main_color);
+  Painter::ChangeLabelColor(ui->version_label, main_color);
+  Painter::ChangeButtonColor(ui->exit_button, main_color, additional_color);
+  Painter::ChangeFrameColor(ui->frame, main_color);
 }
 
 void AtmSplashScreen::SetAtmBlinkColor(const QString& color_one,
@@ -72,7 +71,7 @@ void AtmSplashScreen::SetWidgetAppearance() {
 }
 
 void AtmSplashScreen::SetConnections() {
-  connect(this, SIGNAL(BlinkColor()), this, SLOT(AtmBlinkColor()));
+  connect(this, SIGNAL(BlinkColor()), SLOT(AtmBlinkColor()));
   connect(color_swap_timer_, SIGNAL(timeout()), SLOT(AtmBlinkColor()));
   connect(time_date_timer_, SIGNAL(timeout()), SLOT(ChangeTimeDate()));
 }
