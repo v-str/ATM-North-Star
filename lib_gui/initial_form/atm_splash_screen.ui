@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainForm</class>
- <widget class="QMainWindow" name="MainForm">
+ <class>AtmSplashScreen</class>
+ <widget class="QMainWindow" name="AtmSplashScreen">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -227,7 +227,7 @@ color:rgb(32, 74, 135);
   <connection>
    <sender>exit_button</sender>
    <signal>clicked()</signal>
-   <receiver>MainForm</receiver>
+   <receiver>AtmSplashScreen</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
