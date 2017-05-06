@@ -9,7 +9,10 @@
 #include "widget_centerer.h"
 
 AtmSplashScreen::AtmSplashScreen(QWidget* parent)
-    : QMainWindow(parent), ui(new Ui::AtmSplashScreen) {
+    : QMainWindow(parent),
+      ui(new Ui::AtmSplashScreen),
+      blink_color_one_("black"),
+      blink_color_two_("grey") {
   ui->setupUi(this);
 
   InitializeObjects();
@@ -41,11 +44,15 @@ void AtmSplashScreen::SetTextColor(const QString& main_color,
 }
 
 void AtmSplashScreen::SetAtmBlinkColor(const QString& color_one,
-                                       const QString& color_two) {}
+                                       const QString& color_two) {
+  blink_color_one_ = color_one;
+  blink_color_two_ = color_two;
+  emit BlinkColor();
+}
 
-void AtmSplashScreen::ChangeTextColor() {
-  color_swapper_->ChangeColor(ui->atm_label, "rgb(114, 159, 207)",
-                              "rgb(32, 74, 135)");
+void AtmSplashScreen::AtmBlinkColor() {
+  color_swapper_->ChangeColor(ui->atm_label, blink_color_one_,
+                              blink_color_two_);
 }
 
 void AtmSplashScreen::ChangeTimeDate() {
@@ -65,7 +72,8 @@ void AtmSplashScreen::SetWidgetAppearance() {
 }
 
 void AtmSplashScreen::SetConnections() {
-  connect(color_swap_timer_, SIGNAL(timeout()), SLOT(ChangeTextColor()));
+  connect(this, SIGNAL(BlinkColor()), this, SLOT(AtmBlinkColor()));
+  connect(color_swap_timer_, SIGNAL(timeout()), SLOT(AtmBlinkColor()));
   connect(time_date_timer_, SIGNAL(timeout()), SLOT(ChangeTimeDate()));
 }
 

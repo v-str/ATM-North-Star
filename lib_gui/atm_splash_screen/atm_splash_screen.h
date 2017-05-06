@@ -22,11 +22,15 @@ class AtmSplashScreen : public QMainWindow {
   void SetCompanyName(const QString& atm_company_name = "Default Name");
   void SetTextColor(const QString& main_color = "black",
                     const QString additional_color = "grey");
-  void SetAtmBlinkColor(const QString& color_one, const QString& color_two);
+  void SetAtmBlinkColor(const QString& color_one = "black",
+                        const QString& color_two = "grey");
 
  public slots:
-  void ChangeTextColor();
+  void AtmBlinkColor();
   void ChangeTimeDate();
+
+ signals:
+  void BlinkColor();
 
  protected:
   void keyPressEvent(QKeyEvent* event);
@@ -41,6 +45,9 @@ class AtmSplashScreen : public QMainWindow {
   QTimer* color_swap_timer_ = nullptr;
   QTimer* time_date_timer_ = nullptr;
   TextColorSwapper* color_swapper_ = nullptr;
+
+  QString blink_color_one_;
+  QString blink_color_two_;
 };
 
 #endif  // ATM_SPLASH_SCREEN_H
