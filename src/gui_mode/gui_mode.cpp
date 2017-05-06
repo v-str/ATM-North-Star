@@ -14,4 +14,5 @@ void GuiMode::ConfigureSplashScreen() {
   splash_screen_->SetCompanyName();
   splash_screen_->SetTextColor("red", "blue");
   splash_screen_->SetAtmBlinkColor("yellow", "green");
+  splash_screen_->SetBackgroundImage();
 }

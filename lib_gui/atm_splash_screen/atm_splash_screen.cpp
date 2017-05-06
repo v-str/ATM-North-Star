@@ -49,6 +49,14 @@ void AtmSplashScreen::SetAtmBlinkColor(const QString& color_one,
   emit BlinkColor();
 }
 
+void AtmSplashScreen::SetBackgroundImage(const QString& background_image) {
+  Painter::ChangeBackgroundImage(this, background_image);
+}
+
+void AtmSplashScreen::SetBackgroundColor(const QString& background_color) {
+  Painter::ChangeBackgroundColor(this, background_color);
+}
+
 void AtmSplashScreen::AtmBlinkColor() {
   color_swapper_->ChangeColor(ui->atm_label, blink_color_one_,
                               blink_color_two_);

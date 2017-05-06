@@ -195,7 +195,7 @@ color: rgb(32, 74, 135);
    <widget class="QLabel" name="timedate_label">
     <property name="geometry">
      <rect>
-      <x>383</x>
+      <x>380</x>
       <y>360</y>
       <width>200</width>
       <height>20</height>

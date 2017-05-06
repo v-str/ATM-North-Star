@@ -2,11 +2,11 @@
 
 #include <QFrame>
 #include <QLabel>
+#include <QMainWindow>
 #include <QPushButton>
 #include <QString>
 
-void Painter::ChangeLabelColor(QLabel* label,
-                                        const QString& text_color) {
+void Painter::ChangeLabelColor(QLabel* label, const QString& text_color) {
   QString string_text_color =
       "QLabel{"
       "color: %1;"
@@ -17,8 +17,8 @@ void Painter::ChangeLabelColor(QLabel* label,
 }
 
 void Painter::ChangeButtonColor(QPushButton* push_button,
-                                         const QString& main_color,
-                                         const QString& additional_color) {
+                                const QString& main_color,
+                                const QString& additional_color) {
   QString string_color =
       "QPushButton{"
       "color:%1;"
@@ -44,4 +44,24 @@ void Painter::ChangeFrameColor(QFrame* frame, const QString& color) {
       "}";
 
   frame->setStyleSheet(string_color.arg(color));
+}
+
+void Painter::ChangeBackgroundColor(QMainWindow* widget,
+                                    const QString& background_color) {
+  QString string_background_string =
+      "QMainWindow{"
+      "background: %1;"
+      "}";
+
+  widget->setStyleSheet(string_background_string.arg(background_color));
+}
+
+void Painter::ChangeBackgroundImage(QMainWindow* widget,
+                                    const QString& background_image) {
+  QString string_background_string =
+      "QMainWindow{"
+      "background-image: url(%1);"
+      "}";
+
+  widget->setStyleSheet(string_background_string.arg(background_image));
 }

@@ -5,6 +5,7 @@ class QLabel;
 class QPushButton;
 class QString;
 class QFrame;
+class QMainWindow;
 
 class Painter {
  public:
@@ -13,6 +14,10 @@ class Painter {
                                 const QString& main_color,
                                 const QString& additional_color);
   static void ChangeFrameColor(QFrame* frame, const QString& color);
+  static void ChangeBackgroundColor(QMainWindow* widget,
+                                    const QString& background_color);
+  static void ChangeBackgroundImage(QMainWindow* widget,
+                                    const QString& background_image);
 };
 
 #endif  // PAINTER_H
