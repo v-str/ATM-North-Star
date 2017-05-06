@@ -30,6 +30,14 @@ std::string Atm::Statement() {
   return AccountInformator::Cash();
 }
 
+bool Atm::WithdrawCash(int withdrawal_cash) {
+  if (IsWithdrawalAcceptable(withdrawal_cash)) {
+    user_.WithdrawCash(withdrawal_cash);
+    return true;
+  }
+  return false;
+}
+
 bool Atm::IsWithdrawalAcceptable(int withdrawal_sum) const {
   return user_.Cash() >= withdrawal_sum;
 }
