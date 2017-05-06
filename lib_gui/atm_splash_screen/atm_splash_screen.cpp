@@ -67,9 +67,16 @@ void AtmSplashScreen::ChangeTimeDate() {
 }
 
 void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
-  if (event->key() == Qt::Key_Escape) {
-    this->close();
+  switch (event->key()) {
+    case Qt::Key_Escape:
+      this->close();
+    case Qt::Key_Space:
+      event->ignore();
+      break;
+    default:
+      break;
   }
+  QWidget::keyPressEvent(event);
 }
 
 void AtmSplashScreen::SetWidgetAppearance() {
