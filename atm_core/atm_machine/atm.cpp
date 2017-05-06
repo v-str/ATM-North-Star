@@ -23,3 +23,8 @@ const std::string Atm::AccountInfo(Atm::AccountData account_data) {
       return account_informator_.MonthlyPayment();
   }
 }
+
+const std::string Atm::Statement() {
+  account_informator_.UpdataUserData(user_);
+  return account_informator_.Cash();
+}

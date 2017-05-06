@@ -21,9 +21,9 @@
 77. Continue amt_core.
 
 79. How to implement in atm machine facade access to:
-- account information
+- account information +
 - credit calculation and further enrolling
-- statement information
+- statement information +
 
 80. Realize validation of refilling sum +
 

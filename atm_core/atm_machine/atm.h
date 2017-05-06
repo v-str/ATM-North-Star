@@ -20,6 +20,7 @@ class Atm {
   void RegisterUser(const std::string& login, const std::string& password);
 
   const std::string AccountInfo(Atm::AccountData account_data);
+  const std::string Statement();
 
  private:
   AtmUser user_;
