@@ -29,3 +29,7 @@ std::string Atm::Statement() {
   AccountInformator::UpdataUserData(user_);
   return AccountInformator::Cash();
 }
+
+bool Atm::IsWithdrawalAcceptable(int withdrawal_sum) const {
+  return user_.Cash() >= withdrawal_sum;
+}

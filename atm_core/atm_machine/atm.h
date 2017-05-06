@@ -17,10 +17,10 @@ class Atm {
   };
 
   void RegisterUser(const std::string& login, const std::string& password);
-
   std::string AccountInfo(Atm::AccountData account_data);
-
   std::string Statement();
+
+  bool IsWithdrawalAcceptable(int withdrawal_sum) const;
 
  private:
   AtmUser user_;
