@@ -18,6 +18,14 @@ bool InputDataValidator::IsRefillingCorrect(int refill_sum) {
   return false;
 }
 
+bool InputDataValidator::IsWithdrawalCorrect(int withdrawal_sum) {
+  if (IsIntegerValue(withdrawal_sum)) {
+    return withdrawal_sum >= k_min_withdrawal_sum_ &&
+           withdrawal_sum <= k_max_withdrawal_sum_;
+  }
+  return false;
+}
+
 bool InputDataValidator::IsIntegerValue(double value) {
   double integer_part = k_null_;
   double fractional_part = std::modf(value, &integer_part);
