@@ -1,13 +1,15 @@
 ﻿#ifndef USER_REGISTRATOR_H
 #define USER_REGISTRATOR_H
 
+#include <string>
+
 #include <atm_user.h>
 
 class UserRegistrator {
  public:
   static void RegisterUser(AtmUser* user,
-                       const std::string& login,
-                       const std::string& password);
+                           const std::string& login,
+                           const std::string& password);
 
  private:
   static void AssignLogin(AtmUser* user, const std::string& login);
