@@ -18,6 +18,8 @@ class AtmSplashScreen : public QMainWindow {
   explicit AtmSplashScreen(QWidget* parent = nullptr);
   ~AtmSplashScreen();
 
+  void SetAtmCompanyName(const QString& atm_company_name = "Default Name");
+
  public slots:
   void ChangeTextColor();
   void ChangeTimeDate();
@@ -32,10 +34,8 @@ class AtmSplashScreen : public QMainWindow {
   void RunTimers();
 
   Ui::AtmSplashScreen* ui = nullptr;
-
   QTimer* color_swap_timer_ = nullptr;
   QTimer* time_date_timer_ = nullptr;
-
   TextColorSwapper* color_swapper_ = nullptr;
 };
 

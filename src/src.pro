@@ -14,7 +14,7 @@ DEPENDPATH += \
 INCLUDEPATH += \
     ../lib_console_output/messengers \
     ../lib_console_output/output_configuration \
-    ../lib_gui/initial_form \
+    ../lib_gui/atm_splash_screen \
     ../lib_gui/features \
     $$PWD/atm_operations \
     $$PWD/atm_operations \
@@ -22,6 +22,7 @@ INCLUDEPATH += \
     $$PWD/user_data \
     $$PWD/input \
     $$PWD/application_management \
+    $$PWD/gui_mode \
 
 HEADERS += \
     $$PWD/atm_operations/*.h \
@@ -29,6 +30,7 @@ HEADERS += \
     $$PWD/user_data/*.h \
     $$PWD/input/*.h \
     $$PWD/application_management/*.h \
+    $$PWD/gui_mode/*.h \
 
 SOURCES += \
     $$PWD/application/*.cpp \
@@ -37,6 +39,7 @@ SOURCES += \
     $$PWD/user_data/*.cpp \
     $$PWD/input/*.cpp \
     $$PWD/application_management/*.cpp \
+    $$PWD/gui_mode/*.cpp \
 
 LIBS += \
     -L$$OUT_PWD/../lib_console_output -llib_console_output \

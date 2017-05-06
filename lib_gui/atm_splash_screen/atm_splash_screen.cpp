@@ -24,6 +24,10 @@ AtmSplashScreen::~AtmSplashScreen() {
   delete time_date_timer_;
 }
 
+void AtmSplashScreen::SetAtmCompanyName(const QString& atm_company_name) {
+  ui->atm_company_name_label->setText(atm_company_name);
+}
+
 void AtmSplashScreen::ChangeTextColor() {
   color_swapper_->ChangeColor(ui->atm_label, "rgb(114, 159, 207)",
                               "rgb(32, 74, 135)");

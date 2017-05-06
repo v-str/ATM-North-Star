@@ -19,7 +19,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/images/north_star_background.jpg);</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="CentralWidget">
    <widget class="QLabel" name="version_label">
@@ -62,19 +62,19 @@ border-radius: 10px;</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="atm_name_label">
+    <widget class="QLabel" name="atm_company_name_label">
      <property name="geometry">
       <rect>
-       <x>185</x>
-       <y>70</y>
-       <width>210</width>
-       <height>31</height>
+       <x>35</x>
+       <y>40</y>
+       <width>510</width>
+       <height>70</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>DejaVu Sans</family>
-       <pointsize>30</pointsize>
+       <pointsize>25</pointsize>
        <weight>50</weight>
        <italic>false</italic>
        <bold>false</bold>
@@ -88,7 +88,7 @@ color: rgb(32, 74, 135);
 </string>
      </property>
      <property name="text">
-      <string>North star</string>
+      <string>Company name</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -214,7 +214,7 @@ color:rgb(32, 74, 135);
 </string>
     </property>
     <property name="text">
-     <string>...</string>
+     <string>Time and Date</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
