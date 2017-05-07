@@ -1,6 +1,7 @@
 ﻿#include <console_mode.h>
 
 #include <initial_messenger.h>
+#include <user_messenger.h>
 
 void ConsoleMode::RunInitialScreen() {
   InitialMessenger::DisplayInitialScreen();
@@ -40,7 +41,7 @@ void ConsoleMode::RegistrateUser() { registrator_.RegisterUser(user_); }
 
 void ConsoleMode::MainProgramMenu() {
   do {
-    user_messenger_.ShowMainMenu();
+    UserMessenger::ShowMainMenu();
     ExecuteOperation(user_input_.GetValueFromUser());
   } while (!user_want_to_exit_);
 }
@@ -57,16 +58,16 @@ void ConsoleMode::ExecuteOperation(int user_choice) {
   } else if (user_choice == kStatement) {
     statement_.ShowStatementFor(&user_);
   } else if (user_choice == kExitProgram) {
-    user_messenger_.ReRequestAboutExit();
+    UserMessenger::ReRequestAboutExit();
   } else {
-    user_messenger_.ShowIncorrectMainMenuInput();
+    UserMessenger::ShowIncorrectMainMenuInput();
     user_want_to_exit_ = false;
   }
   SuggestToExit();
 }
 
 void ConsoleMode::SuggestToExit() {
-  user_messenger_.SuggestToExit();
+  UserMessenger::SuggestToExit();
   for (;;) {
     int result_of_exit = 0;
     result_of_exit = user_input_.GetValueFromUser();
@@ -78,7 +79,7 @@ void ConsoleMode::SuggestToExit() {
       user_want_to_exit_ = true;
       break;
     } else {
-      user_messenger_.ShowIncorrectInput();
+      UserMessenger::ShowIncorrectInput();
     }
   }
 }
@@ -87,8 +88,8 @@ bool ConsoleMode::IsCorrectRegistration() const {
   return registrator_.IsCorrectRegistration();
 }
 
-void ConsoleMode::EndProgram() const { user_messenger_.WishAGoodDay(); }
+void ConsoleMode::EndProgram() const { UserMessenger::WishAGoodDay(); }
 
 void ConsoleMode::ShowIncorrectRegistration() const {
-  user_messenger_.ShowIncorrectRegisterData();
+  UserMessenger::ShowIncorrectRegisterData();
 }

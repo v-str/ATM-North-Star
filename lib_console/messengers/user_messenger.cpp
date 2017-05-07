@@ -18,13 +18,13 @@ void UserMessenger::ShowMainMenu() {
       "\tEnter: ");
 }
 
-void UserMessenger::ReRequestAboutExit() const {
+void UserMessenger::ReRequestAboutExit() {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteTextWithDelayPerSymbol("\t# Do you really want to exit?");
 }
 
-void UserMessenger::WishAGoodDay() const {
+void UserMessenger::WishAGoodDay() {
   ConsoleEditor::AddEmptyLineNTimes(2);
   ConsoleEditor::WriteText(
       "\n\t####################\n"
@@ -34,21 +34,7 @@ void UserMessenger::WishAGoodDay() const {
       "\t####################\n\n");
 }
 
-void UserMessenger::ShowMainMenu() const {
-  ConsoleEditor::ClearScreen();
-  ConsoleEditor::WriteText(
-      "\n\t################ Transaction menu ##################\n"
-      "\t#                                                  #\n"
-      "\t# 1. Account information            2. Refill      #\n"
-      "\t# ----------------------            ------------   #\n"
-      "\t# 3. Credit application             4. Withdrawal  #\n"
-      "\t# ----------------------            ------------   #\n"
-      "\t# 5. Statement                      6. Exit        #\n"
-      "\t#                                                  #\n"
-      "\t####################################################\n");
-}
-
-void UserMessenger::SuggestToExit() const {
+void UserMessenger::SuggestToExit() {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\t# 1. Exit to main page.\n"
@@ -56,20 +42,20 @@ void UserMessenger::SuggestToExit() const {
       "\t# Enter: ");
 }
 
-void UserMessenger::ShowIncorrectInput() const {
+void UserMessenger::ShowIncorrectInput() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\t# Incorrect input, please try again", 10);
   ConsoleEditor::WriteTextWithDelayPerSymbol("...", 100);
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
 }
 
-void UserMessenger::ShowIncorrectMainMenuInput() const {
+void UserMessenger::ShowIncorrectMainMenuInput() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\t# Incorrect input, please try again", 20);
   ConsoleEditor::Sleep(200);
 }
 
-void UserMessenger::ShowIncorrectRegisterData() const {
+void UserMessenger::ShowIncorrectRegisterData() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\tIncorrect input, "
       "\n\treload the program\n");

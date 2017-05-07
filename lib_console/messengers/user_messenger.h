@@ -3,18 +3,13 @@
 
 class UserMessenger {
  public:
-  void ShowMainMenu();
-
-  void WishAGoodDay() const;
-  void ShowMainMenu() const;
-
-  void ReRequestAboutExit() const;
-
-  void SuggestToExit() const;
-  void ShowIncorrectInput() const;
-  void ShowIncorrectMainMenuInput() const;
-
-  void ShowIncorrectRegisterData() const;
+  static void ShowMainMenu();
+  static void WishAGoodDay();
+  static void ReRequestAboutExit();
+  static void SuggestToExit();
+  static void ShowIncorrectInput();
+  static void ShowIncorrectMainMenuInput();
+  static void ShowIncorrectRegisterData();
 
  private:
   static constexpr int kFrame = 45;

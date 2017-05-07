@@ -4,7 +4,6 @@
 #include "atm_user.h"
 #include "demo_mode.h"
 #include "user_input.h"
-#include "user_messenger.h"
 #include "user_registrator.h"
 
 #include "account_informator.h"
@@ -46,7 +45,6 @@ class ConsoleMode {
 
   DemoMode demo_mode_;
   AtmUser user_;
-  UserMessenger user_messenger_;
   UserRegistrator registrator_;
   AccountInformator account_informator_;
   Refill refill_;
