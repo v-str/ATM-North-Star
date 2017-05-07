@@ -4,10 +4,11 @@
 #include <QApplication>
 #include <QCoreApplication>
 
-#include "painter.h"
-#include "text_color_swapper.h"
-#include "timedate_changer.h"
-#include "widget_centerer.h"
+#include <close_block_filter.h>
+#include <painter.h>
+#include <text_color_swapper.h>
+#include <timedate_changer.h>
+#include <widget_centerer.h>
 
 AtmSplashScreen::AtmSplashScreen(QWidget* parent)
     : QMainWindow(parent),
@@ -18,6 +19,7 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
 
   InitializeObjects();
   SetWidgetAppearance();
+  BlockKeys();
   InitialSettings();
   SetConnections();
   RunTimers();
@@ -109,4 +111,8 @@ void AtmSplashScreen::InitializeObjects() {
 void AtmSplashScreen::RunTimers() {
   color_swap_timer_->start(350);
   time_date_timer_->start(1000);
+}
+
+void AtmSplashScreen::BlockKeys() {
+  ui->exit_button->installEventFilter(new CloseBlockFilter(ui->exit_button));
 }
