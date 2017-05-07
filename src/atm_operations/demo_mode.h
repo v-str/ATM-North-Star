@@ -3,8 +3,8 @@
 
 #include <string>
 
-#include "demo_user_messenger.h"
-#include "user_input.h"
+#include <demo_user_messenger.h>
+#include <user_input.h>
 
 class DemoMode {
   using string = std::string;
@@ -28,7 +28,7 @@ class DemoMode {
     kRegistrationSection
   };
 
-  void StartSection(DemoMessanger::MessageType message_type);
+  void StartSection(DemoUserMessanger::MessageType message_type);
   void ForwardToRegistration();
   void StartRegistration();
   void GetExitResult();
@@ -38,7 +38,6 @@ class DemoMode {
   bool user_want_to_registrate_ = false;
 
   UserInput user_input_;
-  DemoMessanger demo_messenger_;
 };
 
 #endif  // DEMO_MODE_H
