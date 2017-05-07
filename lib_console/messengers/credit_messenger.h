@@ -3,8 +3,6 @@
 
 #include <string>
 
-#include "console_editor.h"
-
 class CreditMessenger {
  public:
   void RefuseACreditBasedOnAnotherCredit() const;
@@ -29,11 +27,9 @@ class CreditMessenger {
   void UnavailableCreditState() const;
 
  private:
-  static const int kHalfASecond = 500;
-  static const int kSleep = 75;
-  static const int kNull = 0;
-
-  ConsoleEditor console_editor_;
+  static constexpr int kHalfASecond = 500;
+  static constexpr int kSleep = 75;
+  static constexpr int kNull = 0;
 };
 
 #endif  // CREDIT_MESSANGER_H

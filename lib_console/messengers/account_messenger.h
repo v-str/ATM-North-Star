@@ -1,7 +1,6 @@
 ﻿#ifndef ACCOUNT_MESSENGER_H
 #define ACCOUNT_MESSENGER_H
 
-#include <sstream>
 #include <string>
 
 class AccountMessenger {
