@@ -1,33 +1,31 @@
-#ifndef WITHDRAWAL_H
+﻿#ifndef WITHDRAWAL_H
 #define WITHDRAWAL_H
 
 #include <string>
 
-#include "atm_user.h"
-#include "console_editor.h"
-#include "notice_messenger.h"
-#include "user_input.h"
-#include "withdrawal_messenger.h"
+#include <notice_messenger.h>
+#include <user_input.h>
+#include <withdrawal_messenger.h>
+
+class AtmUser;
 
 class Withdrawal {
-  using string = std::string;
-
  public:
-  void WithdrawCashFrom(AtmUser *atm_user);
+  void WithdrawCashFrom(AtmUser* atm_user);
 
  private:
-  static bool IsWithdrawalAcceptable(AtmUser *atm_user, double cash_sum);
-  static bool IsCorrectPasswordAtWithdrawal(const string &password,
-                                            AtmUser *atm_user);
+  static bool IsWithdrawalAcceptable(AtmUser* atm_user, double cash_sum);
+  static bool IsCorrectPasswordAtWithdrawal(const std::string& password,
+                                            AtmUser* atm_user);
 
-  static void WithdrawFromAccount(AtmUser *atm_user, int sum_of_withdrawal);
-  static const int kNull = 0;
+  static void WithdrawFromAccount(AtmUser* atm_user, int sum_of_withdrawal);
+
+  static constexpr int kNull = 0;
 
   int GetSumOfWithdrawal() const;
 
   UserInput user_input_;
   WithdrawalMessenger withdrawal_messenger_;
-  ConsoleEditor console_editor_;
   NoticeMessenger notice_messenger_;
 };
 

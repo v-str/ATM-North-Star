@@ -1,13 +1,16 @@
-﻿#include "withdrawal.h"
+﻿#include <withdrawal.h>
+
+#include <atm_user.h>
+#include <console_editor_duplicate.h>
 
 void Withdrawal::WithdrawCashFrom(AtmUser* atm_user) {
-  console_editor_.AddEmptyLineNTimes(2);
-  console_editor_.ClearScreen();
+  ConsoleEditorDuplicate::AddEmptyLineNTimes(2);
+  ConsoleEditorDuplicate::ClearScreen();
   int sum_of_withdrawal = GetSumOfWithdrawal();
   if (IsWithdrawalAcceptable(atm_user, sum_of_withdrawal)) {
     withdrawal_messenger_.ShowSumOfWithdrawal(sum_of_withdrawal);
     withdrawal_messenger_.ShowPasswordString();
-    string password = user_input_.GetDataFromUser();
+    std::string password = user_input_.GetDataFromUser();
     if (IsCorrectPasswordAtWithdrawal(password, atm_user)) {
       WithdrawFromAccount(atm_user, sum_of_withdrawal);
       withdrawal_messenger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
@@ -32,8 +35,8 @@ bool Withdrawal::IsWithdrawalAcceptable(AtmUser* atm_user, double cash_sum) {
   return cash_sum > 0 && cash_sum <= atm_user->Cash();
 }
 
-bool Withdrawal::IsCorrectPasswordAtWithdrawal(
-    const Withdrawal::string& password, AtmUser* atm_user) {
+bool Withdrawal::IsCorrectPasswordAtWithdrawal(const std::string& password,
+                                               AtmUser* atm_user) {
   return password == atm_user->Password();
 }
 
