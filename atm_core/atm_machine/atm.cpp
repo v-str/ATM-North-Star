@@ -25,10 +25,7 @@ std::string Atm::AccountInfo(Atm::AccountData account_data) {
   }
 }
 
-std::string Atm::Statement() {
-  AccountInformator::UpdataUserData(user_);
-  return AccountInformator::Cash();
-}
+void Atm::RefillCash(int refill_cash) { user_.AddCash(refill_cash); }
 
 bool Atm::WithdrawCash(int withdrawal_cash) {
   if (IsWithdrawalAcceptable(withdrawal_cash)) {
@@ -38,7 +35,10 @@ bool Atm::WithdrawCash(int withdrawal_cash) {
   return false;
 }
 
-void Atm::RefillCash(int refill_cash) { user_.AddCash(refill_cash); }
+std::string Atm::Statement() {
+  AccountInformator::UpdataUserData(user_);
+  return AccountInformator::Cash();
+}
 
 bool Atm::IsWithdrawalAcceptable(int withdrawal_sum) const {
   return user_.Cash() >= withdrawal_sum;

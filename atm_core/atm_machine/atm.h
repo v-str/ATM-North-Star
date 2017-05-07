@@ -18,9 +18,9 @@ class Atm {
 
   void RegisterUser(const std::string& login, const std::string& password);
   std::string AccountInfo(Atm::AccountData account_data);
-  std::string Statement();
-  bool WithdrawCash(int withdrawal_cash);
   void RefillCash(int refill_cash);
+  bool WithdrawCash(int withdrawal_cash);
+  std::string Statement();
 
  private:
   bool IsWithdrawalAcceptable(int withdrawal_sum) const;
