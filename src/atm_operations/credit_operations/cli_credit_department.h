@@ -2,7 +2,6 @@
 #define CLI_CREDIT_DEPARTMENT_H
 
 #include "credit_department.h"
-#include "credit_messenger.h"
 #include "user_input.h"
 
 class CLICreditDepartment : public CreditDepartment {
@@ -24,7 +23,6 @@ class CLICreditDepartment : public CreditDepartment {
 
   void PerformCreditCalculations(int credit_sum);
 
-  CreditMessenger messenger_;
   UserInput user_input_;
 
   const int kConsiderCredit = 1;

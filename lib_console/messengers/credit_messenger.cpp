@@ -3,7 +3,7 @@
 #include <console_editor.h>
 #include <text_writer.h>
 
-void CreditMessenger::RefuseACreditBasedOnAnotherCredit() const {
+void CreditMessenger::RefuseACreditBasedOnAnotherCredit() {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "# Sorry, but you have already credit in our bank.\n"
@@ -11,7 +11,7 @@ void CreditMessenger::RefuseACreditBasedOnAnotherCredit() const {
       "# credit is not complete.\n");
 }
 
-void CreditMessenger::RefuseACreditBasedOnCash(int sum_of_cash) const {
+void CreditMessenger::RefuseACreditBasedOnCash(int sum_of_cash) {
   ConsoleEditor::ClearScreen();
 
   ConsoleEditor::WriteTextWithInterrupt("# We checked your balance.\n",
@@ -24,7 +24,7 @@ void CreditMessenger::RefuseACreditBasedOnCash(int sum_of_cash) const {
       kHalfASecond);
 }
 
-void CreditMessenger::NotifyAboutCredit() const {
+void CreditMessenger::NotifyAboutCredit() {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "# You can get a credit in our bank if your\n"
@@ -46,7 +46,7 @@ void CreditMessenger::NotifyAboutCredit() const {
       "Enter: ");
 }
 
-void CreditMessenger::ShowCreditConditions(int maximal_sum_of_credit) const {
+void CreditMessenger::ShowCreditConditions(int maximal_sum_of_credit) {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteTextWithInterrupt(
       "# Your balance more than 1000$. You can afford to take the\n"
@@ -73,7 +73,7 @@ void CreditMessenger::ShowCreditConditions(int maximal_sum_of_credit) const {
   ConsoleEditor::WriteText("# Enter: ");
 }
 
-void CreditMessenger::SuggestToConfirmACredit() const {
+void CreditMessenger::SuggestToConfirmACredit() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\t# Do you confirm the credit?\n"
       "\t1. Yes, I confirm.\n"
@@ -81,18 +81,18 @@ void CreditMessenger::SuggestToConfirmACredit() const {
       "\tEnter: ");
 }
 
-void CreditMessenger::EnrollACredit() const {
+void CreditMessenger::EnrollACredit() {
   ConsoleEditor::AddEmptyLineNTimes(2);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "# The credit was successfully transferred on your account.\n"
       "# You might cash your credit in our nearest bank.\n");
 }
 
-void CreditMessenger::RepealACreadit() const {
+void CreditMessenger::RepealACreadit() {
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Credit is repealed...\n");
 }
 
-void CreditMessenger::ShowInfoAboutCreditSum() const {
+void CreditMessenger::ShowInfoAboutCreditSum() {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteSymbolsNTimes("-", 70);
   ConsoleEditor::AddEmptyLineNTimes(1);
@@ -103,13 +103,13 @@ void CreditMessenger::ShowInfoAboutCreditSum() const {
   ConsoleEditor::WriteSymbolsNTimes("-", 70);
 }
 
-void CreditMessenger::SuggestEnterCreditSum() const {
+void CreditMessenger::SuggestEnterCreditSum() {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "Enter the desired sum of credit: $");
 }
 
-void CreditMessenger::ShowError(const std::string& error_message) const {
+void CreditMessenger::ShowError(const std::string& error_message) {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteSymbolsNTimes(" . ", 20);
   ConsoleEditor::WriteText("\n    ");
@@ -120,7 +120,7 @@ void CreditMessenger::ShowError(const std::string& error_message) const {
   ConsoleEditor::Sleep(500);
 }
 
-void CreditMessenger::ShowDataConfirmation() const {
+void CreditMessenger::ShowDataConfirmation() {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteSymbolsNTimes(":", 20);
   ConsoleEditor::AddEmptyLineNTimes(1);
@@ -131,7 +131,7 @@ void CreditMessenger::ShowDataConfirmation() const {
   ConsoleEditor::Sleep(750);
 }
 
-void CreditMessenger::ShowInfoAboutCreditTerm() const {
+void CreditMessenger::ShowInfoAboutCreditTerm() {
   ConsoleEditor::AddEmptyLineNTimes(2);
   ConsoleEditor::WriteSymbolsNTimes("-", 70);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
@@ -141,13 +141,13 @@ void CreditMessenger::ShowInfoAboutCreditTerm() const {
   ConsoleEditor::WriteSymbolsNTimes("-", 70);
 }
 
-void CreditMessenger::SuggestEnterCreditTerm() const {
+void CreditMessenger::SuggestEnterCreditTerm() {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "Enter the desired term of credit: $");
 }
 
-void CreditMessenger::ShowIncorrectCashInformation(int cash) const {
+void CreditMessenger::ShowIncorrectCashInformation(int cash) {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteSymbolsNTimes("-", 65);
   ConsoleEditor::AddEmptyLineNTimes(1);
@@ -157,7 +157,7 @@ void CreditMessenger::ShowIncorrectCashInformation(int cash) const {
   ConsoleEditor::AddEmptyLineNTimes(1);
 }
 
-void CreditMessenger::UnavailableCreditState() const {
+void CreditMessenger::UnavailableCreditState() {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteSymbolsNTimes("#", 65);
   ConsoleEditor::AddEmptyLineNTimes(1);
