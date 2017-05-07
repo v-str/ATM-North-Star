@@ -5,7 +5,6 @@
 
 #include <notice_messenger.h>
 #include <user_input.h>
-#include <withdrawal_messenger.h>
 
 class AtmUser;
 
@@ -25,7 +24,6 @@ class Withdrawal {
   int GetSumOfWithdrawal() const;
 
   UserInput user_input_;
-  WithdrawalMessenger withdrawal_messenger_;
   NoticeMessenger notice_messenger_;
 };
 

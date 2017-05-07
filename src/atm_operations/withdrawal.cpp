@@ -2,21 +2,22 @@
 
 #include <atm_user.h>
 #include <console_editor.h>
+#include <withdrawal_messenger.h>
 
 void Withdrawal::WithdrawCashFrom(AtmUser* atm_user) {
   ConsoleEditor::AddEmptyLineNTimes(2);
   ConsoleEditor::ClearScreen();
   int sum_of_withdrawal = GetSumOfWithdrawal();
   if (IsWithdrawalAcceptable(atm_user, sum_of_withdrawal)) {
-    withdrawal_messenger_.ShowSumOfWithdrawal(sum_of_withdrawal);
-    withdrawal_messenger_.ShowPasswordString();
+    WithdrawalMessenger::ShowSumOfWithdrawal(sum_of_withdrawal);
+    WithdrawalMessenger::ShowPasswordString();
     std::string password = user_input_.GetDataFromUser();
     if (IsCorrectPasswordAtWithdrawal(password, atm_user)) {
       WithdrawFromAccount(atm_user, sum_of_withdrawal);
-      withdrawal_messenger_.ShowSuccessfulWithdrawal(sum_of_withdrawal,
-                                                     atm_user->Cash());
+      WithdrawalMessenger::ShowSuccessfulWithdrawal(sum_of_withdrawal,
+                                                    atm_user->Cash());
     } else {
-      withdrawal_messenger_.ShowIncorrectPasswordMessage();
+      WithdrawalMessenger::ShowIncorrectPasswordMessage();
     }
   } else {
     int amount_of_cash = atm_user->Cash();
@@ -26,7 +27,7 @@ void Withdrawal::WithdrawCashFrom(AtmUser* atm_user) {
 }
 
 int Withdrawal::GetSumOfWithdrawal() const {
-  withdrawal_messenger_.EnterSumOfWithdrawal();
+  WithdrawalMessenger::EnterSumOfWithdrawal();
   int withdraw_sum = user_input_.GetValueFromUser();
   return withdraw_sum;
 }
