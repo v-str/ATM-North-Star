@@ -1,17 +1,17 @@
-#ifndef REFILL_H
+﻿#ifndef REFILL_H
 #define REFILL_H
 
 #include <iostream>
 
-#include "atm_user.h"
-#include "console_editor.h"
+#include "notice_messenger.h"
 #include "refill_messenger.h"
 #include "user_input.h"
-#include "notice_messenger.h"
+
+class AtmUser;
 
 class Refill {
  public:
-  void StartRefillOperationFor(AtmUser *atm_user);
+  void StartRefillOperationFor(AtmUser* atm_user);
 
  private:
   static const int kNull = 0;
@@ -21,7 +21,6 @@ class Refill {
   RefillMessenger refill_messenger_;
   NoticeMessenger notice_messenger_;
   UserInput user_input_;
-  ConsoleEditor console_editor_;
 };
 
 #endif  // REFILL_H
