@@ -1,9 +1,9 @@
-﻿#ifndef INTERFACE_MANAGER_H
-#define INTERFACE_MANAGER_H
+﻿#ifndef MODE_SELECTOR
+#define MODE_SELECTOR
 
 #include <user_input.h>
 
-class InterfaceManager {
+class ModeSelector {
  public:
   void SuggestMode();
 
@@ -17,4 +17,4 @@ class InterfaceManager {
   int choice_ = 0;
 };
 
-#endif  // INTERFACE_MANAGER_H
+#endif  // MODE_SELECTOR

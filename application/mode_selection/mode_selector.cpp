@@ -1,9 +1,9 @@
-﻿#include <interface_management.h>
+﻿#include <mode_selector.h>
 
 #include <console_editor.h>
 #include <output_setup.h>
 
-void InterfaceManager::SuggestMode() {
+void ModeSelector::SuggestMode() {
   for (;;) {
     WriteWelcome();
     choice_ = user_input_.GetValueFromUser();
@@ -18,9 +18,9 @@ void InterfaceManager::SuggestMode() {
   ConsoleEditor::ClearScreen();
 }
 
-int InterfaceManager::GetMode() { return choice_; }
+int ModeSelector::GetMode() { return choice_; }
 
-void InterfaceManager::WriteWelcome() {
+void ModeSelector::WriteWelcome() {
   ConsoleEditor::WriteTextWithDelayPerSymbol("version 1.0.1");
   ConsoleEditor::AddEmptyLineNTimes(4);
   ConsoleEditor::WriteTextWithDelayPerSymbol("Welcome to ATM program");
