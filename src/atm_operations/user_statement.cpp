@@ -1,8 +1,11 @@
-#include "user_statement.h"
+﻿#include "user_statement.h"
 
-void UserStatement::ShowStatementFor(AtmUser *atm_user) {
-  console_editor_.AddEmptyLineNTimes(2);
-  console_editor_.ClearScreen();
+#include <atm_user.h>
+#include <console_editor_duplicate.h>
+
+void UserStatement::ShowStatementFor(AtmUser* atm_user) {
+  ConsoleEditorDuplicate::AddEmptyLineNTimes(2);
+  ConsoleEditorDuplicate::ClearScreen();
   string spaces = GetSpaces(atm_user->Cash());
   int cash = atm_user->Cash();
   statement_messenger_.ShowStatement(cash, spaces);
@@ -10,8 +13,9 @@ void UserStatement::ShowStatementFor(AtmUser *atm_user) {
 
 UserStatement::string UserStatement::GetSpaces(int convertation_cash_to_space) {
   const char space = ' ';
-  return string(kSizeOfCheckField - NumberOfDigits(convertation_cash_to_space),
-                space);
+  unsigned int amout_of_spaces = static_cast<unsigned int>(
+      kSizeOfCheckField - NumberOfDigits(convertation_cash_to_space));
+  return string(amout_of_spaces, space);
 }
 
 int UserStatement::NumberOfDigits(int value) {

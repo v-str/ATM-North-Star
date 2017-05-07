@@ -3,9 +3,9 @@
 
 #include <iostream>
 
-#include "notice_messenger.h"
-#include "refill_messenger.h"
-#include "user_input.h"
+#include <notice_messenger.h>
+#include <refill_messenger.h>
+#include <user_input.h>
 
 class AtmUser;
 
@@ -14,9 +14,9 @@ class Refill {
   void StartRefillOperationFor(AtmUser* atm_user);
 
  private:
-  static const int kNull = 0;
-  static const int minimal_refill = 10;
-  static const int maximal_refill = 50000;
+  static constexpr int kNull = 0;
+  static constexpr int minimal_refill = 10;
+  static constexpr int maximal_refill = 50000;
 
   RefillMessenger refill_messenger_;
   NoticeMessenger notice_messenger_;

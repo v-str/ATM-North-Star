@@ -1,7 +1,7 @@
 ﻿#ifndef ACCOUNT_INFORMATOR_H
 #define ACCOUNT_INFORMATOR_H
 
-#include "information_screen.h"
+#include <information_screen.h>
 
 class AtmUser;
 
