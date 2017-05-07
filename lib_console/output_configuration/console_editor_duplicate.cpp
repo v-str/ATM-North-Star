@@ -24,9 +24,7 @@ void ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
     const std::string& text, int delay) {
   for (const auto symbol : text) {
     std::string temp(1, symbol);
-
     TextWriter::Write(temp);
-
     Sleep(delay);
   }
 }

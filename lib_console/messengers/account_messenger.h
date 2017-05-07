@@ -4,8 +4,6 @@
 #include <sstream>
 #include <string>
 
-#include "console_editor.h"
-
 class AccountMessenger {
  public:
   void DisplayStrip() const;
@@ -22,8 +20,6 @@ class AccountMessenger {
  private:
   const int kNTimes = 45;
   const int kSleep = 100;
-
-  ConsoleEditor console_editor_;
 };
 
 #endif  // ACCOUNT_MESSENGER_H
