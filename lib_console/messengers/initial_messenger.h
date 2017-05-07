@@ -1,7 +1,5 @@
-#ifndef INITIAL_MESSENGER_H
+﻿#ifndef INITIAL_MESSENGER_H
 #define INITIAL_MESSENGER_H
-
-#include "console_editor.h"
 
 class InitialMessenger {
  public:
@@ -11,8 +9,6 @@ class InitialMessenger {
   void DisplayInitialMenu() const;
 
   void DisplayLogotype();
-
-  ConsoleEditor console_editor_;
 };
 
 #endif  // INITIAL_MESSENGER_H
