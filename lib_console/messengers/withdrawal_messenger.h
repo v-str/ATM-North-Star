@@ -1,7 +1,5 @@
-#ifndef WITHDRAWAL_MESSENGER_H
+﻿#ifndef WITHDRAWAL_MESSENGER_H
 #define WITHDRAWAL_MESSENGER_H
-
-#include "console_editor.h"
 
 class WithdrawalMessenger {
  public:
@@ -10,9 +8,6 @@ class WithdrawalMessenger {
   void ShowIncorrectPasswordMessage() const;
   void EnterSumOfWithdrawal() const;
   void ShowSuccessfulWithdrawal(int sum_of_cash, int sum_of_withdrawal) const;
-
- private:
-  ConsoleEditor console_editor_;
 };
 
 #endif  // WITHDRAWAL_MESSENGER_H
