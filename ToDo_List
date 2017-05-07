@@ -22,16 +22,20 @@
 
 79. How to implement in atm machine facade access to:
 - account information +
-- credit calculation and further enrolling
+- credit calculation and further enrolling  !!!
 - statement information +
 
 80. Realize validation of refilling sum +
 
 81. Realize validation of withdrawal sum +
 
-82. Continue adding of atm operations into atm class
+82. Continue adding of atm operations into atm class +
 
+-------------------------------------------------------------------------
 
+83. Implement greeting class with string animation
+
+84. Make class ModeSelector like a simple class that maintain user input processing
 
 
 
