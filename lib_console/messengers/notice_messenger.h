@@ -1,7 +1,5 @@
-#ifndef NOTICE_MESSENGER_H
+﻿#ifndef NOTICE_MESSENGER_H
 #define NOTICE_MESSENGER_H
-
-#include "console_editor.h"
 
 class NoticeMessenger {
  public:
@@ -15,14 +13,12 @@ class NoticeMessenger {
   void ShowSumCreditInfo() const;
 
  private:
-  static const int kSecond = 1000;
-  static const int kAccessFrame = 18;
-  static const int kIncorrectDataFrame = 27;
+  static constexpr int kSecond = 1000;
+  static constexpr int kAccessFrame = 18;
+  static constexpr int kIncorrectDataFrame = 27;
 
-  static const int kSleep = 100;
-  static const int kFrame = 45;
-
-  ConsoleEditor console_editor_;
+  static constexpr int kSleep = 100;
+  static constexpr int kFrame = 45;
 };
 
 #endif  // NOTICE_MESSENGER_H

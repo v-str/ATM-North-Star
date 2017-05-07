@@ -1,67 +1,69 @@
-﻿#include "notice_messenger.h"
+﻿#include <console_editor_duplicate.h>
+#include <notice_messenger.h>
 
 void NoticeMessenger::ShowAcceptableMessageFrame() const {
-  console_editor_.ClearScreen();
-  console_editor_.WriteText("\n\n\t\t");
-  console_editor_.WriteSymbolsNTimes("-", kAccessFrame);
-  console_editor_.WriteText("\n");
-  console_editor_.WriteTextWithDelayPerSymbol("\t\t| Access allowed |");
-  console_editor_.WriteText("\t\t\n\t\t");
-  console_editor_.WriteSymbolsNTimes("-", kAccessFrame);
-  console_editor_.WriteText("\t\t\n");
-  console_editor_.Sleep(kSecond);
+  ConsoleEditorDuplicate::ClearScreen();
+  ConsoleEditorDuplicate::WriteText("\n\n\t\t");
+  ConsoleEditorDuplicate::WriteSymbolsNTimes("-", kAccessFrame);
+  ConsoleEditorDuplicate::WriteText("\n");
+  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol("\t\t| Access allowed |");
+  ConsoleEditorDuplicate::WriteText("\t\t\n\t\t");
+  ConsoleEditorDuplicate::WriteSymbolsNTimes("-", kAccessFrame);
+  ConsoleEditorDuplicate::WriteText("\t\t\n");
+  ConsoleEditorDuplicate::Sleep(kSecond);
 }
 
 void NoticeMessenger::ShowIncorrectLoginFrame() const {
-  console_editor_.ClearScreen();
-  console_editor_.WriteText("\t|");
-  console_editor_.WriteSymbolsNTimes("-", kIncorrectDataFrame);
-  console_editor_.WriteText("|\n");
-  console_editor_.WriteTextWithDelayPerSymbol(
+  ConsoleEditorDuplicate::ClearScreen();
+  ConsoleEditorDuplicate::WriteText("\t|");
+  ConsoleEditorDuplicate::WriteSymbolsNTimes("-", kIncorrectDataFrame);
+  ConsoleEditorDuplicate::WriteText("|\n");
+  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
       "\t|Incorrect login.           |\n"
       "\t|It must be more than 1 and |\n"
       "\t|less than 20 symbols.      |\n"
       "\t|Please, reload the program.|\n\t|");
-  console_editor_.WriteSymbolsNTimes("-", kIncorrectDataFrame);
-  console_editor_.WriteText("|\n\n");
+  ConsoleEditorDuplicate::WriteSymbolsNTimes("-", kIncorrectDataFrame);
+  ConsoleEditorDuplicate::WriteText("|\n\n");
 }
 
 void NoticeMessenger::ShowIncorrectFormatPassword() const {
-  console_editor_.ClearScreen();
-  console_editor_.WriteText("\n\n\n\n\t|");
-  console_editor_.WriteSymbolsNTimes("-", kIncorrectDataFrame);
-  console_editor_.WriteText("|\n");
-  console_editor_.WriteTextWithDelayPerSymbol(
+  ConsoleEditorDuplicate::ClearScreen();
+  ConsoleEditorDuplicate::WriteText("\n\n\n\n\t|");
+  ConsoleEditorDuplicate::WriteSymbolsNTimes("-", kIncorrectDataFrame);
+  ConsoleEditorDuplicate::WriteText("|\n");
+  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
       "\t|Incorrect password.        |\n"
       "\t|It must be in XXXX format. |\n"
       "\t|Please, reload the program.|");
-  console_editor_.WriteText("\n\t|");
-  console_editor_.WriteSymbolsNTimes("-", kIncorrectDataFrame);
-  console_editor_.WriteText("|\n\n\t\t\t");
+  ConsoleEditorDuplicate::WriteText("\n\t|");
+  ConsoleEditorDuplicate::WriteSymbolsNTimes("-", kIncorrectDataFrame);
+  ConsoleEditorDuplicate::WriteText("|\n\n\t\t\t");
 }
 
 void NoticeMessenger::ShowIncorrectSum() const {
-  console_editor_.WriteTextWithDelayPerSymbol(
+  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
       "\n\tIncorrect sum, Reconnect to repeat.\n\n");
 }
 
 void NoticeMessenger::ShowUnacceptableWithdrawal(int amount_of_cash) const {
-  console_editor_.ClearScreen();
-  console_editor_.WriteTextWithDelayPerSymbol(
+  ConsoleEditorDuplicate::ClearScreen();
+  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
       "\n\t# Sorry, entered sum is incorrect.\n\n");
-  console_editor_.WriteText("\t# Balance: " + std::to_string(amount_of_cash) +
-                            "\n\n\t");
+  ConsoleEditorDuplicate::WriteText("\t# Balance: " +
+                                    std::to_string(amount_of_cash) + "\n\n\t");
 
-  console_editor_.WriteSymbolsNTimes("-", kFrame);
-  console_editor_.Sleep(kSleep);
+  ConsoleEditorDuplicate::WriteSymbolsNTimes("-", kFrame);
+  ConsoleEditorDuplicate::Sleep(kSleep);
 }
 
 void NoticeMessenger::ShowError() const {
-  console_editor_.WriteTextWithDelayPerSymbol("\nData is not correct.\n\n");
+  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
+      "\nData is not correct.\n\n");
 }
 
 void NoticeMessenger::ShowSumCreditInfo() const {
-  console_editor_.WriteTextWithDelayPerSymbol(
+  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
       "\nThe entered sum should not\n"
       "exceed the allowed credit.\n\n"
       "Enter the desired sum of credit: $");
