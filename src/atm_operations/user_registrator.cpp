@@ -1,4 +1,6 @@
-﻿#include "user_registrator.h"
+﻿#include <user_registrator.h>
+
+#include <identification_messenger.h>
 
 void UserRegistrator::RegisterUser(AtmUser& atm_user) {
   set_is_correct_registration(false);
@@ -24,12 +26,12 @@ bool UserRegistrator::IsCorrectRegistration() const {
 }
 
 void UserRegistrator::EnterLogin(AtmUser& atm_user) {
-  identification_messenger_.ShowInitialLoginText();
+  IdentificationMessenger::ShowInitialLoginText();
   atm_user.SetLogin(provider_.GetLoginFromUser());
 }
 
 void UserRegistrator::EnterPassword(AtmUser& atm_user) {
-  identification_messenger_.ShowInitialPasswordText();
+  IdentificationMessenger::ShowInitialPasswordText();
   atm_user.SetPassword(provider_.GetPasswordFromUser());
 }
 

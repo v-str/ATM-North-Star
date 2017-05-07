@@ -3,8 +3,8 @@
 
 class IdentificationMessenger {
  public:
-  void ShowInitialLoginText() const;
-  void ShowInitialPasswordText() const;
+  static void ShowInitialLoginText();
+  static void ShowInitialPasswordText();
 
  private:
   static constexpr int kMaxLenghtOfLogin = 21;
