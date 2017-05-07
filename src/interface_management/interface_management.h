@@ -1,7 +1,6 @@
 ﻿#ifndef INTERFACE_MANAGER_H
 #define INTERFACE_MANAGER_H
 
-#include "console_editor.h"
 #include "user_input.h"
 
 class InterfaceManager {
@@ -13,7 +12,6 @@ class InterfaceManager {
  private:
   void WriteWelcome();
 
-  ConsoleEditor console_editor_;
   UserInput user_input_;
 
   int choice_ = 0;

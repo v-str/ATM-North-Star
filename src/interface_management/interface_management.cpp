@@ -1,5 +1,7 @@
 ﻿#include "interface_management.h"
-#include "output_setup.h"
+
+#include <console_editor_duplicate.h>
+#include <output_setup.h>
 
 void InterfaceManager::SuggestMode() {
   for (;;) {
@@ -13,17 +15,17 @@ void InterfaceManager::SuggestMode() {
     }
   }
 
-  console_editor_.ClearScreen();
+  ConsoleEditorDuplicate::ClearScreen();
 }
 
 int InterfaceManager::GetMode() { return choice_; }
 
 void InterfaceManager::WriteWelcome() {
-  console_editor_.WriteTextWithDelayPerSymbol("version 1.0.1");
-  console_editor_.AddEmptyLineNTimes(4);
-  console_editor_.WriteTextWithDelayPerSymbol("Welcome to ATM program");
-  console_editor_.AddEmptyLineNTimes(3);
-  console_editor_.WriteTextWithDelayPerSymbol(
+  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol("version 1.0.1");
+  ConsoleEditorDuplicate::AddEmptyLineNTimes(4);
+  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol("Welcome to ATM program");
+  ConsoleEditorDuplicate::AddEmptyLineNTimes(3);
+  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
       "Please, choose program mode:\n"
       "1. Console Mode\n"
       "2. Graphical Mode\n"
