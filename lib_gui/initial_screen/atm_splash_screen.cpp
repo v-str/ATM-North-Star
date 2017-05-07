@@ -5,10 +5,10 @@
 #include <QCoreApplication>
 
 #include <close_block_filter.h>
+#include <initial_property_installer.h>
 #include <painter.h>
 #include <text_color_swapper.h>
 #include <timedate_changer.h>
-#include <widget_centerer.h>
 
 AtmSplashScreen::AtmSplashScreen(QWidget* parent)
     : QMainWindow(parent),
@@ -18,7 +18,7 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
   ui->setupUi(this);
 
   InitializeObjects();
-  SetWidgetAppearance();
+  SetWidgetAppearance(600, 400);
   BlockKeys();
   InitialSettings();
   SetConnections();
@@ -90,10 +90,8 @@ void AtmSplashScreen::InitialSettings() {
   SetBackgroundImage();
 }
 
-void AtmSplashScreen::SetWidgetAppearance() {
-  setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-  setFixedSize(600, 400);
-  WidgetCenterer::MoveToCenter(this);
+void AtmSplashScreen::SetWidgetAppearance(int width, int height) {
+  InitialPropertyInstaller::InstallInitialProperies(this, width, height);
 }
 
 void AtmSplashScreen::SetConnections() {

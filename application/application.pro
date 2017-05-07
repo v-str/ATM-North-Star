@@ -11,12 +11,12 @@ DEPENDPATH += \
     ../lib_console/output_configuration \
     ../lib_gui/atm_splash_screen \
     ../atm_core/credit_department \
-    ../lib_gui/atm_splash_screen \
+    ../lib_gui/initial_screen \
 
 INCLUDEPATH += \
     ../lib_console/messengers \
     ../lib_console/output_configuration \
-    ../lib_gui/atm_splash_screen \
+    ../lib_gui/initial_screen \
     ../atm_core/credit_department \
     $$PWD/atm_operations \ #deprecated code, should be remade
     $$PWD/atm_operations/credit_operations \ #deprecated code, should be remade

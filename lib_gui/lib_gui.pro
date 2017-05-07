@@ -14,24 +14,24 @@ QMAKE_CXXFLAGS += -std=c++11
 QMAKE_CXX = ccache g++
 
 DEPENDPATH += \
-    ../atm_splash_screen \
+    ../initial_screen \
     ../features \
     ../images \
 
 INCLUDEPATH += \
-    $$PWD/atm_splash_screen \
+    $$PWD/initial_screen \
     $$PWD/features \
 
 HEADERS += \
-    $$PWD/atm_splash_screen/*.h \
+    $$PWD/initial_screen/*.h \
     $$PWD/features/*.h \
 
 SOURCES += \
-    $$PWD/atm_splash_screen/*.cpp \
+    $$PWD/initial_screen/*.cpp \
     $$PWD/features/*.cpp \
 
 FORMS += \
-    $$PWD/atm_splash_screen/*.ui \
+    $$PWD/initial_screen/*.ui \
 
 RESOURCES += \
     atm_resources.qrc

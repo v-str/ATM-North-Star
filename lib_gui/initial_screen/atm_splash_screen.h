@@ -41,7 +41,7 @@ class AtmSplashScreen : public QMainWindow {
 
  private:
   void InitialSettings();
-  void SetWidgetAppearance();
+  void SetWidgetAppearance(int width, int height);
   void SetConnections();
   void InitializeObjects();
   void RunTimers();
