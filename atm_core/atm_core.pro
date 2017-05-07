@@ -19,7 +19,6 @@ HEADERS += \
     $$PWD/credit_department/*.h \
     $$PWD/user_data/*.h / \
     $$PWD/data_validation/*.h \
-    atm_operations/refill.h
 
 SOURCES += \
     $$PWD/atm_machine/*.cpp \
@@ -27,4 +26,3 @@ SOURCES += \
     $$PWD/credit_department/*.cpp \
     $$PWD/user_data/*.cpp \
     $$PWD/data_validation/*.cpp \
-    atm_operations/refill.cpp
