@@ -37,7 +37,7 @@ void InitialMessenger::DisplayLogotype() {
   ConsoleEditor::ClearScreen();
 }
 
-void InitialMessenger::DisplayInitialMenu() const {
+void InitialMessenger::DisplayInitialMenu() {
   ConsoleEditor::WriteText(
       "\n\n\n\n\t #######################\n"
       "\t #  1. Demo mode       #\n"

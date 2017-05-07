@@ -3,7 +3,6 @@
 
 #include "atm_user.h"
 #include "demo_mode.h"
-#include "initial_messenger.h"
 #include "user_input.h"
 #include "user_messenger.h"
 #include "user_registrator.h"
@@ -45,7 +44,6 @@ class ConsoleMode {
   void ExecuteOperation(int user_choice);
   void SuggestToExit();
 
-  InitialMessenger initial_messenger_;
   DemoMode demo_mode_;
   AtmUser user_;
   UserMessenger user_messenger_;

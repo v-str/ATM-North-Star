@@ -1,7 +1,9 @@
-﻿#include "console_mode.h"
+﻿#include <console_mode.h>
+
+#include <initial_messenger.h>
 
 void ConsoleMode::RunInitialScreen() {
-  initial_messenger_.DisplayInitialScreen();
+  InitialMessenger::DisplayInitialScreen();
   int user_choice = user_input_.GetValueFromUser();
 
   InitialProgamMenu(user_choice);

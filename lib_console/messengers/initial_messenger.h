@@ -3,11 +3,11 @@
 
 class InitialMessenger {
  public:
-  void DisplayInitialScreen();
+  static void DisplayInitialScreen();
 
  private:
-  void DisplayInitialMenu() const;
-  void DisplayLogotype();
+  static void DisplayInitialMenu();
+  static void DisplayLogotype();
 };
 
 #endif  // INITIAL_MESSENGER_H
