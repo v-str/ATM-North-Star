@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include <text_animation.h>
+
 class QTimer;
 
 namespace Ui {
@@ -16,11 +18,18 @@ class ExitWidget : public QWidget {
   explicit ExitWidget(QWidget* parent = nullptr);
   ~ExitWidget();
 
+ signals:
+  void EndText();
+
+ public slots:
+  void AnimateText();
+
  private:
   void SetInitialProperties();
 
   Ui::ExitWidget* ui = nullptr;
   QTimer* timer_ = nullptr;
+  TextAnimation* text_animation_ = nullptr;
 };
 
 #endif  // EXIT_WIDGET_H

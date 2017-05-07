@@ -82,6 +82,11 @@ background:rgb(32, 74, 135);
      <height>80</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
 background: rgb(21, 24, 46);
@@ -93,7 +98,7 @@ border-radius: 3px;
 </string>
    </property>
    <property name="text">
-    <string>...</string>
+    <string>Shutdown ATM?</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
