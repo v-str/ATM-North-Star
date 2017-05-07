@@ -1,7 +1,5 @@
-#ifndef DEMO_USER_MESSANGER_H
+﻿#ifndef DEMO_USER_MESSANGER_H
 #define DEMO_USER_MESSANGER_H
-
-#include "console_editor.h"
 
 class DemoMessanger {
  public:
@@ -31,8 +29,6 @@ class DemoMessanger {
   void ShowDemoCreditAppMessage() const;
   void ShowDemoWidthdrawalMessage() const;
   void ShowDemoStatementMessage() const;
-
-  ConsoleEditor console_editor_;
 };
 
 #endif  // DEMO_USER_MESSANGER_H
