@@ -5,20 +5,20 @@
 
 class AccountMessenger {
  public:
-  void DisplayStrip() const;
-  void DisplayInfoLine(const std::string& info_title,
-                       const std::string& info_line) const;
+  static void DisplayStrip();
+  static void DisplayInfoLine(const std::string& info_title,
+                              const std::string& info_line);
 
-  std::string LoginText() const { return "Login: "; }
-  std::string PasswordText() const { return "Password: "; }
-  std::string BalanceText() const { return "Balance: $"; }
-  std::string CreditText() const { return "Credit: $"; }
-  std::string PaymentText() const { return "Monthly payment: $"; }
-  std::string TermText() const { return "Credit term: "; }
+  static std::string LoginText() { return "Login: "; }
+  static std::string PasswordText() { return "Password: "; }
+  static std::string BalanceText() { return "Balance: $"; }
+  static std::string CreditText() { return "Credit: $"; }
+  static std::string PaymentText() { return "Monthly payment: $"; }
+  static std::string TermText() { return "Credit term: "; }
 
  private:
-  const int kNTimes = 45;
-  const int kSleep = 100;
+  static constexpr int kNTimes = 45;
+  static constexpr int kSleep = 100;
 };
 
 #endif  // ACCOUNT_MESSENGER_H

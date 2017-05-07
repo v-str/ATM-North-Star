@@ -4,8 +4,6 @@
 #include <sstream>
 #include <string>
 
-#include <account_messenger.h>
-
 class InformationScreen {
  public:
   void DisplayLogin(const std::string& login) const;
@@ -15,8 +13,8 @@ class InformationScreen {
   void DisplayPayment(double payment) const;
   void DisplayCreditMonth(int credit_month) const;
 
-  void DisplayInfoLine(const std::string& info_title,
-                       const std::string& info_line) const;
+  void DisplayLine(const std::string& info_title,
+                   const std::string& info_line) const;
 
  private:
   template <typename T>
@@ -27,14 +25,12 @@ class InformationScreen {
 
   static const int kNTimes = 45;
   static const int kSleep = 100;
-
-  AccountMessenger account_messenger_;
 };
 
 template <typename T>
 void InformationScreen::DisplayUserInformation(const std::string& info_title,
                                                const T& value) const {
-  DisplayInfoLine(info_title, ConvertToString(value));
+  DisplayLine(info_title, ConvertToString(value));
 }
 
 template <typename T>
