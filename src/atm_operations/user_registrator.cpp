@@ -1,11 +1,12 @@
 ﻿#include <user_registrator.h>
 
 #include <identification_messenger.h>
+#include <registration_messenger.h>
 
 void UserRegistrator::RegisterUser(AtmUser& atm_user) {
   set_is_correct_registration(false);
 
-  registation_messenger_.ShowRegistrationScreen();
+  RegistrationMessenger::ShowRegistrationScreen();
 
   EnterLogin(atm_user);
   if (atm_user.IsNormalLogin()) {

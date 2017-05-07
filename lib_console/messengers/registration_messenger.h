@@ -3,7 +3,7 @@
 
 class RegistrationMessenger {
  public:
-  void ShowRegistrationScreen();
+  static void ShowRegistrationScreen();
 };
 
 #endif  // REGISTRATION_MESSENGER_H

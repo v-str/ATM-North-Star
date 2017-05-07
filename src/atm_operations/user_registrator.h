@@ -3,7 +3,6 @@
 
 #include <atm_user.h>
 #include <notice_messenger.h>
-#include <registration_messenger.h>
 #include <user_identification_data_provider.h>
 
 class UserRegistrator {
@@ -20,7 +19,6 @@ class UserRegistrator {
 
   bool correct_registration_ = false;
 
-  RegistrationMessenger registation_messenger_;
   UserIdentificationDataProvider provider_;
   NoticeMessenger notice_messenger_;
 };
