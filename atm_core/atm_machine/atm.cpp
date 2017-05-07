@@ -38,6 +38,8 @@ bool Atm::WithdrawCash(int withdrawal_cash) {
   return false;
 }
 
+void Atm::RefillCash(int refill_cash) { user_.AddCash(refill_cash); }
+
 bool Atm::IsWithdrawalAcceptable(int withdrawal_sum) const {
   return user_.Cash() >= withdrawal_sum;
 }

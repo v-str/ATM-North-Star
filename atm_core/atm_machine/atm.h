@@ -20,6 +20,7 @@ class Atm {
   std::string AccountInfo(Atm::AccountData account_data);
   std::string Statement();
   bool WithdrawCash(int withdrawal_cash);
+  void RefillCash(int refill_cash);
 
  private:
   bool IsWithdrawalAcceptable(int withdrawal_sum) const;
