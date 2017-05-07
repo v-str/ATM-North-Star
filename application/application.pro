@@ -11,8 +11,7 @@ DEPENDPATH += \
     ../lib_console/output_configuration \
     ../lib_gui/atm_splash_screen \
     ../atm_core/credit_department \
-    ../console_mode \
-    ../gui_mode \
+    ../lib_gui/atm_splash_screen \
 
 INCLUDEPATH += \
     ../lib_console/messengers \
@@ -25,6 +24,9 @@ INCLUDEPATH += \
     $$PWD/input \ #deprecated code, should be remade
     $$PWD/application_management \ #deprecated code, should be remade
     $$PWD/mode_selection \
+    $$PWD/console_mode \
+    $$PWD/gui_mode \
+
 
 HEADERS += \
     $$PWD/atm_operations/*.h \
@@ -32,6 +34,8 @@ HEADERS += \
     $$PWD/user_data/*.h \
     $$PWD/input/*.h \
     $$PWD/mode_selection/*.h \
+    $$PWD/console_mode/*.h \
+    $$PWD/gui_mode/*.h \
 
 SOURCES += \
     $$PWD/atm_operations/*.cpp \
@@ -39,6 +43,8 @@ SOURCES += \
     $$PWD/user_data/*.cpp \
     $$PWD/input/*.cpp \
     $$PWD/mode_selection/*.cpp \
+    $$PWD/console_mode/*.cpp \
+    $$PWD/gui_mode/*.cpp \
 
 LIBS += \
     -L$$OUT_PWD/../lib_console -llib_console \

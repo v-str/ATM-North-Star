@@ -29,17 +29,18 @@ class AtmSplashScreen : public QMainWindow {
   void SetBackgroundColor(
       const QString& background_color = "rgb(115, 210, 22)");
 
+ signals:
+  void BlinkColor();
+
  public slots:
   void AtmBlinkColor();
   void ChangeTimeDate();
-
- signals:
-  void BlinkColor();
 
  protected:
   void keyPressEvent(QKeyEvent* event);
 
  private:
+  void InitialSettings();
   void SetWidgetAppearance();
   void SetConnections();
   void InitializeObjects();

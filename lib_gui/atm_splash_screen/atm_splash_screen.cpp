@@ -18,6 +18,7 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
 
   InitializeObjects();
   SetWidgetAppearance();
+  InitialSettings();
   SetConnections();
   RunTimers();
 }
@@ -78,6 +79,13 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
       break;
   }
   QWidget::keyPressEvent(event);
+}
+
+void AtmSplashScreen::InitialSettings() {
+  SetCompanyName();
+  SetTextColor();
+  SetAtmBlinkColor();
+  SetBackgroundImage();
 }
 
 void AtmSplashScreen::SetWidgetAppearance() {

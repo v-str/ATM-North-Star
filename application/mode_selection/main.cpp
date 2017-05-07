@@ -1,8 +1,8 @@
 ﻿#include <QApplication>
 
-#include "atm_splash_screen.h"
-#include "console_mode.h"
-#include "mode_selector.h"
+#include <console_mode.h>
+#include <gui_mode.h>
+#include <mode_selector.h>
 
 int main(int argc, char* argv[]) {
   QApplication app(argc, argv);
@@ -14,14 +14,14 @@ int main(int argc, char* argv[]) {
   mode_selector.SuggestMode();
 
   ConsoleMode console_mode;
-  AtmSplashScreen splash_screen;
+  GuiMode gui_mode;
 
   switch (mode_selector.GetMode()) {
     case kConsoleMode:
       console_mode.RunInitialScreen();
       break;
     case kGuiMode:
-      splash_screen.show();
+      gui_mode.RunInitialScreen();
       app.exec();
       break;
     default:
