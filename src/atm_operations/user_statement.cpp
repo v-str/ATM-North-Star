@@ -2,13 +2,14 @@
 
 #include <atm_user.h>
 #include <console_editor.h>
+#include <statement_messenger.h>
 
 void UserStatement::ShowStatementFor(AtmUser* atm_user) {
   ConsoleEditor::AddEmptyLineNTimes(2);
   ConsoleEditor::ClearScreen();
   string spaces = GetSpaces(atm_user->Cash());
   int cash = atm_user->Cash();
-  statement_messenger_.ShowStatement(cash, spaces);
+  StatementMessenger::ShowStatement(cash, spaces);
 }
 
 UserStatement::string UserStatement::GetSpaces(int convertation_cash_to_space) {

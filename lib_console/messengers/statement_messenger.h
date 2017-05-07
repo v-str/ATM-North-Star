@@ -5,7 +5,7 @@
 
 class StatementMessenger {
  public:
-  void ShowStatement(int cash, const std::string& spaces) const;
+  static void ShowStatement(int cash, const std::string& spaces);
 };
 
 #endif  // STATEMENT_MESSENGER_H

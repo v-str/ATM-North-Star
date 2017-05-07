@@ -4,7 +4,6 @@
 #include <string>
 
 #include <input/user_input.h>
-#include <statement_messenger.h>
 
 class AtmUser;
 
@@ -20,8 +19,6 @@ class UserStatement {
 
   static string GetSpaces(int convertation_cash_to_space);
   static int NumberOfDigits(int value);
-
-  StatementMessenger statement_messenger_;
 };
 
 #endif  // USER_STATEMENT_H

@@ -2,8 +2,7 @@
 
 #include <console_editor.h>
 
-void StatementMessenger::ShowStatement(int cash,
-                                       const std::string& spaces) const {
+void StatementMessenger::ShowStatement(int cash, const std::string& spaces) {
   ConsoleEditor::WriteText(
       "\t##################\n"
       "\t#                #\n"
