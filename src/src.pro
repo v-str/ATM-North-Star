@@ -22,21 +22,21 @@ INCLUDEPATH += \
     $$PWD/user_data \
     $$PWD/input \
     $$PWD/application_management \
-    $$PWD/interface_management \
+    $$PWD/mode_switcher \
 
 HEADERS += \
     $$PWD/atm_operations/*.h \
     $$PWD/atm_operations/credit_operations/*.h \
     $$PWD/user_data/*.h \
     $$PWD/input/*.h \
-    $$PWD/interface_management/*.h \
+    $$PWD/mode_switcher/*.h \
 
 SOURCES += \
     $$PWD/atm_operations/*.cpp \
     $$PWD/atm_operations/credit_operations/*.cpp \
     $$PWD/user_data/*.cpp \
     $$PWD/input/*.cpp \
-    $$PWD/interface_management/*.cpp \
+    $$PWD/mode_switcher/*.cpp \
 
 LIBS += \
     -L$$OUT_PWD/../lib_console -llib_console \
