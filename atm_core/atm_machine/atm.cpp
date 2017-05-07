@@ -1,7 +1,9 @@
 ﻿#include "atm.h"
 
 #include <account_informator.h>
+#include <refill.h>
 #include <user_registrator.h>
+#include <withdrawal.h>
 
 void Atm::RegisterUser(const std::string& login, const std::string& password) {
   UserRegistrator::RegisterUser(&user_, login, password);
@@ -25,7 +27,9 @@ std::string Atm::AccountInfo(Atm::AccountData account_data) {
   }
 }
 
-void Atm::RefillCash(int refill_cash) { user_.AddCash(refill_cash); }
+void Atm::RefillCash(int refill_cash) {
+  Refill::RefillCash(user_, refill_cash);
+}
 
 bool Atm::WithdrawCash(int withdrawal_cash) {
   if (IsWithdrawalAcceptable(withdrawal_cash)) {
