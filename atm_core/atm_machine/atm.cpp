@@ -28,12 +28,12 @@ std::string Atm::AccountInfo(Atm::AccountData account_data) {
 }
 
 void Atm::RefillCash(int refill_cash) {
-  Refill::RefillCash(user_, refill_cash);
+  Refill::RefillCash(&user_, refill_cash);
 }
 
 bool Atm::WithdrawCash(int withdrawal_cash) {
   if (IsWithdrawalAcceptable(withdrawal_cash)) {
-    user_.WithdrawCash(withdrawal_cash);
+    Withdrawal::WithdrawCashFrom(&user_, withdrawal_cash);
     return true;
   }
   return false;
