@@ -26,7 +26,7 @@ void Withdrawal::WithdrawCashFrom(AtmUser* atm_user) {
   }
 }
 
-int Withdrawal::GetSumOfWithdrawal() const {
+int Withdrawal::GetSumOfWithdrawal() {
   WithdrawalMessenger::EnterSumOfWithdrawal();
   int withdraw_sum = user_input_.GetValueFromUser();
   return withdraw_sum;

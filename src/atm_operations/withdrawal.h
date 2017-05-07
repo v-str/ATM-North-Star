@@ -21,9 +21,10 @@ class Withdrawal {
 
   static constexpr int kNull = 0;
 
-  int GetSumOfWithdrawal() const;
+  static int GetSumOfWithdrawal();
 
-  UserInput user_input_;
+  static UserInput user_input_;
+
   NoticeMessenger notice_messenger_;
 };
 
