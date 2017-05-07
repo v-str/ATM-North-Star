@@ -1,7 +1,5 @@
-#ifndef IDENTIFICATION_MESSENGER_H
+﻿#ifndef IDENTIFICATION_MESSENGER_H
 #define IDENTIFICATION_MESSENGER_H
-
-#include "console_editor.h"
 
 class IdentificationMessenger {
  public:
@@ -9,11 +7,9 @@ class IdentificationMessenger {
   void ShowInitialPasswordText() const;
 
  private:
-  static const int kMaxLenghtOfLogin = 21;
-  static const int kMaxLenghtOfPassword = 4;
-  static const int kDelay = 50;
-
-  ConsoleEditor console_editor_;
+  static constexpr int kMaxLenghtOfLogin = 21;
+  static constexpr int kMaxLenghtOfPassword = 4;
+  static constexpr int kDelay = 50;
 };
 
 #endif  // IDENTIFICATION_MESSENGER_H
