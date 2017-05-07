@@ -1,33 +1,8 @@
-﻿65. Give a credit section more strictly and clarity appearance. -
+﻿﻿78. Implement key event on key Enter, Space, Escape. +
 
-66. Add credit table for best look. -
+79. Slide mainframe with belongs to him widgets -
 
--------------------------------------------------------------------------
-
-67. Remove const qualifier from standard types. -
-
-68. Gathering information separate from way of showing to user. -
-
-69. Assignment of credit only after user confirmation. -
-
--------------------------------------------------------------------------
-
-70. Continue credit calculation with simultaneous assignment in credit data. -
-
--------------------------------------------------------------------------
-
-76. Implement separate independent module atm_core.
-
-77. Continue amt_core.
-
-79. How to implement in atm machine facade access to:
-- account information +
-- credit calculation and further enrolling  !!!
-- statement information +
-
-80. Realize validation of refilling sum +
-
-81. Realize validation of withdrawal sum +
+80. How to block key Space -
 
 82. Continue adding of atm operations into atm class +
 

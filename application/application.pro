@@ -9,7 +9,7 @@ QMAKE_CXX = ccache g++
 DEPENDPATH += \
     ../lib_console/messengers \
     ../lib_console/output_configuration \
-    ../lib_gui \
+    ../lib_gui/atm_splash_screen \
     ../atm_core/credit_department \
     ../console_mode \
     ../gui_mode \
@@ -17,7 +17,7 @@ DEPENDPATH += \
 INCLUDEPATH += \
     ../lib_console/messengers \
     ../lib_console/output_configuration \
-    ../lib_gui \
+    ../lib_gui/atm_splash_screen \
     ../atm_core/credit_department \
     $$PWD/atm_operations \ #deprecated code, should be remade
     $$PWD/atm_operations/credit_operations \ #deprecated code, should be remade

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/north_star_background.jpg</file>
+    </qresource>
+</RCC>
