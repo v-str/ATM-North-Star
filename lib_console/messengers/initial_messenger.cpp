@@ -1,5 +1,6 @@
-﻿#include <console_editor_duplicate.h>
-#include <initial_messenger.h>
+﻿#include <initial_messenger.h>
+
+#include <console_editor_duplicate.h>
 
 void InitialMessenger::DisplayInitialScreen() {
   DisplayLogotype();

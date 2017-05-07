@@ -21,7 +21,7 @@ class DemoMessanger {
   void ShowDemoMenu() const;
 
  private:
-  static const int kSleep = 100;
+  static constexpr int kSleep = 100;
 
   void ShowWelcomeDemoMessage() const;
   void ShowDemoAccountInfoMessage() const;

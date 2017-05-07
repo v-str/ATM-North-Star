@@ -7,7 +7,6 @@ class InitialMessenger {
 
  private:
   void DisplayInitialMenu() const;
-
   void DisplayLogotype();
 };
 

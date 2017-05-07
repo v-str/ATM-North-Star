@@ -4,8 +4,6 @@
 class RegistrationMessenger {
  public:
   void ShowRegistrationScreen();
-
- private:
 };
 
 #endif  // REGISTRATION_MESSENGER_H

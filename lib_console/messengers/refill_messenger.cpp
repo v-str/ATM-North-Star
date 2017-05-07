@@ -1,5 +1,6 @@
-﻿#include <console_editor_duplicate.h>
-#include <refill_messenger.h>
+﻿#include <refill_messenger.h>
+
+#include <console_editor_duplicate.h>
 
 void RefillMessenger::ShowNotifyAboutCash() const {
   ConsoleEditorDuplicate::WriteText("\t");

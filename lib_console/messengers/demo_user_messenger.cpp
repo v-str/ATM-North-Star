@@ -1,5 +1,6 @@
-﻿#include <console_editor_duplicate.h>
-#include <demo_user_messenger.h>
+﻿#include <demo_user_messenger.h>
+
+#include <console_editor_duplicate.h>
 
 void DemoMessanger::ShowMessage(DemoMessanger::MessageType message_type) const {
   ConsoleEditorDuplicate::AddEmptyLineNTimes(2);

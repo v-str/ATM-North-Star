@@ -1,5 +1,6 @@
-﻿#include <console_editor_duplicate.h>
-#include <identification_messenger.h>
+﻿#include <identification_messenger.h>
+
+#include <console_editor_duplicate.h>
 
 void IdentificationMessenger::ShowInitialLoginText() const {
   ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol("\n\n\n\tLogin: ",

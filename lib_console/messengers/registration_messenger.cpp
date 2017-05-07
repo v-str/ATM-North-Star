@@ -1,5 +1,6 @@
-﻿#include <console_editor_duplicate.h>
-#include <registration_messenger.h>
+﻿#include <registration_messenger.h>
+
+#include <console_editor_duplicate.h>
 
 void RegistrationMessenger::ShowRegistrationScreen() {
   ConsoleEditorDuplicate::AddEmptyLineNTimes(2);

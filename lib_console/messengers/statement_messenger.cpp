@@ -1,8 +1,10 @@
-#include "statement_messenger.h"
+﻿#include <statement_messenger.h>
+
+#include <console_editor_duplicate.h>
 
 void StatementMessenger::ShowStatement(int cash,
-                                       const std::string &spaces) const {
-  console_editor_.WriteText(
+                                       const std::string& spaces) const {
+  ConsoleEditorDuplicate::WriteText(
       "\t##################\n"
       "\t#                #\n"
       "\t#  28 Green st.  #\n"

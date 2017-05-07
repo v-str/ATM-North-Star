@@ -1,5 +1,6 @@
-﻿#include <console_editor_duplicate.h>
-#include <notice_messenger.h>
+﻿#include <notice_messenger.h>
+
+#include <console_editor_duplicate.h>
 
 void NoticeMessenger::ShowAcceptableMessageFrame() const {
   ConsoleEditorDuplicate::ClearScreen();

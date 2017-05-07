@@ -13,8 +13,6 @@ class RefillMessenger {
   void ShowUserBalance(int balance) const;
   void WriteUserInfo(const std::string& info_title,
                      const std::string& value) const;
-
- private:
 };
 
 #endif  // REFILL_MESSENGER_H
