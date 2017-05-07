@@ -3,7 +3,6 @@
 
 #include <iostream>
 
-#include <notice_messenger.h>
 #include <refill_messenger.h>
 #include <user_input.h>
 
@@ -19,7 +18,6 @@ class Refill {
   static constexpr int maximal_refill = 50000;
 
   RefillMessenger refill_messenger_;
-  NoticeMessenger notice_messenger_;
   UserInput user_input_;
 };
 

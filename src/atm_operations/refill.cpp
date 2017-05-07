@@ -2,6 +2,7 @@
 
 #include <atm_user.h>
 #include <console_editor.h>
+#include <notice_messenger.h>
 
 void Refill::StartRefillOperationFor(AtmUser* atm_user) {
   ConsoleEditor::AddEmptyLineNTimes(2);
@@ -12,6 +13,6 @@ void Refill::StartRefillOperationFor(AtmUser* atm_user) {
     atm_user->AddCash(money);
     refill_messenger_.ShowUserBalance(atm_user->Cash());
   } else {
-    notice_messenger_.ShowIncorrectSum();
+    NoticeMessenger::ShowIncorrectSum();
   }
 }

@@ -3,14 +3,14 @@
 
 class NoticeMessenger {
  public:
-  void ShowAcceptableMessageFrame() const;
-  void ShowIncorrectLoginFrame() const;
+  static void ShowAcceptableMessageFrame();
+  static void ShowIncorrectLoginFrame();
 
-  void ShowIncorrectFormatPassword() const;
-  void ShowIncorrectSum() const;
-  void ShowUnacceptableWithdrawal(int amount_of_cash) const;
-  void ShowError() const;
-  void ShowSumCreditInfo() const;
+  static void ShowIncorrectFormatPassword();
+  static void ShowIncorrectSum();
+  static void ShowUnacceptableWithdrawal(int amount_of_cash);
+  static void ShowError();
+  static void ShowSumCreditInfo();
 
  private:
   static constexpr int kSecond = 1000;

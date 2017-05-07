@@ -2,7 +2,7 @@
 
 #include <console_editor.h>
 
-void NoticeMessenger::ShowAcceptableMessageFrame() const {
+void NoticeMessenger::ShowAcceptableMessageFrame() {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText("\n\n\t\t");
   ConsoleEditor::WriteSymbolsNTimes("-", kAccessFrame);
@@ -14,7 +14,7 @@ void NoticeMessenger::ShowAcceptableMessageFrame() const {
   ConsoleEditor::Sleep(kSecond);
 }
 
-void NoticeMessenger::ShowIncorrectLoginFrame() const {
+void NoticeMessenger::ShowIncorrectLoginFrame() {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText("\t|");
   ConsoleEditor::WriteSymbolsNTimes("-", kIncorrectDataFrame);
@@ -28,7 +28,7 @@ void NoticeMessenger::ShowIncorrectLoginFrame() const {
   ConsoleEditor::WriteText("|\n\n");
 }
 
-void NoticeMessenger::ShowIncorrectFormatPassword() const {
+void NoticeMessenger::ShowIncorrectFormatPassword() {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText("\n\n\n\n\t|");
   ConsoleEditor::WriteSymbolsNTimes("-", kIncorrectDataFrame);
@@ -42,28 +42,27 @@ void NoticeMessenger::ShowIncorrectFormatPassword() const {
   ConsoleEditor::WriteText("|\n\n\t\t\t");
 }
 
-void NoticeMessenger::ShowIncorrectSum() const {
+void NoticeMessenger::ShowIncorrectSum() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\tIncorrect sum, Reconnect to repeat.\n\n");
 }
 
-void NoticeMessenger::ShowUnacceptableWithdrawal(int amount_of_cash) const {
+void NoticeMessenger::ShowUnacceptableWithdrawal(int amount_of_cash) {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\t# Sorry, entered sum is incorrect.\n\n");
-  ConsoleEditor::WriteText("\t# Balance: " +
-                                    std::to_string(amount_of_cash) + "\n\n\t");
+  ConsoleEditor::WriteText("\t# Balance: " + std::to_string(amount_of_cash) +
+                           "\n\n\t");
 
   ConsoleEditor::WriteSymbolsNTimes("-", kFrame);
   ConsoleEditor::Sleep(kSleep);
 }
 
-void NoticeMessenger::ShowError() const {
-  ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\nData is not correct.\n\n");
+void NoticeMessenger::ShowError() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\nData is not correct.\n\n");
 }
 
-void NoticeMessenger::ShowSumCreditInfo() const {
+void NoticeMessenger::ShowSumCreditInfo() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\nThe entered sum should not\n"
       "exceed the allowed credit.\n\n"
