@@ -1,9 +1,9 @@
 ﻿#include <demo_user_messenger.h>
 
-#include <console_editor_duplicate.h>
+#include <console_editor.h>
 
 void DemoMessanger::ShowMessage(DemoMessanger::MessageType message_type) const {
-  ConsoleEditorDuplicate::AddEmptyLineNTimes(2);
+  ConsoleEditor::AddEmptyLineNTimes(2);
 
   switch (message_type) {
     case kWelcome:
@@ -31,8 +31,8 @@ void DemoMessanger::ShowMessage(DemoMessanger::MessageType message_type) const {
 }
 
 void DemoMessanger::ShowWelcomeDemoMessage() const {
-  ConsoleEditorDuplicate::ClearScreen();
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
+  ConsoleEditor::ClearScreen();
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
       "# Welcome to demo mode. This chapter\n"
       "# contains basic information about ATM North Star.\n\n"
       "# First of all, look at the main menu:\n"
@@ -40,7 +40,7 @@ void DemoMessanger::ShowWelcomeDemoMessage() const {
 }
 
 void DemoMessanger::ShowDemoMenu() const {
-  ConsoleEditorDuplicate::WriteText(
+  ConsoleEditor::WriteText(
       "\n\n\t################ Demo Transaction menu ###################\n"
       "\t#                                                        #\n"
       "\t#  1. Account information            2. Refill           #\n"
@@ -56,32 +56,31 @@ void DemoMessanger::ShowDemoMenu() const {
 }
 
 void DemoMessanger::ShowDemoAccountInfoMessage() const {
-  ConsoleEditorDuplicate::AddEmptyLineNTimes(3);
-  ConsoleEditorDuplicate::ClearScreen();
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
+  ConsoleEditor::AddEmptyLineNTimes(3);
+  ConsoleEditor::ClearScreen();
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
       "# This section show your account information.\n"
       "# For example, it's look like this:\n\n");
-  ConsoleEditorDuplicate::WriteTextWithInterrupt(
+  ConsoleEditor::WriteTextWithInterrupt(
       "--------------------------------------------\n# Login: Mr. Anderson\n",
       kSleep);
-  ConsoleEditorDuplicate::WriteTextWithInterrupt("# Password: 7623\n", kSleep);
-  ConsoleEditorDuplicate::WriteTextWithInterrupt("# Credit $: 20000\n", kSleep);
-  ConsoleEditorDuplicate::WriteTextWithInterrupt("# Monthly payment $: 2280\n",
-                                                 kSleep);
-  ConsoleEditorDuplicate::WriteTextWithInterrupt(
+  ConsoleEditor::WriteTextWithInterrupt("# Password: 7623\n", kSleep);
+  ConsoleEditor::WriteTextWithInterrupt("# Credit $: 20000\n", kSleep);
+  ConsoleEditor::WriteTextWithInterrupt("# Monthly payment $: 2280\n", kSleep);
+  ConsoleEditor::WriteTextWithInterrupt(
       "# Credit term: 20 "
       "month(s)\n--------------------------------------------\n\n",
       kSleep);
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
       "# As you can see, your account may contain different data like\n"
       "# balance or credit balance, almost you can see more details such as\n"
       "# how many month you must to pay a loan  etc.\n\n");
 }
 
 void DemoMessanger::ShowInfoAboutRefillMessage() const {
-  ConsoleEditorDuplicate::AddEmptyLineNTimes(3);
-  ConsoleEditorDuplicate::ClearScreen();
-  ConsoleEditorDuplicate::WriteTextWithInterrupt(
+  ConsoleEditor::AddEmptyLineNTimes(3);
+  ConsoleEditor::ClearScreen();
+  ConsoleEditor::WriteTextWithInterrupt(
       "# In this section user may refill balance\n"
       "# on any sum from 10 to 50000 dollars.\n"
       "# You can enter any sum such as 100 or 1005.66.\n"
@@ -89,7 +88,7 @@ void DemoMessanger::ShowInfoAboutRefillMessage() const {
       "# transfer from another account.\n\n"
       "# For example, refill account is look like this:\n",
       kSleep);
-  ConsoleEditorDuplicate::WriteText(
+  ConsoleEditor::WriteText(
       "-----------------------------------------------\n"
       " Entered sum: 1700 $\n"
       "-----------------------------------------------\n"
@@ -97,9 +96,9 @@ void DemoMessanger::ShowInfoAboutRefillMessage() const {
 }
 
 void DemoMessanger::ShowDemoCreditAppMessage() const {
-  ConsoleEditorDuplicate::AddEmptyLineNTimes(3);
-  ConsoleEditorDuplicate::ClearScreen();
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
+  ConsoleEditor::AddEmptyLineNTimes(3);
+  ConsoleEditor::ClearScreen();
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
       "# Our bank may allow you to get a loan in the amount\n"
       "# of not more than 15x of your cash on account at the\n"
       "# moment.\n\n"
@@ -109,40 +108,40 @@ void DemoMessanger::ShowDemoCreditAppMessage() const {
 }
 
 void DemoMessanger::ShowDemoWidthdrawalMessage() const {
-  ConsoleEditorDuplicate::AddEmptyLineNTimes(3);
-  ConsoleEditorDuplicate::ClearScreen();
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
+  ConsoleEditor::AddEmptyLineNTimes(3);
+  ConsoleEditor::ClearScreen();
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
       "# Withdrawal happens to your existing account.\n"
       "# Optionally, you can withdraw the entire amount at\n"
       "# once or choose the amount that you need to be.\n");
 }
 
 void DemoMessanger::ShowDemoStatementMessage() const {
-  ConsoleEditorDuplicate::AddEmptyLineNTimes(3);
-  ConsoleEditorDuplicate::ClearScreen();
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
+  ConsoleEditor::AddEmptyLineNTimes(3);
+  ConsoleEditor::ClearScreen();
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
       "# Standart statement which contain information\n"
       "# about your cash.\n");
 }
 
 void DemoMessanger::ShowDemoMenuAgain() const {
-  ConsoleEditorDuplicate::ClearScreen();
+  ConsoleEditor::ClearScreen();
   ShowDemoMenu();
 }
 
 void DemoMessanger::ShowIncorrectInput() const {
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\t# Incorrect input, please try again:\n"
       "\t# Enter: ");
 }
 
 void DemoMessanger::ShowIncorrectMenuInput() const {
-  ConsoleEditorDuplicate::ClearScreen();
+  ConsoleEditor::ClearScreen();
   ShowIncorrectInput();
 }
 
 void DemoMessanger::SuggestExit() const {
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\t# 1. Exit to main page.\n"
       "\t# 2. Exit program.\n"
       "\t# Enter: ");

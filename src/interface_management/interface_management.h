@@ -1,7 +1,7 @@
 ﻿#ifndef INTERFACE_MANAGER_H
 #define INTERFACE_MANAGER_H
 
-#include "user_input.h"
+#include <user_input.h>
 
 class InterfaceManager {
  public:

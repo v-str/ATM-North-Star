@@ -4,27 +4,27 @@
 #include <sstream>
 #include <string>
 
-#include "text_writer.h"
+#include <text_writer.h>
 
 class ConsoleEditor {
  public:
-  void ClearScreen() const;
+  static void ClearScreen();
 
-  void Sleep(int latency_ms = 15) const;
-  void IgnoreCinLine() const;
-  void WriteTextWithDelayPerSymbol(const std::string& text,
-                                   int delay = 5) const;
-  void WriteSymbolsNTimes(const std::string& symbol, int n) const;
-  void AddEmptyLineNTimes(int amount_of_empty_lines) const;
-  void WriteText(const std::string& text) const;
-  void WriteTextWithInterrupt(const std::string& text, int interrupt) const;
+  static void Sleep(int latency_ms = 15);
+  static void IgnoreCinLine();
+  static void WriteTextWithDelayPerSymbol(const std::string& text,
+                                          int delay = 5);
+  static void WriteSymbolsNTimes(const std::string& symbol, int n);
+  static void AddEmptyLineNTimes(int amount_of_empty_lines);
+  static void WriteText(const std::string& text);
+  static void WriteTextWithInterrupt(const std::string& text, int interrupt);
 
   template <typename T>
-  std::string ConvertValueToString(const T& value) const;
+  static std::string ConvertValueToString(const T& value);
 };
 
 template <typename T>
-std::string ConsoleEditor::ConvertValueToString(const T& value) const {
+std::string ConsoleEditor::ConvertValueToString(const T& value) {
   std::stringstream stream;
   stream << value;
   return stream.str();

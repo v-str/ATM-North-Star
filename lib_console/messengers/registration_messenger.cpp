@@ -1,11 +1,11 @@
 ﻿#include <registration_messenger.h>
 
-#include <console_editor_duplicate.h>
+#include <console_editor.h>
 
 void RegistrationMessenger::ShowRegistrationScreen() {
-  ConsoleEditorDuplicate::AddEmptyLineNTimes(2);
-  ConsoleEditorDuplicate::ClearScreen();
-  ConsoleEditorDuplicate::WriteText(
+  ConsoleEditor::AddEmptyLineNTimes(2);
+  ConsoleEditor::ClearScreen();
+  ConsoleEditor::WriteText(
       "\n\t   ********************\n"
       "\t   *   REGISTRATION   *\n"
       "\t   ********************\n\n");

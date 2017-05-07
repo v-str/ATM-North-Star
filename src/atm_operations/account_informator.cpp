@@ -1,11 +1,11 @@
 ﻿#include <account_informator.h>
 
 #include <atm_user.h>
-#include <console_editor_duplicate.h>
+#include <console_editor.h>
 
 void AccountInformator::DisplayAccountInformationFor(AtmUser* atm_user) {
-  ConsoleEditorDuplicate::AddEmptyLineNTimes(2);
-  ConsoleEditorDuplicate::ClearScreen();
+  ConsoleEditor::AddEmptyLineNTimes(2);
+  ConsoleEditor::ClearScreen();
   screen_.DisplayLogin(atm_user->Login());
   screen_.DisplayPassword(atm_user->Password());
   screen_.DisplayCash(atm_user->Cash());

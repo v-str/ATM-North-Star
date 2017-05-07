@@ -22,6 +22,7 @@ INCLUDEPATH += \
     $$PWD/user_data \
     $$PWD/input \
     $$PWD/application_management \
+    $$PWD/interface_management \
 
 HEADERS += \
     $$PWD/atm_operations/*.h \

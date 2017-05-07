@@ -1,11 +1,11 @@
 ﻿#include <withdrawal.h>
 
 #include <atm_user.h>
-#include <console_editor_duplicate.h>
+#include <console_editor.h>
 
 void Withdrawal::WithdrawCashFrom(AtmUser* atm_user) {
-  ConsoleEditorDuplicate::AddEmptyLineNTimes(2);
-  ConsoleEditorDuplicate::ClearScreen();
+  ConsoleEditor::AddEmptyLineNTimes(2);
+  ConsoleEditor::ClearScreen();
   int sum_of_withdrawal = GetSumOfWithdrawal();
   if (IsWithdrawalAcceptable(atm_user, sum_of_withdrawal)) {
     withdrawal_messenger_.ShowSumOfWithdrawal(sum_of_withdrawal);

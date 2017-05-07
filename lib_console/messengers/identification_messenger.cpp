@@ -1,12 +1,11 @@
 ﻿#include <identification_messenger.h>
 
-#include <console_editor_duplicate.h>
+#include <console_editor.h>
 
 void IdentificationMessenger::ShowInitialLoginText() const {
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol("\n\n\n\tLogin: ",
-                                                      kDelay);
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\n\n\tLogin: ", kDelay);
 }
 
 void IdentificationMessenger::ShowInitialPasswordText() const {
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol("\n\tPassword: ", kDelay);
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\tPassword: ", kDelay);
 }

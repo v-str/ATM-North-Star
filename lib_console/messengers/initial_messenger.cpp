@@ -1,6 +1,6 @@
 ﻿#include <initial_messenger.h>
 
-#include <console_editor_duplicate.h>
+#include <console_editor.h>
 
 void InitialMessenger::DisplayInitialScreen() {
   DisplayLogotype();
@@ -8,7 +8,7 @@ void InitialMessenger::DisplayInitialScreen() {
 }
 
 void InitialMessenger::DisplayLogotype() {
-  ConsoleEditorDuplicate::WriteText(
+  ConsoleEditor::WriteText(
       "---------------------------------------------\n"
       "-  ##   ## ####### ######  ######## ##  ##  -\n"
       "-  ###  ## ##   ## ##   ##    ##    ##  ##  -\n"
@@ -29,17 +29,16 @@ void InitialMessenger::DisplayLogotype() {
       "-     ##     ##     ##     ##   #   ##      -\n"
       "---------------------------------------------\n");
 
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\t         ATM #0001\n"
       "      28 Greene St, New York, NY 10012\n");
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
-      "\t      press \"Enter\"\n");
-  ConsoleEditorDuplicate::IgnoreCinLine();
-  ConsoleEditorDuplicate::ClearScreen();
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\t      press \"Enter\"\n");
+  ConsoleEditor::IgnoreCinLine();
+  ConsoleEditor::ClearScreen();
 }
 
 void InitialMessenger::DisplayInitialMenu() const {
-  ConsoleEditorDuplicate::WriteText(
+  ConsoleEditor::WriteText(
       "\n\n\n\n\t #######################\n"
       "\t #  1. Demo mode       #\n"
       "\t #  2. Registration    #\n"

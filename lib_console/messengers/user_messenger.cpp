@@ -1,11 +1,11 @@
 ﻿#include <user_messenger.h>
 
-#include <console_editor_duplicate.h>
+#include <console_editor.h>
 
 void UserMessenger::ShowMainMenu() {
-  ConsoleEditorDuplicate::AddEmptyLineNTimes(1);
-  ConsoleEditorDuplicate::ClearScreen();
-  ConsoleEditorDuplicate::WriteText(
+  ConsoleEditor::AddEmptyLineNTimes(1);
+  ConsoleEditor::ClearScreen();
+  ConsoleEditor::WriteText(
       "\n\t################ Transaction menu ##################\n"
       "\t#                                                  #\n"
       "\t# 1. Account information            2. Refill      #\n"
@@ -19,15 +19,14 @@ void UserMessenger::ShowMainMenu() {
 }
 
 void UserMessenger::ReRequestAboutExit() const {
-  ConsoleEditorDuplicate::AddEmptyLineNTimes(1);
-  ConsoleEditorDuplicate::ClearScreen();
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
-      "\t# Do you really want to exit?");
+  ConsoleEditor::AddEmptyLineNTimes(1);
+  ConsoleEditor::ClearScreen();
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\t# Do you really want to exit?");
 }
 
 void UserMessenger::WishAGoodDay() const {
-  ConsoleEditorDuplicate::AddEmptyLineNTimes(2);
-  ConsoleEditorDuplicate::WriteText(
+  ConsoleEditor::AddEmptyLineNTimes(2);
+  ConsoleEditor::WriteText(
       "\n\t####################\n"
       "\t#                  #\n"
       "\t# Have a nice day! #\n"
@@ -36,8 +35,8 @@ void UserMessenger::WishAGoodDay() const {
 }
 
 void UserMessenger::ShowMainMenu() const {
-  ConsoleEditorDuplicate::ClearScreen();
-  ConsoleEditorDuplicate::WriteText(
+  ConsoleEditor::ClearScreen();
+  ConsoleEditor::WriteText(
       "\n\t################ Transaction menu ##################\n"
       "\t#                                                  #\n"
       "\t# 1. Account information            2. Refill      #\n"
@@ -50,28 +49,28 @@ void UserMessenger::ShowMainMenu() const {
 }
 
 void UserMessenger::SuggestToExit() const {
-  ConsoleEditorDuplicate::AddEmptyLineNTimes(1);
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
+  ConsoleEditor::AddEmptyLineNTimes(1);
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\t# 1. Exit to main page.\n"
       "\t# 2. Exit program.\n"
       "\t# Enter: ");
 }
 
 void UserMessenger::ShowIncorrectInput() const {
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\t# Incorrect input, please try again", 10);
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol("...", 100);
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("...", 100);
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
 }
 
 void UserMessenger::ShowIncorrectMainMenuInput() const {
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\t# Incorrect input, please try again", 20);
-  ConsoleEditorDuplicate::Sleep(200);
+  ConsoleEditor::Sleep(200);
 }
 
 void UserMessenger::ShowIncorrectRegisterData() const {
-  ConsoleEditorDuplicate::WriteTextWithDelayPerSymbol(
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\tIncorrect input, "
       "\n\treload the program\n");
 }

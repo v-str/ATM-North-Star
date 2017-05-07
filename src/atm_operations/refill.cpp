@@ -1,11 +1,11 @@
 ﻿#include <refill.h>
 
 #include <atm_user.h>
-#include <console_editor_duplicate.h>
+#include <console_editor.h>
 
 void Refill::StartRefillOperationFor(AtmUser* atm_user) {
-  ConsoleEditorDuplicate::AddEmptyLineNTimes(2);
-  ConsoleEditorDuplicate::ClearScreen();
+  ConsoleEditor::AddEmptyLineNTimes(2);
+  ConsoleEditor::ClearScreen();
   refill_messenger_.ShowNotifyAboutCash();
   int money = user_input_.GetValueFromUser();
   if (money >= minimal_refill && money <= maximal_refill) {
