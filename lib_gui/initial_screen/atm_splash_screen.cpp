@@ -1,6 +1,8 @@
 ﻿#include "atm_splash_screen.h"
 #include "ui_atm_splash_screen.h"
 
+#include <memory>
+
 #include <QApplication>
 #include <QCoreApplication>
 
@@ -14,7 +16,6 @@
 AtmSplashScreen::AtmSplashScreen(QWidget* parent)
     : QMainWindow(parent),
       ui(new Ui::AtmSplashScreen),
-      exit_widget_(new ExitWidget),
       blink_color_one_("black"),
       blink_color_two_("grey") {
   ui->setupUi(this);
@@ -72,10 +73,14 @@ void AtmSplashScreen::ChangeTimeDate() {
   TimeDateChanger::ChangeTimeData(ui->timedate_label);
 }
 
+void AtmSplashScreen::ShowExitWidget() {
+  ExitWidget* exit_widget = new ExitWidget(this);
+  exit_widget->show();
+}
+
 void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
   switch (event->key()) {
     case Qt::Key_Escape:
-      this->close();
       emit ExitConfirmation();
     case Qt::Key_Space:
       event->ignore();
@@ -101,7 +106,7 @@ void AtmSplashScreen::SetConnections() {
   connect(this, SIGNAL(BlinkColor()), SLOT(AtmBlinkColor()));
   connect(color_swap_timer_, SIGNAL(timeout()), SLOT(AtmBlinkColor()));
   connect(time_date_timer_, SIGNAL(timeout()), SLOT(ChangeTimeDate()));
-  connect(this, SIGNAL(ExitConfirmation()), exit_widget_, SLOT(show()));
+  connect(this, SIGNAL(ExitConfirmation()), SLOT(ShowExitWidget()));
 }
 
 void AtmSplashScreen::InitializeObjects() {

@@ -7,7 +7,6 @@
 #include <QTimer>
 
 class TextColorSwapper;
-class ExitWidget;
 
 namespace Ui {
 class AtmSplashScreen;
@@ -37,6 +36,7 @@ class AtmSplashScreen : public QMainWindow {
  public slots:
   void AtmBlinkColor();
   void ChangeTimeDate();
+  void ShowExitWidget();
 
  protected:
   void keyPressEvent(QKeyEvent* event);
@@ -53,7 +53,6 @@ class AtmSplashScreen : public QMainWindow {
   QTimer* color_swap_timer_ = nullptr;
   QTimer* time_date_timer_ = nullptr;
   TextColorSwapper* color_swapper_ = nullptr;
-  ExitWidget* exit_widget_ = nullptr;
 
   QString blink_color_one_;
   QString blink_color_two_;

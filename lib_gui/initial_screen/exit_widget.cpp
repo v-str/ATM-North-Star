@@ -1,33 +1,22 @@
 ﻿#include <exit_widget.h>
 #include <ui_exit_widget.h>
 
-#include <QTimer>
+#include <QApplication>
 
 #include <initial_property_installer.h>
 
 ExitWidget::ExitWidget(QWidget* parent)
-    : QWidget(parent),
-      ui(new Ui::ExitWidget),
-      timer_(new QTimer),
-      text_animation_(new TextAnimation) {
+    : QWidget(parent), ui(new Ui::ExitWidget) {
   ui->setupUi(this);
-
-  connect(timer_, SIGNAL(timeout()), SLOT(AnimateText()));
-  connect(this, SIGNAL(EndText()), timer_, SLOT(stop()));
-
-  timer_->start();
+  SetInitialProperties();
+  SetConnections();
 }
 
-ExitWidget::~ExitWidget() {
-  delete ui;
-  delete timer_;
-  delete text_animation_;
-}
+ExitWidget::~ExitWidget() { delete ui; }
 
-void ExitWidget::AnimateText() {
-  if (!text_animation_->WriteTextWithDelay(ui->message_screen, timer_, 100)) {
-    emit EndText();
-  }
+void ExitWidget::SetConnections() {
+  connect(ui->button_yes, SIGNAL(clicked(bool)), qApp, SLOT(closeAllWindows()));
+  connect(ui->button_no, SIGNAL(clicked(bool)), SLOT(close()));
 }
 
 void ExitWidget::SetInitialProperties() {

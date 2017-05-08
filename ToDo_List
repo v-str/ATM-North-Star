@@ -12,6 +12,14 @@
 
 84. Make class ModeSelector like a simple class that maintain user input processing
 
+-------------------------------------------------------------------------
+------------------------- GUI MODE TASKS --------------------------------
+-------------------------------------------------------------------------
+
+85. Implement normal exit widget and normal class depenencies
+86. Refactor an existing code
+87. How to implement QFrame border color for exit_widget?
+
 
 
 
