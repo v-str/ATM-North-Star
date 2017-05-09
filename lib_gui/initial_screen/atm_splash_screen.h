@@ -1,12 +1,12 @@
 ﻿#ifndef ATM_SPLASH_SCREEN_H
 #define ATM_SPLASH_SCREEN_H
 
-#include <QKeyEvent>
 #include <QMainWindow>
-#include <QString>
-#include <QTimer>
 
 class TextColorSwapper;
+class QKeyEvent;
+class QString;
+class QTimer;
 
 namespace Ui {
 class AtmSplashScreen;

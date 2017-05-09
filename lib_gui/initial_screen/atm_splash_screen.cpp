@@ -1,10 +1,11 @@
 ﻿#include "atm_splash_screen.h"
 #include "ui_atm_splash_screen.h"
 
-#include <memory>
-
 #include <QApplication>
 #include <QCoreApplication>
+#include <QKeyEvent>
+#include <QString>
+#include <QTimer>
 
 #include <close_block_filter.h>
 #include <exit_widget.h>
