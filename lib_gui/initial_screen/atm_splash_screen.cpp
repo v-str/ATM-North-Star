@@ -75,7 +75,7 @@ void AtmSplashScreen::ChangeTimeDate() {
   TimeDateChanger::ChangeTimeData(ui->timedate_label);
 }
 
-void AtmSplashScreen::ShowExitWidget() { exit_widget_->show(); }
+void AtmSplashScreen::ShowExitWidget() { exit_widget_->Show(); }
 
 void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
   switch (event->key()) {
@@ -106,7 +106,7 @@ void AtmSplashScreen::SetConnections() {
   connect(color_swap_timer_, SIGNAL(timeout()), SLOT(AtmBlinkColor()));
   connect(time_date_timer_, SIGNAL(timeout()), SLOT(ChangeTimeDate()));
   connect(this, SIGNAL(ExitConfirmation()), SLOT(ShowExitWidget()));
-  connect(ui->exit_button, SIGNAL(clicked(bool)), exit_widget_, SLOT(show()));
+  connect(ui->exit_button, SIGNAL(clicked(bool)), exit_widget_, SLOT(Show()));
 }
 
 void AtmSplashScreen::InitializeObjects() {

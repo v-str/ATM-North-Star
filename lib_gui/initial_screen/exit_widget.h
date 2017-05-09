@@ -18,6 +18,9 @@ class ExitWidget : public QWidget {
 
   void SetConnections();
 
+ public slots:
+  void Show();
+
  private:
   void SetInitialProperties();
 

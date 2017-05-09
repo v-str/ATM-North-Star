@@ -19,6 +19,11 @@ void ExitWidget::SetConnections() {
   connect(ui->button_no, SIGNAL(clicked(bool)), SLOT(close()));
 }
 
+void ExitWidget::Show() {
+  InitialPropertyInstaller::InstallInitialProperies(this, 300, 150);
+  show();
+}
+
 void ExitWidget::SetInitialProperties() {
   InitialPropertyInstaller::InstallInitialProperies(this, 300, 150);
 }
