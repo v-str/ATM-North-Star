@@ -17,7 +17,8 @@
    <string notr="true">QWidget{
 background: rgb(21, 24, 46);
 border: 3px solid #CC6600;
-}</string>
+}
+</string>
   </property>
   <widget class="QPushButton" name="button_yes">
    <property name="geometry">
