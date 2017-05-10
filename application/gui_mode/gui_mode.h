@@ -1,16 +1,22 @@
 ﻿#ifndef GUI_MODE_H
 #define GUI_MODE_H
 
+#include <memory>
+
 #include <atm_splash_screen.h>
 
 class GuiMode {
  public:
+  GuiMode();
+
   void RunInitialScreen();
 
  private:
   void SetSplashScreen();
 
-  AtmSplashScreen splash_screen_;
+  std::unique_ptr<AtmSplashScreen> splash_screen_;
+
+  // AtmSplashScreen splash_screen_;
 };
 
 #endif  // GUI_MODE_H
