@@ -195,16 +195,16 @@ color: rgb(32, 74, 135);
    <widget class="QLabel" name="timedate_label">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>170</x>
       <y>360</y>
-      <width>200</width>
+      <width>260</width>
       <height>20</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Tlwg Mono</family>
-      <pointsize>12</pointsize>
+      <pointsize>15</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -221,7 +221,7 @@ color: rgb(32, 74, 135);
 </string>
     </property>
     <property name="text">
-     <string>Time and Date</string>
+     <string>...</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>

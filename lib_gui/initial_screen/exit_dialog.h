@@ -5,7 +5,6 @@
 
 class QTimer;
 class QString;
-class QPoint;
 class QRect;
 
 namespace Ui {
