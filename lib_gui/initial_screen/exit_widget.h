@@ -4,6 +4,7 @@
 #include <QWidget>
 
 class QTimer;
+class QString;
 
 namespace Ui {
 class ExitWidget;
@@ -16,12 +17,15 @@ class ExitWidget : public QWidget {
   explicit ExitWidget(QWidget* parent = nullptr);
   ~ExitWidget();
 
-  void SetConnections();
+  void SetWidgetColor(const QString& main_color,
+                      const QString& secondary_color,
+                      const QString& additional_color);
 
  public slots:
   void Show();
 
  private:
+  void SetConnections();
   void SetInitialProperties();
 
   Ui::ExitWidget* ui = nullptr;

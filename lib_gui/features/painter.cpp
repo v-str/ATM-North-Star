@@ -18,21 +18,24 @@ void Painter::ChangeLabelColor(QLabel* label, const QString& text_color) {
 
 void Painter::ChangeButtonColor(QPushButton* push_button,
                                 const QString& main_color,
+                                const QString& secondary_color,
                                 const QString& additional_color) {
   QString string_color =
       "QPushButton{"
       "color:%1;"
       "border-radius:5px;"
+      "border:1px solid %1;"
       "}"
       "QPushButton:hover{"
-      "border:1px solid %1;"
+      "border:1px solid %3;"
       "}"
       "QPushButton:pressed{"
       "color:%2;"
       "border:1px solid %2;"
       "}";
 
-  push_button->setStyleSheet(string_color.arg(main_color, additional_color));
+  push_button->setStyleSheet(
+      string_color.arg(main_color, secondary_color, additional_color));
 }
 
 void Painter::ChangeFrameColor(QFrame* frame, const QString& color) {

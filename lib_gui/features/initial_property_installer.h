@@ -5,7 +5,7 @@ class QWidget;
 
 class InitialPropertyInstaller {
  public:
-  static void InstallInitialProperies(QWidget* widget,
+  static void SetInitialProperties(QWidget* widget,
                                       int widget_width,
                                       int widget_height);
 };

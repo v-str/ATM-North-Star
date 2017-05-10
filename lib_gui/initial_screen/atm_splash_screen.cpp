@@ -23,7 +23,7 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
   ui->setupUi(this);
 
   InitializeObjects();
-  SetWidgetAppearance(600, 400);
+  SetWidgetAppearance();
   BlockKeys();
   InitialSettings();
   SetConnections();
@@ -41,14 +41,17 @@ void AtmSplashScreen::SetCompanyName(const QString& atm_company_name) {
   ui->atm_company_name_label->setText(atm_company_name);
 }
 
-void AtmSplashScreen::SetTextColor(const QString& main_color,
-                                   const QString additional_color) {
+void AtmSplashScreen::SetColor(const QString& main_color,
+                               const QString& secondary_color,
+                               const QString& additional_color) {
   Painter::ChangeLabelColor(ui->atm_company_name_label, main_color);
   Painter::ChangeLabelColor(ui->text_label, main_color);
   Painter::ChangeLabelColor(ui->timedate_label, main_color);
   Painter::ChangeLabelColor(ui->version_label, main_color);
-  Painter::ChangeButtonColor(ui->exit_button, main_color, additional_color);
+  Painter::ChangeButtonColor(ui->exit_button, main_color, secondary_color,
+                             additional_color);
   Painter::ChangeFrameColor(ui->frame, main_color);
+  exit_widget_->SetWidgetColor(main_color, secondary_color, additional_color);
 }
 
 void AtmSplashScreen::SetAtmBlinkColor(const QString& color_one,
@@ -92,13 +95,13 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
 
 void AtmSplashScreen::InitialSettings() {
   SetCompanyName();
-  SetTextColor();
+  SetColor();
   SetAtmBlinkColor();
   SetBackgroundImage();
 }
 
-void AtmSplashScreen::SetWidgetAppearance(int width, int height) {
-  InitialPropertyInstaller::InstallInitialProperies(this, width, height);
+void AtmSplashScreen::SetWidgetAppearance() {
+  InitialPropertyInstaller::SetInitialProperties(this, 600, 400);
 }
 
 void AtmSplashScreen::SetConnections() {

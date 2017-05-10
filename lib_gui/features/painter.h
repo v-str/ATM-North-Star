@@ -12,6 +12,7 @@ class Painter {
   static void ChangeLabelColor(QLabel* label, const QString& text_color);
   static void ChangeButtonColor(QPushButton* push_button,
                                 const QString& main_color,
+                                const QString& secondary_color,
                                 const QString& additional_color);
   static void ChangeFrameColor(QFrame* frame, const QString& color);
   static void ChangeBackgroundColor(QMainWindow* widget,

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>300</width>
-    <height>150</height>
+    <height>180</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,9 +24,9 @@ border: 3px solid #CC6600;
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>110</y>
+     <y>120</y>
      <width>100</width>
-     <height>25</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -52,9 +52,9 @@ background:rgb(32, 74, 135);
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>110</y>
+     <y>120</y>
      <width>100</width>
-     <height>25</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -82,7 +82,7 @@ background:rgb(32, 74, 135);
      <x>10</x>
      <y>10</y>
      <width>280</width>
-     <height>80</height>
+     <height>90</height>
     </rect>
    </property>
    <property name="font">

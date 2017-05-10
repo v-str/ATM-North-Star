@@ -59,6 +59,7 @@ color: rgb(32, 74, 135);
      <string notr="true">background: transparent;
 
 
+
 </string>
     </property>
     <property name="frameShape">
@@ -194,7 +195,7 @@ color: rgb(32, 74, 135);
    <widget class="QLabel" name="timedate_label">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>200</x>
       <y>360</y>
       <width>200</width>
       <height>20</height>
