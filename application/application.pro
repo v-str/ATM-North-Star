@@ -22,7 +22,6 @@ INCLUDEPATH += \
     $$PWD/atm_operations/credit_operations \ #deprecated code, should be remade
     $$PWD/user_data \ #deprecated code, should be remade
     $$PWD/input \ #deprecated code, should be remade
-    $$PWD/application_management \ #deprecated code, should be remade
     $$PWD/mode_selection \
     $$PWD/console_mode \
     $$PWD/gui_mode \
