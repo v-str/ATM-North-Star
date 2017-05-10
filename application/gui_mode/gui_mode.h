@@ -15,8 +15,6 @@ class GuiMode {
   void SetSplashScreen();
 
   std::unique_ptr<AtmSplashScreen> splash_screen_;
-
-  // AtmSplashScreen splash_screen_;
 };
 
 #endif  // GUI_MODE_H

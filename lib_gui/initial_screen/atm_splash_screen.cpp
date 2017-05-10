@@ -63,10 +63,12 @@ void AtmSplashScreen::SetAtmBlinkColor(const QString& color_one,
 
 void AtmSplashScreen::SetBackgroundImage(const QString& background_image) {
   Painter::ChangeBackgroundImage(this, background_image);
+  exit_widget_->SetBackgroundImage(background_image);
 }
 
 void AtmSplashScreen::SetBackgroundColor(const QString& background_color) {
   Painter::ChangeBackgroundColor(this, background_color);
+  exit_widget_->SetBackgroundColor(background_color);
 }
 
 void AtmSplashScreen::AtmBlinkColor() {

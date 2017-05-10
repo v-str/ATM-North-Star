@@ -26,6 +26,14 @@ void ExitWidget::SetWidgetColor(const QString& main_color,
                              additional_color);
 }
 
+void ExitWidget::SetBackgroundImage(const QString& background_image) {
+  Painter::ChangeBackgroundImage(this, background_image);
+}
+
+void ExitWidget::SetBackgroundColor(const QString& background_color) {
+  Painter::ChangeBackgroundColor(this, background_color);
+}
+
 void ExitWidget::SetConnections() {
   connect(ui->button_yes, SIGNAL(clicked(bool)), qApp, SLOT(closeAllWindows()));
   connect(ui->button_no, SIGNAL(clicked(bool)), SLOT(close()));
@@ -37,5 +45,5 @@ void ExitWidget::Show() {
 }
 
 void ExitWidget::SetInitialProperties() {
-  InitialPropertyInstaller::SetInitialProperties(this, 300, 180);
+  InitialPropertyInstaller::SetInitialProperties(this, 300, 150);
 }

@@ -17,9 +17,13 @@ class ExitWidget : public QWidget {
   explicit ExitWidget(QWidget* parent = nullptr);
   ~ExitWidget();
 
-  void SetWidgetColor(const QString& main_color,
-                      const QString& secondary_color,
-                      const QString& additional_color);
+  void SetWidgetColor(const QString& main_color = "black",
+                      const QString& secondary_color = "grey",
+                      const QString& additional_color = "blue");
+  void SetBackgroundImage(
+      const QString& background_image = ":/images/north_star_background.jpg");
+  void SetBackgroundColor(
+      const QString& background_color = "rgb(115, 210, 22)");
 
  public slots:
   void Show();

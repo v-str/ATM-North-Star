@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <QString>
+#include <QWidget>
 
 void Painter::ChangeLabelColor(QLabel* label, const QString& text_color) {
   QString string_text_color =
@@ -63,6 +64,25 @@ void Painter::ChangeBackgroundImage(QMainWindow* widget,
                                     const QString& background_image) {
   QString string_background_string =
       "QMainWindow{"
+      "background-image: url(%1);"
+      "}";
+
+  widget->setStyleSheet(string_background_string.arg(background_image));
+}
+void Painter::ChangeBackgroundColor(QWidget* widget,
+                                    const QString& background_color) {
+  QString string_background_string =
+      "QWidget{"
+      "background: %1;"
+      "}";
+
+  widget->setStyleSheet(string_background_string.arg(background_color));
+}
+
+void Painter::ChangeBackgroundImage(QWidget* widget,
+                                    const QString& background_image) {
+  QString string_background_string =
+      "QWidget{"
       "background-image: url(%1);"
       "}";
 

@@ -7,42 +7,27 @@
     <x>0</x>
     <y>0</y>
     <width>300</width>
-    <height>180</height>
+    <height>150</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QWidget{
-background: rgb(21, 24, 46);
-border: 3px solid #CC6600;
-}
+   <string notr="true">
 </string>
   </property>
   <widget class="QPushButton" name="button_yes">
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>120</y>
+     <y>100</y>
      <width>100</width>
      <height>30</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QPushButton {
-background: rgb(21, 24, 46);
-color: #CC6600;
-border: 1px solid #CC6600;
-border-radius: 3px;
-}
-QPushButton:hover {
-border: 1px solid rgb(32, 74, 135);;
-}
-QPushButton:pressed{
-background:rgb(32, 74, 135);
-}
-</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>Yes</string>
@@ -52,25 +37,13 @@ background:rgb(32, 74, 135);
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>120</y>
+     <y>100</y>
      <width>100</width>
      <height>30</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QPushButton {
-background: rgb(21, 24, 46);
-color: #CC6600;
-border: 1px solid #CC6600;
-border-radius: 3px;
-}
-QPushButton:hover {
-border: 1px solid rgb(32, 74, 135);;
-}
-QPushButton:pressed{
-background:rgb(32, 74, 135);
-}
-</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>No</string>
@@ -82,7 +55,7 @@ background:rgb(32, 74, 135);
      <x>10</x>
      <y>10</y>
      <width>280</width>
-     <height>90</height>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
@@ -91,12 +64,7 @@ background:rgb(32, 74, 135);
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel {
-background: rgb(21, 24, 46);
-color: #CC6600;
-border: 1px solid #CC6600;
-border-radius: 3px;
-}
+    <string notr="true">
 
 </string>
    </property>
