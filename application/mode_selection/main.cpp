@@ -13,17 +13,18 @@ int main(int argc, char* argv[]) {
   ModeSelector mode_selector;
   mode_selector.SuggestMode();
 
-  ConsoleMode console_mode;
-  GuiMode gui_mode;
-
   switch (mode_selector.GetMode()) {
-    case kConsoleMode:
+    case kConsoleMode: {
+      ConsoleMode console_mode;
       console_mode.RunInitialScreen();
       break;
-    case kGuiMode:
+    }
+    case kGuiMode: {
+      GuiMode gui_mode;
       gui_mode.RunInitialScreen();
       app.exec();
       break;
+    }
     default:
       break;
   }

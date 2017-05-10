@@ -4,7 +4,7 @@ TEMPLATE = app
 TARGET = application
 CONFIG += console c++11
 
-QMAKE_CXX = ccache g++
+QMAKE_CXX = ccache clang
 
 DEPENDPATH += \
     ../lib_console/messengers \

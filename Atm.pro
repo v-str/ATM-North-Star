@@ -1,7 +1,7 @@
 TEMPLATE = subdirs
 TARGET = Atm
 
-QMAKE_CXX = ccache g++
+QMAKE_CXX = ccache clang
 
 SUBDIRS += \
     application \
