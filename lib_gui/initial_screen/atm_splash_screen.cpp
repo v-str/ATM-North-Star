@@ -22,6 +22,7 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
       blink_color_two_("grey") {
   ui->setupUi(this);
   exit_dialog_->setModal(true);
+  setWindowTitle("Atm");
 
   InitializeObjects();
   SetWidgetAppearance();

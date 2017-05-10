@@ -10,6 +10,7 @@
 ExitDialog::ExitDialog(QWidget* parent)
     : QDialog(parent), ui(new Ui::ExitDialog) {
   ui->setupUi(this);
+  setWindowTitle("Exit");
   SetInitialProperties();
   SetConnections();
 }
