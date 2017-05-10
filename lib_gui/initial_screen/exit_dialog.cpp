@@ -1,5 +1,5 @@
-﻿#include <exit_widget.h>
-#include <ui_exit_widget.h>
+﻿#include "exit_dialog.h"
+#include "ui_exit_dialog.h"
 
 #include <QApplication>
 #include <QString>
@@ -7,16 +7,16 @@
 #include <initial_property_installer.h>
 #include <painter.h>
 
-ExitWidget::ExitWidget(QWidget* parent)
-    : QWidget(parent), ui(new Ui::ExitWidget) {
+ExitDialog::ExitDialog(QWidget* parent)
+    : QDialog(parent), ui(new Ui::ExitDialog) {
   ui->setupUi(this);
   SetInitialProperties();
   SetConnections();
 }
 
-ExitWidget::~ExitWidget() { delete ui; }
+ExitDialog::~ExitDialog() { delete ui; }
 
-void ExitWidget::SetWidgetColor(const QString& main_color,
+void ExitDialog::SetWidgetColor(const QString& main_color,
                                 const QString& secondary_color,
                                 const QString& additional_color) {
   Painter::ChangeLabelColor(ui->message_screen, main_color);
@@ -26,24 +26,24 @@ void ExitWidget::SetWidgetColor(const QString& main_color,
                              additional_color);
 }
 
-void ExitWidget::SetBackgroundImage(const QString& background_image) {
+void ExitDialog::SetBackgroundImage(const QString& background_image) {
   Painter::ChangeBackgroundImage(this, background_image);
 }
 
-void ExitWidget::SetBackgroundColor(const QString& background_color) {
+void ExitDialog::SetBackgroundColor(const QString& background_color) {
   Painter::ChangeBackgroundColor(this, background_color);
 }
 
-void ExitWidget::SetConnections() {
-  connect(ui->button_yes, SIGNAL(clicked(bool)), qApp, SLOT(closeAllWindows()));
-  connect(ui->button_no, SIGNAL(clicked(bool)), SLOT(close()));
-}
-
-void ExitWidget::Show() {
+void ExitDialog::Show() {
   SetInitialProperties();
   show();
 }
 
-void ExitWidget::SetInitialProperties() {
+void ExitDialog::SetConnections() {
+  connect(ui->button_yes, SIGNAL(clicked(bool)), qApp, SLOT(closeAllWindows()));
+  connect(ui->button_no, SIGNAL(clicked(bool)), SLOT(close()));
+}
+
+void ExitDialog::SetInitialProperties() {
   InitialPropertyInstaller::SetInitialProperties(this, 300, 150);
 }

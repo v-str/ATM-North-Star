@@ -1,21 +1,21 @@
-﻿#ifndef EXIT_WIDGET_H
-#define EXIT_WIDGET_H
+﻿#ifndef EXIT_DIALOG_H
+#define EXIT_DIALOG_H
 
-#include <QWidget>
+#include <QDialog>
 
 class QTimer;
 class QString;
 
 namespace Ui {
-class ExitWidget;
+class ExitDialog;
 }
 
-class ExitWidget : public QWidget {
+class ExitDialog : public QDialog {
   Q_OBJECT
 
  public:
-  explicit ExitWidget(QWidget* parent = nullptr);
-  ~ExitWidget();
+  explicit ExitDialog(QWidget* parent = nullptr);
+  ~ExitDialog();
 
   void SetWidgetColor(const QString& main_color = "black",
                       const QString& secondary_color = "grey",
@@ -32,7 +32,7 @@ class ExitWidget : public QWidget {
   void SetConnections();
   void SetInitialProperties();
 
-  Ui::ExitWidget* ui = nullptr;
+  Ui::ExitDialog* ui = nullptr;
 };
 
-#endif  // EXIT_WIDGET_H
+#endif  // EXIT_DIALOG_H

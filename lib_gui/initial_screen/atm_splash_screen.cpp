@@ -8,7 +8,7 @@
 #include <QTimer>
 
 #include <close_block_filter.h>
-#include <exit_widget.h>
+#include <exit_dialog.h>
 #include <initial_property_installer.h>
 #include <painter.h>
 #include <text_color_swapper.h>
@@ -17,10 +17,11 @@
 AtmSplashScreen::AtmSplashScreen(QWidget* parent)
     : QMainWindow(parent),
       ui(new Ui::AtmSplashScreen),
-      exit_widget_(new ExitWidget(this)),
+      exit_dialog_(new ExitDialog(this)),
       blink_color_one_("black"),
       blink_color_two_("grey") {
   ui->setupUi(this);
+  exit_dialog_->setModal(true);
 
   InitializeObjects();
   SetWidgetAppearance();
@@ -51,7 +52,7 @@ void AtmSplashScreen::SetColor(const QString& main_color,
   Painter::ChangeButtonColor(ui->exit_button, main_color, secondary_color,
                              additional_color);
   Painter::ChangeFrameColor(ui->frame, main_color);
-  exit_widget_->SetWidgetColor(main_color, secondary_color, additional_color);
+  exit_dialog_->SetWidgetColor(main_color, secondary_color, additional_color);
 }
 
 void AtmSplashScreen::SetAtmBlinkColor(const QString& color_one,
@@ -63,12 +64,12 @@ void AtmSplashScreen::SetAtmBlinkColor(const QString& color_one,
 
 void AtmSplashScreen::SetBackgroundImage(const QString& background_image) {
   Painter::ChangeBackgroundImage(this, background_image);
-  exit_widget_->SetBackgroundImage(background_image);
+  exit_dialog_->SetBackgroundImage(background_image);
 }
 
 void AtmSplashScreen::SetBackgroundColor(const QString& background_color) {
   Painter::ChangeBackgroundColor(this, background_color);
-  exit_widget_->SetBackgroundColor(background_color);
+  exit_dialog_->SetBackgroundColor(background_color);
 }
 
 void AtmSplashScreen::AtmBlinkColor() {
@@ -80,7 +81,7 @@ void AtmSplashScreen::ChangeTimeDate() {
   TimeDateChanger::ChangeTimeData(ui->timedate_label);
 }
 
-void AtmSplashScreen::ShowExitWidget() { exit_widget_->Show(); }
+void AtmSplashScreen::ShowExitWidget() { exit_dialog_->Show(); }
 
 void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
   switch (event->key()) {
@@ -111,7 +112,7 @@ void AtmSplashScreen::SetConnections() {
   connect(color_swap_timer_, SIGNAL(timeout()), SLOT(AtmBlinkColor()));
   connect(time_date_timer_, SIGNAL(timeout()), SLOT(ChangeTimeDate()));
   connect(this, SIGNAL(ExitConfirmation()), SLOT(ShowExitWidget()));
-  connect(ui->exit_button, SIGNAL(clicked(bool)), exit_widget_, SLOT(Show()));
+  connect(ui->exit_button, SIGNAL(clicked(bool)), exit_dialog_, SLOT(Show()));
 }
 
 void AtmSplashScreen::InitializeObjects() {

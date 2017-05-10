@@ -1,11 +1,11 @@
 ﻿#include "painter.h"
 
+#include <QDialog>
 #include <QFrame>
 #include <QLabel>
 #include <QMainWindow>
 #include <QPushButton>
 #include <QString>
-#include <QWidget>
 
 void Painter::ChangeLabelColor(QLabel* label, const QString& text_color) {
   QString string_text_color =
@@ -69,20 +69,20 @@ void Painter::ChangeBackgroundImage(QMainWindow* widget,
 
   widget->setStyleSheet(string_background_string.arg(background_image));
 }
-void Painter::ChangeBackgroundColor(QWidget* widget,
+void Painter::ChangeBackgroundColor(QDialog* widget,
                                     const QString& background_color) {
   QString string_background_string =
-      "QWidget{"
+      "QDialog{"
       "background: %1;"
       "}";
 
   widget->setStyleSheet(string_background_string.arg(background_color));
 }
 
-void Painter::ChangeBackgroundImage(QWidget* widget,
+void Painter::ChangeBackgroundImage(QDialog* widget,
                                     const QString& background_image) {
   QString string_background_string =
-      "QWidget{"
+      "QDialog{"
       "background-image: url(%1);"
       "}";
 
