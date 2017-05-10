@@ -2,10 +2,12 @@
 #include "ui_exit_dialog.h"
 
 #include <QApplication>
+#include <QPoint>
 #include <QString>
 
 #include <initial_property_installer.h>
 #include <painter.h>
+#include <widget_centerer.h>
 
 ExitDialog::ExitDialog(QWidget* parent)
     : QDialog(parent), ui(new Ui::ExitDialog) {
@@ -35,8 +37,8 @@ void ExitDialog::SetBackgroundColor(const QString& background_color) {
   Painter::ChangeBackgroundColor(this, background_color);
 }
 
-void ExitDialog::Show() {
-  SetInitialProperties();
+void ExitDialog::ShowOnCenterAt(const QRect& center_widget) {
+  WidgetCenterer::MoveToCenterRelativelyOf(this, center_widget);
   show();
 }
 

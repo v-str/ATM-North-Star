@@ -6,8 +6,8 @@ class QWidget;
 class InitialPropertyInstaller {
  public:
   static void SetInitialProperties(QWidget* widget,
-                                      int widget_width,
-                                      int widget_height);
+                                   int widget_width,
+                                   int widget_height);
 };
 
 #endif  // INITIAL_PROPERTY_INSTALLER_H

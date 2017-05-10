@@ -5,6 +5,8 @@
 
 class QTimer;
 class QString;
+class QPoint;
+class QRect;
 
 namespace Ui {
 class ExitDialog;
@@ -24,9 +26,7 @@ class ExitDialog : public QDialog {
       const QString& background_image = ":/images/north_star_background.jpg");
   void SetBackgroundColor(
       const QString& background_color = "rgb(115, 210, 22)");
-
- public slots:
-  void Show();
+  void ShowOnCenterAt(const QRect& center_widget);
 
  private:
   void SetConnections();

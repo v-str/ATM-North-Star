@@ -4,6 +4,7 @@
 #include <QApplication>
 #include <QCoreApplication>
 #include <QKeyEvent>
+#include <QPoint>
 #include <QString>
 #include <QTimer>
 
@@ -82,12 +83,14 @@ void AtmSplashScreen::ChangeTimeDate() {
   TimeDateChanger::ChangeTimeData(ui->timedate_label);
 }
 
-void AtmSplashScreen::ShowExitWidget() { exit_dialog_->Show(); }
+void AtmSplashScreen::ShowExitWidget() {
+  exit_dialog_->ShowOnCenterAt(geometry());
+}
 
 void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
   switch (event->key()) {
     case Qt::Key_Escape:
-      emit ExitConfirmation();
+      emit Exit();
     case Qt::Key_Space:
       event->ignore();
       break;
@@ -112,8 +115,8 @@ void AtmSplashScreen::SetConnections() {
   connect(this, SIGNAL(BlinkColor()), SLOT(AtmBlinkColor()));
   connect(color_swap_timer_, SIGNAL(timeout()), SLOT(AtmBlinkColor()));
   connect(time_date_timer_, SIGNAL(timeout()), SLOT(ChangeTimeDate()));
-  connect(this, SIGNAL(ExitConfirmation()), SLOT(ShowExitWidget()));
-  connect(ui->exit_button, SIGNAL(clicked(bool)), exit_dialog_, SLOT(Show()));
+  connect(this, SIGNAL(Exit()), SLOT(ShowExitWidget()));
+  connect(ui->exit_button, SIGNAL(clicked(bool)), SLOT(ShowExitWidget()));
 }
 
 void AtmSplashScreen::InitializeObjects() {
