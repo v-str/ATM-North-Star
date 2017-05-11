@@ -6,15 +6,10 @@
 class ModeSelector {
  public:
   void SuggestMode();
-
-  int GetMode();
+  int GetMode() const;
 
  private:
-  void WriteWelcome();
-
-  UserInput user_input_;
-
-  int choice_ = 0;
+  int user_choice_ = -1;
 };
 
 #endif  // MODE_SELECTOR
