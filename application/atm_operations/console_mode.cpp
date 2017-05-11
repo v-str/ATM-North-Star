@@ -1,9 +1,11 @@
 ﻿#include <console_mode.h>
 
 #include <initial_messenger.h>
+#include <output_setup.h>
 #include <user_messenger.h>
 
 void ConsoleMode::RunInitialScreen() {
+  OutputSetup::SetupTwoStreamsForOutput();
   InitialMessenger::DisplayInitialScreen();
   int user_choice = user_input_.GetValueFromUser();
 

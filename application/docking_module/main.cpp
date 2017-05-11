@@ -2,8 +2,6 @@
 
 #include <console_mode.h>
 #include <gui_mode.h>
-#include <initial_input.h>
-#include <messenger.h>
 #include <mode_selector.h>
 
 int main(int argc, char* argv[]) {
