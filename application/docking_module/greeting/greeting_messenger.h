@@ -6,7 +6,7 @@ class GreetingMessenger {
   static void ShowGreetingMessage();
 
  private:
-  static void DrawStrip(const char symbol, int strip_length);
+  static void DrawStrip(const char strip_symbol, int strip_length);
 
   static constexpr int strip_length_ = 50;
 };
