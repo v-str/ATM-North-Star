@@ -5,6 +5,8 @@
 
 class ModeSelector {
  public:
+  enum UserSelections { kExit, kConsoleMode, kGraphicalMode };
+
   void SuggestMode();
   int GetMode() const;
 

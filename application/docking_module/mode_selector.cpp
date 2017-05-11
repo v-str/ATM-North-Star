@@ -8,7 +8,8 @@ void ModeSelector::SuggestMode() {
   Messenger::ShowGreetingMessage();
   for (;;) {
     user_choice_ = InitialInput::GetValueFromUser();
-    if (user_choice_ == 0 || user_choice_ == 1 || user_choice_ == 2) {
+    if (user_choice_ == kExit || user_choice_ == kConsoleMode ||
+        user_choice_ == kGraphicalMode) {
       break;
     }
     Messenger::IncorrectInput();

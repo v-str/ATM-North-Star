@@ -8,6 +8,7 @@ void InitialMessenger::DisplayInitialScreen() {
 }
 
 void InitialMessenger::DisplayLogotype() {
+  ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText(
       "---------------------------------------------\n"
       "-  ##   ## ####### ######  ######## ##  ##  -\n"
