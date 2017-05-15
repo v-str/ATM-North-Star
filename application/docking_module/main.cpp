@@ -10,10 +10,9 @@ int main(int argc, char* argv[]) {
   enum ProgramMode { kConsoleMode = 1, kGuiMode };
 
   ModeSelector selector;
-  ModeLauncher launcher;
-
   selector.SuggestMode();
 
+  ModeLauncher launcher;
   switch (selector.GetMode()) {
     case kConsoleMode:
       launcher.LaunchConsoleMode();
