@@ -3,20 +3,21 @@
 #include <atm_user.h>
 #include <console_editor.h>
 #include <statement_messenger.h>
+#include <user_input.h>
 
 void UserStatement::ShowStatementFor(AtmUser* atm_user) {
   ConsoleEditor::AddEmptyLineNTimes(2);
   ConsoleEditor::ClearScreen();
-  string spaces = GetSpaces(atm_user->Cash());
+  std::string spaces = GetSpaces(atm_user->Cash());
   int cash = atm_user->Cash();
   StatementMessenger::ShowStatement(cash, spaces);
 }
 
-UserStatement::string UserStatement::GetSpaces(int convertation_cash_to_space) {
+std::string UserStatement::GetSpaces(int convertation_cash_to_space) {
   const char space = ' ';
   unsigned int amout_of_spaces = static_cast<unsigned int>(
       kSizeOfCheckField - NumberOfDigits(convertation_cash_to_space));
-  return string(amout_of_spaces, space);
+  return std::string(amout_of_spaces, space);
 }
 
 int UserStatement::NumberOfDigits(int value) {

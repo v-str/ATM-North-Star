@@ -3,13 +3,9 @@
 
 #include <string>
 
-#include <input/user_input.h>
-
 class AtmUser;
 
 class UserStatement {
-  using string = std::string;
-
  public:
   void ShowStatementFor(AtmUser* atm_user);
 
@@ -17,7 +13,7 @@ class UserStatement {
   static constexpr int kNull = 0;
   static constexpr int kSizeOfCheckField = 12;
 
-  static string GetSpaces(int convertation_cash_to_space);
+  static std::string GetSpaces(int convertation_cash_to_space);
   static int NumberOfDigits(int value);
 };
 
