@@ -1,10 +1,7 @@
 ﻿#include <QApplication>
 
-#include <console_mode.h>
-#include <gui_mode.h>
-#include <mode_selector.h>
-
 #include <mode_launcher.h>
+#include <mode_selector.h>
 
 int main(int argc, char* argv[]) {
   enum ProgramMode { kConsoleMode = 1, kGuiMode };
