@@ -3,21 +3,21 @@
 #include <iostream>
 
 int InitialInput::GetValueFromUser() {
-  std::string user_enter_string = GetStringFromUser();
+  std::string user_string = GetStringFromUser();
 
-  if (IsContainExitCharacter(user_enter_string)) {
+  if (IsContainExitCharacter(user_string)) {
     return kExit;
   }
 
-  int final_user_value = 0;
-  if (IsContainOnlyDigits(user_enter_string)) {
-    final_user_value = GetDigitsFromString(user_enter_string);
+  int user_value = 0;
+  if (IsContainOnlyDigits(user_string)) {
+    user_value = GetDigitsFromString(user_string);
   } else {
     return kInvalidChoice;
   }
 
-  if (final_user_value == kConsoleMode || final_user_value == kGuiMode) {
-    return final_user_value;
+  if (user_value == kConsoleMode || user_value == kGuiMode) {
+    return user_value;
   }
 
   return kInvalidChoice;
