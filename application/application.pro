@@ -22,7 +22,6 @@ INCLUDEPATH += \
     $$PWD/atm_operations/credit_operations \ #deprecated code, should be remade
     $$PWD/user_data \ #deprecated code, should be remade
     $$PWD/input \ #deprecated code, should be remade
-    $$PWD/docking_module/greeting \
     $$PWD/docking_module \
     $$PWD/console_mode \
     $$PWD/gui_mode \
@@ -33,7 +32,6 @@ HEADERS += \
     $$PWD/atm_operations/credit_operations/*.h \
     $$PWD/user_data/*.h \
     $$PWD/input/*.h \
-    $$PWD/docking_module/greeting/*.h \
     $$PWD/docking_module/*.h \
     $$PWD/console_mode/*.h \
     $$PWD/gui_mode/*.h \
@@ -43,7 +41,6 @@ SOURCES += \
     $$PWD/atm_operations/credit_operations/*.cpp \
     $$PWD/user_data/*.cpp \
     $$PWD/input/*.cpp \
-    $$PWD/docking_module/greeting/*.cpp \
     $$PWD/docking_module/*.cpp \
     $$PWD/console_mode/*.cpp \
     $$PWD/gui_mode/*.cpp \
