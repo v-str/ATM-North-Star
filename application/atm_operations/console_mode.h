@@ -43,7 +43,7 @@ class ConsoleMode {
   enum ResultOfDecision { kMainMenu = 1, kExit };
 
   void InitialProgamMenu(int user_choice);
-  void UserModeChoice(int user_choice);
+  void LaunchProgramSectionBasedOn(int user_choice);
   void DemoMenu();
   void RegistrateUser();
   void MainProgramMenu();

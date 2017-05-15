@@ -18,7 +18,7 @@ void ConsoleMode::RunInitialScreen() {
 }
 
 void ConsoleMode::InitialProgamMenu(int user_choice) {
-  UserModeChoice(user_choice);
+  LaunchProgramSectionBasedOn(user_choice);
 
   if (IsCorrectRegistration()) {
     MainProgramMenu();
@@ -27,7 +27,7 @@ void ConsoleMode::InitialProgamMenu(int user_choice) {
   EndProgram();
 }
 
-void ConsoleMode::UserModeChoice(int user_choice) {
+void ConsoleMode::LaunchProgramSectionBasedOn(int user_choice) {
   if (user_choice == kDemo) {
     DemoMenu();
   } else if (user_choice == kRegistration) {
