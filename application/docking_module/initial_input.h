@@ -11,7 +11,7 @@ class InitialInput {
   static std::string GetStringFromUser();
   static bool IsContainExitCharacter(const std::string& user_string);
   static bool IsContainOnlyDigits(const std::string& user_string);
-  static int ConvertToDigit(const std::string& user_string);
+  static int GetDigitsFromString(const std::string& user_string);
 
   static constexpr int kConsoleMode = 1;
   static constexpr int kGuiMode = 2;

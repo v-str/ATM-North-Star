@@ -11,7 +11,7 @@ int InitialInput::GetValueFromUser() {
 
   int final_user_value = 0;
   if (IsContainOnlyDigits(user_enter_string)) {
-    final_user_value = ConvertToDigit(user_enter_string);
+    final_user_value = GetDigitsFromString(user_enter_string);
   } else {
     return kInvalidChoice;
   }
@@ -42,7 +42,7 @@ bool InitialInput::IsContainOnlyDigits(const std::string& user_string) {
   return true;
 }
 
-int InitialInput::ConvertToDigit(const std::string& user_string) {
+int InitialInput::GetDigitsFromString(const std::string& user_string) {
   try {
     return std::stoi(user_string);
   } catch (const std::invalid_argument&) {
