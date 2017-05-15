@@ -3,7 +3,7 @@
 #include <iostream>
 
 int InitialInput::GetValueFromUser() {
-  std::string user_enter_string = GetString();
+  std::string user_enter_string = GetStringFromUser();
 
   if (IsContainExitCharacter(user_enter_string)) {
     return kExit;
@@ -23,7 +23,7 @@ int InitialInput::GetValueFromUser() {
   return kInvalidChoice;
 }
 
-std::string InitialInput::GetString() {
+std::string InitialInput::GetStringFromUser() {
   std::string temp_string;
   std::getline(std::cin, temp_string);
   return temp_string;
