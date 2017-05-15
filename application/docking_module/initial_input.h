@@ -10,7 +10,7 @@ class InitialInput {
  private:
   static std::string GetStringFromUser();
   static bool IsContainExitCharacter(const std::string& user_string);
-  static bool IsDigit(const std::string& user_string);
+  static bool IsContainOnlyDigits(const std::string& user_string);
   static int ConvertToDigit(const std::string& user_string);
 
   static constexpr int kConsoleMode = 1;

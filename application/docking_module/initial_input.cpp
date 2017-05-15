@@ -10,7 +10,7 @@ int InitialInput::GetValueFromUser() {
   }
 
   int final_user_value = 0;
-  if (IsDigit(user_enter_string)) {
+  if (IsContainOnlyDigits(user_enter_string)) {
     final_user_value = ConvertToDigit(user_enter_string);
   } else {
     return kInvalidChoice;
@@ -24,16 +24,16 @@ int InitialInput::GetValueFromUser() {
 }
 
 std::string InitialInput::GetStringFromUser() {
-  std::string temp_string;
-  std::getline(std::cin, temp_string);
-  return temp_string;
+  std::string string;
+  std::getline(std::cin, string);
+  return string;
 }
 
 bool InitialInput::IsContainExitCharacter(const std::string& user_string) {
   return user_string == "Q" || user_string == "q";
 }
 
-bool InitialInput::IsDigit(const std::string& user_string) {
+bool InitialInput::IsContainOnlyDigits(const std::string& user_string) {
   for (unsigned int i = 0; i < user_string.size(); ++i) {
     if (!isdigit(user_string[i])) {
       return false;
