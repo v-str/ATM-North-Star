@@ -11,7 +11,7 @@ class ModeSelector {
   int GetMode() const;
 
  private:
-  int user_choice_ = -1;
+  int user_value_ = -1;
 };
 
 #endif  // MODE_SELECTOR

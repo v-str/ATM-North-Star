@@ -4,6 +4,13 @@
 #include <output_setup.h>
 #include <user_messenger.h>
 
+// =========== New Code ==============
+#include <atm.h>
+// new code
+ConsoleMode::ConsoleMode() : atm_(new Atm()) {}
+// new code
+ConsoleMode::~ConsoleMode() { delete atm_; }
+
 void ConsoleMode::RunInitialScreen() {
   OutputSetup::SetupTwoStreamsForOutput();
   InitialMessenger::DisplayInitialScreen();

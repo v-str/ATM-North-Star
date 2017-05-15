@@ -4,7 +4,7 @@ CONFIG = staticlib
 
 QMAKE_CXXFLAGS += -std=c++11
 
-QMAKE_CXX = ccache clang
+QMAKE_CXX = ccache clang++
 
 INCLUDEPATH += \
     $$PWD/atm_machine \

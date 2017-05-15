@@ -13,8 +13,15 @@
 
 #include "cli_credit_department.h"
 
+// ================ New Code ================
+
+class Atm;
+
 class ConsoleMode {
  public:
+  ConsoleMode();
+  ~ConsoleMode();
+
   void RunInitialScreen();
 
  private:
@@ -54,6 +61,9 @@ class ConsoleMode {
   CLICreditDepartment credit_department_;
 
   bool user_want_to_exit_ = true;
+
+  // ============= New Code ==================
+  Atm* atm_;
 };
 
 #endif  // CONSOLE_MODE_H
