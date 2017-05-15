@@ -63,7 +63,7 @@ class ConsoleMode {
   bool user_want_to_exit_ = true;
 
   // ============= New Code ==================
-  Atm* atm_;
+  Atm* atm_ = nullptr;
 };
 
 #endif  // CONSOLE_MODE_H
