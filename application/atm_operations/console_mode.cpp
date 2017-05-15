@@ -14,9 +14,7 @@ ConsoleMode::~ConsoleMode() { delete atm_; }
 void ConsoleMode::RunInitialScreen() {
   OutputSetup::SetupTwoStreamsForOutput();
   InitialMessenger::DisplayInitialScreen();
-  int user_choice = user_input_.GetValueFromUser();
-
-  InitialProgamMenu(user_choice);
+  InitialProgamMenu(user_input_.GetValueFromUser());
 }
 
 void ConsoleMode::InitialProgamMenu(int user_choice) {

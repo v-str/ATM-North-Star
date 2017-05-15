@@ -8,12 +8,9 @@
 
 -------------------------------------------------------------------------
 
-83. Implement greeting class with string animation
-
 84. Make class ModeSelector like a simple class that maintain user input processing
 
-85. Continue greeting messenger.
-
+86. Modify user_input for maintain exit through char q or Q
 
 
 
