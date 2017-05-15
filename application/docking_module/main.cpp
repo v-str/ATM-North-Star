@@ -5,9 +5,6 @@
 #include <mode_selector.h>
 
 int main(int argc, char* argv[]) {
-  QApplication app(argc, argv);
-  Q_INIT_RESOURCE(atm_resources);
-
   enum ProgramMode { kConsoleMode = 1, kGuiMode };
 
   ModeSelector mode_selector;
@@ -20,6 +17,8 @@ int main(int argc, char* argv[]) {
       break;
     }
     case kGuiMode: {
+      QApplication app(argc, argv);
+      Q_INIT_RESOURCE(atm_resources);
       GuiMode gui_mode;
       gui_mode.RunInitialScreen();
       app.exec();
