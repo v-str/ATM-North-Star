@@ -1,5 +1,5 @@
-﻿#include "atm_splash_screen.h"
-#include "ui_atm_splash_screen.h"
+﻿#include <atm_splash_screen.h>
+#include <ui_atm_splash_screen.h>
 
 #include <QApplication>
 #include <QCoreApplication>
