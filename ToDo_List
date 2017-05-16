@@ -2,15 +2,17 @@
 
 79. Slide mainframe with belongs to him widgets -
 
-80. How to block key Space -
+80. How to block key Space +
 
 82. Continue adding of atm operations into atm class +
 
 -------------------------------------------------------------------------
 
-84. Make class ModeSelector like a simple class that maintain user input processing
+84. Make class ModeSelector like a simple class that maintain user input processing +
 
-86. Modify user_input for maintain exit through char q or Q
+86. Modify user_input for maintain exit through char q or Q +
+
+87.
 
 
 
