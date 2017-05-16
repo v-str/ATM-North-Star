@@ -23,6 +23,7 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
       blink_color_two_("grey") {
   ui->setupUi(this);
   exit_dialog_->setModal(true);
+
   setWindowTitle("Atm");
 
   InitializeObjects();
@@ -84,7 +85,7 @@ void AtmSplashScreen::ChangeTimeDate() {
 }
 
 void AtmSplashScreen::ShowExitWidget() {
-  exit_dialog_->ShowOnCenterAt(geometry());
+  exit_dialog_->ShowWidgetOnCenterAt(geometry());
 }
 
 void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {

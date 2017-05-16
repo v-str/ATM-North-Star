@@ -25,7 +25,7 @@ class ExitDialog : public QDialog {
       const QString& background_image = ":/images/north_star_background.jpg");
   void SetBackgroundColor(
       const QString& background_color = "rgb(115, 210, 22)");
-  void ShowOnCenterAt(const QRect& center_widget);
+  void ShowWidgetOnCenterAt(const QRect& widget_geometry);
 
  private:
   void SetConnections();

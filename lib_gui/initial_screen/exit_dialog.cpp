@@ -37,8 +37,8 @@ void ExitDialog::SetBackgroundColor(const QString& background_color) {
   Painter::ChangeBackgroundColor(this, background_color);
 }
 
-void ExitDialog::ShowOnCenterAt(const QRect& center_widget) {
-  WidgetCenterer::MoveToCenterRelativelyOf(this, center_widget);
+void ExitDialog::ShowWidgetOnCenterAt(const QRect& widget_geometry) {
+  WidgetCenterer::MoveToCenterRelativelyOf(this, widget_geometry);
   show();
 }
 

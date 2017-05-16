@@ -11,7 +11,7 @@ CONFIG += staticlib
 
 QMAKE_CXXFLAGS += -std=c++11
 
-QMAKE_CXX = ccache g++
+QMAKE_CXX = ccache clang++
 
 DEPENDPATH += \
     ../initial_screen \
@@ -24,11 +24,11 @@ INCLUDEPATH += \
 
 HEADERS += \
     $$PWD/initial_screen/*.h \
-    $$PWD/features/*.h \
+    $$PWD/features/*.h
 
 SOURCES += \
     $$PWD/initial_screen/*.cpp \
-    $$PWD/features/*.cpp \
+    $$PWD/features/*.cpp
 
 FORMS += \
     $$PWD/initial_screen/*.ui \
