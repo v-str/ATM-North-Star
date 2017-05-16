@@ -14,11 +14,11 @@ ConsoleMode::~ConsoleMode() { delete atm_; }
 void ConsoleMode::RunInitialScreen() {
   OutputSetup::SetupTwoStreamsForOutput();
   InitialMessenger::DisplayInitialScreen();
-  InitialProgamMenu(user_input_.GetValueFromUser());
+  RunProgram();
 }
 
-void ConsoleMode::InitialProgamMenu(int user_choice) {
-  LaunchProgramSectionBasedOn(user_choice);
+void ConsoleMode::RunProgram() {
+  RunSectionBasedOn(user_input_.GetValueFromUser());
 
   if (IsCorrectRegistration()) {
     MainProgramMenu();
@@ -27,7 +27,7 @@ void ConsoleMode::InitialProgamMenu(int user_choice) {
   EndProgram();
 }
 
-void ConsoleMode::LaunchProgramSectionBasedOn(int user_choice) {
+void ConsoleMode::RunSectionBasedOn(int user_choice) {
   if (user_choice == kDemo) {
     DemoMenu();
   } else if (user_choice == kRegistration) {
