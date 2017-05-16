@@ -20,9 +20,9 @@ class AtmSplashScreen : public QMainWindow {
   ~AtmSplashScreen();
 
   void SetCompanyName(const QString& atm_company_name = "Default Name");
-  void SetColor(const QString& main_color = "black",
-                const QString& secondary_color = "grey",
-                const QString& additional_color = "blue");
+  void SetSplashScreenAppearance(const QString& main_color = "black",
+                                 const QString& secondary_color = "grey",
+                                 const QString& additional_color = "blue");
   void SetAtmBlinkColor(const QString& color_one = "black",
                         const QString& color_two = "grey");
   void SetBackgroundImage(

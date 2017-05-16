@@ -45,9 +45,10 @@ void AtmSplashScreen::SetCompanyName(const QString& atm_company_name) {
   ui->atm_company_name_label->setText(atm_company_name);
 }
 
-void AtmSplashScreen::SetColor(const QString& main_color,
-                               const QString& secondary_color,
-                               const QString& additional_color) {
+void AtmSplashScreen::SetSplashScreenAppearance(
+    const QString& main_color,
+    const QString& secondary_color,
+    const QString& additional_color) {
   Painter::ChangeLabelColor(ui->atm_company_name_label, main_color);
   Painter::ChangeLabelColor(ui->text_label, main_color);
   Painter::ChangeLabelColor(ui->timedate_label, main_color);
@@ -55,7 +56,8 @@ void AtmSplashScreen::SetColor(const QString& main_color,
   Painter::ChangeButtonColor(ui->exit_button, main_color, secondary_color,
                              additional_color);
   Painter::ChangeFrameColor(ui->frame, main_color);
-  exit_dialog_->SetWidgetColor(main_color, secondary_color, additional_color);
+  exit_dialog_->SetExitDialogAppearance(main_color, secondary_color,
+                                        additional_color);
 }
 
 void AtmSplashScreen::SetAtmBlinkColor(const QString& color_one,
@@ -103,7 +105,7 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
 
 void AtmSplashScreen::InitialSettings() {
   SetCompanyName();
-  SetColor();
+  SetSplashScreenAppearance();
   SetAtmBlinkColor();
   SetBackgroundImage();
 }

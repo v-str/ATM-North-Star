@@ -18,9 +18,9 @@ ExitDialog::ExitDialog(QWidget* parent)
 
 ExitDialog::~ExitDialog() { delete ui; }
 
-void ExitDialog::SetWidgetColor(const QString& main_color,
-                                const QString& secondary_color,
-                                const QString& additional_color) {
+void ExitDialog::SetExitDialogAppearance(const QString& main_color,
+                                         const QString& secondary_color,
+                                         const QString& additional_color) {
   Painter::ChangeLabelColor(ui->message_screen, main_color);
   Painter::ChangeButtonColor(ui->button_no, main_color, secondary_color,
                              additional_color);
