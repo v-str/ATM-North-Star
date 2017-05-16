@@ -34,7 +34,7 @@ void UserMessenger::WishAGoodDay() {
       "\t####################\n\n");
 }
 
-void UserMessenger::SuggestToExit() {
+void UserMessenger::ShowQuitMenu() {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\t# 1. Exit to main page.\n"

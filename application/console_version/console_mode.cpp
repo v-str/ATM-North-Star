@@ -20,7 +20,7 @@ void ConsoleMode::RunInitialScreen() {
 }
 
 void ConsoleMode::RunProgram() {
-  RunSectionBasedOn(UserInputProcessor::GetMenuItem());
+  RunSectionBasedOn(UserInputProcessor::GetMenuSection());
 
   if (IsCorrectRegistration()) {
     MainProgramMenu();
@@ -52,7 +52,7 @@ void ConsoleMode::RegistrateUser() { registrator_.RegisterUser(user_); }
 void ConsoleMode::MainProgramMenu() {
   do {
     UserMessenger::ShowMainMenu();
-    ExecuteOperation(UserInputProcessor::GetMenuItem());
+    ExecuteOperation(UserInputProcessor::GetMenuSection());
   } while (!user_want_to_exit_);
 }
 
@@ -73,18 +73,18 @@ void ConsoleMode::ExecuteOperation(int user_choice) {
     UserMessenger::ShowIncorrectMainMenuInput();
     user_want_to_exit_ = false;
   }
-  SuggestToExit();
+  SuggestToQuit();
 }
 
-void ConsoleMode::SuggestToExit() {
-  UserMessenger::SuggestToExit();
+void ConsoleMode::SuggestToQuit() {
+  UserMessenger::ShowQuitMenu();
   for (;;) {
-    int result_of_quit = UserInputProcessor::GetMenuItem();
+    int user_choice = UserInputProcessor::GetMenuSection();
 
-    if (result_of_quit == kMainMenu) {
+    if (user_choice == kMainMenu) {
       user_want_to_exit_ = false;
       break;
-    } else if (result_of_quit == kQuit || result_of_quit == kSubMenuQuit) {
+    } else if (user_choice == kQuit || user_choice == kSubMenuQuit) {
       user_want_to_exit_ = true;
       break;
     } else {

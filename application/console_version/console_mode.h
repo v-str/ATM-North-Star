@@ -45,7 +45,7 @@ class ConsoleMode {
   void RegistrateUser();
   void MainProgramMenu();
   void ExecuteOperation(int user_choice);
-  void SuggestToExit();
+  void SuggestToQuit();
 
   DemoMode demo_mode_;
   AtmUser user_;

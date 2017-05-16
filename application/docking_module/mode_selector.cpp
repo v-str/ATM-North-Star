@@ -7,7 +7,7 @@ void ModeSelector::SuggestMode() {
   user_value_ = -1;
   Messenger::ShowGreetingMessage();
   for (;;) {
-    user_value_ = UserInputProcessor::GetMenuItem();
+    user_value_ = UserInputProcessor::GetMenuSection();
     if (user_value_ == kQuit || user_value_ == kConsoleMode ||
         user_value_ == kGraphicalMode) {
       break;

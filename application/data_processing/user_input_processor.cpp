@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-int UserInputProcessor::GetMenuItem() {
+int UserInputProcessor::GetMenuSection() {
   std::string user_string = GetStringFromUser();
 
   if (IsContainQuitCharacter(user_string)) {
