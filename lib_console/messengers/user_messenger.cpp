@@ -45,7 +45,7 @@ void UserMessenger::SuggestToExit() {
 void UserMessenger::ShowIncorrectInput() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\t# Incorrect input, please try again", 10);
-  ConsoleEditor::WriteTextWithDelayPerSymbol("...", 100);
+  ConsoleEditor::WriteTextWithDelayPerSymbol("...", 70);
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
 }
 

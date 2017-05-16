@@ -3,7 +3,6 @@
 
 #include "atm_user.h"
 #include "demo_mode.h"
-#include "user_input.h"
 #include "user_registrator.h"
 
 #include "account_informator.h"
@@ -26,7 +25,7 @@ class ConsoleMode {
 
  private:
   enum ProgramMenu { kDemo = 1, kRegistration };
-
+  enum ResultOfDecision { kQuit, kMainMenu, kSubMenuQuit };
   enum AtmOperations {
     kAccount = 1,
     kRefill,
@@ -39,8 +38,6 @@ class ConsoleMode {
   bool IsCorrectRegistration() const;
   void EndProgram() const;
   void ShowIncorrectRegistration() const;
-
-  enum ResultOfDecision { kQuit, kMainMenu, kExit };
 
   void RunProgram();
   void RunSectionBasedOn(int user_choice);
@@ -57,7 +54,6 @@ class ConsoleMode {
   Refill refill_;
   Withdrawal withdrawal_;
   UserStatement statement_;
-  UserInput user_input_;
   CLICreditDepartment credit_department_;
 
   bool user_want_to_exit_ = true;

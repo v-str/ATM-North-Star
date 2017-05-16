@@ -52,7 +52,7 @@ void ConsoleMode::RegistrateUser() { registrator_.RegisterUser(user_); }
 void ConsoleMode::MainProgramMenu() {
   do {
     UserMessenger::ShowMainMenu();
-    ExecuteOperation(user_input_.GetValueFromUser());
+    ExecuteOperation(UserInputProcessor::GetMenuItem());
   } while (!user_want_to_exit_);
 }
 
@@ -79,13 +79,12 @@ void ConsoleMode::ExecuteOperation(int user_choice) {
 void ConsoleMode::SuggestToExit() {
   UserMessenger::SuggestToExit();
   for (;;) {
-    int result_of_exit = 0;
-    result_of_exit = user_input_.GetValueFromUser();
+    int result_of_quit = UserInputProcessor::GetMenuItem();
 
-    if (result_of_exit == kMainMenu) {
+    if (result_of_quit == kMainMenu) {
       user_want_to_exit_ = false;
       break;
-    } else if (result_of_exit == kExit) {
+    } else if (result_of_quit == kQuit || result_of_quit == kSubMenuQuit) {
       user_want_to_exit_ = true;
       break;
     } else {
