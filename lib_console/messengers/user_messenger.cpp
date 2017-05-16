@@ -38,7 +38,7 @@ void UserMessenger::SuggestToExit() {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\t# 1. Exit to main page.\n"
-      "\t# 2. Exit program.\n"
+      "\t# 2. Exit program. ( or press 'q')\n"
       "\t# Enter: ");
 }
 

@@ -5,7 +5,7 @@
 int MenuInputProcessor::GetMenuItem() {
   std::string user_string = GetStringFromUser();
 
-  if (IsContainExitCharacter(user_string)) {
+  if (IsContainQuitCharacter(user_string)) {
     return kQuit;
   }
 
@@ -23,7 +23,7 @@ std::string MenuInputProcessor::GetStringFromUser() {
   return string;
 }
 
-bool MenuInputProcessor::IsContainExitCharacter(
+bool MenuInputProcessor::IsContainQuitCharacter(
     const std::string& user_string) {
   if (user_string == "Quit" || user_string == "quit") {
     return true;

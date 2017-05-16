@@ -9,7 +9,7 @@ class MenuInputProcessor {
 
  private:
   static std::string GetStringFromUser();
-  static bool IsContainExitCharacter(const std::string& user_string);
+  static bool IsContainQuitCharacter(const std::string& user_string);
   static bool IsContainOnlyDigits(const std::string& user_string);
   static int GetDigitsFromString(const std::string& user_string);
 
