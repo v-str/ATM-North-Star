@@ -40,7 +40,7 @@ class ConsoleMode {
   void EndProgram() const;
   void ShowIncorrectRegistration() const;
 
-  enum ResultOfDecision { kMainMenu = 1, kExit };
+  enum ResultOfDecision { kQuit, kMainMenu, kExit };
 
   void RunProgram();
   void RunSectionBasedOn(int user_choice);
