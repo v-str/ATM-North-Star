@@ -18,7 +18,6 @@ class UserInput {
   static const int kInvalidChoice = -1;
   static const int kGoToMain = 1;
   static const int kExit = 2;
-  static const int kHalfSecond = 500;
 };
 
 #endif  // USER_INPUT_H
