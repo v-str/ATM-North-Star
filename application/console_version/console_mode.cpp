@@ -6,7 +6,7 @@
 
 // =========== New Code ==============
 #include <atm.h>
-#include <menu_input_processor.h>
+#include <user_input_processor.h>
 
 // new code
 ConsoleMode::ConsoleMode() : atm_(new Atm()) {}
@@ -20,7 +20,7 @@ void ConsoleMode::RunInitialScreen() {
 }
 
 void ConsoleMode::RunProgram() {
-  RunSectionBasedOn(MenuInputProcessor::GetMenuItem());
+  RunSectionBasedOn(UserInputProcessor::GetMenuItem());
 
   if (IsCorrectRegistration()) {
     MainProgramMenu();
