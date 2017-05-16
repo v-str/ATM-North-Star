@@ -6,6 +6,7 @@
 
 // =========== New Code ==============
 #include <atm.h>
+#include <quit_menu_handler.h>
 #include <user_input_processor.h>
 
 // new code
@@ -20,7 +21,7 @@ void ConsoleMode::RunInitialScreen() {
 }
 
 void ConsoleMode::RunProgram() {
-  RunSectionBasedOn(UserInputProcessor::GetMenuSection());
+  RunSectionBasedOn(UserInputProcessor::GetUserInput());
 
   if (IsCorrectRegistration()) {
     MainProgramMenu();
@@ -52,7 +53,7 @@ void ConsoleMode::RegistrateUser() { registrator_.RegisterUser(user_); }
 void ConsoleMode::MainProgramMenu() {
   do {
     UserMessenger::ShowMainMenu();
-    ExecuteOperation(UserInputProcessor::GetMenuSection());
+    ExecuteOperation(UserInputProcessor::GetUserInput());
   } while (!user_want_to_exit_);
 }
 
@@ -77,20 +78,7 @@ void ConsoleMode::ExecuteOperation(int user_choice) {
 }
 
 void ConsoleMode::SuggestToQuit() {
-  UserMessenger::ShowQuitMenu();
-  for (;;) {
-    int user_choice = UserInputProcessor::GetMenuSection();
-
-    if (user_choice == kMainMenu) {
-      user_want_to_exit_ = false;
-      break;
-    } else if (user_choice == kQuit || user_choice == kSubMenuQuit) {
-      user_want_to_exit_ = true;
-      break;
-    } else {
-      UserMessenger::ShowIncorrectInput();
-    }
-  }
+  user_want_to_exit_ = QuitMenuHandler::GetQuitResult();
 }
 
 bool ConsoleMode::IsCorrectRegistration() const {

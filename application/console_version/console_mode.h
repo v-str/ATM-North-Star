@@ -25,7 +25,7 @@ class ConsoleMode {
 
  private:
   enum InitialProgramSection { kQuit, kDemo, kRegistration };
-  enum ResultOfUserInput { kMainMenu, kSubMenuQuit };
+  enum ResultOfUserInput { kMainMenu = 1, kSubMenuQuit };
   enum AtmOperations {
     kAccount = 1,
     kRefill,

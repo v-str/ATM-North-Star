@@ -5,7 +5,7 @@
 
 class UserInputProcessor {
  public:
-  static int GetMenuSection();
+  static int GetUserInput();
 
  private:
   static std::string GetStringFromUser();
