@@ -23,8 +23,17 @@ std::string MenuInputProcessor::GetStringFromUser() {
   return string;
 }
 
-bool MenuInputProcessor::IsContainExitCharacter(const std::string& user_string) {
-  return user_string == "Q" || user_string == "q";
+bool MenuInputProcessor::IsContainExitCharacter(
+    const std::string& user_string) {
+  if (user_string == "Quit" || user_string == "quit") {
+    return true;
+  }
+
+  if (user_string == "Q" || user_string == "q") {
+    return true;
+  }
+
+  return false;
 }
 
 bool MenuInputProcessor::IsContainOnlyDigits(const std::string& user_string) {
