@@ -2,7 +2,6 @@
 #include "ui_exit_dialog.h"
 
 #include <QApplication>
-#include <QPoint>
 #include <QString>
 
 #include <initial_property_installer.h>
@@ -27,6 +26,7 @@ void ExitDialog::SetWidgetColor(const QString& main_color,
                              additional_color);
   Painter::ChangeButtonColor(ui->button_yes, main_color, secondary_color,
                              additional_color);
+  Painter::ChangeFrameColor(ui->frame, main_color);
 }
 
 void ExitDialog::SetBackgroundImage(const QString& background_image) {

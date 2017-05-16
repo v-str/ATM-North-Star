@@ -5,7 +5,6 @@
 
 class TextColorSwapper;
 class ExitDialog;
-class QKeyEvent;
 class QString;
 class QTimer;
 
