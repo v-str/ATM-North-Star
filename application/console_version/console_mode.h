@@ -24,8 +24,8 @@ class ConsoleMode {
   void RunInitialScreen();
 
  private:
-  enum ProgramSection { kDemo = 1, kRegistration };
-  enum ResultOfUserInput { kQuit, kMainMenu, kSubMenuQuit };
+  enum InitialProgramSection { kQuit, kDemo, kRegistration };
+  enum ResultOfUserInput { kMainMenu, kSubMenuQuit };
   enum AtmOperations {
     kAccount = 1,
     kRefill,
