@@ -4,8 +4,8 @@
 
 UserInputProcessor::~UserInputProcessor() {}
 
-int UserInputProcessor::GetUserInput() {
-  std::string user_string = GetStringFromUser();
+int UserInputProcessor::GetDigitInputFromUser() {
+  std::string user_string = GetStringInputFromUser();
 
   if (IsContainOnlyDigits(user_string)) {
     int user_value = GetDigitsFromString(user_string);
@@ -15,7 +15,7 @@ int UserInputProcessor::GetUserInput() {
   return kInvalidChoice;
 }
 
-std::string UserInputProcessor::GetStringFromUser() {
+std::string UserInputProcessor::GetStringInputFromUser() {
   std::string string;
   std::getline(std::cin, string);
   return string;

@@ -5,7 +5,7 @@
 void ModeSelector::SuggestMode() {
   Messenger::ShowGreetingMessage();
   for (;;) {
-    user_input_ = user_input_processor_.GetUserInput();
+    user_input_ = user_input_processor_.GetDigitInputFromUser();
     if (user_input_ == kQuit || user_input_ == kConsoleMode ||
         user_input_ == kGraphicalMode) {
       break;

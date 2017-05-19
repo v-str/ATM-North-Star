@@ -24,7 +24,7 @@ void ConsoleMode::RunInitialScreen() {
 }
 
 void ConsoleMode::RunProgram() {
-  RunSectionBasedOn(user_input_->GetUserInput());
+  RunSectionBasedOn(user_input_->GetDigitInputFromUser());
 
   if (IsCorrectRegistration()) {
     MainProgramMenu();
@@ -56,7 +56,7 @@ void ConsoleMode::RegistrateUser() { registrator_.RegisterUser(user_); }
 void ConsoleMode::MainProgramMenu() {
   do {
     UserMessenger::ShowMainMenu();
-    ExecuteOperation(user_input_->GetUserInput());
+    ExecuteOperation(user_input_->GetDigitInputFromUser());
   } while (!user_want_to_exit_);
 }
 

@@ -2,8 +2,8 @@
 
 #include <user_messenger.h>
 
-int QuitMenuHandler::GetUserInput() {
-  std::string user_input = GetStringFromUser();
+int QuitMenuHandler::GetDigitInputFromUser() {
+  std::string user_input = GetStringInputFromUser();
   if (IsContainQuitString(user_input)) {
     return kQuit;
   } else {
@@ -16,7 +16,7 @@ bool QuitMenuHandler::GetQuitResult() {
   bool quit_result = true;
   int user_choice = 0;
   for (;;) {
-    user_choice = GetUserInput();
+    user_choice = GetDigitInputFromUser();
     if (user_choice == kMainMenu) {
       quit_result = false;
       break;

@@ -7,9 +7,9 @@ class UserInputProcessor {
  public:
   virtual ~UserInputProcessor();
 
-  virtual int GetUserInput();
+  virtual int GetDigitInputFromUser();
 
-  std::string GetStringFromUser();
+  std::string GetStringInputFromUser();
   bool IsContainOnlyDigits(const std::string& user_string);
   int GetDigitsFromString(const std::string& user_string);
 

@@ -7,7 +7,7 @@
 
 class QuitMenuHandler : public UserInputProcessor {
  public:
-  int GetUserInput() override;
+  int GetDigitInputFromUser() override;
 
   bool GetQuitResult();
 
