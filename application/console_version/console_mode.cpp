@@ -15,11 +15,7 @@ ConsoleMode::ConsoleMode()
       user_input_(new UserInputProcessor()),
       quit_menu_handler_(new QuitMenuHandler()) {}
 // new code
-ConsoleMode::~ConsoleMode() {
-  delete atm_;
-  delete user_input_;
-  delete quit_menu_handler_;
-}
+ConsoleMode::~ConsoleMode() {}
 
 void ConsoleMode::RunInitialScreen() {
   OutputSetup::SetupTwoStreamsForOutput();

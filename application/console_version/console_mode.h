@@ -1,6 +1,8 @@
 ﻿#ifndef CONSOLE_MODE_H
 #define CONSOLE_MODE_H
 
+#include <memory>
+
 #include "atm_user.h"
 #include "demo_mode.h"
 #include "user_registrator.h"
@@ -61,9 +63,9 @@ class ConsoleMode {
   bool user_want_to_exit_ = true;
 
   // ============= New Code ==================
-  Atm* atm_ = nullptr;
-  UserInputProcessor* user_input_ = nullptr;
-  QuitMenuHandler* quit_menu_handler_ = nullptr;
+  std::unique_ptr<Atm> atm_;
+  std::unique_ptr<UserInputProcessor> user_input_;
+  std::unique_ptr<QuitMenuHandler> quit_menu_handler_;
 };
 
 #endif  // CONSOLE_MODE_H
