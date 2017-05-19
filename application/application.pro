@@ -10,8 +10,8 @@ DEPENDPATH += \
     ../lib_console/messengers \
     ../lib_console/output_configuration \
     ../lib_gui/atm_splash_screen \
-    ../atm_core/credit_department \
     ../lib_gui/initial_screen \
+    ../atm_core/credit_department \
 
 INCLUDEPATH += \
     ../lib_console/messengers \
@@ -26,7 +26,6 @@ INCLUDEPATH += \
     $$PWD/mode_selection \
     $$PWD/console_mode \
     $$PWD/gui_mode \
-
 
 HEADERS += \
     $$PWD/atm_operations/*.h \
@@ -50,3 +49,5 @@ LIBS += \
     -L$$OUT_PWD/../lib_console -llib_console \
     -L$$OUT_PWD/../lib_gui -llib_gui \
     -L$$OUT_PWD/../atm_core -latm_core \
+
+

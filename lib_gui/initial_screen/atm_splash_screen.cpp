@@ -3,6 +3,7 @@
 
 #include <QApplication>
 #include <QCoreApplication>
+#include <QIcon>
 #include <QKeyEvent>
 #include <QPoint>
 #include <QString>
@@ -112,6 +113,7 @@ void AtmSplashScreen::InitialSettings() {
 
 void AtmSplashScreen::SetWidgetAppearance() {
   InitialPropertyInstaller::SetInitialProperties(this, 600, 400);
+  setWindowIcon(QIcon(":/images/project_icon.png"));
 }
 
 void AtmSplashScreen::SetConnections() {
