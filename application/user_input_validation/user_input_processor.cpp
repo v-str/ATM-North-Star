@@ -5,7 +5,7 @@
 int UserInputProcessor::GetUserInput() {
   std::string user_string = GetStringFromUser();
 
-  if (IsContainQuitCharacter(user_string)) {
+  if (IsContainQuitString(user_string)) {
     return kQuit;
   }
 
@@ -23,8 +23,7 @@ std::string UserInputProcessor::GetStringFromUser() {
   return string;
 }
 
-bool UserInputProcessor::IsContainQuitCharacter(
-    const std::string& user_string) {
+bool UserInputProcessor::IsContainQuitString(const std::string& user_string) {
   if (user_string == "Quit" || user_string == "quit") {
     return true;
   }
