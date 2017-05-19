@@ -6,9 +6,9 @@
 class UserInputProcessor {
  public:
   static int GetUserInput();
+  static std::string GetStringFromUser();
 
  private:
-  static std::string GetStringFromUser();
   static bool IsContainQuitCharacter(const std::string& user_string);
   static bool IsContainOnlyDigits(const std::string& user_string);
   static int GetDigitsFromString(const std::string& user_string);
