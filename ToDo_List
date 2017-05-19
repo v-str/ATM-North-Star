@@ -18,8 +18,8 @@
 
 85. Implement normal exit widget and normal class depenencies
 86. Refactor an existing code
-87. How to implement QWidget border color for exit_widget?
-88. Make user color settable both splash screen and exit widget
+87. How to implement QWidget border color for exit_widget? // + use qframe
+88. Make user color settable both splash screen and exit widget // +
 89.
 
 
