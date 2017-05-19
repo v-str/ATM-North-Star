@@ -26,6 +26,8 @@ bool UserRegistrator::IsCorrectRegistration() const {
   return correct_registration_;
 }
 
+std::string UserRegistrator::GetUserLogin() const { return login_; }
+
 void UserRegistrator::EnterLogin(AtmUser& atm_user) {
   IdentificationMessenger::ShowInitialLoginText();
   atm_user.SetLogin(provider_.GetLoginFromUser());
