@@ -1,16 +1,22 @@
 ﻿#ifndef QUIT_MENU_HANDLER_H
 #define QUIT_MENU_HANDLER_H
 
-class QuitMenuHandler {
+#include <user_input_processor.h>
+
+#include <string>
+
+class QuitMenuHandler : public UserInputProcessor {
  public:
-  static bool GetQuitResult();
+  int GetUserInput() override;
+
+  bool GetQuitResult();
 
  private:
-  static void GetValueFromUser();
+  bool IsContainQuitString(const std::string& user_string);
 
-  static constexpr int kQuit = 0;
-  static constexpr int kMainMenu = 1;
-  static constexpr int kSumMenuQuit = 2;
+  int kQuit = 0;
+  int kMainMenu = 1;
+  int kSubMenuQuit = 2;
 };
 
 #endif  // QUIT_MENU_HANDLER_H

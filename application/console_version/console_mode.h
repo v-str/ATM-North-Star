@@ -15,6 +15,8 @@
 // ================ New Code ================
 
 class Atm;
+class UserInputProcessor;
+class QuitMenuHandler;
 
 class ConsoleMode {
  public:
@@ -60,6 +62,8 @@ class ConsoleMode {
 
   // ============= New Code ==================
   Atm* atm_ = nullptr;
+  UserInputProcessor* user_input_ = nullptr;
+  QuitMenuHandler* quit_menu_handler_ = nullptr;
 };
 
 #endif  // CONSOLE_MODE_H

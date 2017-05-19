@@ -10,9 +10,16 @@
 #include <user_input_processor.h>
 
 // new code
-ConsoleMode::ConsoleMode() : atm_(new Atm()) {}
+ConsoleMode::ConsoleMode()
+    : atm_(new Atm()),
+      user_input_(new UserInputProcessor()),
+      quit_menu_handler_(new QuitMenuHandler()) {}
 // new code
-ConsoleMode::~ConsoleMode() { delete atm_; }
+ConsoleMode::~ConsoleMode() {
+  delete atm_;
+  delete user_input_;
+  delete quit_menu_handler_;
+}
 
 void ConsoleMode::RunInitialScreen() {
   OutputSetup::SetupTwoStreamsForOutput();
@@ -21,7 +28,7 @@ void ConsoleMode::RunInitialScreen() {
 }
 
 void ConsoleMode::RunProgram() {
-  RunSectionBasedOn(UserInputProcessor::GetUserInput());
+  RunSectionBasedOn(user_input_->GetUserInput());
 
   if (IsCorrectRegistration()) {
     MainProgramMenu();
@@ -53,7 +60,7 @@ void ConsoleMode::RegistrateUser() { registrator_.RegisterUser(user_); }
 void ConsoleMode::MainProgramMenu() {
   do {
     UserMessenger::ShowMainMenu();
-    ExecuteOperation(UserInputProcessor::GetUserInput());
+    ExecuteOperation(user_input_->GetUserInput());
   } while (!user_want_to_exit_);
 }
 
@@ -78,7 +85,7 @@ void ConsoleMode::ExecuteOperation(int user_choice) {
 }
 
 void ConsoleMode::SuggestToQuit() {
-  user_want_to_exit_ = QuitMenuHandler::GetQuitResult();
+  user_want_to_exit_ = quit_menu_handler_->GetQuitResult();
 }
 
 bool ConsoleMode::IsCorrectRegistration() const {

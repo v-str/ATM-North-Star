@@ -1,7 +1,7 @@
 ﻿#ifndef MODE_SELECTOR
 #define MODE_SELECTOR
 
-#include <user_input.h>
+#include <user_input_processor.h>
 
 class ModeSelector {
  public:
@@ -11,7 +11,9 @@ class ModeSelector {
   int GetMode() const;
 
  private:
-  int user_value_ = -1;
+  UserInputProcessor user_input_processor_;
+
+  int user_input_ = -1;
 };
 
 #endif  // MODE_SELECTOR

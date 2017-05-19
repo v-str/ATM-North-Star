@@ -2,12 +2,10 @@
 
 #include <iostream>
 
+UserInputProcessor::~UserInputProcessor() {}
+
 int UserInputProcessor::GetUserInput() {
   std::string user_string = GetStringFromUser();
-
-  if (IsContainQuitString(user_string)) {
-    return kQuit;
-  }
 
   if (IsContainOnlyDigits(user_string)) {
     int user_value = GetDigitsFromString(user_string);
@@ -21,18 +19,6 @@ std::string UserInputProcessor::GetStringFromUser() {
   std::string string;
   std::getline(std::cin, string);
   return string;
-}
-
-bool UserInputProcessor::IsContainQuitString(const std::string& user_string) {
-  if (user_string == "Quit" || user_string == "quit") {
-    return true;
-  }
-
-  if (user_string == "Q" || user_string == "q") {
-    return true;
-  }
-
-  return false;
 }
 
 bool UserInputProcessor::IsContainOnlyDigits(const std::string& user_string) {

@@ -5,16 +5,18 @@
 
 class UserInputProcessor {
  public:
-  static int GetUserInput();
-  static std::string GetStringFromUser();
+  virtual ~UserInputProcessor();
+
+  virtual int GetUserInput();
+
+  std::string GetStringFromUser();
+
+ protected:
+  bool IsContainOnlyDigits(const std::string& user_string);
+  int GetDigitsFromString(const std::string& user_string);
 
  private:
-  static bool IsContainQuitString(const std::string& user_string);
-  static bool IsContainOnlyDigits(const std::string& user_string);
-  static int GetDigitsFromString(const std::string& user_string);
-
-  static constexpr int kQuit = 0;
-  static constexpr int kInvalidChoice = -1;
+  int kInvalidChoice = -1;
 };
 
 #endif  // USER_INPUT_PROCESSOR
