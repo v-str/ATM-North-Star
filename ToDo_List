@@ -19,6 +19,10 @@
 
 87. Continue registration section. Finish registration inspector and related classes -
 
+88. Add class StringHandler for handling any incorrect and inapropriate string getting
+    from user.
+    Use STL for this task
+
 
 
 

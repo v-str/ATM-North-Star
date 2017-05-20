@@ -5,7 +5,6 @@
 
 class InputDataValidator {
  public:
-  static bool IsLoginLengthCorrect(const std::string& login);
   static bool IsPasswordLengthCorrect(const std::string& login);
   static bool IsRefillingCorrect(int refill_sum);
   static bool IsWithdrawalCorrect(int withdrawal_sum);
