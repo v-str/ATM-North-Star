@@ -3,9 +3,11 @@
 
 #include <string>
 
+#include <registration_status.h>
+
 class RegistrationInspector {
  public:
-  int InspectLogin(const std::string& login) const;
+  ATM::LoginStatus InspectLoginString(const std::string& login) const;
 };
 
 #endif  // REGISTRATION_VERIFICATOR_H
