@@ -8,6 +8,9 @@
 class RegistrationInspector {
  public:
   ATM::LoginStatus InspectLoginString(const std::string& login) const;
+
+ private:
+  bool IsLoginShort(const std::string& login) const;
 };
 
 #endif  // REGISTRATION_VERIFICATOR_H

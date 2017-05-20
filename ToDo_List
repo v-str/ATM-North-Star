@@ -6,13 +6,18 @@
 
 82. Continue adding of atm operations into atm class +
 
--------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
 
 84. Make class ModeSelector like a simple class that maintain user input processing +
 
 86. Modify user_input for maintain exit through char q or Q +
 
+---------------------------------------------------------------------------------------
+----------------------------------- Current Tasks -------------------------------------
+---------------------------------------------------------------------------------------
 87. Continue replace by new input class -
+
+87. Continue registration section. Finish registration inspector and related classes -
 
 
 
