@@ -10,13 +10,13 @@ DEPENDPATH += \
     ../lib_console/messengers \
     ../lib_console/output_configuration \
     ../lib_gui/atm_splash_screen \
-    ../atm_core/atm_machine \
+    ../atm/atm_machine \
 
 INCLUDEPATH += \
     ../lib_console/messengers \
     ../lib_console/output_configuration \
     ../lib_gui/atm_splash_screen \
-    ../atm_core/atm_machine \
+    ../atm/atm_machine \
     $$PWD/atm_operations \ #deprecated code, should be remade
     $$PWD/atm_operations/credit_operations \ #deprecated code, should be remade
     $$PWD/user_data \ #deprecated code, should be remade
@@ -47,4 +47,4 @@ SOURCES += \
 LIBS += \
     -L$$OUT_PWD/../lib_console -llib_console \
     -L$$OUT_PWD/../lib_gui -llib_gui \
-    -L$$OUT_PWD/../atm_core -latm_core \
+    -L$$OUT_PWD/../atm -latm \
