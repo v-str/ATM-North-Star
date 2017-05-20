@@ -1,9 +1,9 @@
 ﻿#ifndef REGISTRATION_VERIFICATOR_H
 #define REGISTRATION_VERIFICATOR_H
 
-class RegistrationVerificator {
+class RegistrationInspector {
  public:
-  RegistrationVerificator();
+  RegistrationInspector();
 };
 
 #endif  // REGISTRATION_VERIFICATOR_H
