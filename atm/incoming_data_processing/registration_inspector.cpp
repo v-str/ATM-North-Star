@@ -6,7 +6,7 @@ ATM::RegistrationStatus RegistrationInspector::InspectLoginString(
     const std::string& login) {
   string_analyzer_.AnalyzeString(login);
 
-  if (IsLoginShort(login)) {
+  if (IsLoginShort(login.length())) {
     return ATM::RegistrationStatus::kShortLogin;
   } else if (IsLoginLong(login)) {
     return ATM::RegistrationStatus::kLongLogin;
@@ -34,8 +34,8 @@ ATM::RegistrationStatus RegistrationInspector::InspectLoginString(
 ATM::RegistrationStatus RegistrationInspector::InspectPasswordString(
     const std::string& password) {}
 
-bool RegistrationInspector::IsLoginShort(const std::string& login) const {
-  return login.length() < RegistrationStandard::MinLoginLength();
+bool RegistrationInspector::IsLoginShort(int login_length) const {
+  return login_length < RegistrationStandard::MinLoginLength();
 }
 
 bool RegistrationInspector::IsLoginLong(const std::string& login) const {

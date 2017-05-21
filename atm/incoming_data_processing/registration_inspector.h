@@ -12,7 +12,7 @@ class RegistrationInspector {
   ATM::RegistrationStatus InspectPasswordString(const std::string& password);
 
  private:
-  bool IsLoginShort(const std::string& login) const;
+  bool IsLoginShort(int login_length) const;
   bool IsLoginLong(const std::string& login) const;
   bool IsStringContainSpecialSymbols() const;
   bool IsStringBeginWithSpace() const;
