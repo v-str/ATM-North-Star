@@ -2,33 +2,33 @@
 
 #include <registration_standard.h>
 
-ATM::LoginStatus RegistrationInspector::InspectLoginString(
+ATM::RegistrationStatus RegistrationInspector::InspectLoginString(
     const std::string& login) {
   string_analyzer_.AnalyzeString(login);
 
   if (IsLoginShort(login)) {
-    return ATM::LoginStatus::kShortLogin;
+    return ATM::RegistrationStatus::kShortLogin;
   } else if (IsLoginLong(login)) {
-    return ATM::LoginStatus::kLongLogin;
+    return ATM::RegistrationStatus::kLongLogin;
   }
 
   if (IsStringContainSpecialSymbols()) {
-    return ATM::LoginStatus::kSpecialSymbols;
+    return ATM::RegistrationStatus::kSpecialSymbols;
   } else if (IsStringBeginWithSpace()) {
-    return ATM::LoginStatus::kBeginWithSpace;
+    return ATM::RegistrationStatus::kBeginWithSpace;
   } else if (IsStringEndWithSpace()) {
-    return ATM::LoginStatus::kEndWithSpace;
+    return ATM::RegistrationStatus::kEndWithSpace;
   }
 
   if (IsStringContainAdjacentSpaces()) {
-    return ATM::LoginStatus::kAdjacentSpaces;
+    return ATM::RegistrationStatus::kAdjacentSpaces;
   }
 
   if (IsStringContainOnlyDigits()) {
-    return ATM::LoginStatus::kContainOnlyDigits;
+    return ATM::RegistrationStatus::kContainOnlyDigits;
   }
 
-  return ATM::LoginStatus::kCorrectLogin;
+  return ATM::RegistrationStatus::kCorrectLogin;
 }
 
 bool RegistrationInspector::IsLoginShort(const std::string& login) const {

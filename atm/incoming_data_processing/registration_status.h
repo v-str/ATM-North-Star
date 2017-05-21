@@ -2,7 +2,7 @@
 #define REGISTRATION_STATUS_H
 
 namespace ATM {
-enum LoginStatus {
+enum RegistrationStatus {
   kCorrectLogin,
   kShortLogin,
   kLongLogin,
