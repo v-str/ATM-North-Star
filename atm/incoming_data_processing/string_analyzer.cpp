@@ -12,6 +12,8 @@ void StringAnalyzer::AnalyzeString(const std::string& string) {
   }
 
   is_special_symbols_ = IsStringContainSpecialSymbols(string.length());
+  is_begin_with_space_ = (*string.begin() == ' ');
+  is_end_with_space_ = (*string.end() == ' ');
 }
 
 int StringAnalyzer::AmountOfDigits() const { return amount_of_digits_; }
@@ -25,6 +27,12 @@ int StringAnalyzer::AmountOfSpaces() const { return amount_of_spaces_; }
 bool StringAnalyzer::IsStringContainSpecialSymbols() const {
   return is_special_symbols_;
 }
+
+bool StringAnalyzer::IsBeginStringBeginWithSpace() const {
+  return is_begin_with_space_;
+}
+
+bool StringAnalyzer::IsStringEndWithSpace() const { return is_end_with_space_; }
 
 bool StringAnalyzer::IsStringContainSpecialSymbols(int length_of_string) {
   int amount_of_legal_symbols =

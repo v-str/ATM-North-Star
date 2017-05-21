@@ -12,6 +12,8 @@ class StringAnalyzer {
   int AmountOfSpaces() const;
 
   bool IsStringContainSpecialSymbols() const;
+  bool IsBeginStringBeginWithSpace() const;
+  bool IsStringEndWithSpace() const;
 
  private:
   bool IsStringContainSpecialSymbols(int length_of_string);
@@ -23,6 +25,8 @@ class StringAnalyzer {
   int amount_of_spaces_ = 0;
 
   bool is_special_symbols_ = true;
+  bool is_begin_with_space_ = true;
+  bool is_end_with_space_ = true;
 };
 
 #endif  // STRING_ANALYZER_H
