@@ -8,13 +8,13 @@ void StringAnalyzer::AnalyzeString(const std::string& string) {
   for (auto i : string) {
     if (isdigit(string[i])) amount_of_digits_++;
     if (isalpha(string[i])) amount_of_alphabet_symbols_++;
-    if (string[i] == ' ') amount_of_spaces_++;
+    if (string[i] == space_symbol_) amount_of_spaces_++;
   }
 
   is_special_symbols_ = IsStringContainSpecialSymbols(string.length());
   is_adjacent_spaces_ = IsStringContainAdjacentSpaces(string);
-  is_begin_with_space_ = (*string.begin() == ' ');
-  is_end_with_space_ = (*(--string.end()) == ' ');
+  is_begin_with_space_ = (*string.begin() == space_symbol_);
+  is_end_with_space_ = (*(--string.end()) == space_symbol_);
 }
 
 int StringAnalyzer::AmountOfDigits() const { return amount_of_digits_; }
@@ -50,8 +50,9 @@ bool StringAnalyzer::IsStringContainAdjacentSpaces(
     const std::string& string) const {
   std::string temp_string = string;
   std::string::iterator it = std::adjacent_find(
-      temp_string.begin(), temp_string.end(),
-      [](char one, char two) { return one == ' ' && two == ' '; });
+      temp_string.begin(), temp_string.end(), [](char one, char two) {
+        return one == space_symbol_ && two == space_symbol_;
+      });
 
   return it != temp_string.end();
 }

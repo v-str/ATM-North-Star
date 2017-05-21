@@ -30,6 +30,8 @@ class StringAnalyzer {
   bool is_begin_with_space_ = true;
   bool is_end_with_space_ = true;
   bool is_adjacent_spaces_ = true;
+
+  static constexpr char space_symbol_ = ' ';
 };
 
 #endif  // STRING_ANALYZER_H
