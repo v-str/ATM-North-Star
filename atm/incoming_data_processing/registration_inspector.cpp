@@ -20,6 +20,10 @@ ATM::LoginStatus RegistrationInspector::InspectLoginString(
     return ATM::LoginStatus::kEndWithSpace;
   }
 
+  // if(IsStringContainAdjacentSpaces(){
+  // return ATM::LoginStatus::kAdjacentSpaces;
+  // }
+
   return ATM::LoginStatus::kCorrectLogin;
 }
 

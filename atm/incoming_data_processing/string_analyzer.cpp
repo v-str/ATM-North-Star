@@ -13,7 +13,7 @@ void StringAnalyzer::AnalyzeString(const std::string& string) {
 
   is_special_symbols_ = IsStringContainSpecialSymbols(string.length());
   is_begin_with_space_ = (*string.begin() == ' ');
-  is_end_with_space_ = (*string.end() == ' ');
+  is_end_with_space_ = (*(--string.end()) == ' ');
 }
 
 int StringAnalyzer::AmountOfDigits() const { return amount_of_digits_; }
