@@ -16,6 +16,8 @@ class StringAnalyzer {
  private:
   bool IsStringContainSpecialSymbols(int length_of_string);
 
+  void SetToZeroValues();
+
   int amount_of_digits_ = 0;
   int amount_of_alphabet_symbols_ = 0;
   int amount_of_spaces_ = 0;

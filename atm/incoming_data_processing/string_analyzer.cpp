@@ -3,6 +3,8 @@
 #include <algorithm>
 
 void StringAnalyzer::AnalyzeString(const std::string& string) {
+  SetToZeroValues();
+
   for (auto i : string) {
     if (isdigit(string[i])) amount_of_digits_++;
     if (isalpha(string[i])) amount_of_alphabet_symbols_++;
@@ -29,4 +31,10 @@ bool StringAnalyzer::IsStringContainSpecialSymbols(int length_of_string) {
       amount_of_digits_ + amount_of_alphabet_symbols_ + amount_of_spaces_;
 
   return length_of_string != amount_of_legal_symbols;
+}
+
+void StringAnalyzer::SetToZeroValues() {
+  amount_of_digits_ = 0;
+  amount_of_alphabet_symbols_ = 0;
+  amount_of_spaces_ = 0;
 }
