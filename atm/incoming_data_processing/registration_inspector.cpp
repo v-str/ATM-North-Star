@@ -24,9 +24,9 @@ ATM::LoginStatus RegistrationInspector::InspectLoginString(
     return ATM::LoginStatus::kAdjacentSpaces;
   }
 
-  // if (IsStringContainOnlyDigits()){
-  // return ATM::LoginStatus::kContainOnlyDigits;
-  // }
+  if (IsStringContainOnlyDigits()) {
+    return ATM::LoginStatus::kContainOnlyDigits;
+  }
 
   return ATM::LoginStatus::kCorrectLogin;
 }
@@ -53,4 +53,8 @@ bool RegistrationInspector::IsStringEndWithSpace() const {
 
 bool RegistrationInspector::IsStringContainAdjacentSpaces() const {
   return string_analyzer_.IsStringContainAdjacentSpaces();
+}
+
+bool RegistrationInspector::IsStringContainOnlyDigits() const {
+  return string_analyzer_.IsStringContainOnlyDigits();
 }

@@ -17,6 +17,7 @@ class RegistrationInspector {
   bool IsStringBeginWithSpace() const;
   bool IsStringEndWithSpace() const;
   bool IsStringContainAdjacentSpaces() const;
+  bool IsStringContainOnlyDigits() const;
 
   StringAnalyzer string_analyzer_;
 };

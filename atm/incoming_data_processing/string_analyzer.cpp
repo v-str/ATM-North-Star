@@ -70,4 +70,10 @@ void StringAnalyzer::SetToZeroValues() {
   amount_of_digits_ = 0;
   amount_of_alphabet_symbols_ = 0;
   amount_of_spaces_ = 0;
+
+  is_special_symbols_ = true;
+  is_begin_with_space_ = true;
+  is_end_with_space_ = true;
+  is_adjacent_spaces_ = true;
+  is_only_digits_ = true;
 }
