@@ -20,9 +20,9 @@ ATM::LoginStatus RegistrationInspector::InspectLoginString(
     return ATM::LoginStatus::kEndWithSpace;
   }
 
-  // if(IsStringContainAdjacentSpaces(){
-  // return ATM::LoginStatus::kAdjacentSpaces;
-  // }
+  if (IsStringContainAdjacentSpaces()) {
+    return ATM::LoginStatus::kAdjacentSpaces;
+  }
 
   return ATM::LoginStatus::kCorrectLogin;
 }
@@ -45,4 +45,8 @@ bool RegistrationInspector::IsStringBeginWithSpace() const {
 
 bool RegistrationInspector::IsStringEndWithSpace() const {
   return string_analyzer_.IsStringEndWithSpace();
+}
+
+bool RegistrationInspector::IsStringContainAdjacentSpaces() const {
+  return string_analyzer_.IsStringContainAdjacentSpaces();
 }

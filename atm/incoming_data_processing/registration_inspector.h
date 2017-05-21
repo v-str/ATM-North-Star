@@ -16,6 +16,7 @@ class RegistrationInspector {
   bool IsStringContainSpecialSymbols() const;
   bool IsStringBeginWithSpace() const;
   bool IsStringEndWithSpace() const;
+  bool IsStringContainAdjacentSpaces() const;
 
   StringAnalyzer string_analyzer_;
 };

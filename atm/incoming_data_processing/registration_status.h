@@ -8,7 +8,8 @@ enum LoginStatus {
   kLongLogin,
   kSpecialSymbols,
   kBeginWithSpace,
-  kEndWithSpace
+  kEndWithSpace,
+  kAdjacentSpaces
 };
 }
 
