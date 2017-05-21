@@ -10,6 +10,10 @@ ATM::LoginStatus RegistrationInspector::InspectLoginString(
     return ATM::LoginStatus::kLongLogin;
   }
 
+  // if (!IsDigits(login) || !IsAlphabeitSymbols(login)){
+  // return ATM::LoginStatus::kInapropriateCharacters;
+  // }
+
   return ATM::LoginStatus::kCorrectLogin;
 }
 
