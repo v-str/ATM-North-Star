@@ -32,7 +32,17 @@ ATM::RegistrationStatus RegistrationInspector::InspectLoginString(
 }
 
 ATM::RegistrationStatus RegistrationInspector::InspectPasswordString(
-    const std::string& password) {}
+    const std::string& password) {
+  string_analyzer_.AnalyzeString(password);
+
+  if (IsPasswordShort(password.length())) {
+    return ATM::RegistrationStatus::kShortPassword;
+  } else if (IsPasswordLong(password.length())) {
+    return ATM::RegistrationStatus::kLongPassword;
+  }
+
+  return ATM::RegistrationStatus::kCorrectPassword;
+}
 
 bool RegistrationInspector::IsLoginShort(int login_length) const {
   return login_length < RegistrationStandard::MinLoginLength();
@@ -60,4 +70,12 @@ bool RegistrationInspector::IsStringContainAdjacentSpaces() const {
 
 bool RegistrationInspector::IsStringContainOnlyDigits() const {
   return string_analyzer_.IsStringContainOnlyDigits();
+}
+
+bool RegistrationInspector::IsPasswordShort(int password_length) const {
+  return password_length < RegistrationStandard::PasswordLength();
+}
+
+bool RegistrationInspector::IsPasswordLong(int password_length) const {
+  return password_length > RegistrationStandard::PasswordLength();
 }

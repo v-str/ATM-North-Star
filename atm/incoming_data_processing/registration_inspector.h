@@ -20,6 +20,9 @@ class RegistrationInspector {
   bool IsStringContainAdjacentSpaces() const;
   bool IsStringContainOnlyDigits() const;
 
+  bool IsPasswordShort(int password_length) const;
+  bool IsPasswordLong(int password_length) const;
+
   StringAnalyzer string_analyzer_;
 };
 
