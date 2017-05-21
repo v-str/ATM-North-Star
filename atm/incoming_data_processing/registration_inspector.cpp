@@ -36,7 +36,7 @@ bool RegistrationInspector::IsStringContainSpecialSymbols() const {
 }
 
 bool RegistrationInspector::IsStringBeginWithSpace() const {
-  return string_analyzer_.IsBeginStringBeginWithSpace();
+  return string_analyzer_.IsStringBeginWithSpace();
 }
 
 bool RegistrationInspector::IsStringEndWithSpace() const {

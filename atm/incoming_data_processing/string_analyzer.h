@@ -12,7 +12,7 @@ class StringAnalyzer {
   int AmountOfSpaces() const;
 
   bool IsStringContainSpecialSymbols() const;
-  bool IsBeginStringBeginWithSpace() const;
+  bool IsStringBeginWithSpace() const;
   bool IsStringEndWithSpace() const;
 
  private:

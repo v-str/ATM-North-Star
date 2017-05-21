@@ -28,7 +28,7 @@ bool StringAnalyzer::IsStringContainSpecialSymbols() const {
   return is_special_symbols_;
 }
 
-bool StringAnalyzer::IsBeginStringBeginWithSpace() const {
+bool StringAnalyzer::IsStringBeginWithSpace() const {
   return is_begin_with_space_;
 }
 
