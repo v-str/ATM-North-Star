@@ -7,10 +7,7 @@ class StringAnalyzer {
  public:
   static int AmountOfDigits(const std::string& string);
   static int AmountOfAlphabeticSymbol(const std::string& string);
-
- private:
-  static int digit_amount_;
-  static int alphabet_symbol_amount_;
+  static int AmountOfSpaces(const std::string& string);
 };
 
 #endif  // STRING_ANALYZER_H
