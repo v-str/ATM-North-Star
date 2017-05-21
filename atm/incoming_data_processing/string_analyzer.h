@@ -12,6 +12,8 @@ class StringAnalyzer {
   static int AmountOfSpaces();
 
  private:
+  static bool IsStringContainSpecialCharacters(int length_of_string);
+
   static int amount_of_digits_;
   static int amount_of_alphabet_symbols_;
   static int amount_of_spaces_;

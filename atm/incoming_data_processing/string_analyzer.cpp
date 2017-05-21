@@ -25,3 +25,10 @@ int StringAnalyzer::AmountOfAlphabeticSymbols() {
 }
 
 int StringAnalyzer::AmountOfSpaces() { return amount_of_spaces_; }
+
+bool StringAnalyzer::IsStringContainSpecialCharacters(int length_of_string) {
+  int amount_of_legal_symbols =
+      amount_of_digits_ + amount_of_alphabet_symbols_ + amount_of_spaces_;
+
+  return length_of_string != amount_of_legal_symbols;
+}
