@@ -10,7 +10,7 @@ ATM::LoginStatus RegistrationInspector::InspectLoginString(
     return ATM::LoginStatus::kLongLogin;
   }
 
-  // if (!IsDigits(login) || !IsAlphabeitSymbols(login)){
+  // if (!IsDigitsAndAlphabeticCharacters)){
   // return ATM::LoginStatus::kInapropriateCharacters;
   // }
 
@@ -24,3 +24,7 @@ bool RegistrationInspector::IsLoginShort(const std::string& login) const {
 bool RegistrationInspector::IsLoginLong(const std::string& login) const {
   return login.length() > RegistrationStandard::MaxLoginLength();
 }
+
+bool RegistrationInspector::IsDigit(const std::string& string) const {}
+
+bool RegistrationInspector::IsAlphabetSymbol(const std::string& string) const {}
