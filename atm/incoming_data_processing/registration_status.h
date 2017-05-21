@@ -9,7 +9,8 @@ enum LoginStatus {
   kSpecialSymbols,
   kBeginWithSpace,
   kEndWithSpace,
-  kAdjacentSpaces
+  kAdjacentSpaces,
+  kContainOnlyDigits
 };
 }
 

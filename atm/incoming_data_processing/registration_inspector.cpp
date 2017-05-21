@@ -24,6 +24,10 @@ ATM::LoginStatus RegistrationInspector::InspectLoginString(
     return ATM::LoginStatus::kAdjacentSpaces;
   }
 
+  // if (IsStringContainOnlyDigits()){
+  // return ATM::LoginStatus::kContainOnlyDigits;
+  // }
+
   return ATM::LoginStatus::kCorrectLogin;
 }
 

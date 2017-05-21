@@ -13,10 +13,12 @@ class StringAnalyzer {
 
   bool IsStringContainSpecialSymbols() const;
   bool IsStringContainAdjacentSpaces() const;
+  bool IsStringContainOnlyDigits() const;
   bool IsStringBeginWithSpace() const;
   bool IsStringEndWithSpace() const;
 
  private:
+  bool IsStringContainOnlyDigits(int length_of_string) const;
   bool IsStringContainSpecialSymbols(int length_of_string) const;
   bool IsStringContainAdjacentSpaces(const std::string& string) const;
 
@@ -30,6 +32,7 @@ class StringAnalyzer {
   bool is_begin_with_space_ = true;
   bool is_end_with_space_ = true;
   bool is_adjacent_spaces_ = true;
+  bool is_only_digits_ = true;
 
   static constexpr char space_symbol_ = ' ';
 };
