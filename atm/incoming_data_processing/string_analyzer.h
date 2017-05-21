@@ -5,20 +5,20 @@
 
 class StringAnalyzer {
  public:
-  static void AnalyzeString(const std::string& string);
+  void AnalyzeString(const std::string& string);
 
-  static int AmountOfDigits();
-  static int AmountOfAlphabeticSymbols();
-  static int AmountOfSpaces();
+  int AmountOfDigits();
+  int AmountOfAlphabeticSymbols();
+  int AmountOfSpaces();
 
  private:
-  static bool IsSpecialSymbols(int length_of_string);
+  bool IsSpecialSymbols(int length_of_string);
 
-  static int amount_of_digits_;
-  static int amount_of_alphabet_symbols_;
-  static int amount_of_spaces_;
+  int amount_of_digits_ = 0;
+  int amount_of_alphabet_symbols_ = 0;
+  int amount_of_spaces_ = 0;
 
-  static bool is_special_symbols_;
+  bool is_special_symbols_ = true;
 };
 
 #endif  // STRING_ANALYZER_H

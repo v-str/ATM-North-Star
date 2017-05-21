@@ -2,17 +2,7 @@
 
 #include <algorithm>
 
-int StringAnalyzer::amount_of_digits_ = 0;
-int StringAnalyzer::amount_of_alphabet_symbols_ = 0;
-int StringAnalyzer::amount_of_spaces_ = 0;
-
-bool StringAnalyzer::is_special_symbols_ = true;
-
 void StringAnalyzer::AnalyzeString(const std::string& string) {
-  amount_of_digits_ = 0;
-  amount_of_alphabet_symbols_ = 0;
-  amount_of_spaces_ = 0;
-
   for (auto i : string) {
     if (isdigit(string[i])) amount_of_digits_++;
     if (isalpha(string[i])) amount_of_alphabet_symbols_++;
