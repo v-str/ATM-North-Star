@@ -8,7 +8,7 @@ ATM::RegistrationStatus RegistrationInspector::InspectLoginString(
 
   if (IsLoginShort(login.length())) {
     return ATM::RegistrationStatus::kShortLogin;
-  } else if (IsLoginLong(login)) {
+  } else if (IsLoginLong(login.length())) {
     return ATM::RegistrationStatus::kLongLogin;
   }
 
@@ -38,8 +38,8 @@ bool RegistrationInspector::IsLoginShort(int login_length) const {
   return login_length < RegistrationStandard::MinLoginLength();
 }
 
-bool RegistrationInspector::IsLoginLong(const std::string& login) const {
-  return login.length() > RegistrationStandard::MaxLoginLength();
+bool RegistrationInspector::IsLoginLong(int login_length) const {
+  return login_length > RegistrationStandard::MaxLoginLength();
 }
 
 bool RegistrationInspector::IsStringContainSpecialSymbols() const {

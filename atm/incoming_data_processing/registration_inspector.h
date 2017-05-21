@@ -13,7 +13,7 @@ class RegistrationInspector {
 
  private:
   bool IsLoginShort(int login_length) const;
-  bool IsLoginLong(const std::string& login) const;
+  bool IsLoginLong(int login_length) const;
   bool IsStringContainSpecialSymbols() const;
   bool IsStringBeginWithSpace() const;
   bool IsStringEndWithSpace() const;
