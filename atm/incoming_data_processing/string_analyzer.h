@@ -5,9 +5,14 @@
 
 class StringAnalyzer {
  public:
-  static int AmountOfDigits(const std::string& string);
-  static int AmountOfAlphabeticSymbol(const std::string& string);
-  static int AmountOfSpaces(const std::string& string);
+  enum AnalyzeCriterion { kDigits, kAlphabetSymbol, kSpaces };
+
+  static void AmountOf(AnalyzeCriterion criterion, const std::string& string);
+
+ private:
+  static int amount_of_digits_;
+  static int amount_of_alphabet_symbols_;
+  static int amount_of_spaces_;
 };
 
 #endif  // STRING_ANALYZER_H

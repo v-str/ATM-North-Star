@@ -2,34 +2,29 @@
 
 #include <algorithm>
 
-bool IsDigit(std::string::const_iterator it) { return isdigit(*it); }
+int StringAnalyzer::amount_of_digits_ = 0;
+int StringAnalyzer::amount_of_alphabet_symbols_ = 0;
+int StringAnalyzer::amount_of_spaces_ = 0;
 
-int StringAnalyzer::AmountOfDigits(const std::string& string) {
-  int digit_amount;
+void StringAnalyzer::AmountOf(StringAnalyzer::AnalyzeCriterion criterion,
+                              const std::string& string) {
+  amount_of_digits_ = 0;
+  amount_of_alphabet_symbols_ = 0;
+  amount_of_spaces_ = 0;
+
   for (auto i : string) {
-    if (isdigit(string[i])) {
-      digit_amount++;
+    switch (criterion) {
+      case kDigits:
+        if (isdigit(string[i])) amount_of_digits_++;
+        break;
+      case kAlphabetSymbol:
+        if (isalpha(string[i])) amount_of_alphabet_symbols_++;
+        break;
+      case kSpaces:
+        if (string[i] == ' ') amount_of_spaces_++;
+        break;
+      default:
+        break;
     }
   }
-  return digit_amount;
-}
-
-int StringAnalyzer::AmountOfAlphabeticSymbol(const std::string& string) {
-  int alphabet_symbol_amount = 0;
-  for (auto i : string) {
-    if (isalpha(string[i])) {
-      alphabet_symbol_amount++;
-    }
-  }
-  return alphabet_symbol_amount;
-}
-
-int StringAnalyzer::AmountOfSpaces(const std::string& string) {
-  int space_symbol = 0;
-  for (auto i : string) {
-    if (string[i] == ' ') {
-      space_symbol++;
-    }
-  }
-  return space_symbol;
 }
