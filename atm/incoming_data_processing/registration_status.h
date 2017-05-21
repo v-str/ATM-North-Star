@@ -6,14 +6,15 @@ enum RegistrationStatus {
   kCorrectLogin,
   kShortLogin,
   kLongLogin,
+  kCorrectPassword,
+  kShortPassword,
+  kLongPassword,
   kSpecialSymbols,
   kBeginWithSpace,
   kEndWithSpace,
   kAdjacentSpaces,
   kContainOnlyDigits,
-  kCorrectPassword,
-  kShortPassword,
-  kLongPassword
+  kContainSpaceSymbol
 };
 }
 
