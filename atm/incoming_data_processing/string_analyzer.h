@@ -5,10 +5,7 @@
 
 class StringAnalyzer {
  public:
-  enum AnalyzeCriterion { kDigits, kAlphabetSymbol, kSpaces };
-
-  static void AnalyzeString(AnalyzeCriterion criterion,
-                            const std::string& string);
+  static void AnalyzeString(const std::string& string);
 
   static int AmountOfDigits();
   static int AmountOfAlphabeticSymbols();
