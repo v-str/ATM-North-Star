@@ -9,6 +9,10 @@ class StringAnalyzer {
 
   static void AmountOf(AnalyzeCriterion criterion, const std::string& string);
 
+  static int AmountOfDigits();
+  static int AmountOfAlphabeticSymbols();
+  static int AmountOfSpaces();
+
  private:
   static int amount_of_digits_;
   static int amount_of_alphabet_symbols_;

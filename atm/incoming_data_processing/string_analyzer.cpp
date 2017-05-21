@@ -28,3 +28,11 @@ void StringAnalyzer::AmountOf(StringAnalyzer::AnalyzeCriterion criterion,
     }
   }
 }
+
+int StringAnalyzer::AmountOfDigits() { return amount_of_digits_; }
+
+int StringAnalyzer::AmountOfAlphabeticSymbols() {
+  return amount_of_alphabet_symbols_;
+}
+
+int StringAnalyzer::AmountOfSpaces() { return amount_of_spaces_; }
