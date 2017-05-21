@@ -26,7 +26,7 @@ int StringAnalyzer::AmountOfAlphabeticSymbol(const std::string& string) {
 
 int StringAnalyzer::AmountOfSpaces(const std::string& string) {
   int space_symbol = 0;
-  for (int i = 0; i < string.length(); ++i) {
+  for (int i : string) {
     if (string[i] == ' ') {
       space_symbol++;
     }
