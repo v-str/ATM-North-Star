@@ -12,6 +12,7 @@ void StringAnalyzer::AnalyzeString(const std::string& string) {
   }
 
   is_special_symbols_ = IsStringContainSpecialSymbols(string.length());
+  is_adjacent_spaces_ = IsStringContainAdjacentSpaces(string);
   is_begin_with_space_ = (*string.begin() == ' ');
   is_end_with_space_ = (*(--string.end()) == ' ');
 }
@@ -28,17 +29,31 @@ bool StringAnalyzer::IsStringContainSpecialSymbols() const {
   return is_special_symbols_;
 }
 
+bool StringAnalyzer::IsStringContainAdjacentSpaces() const {
+  return is_adjacent_spaces_;
+}
+
 bool StringAnalyzer::IsStringBeginWithSpace() const {
   return is_begin_with_space_;
 }
 
 bool StringAnalyzer::IsStringEndWithSpace() const { return is_end_with_space_; }
 
-bool StringAnalyzer::IsStringContainSpecialSymbols(int length_of_string) {
+bool StringAnalyzer::IsStringContainSpecialSymbols(int length_of_string) const {
   int amount_of_legal_symbols =
       amount_of_digits_ + amount_of_alphabet_symbols_ + amount_of_spaces_;
 
   return length_of_string != amount_of_legal_symbols;
+}
+
+bool StringAnalyzer::IsStringContainAdjacentSpaces(
+    const std::string& string) const {
+  std::string temp_string = string;
+  std::string::iterator it = std::adjacent_find(
+      temp_string.begin(), temp_string.end(),
+      [](char one, char two) { return one == ' ' && two == ' '; });
+
+  return it != temp_string.end();
 }
 
 void StringAnalyzer::SetToZeroValues() {
