@@ -9,18 +9,22 @@ void StringAnalyzer::AnalyzeString(const std::string& string) {
     if (string[i] == ' ') amount_of_spaces_++;
   }
 
-  is_special_symbols_ = IsSpecialSymbols(string.length());
+  is_special_symbols_ = IsStringContainSpecialSymbols(string.length());
 }
 
-int StringAnalyzer::AmountOfDigits() { return amount_of_digits_; }
+int StringAnalyzer::AmountOfDigits() const { return amount_of_digits_; }
 
-int StringAnalyzer::AmountOfAlphabeticSymbols() {
+int StringAnalyzer::AmountOfAlphabeticSymbols() const {
   return amount_of_alphabet_symbols_;
 }
 
-int StringAnalyzer::AmountOfSpaces() { return amount_of_spaces_; }
+int StringAnalyzer::AmountOfSpaces() const { return amount_of_spaces_; }
 
-bool StringAnalyzer::IsSpecialSymbols(int length_of_string) {
+bool StringAnalyzer::IsStringContainSpecialSymbols() const {
+  return is_special_symbols_;
+}
+
+bool StringAnalyzer::IsStringContainSpecialSymbols(int length_of_string) {
   int amount_of_legal_symbols =
       amount_of_digits_ + amount_of_alphabet_symbols_ + amount_of_spaces_;
 

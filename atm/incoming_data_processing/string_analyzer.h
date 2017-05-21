@@ -7,12 +7,14 @@ class StringAnalyzer {
  public:
   void AnalyzeString(const std::string& string);
 
-  int AmountOfDigits();
-  int AmountOfAlphabeticSymbols();
-  int AmountOfSpaces();
+  int AmountOfDigits() const;
+  int AmountOfAlphabeticSymbols() const;
+  int AmountOfSpaces() const;
+
+  bool IsStringContainSpecialSymbols() const;
 
  private:
-  bool IsSpecialSymbols(int length_of_string);
+  bool IsStringContainSpecialSymbols(int length_of_string);
 
   int amount_of_digits_ = 0;
   int amount_of_alphabet_symbols_ = 0;
