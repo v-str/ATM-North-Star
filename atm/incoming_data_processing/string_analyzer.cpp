@@ -4,6 +4,7 @@ int StringAnalyzer::digit_amount_ = 0;
 int StringAnalyzer::alphabet_symbol_amount_ = 0;
 
 int StringAnalyzer::AmountOfDigits(const std::string& string) {
+  digit_amount_ = 0;
   for (auto i : string) {
     if (isdigit(string[i])) {
       digit_amount_++;
@@ -13,6 +14,7 @@ int StringAnalyzer::AmountOfDigits(const std::string& string) {
 }
 
 int StringAnalyzer::AmountOfAlphabeticSymbol(const std::string& string) {
+  alphabet_symbol_amount_ = 0;
   for (auto i : string) {
     if (isalpha(string[i])) {
       alphabet_symbol_amount_++;
