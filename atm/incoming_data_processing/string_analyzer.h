@@ -12,11 +12,13 @@ class StringAnalyzer {
   static int AmountOfSpaces();
 
  private:
-  static bool IsStringContainSpecialSymbol(int length_of_string);
+  static bool IsSpecialSymbols(int length_of_string);
 
   static int amount_of_digits_;
   static int amount_of_alphabet_symbols_;
   static int amount_of_spaces_;
+
+  static bool is_special_symbols_;
 };
 
 #endif  // STRING_ANALYZER_H
