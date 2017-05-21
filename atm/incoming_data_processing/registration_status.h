@@ -10,7 +10,9 @@ enum RegistrationStatus {
   kBeginWithSpace,
   kEndWithSpace,
   kAdjacentSpaces,
-  kContainOnlyDigits
+  kContainOnlyDigits,
+  kShortPassword,
+  kLongPassword
 };
 }
 

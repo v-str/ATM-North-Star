@@ -31,6 +31,9 @@ ATM::RegistrationStatus RegistrationInspector::InspectLoginString(
   return ATM::RegistrationStatus::kCorrectLogin;
 }
 
+ATM::RegistrationStatus RegistrationInspector::InspectPasswordString(
+    const std::string& password) {}
+
 bool RegistrationInspector::IsLoginShort(const std::string& login) const {
   return login.length() < RegistrationStandard::MinLoginLength();
 }

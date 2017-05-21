@@ -9,6 +9,7 @@
 class RegistrationInspector {
  public:
   ATM::RegistrationStatus InspectLoginString(const std::string& login);
+  ATM::RegistrationStatus InspectPasswordString(const std::string& password);
 
  private:
   bool IsLoginShort(const std::string& login) const;
