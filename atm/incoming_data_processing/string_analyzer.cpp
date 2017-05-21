@@ -6,8 +6,8 @@ int StringAnalyzer::amount_of_digits_ = 0;
 int StringAnalyzer::amount_of_alphabet_symbols_ = 0;
 int StringAnalyzer::amount_of_spaces_ = 0;
 
-void StringAnalyzer::AmountOf(StringAnalyzer::AnalyzeCriterion criterion,
-                              const std::string& string) {
+void StringAnalyzer::AnalyzeString(StringAnalyzer::AnalyzeCriterion criterion,
+                                   const std::string& string) {
   amount_of_digits_ = 0;
   amount_of_alphabet_symbols_ = 0;
   amount_of_spaces_ = 0;
