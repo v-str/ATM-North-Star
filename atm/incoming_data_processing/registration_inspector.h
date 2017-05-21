@@ -12,9 +12,6 @@ class RegistrationInspector {
  private:
   bool IsLoginShort(const std::string& login) const;
   bool IsLoginLong(const std::string& login) const;
-
-  bool IsDigit(const std::string& string) const;
-  bool IsAlphabetSymbol(const std::string& string) const;
 };
 
 #endif  // REGISTRATION_VERIFICATOR_H
