@@ -13,12 +13,13 @@
 ConsoleMode::ConsoleMode()
     : atm_(new Atm()),
       user_input_(new UserInputProcessor()),
-      quit_menu_handler_(new QuitMenuHandler()) {}
+      quit_menu_handler_(new QuitMenuHandler()) {
+  OutputSetup::SetupTwoStreamsForOutput();
+}
 // new code
 ConsoleMode::~ConsoleMode() {}
 
 void ConsoleMode::RunATM() {
-  OutputSetup::SetupTwoStreamsForOutput();
   InitialMessenger::DisplayInitialScreen();
   RunProgram();
 }
