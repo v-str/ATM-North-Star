@@ -1,7 +1,6 @@
 ﻿#include "messenger.h"
 
 #include <iostream>
-#include <sstream>
 
 void Messenger::ShowGreetingMessage() {
   std::cout << "v.1.0.1\n\n"
@@ -13,4 +12,6 @@ void Messenger::ShowGreetingMessage() {
                "Enter: ";
 }
 
-void Messenger::IncorrectInput() { std::cout << "Incorrect input, re-enter: "; }
+void Messenger::IncorrectInput() {
+  std::cout << "Incorrect input, please re-enter: ";
+}

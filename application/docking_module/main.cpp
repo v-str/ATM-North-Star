@@ -1,6 +1,6 @@
 ﻿#include <QApplication>
 
-#include <mode_launcher.h>
+#include <launcher.h>
 #include <selector.h>
 
 int main(int argc, char* argv[]) {
@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
   Selector selector;
   selector.SuggestMode();
 
-  ModeLauncher launcher;
+  Launcher launcher;
   switch (selector.GetMode()) {
     case kConsoleMode:
       launcher.LaunchConsoleMode();
