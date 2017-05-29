@@ -37,7 +37,8 @@ ATM::RegistrationStatus RegistrationInspector::InspectPasswordString(
 
   if (IsPasswordShort(password.length())) {
     return ATM::RegistrationStatus::kShortPassword;
-  } else if (IsPasswordLong(password.length())) {
+  }
+  if (IsPasswordLong(password.length())) {
     return ATM::RegistrationStatus::kLongPassword;
   }
 
