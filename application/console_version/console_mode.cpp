@@ -38,8 +38,9 @@ void ConsoleMode::RunSectionBasedOn(int user_choice) {
     DemoMenu();
   } else if (user_choice == kRegistration) {
     RegistrateUser();
-  } else if (user_choice == kQuit) {
-  } else {
+  }
+
+  if (user_choice != kQuit) {
     ShowIncorrectRegistration();
   }
 }
