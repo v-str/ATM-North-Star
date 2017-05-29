@@ -1,12 +1,12 @@
-﻿#ifndef REGISTRATION_VERIFICATOR_H
-#define REGISTRATION_VERIFICATOR_H
+﻿#ifndef AUTHENTICATOR_H
+#define AUTHENTICATOR_H
 
 #include <string>
 
 #include <registration_status.h>
 #include <string_analyzer.h>
 
-class RegistrationInspector {
+class Authenticator {
  public:
   ATM::RegistrationStatus InspectLoginString(const std::string& login);
   ATM::RegistrationStatus InspectPasswordString(const std::string& password);
@@ -28,4 +28,4 @@ class RegistrationInspector {
   StringAnalyzer string_analyzer_;
 };
 
-#endif  // REGISTRATION_VERIFICATOR_H
+#endif  // AUTHENTICATOR_H
