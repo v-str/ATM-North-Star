@@ -8,8 +8,8 @@
 
 class Authenticator {
  public:
-  ATM::RegistrationStatus InspectLoginString(const std::string& login);
-  ATM::RegistrationStatus InspectPasswordString(const std::string& password);
+  ATM::AuthenticationStatus InspectLoginString(const std::string& login);
+  ATM::AuthenticationStatus InspectPasswordString(const std::string& password);
 
  private:
   bool IsLoginShort(int login_length) const;

@@ -1,8 +1,8 @@
-﻿#ifndef REGISTRATION_STATUS_H
-#define REGISTRATION_STATUS_H
+﻿#ifndef AUTHENTIFICATION_STATUS_H
+#define AUTHENTIFICATION_STATUS_H
 
 namespace ATM {
-enum RegistrationStatus {
+enum AuthenticationStatus {
   kCorrectLogin,
   kShortLogin,
   kLongLogin,
@@ -18,4 +18,4 @@ enum RegistrationStatus {
 };
 }
 
-#endif  // REGISTRATION_STATUS_H
+#endif  // AUTHENTIFICATION_STATUS_H

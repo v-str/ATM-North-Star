@@ -2,53 +2,53 @@
 
 #include <authentication_standard.h>
 
-ATM::RegistrationStatus Authenticator::InspectLoginString(
+ATM::AuthenticationStatus Authenticator::InspectLoginString(
     const std::string& login) {
   string_analyzer_.AnalyzeString(login);
 
   if (IsLoginShort(login.length())) {
-    return ATM::RegistrationStatus::kShortLogin;
+    return ATM::AuthenticationStatus::kShortLogin;
   }
   if (IsLoginLong(login.length())) {
-    return ATM::RegistrationStatus::kLongLogin;
+    return ATM::AuthenticationStatus::kLongLogin;
   }
   if (IsStringContainSpecialSymbols()) {
-    return ATM::RegistrationStatus::kSpecialSymbols;
+    return ATM::AuthenticationStatus::kSpecialSymbols;
   }
   if (IsStringBeginWithSpace()) {
-    return ATM::RegistrationStatus::kBeginWithSpace;
+    return ATM::AuthenticationStatus::kBeginWithSpace;
   }
   if (IsStringEndWithSpace()) {
-    return ATM::RegistrationStatus::kEndWithSpace;
+    return ATM::AuthenticationStatus::kEndWithSpace;
   }
   if (IsStringContainAdjacentSpaces()) {
-    return ATM::RegistrationStatus::kAdjacentSpaces;
+    return ATM::AuthenticationStatus::kAdjacentSpaces;
   }
   if (IsStringContainOnlyDigits()) {
-    return ATM::RegistrationStatus::kContainOnlyDigits;
+    return ATM::AuthenticationStatus::kContainOnlyDigits;
   }
 
-  return ATM::RegistrationStatus::kCorrectLogin;
+  return ATM::AuthenticationStatus::kCorrectLogin;
 }
 
-ATM::RegistrationStatus Authenticator::InspectPasswordString(
+ATM::AuthenticationStatus Authenticator::InspectPasswordString(
     const std::string& password) {
   string_analyzer_.AnalyzeString(password);
 
   if (IsPasswordShort(password.length())) {
-    return ATM::RegistrationStatus::kShortPassword;
+    return ATM::AuthenticationStatus::kShortPassword;
   }
   if (IsPasswordLong(password.length())) {
-    return ATM::RegistrationStatus::kLongPassword;
+    return ATM::AuthenticationStatus::kLongPassword;
   }
   if (IsPasswordContainSpaces()) {
-    return ATM::RegistrationStatus::kContainSpaceSymbol;
+    return ATM::AuthenticationStatus::kContainSpaceSymbol;
   }
   if (IsStringContainSpecialSymbols()) {
-    return ATM::RegistrationStatus::kSpecialSymbols;
+    return ATM::AuthenticationStatus::kSpecialSymbols;
   }
 
-  return ATM::RegistrationStatus::kCorrectPassword;
+  return ATM::AuthenticationStatus::kCorrectPassword;
 }
 
 bool Authenticator::IsLoginShort(int login_length) const {
