@@ -2,11 +2,6 @@
 
 #include <cmath>
 
-bool InputDataValidator::IsLoginLengthCorrect(const std::string& login) {
-  return login.length() >= k_login_min_length_ &&
-         login.length() <= k_login_max_length_;
-}
-
 bool InputDataValidator::IsPasswordLengthCorrect(const std::string& login) {
   return login.length() == k_password_length_;
 }

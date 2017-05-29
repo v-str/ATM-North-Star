@@ -6,13 +6,15 @@
 
 82. Continue adding of atm operations into atm class +
 
--------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
 
 84. Make class ModeSelector like a simple class that maintain user input processing +
 
 86. Modify user_input for maintain exit through char q or Q +
 
-87. Continue replace by new input class -
+
+
+
 
 88. How make user registration class for both interface? -
 
