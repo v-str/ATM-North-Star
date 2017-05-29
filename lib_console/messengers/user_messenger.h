@@ -9,7 +9,7 @@ class UserMessenger {
   static void ShowQuitMenu();
   static void ShowIncorrectInput();
   static void ShowIncorrectMainMenuInput();
-  static void ShowIncorrectRegisterData();
+  static void ShowIncorrectRegistration();
 
  private:
   static constexpr int kFrame = 45;

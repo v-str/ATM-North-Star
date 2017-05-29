@@ -55,8 +55,8 @@ void UserMessenger::ShowIncorrectMainMenuInput() {
   ConsoleEditor::Sleep(200);
 }
 
-void UserMessenger::ShowIncorrectRegisterData() {
+void UserMessenger::ShowIncorrectRegistration() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\tIncorrect input, "
-      "\n\treload the program\n");
+      "\n\tReload the program\n");
 }

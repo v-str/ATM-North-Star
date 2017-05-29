@@ -91,5 +91,5 @@ bool ConsoleMode::IsCorrectRegistration() const {
 void ConsoleMode::EndProgram() const { UserMessenger::WishAGoodDay(); }
 
 void ConsoleMode::ShowIncorrectRegistration() const {
-  UserMessenger::ShowIncorrectRegisterData();
+  UserMessenger::ShowIncorrectRegistration();
 }
