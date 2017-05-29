@@ -1,6 +1,6 @@
 ﻿#include <authenticator.h>
 
-#include <registration_standard.h>
+#include <authentication_standard.h>
 
 ATM::RegistrationStatus Authenticator::InspectLoginString(
     const std::string& login) {
@@ -52,19 +52,19 @@ ATM::RegistrationStatus Authenticator::InspectPasswordString(
 }
 
 bool Authenticator::IsLoginShort(int login_length) const {
-  return login_length < RegistrationStandard::MinLoginLength();
+  return login_length < AuthenticationStandard::MinLoginLength();
 }
 
 bool Authenticator::IsLoginLong(int login_length) const {
-  return login_length > RegistrationStandard::MaxLoginLength();
+  return login_length > AuthenticationStandard::MaxLoginLength();
 }
 
 bool Authenticator::IsPasswordShort(int password_length) const {
-  return password_length < RegistrationStandard::PasswordLength();
+  return password_length < AuthenticationStandard::PasswordLength();
 }
 
 bool Authenticator::IsPasswordLong(int password_length) const {
-  return password_length > RegistrationStandard::PasswordLength();
+  return password_length > AuthenticationStandard::PasswordLength();
 }
 
 bool Authenticator::IsPasswordContainSpaces() const {
