@@ -1,12 +1,12 @@
 ﻿#include <QApplication>
 
 #include <mode_launcher.h>
-#include <mode_selector.h>
+#include <selector.h>
 
 int main(int argc, char* argv[]) {
   enum ProgramMode { kConsoleMode = 1, kGuiMode };
 
-  ModeSelector selector;
+  Selector selector;
   selector.SuggestMode();
 
   ModeLauncher launcher;
