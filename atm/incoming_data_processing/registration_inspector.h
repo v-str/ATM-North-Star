@@ -14,14 +14,16 @@ class RegistrationInspector {
  private:
   bool IsLoginShort(int login_length) const;
   bool IsLoginLong(int login_length) const;
+
+  bool IsPasswordShort(int password_length) const;
+  bool IsPasswordLong(int password_length) const;
+  bool IsPasswordContainSpaces() const;
+
   bool IsStringContainSpecialSymbols() const;
   bool IsStringBeginWithSpace() const;
   bool IsStringEndWithSpace() const;
   bool IsStringContainAdjacentSpaces() const;
   bool IsStringContainOnlyDigits() const;
-
-  bool IsPasswordShort(int password_length) const;
-  bool IsPasswordLong(int password_length) const;
 
   StringAnalyzer string_analyzer_;
 };

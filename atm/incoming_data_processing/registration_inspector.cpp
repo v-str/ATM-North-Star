@@ -41,6 +41,9 @@ ATM::RegistrationStatus RegistrationInspector::InspectPasswordString(
   if (IsPasswordLong(password.length())) {
     return ATM::RegistrationStatus::kLongPassword;
   }
+  if (IsPasswordContainSpaces()) {
+    return ATM::RegistrationStatus::kContainSpaceSymbol;
+  }
 
   return ATM::RegistrationStatus::kCorrectPassword;
 }
@@ -51,6 +54,18 @@ bool RegistrationInspector::IsLoginShort(int login_length) const {
 
 bool RegistrationInspector::IsLoginLong(int login_length) const {
   return login_length > RegistrationStandard::MaxLoginLength();
+}
+
+bool RegistrationInspector::IsPasswordShort(int password_length) const {
+  return password_length < RegistrationStandard::PasswordLength();
+}
+
+bool RegistrationInspector::IsPasswordLong(int password_length) const {
+  return password_length > RegistrationStandard::PasswordLength();
+}
+
+bool RegistrationInspector::IsPasswordContainSpaces() const {
+  return string_analyzer_.AmountOfSpaces() > 0;
 }
 
 bool RegistrationInspector::IsStringContainSpecialSymbols() const {
@@ -71,12 +86,4 @@ bool RegistrationInspector::IsStringContainAdjacentSpaces() const {
 
 bool RegistrationInspector::IsStringContainOnlyDigits() const {
   return string_analyzer_.IsStringContainOnlyDigits();
-}
-
-bool RegistrationInspector::IsPasswordShort(int password_length) const {
-  return password_length < RegistrationStandard::PasswordLength();
-}
-
-bool RegistrationInspector::IsPasswordLong(int password_length) const {
-  return password_length > RegistrationStandard::PasswordLength();
 }
