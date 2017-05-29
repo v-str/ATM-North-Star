@@ -7,7 +7,7 @@
 
 void Launcher::LaunchConsoleMode() {
   ConsoleMode console_mode;
-  console_mode.RunInitialScreen();
+  console_mode.RunATM();
 }
 
 void Launcher::LaunchGuiMode(int argc, char* argv[]) {

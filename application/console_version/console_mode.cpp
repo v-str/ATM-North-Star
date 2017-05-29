@@ -17,7 +17,7 @@ ConsoleMode::ConsoleMode()
 // new code
 ConsoleMode::~ConsoleMode() {}
 
-void ConsoleMode::RunInitialScreen() {
+void ConsoleMode::RunATM() {
   OutputSetup::SetupTwoStreamsForOutput();
   InitialMessenger::DisplayInitialScreen();
   RunProgram();

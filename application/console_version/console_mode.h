@@ -25,7 +25,7 @@ class ConsoleMode {
   ConsoleMode();
   ~ConsoleMode();
 
-  void RunInitialScreen();
+  void RunATM();
 
  private:
   enum InitialProgramSection { kQuit, kDemo, kRegistration };
