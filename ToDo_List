@@ -23,7 +23,7 @@
     from user.
     Use STL for this task
 
-89. Continue inpection of password string.
+89. Continue inpection of password string. line 34
 
 90. Refactoring two methods of inspection. How to move repetitive code into separate method?
 

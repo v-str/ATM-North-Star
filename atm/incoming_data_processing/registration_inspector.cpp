@@ -8,22 +8,22 @@ ATM::RegistrationStatus RegistrationInspector::InspectLoginString(
 
   if (IsLoginShort(login.length())) {
     return ATM::RegistrationStatus::kShortLogin;
-  } else if (IsLoginLong(login.length())) {
+  }
+  if (IsLoginLong(login.length())) {
     return ATM::RegistrationStatus::kLongLogin;
   }
-
   if (IsStringContainSpecialSymbols()) {
     return ATM::RegistrationStatus::kSpecialSymbols;
-  } else if (IsStringBeginWithSpace()) {
+  }
+  if (IsStringBeginWithSpace()) {
     return ATM::RegistrationStatus::kBeginWithSpace;
-  } else if (IsStringEndWithSpace()) {
+  }
+  if (IsStringEndWithSpace()) {
     return ATM::RegistrationStatus::kEndWithSpace;
   }
-
   if (IsStringContainAdjacentSpaces()) {
     return ATM::RegistrationStatus::kAdjacentSpaces;
   }
-
   if (IsStringContainOnlyDigits()) {
     return ATM::RegistrationStatus::kContainOnlyDigits;
   }
