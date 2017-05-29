@@ -12,20 +12,9 @@
 
 86. Modify user_input for maintain exit through char q or Q +
 
----------------------------------------------------------------------------------------
------------------------------------ Current Tasks -------------------------------------
----------------------------------------------------------------------------------------
-87. Continue replace by new input class -
 
-87. Continue registration section. Finish registration inspector and related classes -
 
-88. Add class StringHandler for handling any incorrect and inapropriate string getting
-    from user.
-    Use STL for this task
 
-89. Continue inpection of password string. line 34
-
-90. Refactoring two methods of inspection. How to move repetitive code into separate method?
 
 
 
