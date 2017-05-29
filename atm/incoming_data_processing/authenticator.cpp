@@ -27,6 +27,9 @@ ATM::AuthenticationStatus Authenticator::InspectLoginString(
   if (IsStringContainOnlyDigits()) {
     return ATM::AuthenticationStatus::kContainOnlyDigits;
   }
+  if (IsStringEmpty()) {
+    return ATM::AuthenticationStatus::kEmptyString;
+  }
 
   return ATM::AuthenticationStatus::kCorrectLogin;
 }
@@ -46,6 +49,9 @@ ATM::AuthenticationStatus Authenticator::InspectPasswordString(
   }
   if (IsStringContainSpecialSymbols()) {
     return ATM::AuthenticationStatus::kSpecialSymbols;
+  }
+  if (IsStringEmpty()) {
+    return ATM::AuthenticationStatus::kEmptyString;
   }
 
   return ATM::AuthenticationStatus::kCorrectPassword;
@@ -89,4 +95,8 @@ bool Authenticator::IsStringContainAdjacentSpaces() const {
 
 bool Authenticator::IsStringContainOnlyDigits() const {
   return string_analyzer_.IsStringContainOnlyDigits();
+}
+
+bool Authenticator::IsStringEmpty() const {
+  return string_analyzer_.IsStringEmpty();
 }

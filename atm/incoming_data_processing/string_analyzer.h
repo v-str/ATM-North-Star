@@ -16,6 +16,7 @@ class StringAnalyzer {
   bool IsStringContainOnlyDigits() const;
   bool IsStringBeginWithSpace() const;
   bool IsStringEndWithSpace() const;
+  bool IsStringEmpty() const;
 
  private:
   bool IsStringContainOnlyDigits(int length_of_string) const;
@@ -33,6 +34,7 @@ class StringAnalyzer {
   bool is_end_with_space_ = true;
   bool is_adjacent_spaces_ = true;
   bool is_only_digits_ = true;
+  bool is_string_empty_ = true;
 
   static constexpr char space_symbol_ = ' ';
 };

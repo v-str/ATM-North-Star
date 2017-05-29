@@ -14,7 +14,8 @@ enum AuthenticationStatus {
   kEndWithSpace,
   kAdjacentSpaces,
   kContainOnlyDigits,
-  kContainSpaceSymbol
+  kContainSpaceSymbol,
+  kEmptyString
 };
 }
 

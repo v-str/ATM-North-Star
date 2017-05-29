@@ -16,6 +16,7 @@ void StringAnalyzer::AnalyzeString(const std::string& string) {
   is_begin_with_space_ = (*string.begin() == space_symbol_);
   is_end_with_space_ = (*(--string.end()) == space_symbol_);
   is_only_digits_ = IsStringContainOnlyDigits(string.length());
+  is_string_empty_ = string.empty();
 }
 
 int StringAnalyzer::AmountOfDigits() const { return amount_of_digits_; }
@@ -43,6 +44,8 @@ bool StringAnalyzer::IsStringBeginWithSpace() const {
 }
 
 bool StringAnalyzer::IsStringEndWithSpace() const { return is_end_with_space_; }
+
+bool StringAnalyzer::IsStringEmpty() const { return is_string_empty_; }
 
 bool StringAnalyzer::IsStringContainOnlyDigits(int length_of_string) const {
   return length_of_string - amount_of_digits_ == amount_of_spaces_;

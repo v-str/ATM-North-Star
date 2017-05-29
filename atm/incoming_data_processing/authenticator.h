@@ -24,6 +24,7 @@ class Authenticator {
   bool IsStringEndWithSpace() const;
   bool IsStringContainAdjacentSpaces() const;
   bool IsStringContainOnlyDigits() const;
+  bool IsStringEmpty() const;
 
   StringAnalyzer string_analyzer_;
 };
