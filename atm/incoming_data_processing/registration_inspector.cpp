@@ -44,6 +44,9 @@ ATM::RegistrationStatus RegistrationInspector::InspectPasswordString(
   if (IsPasswordContainSpaces()) {
     return ATM::RegistrationStatus::kContainSpaceSymbol;
   }
+  if (IsStringContainSpecialSymbols()) {
+    return ATM::RegistrationStatus::kSpecialSymbols;
+  }
 
   return ATM::RegistrationStatus::kCorrectPassword;
 }
