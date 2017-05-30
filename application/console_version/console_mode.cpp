@@ -6,14 +6,9 @@
 
 // =========== New Code ==============
 #include <atm.h>
-#include <quit_menu_handler.h>
-#include <user_input_processor.h>
 
 // new code
-ConsoleMode::ConsoleMode()
-    : atm_(new Atm()),
-      user_input_(new UserInputProcessor()),
-      quit_menu_handler_(new QuitMenuHandler()) {
+ConsoleMode::ConsoleMode() : atm_(new Atm()) {
   OutputSetup::SetupTwoStreamsForOutput();
 }
 // new code
@@ -25,7 +20,7 @@ void ConsoleMode::RunATM() {
 }
 
 void ConsoleMode::RunProgram() {
-  RunSectionBasedOn(user_input_->GetDigitInputFromUser());
+  RunSectionBasedOn(user_input_.GetDigitInputFromUser());
 
   if (IsCorrectRegistration()) {
     MainProgramMenu();
@@ -58,7 +53,7 @@ void ConsoleMode::RegistrateUser() { registrator_.RegisterUser(user_); }
 void ConsoleMode::MainProgramMenu() {
   do {
     UserMessenger::ShowMainMenu();
-    ExecuteOperation(user_input_->GetDigitInputFromUser());
+    ExecuteOperation(user_input_.GetDigitInputFromUser());
   } while (!user_want_to_exit_);
 }
 
@@ -83,7 +78,7 @@ void ConsoleMode::ExecuteOperation(int user_choice) {
 }
 
 void ConsoleMode::SuggestToQuit() {
-  user_want_to_exit_ = quit_menu_handler_->GetQuitResult();
+  user_want_to_exit_ = quit_menu_handler_.GetQuitResult();
 }
 
 bool ConsoleMode::IsCorrectRegistration() const {
