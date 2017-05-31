@@ -20,11 +20,11 @@ INCLUDEPATH += \
     $$PWD/atm_operations \ #deprecated code, should be removed
     $$PWD/atm_operations/credit_operations \ #deprecated code, should be removed
     $$PWD/user_data \ #deprecated code, should be removed
-    $$PWD/user_input_validation \ #deprecated code, should be removed
     $$PWD/docking_module \
-    $$PWD/console_version \
     $$PWD/console_version/initial_menu \
     $$PWD/console_version/transaction_menu \
+    $$PWD/console_version/authentication \
+    $$PWD/console_version/user_input_validation \
     $$PWD/gui_mode \
 
 
@@ -32,20 +32,22 @@ HEADERS += \
     $$PWD/atm_operations/*.h \
     $$PWD/atm_operations/credit_operations/*.h \
     $$PWD/user_data/*.h \
-    $$PWD/user_input_validation/*.h \
     $$PWD/docking_module/*.h \
     $$PWD/console_version/initial_menu/*.h \
     $$PWD/console_version/transaction_menu/*.h \
+    $$PWD/console_version/authentication/*.h \
+    $$PWD/console_version/user_input_validation/*.h \
     $$PWD/gui_mode/*.h \
 
 SOURCES += \
     $$PWD/atm_operations/*.cpp \
     $$PWD/atm_operations/credit_operations/*.cpp \
     $$PWD/user_data/*.cpp \
-    $$PWD/user_input_validation/*.cpp \
     $$PWD/docking_module/*.cpp \
     $$PWD/console_version/initial_menu/*.cpp \
     $$PWD/console_version/transaction_menu/*.cpp \
+    $$PWD/console_version/authentication/*.cpp \
+    $$PWD/console_version/user_input_validation/*.cpp \
     $$PWD/gui_mode/*.cpp \
 
 LIBS += \
