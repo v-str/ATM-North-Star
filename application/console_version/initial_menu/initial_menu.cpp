@@ -16,25 +16,27 @@ void InitialMenu::ShowInitialScreen() {
 
 void InitialMenu::RunMenuEventLoop() {
   for (;;) {
+    user_choice_ = quit_handler_.GetDigitInputFromUser();
+
     if (user_choice_ == kDemo) {
       // RunDemoMode();
-      // break;
+      break;
     }
     if (user_choice_ == kRegistration) {
       // RunRegistration();
-      // break;
+      break;
     }
     if (user_choice_ == kLogin) {
       // RunLoginProcedure();
-      // break;
+      break;
     }
     if (user_choice_ == kQuit) {
       // SayGoodbye();
-      // break;
+      break;
     }
 
-    // -- move to separate method? --
-    // InitialMessenger::ShowIncorrectMenuInput();
-    // user_choice_ = quit_handler_.GetDigitInputFromUser();
+    InitialMessenger::ShowIncorrectMenuInput();
   }
 }
+
+void InitialMenu::RunDemoMode() {}
