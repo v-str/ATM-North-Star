@@ -11,7 +11,7 @@ class UserRegistrator {
  public:
   void RegisterUser(AtmUser& atm_user);
 
-  bool IsCorrectRegistration() const;
+  bool SetRegistrationStatus() const;
 
   // New code
   void RegisterUser();
@@ -22,9 +22,9 @@ class UserRegistrator {
   void EnterLogin(AtmUser& atm_user);
   void EnterPassword(AtmUser& atm_user);
 
-  void set_is_correct_registration(bool is_correct_registration);
+  void SetRegistrationStatus(bool is_correct_registration);
 
-  bool correct_registration_ = false;
+  bool registration_status_ = false;
 
   UserIdentificationDataProvider provider_;
   NoticeMessenger notice_messenger_;

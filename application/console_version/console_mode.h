@@ -16,6 +16,7 @@
 
 // ================ New Code ================
 
+#include <initial_menu.h>
 #include <quit_menu_handler.h>
 #include <user_input_processor.h>
 
@@ -67,6 +68,8 @@ class ConsoleMode {
 
   // ============= New Code ==================
   std::unique_ptr<Atm> atm_;
+
+  InitialMenu initial_menu_;
 
   UserInputProcessor user_input_;
   QuitMenuHandler quit_menu_handler_;

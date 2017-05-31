@@ -17,10 +17,10 @@ INCLUDEPATH += \
     ../lib_console/output_configuration \
     ../lib_gui/atm_splash_screen \
     ../atm/atm_machine \
-    $$PWD/atm_operations \ #deprecated code, should be remade
-    $$PWD/atm_operations/credit_operations \ #deprecated code, should be remade
-    $$PWD/user_data \ #deprecated code, should be remade
-    $$PWD/user_input_validation \
+    $$PWD/atm_operations \ #deprecated code, should be removed
+    $$PWD/atm_operations/credit_operations \ #deprecated code, should be removed
+    $$PWD/user_data \ #deprecated code, should be removed
+    $$PWD/user_input_validation \ #deprecated code, should be removed
     $$PWD/docking_module \
     $$PWD/console_version \
     $$PWD/gui_mode \

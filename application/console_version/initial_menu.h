@@ -14,7 +14,7 @@ class InitialMenu {
 
   QuitMenuHandler quit_handler_;
 
-  int user_choice_ = -1;
+  int user_choice_ = 0;
 };
 
 #endif  // INITIAL_MENU_H

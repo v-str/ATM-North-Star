@@ -4,7 +4,7 @@
 #include <registration_messenger.h>
 
 void UserRegistrator::RegisterUser(AtmUser& atm_user) {
-  set_is_correct_registration(false);
+  SetRegistrationStatus(false);
 
   RegistrationMessenger::ShowRegistrationScreen();
 
@@ -13,7 +13,7 @@ void UserRegistrator::RegisterUser(AtmUser& atm_user) {
     EnterPassword(atm_user);
     if (atm_user.IsNormalPass()) {
       notice_messenger_.ShowAcceptableMessageFrame();
-      set_is_correct_registration(true);
+      SetRegistrationStatus(true);
     } else {
       notice_messenger_.ShowIncorrectFormatPassword();
     }
@@ -22,8 +22,8 @@ void UserRegistrator::RegisterUser(AtmUser& atm_user) {
   }
 }
 
-bool UserRegistrator::IsCorrectRegistration() const {
-  return correct_registration_;
+bool UserRegistrator::SetRegistrationStatus() const {
+  return registration_status_;
 }
 
 std::string UserRegistrator::GetUserLogin() const { return login_; }
@@ -38,6 +38,6 @@ void UserRegistrator::EnterPassword(AtmUser& atm_user) {
   atm_user.SetPassword(provider_.GetPasswordFromUser());
 }
 
-void UserRegistrator::set_is_correct_registration(bool correct_registration) {
-  correct_registration_ = correct_registration;
+void UserRegistrator::SetRegistrationStatus(bool registration_status) {
+  registration_status_ = registration_status;
 }

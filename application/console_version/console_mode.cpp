@@ -1,6 +1,5 @@
 ﻿#include <console_mode.h>
 
-#include <initial_messenger.h>
 #include <output_setup.h>
 #include <user_messenger.h>
 
@@ -15,12 +14,14 @@ ConsoleMode::ConsoleMode() : atm_(new Atm()) {
 ConsoleMode::~ConsoleMode() {}
 
 void ConsoleMode::RunATM() {
-  InitialMessenger::DisplayInitialScreen();
+  initial_menu_.RunInitialMenu();
+
   RunProgram();
 }
 
 void ConsoleMode::RunProgram() {
-  RunSectionBasedOn(user_input_.GetDigitInputFromUser());
+  int user_choice = initial_menu_.UserChoice();
+  RunSectionBasedOn(user_choice);
 
   if (IsCorrectRegistration()) {
     MainProgramMenu();
@@ -82,7 +83,7 @@ void ConsoleMode::SuggestToQuit() {
 }
 
 bool ConsoleMode::IsCorrectRegistration() const {
-  return registrator_.IsCorrectRegistration();
+  return registrator_.SetRegistrationStatus();
 }
 
 void ConsoleMode::EndProgram() const { UserMessenger::WishAGoodDay(); }
