@@ -5,12 +5,15 @@
 
 class InitialMenu {
  public:
+  enum MenuPoints { kQuit, kDemo, kRegistration, kLogin };
+
   void RunInitialMenu();
 
   int UserChoice() const;
 
  private:
   void ShowInitialScreen();
+  void RunMenuEventLoop();
 
   QuitMenuHandler quit_handler_;
 
