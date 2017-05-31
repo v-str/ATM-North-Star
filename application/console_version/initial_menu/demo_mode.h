@@ -25,8 +25,9 @@ class DemoMode {
     kCreditPoint,
     kWidthdrawalPoint,
     kStatementPoint,
-    kExitPoint,
-    kRegistrationPoint
+    kLoginPoint,
+    kRegistrationPoint,
+    kExitPoint
   };
 
   void StartSection(DemoUserMessenger::MessageType message_type);

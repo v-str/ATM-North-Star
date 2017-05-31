@@ -39,4 +39,4 @@ void InitialMenu::RunMenuEventLoop() {
   }
 }
 
-void InitialMenu::RunDemoMode() {}
+void InitialMenu::RunDemoMode() { demo_mode_.RunDemoMode(); }

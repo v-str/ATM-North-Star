@@ -42,17 +42,18 @@ void DemoUserMessenger::ShowWelcomeDemoMessage() {
 
 void DemoUserMessenger::ShowDemoMenu() {
   ConsoleEditor::WriteText(
-      "\n\n\t################ Demo Transaction menu ###################\n"
-      "\t#                                                        #\n"
-      "\t#  1. Account information            2. Refill           #\n"
-      "\t#  ----------------------            ------------        #\n"
-      "\t#  3. Credit application             4. Withdrawal       #\n"
-      "\t#  ----------------------            ------------        #\n"
-      "\t#  5. Statement                      6. Exit             #\n"
-      "\t#                                                        #\n"
-      "\t#                   7. Create Account                    #\n"
-      "\t#                                                        #\n"
-      "\t##########################################################\n\n"
+      "\n\n\t################ Demo Transaction menu ###############\n"
+      "\t#                                                    #\n"
+      "\t#  1. Account information            2. Refill       #\n"
+      "\t#  ----------------------            --------------  #\n"
+      "\t#  3. Credit application             4. Withdrawal   #\n"
+      "\t#  ----------------------            --------------  #\n"
+      "\t#  5. Statement                                      #\n"
+      "\t#                                                    #\n"
+      "\t#  ------------------------------------------------  #\n"
+      "\t#      6. Log-in     7. Registration     8. Exit     #\n"
+      "\t#                                                    #\n"
+      "\t######################################################\n\n"
       "\n\t# Enter: ");
 }
 

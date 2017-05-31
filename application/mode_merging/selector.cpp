@@ -1,5 +1,7 @@
 ﻿#include <selector.h>
 
+#include <iostream>
+
 #include <messenger.h>
 
 void Selector::SuggestMode() {

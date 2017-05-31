@@ -27,10 +27,12 @@ void DemoMode::GetUserChoice() {
     StartSection(DemoUserMessenger::kWithdrawal);
   } else if (user_choice == kStatementPoint) {
     StartSection(DemoUserMessenger::kStatement);
-  } else if (user_choice == kExitPoint) {
-    UserWantToExitProgram();
+  } else if (user_choice == kLoginPoint) {
+    StartRegistration();
   } else if (user_choice == kRegistrationPoint) {
     StartRegistration();
+  } else if (user_choice == kExitPoint) {
+    UserWantToExitProgram();
   } else {
     DemoUserMessenger::ShowIncorrectMenuInput();
     GetExitResult();
