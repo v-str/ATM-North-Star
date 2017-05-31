@@ -1,7 +1,7 @@
 ﻿#ifndef DEMO_USER_MESSANGER_H
 #define DEMO_USER_MESSANGER_H
 
-class DemoUserMessanger {
+class DemoUserMessenger {
  public:
   enum MessageType {
     kWelcome,

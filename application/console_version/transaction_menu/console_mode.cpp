@@ -43,7 +43,7 @@ void ConsoleMode::RunSectionBasedOn(int user_choice) {
 }
 
 void ConsoleMode::DemoMenu() {
-  demo_mode_.ShowDemoMode();
+  demo_mode_.RunDemoMode();
   if (demo_mode_.UserWantToRegistrate()) {
     RegistrateUser();
   }

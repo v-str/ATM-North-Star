@@ -10,29 +10,29 @@ class DemoMode {
   using string = std::string;
 
  public:
-  void ShowDemoMode();
-  bool UserWantToRegistrate() const;
+  void RunDemoMode();
   void UserWantToExitProgram();
-  void GetUserDecision();
+  void GetUserChoice();
+
+  bool UserWantToRegistrate() const;
 
  private:
-  enum UserDecision { kMainMenu = 1, kExit };
+  enum UserChoice { kMainMenu = 1, kExit };
 
-  enum MenuSection {
-    kAccountSection = 1,
-    kRefillSection,
-    kCreditSection,
-    kWidthdrawalSection,
-    kStatementSection,
-    kExitSection,
-    kRegistrationSection
+  enum MenuPoints {
+    kAccountPoint = 1,
+    kRefillPoint,
+    kCreditPoint,
+    kWidthdrawalPoint,
+    kStatementPoint,
+    kExitPoint,
+    kRegistrationPoint
   };
 
-  void StartSection(DemoUserMessanger::MessageType message_type);
+  void StartSection(DemoUserMessenger::MessageType message_type);
   void ForwardToRegistration();
   void StartRegistration();
   void GetExitResult();
-  void SayGoodBye();
 
   bool user_want_to_exit_ = true;
   bool user_want_to_registrate_ = false;
