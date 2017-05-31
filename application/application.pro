@@ -23,6 +23,7 @@ INCLUDEPATH += \
     $$PWD/user_input_validation \ #deprecated code, should be removed
     $$PWD/docking_module \
     $$PWD/console_version \
+    $$PWD/console_version/initial_menu \
     $$PWD/gui_mode \
 
 
@@ -33,6 +34,7 @@ HEADERS += \
     $$PWD/user_input_validation/*.h \
     $$PWD/docking_module/*.h \
     $$PWD/console_version/*.h \
+    $$PWD/console_version/initial_menu/*.h \
     $$PWD/gui_mode/*.h \
 
 SOURCES += \
@@ -42,6 +44,7 @@ SOURCES += \
     $$PWD/user_input_validation/*.cpp \
     $$PWD/docking_module/*.cpp \
     $$PWD/console_version/*.cpp \
+    $$PWD/console_version/initial_menu/*.cpp \
     $$PWD/gui_mode/*.cpp \
 
 LIBS += \
