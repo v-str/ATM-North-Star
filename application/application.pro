@@ -24,9 +24,8 @@ INCLUDEPATH += \
     $$PWD/console_version/initial_menu \
     $$PWD/console_version/transaction_menu \
     $$PWD/console_version/authentication \
-    $$PWD/console_version/user_input_validation \
+    $$PWD/console_version/user_input_handling \
     $$PWD/gui_mode \
-
 
 HEADERS += \
     $$PWD/atm_operations/*.h \
@@ -36,7 +35,7 @@ HEADERS += \
     $$PWD/console_version/initial_menu/*.h \
     $$PWD/console_version/transaction_menu/*.h \
     $$PWD/console_version/authentication/*.h \
-    $$PWD/console_version/user_input_validation/*.h \
+    $$PWD/console_version/user_input_handling/*.h \
     $$PWD/gui_mode/*.h \
 
 SOURCES += \
@@ -47,7 +46,7 @@ SOURCES += \
     $$PWD/console_version/initial_menu/*.cpp \
     $$PWD/console_version/transaction_menu/*.cpp \
     $$PWD/console_version/authentication/*.cpp \
-    $$PWD/console_version/user_input_validation/*.cpp \
+    $$PWD/console_version/user_input_handling/*.cpp \
     $$PWD/gui_mode/*.cpp \
 
 LIBS += \
