@@ -18,7 +18,9 @@
 
 86. Modify user_input for maintain exit through char q or Q +
 
-1. Continue separate console_mode on classes -
+1. Continue separate console_mode on classes +
+
+2. Launcher -> cli -> initial menu -> ...
 
 ---------------------------------------------------------------------------------------
 ---------------------------------------- ATM ------------------------------------------

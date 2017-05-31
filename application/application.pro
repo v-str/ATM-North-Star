@@ -20,7 +20,7 @@ INCLUDEPATH += \
     $$PWD/atm_operations \ #deprecated code, should be removed
     $$PWD/atm_operations/credit_operations \ #deprecated code, should be removed
     $$PWD/user_data \ #deprecated code, should be removed
-    $$PWD/docking_module \
+    $$PWD/mode_merging \
     $$PWD/console_version/initial_menu \
     $$PWD/console_version/transaction_menu \
     $$PWD/console_version/authentication \
@@ -31,7 +31,7 @@ HEADERS += \
     $$PWD/atm_operations/*.h \
     $$PWD/atm_operations/credit_operations/*.h \
     $$PWD/user_data/*.h \
-    $$PWD/docking_module/*.h \
+    $$PWD/mode_merging/*.h \
     $$PWD/console_version/initial_menu/*.h \
     $$PWD/console_version/transaction_menu/*.h \
     $$PWD/console_version/authentication/*.h \
@@ -42,7 +42,7 @@ SOURCES += \
     $$PWD/atm_operations/*.cpp \
     $$PWD/atm_operations/credit_operations/*.cpp \
     $$PWD/user_data/*.cpp \
-    $$PWD/docking_module/*.cpp \
+    $$PWD/mode_merging/*.cpp \
     $$PWD/console_version/initial_menu/*.cpp \
     $$PWD/console_version/transaction_menu/*.cpp \
     $$PWD/console_version/authentication/*.cpp \
