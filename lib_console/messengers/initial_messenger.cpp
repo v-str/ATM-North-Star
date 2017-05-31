@@ -51,3 +51,7 @@ void InitialMessenger::DisplayInitialMenu() {
       "\t ###############################\n"
       "\t   Enter: ");
 }
+void InitialMessenger::ShowIncorrectMenuInput() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "\n\t Sorry, incorrect input, please repeat: ", 50);
+}

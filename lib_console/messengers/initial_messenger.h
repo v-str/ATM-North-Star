@@ -6,6 +6,7 @@ class InitialMessenger {
   static void DisplayInitialScreen();
   static void DisplayInitialMenu();
   static void DisplayLogotype();
+  static void ShowIncorrectMenuInput();
 };
 
 #endif  // INITIAL_MESSENGER_H
