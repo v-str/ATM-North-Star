@@ -31,7 +31,7 @@ void InitialMenu::RunInitialMenuEventLoop() {
       break;
     }
     if (user_choice_ == kQuit) {
-      // SayGoodbye();
+      InitialMessenger::FarewellMessage();
       break;
     }
 

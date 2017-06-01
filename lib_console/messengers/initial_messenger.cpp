@@ -55,3 +55,9 @@ void InitialMessenger::ShowIncorrectMenuInput() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\t Incorrect input, please repeat: ", 15);
 }
+
+void InitialMessenger::FarewellMessage() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "\n\tThank you for using ATM North Star.\n"
+      "\tHave a nice day!");
+}

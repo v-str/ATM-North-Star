@@ -8,6 +8,7 @@
 #include <user_identification_data_provider.h>
 
 #include <authenticator.h>
+#include <menu_input_handler.h>
 #include <user_input_handler.h>
 
 class Registrator {
@@ -38,6 +39,7 @@ class Registrator {
 
   Authenticator authenticator_;
   UserInputHandler user_input_;
+  MenuInputHandler menu_input_;
 
   std::string login_ = "user";
   std::string password_ = "password";
