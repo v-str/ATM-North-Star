@@ -2,7 +2,7 @@
 #define INITIAL_MENU_H
 
 #include <demo_mode.h>
-#include <quit_menu_handler.h>
+#include <menu_input_handler.h>
 
 class InitialMenu {
  public:
@@ -18,7 +18,7 @@ class InitialMenu {
 
   void RunDemoMode();
 
-  QuitMenuHandler quit_handler_;
+  MenuInputHandler quit_handler_;
   DemoMode demo_mode_;
 
   int user_choice_ = 0;

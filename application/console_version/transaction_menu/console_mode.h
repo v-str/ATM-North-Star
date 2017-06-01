@@ -17,12 +17,12 @@
 // ================ New Code ================
 
 #include <initial_menu.h>
-#include <quit_menu_handler.h>
+#include <menu_input_handler.h>
 #include <user_input_handler.h>
 
 class Atm;
 class UserInputHandler;
-class QuitMenuHandler;
+class MenuInputHandler;
 
 class ConsoleMode {
  public:
@@ -72,7 +72,7 @@ class ConsoleMode {
   InitialMenu initial_menu_;
 
   UserInputHandler user_input_;
-  QuitMenuHandler quit_menu_handler_;
+  MenuInputHandler quit_menu_handler_;
 };
 
 #endif  // CONSOLE_MODE_H
