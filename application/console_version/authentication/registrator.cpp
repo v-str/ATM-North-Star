@@ -1,7 +1,6 @@
 ﻿#include <registrator.h>
 
 #include <authentication_messenger.h>
-#include <authentication_standard.h>
 #include <registration_messenger.h>
 
 void Registrator::RunRegistrationMenu(AtmUser& atm_user) {
@@ -34,6 +33,7 @@ void Registrator::RunRegistrationMenu() {
   RegistrationMessenger::ShowRegistrationReference();
   ConfirmRegistration();
   if (registration_status_) {
+    RunRegistrationProcedure();
   }
 }
 
@@ -65,4 +65,12 @@ void Registrator::ConfirmRegistration() {
 
     RegistrationMessenger::ShowIncorrectRegistrationConfirmation();
   }
+}
+
+void Registrator::RunRegistrationProcedure() {}
+
+void Registrator::GetLoginStringFromUser() {
+  AuthenticationMessenger::DisplayLoginText();
+  login_ = user_input_.GetStringInputFromUser();
+  login_status_ = authenticator_.InspectLoginString(login_);
 }
