@@ -11,12 +11,14 @@ DEPENDPATH += \
     ../lib_console/output_configuration \
     ../lib_gui/atm_splash_screen \
     ../atm/atm_machine \
+    ../atm/incoming_data_processing \
 
 INCLUDEPATH += \
     ../lib_console/messengers \
     ../lib_console/output_configuration \
     ../lib_gui/atm_splash_screen \
     ../atm/atm_machine \
+    ../atm/incoming_data_processing \
     $$PWD/atm_operations \ #deprecated code, should be removed
     $$PWD/atm_operations/credit_operations \ #deprecated code, should be removed
     $$PWD/user_data \ #deprecated code, should be removed

@@ -7,6 +7,9 @@
 #include <notice_messenger.h>
 #include <user_identification_data_provider.h>
 
+#include <authenticator.h>
+#include <user_input_handler.h>
+
 class Registrator {
  public:
   void RunRegistration(AtmUser& atm_user);
@@ -26,8 +29,15 @@ class Registrator {
 
   bool registration_status_ = false;
 
+  //
+  // new code
+  //
+
   UserIdentificationDataProvider provider_;
   NoticeMessenger notice_messenger_;
+
+  Authenticator authenticator_;
+  UserInputHandler user_input_;
 
   std::string login_ = "user";
   std::string password_ = "password";

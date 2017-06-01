@@ -1,6 +1,7 @@
 ﻿#include <registrator.h>
 
 #include <authentication_messenger.h>
+#include <authentication_standard.h>
 #include <registration_messenger.h>
 
 void Registrator::RunRegistration(AtmUser& atm_user) {
