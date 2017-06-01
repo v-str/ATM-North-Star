@@ -9,3 +9,9 @@ void AuthenticationMessenger::DisplayLoginText() {
 void AuthenticationMessenger::DisplayPasswordText() {
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\tPassword: ", kDelay);
 }
+
+void AuthenticationMessenger::ShortLogin() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "\n  Sorry, your login is shorter than required,\n"
+      "it must be from 6 to 35 latin alphabet symbols inclusively.");
+}

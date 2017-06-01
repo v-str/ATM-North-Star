@@ -70,16 +70,15 @@ void Registrator::ConfirmRegistration() {
 void Registrator::RunRegistrationProcedure() {
   GetLoginStringFromUser();
   GetPasswordStringFromUser();
+  authenticaton_handler_.HandleAuthenticationData(login_, password_);
 }
 
 void Registrator::GetLoginStringFromUser() {
   AuthenticationMessenger::DisplayLoginText();
   login_ = user_input_.GetStringInputFromUser();
-  login_status_ = authenticator_.InspectLoginString(login_);
 }
 
 void Registrator::GetPasswordStringFromUser() {
   AuthenticationMessenger::DisplayPasswordText();
   password_ = user_input_.GetStringInputFromUser();
-  password_status_ = authenticator_.InspectPasswordString(password_);
 }

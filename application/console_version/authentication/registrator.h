@@ -7,8 +7,7 @@
 #include <notice_messenger.h>
 #include <user_identification_data_provider.h>
 
-#include <authentication_status.h>
-#include <authenticator.h>
+#include <authentication_handler.h>
 #include <menu_input_handler.h>
 #include <user_input_handler.h>
 
@@ -45,12 +44,9 @@ class Registrator {
   UserIdentificationDataProvider provider_;
   NoticeMessenger notice_messenger_;
 
-  Authenticator authenticator_;
   UserInputHandler user_input_;
   MenuInputHandler menu_input_;
-
-  ATM::AuthenticationStatus login_status_;
-  ATM::AuthenticationStatus password_status_;
+  AuthenticationHandler authenticaton_handler_;
 
   std::string login_ = "user";
   std::string password_ = "password";

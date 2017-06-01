@@ -6,6 +6,8 @@ class AuthenticationMessenger {
   static void DisplayLoginText();
   static void DisplayPasswordText();
 
+  static void ShortLogin();
+
  private:
   static constexpr int kMaxLenghtOfLogin = 21;
   static constexpr int kMaxLenghtOfPassword = 4;
