@@ -10,6 +10,7 @@ class AuthenticationMessenger {
 
   static void LoginLength(StringLength string_length);
   static void LoginContainSpecialSymbol();
+  static void LoginBeginWithSpace();
 
  private:
   static void WriteLoginTitleStatus();

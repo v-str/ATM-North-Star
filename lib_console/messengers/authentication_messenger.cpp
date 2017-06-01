@@ -39,6 +39,13 @@ void AuthenticationMessenger::LoginContainSpecialSymbol() {
       "  You need to remove this symbols and then try again.");
 }
 
+void AuthenticationMessenger::LoginBeginWithSpace() {
+  WriteLoginTitleStatus();
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      " Your login is starts with space symbol.\n"
+      " Please remove unnecessary spaces and try again.");
+}
+
 void AuthenticationMessenger::WriteLoginTitleStatus() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n Login status: \n"
