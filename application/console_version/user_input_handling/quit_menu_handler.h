@@ -1,11 +1,11 @@
 ﻿#ifndef QUIT_MENU_HANDLER_H
 #define QUIT_MENU_HANDLER_H
 
-#include <user_input_processor.h>
+#include <user_input_handler.h>
 
 #include <string>
 
-class QuitMenuHandler : public UserInputProcessor {
+class QuitMenuHandler : public UserInputHandler {
  public:
   int GetDigitInputFromUser() override;
 

@@ -1,10 +1,10 @@
-﻿#include "user_input_processor.h"
+﻿#include "user_input_handler.h"
 
 #include <iostream>
 
-UserInputProcessor::~UserInputProcessor() {}
+UserInputHandler::~UserInputHandler() {}
 
-int UserInputProcessor::GetDigitInputFromUser() {
+int UserInputHandler::GetDigitInputFromUser() {
   std::string user_string = GetStringInputFromUser();
 
   if (IsContainOnlyDigits(user_string)) {
@@ -15,13 +15,13 @@ int UserInputProcessor::GetDigitInputFromUser() {
   return kInvalidChoice;
 }
 
-std::string UserInputProcessor::GetStringInputFromUser() {
+std::string UserInputHandler::GetStringInputFromUser() {
   std::string string;
   std::getline(std::cin, string);
   return string;
 }
 
-bool UserInputProcessor::IsContainOnlyDigits(const std::string& user_string) {
+bool UserInputHandler::IsContainOnlyDigits(const std::string& user_string) {
   for (unsigned int i = 0; i < user_string.size(); ++i) {
     if (!isdigit(user_string[i])) {
       return false;
@@ -30,7 +30,7 @@ bool UserInputProcessor::IsContainOnlyDigits(const std::string& user_string) {
   return true;
 }
 
-int UserInputProcessor::GetDigitsFromString(const std::string& user_string) {
+int UserInputHandler::GetDigitsFromString(const std::string& user_string) {
   try {
     return std::stoi(user_string);
   } catch (const std::invalid_argument&) {

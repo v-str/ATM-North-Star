@@ -18,10 +18,10 @@
 
 #include <initial_menu.h>
 #include <quit_menu_handler.h>
-#include <user_input_processor.h>
+#include <user_input_handler.h>
 
 class Atm;
-class UserInputProcessor;
+class UserInputHandler;
 class QuitMenuHandler;
 
 class ConsoleMode {
@@ -71,7 +71,7 @@ class ConsoleMode {
 
   InitialMenu initial_menu_;
 
-  UserInputProcessor user_input_;
+  UserInputHandler user_input_;
   QuitMenuHandler quit_menu_handler_;
 };
 

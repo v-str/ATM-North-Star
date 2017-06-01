@@ -1,11 +1,11 @@
-﻿#ifndef USER_INPUT_PROCESSOR
-#define USER_INPUT_PROCESSOR
+﻿#ifndef USER_INPUT_HANDLER_H
+#define USER_INPUT_HANDLER_H
 
 #include <string>
 
-class UserInputProcessor {
+class UserInputHandler {
  public:
-  virtual ~UserInputProcessor();
+  virtual ~UserInputHandler();
 
   virtual int GetDigitInputFromUser();
 
@@ -17,4 +17,4 @@ class UserInputProcessor {
   const int kInvalidChoice = -1;
 };
 
-#endif  // USER_INPUT_PROCESSOR
+#endif  // USER_INPUT_HANDLER_H
