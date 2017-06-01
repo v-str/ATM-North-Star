@@ -1,7 +1,7 @@
-﻿#ifndef IDENTIFICATION_MESSENGER_H
-#define IDENTIFICATION_MESSENGER_H
+﻿#ifndef AUTHENTICATION_MESSENGER_H
+#define AUTHENTICATION_MESSENGER_H
 
-class IdentificationMessenger {
+class AuthenticationMessenger {
  public:
   static void ShowInitialLoginText();
   static void ShowInitialPasswordText();
@@ -12,4 +12,4 @@ class IdentificationMessenger {
   static constexpr int kDelay = 50;
 };
 
-#endif  // IDENTIFICATION_MESSENGER_H
+#endif  // AUTHENTICATION_MESSENGER_H

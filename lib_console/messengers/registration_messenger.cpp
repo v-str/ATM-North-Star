@@ -2,7 +2,7 @@
 
 #include <console_editor.h>
 
-void RegistrationMessenger::ShowRegistrationScreen() {
+void RegistrationMessenger::ShowRegistrationLogo() {
   ConsoleEditor::AddEmptyLineNTimes(2);
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText(

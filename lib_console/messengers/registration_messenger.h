@@ -3,7 +3,7 @@
 
 class RegistrationMessenger {
  public:
-  static void ShowRegistrationScreen();
+  static void ShowRegistrationLogo();
   static void ShowRegistrationReference();
 };
 

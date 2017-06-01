@@ -1,12 +1,12 @@
 ﻿#include <registrator.h>
 
-#include <identification_messenger.h>
+#include <authentication_messenger.h>
 #include <registration_messenger.h>
 
 void Registrator::RunRegistration(AtmUser& atm_user) {
   SetRegistrationStatus(false);
 
-  RegistrationMessenger::ShowRegistrationScreen();
+  RegistrationMessenger::ShowRegistrationLogo();
   RegistrationMessenger::ShowRegistrationReference();
 
   EnterLogin(atm_user);
@@ -29,17 +29,17 @@ std::string Registrator::GetUserLogin() const { return login_; }
 
 // new code
 void Registrator::RunRegistration() {
-  RegistrationMessenger::ShowRegistrationScreen();
+  RegistrationMessenger::ShowRegistrationLogo();
   RegistrationMessenger::ShowRegistrationReference();
 }
 
 void Registrator::EnterLogin(AtmUser& atm_user) {
-  IdentificationMessenger::ShowInitialLoginText();
+  AuthenticationMessenger::ShowInitialLoginText();
   atm_user.SetLogin(provider_.GetLoginFromUser());
 }
 
 void Registrator::EnterPassword(AtmUser& atm_user) {
-  IdentificationMessenger::ShowInitialPasswordText();
+  AuthenticationMessenger::ShowInitialPasswordText();
   atm_user.SetPassword(provider_.GetPasswordFromUser());
 }
 
