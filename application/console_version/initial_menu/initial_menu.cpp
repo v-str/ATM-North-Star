@@ -5,7 +5,7 @@
 void InitialMenu::RunInitialMenu() {
   ShowInitialScreen();
 
-  user_choice_ = quit_handler_.GetDigitInputFromUser();
+  RunMenuEventLoop();
 }
 
 int InitialMenu::UserChoice() const { return user_choice_; }
