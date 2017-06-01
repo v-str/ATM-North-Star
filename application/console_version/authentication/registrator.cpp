@@ -34,12 +34,12 @@ void Registrator::RunRegistration() {
 }
 
 void Registrator::EnterLogin(AtmUser& atm_user) {
-  AuthenticationMessenger::ShowInitialLoginText();
+  AuthenticationMessenger::DisplayLoginText();
   atm_user.SetLogin(provider_.GetLoginFromUser());
 }
 
 void Registrator::EnterPassword(AtmUser& atm_user) {
-  AuthenticationMessenger::ShowInitialPasswordText();
+  AuthenticationMessenger::DisplayPasswordText();
   atm_user.SetPassword(provider_.GetPasswordFromUser());
 }
 
