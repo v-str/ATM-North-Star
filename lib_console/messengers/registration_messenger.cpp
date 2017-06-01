@@ -23,9 +23,9 @@ void RegistrationMessenger::ShowRegistrationReference() {
       "  3. Length of password must be stricly 6 symbols.\n"
       "  4. Password must not contain space symbols.\n"
       "  5. Password may contain both latin alphabet symbols and arabic "
-      "digits.\n\n"
-      "  Press \"Enter\" to start registration: ",
+      "digits.\n\n\n"
+      "  1. Start registration\n"
+      "  2. Quit ( or press q )\n"
+      "  Enter: ",
       5);
-  ConsoleEditor::IgnoreCinLine();
-  ConsoleEditor::ClearScreen();
 }
