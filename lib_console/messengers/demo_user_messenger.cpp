@@ -16,16 +16,16 @@ void DemoUserMessenger::ShowMessage(
     case kAccountInfo:
       ShowDemoAccountInfoMessage();
       break;
-    case kRefill:
+    case kRefillInfo:
       ShowInfoAboutRefillMessage();
       break;
-    case kCreditApp:
+    case kCreditInfo:
       ShowDemoCreditAppMessage();
       break;
-    case kWithdrawal:
+    case kWithdrawalInfo:
       ShowDemoWidthdrawalMessage();
       break;
-    case kStatement:
+    case kStatementInfo:
       ShowDemoStatementMessage();
       break;
   }

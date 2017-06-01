@@ -7,10 +7,10 @@ class DemoUserMessenger {
     kWelcome,
     kMenu,
     kAccountInfo,
-    kRefill,
-    kCreditApp,
-    kWithdrawal,
-    kStatement
+    kRefillInfo,
+    kCreditInfo,
+    kWithdrawalInfo,
+    kStatementInfo
   };
 
   static void ShowDemoMenuAgain();

@@ -15,6 +15,7 @@ class DemoMode {
   void GetUserChoice();
 
   bool UserWantToRegistrate() const;
+  bool UserWantToLogin() const;
 
  private:
   enum UserChoice { kMainMenu = 1, kExit };
@@ -30,13 +31,15 @@ class DemoMode {
     kExitPoint
   };
 
-  void StartSection(DemoUserMessenger::MessageType message_type);
-  void ForwardToRegistration();
-  void StartRegistration();
-  void GetExitResult();
+  void ShowSubmenu(DemoUserMessenger::MessageType message_type);
+
+  void LeadToRegistration();
+  void LeadToLogin();
+  void SuggestToExit();
 
   bool user_want_to_exit_ = true;
   bool user_want_to_registrate_ = false;
+  bool user_want_to_login_ = false;
 
   UserInput user_input_;
 };

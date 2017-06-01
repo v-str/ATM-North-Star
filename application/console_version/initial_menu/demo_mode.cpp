@@ -18,37 +18,45 @@ void DemoMode::UserWantToExitProgram() { user_want_to_exit_ = true; }
 void DemoMode::GetUserChoice() {
   int user_choice = user_input_.GetValueFromUser();
   if (user_choice == kAccountPoint) {
-    StartSection(DemoUserMessenger::kAccountInfo);
+    ShowSubmenu(DemoUserMessenger::kAccountInfo);
   } else if (user_choice == kRefillPoint) {
-    StartSection(DemoUserMessenger::kRefill);
+    ShowSubmenu(DemoUserMessenger::kRefillInfo);
   } else if (user_choice == kCreditPoint) {
-    StartSection(DemoUserMessenger::kCreditApp);
+    ShowSubmenu(DemoUserMessenger::kCreditInfo);
   } else if (user_choice == kWidthdrawalPoint) {
-    StartSection(DemoUserMessenger::kWithdrawal);
+    ShowSubmenu(DemoUserMessenger::kWithdrawalInfo);
   } else if (user_choice == kStatementPoint) {
-    StartSection(DemoUserMessenger::kStatement);
+    ShowSubmenu(DemoUserMessenger::kStatementInfo);
   } else if (user_choice == kLoginPoint) {
-    StartRegistration();
+    LeadToRegistration();
   } else if (user_choice == kRegistrationPoint) {
-    StartRegistration();
+    LeadToRegistration();
   } else if (user_choice == kExitPoint) {
     UserWantToExitProgram();
   } else {
     DemoUserMessenger::ShowIncorrectMenuInput();
-    GetExitResult();
+    SuggestToExit();
   }
 }
 
 bool DemoMode::UserWantToRegistrate() const { return user_want_to_registrate_; }
 
-void DemoMode::StartSection(DemoUserMessenger::MessageType message_type) {
+bool DemoMode::UserWantToLogin() const { return user_want_to_login_; }
+
+void DemoMode::ShowSubmenu(DemoUserMessenger::MessageType message_type) {
   DemoUserMessenger::ShowMessage(message_type);
-  GetExitResult();
+  SuggestToExit();
 }
 
-void DemoMode::StartRegistration() { ForwardToRegistration(); }
+void DemoMode::LeadToRegistration() {
+  user_want_to_exit_ = user_want_to_registrate_ = true;
+}
 
-void DemoMode::GetExitResult() {
+void DemoMode::LeadToLogin() {
+  user_want_to_exit_ = user_want_to_login_ = true;
+}
+
+void DemoMode::SuggestToExit() {
   DemoUserMessenger::SuggestExit();
   for (;;) {
     int result_of_exit = 0;
@@ -64,9 +72,4 @@ void DemoMode::GetExitResult() {
       DemoUserMessenger::ShowIncorrectInput();
     }
   }
-}
-
-void DemoMode::ForwardToRegistration() {
-  user_want_to_registrate_ = true;
-  user_want_to_exit_ = user_want_to_registrate_;
 }
