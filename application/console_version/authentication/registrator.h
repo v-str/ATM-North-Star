@@ -13,22 +13,20 @@
 
 class Registrator {
  public:
-  void RunRegistration(AtmUser& atm_user);
+  void RunRegistrationMenu(AtmUser& atm_user);
 
-  bool SetRegistrationStatus() const;
+  bool RegistrationStatus() const;
 
   std::string GetUserLogin() const;
 
   // New code
-  void RunRegistration();
+  void RunRegistrationMenu();
 
  private:
   void EnterLogin(AtmUser& atm_user);
   void EnterPassword(AtmUser& atm_user);
 
   void SetRegistrationStatus(bool is_correct_registration);
-
-  bool registration_status_ = false;
 
   //
   // new code
@@ -47,6 +45,8 @@ class Registrator {
 
   std::string login_ = "user";
   std::string password_ = "password";
+
+  bool registration_status_ = false;
 };
 
 #endif  // REGISTRATOR_H

@@ -47,4 +47,4 @@ void InitialMenu::RunDemoMode() {
   }
 }
 
-void InitialMenu::RunRegistration() { registrator_.RunRegistration(); }
+void InitialMenu::RunRegistration() { registrator_.RunRegistrationMenu(); }

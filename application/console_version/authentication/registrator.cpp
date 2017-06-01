@@ -4,7 +4,7 @@
 #include <authentication_standard.h>
 #include <registration_messenger.h>
 
-void Registrator::RunRegistration(AtmUser& atm_user) {
+void Registrator::RunRegistrationMenu(AtmUser& atm_user) {
   SetRegistrationStatus(false);
 
   RegistrationMessenger::ShowRegistrationLogo();
@@ -24,15 +24,17 @@ void Registrator::RunRegistration(AtmUser& atm_user) {
   }
 }
 
-bool Registrator::SetRegistrationStatus() const { return registration_status_; }
+bool Registrator::RegistrationStatus() const { return registration_status_; }
 
 std::string Registrator::GetUserLogin() const { return login_; }
 
 // new code
-void Registrator::RunRegistration() {
+void Registrator::RunRegistrationMenu() {
   RegistrationMessenger::ShowRegistrationLogo();
   RegistrationMessenger::ShowRegistrationReference();
   ConfirmRegistration();
+  if (registration_status_) {
+  }
 }
 
 void Registrator::EnterLogin(AtmUser& atm_user) {
@@ -54,10 +56,10 @@ void Registrator::ConfirmRegistration() {
     int user_choice = menu_input_.GetDigitInputFromUser();
 
     if (user_choice == kStartRegistration) {
-      //
+      registration_status_ = true;
       break;
     } else if (user_choice == kSymbolQuit || user_choice == kDigitQuit) {
-      //
+      registration_status_ = false;
       break;
     }
 
