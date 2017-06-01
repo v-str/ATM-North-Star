@@ -23,7 +23,8 @@ void AuthenticationHandler::HandleLoginString(const std::string& login) {
       AuthenticationMessenger::LoginContainSpecialSymbol();
       break;
     case ATM::AuthenticationStatus::kBeginWithSpace:
-      AuthenticationMessenger::LoginBeginWithSpace();
+      AuthenticationMessenger::LoginBeginWithSpace(
+          AuthenticationMessenger::ContainSpaceSymbol::kBeginWithSpace);
       break;
     default:
       break;

@@ -4,13 +4,14 @@
 class AuthenticationMessenger {
  public:
   enum StringLength { kShortLoginLength, kLongLoginLength };
+  enum ContainSpaceSymbol { kBeginWithSpace, kEndWithSpace, kAdjecentSpaces };
 
   static void DisplayLoginText();
   static void DisplayPasswordText();
 
   static void LoginLength(StringLength string_length);
   static void LoginContainSpecialSymbol();
-  static void LoginBeginWithSpace();
+  static void LoginBeginWithSpace(ContainSpaceSymbol space_symbol);
 
  private:
   static void WriteLoginTitleStatus();

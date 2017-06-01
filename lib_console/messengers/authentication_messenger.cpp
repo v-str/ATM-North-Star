@@ -39,10 +39,30 @@ void AuthenticationMessenger::LoginContainSpecialSymbol() {
       "  You need to remove this symbols and then try again.");
 }
 
-void AuthenticationMessenger::LoginBeginWithSpace() {
+void AuthenticationMessenger::LoginBeginWithSpace(
+    ContainSpaceSymbol space_symbol)
+
+{
+  std::string space_status = "";
+
+  switch (space_symbol) {
+    case kBeginWithSpace:
+      space_status = "is starts with space symbol.";
+      break;
+    case kEndWithSpace:
+      space_status = "is end with space symbol.";
+      break;
+    case kAdjecentSpaces:
+      space_status = "is contain adjacent spaces.";
+      break;
+    default:
+      break;
+  }
+
   WriteLoginTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      " Your login is starts with space symbol.\n"
+      " Your login " + space_status +
+      "\n"
       " Please remove unnecessary spaces and try again.");
 }
 
