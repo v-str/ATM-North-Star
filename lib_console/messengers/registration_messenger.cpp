@@ -29,3 +29,10 @@ void RegistrationMessenger::ShowRegistrationReference() {
       "  Enter: ",
       5);
 }
+
+void RegistrationMessenger::ShowIncorrectRegistrationConfirmation() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "\n  Incorrect input, please enter 1 for registration or\n"
+      "  press 2 to exit program ( or press q )\n"
+      "  Enter: ");
+}

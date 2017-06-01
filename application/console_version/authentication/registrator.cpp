@@ -32,6 +32,7 @@ std::string Registrator::GetUserLogin() const { return login_; }
 void Registrator::RunRegistration() {
   RegistrationMessenger::ShowRegistrationLogo();
   RegistrationMessenger::ShowRegistrationReference();
+  ConfirmRegistration();
 }
 
 void Registrator::EnterLogin(AtmUser& atm_user) {
@@ -46,4 +47,20 @@ void Registrator::EnterPassword(AtmUser& atm_user) {
 
 void Registrator::SetRegistrationStatus(bool registration_status) {
   registration_status_ = registration_status;
+}
+
+void Registrator::ConfirmRegistration() {
+  for (;;) {
+    int user_choice = menu_input_.GetDigitInputFromUser();
+
+    if (user_choice == kStartRegistration) {
+      //
+      break;
+    } else if (user_choice == kSymbolQuit || user_choice == kDigitQuit) {
+      //
+      break;
+    }
+
+    RegistrationMessenger::ShowIncorrectRegistrationConfirmation();
+  }
 }

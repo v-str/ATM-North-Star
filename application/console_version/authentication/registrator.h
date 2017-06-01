@@ -34,6 +34,10 @@ class Registrator {
   // new code
   //
 
+  enum RegistrationMenuPoints { kSymbolQuit, kStartRegistration, kDigitQuit };
+
+  void ConfirmRegistration();
+
   UserIdentificationDataProvider provider_;
   NoticeMessenger notice_messenger_;
 
