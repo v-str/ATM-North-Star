@@ -12,7 +12,15 @@ void AuthenticationHandler::HandleLoginString(const std::string& login) {
   login_status_ = authenticator_.InspectLoginString(login);
   switch (login_status_) {
     case ATM::AuthenticationStatus::kShortLogin:
-      AuthenticationMessenger::ShortLogin();
+      AuthenticationMessenger::LoginLength(
+          AuthenticationMessenger::kShortLoginLength);
+      break;
+    case ATM::AuthenticationStatus::kLongLogin:
+      AuthenticationMessenger::LoginLength(
+          AuthenticationMessenger::kLongLoginLength);
+      break;
+    case ATM::AuthenticationStatus::kSpecialSymbols:
+      AuthenticationMessenger::LoginContainSpecialSymbol();
       break;
     default:
       break;

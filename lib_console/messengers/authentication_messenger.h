@@ -3,12 +3,17 @@
 
 class AuthenticationMessenger {
  public:
+  enum StringLength { kShortLoginLength, kLongLoginLength };
+
   static void DisplayLoginText();
   static void DisplayPasswordText();
 
-  static void ShortLogin();
+  static void LoginLength(StringLength string_length);
+  static void LoginContainSpecialSymbol();
 
  private:
+  static void WriteLoginTitleStatus();
+
   static constexpr int kMaxLenghtOfLogin = 21;
   static constexpr int kMaxLenghtOfPassword = 4;
   static constexpr int kDelay = 50;
