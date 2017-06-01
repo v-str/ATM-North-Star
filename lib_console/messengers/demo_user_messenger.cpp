@@ -10,9 +10,6 @@ void DemoUserMessenger::ShowMessage(
     case kWelcome:
       ShowWelcomeDemoMessage();
       break;
-    case kMenu:
-      ShowDemoMenu();
-      break;
     case kAccountInfo:
       ShowDemoAccountInfoMessage();
       break;
@@ -40,7 +37,17 @@ void DemoUserMessenger::ShowWelcomeDemoMessage() {
       "# Please, choose interested you chapter:\n");
 }
 
-void DemoUserMessenger::ShowDemoMenu() {
+void DemoUserMessenger::ShowDemoMenu(DisplayMode display_mode) {
+  switch (display_mode) {
+    case kCLearScreen:
+      ConsoleEditor::ClearScreen();
+      break;
+    case kNoClearScreen:
+      break;
+    default:
+      break;
+  }
+
   ConsoleEditor::WriteText(
       "\n\n\t################ Demo Transaction menu ###############\n"
       "\t#                                                    #\n"
@@ -124,11 +131,6 @@ void DemoUserMessenger::ShowDemoStatementMessage() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "# Standart statement which contain information\n"
       "# about your cash.\n");
-}
-
-void DemoUserMessenger::ShowDemoMenuAgain() {
-  ConsoleEditor::ClearScreen();
-  ShowDemoMenu();
 }
 
 void DemoUserMessenger::ShowIncorrectInput() {

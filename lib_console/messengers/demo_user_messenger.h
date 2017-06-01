@@ -5,7 +5,6 @@ class DemoUserMessenger {
  public:
   enum MessageType {
     kWelcome,
-    kMenu,
     kAccountInfo,
     kRefillInfo,
     kCreditInfo,
@@ -13,12 +12,15 @@ class DemoUserMessenger {
     kStatementInfo
   };
 
-  static void ShowDemoMenuAgain();
+  enum DisplayMode { kCLearScreen, kNoClearScreen };
+
   static void ShowMessage(MessageType message_type);
+
+  static void ShowDemoMenu(DisplayMode display_mode);
+
   static void ShowIncorrectInput();
   static void ShowIncorrectMenuInput();
   static void SuggestExit();
-  static void ShowDemoMenu();
 
  private:
   static constexpr int kSleep = 100;

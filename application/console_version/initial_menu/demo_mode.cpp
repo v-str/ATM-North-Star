@@ -1,14 +1,14 @@
 ﻿#include <demo_mode.h>
 
 void DemoMode::RunDemoMode() {
-  DemoUserMessenger::ShowMessage(DemoUserMessenger::MessageType::kWelcome);
-  DemoUserMessenger::ShowDemoMenu();
+  DemoUserMessenger::ShowMessage(DemoUserMessenger::kWelcome);
+  DemoUserMessenger::ShowDemoMenu(DemoUserMessenger::kNoClearScreen);
   GetUserChoice();
   while (!user_want_to_exit_) {
     if (user_want_to_registrate_) {
       break;
     }
-    DemoUserMessenger::ShowDemoMenuAgain();
+    DemoUserMessenger::ShowDemoMenu(DemoUserMessenger::kCLearScreen);
     GetUserChoice();
   }
 }
