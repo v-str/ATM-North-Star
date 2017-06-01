@@ -3,6 +3,7 @@
 
 #include <demo_mode.h>
 #include <menu_input_handler.h>
+#include <registrator.h>
 
 class InitialMenu {
  public:
@@ -14,12 +15,13 @@ class InitialMenu {
 
  private:
   void ShowInitialScreen();
-  void RunMenuEventLoop();
-
+  void RunInitialMenuEventLoop();
   void RunDemoMode();
+  void RunRegistration();
 
   MenuInputHandler quit_handler_;
   DemoMode demo_mode_;
+  Registrator registrator_;
 
   int user_choice_ = 0;
 };

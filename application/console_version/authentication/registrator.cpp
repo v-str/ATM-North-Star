@@ -1,12 +1,13 @@
-﻿#include <user_registrator.h>
+﻿#include <registrator.h>
 
 #include <identification_messenger.h>
 #include <registration_messenger.h>
 
-void UserRegistrator::RegisterUser(AtmUser& atm_user) {
+void Registrator::RunRegistration(AtmUser& atm_user) {
   SetRegistrationStatus(false);
 
   RegistrationMessenger::ShowRegistrationScreen();
+  RegistrationMessenger::ShowRegistrationReference();
 
   EnterLogin(atm_user);
   if (atm_user.IsNormalLogin()) {
@@ -22,22 +23,26 @@ void UserRegistrator::RegisterUser(AtmUser& atm_user) {
   }
 }
 
-bool UserRegistrator::SetRegistrationStatus() const {
-  return registration_status_;
+bool Registrator::SetRegistrationStatus() const { return registration_status_; }
+
+std::string Registrator::GetUserLogin() const { return login_; }
+
+// new code
+void Registrator::RunRegistration() {
+  RegistrationMessenger::ShowRegistrationScreen();
+  RegistrationMessenger::ShowRegistrationReference();
 }
 
-std::string UserRegistrator::GetUserLogin() const { return login_; }
-
-void UserRegistrator::EnterLogin(AtmUser& atm_user) {
+void Registrator::EnterLogin(AtmUser& atm_user) {
   IdentificationMessenger::ShowInitialLoginText();
   atm_user.SetLogin(provider_.GetLoginFromUser());
 }
 
-void UserRegistrator::EnterPassword(AtmUser& atm_user) {
+void Registrator::EnterPassword(AtmUser& atm_user) {
   IdentificationMessenger::ShowInitialPasswordText();
   atm_user.SetPassword(provider_.GetPasswordFromUser());
 }
 
-void UserRegistrator::SetRegistrationStatus(bool registration_status) {
+void Registrator::SetRegistrationStatus(bool registration_status) {
   registration_status_ = registration_status;
 }

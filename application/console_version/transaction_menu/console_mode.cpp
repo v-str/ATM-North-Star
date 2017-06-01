@@ -49,7 +49,7 @@ void ConsoleMode::DemoMenu() {
   }
 }
 
-void ConsoleMode::RegistrateUser() { registrator_.RegisterUser(user_); }
+void ConsoleMode::RegistrateUser() { registrator_.RunRegistration(user_); }
 
 void ConsoleMode::MainProgramMenu() {
   do {

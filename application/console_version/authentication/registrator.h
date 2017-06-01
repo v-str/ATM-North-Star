@@ -1,5 +1,5 @@
-﻿#ifndef USER_REGISTRATOR_H
-#define USER_REGISTRATOR_H
+﻿#ifndef REGISTRATOR_H
+#define REGISTRATOR_H
 
 #include <string>
 
@@ -7,16 +7,16 @@
 #include <notice_messenger.h>
 #include <user_identification_data_provider.h>
 
-class UserRegistrator {
+class Registrator {
  public:
-  void RegisterUser(AtmUser& atm_user);
+  void RunRegistration(AtmUser& atm_user);
 
   bool SetRegistrationStatus() const;
 
-  // New code
-  void RegisterUser();
-
   std::string GetUserLogin() const;
+
+  // New code
+  void RunRegistration();
 
  private:
   void EnterLogin(AtmUser& atm_user);
@@ -29,12 +29,8 @@ class UserRegistrator {
   UserIdentificationDataProvider provider_;
   NoticeMessenger notice_messenger_;
 
-  // new code
-
-  // new code
-
   std::string login_ = "user";
   std::string password_ = "password";
 };
 
-#endif  // USER_REGISTRATOR_H
+#endif  // REGISTRATOR_H
