@@ -40,6 +40,7 @@ class Registrator {
   void RunRegistrationProcedure();
 
   void GetLoginStringFromUser();
+  void GetPasswordStringFromUser();
 
   UserIdentificationDataProvider provider_;
   NoticeMessenger notice_messenger_;

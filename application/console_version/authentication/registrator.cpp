@@ -67,10 +67,19 @@ void Registrator::ConfirmRegistration() {
   }
 }
 
-void Registrator::RunRegistrationProcedure() {}
+void Registrator::RunRegistrationProcedure() {
+  GetLoginStringFromUser();
+  GetPasswordStringFromUser();
+}
 
 void Registrator::GetLoginStringFromUser() {
   AuthenticationMessenger::DisplayLoginText();
   login_ = user_input_.GetStringInputFromUser();
   login_status_ = authenticator_.InspectLoginString(login_);
+}
+
+void Registrator::GetPasswordStringFromUser() {
+  AuthenticationMessenger::DisplayPasswordText();
+  password_ = user_input_.GetStringInputFromUser();
+  password_status_ = authenticator_.InspectPasswordString(password_);
 }
