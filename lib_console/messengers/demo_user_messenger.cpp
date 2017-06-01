@@ -58,7 +58,7 @@ void DemoUserMessenger::ShowDemoMenu(DisplayMode display_mode) {
       "\t#  5. Statement                                      #\n"
       "\t#                                                    #\n"
       "\t#  ------------------------------------------------  #\n"
-      "\t#      6. Log-in     7. Registration     8. Exit     #\n"
+      "\t#     6. Log-in     7. Registration     8. Exit      #\n"
       "\t#                                                    #\n"
       "\t######################################################\n\n"
       "\n\t# Enter: ");
