@@ -27,6 +27,9 @@ class AuthenticationMessenger {
   static void PasswordContainSpaceSymbol();
   static void PasswordEmpty();
 
+  static void ClearScreen();
+  static void AddEmptyLines(int amount_of_lines);
+
  private:
   static void WriteLoginTitleStatus();
   static void WritePasswordTitleStatus();

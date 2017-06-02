@@ -125,6 +125,12 @@ void AuthenticationMessenger::PasswordEmpty() {
       " Please enter a valid password and try again");
 }
 
+void AuthenticationMessenger::ClearScreen() { ConsoleEditor::ClearScreen(); }
+
+void AuthenticationMessenger::AddEmptyLines(int amount_of_lines) {
+  ConsoleEditor::AddEmptyLineNTimes(amount_of_lines);
+}
+
 void AuthenticationMessenger::WriteLoginTitleStatus() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n Login status: \n"

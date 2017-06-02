@@ -16,6 +16,7 @@ class Registrator {
 
   void ConfirmRegistration();
   void RunRegistrationProcedure();
+
   void GetLoginStringFromUser();
   void GetPasswordStringFromUser();
 

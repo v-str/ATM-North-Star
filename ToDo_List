@@ -20,13 +20,13 @@
 
 1. Continue separate console_mode on classes +
 
-2. Add messages for every authentication error -
+2. Add messages for every authentication error +
 
-3. Delete unnecessary staic fields in authenication messenger -
+3. Delete unnecessary staic fields in authenication messenger +
 
-4. Continue make registration error handling -
+4. Continue make registration error handling +
 
-5. Decide problem related with incorrect login registration -
+5. Decide problem related with incorrect login registration +
 
 ---------------------------------------------------------------------------------------
 ---------------------------------------- ATM ------------------------------------------
