@@ -29,6 +29,7 @@ void Registrator::ConfirmRegistration() {
 }
 
 void Registrator::RunRegistrationProcedure() {
+  AuthenticationMessenger::ClearScreen();
   GetLoginStringFromUser();
   GetPasswordStringFromUser();
   authenticaton_handler_.HandleAuthenticationData(login_, password_);

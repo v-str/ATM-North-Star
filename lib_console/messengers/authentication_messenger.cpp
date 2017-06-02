@@ -39,6 +39,7 @@ void AuthenticationMessenger::LoginLength(StringLength login_length) {
 }
 
 void AuthenticationMessenger::LoginContainSpecialSymbol() {
+  WriteLoginTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "  Your login contain special symbols like a % $ ^ # and so on.\n"
       "  You need to remove this symbols and then try again.");

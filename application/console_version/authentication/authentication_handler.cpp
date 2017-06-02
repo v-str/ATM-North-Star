@@ -14,6 +14,7 @@ bool AuthenticationHandler::IsAuthenticationStatusOk() const {
 }
 
 void AuthenticationHandler::HandleLoginString(const std::string& login) {
+  AuthenticationMessenger::ClearScreen();
   login_status_ = authenticator_.InspectLoginString(login);
   switch (login_status_) {
     case ATM::AuthenticationStatus::kCorrectLogin:
@@ -78,4 +79,5 @@ void AuthenticationHandler::HandlePasswordString(const std::string& password) {
     default:
       break;
   }
+  AuthenticationMessenger::AddEmptyLines(5);
 }
