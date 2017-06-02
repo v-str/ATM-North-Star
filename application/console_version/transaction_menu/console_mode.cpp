@@ -49,7 +49,9 @@ void ConsoleMode::DemoMenu() {
   }
 }
 
-void ConsoleMode::RegistrateUser() { registrator_.RunRegistrationMenu(user_); }
+void ConsoleMode::
+    RegistrateUser() {  // registrator_.RunRegistrationMenu(user_);
+}
 
 void ConsoleMode::MainProgramMenu() {
   do {
@@ -83,7 +85,8 @@ void ConsoleMode::SuggestToQuit() {
 }
 
 bool ConsoleMode::IsCorrectRegistration() const {
-  return registrator_.IsRegistrationStatusOk();
+  // return registrator_.IsRegistrationStatusOk();
+  return true;
 }
 
 void ConsoleMode::EndProgram() const { UserMessenger::WishAGoodDay(); }

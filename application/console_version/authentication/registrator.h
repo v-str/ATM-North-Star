@@ -3,46 +3,26 @@
 
 #include <string>
 
-#include <atm_user.h>
-#include <notice_messenger.h>
-#include <user_identification_data_provider.h>
-
 #include <authentication_handler.h>
 #include <menu_input_handler.h>
 #include <user_input_handler.h>
 
 class Registrator {
  public:
-  void RunRegistrationMenu(AtmUser& atm_user);
-
   bool IsRegistrationStatusOk() const;
 
   std::string GetUserLogin() const;
 
-  // New code
   void RunRegistrationMenu();
 
  private:
-  void EnterLogin(AtmUser& atm_user);
-  void EnterPassword(AtmUser& atm_user);
-
-  void SetRegistrationStatus(bool is_correct_registration);
-
-  //
-  // new code
-  //
-
   enum RegistrationMenuPoints { kSymbolQuit, kStartRegistration, kDigitQuit };
 
+  void SetRegistrationStatus(bool is_correct_registration);
   void ConfirmRegistration();
-
   void RunRegistrationProcedure();
-
   void GetLoginStringFromUser();
   void GetPasswordStringFromUser();
-
-  UserIdentificationDataProvider provider_;
-  NoticeMessenger notice_messenger_;
 
   UserInputHandler user_input_;
   MenuInputHandler menu_input_;

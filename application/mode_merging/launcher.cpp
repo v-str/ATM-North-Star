@@ -4,10 +4,11 @@
 
 #include <console_mode.h>
 #include <gui_mode.h>
+#include <initial_menu.h>
 
 void Launcher::LaunchConsoleMode() {
-  ConsoleMode console_mode;
-  console_mode.RunATM();
+  InitialMenu console_initial_menu;
+  console_initial_menu.RunInitialMenu();
 }
 
 void Launcher::LaunchGuiMode(int argc, char* argv[]) {
