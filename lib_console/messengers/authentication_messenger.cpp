@@ -12,7 +12,7 @@ void AuthenticationMessenger::DisplayPasswordText() {
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\tPassword: ", kDelay);
 }
 
-void AuthenticationMessenger::LoginCorrect() {
+void AuthenticationMessenger::CorrectMessage() {
   WriteLoginTitleStatus();
   ConsoleEditor::WriteText("\tCorrect");
 }

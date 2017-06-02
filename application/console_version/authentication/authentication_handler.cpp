@@ -12,7 +12,7 @@ void AuthenticationHandler::HandleLoginString(const std::string& login) {
   login_status_ = authenticator_.InspectLoginString(login);
   switch (login_status_) {
     case ATM::AuthenticationStatus::kCorrectLogin:
-      AuthenticationMessenger::LoginCorrect();
+      AuthenticationMessenger::CorrectMessage();
       break;
     case ATM::AuthenticationStatus::kShortLogin:
       AuthenticationMessenger::LoginLength(
@@ -50,4 +50,11 @@ void AuthenticationHandler::HandleLoginString(const std::string& login) {
 
 void AuthenticationHandler::HandlePasswordString(const std::string& password) {
   password_status_ = authenticator_.InspectPasswordString(password);
+  switch (password_status_) {
+    case ATM::AuthenticationStatus::kCorrectPassword:
+      AuthenticationMessenger::CorrectMessage();
+      break;
+    default:
+      break;
+  }
 }
