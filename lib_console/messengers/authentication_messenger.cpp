@@ -109,7 +109,7 @@ void AuthenticationMessenger::PasswordLength(StringLength password_length) {
       " Your password is " + password_status +
       " than required,\n"
       " Password must be strictly 6 symbols.\n"
-      " It may contain both latin alphabet symbols and digits.");
+      " It may contain both latin alphabet symbols and arabic digits.");
 }
 
 void AuthenticationMessenger::PasswordContainSpaceSymbol() {
@@ -134,12 +134,14 @@ void AuthenticationMessenger::AddEmptyLines(int amount_of_lines) {
 
 void AuthenticationMessenger::WriteLoginTitleStatus() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n Login status: \n"
-      "---------------------\n");
+      "\n  ####################\n"
+      "  # Login status:    #\n"
+      "  ####################\n");
 }
 
 void AuthenticationMessenger::WritePasswordTitleStatus() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\n Password status: \n"
-      "---------------------\n");
+      "\n\n  ####################\n"
+      "  # Password status: #\n"
+      "  ####################\n");
 }
