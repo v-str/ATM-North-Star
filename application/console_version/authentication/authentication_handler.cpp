@@ -11,6 +11,9 @@ void AuthenticationHandler::HandleAuthenticationData(
 void AuthenticationHandler::HandleLoginString(const std::string& login) {
   login_status_ = authenticator_.InspectLoginString(login);
   switch (login_status_) {
+    case ATM::AuthenticationStatus::kCorrectLogin:
+      AuthenticationMessenger::LoginCorrect();
+      break;
     case ATM::AuthenticationStatus::kShortLogin:
       AuthenticationMessenger::LoginLength(
           AuthenticationMessenger::kShortLoginLength);

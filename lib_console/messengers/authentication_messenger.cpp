@@ -12,6 +12,11 @@ void AuthenticationMessenger::DisplayPasswordText() {
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\tPassword: ", kDelay);
 }
 
+void AuthenticationMessenger::LoginCorrect() {
+  WriteLoginTitleStatus();
+  ConsoleEditor::WriteText("\tCorrect");
+}
+
 void AuthenticationMessenger::LoginLength(StringLength string_length) {
   std::string length_status = "";
 
