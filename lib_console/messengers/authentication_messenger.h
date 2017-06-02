@@ -3,23 +3,33 @@
 
 class AuthenticationMessenger {
  public:
-  enum StringLength { kShortLoginLength, kLongLoginLength };
+  enum StringLength {
+    kShortLoginLength,
+    kLongLoginLength,
+    kShortPasswordLength,
+    kLongPasswordLength
+  };
   enum ContainSpaceSymbol { kBeginWithSpace, kEndWithSpace, kAdjecentSpaces };
 
   static void DisplayLoginText();
   static void DisplayPasswordText();
 
-  static void CorrectAuthenticationMessage();
-
-  static void LoginLength(StringLength string_length);
+  static void CorrectLoginMessage();
+  static void LoginLength(StringLength login_length);
   static void LoginContainSpecialSymbol();
   static void LoginContainIncorrectSpacePosition(
       ContainSpaceSymbol space_symbol);
   static void LoginContainOnlyDigits();
   static void LoginEmpty();
 
+  static void CorrectPasswordMessage();
+  static void PasswordLength(StringLength password_length);
+  static void PasswordContainSpaceSymbol();
+  static void PasswordEmpty();
+
  private:
   static void WriteLoginTitleStatus();
+  static void WritePasswordTitleStatus();
 
   static constexpr int kMaxLenghtOfLogin = 21;
   static constexpr int kMaxLenghtOfPassword = 4;

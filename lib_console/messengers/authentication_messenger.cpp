@@ -12,15 +12,15 @@ void AuthenticationMessenger::DisplayPasswordText() {
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\tPassword: ", kDelay);
 }
 
-void AuthenticationMessenger::CorrectAuthenticationMessage() {
+void AuthenticationMessenger::CorrectLoginMessage() {
   WriteLoginTitleStatus();
   ConsoleEditor::WriteText("\tCorrect");
 }
 
-void AuthenticationMessenger::LoginLength(StringLength string_length) {
+void AuthenticationMessenger::LoginLength(StringLength login_length) {
   std::string length_status = "";
 
-  switch (string_length) {
+  switch (login_length) {
     case kShortLoginLength:
       length_status = "shorter";
       break;
@@ -85,8 +85,54 @@ void AuthenticationMessenger::LoginEmpty() {
       " Please enter a valid login and try again");
 }
 
+void AuthenticationMessenger::CorrectPasswordMessage() {
+  WritePasswordTitleStatus();
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\tCorrect");
+}
+
+void AuthenticationMessenger::PasswordLength(StringLength password_length) {
+  std::string password_status = "";
+
+  switch (password_length) {
+    case kShortPasswordLength:
+      password_status = "shorter";
+      break;
+    case kLongPasswordLength:
+      password_status = "longer";
+    default:
+      break;
+  }
+
+  WritePasswordTitleStatus();
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      " Your password is " + password_status +
+      " than required,\n"
+      " Password must be strictly 6 symbols.\n"
+      " It may contain both latin alphabet symbols and digits.");
+}
+
+void AuthenticationMessenger::PasswordContainSpaceSymbol() {
+  WritePasswordTitleStatus();
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      " Password contain space symbol.\n"
+      " Please remove unnecessary symbols and try again.");
+}
+
+void AuthenticationMessenger::PasswordEmpty() {
+  WritePasswordTitleStatus();
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      " Password is emptyn.\n"
+      " Please enter a valid password and try again");
+}
+
 void AuthenticationMessenger::WriteLoginTitleStatus() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n Login status: \n"
+      "---------------------\n");
+}
+
+void AuthenticationMessenger::WritePasswordTitleStatus() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "\n\n Password status: \n"
       "---------------------\n");
 }
