@@ -11,7 +11,10 @@ class AuthenticationMessenger {
 
   static void LoginLength(StringLength string_length);
   static void LoginContainSpecialSymbol();
-  static void LoginBeginWithSpace(ContainSpaceSymbol space_symbol);
+  static void LoginContainIncorrectSpacePosition(
+      ContainSpaceSymbol space_symbol);
+  static void LoginContainOnlyDigits();
+  static void LoginEmpty();
 
  private:
   static void WriteLoginTitleStatus();

@@ -39,7 +39,7 @@ void AuthenticationMessenger::LoginContainSpecialSymbol() {
       "  You need to remove this symbols and then try again.");
 }
 
-void AuthenticationMessenger::LoginBeginWithSpace(
+void AuthenticationMessenger::LoginContainIncorrectSpacePosition(
     ContainSpaceSymbol space_symbol)
 
 {
@@ -64,6 +64,20 @@ void AuthenticationMessenger::LoginBeginWithSpace(
       " Your login " + space_status +
       "\n"
       " Please remove unnecessary spaces and try again.");
+}
+
+void AuthenticationMessenger::LoginContainOnlyDigits() {
+  WriteLoginTitleStatus();
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      " Your login contain only digits.\n"
+      " Login must contain 1 symbol of latin alphabet at the least.");
+}
+
+void AuthenticationMessenger::LoginEmpty() {
+  WriteLoginTitleStatus();
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      " Your login is empty.\n"
+      " Please enter a valid login and try again");
 }
 
 void AuthenticationMessenger::WriteLoginTitleStatus() {
