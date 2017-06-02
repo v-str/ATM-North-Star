@@ -1,10 +1,10 @@
-﻿#include <selector.h>
+﻿#include <mode_selector.h>
 
 #include <iostream>
 
 #include <messenger.h>
 
-void Selector::SuggestMode() {
+void ModeSelector::SuggestMode() {
   Messenger::ShowGreetingMessage();
   for (;;) {
     user_input_ = user_input_processor_.GetDigitInputFromUser();
@@ -16,4 +16,4 @@ void Selector::SuggestMode() {
   }
 }
 
-int Selector::GetMode() const { return user_input_; }
+int ModeSelector::GetMode() const { return user_input_; }

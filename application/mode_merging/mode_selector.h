@@ -1,9 +1,9 @@
-﻿#ifndef SELECTOR_H
-#define SELECTOR_H
+﻿#ifndef MODE_SELECTOR_H
+#define MODE_SELECTOR_H
 
 #include <user_input_handler.h>
 
-class Selector {
+class ModeSelector {
  public:
   enum UserSelections { kQuit, kConsoleMode, kGraphicalMode };
 
@@ -17,4 +17,4 @@ class Selector {
   int user_input_ = -1;
 };
 
-#endif  // SELECTOR_H
+#endif  // MODE_SELECTOR_H
