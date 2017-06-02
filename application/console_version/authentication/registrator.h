@@ -15,7 +15,7 @@ class Registrator {
  public:
   void RunRegistrationMenu(AtmUser& atm_user);
 
-  bool RegistrationStatus() const;
+  bool IsRegistrationStatusOk() const;
 
   std::string GetUserLogin() const;
 
@@ -51,7 +51,7 @@ class Registrator {
   std::string login_ = "user";
   std::string password_ = "password";
 
-  bool registration_status_ = false;
+  bool is_registration_status_ok = false;
 };
 
 #endif  // REGISTRATOR_H

@@ -23,7 +23,9 @@ void Registrator::RunRegistrationMenu(AtmUser& atm_user) {
   }
 }
 
-bool Registrator::RegistrationStatus() const { return registration_status_; }
+bool Registrator::IsRegistrationStatusOk() const {
+  return is_registration_status_ok;
+}
 
 std::string Registrator::GetUserLogin() const { return login_; }
 
@@ -32,7 +34,7 @@ void Registrator::RunRegistrationMenu() {
   RegistrationMessenger::ShowRegistrationLogo();
   RegistrationMessenger::ShowRegistrationReference();
   ConfirmRegistration();
-  if (registration_status_) {
+  if (is_registration_status_ok) {
     RunRegistrationProcedure();
   }
 }
@@ -48,7 +50,7 @@ void Registrator::EnterPassword(AtmUser& atm_user) {
 }
 
 void Registrator::SetRegistrationStatus(bool registration_status) {
-  registration_status_ = registration_status;
+  is_registration_status_ok = registration_status;
 }
 
 void Registrator::ConfirmRegistration() {
@@ -56,10 +58,10 @@ void Registrator::ConfirmRegistration() {
     int user_choice = menu_input_.GetDigitInputFromUser();
 
     if (user_choice == kStartRegistration) {
-      registration_status_ = true;
+      is_registration_status_ok = true;
       break;
     } else if (user_choice == kSymbolQuit || user_choice == kDigitQuit) {
-      registration_status_ = false;
+      is_registration_status_ok = false;
       break;
     }
 

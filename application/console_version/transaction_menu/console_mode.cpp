@@ -83,7 +83,7 @@ void ConsoleMode::SuggestToQuit() {
 }
 
 bool ConsoleMode::IsCorrectRegistration() const {
-  return registrator_.RegistrationStatus();
+  return registrator_.IsRegistrationStatusOk();
 }
 
 void ConsoleMode::EndProgram() const { UserMessenger::WishAGoodDay(); }
