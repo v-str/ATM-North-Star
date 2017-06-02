@@ -5,10 +5,10 @@
 void StringAnalyzer::AnalyzeString(const std::string& string) {
   SetToZeroValues();
 
-  for (auto i : string) {
-    if (isdigit(string[i])) amount_of_digits_++;
-    if (isalpha(string[i])) amount_of_alphabet_symbols_++;
-    if (string[i] == space_symbol_) amount_of_spaces_++;
+  for (auto symbol : string) {
+    if (isdigit(symbol)) amount_of_digits_++;
+    if (isalpha(symbol)) amount_of_alphabet_symbols_++;
+    if (symbol == space_symbol_) amount_of_spaces_++;
   }
 
   is_special_symbols_ = IsStringContainSpecialSymbols(string.length());
