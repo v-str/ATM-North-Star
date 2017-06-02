@@ -9,8 +9,6 @@
 
 class Registrator {
  public:
-  bool IsRegistrationStatusOk() const;
-
   void RunRegistrationMenu();
 
  private:

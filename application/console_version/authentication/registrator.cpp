@@ -3,10 +3,6 @@
 #include <authentication_messenger.h>
 #include <registration_messenger.h>
 
-bool Registrator::IsRegistrationStatusOk() const {
-  return is_registration_status_ok;
-}
-
 void Registrator::RunRegistrationMenu() {
   RegistrationMessenger::ShowRegistrationLogo();
   RegistrationMessenger::ShowRegistrationReference();
