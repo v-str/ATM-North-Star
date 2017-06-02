@@ -11,14 +11,11 @@ class Registrator {
  public:
   bool IsRegistrationStatusOk() const;
 
-  std::string GetUserLogin() const;
-
   void RunRegistrationMenu();
 
  private:
   enum RegistrationMenuPoints { kSymbolQuit, kStartRegistration, kDigitQuit };
 
-  void SetRegistrationStatus(bool is_correct_registration);
   void ConfirmRegistration();
   void RunRegistrationProcedure();
   void GetLoginStringFromUser();

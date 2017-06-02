@@ -16,10 +16,6 @@ void Registrator::RunRegistrationMenu() {
   }
 }
 
-void Registrator::SetRegistrationStatus(bool registration_status) {
-  is_registration_status_ok = registration_status;
-}
-
 void Registrator::ConfirmRegistration() {
   for (;;) {
     int user_choice = menu_input_.GetDigitInputFromUser();
