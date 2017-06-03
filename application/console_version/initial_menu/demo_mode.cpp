@@ -1,32 +1,30 @@
 ﻿#include <demo_mode.h>
 
 void cli::DemoMode::RunDemoMode() {
-  DemoUserMessenger::ShowMessage(DemoUserMessenger::kWelcome);
-  DemoUserMessenger::ShowDemoMenu(DemoUserMessenger::kNoClearScreen);
-  GetUserChoice();
-  while (!user_want_to_exit_) {
-    if (user_want_to_registrate_) {
+  DiplayDemoMenuWithTitle();
+  for (;;) {
+    DisplayDemoPointrBasedOnUserChoice();
+    if (user_want_to_registrate_ || user_want_to_exit_) {
       break;
     }
     DemoUserMessenger::ShowDemoMenu(DemoUserMessenger::kCLearScreen);
-    GetUserChoice();
   }
 }
 
 void cli::DemoMode::UserWantToExitProgram() { user_want_to_exit_ = true; }
 
-void cli::DemoMode::GetUserChoice() {
+void cli::DemoMode::DisplayDemoPointrBasedOnUserChoice() {
   int user_choice = user_input_.GetValueFromUser();
   if (user_choice == kAccountPoint) {
-    ShowSubmenu(DemoUserMessenger::kAccountInfo);
+    DisplaySubmenu(DemoUserMessenger::kAccountInfo);
   } else if (user_choice == kRefillPoint) {
-    ShowSubmenu(DemoUserMessenger::kRefillInfo);
+    DisplaySubmenu(DemoUserMessenger::kRefillInfo);
   } else if (user_choice == kCreditPoint) {
-    ShowSubmenu(DemoUserMessenger::kCreditInfo);
+    DisplaySubmenu(DemoUserMessenger::kCreditInfo);
   } else if (user_choice == kWidthdrawalPoint) {
-    ShowSubmenu(DemoUserMessenger::kWithdrawalInfo);
+    DisplaySubmenu(DemoUserMessenger::kWithdrawalInfo);
   } else if (user_choice == kStatementPoint) {
-    ShowSubmenu(DemoUserMessenger::kStatementInfo);
+    DisplaySubmenu(DemoUserMessenger::kStatementInfo);
   } else if (user_choice == kLoginPoint) {
     LeadToRegistration();
   } else if (user_choice == kRegistrationPoint) {
@@ -45,7 +43,8 @@ bool cli::DemoMode::UserWantToRegistrate() const {
 
 bool cli::DemoMode::UserWantToLogin() const { return user_want_to_login_; }
 
-void cli::DemoMode::ShowSubmenu(DemoUserMessenger::MessageType message_type) {
+void cli::DemoMode::DisplaySubmenu(
+    DemoUserMessenger::MessageType message_type) {
   DemoUserMessenger::ShowMessage(message_type);
   SuggestToExit();
 }
@@ -74,4 +73,9 @@ void cli::DemoMode::SuggestToExit() {
       DemoUserMessenger::ShowIncorrectInput();
     }
   }
+}
+
+void cli::DemoMode::DiplayDemoMenuWithTitle() {
+  DemoUserMessenger::ShowMessage(DemoUserMessenger::kWelcome);
+  DemoUserMessenger::ShowDemoMenu(DemoUserMessenger::kNoClearScreen);
 }

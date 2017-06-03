@@ -27,6 +27,8 @@ void cli::InitialMenu::RunInitialMenuEventLoop() {
       break;
     }
     if (user_choice_ == kLogin) {
+      // temporary code
+      // need make real login through database connection
       user_choice_ = -1;
       break;
     }

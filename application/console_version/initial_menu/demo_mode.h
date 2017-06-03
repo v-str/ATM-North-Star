@@ -1,20 +1,16 @@
 ﻿#ifndef DEMO_MODE_H
 #define DEMO_MODE_H
 
-#include <string>
-
 #include <demo_user_messenger.h>
 #include <user_input.h>
 
 namespace cli {
 
 class DemoMode {
-  using string = std::string;
-
  public:
   void RunDemoMode();
   void UserWantToExitProgram();
-  void GetUserChoice();
+  void DisplayDemoPointrBasedOnUserChoice();
 
   bool UserWantToRegistrate() const;
   bool UserWantToLogin() const;
@@ -33,11 +29,13 @@ class DemoMode {
     kExitPoint
   };
 
-  void ShowSubmenu(DemoUserMessenger::MessageType message_type);
+  void DisplaySubmenu(DemoUserMessenger::MessageType message_type);
 
   void LeadToRegistration();
   void LeadToLogin();
   void SuggestToExit();
+
+  void DiplayDemoMenuWithTitle();
 
   bool user_want_to_exit_ = true;
   bool user_want_to_registrate_ = false;
