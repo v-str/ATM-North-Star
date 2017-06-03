@@ -2,13 +2,11 @@
 -------------------------------------- GUI MODE ---------------------------------------
 ---------------------------------------------------------------------------------------
 
-﻿78. Implement key event on key Enter, Space, Escape. +
+1. Return boolean variable if key Enter is pressed -
 
-79. Slide mainframe with belongs to him widgets -
+2. Close Splash Screen using animation -
 
-80. How to block key Space +
-
-82. Continue adding of atm operations into atm class +
+3. Open main program after splash widget -
 
 ---------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE ---------------------------------------
