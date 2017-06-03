@@ -114,7 +114,7 @@ void AuthenticationMessenger::PasswordLength(StringLength password_length) {
   WritePasswordTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\n  Your password is " + password_status +
-      "  than required,\n"
+      " than required,\n"
       "  Password must be strictly 6 symbols.\n"
       "  It may contain both latin alphabet symbols and arabic digits.");
   WtiteDevidingLine();
@@ -131,9 +131,18 @@ void AuthenticationMessenger::PasswordContainSpaceSymbol() {
 void AuthenticationMessenger::PasswordEmpty() {
   WritePasswordTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\n  Password is emptyn.\n"
+      "\n\n  Password is empty.\n"
       "  Please enter a valid password and try again");
   WtiteDevidingLine();
+}
+
+void AuthenticationMessenger::SuggestReenterAuthenticationData() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "  The data was inputted﻿ in a wrong way.\n"
+      "  Do you prefer to re-enter data or to quit the program?\n"
+      "  1. Re-enter data\n"
+      "  2. Quit ( or press q )\n"
+      "  Enter: ");
 }
 
 void AuthenticationMessenger::ClearScreen() { ConsoleEditor::ClearScreen(); }
@@ -143,7 +152,7 @@ void AuthenticationMessenger::AddEmptyLines(int amount_of_lines) {
 }
 
 void AuthenticationMessenger::WriteLoginTitleStatus() {
-  ConsoleEditor::WriteText("\n\n");
+  ConsoleEditor::WriteText("\n");
   ConsoleEditor::WriteTextWithDelayPerSymbol(" Login status: ");
 }
 

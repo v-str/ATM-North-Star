@@ -2,7 +2,6 @@
 
 #include <QApplication>
 
-#include <console_mode.h>
 #include <gui_mode.h>
 #include <initial_menu.h>
 

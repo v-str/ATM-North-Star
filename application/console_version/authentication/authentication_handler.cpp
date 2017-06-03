@@ -79,5 +79,5 @@ void AuthenticationHandler::HandlePasswordString(const std::string& password) {
     default:
       break;
   }
-  AuthenticationMessenger::AddEmptyLines(5);
+  AuthenticationMessenger::AddEmptyLines(2);
 }

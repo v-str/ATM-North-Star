@@ -29,10 +29,23 @@ void Registrator::ConfirmRegistration() {
 }
 
 void Registrator::RunRegistrationProcedure() {
-  AuthenticationMessenger::ClearScreen();
-  GetLoginStringFromUser();
-  GetPasswordStringFromUser();
-  authenticaton_handler_.HandleAuthenticationData(login_, password_);
+  for (;;) {
+    AuthenticationMessenger::ClearScreen();
+    GetLoginStringFromUser();
+    GetPasswordStringFromUser();
+    authenticaton_handler_.HandleAuthenticationData(login_, password_);
+    if (authenticaton_handler_.IsAuthenticationStatusOk()) {
+      // Initialize user data in ATM
+      // Run transaction menu
+      break;
+    } else {
+      AuthenticationMessenger::SuggestReenterAuthenticationData();
+      ConfirmRegistration();
+      if (!user_want_to_registrate) {
+        break;
+      }
+    }
+  }
 }
 
 void Registrator::GetLoginStringFromUser() {
