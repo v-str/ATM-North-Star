@@ -16,7 +16,6 @@ class InitialMenu {
   int UserChoice() const;
 
  private:
-  void ShowInitialScreen();
   void RunInitialMenuEventLoop();
   void RunDemoMode();
   void RunRegistration();

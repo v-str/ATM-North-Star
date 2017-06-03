@@ -2,17 +2,9 @@
 
 #include <initial_messenger.h>
 
-void cli::InitialMenu::RunInitialMenu() {
-  ShowInitialScreen();
-
-  RunInitialMenuEventLoop();
-}
+void cli::InitialMenu::RunInitialMenu() { RunInitialMenuEventLoop(); }
 
 int cli::InitialMenu::UserChoice() const { return user_choice_; }
-
-void cli::InitialMenu::ShowInitialScreen() {
-  InitialMessenger::DisplayInitialScreen();
-}
 
 void cli::InitialMenu::RunInitialMenuEventLoop() {
   for (;;) {
