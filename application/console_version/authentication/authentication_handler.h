@@ -11,7 +11,7 @@ class AuthenticationHandler {
   void HandleAuthenticationData(const std::string login,
                                 const std::string& password);
 
-  bool IsAuthenticationStatusOk() const;
+  bool IsAuthenticationOk() const;
 
  private:
   void HandleLoginString(const std::string& login);

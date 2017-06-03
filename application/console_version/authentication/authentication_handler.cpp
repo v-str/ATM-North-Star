@@ -8,7 +8,7 @@ void AuthenticationHandler::HandleAuthenticationData(
   HandlePasswordString(password);
 }
 
-bool AuthenticationHandler::IsAuthenticationStatusOk() const {
+bool AuthenticationHandler::IsAuthenticationOk() const {
   bool authentication_status = is_login_ok_ && is_password_ok_;
   return authentication_status;
 }

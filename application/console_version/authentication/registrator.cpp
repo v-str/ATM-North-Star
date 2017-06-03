@@ -34,7 +34,7 @@ void Registrator::RunRegistrationProcedure() {
     GetLoginStringFromUser();
     GetPasswordStringFromUser();
     authenticaton_handler_.HandleAuthenticationData(login_, password_);
-    if (authenticaton_handler_.IsAuthenticationStatusOk()) {
+    if (authenticaton_handler_.IsAuthenticationOk()) {
       // Initialize user data in ATM
       // Run transaction menu
       break;
