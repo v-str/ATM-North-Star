@@ -2,6 +2,6 @@
 
 #include <initial_messenger.h>
 
-void SplashScreen::ShowSplashScreen() {
+void cli::SplashScreen::ShowSplashScreen() {
   InitialMessenger::DisplayInitialScreen();
 }

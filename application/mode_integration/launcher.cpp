@@ -8,7 +8,7 @@
 Launcher::Launcher() : initial_menu_(new cli::InitialMenu) {}
 
 void Launcher::LaunchConsoleMode() {
-  SplashScreen splash_screen;
+  cli::SplashScreen splash_screen;
   splash_screen.ShowSplashScreen();
   initial_menu_->RunInitialMenu();
 }
