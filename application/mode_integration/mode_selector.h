@@ -1,7 +1,7 @@
 ﻿#ifndef MODE_SELECTOR_H
 #define MODE_SELECTOR_H
 
-#include <user_input_handler.h>
+#include <menu_input_handler.h>
 
 class ModeSelector {
  public:
@@ -12,7 +12,7 @@ class ModeSelector {
   int GetMode() const;
 
  private:
-  cli::UserInputHandler user_input_processor_;
+  cli::MenuInputHandler input_handler_;
 
   int user_input_ = -1;
 };

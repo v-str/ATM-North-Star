@@ -38,7 +38,7 @@ void Messenger::ModeSuggestion() {
                "# Choose the interface:                #\n"
                "# 1.Console                            #\n"
                "# 2.Graphical                          #\n"
-               "# (\'q\' for quit)                       #\n"
+               "# ( press \'q\' for quit )               #\n"
                "#                                      #\n";
   DrawStrip(greeting_strip_length_);
   AddNewLine();
