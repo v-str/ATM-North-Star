@@ -6,10 +6,10 @@ class UserMessenger {
   static void ShowMainMenu();
   static void WishAGoodDay();
   static void ReRequestAboutExit();
-  static void SuggestToExit();
+  static void ShowQuitMenu();
   static void ShowIncorrectInput();
   static void ShowIncorrectMainMenuInput();
-  static void ShowIncorrectRegisterData();
+  static void ShowIncorrectRegistration();
 
  private:
   static constexpr int kFrame = 45;

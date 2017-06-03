@@ -34,18 +34,18 @@ void UserMessenger::WishAGoodDay() {
       "\t####################\n\n");
 }
 
-void UserMessenger::SuggestToExit() {
+void UserMessenger::ShowQuitMenu() {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\t# 1. Exit to main page.\n"
-      "\t# 2. Exit program.\n"
+      "\t# 2. Exit program. ( or press 'q')\n"
       "\t# Enter: ");
 }
 
 void UserMessenger::ShowIncorrectInput() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\t# Incorrect input, please try again", 10);
-  ConsoleEditor::WriteTextWithDelayPerSymbol("...", 100);
+  ConsoleEditor::WriteTextWithDelayPerSymbol("...", 70);
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
 }
 
@@ -55,8 +55,7 @@ void UserMessenger::ShowIncorrectMainMenuInput() {
   ConsoleEditor::Sleep(200);
 }
 
-void UserMessenger::ShowIncorrectRegisterData() {
+void UserMessenger::ShowIncorrectRegistration() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\tIncorrect input, "
-      "\n\treload the program\n");
+      "\n\t# Incorrect input, reload program.\n");
 }

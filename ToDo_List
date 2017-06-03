@@ -1,1 +1,70 @@
-﻿
+﻿﻿---------------------------------------------------------------------------------------
+-------------------------------------- GUI MODE ---------------------------------------
+---------------------------------------------------------------------------------------
+
+﻿78. Implement key event on key Enter, Space, Escape. +
+
+79. Slide mainframe with belongs to him widgets -
+
+80. How to block key Space +
+
+82. Continue adding of atm operations into atm class +
+
+---------------------------------------------------------------------------------------
+-------------------------------------- CLI MODE ---------------------------------------
+---------------------------------------------------------------------------------------
+
+84. Make class ModeSelector like a simple class that maintain user input processing +
+
+86. Modify user_input for maintain exit through char q or Q +
+
+1. Continue separate console_mode on classes +
+
+2. Add messages for every authentication error +
+
+3. Delete unnecessary staic fields in authenication messenger +
+
+4. Continue make registration error handling +
+
+5. Decide problem related with incorrect login registration +
+
+6. Continue make registration module -
+
+7. Delete excess code in AuthenticationMessenger (e.g. constexpr variables ) -
+---------------------------------------------------------------------------------------
+---------------------------------------- ATM ------------------------------------------
+---------------------------------------------------------------------------------------
+
+88. How make user registration class for both interface? -
+
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> cli_mode

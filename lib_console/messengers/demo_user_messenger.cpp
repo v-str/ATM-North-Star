@@ -2,36 +2,33 @@
 
 #include <console_editor.h>
 
-void DemoUserMessanger::ShowMessage(
-    DemoUserMessanger::MessageType message_type) {
+void DemoUserMessenger::ShowMessage(
+    DemoUserMessenger::MessageType message_type) {
   ConsoleEditor::AddEmptyLineNTimes(2);
 
   switch (message_type) {
     case kWelcome:
       ShowWelcomeDemoMessage();
       break;
-    case kMenu:
-      ShowDemoMenu();
-      break;
     case kAccountInfo:
       ShowDemoAccountInfoMessage();
       break;
-    case kRefill:
+    case kRefillInfo:
       ShowInfoAboutRefillMessage();
       break;
-    case kCreditApp:
+    case kCreditInfo:
       ShowDemoCreditAppMessage();
       break;
-    case kWithdrawal:
+    case kWithdrawalInfo:
       ShowDemoWidthdrawalMessage();
       break;
-    case kStatement:
+    case kStatementInfo:
       ShowDemoStatementMessage();
       break;
   }
 }
 
-void DemoUserMessanger::ShowWelcomeDemoMessage() {
+void DemoUserMessenger::ShowWelcomeDemoMessage() {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "# Welcome to demo mode. This chapter\n"
@@ -40,23 +37,34 @@ void DemoUserMessanger::ShowWelcomeDemoMessage() {
       "# Please, choose interested you chapter:\n");
 }
 
-void DemoUserMessanger::ShowDemoMenu() {
+void DemoUserMessenger::ShowDemoMenu(DisplayMode display_mode) {
+  switch (display_mode) {
+    case kCLearScreen:
+      ConsoleEditor::ClearScreen();
+      break;
+    case kNoClearScreen:
+      break;
+    default:
+      break;
+  }
+
   ConsoleEditor::WriteText(
-      "\n\n\t################ Demo Transaction menu ###################\n"
-      "\t#                                                        #\n"
-      "\t#  1. Account information            2. Refill           #\n"
-      "\t#  ----------------------            ------------        #\n"
-      "\t#  3. Credit application             4. Withdrawal       #\n"
-      "\t#  ----------------------            ------------        #\n"
-      "\t#  5. Statement                      6. Exit             #\n"
-      "\t#                                                        #\n"
-      "\t#                   7. Create Account                    #\n"
-      "\t#                                                        #\n"
-      "\t##########################################################\n\n"
+      "\n\n\t################ Demo Transaction menu ###############\n"
+      "\t#                                                    #\n"
+      "\t#  1. Account information            2. Refill       #\n"
+      "\t#  ----------------------            --------------  #\n"
+      "\t#  3. Credit application             4. Withdrawal   #\n"
+      "\t#  ----------------------            --------------  #\n"
+      "\t#  5. Statement                                      #\n"
+      "\t#                                                    #\n"
+      "\t#  ------------------------------------------------  #\n"
+      "\t#    6. Log-in(!)   7. Registration     8. Exit      #\n"
+      "\t#                                                    #\n"
+      "\t######################################################\n\n"
       "\n\t# Enter: ");
 }
 
-void DemoUserMessanger::ShowDemoAccountInfoMessage() {
+void DemoUserMessenger::ShowDemoAccountInfoMessage() {
   ConsoleEditor::AddEmptyLineNTimes(3);
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
@@ -78,7 +86,7 @@ void DemoUserMessanger::ShowDemoAccountInfoMessage() {
       "# how many month you must to pay a loan  etc.\n\n");
 }
 
-void DemoUserMessanger::ShowInfoAboutRefillMessage() {
+void DemoUserMessenger::ShowInfoAboutRefillMessage() {
   ConsoleEditor::AddEmptyLineNTimes(3);
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteTextWithInterrupt(
@@ -96,7 +104,7 @@ void DemoUserMessanger::ShowInfoAboutRefillMessage() {
       " (If sum is valid, money will be transferred)\n\n");
 }
 
-void DemoUserMessanger::ShowDemoCreditAppMessage() {
+void DemoUserMessenger::ShowDemoCreditAppMessage() {
   ConsoleEditor::AddEmptyLineNTimes(3);
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
@@ -108,7 +116,7 @@ void DemoUserMessanger::ShowDemoCreditAppMessage() {
       "# get a $30000 loan on individual conditions.\n\n");
 }
 
-void DemoUserMessanger::ShowDemoWidthdrawalMessage() {
+void DemoUserMessenger::ShowDemoWidthdrawalMessage() {
   ConsoleEditor::AddEmptyLineNTimes(3);
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
@@ -117,7 +125,7 @@ void DemoUserMessanger::ShowDemoWidthdrawalMessage() {
       "# once or choose the amount that you need to be.\n");
 }
 
-void DemoUserMessanger::ShowDemoStatementMessage() {
+void DemoUserMessenger::ShowDemoStatementMessage() {
   ConsoleEditor::AddEmptyLineNTimes(3);
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
@@ -125,23 +133,18 @@ void DemoUserMessanger::ShowDemoStatementMessage() {
       "# about your cash.\n");
 }
 
-void DemoUserMessanger::ShowDemoMenuAgain() {
-  ConsoleEditor::ClearScreen();
-  ShowDemoMenu();
-}
-
-void DemoUserMessanger::ShowIncorrectInput() {
+void DemoUserMessenger::ShowIncorrectInput() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\t# Incorrect input, please try again:\n"
       "\t# Enter: ");
 }
 
-void DemoUserMessanger::ShowIncorrectMenuInput() {
+void DemoUserMessenger::ShowIncorrectMenuInput() {
   ConsoleEditor::ClearScreen();
   ShowIncorrectInput();
 }
 
-void DemoUserMessanger::SuggestExit() {
+void DemoUserMessenger::SuggestExit() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\t# 1. Exit to main page.\n"
       "\t# 2. Exit program.\n"

@@ -4,10 +4,10 @@
 class InitialMessenger {
  public:
   static void DisplayInitialScreen();
-
- private:
   static void DisplayInitialMenu();
   static void DisplayLogotype();
+  static void ShowIncorrectMenuInput();
+  static void FarewellMessage();
 };
 
 #endif  // INITIAL_MESSENGER_H

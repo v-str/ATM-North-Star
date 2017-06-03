@@ -8,6 +8,7 @@ void InitialMessenger::DisplayInitialScreen() {
 }
 
 void InitialMessenger::DisplayLogotype() {
+  ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText(
       "---------------------------------------------\n"
       "-  ##   ## ####### ######  ######## ##  ##  -\n"
@@ -39,9 +40,24 @@ void InitialMessenger::DisplayLogotype() {
 
 void InitialMessenger::DisplayInitialMenu() {
   ConsoleEditor::WriteText(
-      "\n\n\n\n\t #######################\n"
-      "\t #  1. Demo mode       #\n"
-      "\t #  2. Registration    #\n"
-      "\t #######################\n"
+      "\n\n\n\n\t ###############################\n"
+      "\t #                             #\n"
+      "\t #  1. Demo                    #\n"
+      "\t #  2. Registration            #\n"
+      "\t #  3. Log-in (not available)  #\n"
+      "\t #                             #\n"
+      "\t #  (press 'q' for quit)       #\n"
+      "\t #                             #\n"
+      "\t ###############################\n"
       "\t   Enter: ");
+}
+void InitialMessenger::ShowIncorrectMenuInput() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "\n\t Incorrect input, please repeat: ", 15);
+}
+
+void InitialMessenger::FarewellMessage() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "\n\tThank you for using ATM North Star.\n"
+      "\tHave a nice day!\n\n");
 }

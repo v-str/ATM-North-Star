@@ -1,24 +1,26 @@
 ﻿#ifndef DEMO_USER_MESSANGER_H
 #define DEMO_USER_MESSANGER_H
 
-class DemoUserMessanger {
+class DemoUserMessenger {
  public:
   enum MessageType {
     kWelcome,
-    kMenu,
     kAccountInfo,
-    kRefill,
-    kCreditApp,
-    kWithdrawal,
-    kStatement
+    kRefillInfo,
+    kCreditInfo,
+    kWithdrawalInfo,
+    kStatementInfo
   };
 
-  static void ShowDemoMenuAgain();
+  enum DisplayMode { kCLearScreen, kNoClearScreen };
+
   static void ShowMessage(MessageType message_type);
+
+  static void ShowDemoMenu(DisplayMode display_mode);
+
   static void ShowIncorrectInput();
   static void ShowIncorrectMenuInput();
   static void SuggestExit();
-  static void ShowDemoMenu();
 
  private:
   static constexpr int kSleep = 100;
