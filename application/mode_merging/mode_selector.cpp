@@ -5,7 +5,7 @@
 #include <messenger.h>
 
 void ModeSelector::SuggestMode() {
-  Messenger::ShowGreetingMessage();
+  Messenger::DisplayLauncherMessage();
   for (;;) {
     user_input_ = user_input_processor_.GetDigitInputFromUser();
     if (user_input_ == kQuit || user_input_ == kConsoleMode ||

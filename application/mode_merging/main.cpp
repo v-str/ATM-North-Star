@@ -1,6 +1,4 @@
-﻿#include <QApplication>
-
-#include <launcher.h>
+﻿#include <launcher.h>
 #include <mode_selector.h>
 
 int main(int argc, char* argv[]) {

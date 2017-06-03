@@ -5,8 +5,15 @@
 
 class Messenger {
  public:
-  static void ShowGreetingMessage();
+  static void DisplayLauncherMessage();
   static void IncorrectInput();
+
+ private:
+  static void DisplayVersion();
+
+  static void DrawStrip(int length_of_strip);
+
+  static constexpr int version_strip_length_ = 20;
 };
 
 #endif  // MESSENGER_H
