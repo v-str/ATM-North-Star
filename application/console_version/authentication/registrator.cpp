@@ -30,9 +30,7 @@ void Registrator::ConfirmRegistration() {
 
 void Registrator::RunRegistrationProcedure() {
   for (;;) {
-    AuthenticationMessenger::ClearScreen();
-    GetLoginStringFromUser();
-    GetPasswordStringFromUser();
+    GetRegistratoinDataFromUser();
     authenticaton_handler_.HandleAuthenticationData(login_, password_);
     if (authenticaton_handler_.IsAuthenticationOk()) {
       // Initialize user data in ATM
@@ -46,6 +44,13 @@ void Registrator::RunRegistrationProcedure() {
       }
     }
   }
+}
+
+void Registrator::GetRegistratoinDataFromUser() {
+  AuthenticationMessenger::ClearScreen();
+  RegistrationMessenger::ShowRegistrationLogo();
+  GetLoginStringFromUser();
+  GetPasswordStringFromUser();
 }
 
 void Registrator::GetLoginStringFromUser() {

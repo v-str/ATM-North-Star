@@ -44,7 +44,7 @@ void AuthenticationMessenger::LoginContainSpecialSymbol() {
   WriteLoginTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\n  Your login contain special symbols like a % $ ^ # and so on.\n"
-      "  You need to remove this symbols and then try again.");
+      "  You need to remove this symbols and try again.");
   WtiteDevidingLine();
 }
 
