@@ -14,7 +14,8 @@ void AuthenticationMessenger::DisplayPasswordText() {
 
 void AuthenticationMessenger::CorrectLoginMessage() {
   WriteLoginTitleStatus();
-  ConsoleEditor::WriteText("\tCorrect");
+  ConsoleEditor::WriteText("    Correct");
+  WtiteDevidingLine();
 }
 
 void AuthenticationMessenger::LoginLength(StringLength login_length) {
@@ -32,17 +33,19 @@ void AuthenticationMessenger::LoginLength(StringLength login_length) {
 
   WriteLoginTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "  Your login is " + length_status +
+      "\n\n  Your login is " + length_status +
       " than required,\n"
       "  it must be from 6 to 35 latin alphabet symbols and \n"
       "  arabic digits inclusively.");
+  WtiteDevidingLine();
 }
 
 void AuthenticationMessenger::LoginContainSpecialSymbol() {
   WriteLoginTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "  Your login contain special symbols like a % $ ^ # and so on.\n"
+      "\n\n  Your login contain special symbols like a % $ ^ # and so on.\n"
       "  You need to remove this symbols and then try again.");
+  WtiteDevidingLine();
 }
 
 void AuthenticationMessenger::LoginContainIncorrectSpacePosition(
@@ -67,28 +70,32 @@ void AuthenticationMessenger::LoginContainIncorrectSpacePosition(
 
   WriteLoginTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      " Your login " + space_status +
+      "\n\n Your login " + space_status +
       "\n"
       " Please remove unnecessary spaces and try again.");
+  WtiteDevidingLine();
 }
 
 void AuthenticationMessenger::LoginContainOnlyDigits() {
   WriteLoginTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      " Your login contain only digits.\n"
+      "\n\n Your login contain only digits.\n"
       " Login must contain 1 symbol of latin alphabet at the least.");
+  WtiteDevidingLine();
 }
 
 void AuthenticationMessenger::LoginEmpty() {
   WriteLoginTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      " Your login is empty.\n"
+      "\n\n Your login is empty.\n"
       " Please enter a valid login and try again");
+  WtiteDevidingLine();
 }
 
 void AuthenticationMessenger::CorrectPasswordMessage() {
   WritePasswordTitleStatus();
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\tCorrect");
+  ConsoleEditor::WriteTextWithDelayPerSymbol(" Correct");
+  WtiteDevidingLine();
 }
 
 void AuthenticationMessenger::PasswordLength(StringLength password_length) {
@@ -106,24 +113,27 @@ void AuthenticationMessenger::PasswordLength(StringLength password_length) {
 
   WritePasswordTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      " Your password is " + password_status +
-      " than required,\n"
-      " Password must be strictly 6 symbols.\n"
-      " It may contain both latin alphabet symbols and arabic digits.");
+      "\n\n  Your password is " + password_status +
+      "  than required,\n"
+      "  Password must be strictly 6 symbols.\n"
+      "  It may contain both latin alphabet symbols and arabic digits.");
+  WtiteDevidingLine();
 }
 
 void AuthenticationMessenger::PasswordContainSpaceSymbol() {
   WritePasswordTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      " Password contain space symbol.\n"
-      " Please remove unnecessary symbols and try again.");
+      "\n\n  Password contain space symbol.\n"
+      "  Please remove unnecessary symbols and try again.");
+  WtiteDevidingLine();
 }
 
 void AuthenticationMessenger::PasswordEmpty() {
   WritePasswordTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      " Password is emptyn.\n"
-      " Please enter a valid password and try again");
+      "\n\n  Password is emptyn.\n"
+      "  Please enter a valid password and try again");
+  WtiteDevidingLine();
 }
 
 void AuthenticationMessenger::ClearScreen() { ConsoleEditor::ClearScreen(); }
@@ -133,15 +143,16 @@ void AuthenticationMessenger::AddEmptyLines(int amount_of_lines) {
 }
 
 void AuthenticationMessenger::WriteLoginTitleStatus() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n  ####################\n"
-      "  # Login status:    #\n"
-      "  ####################\n");
+  ConsoleEditor::WriteText("\n\n");
+  ConsoleEditor::WriteTextWithDelayPerSymbol(" Login status: ");
 }
 
 void AuthenticationMessenger::WritePasswordTitleStatus() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\n  ####################\n"
-      "  # Password status: #\n"
-      "  ####################\n");
+  ConsoleEditor::WriteText("\n\n");
+  ConsoleEditor::WriteTextWithDelayPerSymbol(" Password status: ");
+}
+
+void AuthenticationMessenger::WtiteDevidingLine() {
+  ConsoleEditor::WriteText("\n");
+  ConsoleEditor::WriteSymbolsNTimes(".", 65);
 }

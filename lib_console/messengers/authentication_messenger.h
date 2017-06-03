@@ -34,6 +34,8 @@ class AuthenticationMessenger {
   static void WriteLoginTitleStatus();
   static void WritePasswordTitleStatus();
 
+  static void WtiteDevidingLine();
+
   static constexpr int kMaxLenghtOfLogin = 21;
   static constexpr int kMaxLenghtOfPassword = 4;
   static constexpr int kDelay = 50;

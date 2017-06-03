@@ -7,7 +7,7 @@ void Registrator::RunRegistrationMenu() {
   RegistrationMessenger::ShowRegistrationLogo();
   RegistrationMessenger::ShowRegistrationReference();
   ConfirmRegistration();
-  if (is_registration_status_ok) {
+  if (user_want_to_registrate) {
     RunRegistrationProcedure();
   }
 }
@@ -17,10 +17,10 @@ void Registrator::ConfirmRegistration() {
     int user_choice = menu_input_.GetDigitInputFromUser();
 
     if (user_choice == kStartRegistration) {
-      is_registration_status_ok = true;
+      user_want_to_registrate = true;
       break;
     } else if (user_choice == kSymbolQuit || user_choice == kDigitQuit) {
-      is_registration_status_ok = false;
+      user_want_to_registrate = false;
       break;
     }
 

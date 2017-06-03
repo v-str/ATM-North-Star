@@ -27,7 +27,7 @@ class Registrator {
   std::string login_ = "user";
   std::string password_ = "password";
 
-  bool is_registration_status_ok = false;
+  bool user_want_to_registrate = false;
 };
 
 #endif  // REGISTRATOR_H
