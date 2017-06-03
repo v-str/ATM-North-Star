@@ -5,6 +5,8 @@
 
 #include <atm_splash_screen.h>
 
+namespace gui {
+
 class GuiMode {
  public:
   GuiMode();
@@ -16,5 +18,6 @@ class GuiMode {
 
   std::unique_ptr<AtmSplashScreen> splash_screen_;
 };
+}
 
 #endif  // GUI_MODE_H

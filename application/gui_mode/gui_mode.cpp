@@ -1,13 +1,13 @@
 ﻿#include "gui_mode.h"
 
-GuiMode::GuiMode() : splash_screen_(new AtmSplashScreen) {}
+gui::GuiMode::GuiMode() : splash_screen_(new AtmSplashScreen) {}
 
-void GuiMode::RunInitialScreen() {
+void gui::GuiMode::RunInitialScreen() {
   SetSplashScreen();
   splash_screen_->show();
 }
 
-void GuiMode::SetSplashScreen() {
+void gui::GuiMode::SetSplashScreen() {
   splash_screen_->SetCompanyName("North Star");
   splash_screen_->SetSplashScreenAppearance("#CC6600", "rgb(252, 175, 62)",
                                             "rgb(252, 175, 62)");
