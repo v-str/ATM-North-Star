@@ -29,6 +29,8 @@ class AuthenticationMessenger {
 
   static void SuggestReenterAuthenticationData();
 
+  static void FarewellMessage();
+
   static void ClearScreen();
   static void AddEmptyLines(int amount_of_lines);
 

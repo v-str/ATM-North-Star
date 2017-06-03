@@ -20,6 +20,7 @@ void cli::Registrator::ConfirmRegistration() {
       user_want_to_registrate = true;
       break;
     } else if (user_choice == kSymbolQuit || user_choice == kDigitQuit) {
+      AuthenticationMessenger::FarewellMessage();
       user_want_to_registrate = false;
       break;
     }

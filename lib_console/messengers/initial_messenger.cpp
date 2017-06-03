@@ -59,5 +59,5 @@ void InitialMessenger::ShowIncorrectMenuInput() {
 void InitialMessenger::FarewellMessage() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\tThank you for using ATM North Star.\n"
-      "\tHave a nice day!");
+      "\tHave a nice day!\n\n");
 }

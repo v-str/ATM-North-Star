@@ -145,6 +145,12 @@ void AuthenticationMessenger::SuggestReenterAuthenticationData() {
       "  Enter: ");
 }
 
+void AuthenticationMessenger::FarewellMessage() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "\n\tThank you for using ATM North Star.\n"
+      "\tHave a nice day!\n\n");
+}
+
 void AuthenticationMessenger::ClearScreen() { ConsoleEditor::ClearScreen(); }
 
 void AuthenticationMessenger::AddEmptyLines(int amount_of_lines) {
