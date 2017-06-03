@@ -5,6 +5,8 @@
 #include <menu_input_handler.h>
 #include <registrator.h>
 
+namespace cli {
+
 class InitialMenu {
  public:
   enum MenuPoints { kQuit, kDemo, kRegistration, kLogin };
@@ -25,5 +27,6 @@ class InitialMenu {
 
   int user_choice_ = 0;
 };
+}
 
 #endif  // INITIAL_MENU_H

@@ -7,6 +7,8 @@
 #include <menu_input_handler.h>
 #include <user_input_handler.h>
 
+namespace cli {
+
 class Registrator {
  public:
   void RunRegistrationMenu();
@@ -31,5 +33,6 @@ class Registrator {
 
   bool user_want_to_registrate = false;
 };
+}
 
 #endif  // REGISTRATOR_H

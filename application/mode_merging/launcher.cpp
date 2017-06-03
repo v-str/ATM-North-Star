@@ -4,15 +4,9 @@
 
 #include <gui_mode.h>
 
-Launcher::Launcher() : initial_menu_(new InitialMenu) {}
+Launcher::Launcher() : initial_menu_(new cli::InitialMenu) {}
 
-void Launcher::LaunchConsoleMode() {
-  // InitialMenu console_initial_menu;
-
-  initial_menu_->RunInitialMenu();
-
-  // console_initial_menu.RunInitialMenu();
-}
+void Launcher::LaunchConsoleMode() { initial_menu_->RunInitialMenu(); }
 
 void Launcher::LaunchGuiMode(int argc, char* argv[]) {
   QApplication application(argc, argv);

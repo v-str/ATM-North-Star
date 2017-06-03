@@ -2,7 +2,7 @@
 
 #include <user_messenger.h>
 
-int MenuInputHandler::GetDigitInputFromUser() {
+int cli::MenuInputHandler::GetDigitInputFromUser() {
   std::string user_input = GetStringInputFromUser();
   if (IsContainQuitString(user_input)) {
     return kQuit;
@@ -11,7 +11,7 @@ int MenuInputHandler::GetDigitInputFromUser() {
   }
 }
 
-bool MenuInputHandler::GetQuitResult() {
+bool cli::MenuInputHandler::GetQuitResult() {
   UserMessenger::ShowQuitMenu();
   bool quit_result = true;
   int user_choice = 0;
@@ -30,7 +30,8 @@ bool MenuInputHandler::GetQuitResult() {
   return quit_result;
 }
 
-bool MenuInputHandler::IsContainQuitString(const std::string& user_string) {
+bool cli::MenuInputHandler::IsContainQuitString(
+    const std::string& user_string) {
   if (user_string == "Quit" || user_string == "quit") {
     return true;
   }

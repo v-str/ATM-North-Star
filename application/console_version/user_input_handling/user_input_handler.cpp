@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-UserInputHandler::~UserInputHandler() {}
+cli::UserInputHandler::~UserInputHandler() {}
 
-int UserInputHandler::GetDigitInputFromUser() {
+int cli::UserInputHandler::GetDigitInputFromUser() {
   std::string user_string = GetStringInputFromUser();
 
   if (IsContainOnlyDigits(user_string)) {
@@ -15,13 +15,14 @@ int UserInputHandler::GetDigitInputFromUser() {
   return kInvalidChoice;
 }
 
-std::string UserInputHandler::GetStringInputFromUser() {
+std::string cli::UserInputHandler::GetStringInputFromUser() {
   std::string string;
   std::getline(std::cin, string);
   return string;
 }
 
-bool UserInputHandler::IsContainOnlyDigits(const std::string& user_string) {
+bool cli::UserInputHandler::IsContainOnlyDigits(
+    const std::string& user_string) {
   for (unsigned int i = 0; i < user_string.size(); ++i) {
     if (!isdigit(user_string[i])) {
       return false;
@@ -30,7 +31,7 @@ bool UserInputHandler::IsContainOnlyDigits(const std::string& user_string) {
   return true;
 }
 
-int UserInputHandler::GetDigitsFromString(const std::string& user_string) {
+int cli::UserInputHandler::GetDigitsFromString(const std::string& user_string) {
   try {
     return std::stoi(user_string);
   } catch (const std::invalid_argument&) {

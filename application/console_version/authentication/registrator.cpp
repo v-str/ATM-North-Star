@@ -3,7 +3,7 @@
 #include <authentication_messenger.h>
 #include <registration_messenger.h>
 
-void Registrator::RunRegistrationMenu() {
+void cli::Registrator::RunRegistrationMenu() {
   RegistrationMessenger::ShowRegistrationLogo();
   RegistrationMessenger::ShowRegistrationReference();
   ConfirmRegistration();
@@ -12,7 +12,7 @@ void Registrator::RunRegistrationMenu() {
   }
 }
 
-void Registrator::ConfirmRegistration() {
+void cli::Registrator::ConfirmRegistration() {
   for (;;) {
     int user_choice = menu_input_.GetDigitInputFromUser();
 
@@ -28,7 +28,7 @@ void Registrator::ConfirmRegistration() {
   }
 }
 
-void Registrator::RunRegistrationProcedure() {
+void cli::Registrator::RunRegistrationProcedure() {
   for (;;) {
     GetRegistratoinDataFromUser();
     authenticaton_handler_.HandleAuthenticationData(login_, password_);
@@ -46,19 +46,19 @@ void Registrator::RunRegistrationProcedure() {
   }
 }
 
-void Registrator::GetRegistratoinDataFromUser() {
+void cli::Registrator::GetRegistratoinDataFromUser() {
   AuthenticationMessenger::ClearScreen();
   RegistrationMessenger::ShowRegistrationLogo();
   GetLoginStringFromUser();
   GetPasswordStringFromUser();
 }
 
-void Registrator::GetLoginStringFromUser() {
+void cli::Registrator::GetLoginStringFromUser() {
   AuthenticationMessenger::DisplayLoginText();
   login_ = user_input_.GetStringInputFromUser();
 }
 
-void Registrator::GetPasswordStringFromUser() {
+void cli::Registrator::GetPasswordStringFromUser() {
   AuthenticationMessenger::DisplayPasswordText();
   password_ = user_input_.GetStringInputFromUser();
 }

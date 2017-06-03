@@ -6,6 +6,8 @@
 #include <demo_user_messenger.h>
 #include <user_input.h>
 
+namespace cli {
+
 class DemoMode {
   using string = std::string;
 
@@ -43,5 +45,6 @@ class DemoMode {
 
   UserInput user_input_;
 };
+}
 
 #endif  // DEMO_MODE_H

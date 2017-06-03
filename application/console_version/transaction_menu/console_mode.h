@@ -55,9 +55,9 @@ class ConsoleMode {
   void ExecuteOperation(int user_choice);
   void SuggestToQuit();
 
-  DemoMode demo_mode_;
+  cli::DemoMode demo_mode_;
   AtmUser user_;
-  Registrator registrator_;
+  cli::Registrator registrator_;
   AccountInformator account_informator_;
   Refill refill_;
   Withdrawal withdrawal_;
@@ -69,10 +69,10 @@ class ConsoleMode {
   // ============= New Code ==================
   std::unique_ptr<Atm> atm_;
 
-  InitialMenu initial_menu_;
+  cli::InitialMenu initial_menu_;
 
-  UserInputHandler user_input_;
-  MenuInputHandler quit_menu_handler_;
+  cli::UserInputHandler user_input_;
+  cli::MenuInputHandler quit_menu_handler_;
 };
 
 #endif  // CONSOLE_MODE_H

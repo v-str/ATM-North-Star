@@ -1,6 +1,6 @@
 ﻿#include <demo_mode.h>
 
-void DemoMode::RunDemoMode() {
+void cli::DemoMode::RunDemoMode() {
   DemoUserMessenger::ShowMessage(DemoUserMessenger::kWelcome);
   DemoUserMessenger::ShowDemoMenu(DemoUserMessenger::kNoClearScreen);
   GetUserChoice();
@@ -13,9 +13,9 @@ void DemoMode::RunDemoMode() {
   }
 }
 
-void DemoMode::UserWantToExitProgram() { user_want_to_exit_ = true; }
+void cli::DemoMode::UserWantToExitProgram() { user_want_to_exit_ = true; }
 
-void DemoMode::GetUserChoice() {
+void cli::DemoMode::GetUserChoice() {
   int user_choice = user_input_.GetValueFromUser();
   if (user_choice == kAccountPoint) {
     ShowSubmenu(DemoUserMessenger::kAccountInfo);
@@ -39,24 +39,26 @@ void DemoMode::GetUserChoice() {
   }
 }
 
-bool DemoMode::UserWantToRegistrate() const { return user_want_to_registrate_; }
+bool cli::DemoMode::UserWantToRegistrate() const {
+  return user_want_to_registrate_;
+}
 
-bool DemoMode::UserWantToLogin() const { return user_want_to_login_; }
+bool cli::DemoMode::UserWantToLogin() const { return user_want_to_login_; }
 
-void DemoMode::ShowSubmenu(DemoUserMessenger::MessageType message_type) {
+void cli::DemoMode::ShowSubmenu(DemoUserMessenger::MessageType message_type) {
   DemoUserMessenger::ShowMessage(message_type);
   SuggestToExit();
 }
 
-void DemoMode::LeadToRegistration() {
+void cli::DemoMode::LeadToRegistration() {
   user_want_to_exit_ = user_want_to_registrate_ = true;
 }
 
-void DemoMode::LeadToLogin() {
+void cli::DemoMode::LeadToLogin() {
   user_want_to_exit_ = user_want_to_login_ = true;
 }
 
-void DemoMode::SuggestToExit() {
+void cli::DemoMode::SuggestToExit() {
   DemoUserMessenger::SuggestExit();
   for (;;) {
     int result_of_exit = 0;

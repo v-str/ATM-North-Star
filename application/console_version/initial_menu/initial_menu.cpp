@@ -2,19 +2,19 @@
 
 #include <initial_messenger.h>
 
-void InitialMenu::RunInitialMenu() {
+void cli::InitialMenu::RunInitialMenu() {
   ShowInitialScreen();
 
   RunInitialMenuEventLoop();
 }
 
-int InitialMenu::UserChoice() const { return user_choice_; }
+int cli::InitialMenu::UserChoice() const { return user_choice_; }
 
-void InitialMenu::ShowInitialScreen() {
+void cli::InitialMenu::ShowInitialScreen() {
   InitialMessenger::DisplayInitialScreen();
 }
 
-void InitialMenu::RunInitialMenuEventLoop() {
+void cli::InitialMenu::RunInitialMenuEventLoop() {
   for (;;) {
     user_choice_ = quit_handler_.GetDigitInputFromUser();
 
@@ -39,7 +39,7 @@ void InitialMenu::RunInitialMenuEventLoop() {
   }
 }
 
-void InitialMenu::RunDemoMode() {
+void cli::InitialMenu::RunDemoMode() {
   demo_mode_.RunDemoMode();
 
   if (demo_mode_.UserWantToRegistrate()) {
@@ -47,4 +47,4 @@ void InitialMenu::RunDemoMode() {
   }
 }
 
-void InitialMenu::RunRegistration() { registrator_.RunRegistrationMenu(); }
+void cli::InitialMenu::RunRegistration() { registrator_.RunRegistrationMenu(); }

@@ -12,7 +12,7 @@ class ModeSelector {
   int GetMode() const;
 
  private:
-  UserInputHandler user_input_processor_;
+  cli::UserInputHandler user_input_processor_;
 
   int user_input_ = -1;
 };

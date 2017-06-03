@@ -13,7 +13,7 @@ class Launcher {
   void LaunchGuiMode(int argc, char* argv[]);
 
  private:
-  std::unique_ptr<InitialMenu> initial_menu_;
+  std::unique_ptr<cli::InitialMenu> initial_menu_;
 };
 
 #endif  // LAUNCHER_H
