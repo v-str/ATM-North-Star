@@ -1,14 +1,14 @@
-﻿#ifndef GUI_MODE_H
-#define GUI_MODE_H
+﻿#ifndef GRAPHICAL_SPLASH_SCREEN_H
+#define GRAPHICAL_SPLASH_SCREEN_H
 
 #include <atm_splash_screen.h>
 #include <widget_hider.h>
 
 namespace gui {
 
-class GuiMode {
+class GraphicalSplashScreen {
  public:
-  GuiMode();
+  GraphicalSplashScreen();
 
   void RunInitialScreen();
 
@@ -20,4 +20,4 @@ class GuiMode {
 };
 }
 
-#endif  // GUI_MODE_H
+#endif  // GRAPHICAL_SPLASH_SCREEN_H

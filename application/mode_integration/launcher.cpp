@@ -2,7 +2,7 @@
 
 #include <QApplication>
 
-#include <gui_mode.h>
+#include <graphical_splash_screen.h>
 #include <splash_screen.h>
 
 Launcher::Launcher() : initial_menu_(new cli::InitialMenu) {}
@@ -16,7 +16,7 @@ void Launcher::LaunchConsoleMode() {
 void Launcher::LaunchGuiMode(int argc, char* argv[]) {
   QApplication application(argc, argv);
   Q_INIT_RESOURCE(atm_resources);
-  gui::GuiMode gui_mode;
-  gui_mode.RunInitialScreen();
+  gui::GraphicalSplashScreen splash_screen;
+  splash_screen.RunInitialScreen();
   application.exec();
 }
