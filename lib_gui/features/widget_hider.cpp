@@ -16,15 +16,15 @@ void WidgetHider::SetWidgetForHideAnimation(QWidget* widget) {
   }
 
   hide_animation_ = new QPropertyAnimation(widget, "geometry");
-  hide_animation_->setDuration(250);
-  hide_animation_->setEasingCurve(QEasingCurve::Linear);
+  hide_animation_->setDuration(500);
+  hide_animation_->setEasingCurve(QEasingCurve::OutCirc);
 }
 
 void WidgetHider::Hide(const QRect& geometry) {
   SetStartHideValue(geometry);
   SetEndHideValue(geometry);
   hide_animation_->start();
-  QTimer::singleShot(350, this, SLOT(AnimationTimeOut()));
+  QTimer::singleShot(500, this, SLOT(AnimationTimeOut()));
 }
 
 void WidgetHider::AnimationTimeOut() { emit IsAlreadyHidden(); }
