@@ -29,6 +29,8 @@ class AtmSplashScreen : public QMainWindow {
       const QString& background_image = ":/images/black_background.jpg");
   void SetBackgroundColor(const QString& background_color = "black");
 
+  bool IsMainWidgetLauncherOk();
+
  signals:
   void BlinkColor();
   void Exit();
@@ -38,6 +40,7 @@ class AtmSplashScreen : public QMainWindow {
   void AtmBlinkColor();
   void ChangeTimeDate();
   void ShowExitWidget();
+  void CloseBeforeMainWidget();
 
  protected:
   void keyPressEvent(QKeyEvent* event);
@@ -56,8 +59,10 @@ class AtmSplashScreen : public QMainWindow {
   TextColorSwapper* color_swapper_ = nullptr;
   ExitDialog* exit_dialog_ = nullptr;
 
-  QString blink_color_one_;
-  QString blink_color_two_;
+  QString blink_color_one_ = "black";
+  QString blink_color_two_ = "grey";
+
+  bool main_widget_launch_condition_ = false;
 };
 
 #endif  // ATM_SPLASH_SCREEN_H

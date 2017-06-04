@@ -8,7 +8,7 @@ gui::GuiMode::GuiMode() : splash_screen_(new AtmSplashScreen) {
   QObject::connect(&splash_screen_, SIGNAL(EnterIsPressed(const QRect&)),
                    &hider_, SLOT(Hide(const QRect&)));
   QObject::connect(&hider_, SIGNAL(IsAlreadyHidden()), &splash_screen_,
-                   SLOT(close()));
+                   SLOT(CloseBeforeMainWidget()));
 }
 
 void gui::GuiMode::RunInitialScreen() {

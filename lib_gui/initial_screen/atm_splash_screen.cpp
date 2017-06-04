@@ -78,6 +78,10 @@ void AtmSplashScreen::SetBackgroundColor(const QString& background_color) {
   exit_dialog_->SetBackgroundColor(background_color);
 }
 
+bool AtmSplashScreen::IsMainWidgetLauncherOk() {
+  return main_widget_launch_condition_;
+}
+
 void AtmSplashScreen::AtmBlinkColor() {
   color_swapper_->ChangeColor(ui->atm_label, blink_color_one_,
                               blink_color_two_);
@@ -89,6 +93,11 @@ void AtmSplashScreen::ChangeTimeDate() {
 
 void AtmSplashScreen::ShowExitWidget() {
   exit_dialog_->ShowWidgetOnCenterAt(geometry());
+}
+
+void AtmSplashScreen::CloseBeforeMainWidget() {
+  main_widget_launch_condition_ = true;
+  close();
 }
 
 void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
