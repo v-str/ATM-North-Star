@@ -28,7 +28,7 @@ HEADERS += \
 
 SOURCES += \
     $$PWD/initial_screen/*.cpp \
-    $$PWD/features/*.cpp
+    $$PWD/features/*.cpp \
 
 FORMS += \
     $$PWD/initial_screen/*.ui \

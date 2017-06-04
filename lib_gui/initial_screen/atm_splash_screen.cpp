@@ -98,6 +98,11 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
     case Qt::Key_Space:
       event->ignore();
       break;
+    case Qt::Key_Enter:
+      emit EnterIsPressed(this->geometry());
+      break;
+    case Qt::Key_Return:
+      emit EnterIsPressed(this->geometry());
     default:
       break;
   }

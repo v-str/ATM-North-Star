@@ -2,6 +2,7 @@
 #define GUI_MODE_H
 
 #include <atm_splash_screen.h>
+#include <widget_hider.h>
 
 namespace gui {
 
@@ -15,6 +16,7 @@ class GuiMode {
   void SetSplashScreen();
 
   AtmSplashScreen splash_screen_;
+  WidgetHider hider_;
 };
 }
 

@@ -1,6 +1,15 @@
-﻿#include "gui_mode.h"
+﻿#include <gui_mode.h>
 
-gui::GuiMode::GuiMode() : splash_screen_(new AtmSplashScreen) {}
+#include <QObject>
+#include <QRect>
+
+gui::GuiMode::GuiMode() : splash_screen_(new AtmSplashScreen) {
+  hider_.SetWidgetForHideAnimation(&splash_screen_);
+  QObject::connect(&splash_screen_, SIGNAL(EnterIsPressed(const QRect&)),
+                   &hider_, SLOT(Hide(const QRect&)));
+  QObject::connect(&hider_, SIGNAL(IsAlreadyHidden()), &splash_screen_,
+                   SLOT(close()));
+}
 
 void gui::GuiMode::RunInitialScreen() {
   SetSplashScreen();
