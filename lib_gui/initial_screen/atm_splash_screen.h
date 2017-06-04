@@ -29,7 +29,7 @@ class AtmSplashScreen : public QMainWindow {
       const QString& background_image = ":/images/black_background.jpg");
   void SetBackgroundColor(const QString& background_color = "black");
 
-  bool IsMainWidgetLauncherOk();
+  bool IsMainWidgetReadyToShow();
 
  signals:
   void BlinkColor();

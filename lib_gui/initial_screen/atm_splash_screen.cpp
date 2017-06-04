@@ -78,7 +78,7 @@ void AtmSplashScreen::SetBackgroundColor(const QString& background_color) {
   exit_dialog_->SetBackgroundColor(background_color);
 }
 
-bool AtmSplashScreen::IsMainWidgetLauncherOk() {
+bool AtmSplashScreen::IsMainWidgetReadyToShow() {
   return main_widget_launch_condition_;
 }
 
