@@ -15,6 +15,7 @@ QMAKE_CXX = ccache clang++
 
 DEPENDPATH += \
     ../initial_screen \
+    ../main_screen \
     ../features \
     ../images \
 
@@ -24,14 +25,17 @@ INCLUDEPATH += \
 
 HEADERS += \
     $$PWD/initial_screen/*.h \
+    $$PWD/main_screen/*.h \
     $$PWD/features/*.h \
 
 SOURCES += \
     $$PWD/initial_screen/*.cpp \
+    $$PWD/main_screen/*.cpp \
     $$PWD/features/*.cpp \
 
 FORMS += \
     $$PWD/initial_screen/*.ui \
+    $$PWD/main_screen/*.ui \
 
 RESOURCES += \
     atm_resources.qrc
