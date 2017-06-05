@@ -1,22 +1,23 @@
 ﻿#ifndef GRAPHICAL_SPLASH_SCREEN_H
 #define GRAPHICAL_SPLASH_SCREEN_H
 
-#include <atm_splash_screen.h>
-#include <widget_hider.h>
+class AtmSplashScreen;
+class WidgetHider;
 
 namespace gui {
 
 class GraphicalSplashScreen {
  public:
   GraphicalSplashScreen();
+  ~GraphicalSplashScreen();
 
   void RunInitialScreen();
 
  private:
   void SetSplashScreen();
 
-  AtmSplashScreen splash_screen_;
-  WidgetHider hider_;
+  AtmSplashScreen* splash_screen_ = nullptr;
+  WidgetHider* hider_ = nullptr;
 };
 }
 
