@@ -32,8 +32,12 @@ void gui::GraphicalSplashScreen::SetSplashScreen() {
 }
 
 void gui::GraphicalSplashScreen::SetConnections() {
-  QObject::connect(splash_screen_, SIGNAL(EnterIsPressed(const QRect&)), hider_,
+  QObject::connect(splash_screen_,
+                   SIGNAL(PassPositionWhenEnterIsPressed(const QRect&)), hider_,
                    SLOT(Hide(const QRect&)));
+  QObject::connect(splash_screen_,
+                   SIGNAL(PassPositionWhenEnterIsPressed(const QRect&)),
+                   main_widget_, SLOT(SetInitialPosition(const QRect&)));
   QObject::connect(hider_, SIGNAL(IsAlreadyHidden()), splash_screen_,
                    SLOT(close()));
   QObject::connect(hider_, SIGNAL(IsAlreadyHidden()), main_widget_,
