@@ -32,7 +32,7 @@ class AtmSplashScreen : public QMainWindow {
  signals:
   void BlinkColor();
   void Exit();
-  void EnterIsPressed(const QRect& end_value);
+  void PassPositionWhenEnterIsPressed(const QRect& end_value);
 
  public slots:
   void AtmBlinkColor();
