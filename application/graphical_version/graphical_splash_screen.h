@@ -3,6 +3,7 @@
 
 class AtmSplashScreen;
 class WidgetHider;
+class AtmMainWidget;
 
 namespace gui {
 
@@ -15,9 +16,11 @@ class GraphicalSplashScreen {
 
  private:
   void SetSplashScreen();
+  void SetConnections();
 
   AtmSplashScreen* splash_screen_ = nullptr;
   WidgetHider* hider_ = nullptr;
+  AtmMainWidget* main_widget_ = nullptr;
 };
 }
 

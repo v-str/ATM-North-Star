@@ -1,8 +1,6 @@
 ﻿#include <atm_main_widget.h>
 #include <ui_atm_main_widget.h>
 
-#include <QTimer>
-
 #include <initial_property_installer.h>
 
 AtmMainWidget::AtmMainWidget(QWidget* parent)
@@ -12,5 +10,3 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
 }
 
 AtmMainWidget::~AtmMainWidget() { delete ui; }
-
-void AtmMainWidget::Show() { QTimer::singleShot(600, this, SLOT(show())); }
