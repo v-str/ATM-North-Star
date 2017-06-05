@@ -13,6 +13,7 @@ class WidgetHider : public QObject {
   ~WidgetHider();
 
   void SetWidgetForHideAnimation(QWidget* widget);
+  bool IsHidden();
 
  signals:
   void IsAlreadyHidden();
@@ -26,6 +27,8 @@ class WidgetHider : public QObject {
   void SetEndHideValue(const QRect& end_value);
 
   QPropertyAnimation* hide_animation_ = nullptr;
+
+  bool widget_is_hidden_ = false;
 };
 
 #endif  // WIDGET_HIDER_H

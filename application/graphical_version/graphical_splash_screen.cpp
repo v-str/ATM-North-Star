@@ -3,22 +3,17 @@
 #include <QObject>
 #include <QRect>
 
-gui::GraphicalSplashScreen::GraphicalSplashScreen()
-    : splash_screen_(new AtmSplashScreen) {
+gui::GraphicalSplashScreen::GraphicalSplashScreen() {
   hider_.SetWidgetForHideAnimation(&splash_screen_);
   QObject::connect(&splash_screen_, SIGNAL(EnterIsPressed(const QRect&)),
                    &hider_, SLOT(Hide(const QRect&)));
   QObject::connect(&hider_, SIGNAL(IsAlreadyHidden()), &splash_screen_,
-                   SLOT(CloseBeforeMainWidget()));
+                   SLOT(close()));
 }
 
 void gui::GraphicalSplashScreen::RunInitialScreen() {
   SetSplashScreen();
   splash_screen_.show();
-}
-
-bool gui::GraphicalSplashScreen::IsMainWidgetReadyToShow() {
-  return splash_screen_.IsMainWidgetReadyToShow();
 }
 
 void gui::GraphicalSplashScreen::SetSplashScreen() {

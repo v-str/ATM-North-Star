@@ -3,7 +3,7 @@
 #include <QApplication>
 
 #include <graphical_splash_screen.h>
-#include <splash_screen.h>
+#include <splash_screen.h>  // add console prefix
 
 Launcher::Launcher() : initial_menu_(new cli::InitialMenu) {}
 
@@ -18,9 +18,6 @@ void Launcher::LaunchGuiMode(int argc, char* argv[]) {
   Q_INIT_RESOURCE(atm_resources);
   gui::GraphicalSplashScreen splash_screen;
   splash_screen.RunInitialScreen();
-  if (splash_screen.IsMainWidgetReadyToShow()) {
-    // show main widget
-  }
 
   application.exec();
 }

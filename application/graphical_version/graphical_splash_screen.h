@@ -12,8 +12,6 @@ class GraphicalSplashScreen {
 
   void RunInitialScreen();
 
-  bool IsMainWidgetReadyToShow();
-
  private:
   void SetSplashScreen();
 

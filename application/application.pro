@@ -10,6 +10,7 @@ DEPENDPATH += \
     ../lib_console/messengers \
     ../lib_console/output_configuration \
     ../lib_gui/initial_screen \
+    ../lib_gui/main_screen \
     ../lib_gui/features \
     ../atm/atm_machine \
     ../atm/incoming_data_processing \
@@ -18,6 +19,7 @@ INCLUDEPATH += \
     ../lib_console/messengers \
     ../lib_console/output_configuration \
     ../lib_gui/initial_screen \
+    ../lib_gui/main_screen \
     ../lib_gui/features \
     ../atm/atm_machine \
     ../atm/incoming_data_processing \

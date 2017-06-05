@@ -11,8 +11,10 @@ class AtmMainWidget : public QMainWindow {
   Q_OBJECT
 
  public:
-  explicit AtmMainWidget(QWidget* parent = 0);
+  explicit AtmMainWidget(QWidget* parent = nullptr);
   ~AtmMainWidget();
+
+  void Show();
 
  private:
   Ui::AtmMainWidget* ui = nullptr;
