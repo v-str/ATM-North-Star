@@ -11,6 +11,7 @@ gui::GraphicalSplashScreen::GraphicalSplashScreen()
     : splash_screen_(new AtmSplashScreen),
       hider_(new WidgetHider),
       main_widget_(new AtmMainWidget) {
+  SetSplashScreen();
   hider_->SetWidgetForHideAnimation(splash_screen_);
   SetConnections();
 }
@@ -21,10 +22,7 @@ gui::GraphicalSplashScreen::~GraphicalSplashScreen() {
   delete main_widget_;
 }
 
-void gui::GraphicalSplashScreen::RunInitialScreen() {
-  SetSplashScreen();
-  splash_screen_->show();
-}
+void gui::GraphicalSplashScreen::RunInitialScreen() { splash_screen_->show(); }
 
 void gui::GraphicalSplashScreen::SetSplashScreen() {
   splash_screen_->SetCompanyName("North Star");
