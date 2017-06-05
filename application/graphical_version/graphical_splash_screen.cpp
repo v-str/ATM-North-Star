@@ -10,7 +10,7 @@
 gui::GraphicalSplashScreen::GraphicalSplashScreen()
     : splash_screen_(new AtmSplashScreen),
       hider_(new WidgetHider),
-      main_widget_(new MainWidget) {
+      main_widget_(new gui::MainWidget) {
   SetSplashScreen();
   hider_->SetWidgetForHideAnimation(splash_screen_);
   SetConnections();

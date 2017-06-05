@@ -5,6 +5,8 @@
 
 class AtmMainWidget;
 
+namespace gui {
+
 class MainWidget : public QObject {
   Q_OBJECT
  public:
@@ -19,5 +21,6 @@ class MainWidget : public QObject {
  private:
   AtmMainWidget* main_widget_ = nullptr;
 };
+}
 
 #endif  // MAIN_WIDGET_H

@@ -3,9 +3,10 @@
 
 class AtmSplashScreen;
 class WidgetHider;
-class MainWidget;
 
 namespace gui {
+
+class MainWidget;
 
 class GraphicalSplashScreen {
  public:

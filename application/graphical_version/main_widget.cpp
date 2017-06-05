@@ -2,9 +2,9 @@
 
 #include <atm_main_widget.h>
 
-MainWidget::MainWidget(QObject* parent)
+gui::MainWidget::MainWidget(QObject* parent)
     : QObject(parent), main_widget_(new AtmMainWidget) {}
 
-MainWidget::~MainWidget() { delete main_widget_; }
+gui::MainWidget::~MainWidget() { delete main_widget_; }
 
-void MainWidget::ShowMainWidget() { main_widget_->show(); }
+void gui::MainWidget::ShowMainWidget() { main_widget_->show(); }
