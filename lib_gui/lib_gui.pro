@@ -21,6 +21,7 @@ DEPENDPATH += \
 
 INCLUDEPATH += \
     $$PWD/initial_screen \
+    $$PWD/main_screen \
     $$PWD/features \
 
 HEADERS += \

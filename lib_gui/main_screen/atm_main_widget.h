@@ -1,4 +1,4 @@
-#ifndef ATM_MAIN_WIDGET_H
+﻿#ifndef ATM_MAIN_WIDGET_H
 #define ATM_MAIN_WIDGET_H
 
 #include <QMainWindow>
@@ -7,16 +7,15 @@ namespace Ui {
 class AtmMainWidget;
 }
 
-class AtmMainWidget : public QMainWindow
-{
-    Q_OBJECT
+class AtmMainWidget : public QMainWindow {
+  Q_OBJECT
 
-public:
-    explicit AtmMainWidget(QWidget *parent = 0);
-    ~AtmMainWidget();
+ public:
+  explicit AtmMainWidget(QWidget* parent = 0);
+  ~AtmMainWidget();
 
-private:
-    Ui::AtmMainWidget *ui;
+ private:
+  Ui::AtmMainWidget* ui = nullptr;
 };
 
-#endif // ATM_MAIN_WIDGET_H
+#endif  // ATM_MAIN_WIDGET_H
