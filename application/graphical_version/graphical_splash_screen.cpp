@@ -3,14 +3,14 @@
 #include <QObject>
 #include <QRect>
 
-#include <atm_main_widget.h>
 #include <atm_splash_screen.h>
+#include <main_widget.h>
 #include <widget_hider.h>
 
 gui::GraphicalSplashScreen::GraphicalSplashScreen()
     : splash_screen_(new AtmSplashScreen),
       hider_(new WidgetHider),
-      main_widget_(new AtmMainWidget) {
+      main_widget_(new MainWidget) {
   SetSplashScreen();
   hider_->SetWidgetForHideAnimation(splash_screen_);
   SetConnections();
@@ -37,5 +37,5 @@ void gui::GraphicalSplashScreen::SetConnections() {
   QObject::connect(hider_, SIGNAL(IsAlreadyHidden()), splash_screen_,
                    SLOT(close()));
   QObject::connect(hider_, SIGNAL(IsAlreadyHidden()), main_widget_,
-                   SLOT(show()));
+                   SLOT(ShowMainWidget()));
 }
