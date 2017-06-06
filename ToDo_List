@@ -6,7 +6,9 @@
 
 2. Close Splash Screen using animation +
 
-3. Open main program after splash widget -
+3. Open main program after splash widget +
+
+4. Begin make main widget appearance -
 
 ---------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE ---------------------------------------

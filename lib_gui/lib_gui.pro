@@ -27,7 +27,7 @@ INCLUDEPATH += \
 HEADERS += \
     $$PWD/initial_screen/*.h \
     $$PWD/main_screen/*.h \
-    $$PWD/features/*.h \
+    $$PWD/features/*.h
 
 SOURCES += \
     $$PWD/initial_screen/*.cpp \

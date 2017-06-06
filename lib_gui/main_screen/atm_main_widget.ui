@@ -6,28 +6,93 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>494</width>
-    <height>342</height>
+    <width>600</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: grey;</string>
+   <string notr="true">background-color: black;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="exit_button">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>15</x>
       <y>10</y>
-      <width>25</width>
-      <height>25</height>
+      <width>20</width>
+      <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Tlwg Mono</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(46, 52, 54);
+color:green;
+border: 1px solid green;
+border-radius: 3px;
+</string>
     </property>
     <property name="text">
      <string>X</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="roll_up_button">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>10</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Tlwg Mono</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(46, 52, 54);
+color:green;
+border: 1px solid green;
+border-radius: 3px;
+</string>
+    </property>
+    <property name="text">
+     <string>_</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="roll_up_button_2">
+    <property name="geometry">
+     <rect>
+      <x>65</x>
+      <y>10</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Tlwg Mono</family>
+      <pointsize>17</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(46, 52, 54);
+color:green;
+border: 1px solid green;
+border-radius: 3px;
+</string>
+    </property>
+    <property name="text">
+     <string>▢</string>
     </property>
    </widget>
   </widget>
@@ -36,18 +101,50 @@
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton</sender>
+   <sender>exit_button</sender>
    <signal>clicked()</signal>
    <receiver>AtmMainWidget</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>26</x>
-     <y>22</y>
+     <x>18</x>
+     <y>14</y>
     </hint>
     <hint type="destinationlabel">
-     <x>77</x>
-     <y>62</y>
+     <x>167</x>
+     <y>106</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>roll_up_button</sender>
+   <signal>clicked()</signal>
+   <receiver>AtmMainWidget</receiver>
+   <slot>showMinimized()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>43</x>
+     <y>10</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>160</x>
+     <y>68</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>roll_up_button_2</sender>
+   <signal>clicked()</signal>
+   <receiver>AtmMainWidget</receiver>
+   <slot>showFullScreen()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>78</x>
+     <y>17</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>197</x>
+     <y>35</y>
     </hint>
    </hints>
   </connection>
