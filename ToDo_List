@@ -8,7 +8,9 @@
 
 3. Open main program after splash widget +
 
-4. Begin make main widget appearance -
+4. Begin make main widget appearance +
+
+5. Develop class, that mapping all widgets according of scale of main widget -
 
 ---------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE ---------------------------------------

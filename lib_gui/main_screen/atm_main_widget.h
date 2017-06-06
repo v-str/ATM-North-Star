@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+class QPaintEvent;
+
 namespace Ui {
 class AtmMainWidget;
 }

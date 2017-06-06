@@ -1,6 +1,10 @@
 ﻿#include <atm_main_widget.h>
 #include <ui_atm_main_widget.h>
 
+#include <QPaintEvent>
+#include <QPainter>
+#include <QRect>
+
 #include <initial_property_installer.h>
 
 AtmMainWidget::AtmMainWidget(QWidget* parent)
