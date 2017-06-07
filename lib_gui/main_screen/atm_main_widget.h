@@ -4,7 +4,6 @@
 #include <QMainWindow>
 
 class QPaintEvent;
-class QRect;
 
 namespace Ui {
 class AtmMainWidget;

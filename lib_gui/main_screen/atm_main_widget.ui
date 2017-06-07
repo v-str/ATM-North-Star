@@ -132,6 +132,54 @@ border-radius: 3px;
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
+     <widget class="QPushButton" name="demo_mode_button">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>112</y>
+        <width>140</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:green;</string>
+      </property>
+      <property name="text">
+       <string>Demo mode</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="registration_button">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>156</y>
+        <width>140</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:green;</string>
+      </property>
+      <property name="text">
+       <string>Registration</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="login_button">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>200</y>
+        <width>140</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:green;</string>
+      </property>
+      <property name="text">
+       <string>Log-in</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
