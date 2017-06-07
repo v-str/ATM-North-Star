@@ -4,6 +4,7 @@
 #include <QMainWindow>
 
 class QPaintEvent;
+class QString;
 
 namespace Ui {
 class AtmMainWidget;
@@ -15,6 +16,10 @@ class AtmMainWidget : public QMainWindow {
  public:
   explicit AtmMainWidget(QWidget* parent = nullptr);
   ~AtmMainWidget();
+
+  void SetAppearance(const QString& main_color = "black",
+                     const QString& secondary_color = "grey",
+                     const QString& additional_color = "blue");
 
  protected:
   virtual void resizeEvent(QResizeEvent* event);

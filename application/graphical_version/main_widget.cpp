@@ -7,11 +7,17 @@
 gui::MainWidget::MainWidget(QObject* parent)
     : QObject(parent),
       main_widget_(new AtmMainWidget),
-      initial_main_widget_position_(new QRect) {}
+      initial_main_widget_position_(new QRect) {
+  SetMainWidgetAppearance();
+}
 
 gui::MainWidget::~MainWidget() {
   delete main_widget_;
   delete initial_main_widget_position_;
+}
+
+void gui::MainWidget::SetMainWidgetAppearance() {
+  main_widget_->SetAppearance("#00FFFF", "#001933", "#009999");
 }
 
 void gui::MainWidget::ShowMainWidget() {

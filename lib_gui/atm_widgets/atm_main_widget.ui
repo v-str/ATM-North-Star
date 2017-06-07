@@ -36,7 +36,7 @@ background-color:black;</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QPushButton" name="roll_up_button_2">
+    <widget class="QPushButton" name="maximize_button">
      <property name="geometry">
       <rect>
        <x>55</x>
@@ -91,7 +91,7 @@ border-radius: 3px;
       <string>X</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="roll_up_button">
+    <widget class="QPushButton" name="minimize_button">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -204,7 +204,7 @@ border-radius: 3px;
    </hints>
   </connection>
   <connection>
-   <sender>roll_up_button</sender>
+   <sender>minimize_button</sender>
    <signal>clicked()</signal>
    <receiver>AtmMainWidget</receiver>
    <slot>showMinimized()</slot>
@@ -220,7 +220,7 @@ border-radius: 3px;
    </hints>
   </connection>
   <connection>
-   <sender>roll_up_button_2</sender>
+   <sender>maximize_button</sender>
    <signal>clicked()</signal>
    <receiver>AtmMainWidget</receiver>
    <slot>showFullScreen()</slot>

@@ -14,7 +14,7 @@ class MainWidget : public QObject {
   explicit MainWidget(QObject* parent = nullptr);
   ~MainWidget();
 
- signals:
+  void SetMainWidgetAppearance();
 
  public slots:
   void ShowMainWidget();
