@@ -2,8 +2,6 @@
 #include <ui_atm_main_widget.h>
 
 #include <QPaintEvent>
-#include <QPainter>
-#include <QRect>
 
 #include <initial_property_installer.h>
 
@@ -16,9 +14,9 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
 
 AtmMainWidget::~AtmMainWidget() { delete ui; }
 
-void AtmMainWidget::resizeEvent(QResizeEvent*) { SetFrameLayouting(); }
+void AtmMainWidget::resizeEvent(QResizeEvent*) { SetFrameLayout(); }
 
-void AtmMainWidget::SetFrameLayouting() {
+void AtmMainWidget::SetFrameLayout() {
   int extra_width = width() - minimumWidth();
   int extra_height = height() - minimumHeight();
   ui->main_fraim->setGeometry(5, 5, 590 + extra_width, 368 + extra_height);
