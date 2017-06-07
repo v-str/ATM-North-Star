@@ -21,6 +21,8 @@ class AtmMainWidget : public QMainWindow {
   virtual void resizeEvent(QResizeEvent* event);
 
  private:
+  void SetFrameLayouting();
+
   Ui::AtmMainWidget* ui = nullptr;
 };
 

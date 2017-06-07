@@ -16,8 +16,12 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
 
 AtmMainWidget::~AtmMainWidget() { delete ui; }
 
-void AtmMainWidget::resizeEvent(QResizeEvent*) {
+void AtmMainWidget::resizeEvent(QResizeEvent*) { SetFrameLayouting(); }
+
+void AtmMainWidget::SetFrameLayouting() {
   int extra_width = width() - minimumWidth();
   int extra_height = height() - minimumHeight();
   ui->main_fraim->setGeometry(5, 5, 590 + extra_width, 368 + extra_height);
+  ui->secondary_frame->setGeometry(5, 30, 580 + extra_width,
+                                   332 + extra_height);
 }

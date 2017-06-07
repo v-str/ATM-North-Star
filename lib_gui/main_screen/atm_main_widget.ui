@@ -28,7 +28,6 @@
     </property>
     <property name="styleSheet">
      <string notr="true">border:1px solid green;
-border-radius: 5px;
 background-color:black;</string>
     </property>
     <property name="frameShape">
@@ -76,6 +75,8 @@ border-radius: 3px;
       <font>
        <family>Tlwg Mono</family>
        <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
@@ -114,6 +115,22 @@ border-radius: 3px;
      </property>
      <property name="text">
       <string>_</string>
+     </property>
+    </widget>
+    <widget class="QFrame" name="secondary_frame">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>30</y>
+       <width>580</width>
+       <height>332</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
      </property>
     </widget>
    </widget>
