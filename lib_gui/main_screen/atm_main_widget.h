@@ -4,6 +4,7 @@
 #include <QMainWindow>
 
 class QPaintEvent;
+class QRect;
 
 namespace Ui {
 class AtmMainWidget;
@@ -15,6 +16,9 @@ class AtmMainWidget : public QMainWindow {
  public:
   explicit AtmMainWidget(QWidget* parent = nullptr);
   ~AtmMainWidget();
+
+ protected:
+  virtual void resizeEvent(QResizeEvent* event);
 
  private:
   Ui::AtmMainWidget* ui = nullptr;
