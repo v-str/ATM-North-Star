@@ -6,6 +6,8 @@
 class QPaintEvent;
 class QString;
 
+struct WidgetColor;
+
 namespace Ui {
 class AtmMainWidget;
 }
@@ -26,11 +28,10 @@ class AtmMainWidget : public QMainWindow {
 
  private:
   void SetFrameLayout();
-  void ColorizeButtons(const QString& main_color,
-                       const QString& secondary_color,
-                       const QString& additional_color);
+  void ColorizeButtons();
 
   Ui::AtmMainWidget* ui = nullptr;
+  WidgetColor* widget_color_ = nullptr;
 };
 
 #endif  // ATM_MAIN_WIDGET_H

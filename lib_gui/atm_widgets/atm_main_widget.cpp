@@ -7,21 +7,31 @@
 #include <button_color_designer.h>
 #include <initial_property_installer.h>
 #include <painter.h>
+#include <widget_color.h>
 
 AtmMainWidget::AtmMainWidget(QWidget* parent)
-    : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
+    : QMainWindow(parent),
+      ui(new Ui::AtmMainWidget),
+      widget_color_(new WidgetColor) {
   ui->setupUi(this);
   setMinimumSize(600, 400);
   SetWidgetAppearance();
   InitialPropertyInstaller::SetInitialProperties(this, 600, 400);
 }
 
-AtmMainWidget::~AtmMainWidget() { delete ui; }
+AtmMainWidget::~AtmMainWidget() {
+  delete ui;
+  delete widget_color_;
+}
 
 void AtmMainWidget::SetWidgetAppearance(const QString& main_color,
                                         const QString& secondary_color,
                                         const QString& additional_color) {
-  ColorizeButtons(main_color, secondary_color, additional_color);
+  widget_color_->main_color_ = main_color;
+  widget_color_->secondary_color_ = secondary_color;
+  widget_color_->additional_color_ = additional_color;
+
+  ColorizeButtons();
   Painter::ChangeFrameColor(ui->main_fraim, main_color);
 }
 
@@ -35,16 +45,13 @@ void AtmMainWidget::SetFrameLayout() {
                                    332 + extra_height);
 }
 
-void AtmMainWidget::ColorizeButtons(const QString& main_color,
-                                    const QString& secondary_color,
-                                    const QString& additional_color) {
+void AtmMainWidget::ColorizeButtons() {
   QList<QWidget*> color_list = {ui->exit_button,         ui->minimize_button,
                                 ui->maximize_button,     ui->demo_mode_button,
                                 ui->registration_button, ui->login_button};
 
   ButtonColorDesigner* button_designer = new ButtonColorDesigner(color_list);
-  button_designer->SetWidgetPalette(main_color, secondary_color,
-                                    additional_color);
+  button_designer->SetWidgetPalette(*widget_color_);
   button_designer->PaintWidgets();
   delete button_designer;
 }
