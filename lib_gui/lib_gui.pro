@@ -15,19 +15,23 @@ QMAKE_CXX = ccache clang++
 
 DEPENDPATH += \
     ../atm_widgets \
+    ../widgets_appearance \
     ../features \
     ../images \
 
 INCLUDEPATH += \
     $$PWD/atm_widgets \
+    $$PWD/widgets_appearance \
     $$PWD/features \
 
 HEADERS += \
     $$PWD/atm_widgets/*.h \
+    $$PWD/widgets_appearance/*.h \
     $$PWD/features/*.h \
 
 SOURCES += \
     $$PWD/atm_widgets/*.cpp \
+    $$PWD/widgets_appearance/*.cpp \
     $$PWD/features/*.cpp \
 
 FORMS += \
