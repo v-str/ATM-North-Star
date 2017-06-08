@@ -12,6 +12,7 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
     : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
   ui->setupUi(this);
   setMinimumSize(600, 400);
+  SetWidgetAppearance();
   InitialPropertyInstaller::SetInitialProperties(this, 600, 400);
 }
 
@@ -20,7 +21,7 @@ AtmMainWidget::~AtmMainWidget() { delete ui; }
 void AtmMainWidget::SetWidgetAppearance(const QString& main_color,
                                         const QString& secondary_color,
                                         const QString& additional_color) {
-  // ColorizeButtons(main_color, secondary_color, additional_color);
+  ColorizeButtons(main_color, secondary_color, additional_color);
   Painter::ChangeFrameColor(ui->main_fraim, main_color);
 }
 

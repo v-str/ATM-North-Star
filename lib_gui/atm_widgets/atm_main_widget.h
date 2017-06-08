@@ -17,8 +17,8 @@ class AtmMainWidget : public QMainWindow {
   explicit AtmMainWidget(QWidget* parent = nullptr);
   ~AtmMainWidget();
 
-  void SetWidgetAppearance(const QString& main_color = "black",
-                           const QString& secondary_color = "grey",
+  void SetWidgetAppearance(const QString& main_color = "yellow",
+                           const QString& secondary_color = "red",
                            const QString& additional_color = "blue");
 
  protected:
@@ -26,9 +26,9 @@ class AtmMainWidget : public QMainWindow {
 
  private:
   void SetFrameLayout();
-  void ColorizeButtons(const QString& main_color = "black",
-                       const QString& secondary_color = "grey",
-                       const QString& additional_color = "blue");
+  void ColorizeButtons(const QString& main_color,
+                       const QString& secondary_color,
+                       const QString& additional_color);
 
   Ui::AtmMainWidget* ui = nullptr;
 };
