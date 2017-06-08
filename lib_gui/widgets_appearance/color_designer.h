@@ -17,6 +17,11 @@ class ColorDesigner {
 
   virtual void PaintWidgets() = 0;
 
+  QList<QWidget*> ColorList();
+  QString MainColor();
+  QString SecondaryColor();
+  QString AdditionalColor();
+
  private:
   QList<QWidget*> color_list_;
   QString main_color_;
