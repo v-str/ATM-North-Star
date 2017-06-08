@@ -20,27 +20,8 @@ AtmMainWidget::~AtmMainWidget() { delete ui; }
 void AtmMainWidget::SetWidgetAppearance(const QString& main_color,
                                         const QString& secondary_color,
                                         const QString& additional_color) {
-  //  QVector<QPushButton*> button_color_list = {
-  //      ui->exit_button,      ui->minimize_button,     ui->maximize_button,
-  //      ui->demo_mode_button, ui->registration_button, ui->login_button};
-  //  for (auto color_maker = button_color_list.begin();
-  //       color_maker != button_color_list.end(); ++color_maker) {
-  //    Painter::ChangeButtonColor(*color_maker, main_color, secondary_color,
-  //                               additional_color);
-  //  }
-
-  QList<QWidget*> color_list = {ui->exit_button,         ui->minimize_button,
-                                ui->maximize_button,     ui->demo_mode_button,
-                                ui->registration_button, ui->login_button};
-
-  ButtonColorDesigner* button_designer = new ButtonColorDesigner(color_list);
-  button_designer->SetWidgetPalette(main_color, secondary_color,
-                                    additional_color);
-  button_designer->PaintWidgets();
-
+  // ColorizeButtons(main_color, secondary_color, additional_color);
   Painter::ChangeFrameColor(ui->main_fraim, main_color);
-
-  delete button_designer;
 }
 
 void AtmMainWidget::resizeEvent(QResizeEvent*) { SetFrameLayout(); }
@@ -51,4 +32,18 @@ void AtmMainWidget::SetFrameLayout() {
   ui->main_fraim->setGeometry(5, 5, 590 + extra_width, 368 + extra_height);
   ui->secondary_frame->setGeometry(5, 30, 580 + extra_width,
                                    332 + extra_height);
+}
+
+void AtmMainWidget::ColorizeButtons(const QString& main_color,
+                                    const QString& secondary_color,
+                                    const QString& additional_color) {
+  QList<QWidget*> color_list = {ui->exit_button,         ui->minimize_button,
+                                ui->maximize_button,     ui->demo_mode_button,
+                                ui->registration_button, ui->login_button};
+
+  ButtonColorDesigner* button_designer = new ButtonColorDesigner(color_list);
+  button_designer->SetWidgetPalette(main_color, secondary_color,
+                                    additional_color);
+  button_designer->PaintWidgets();
+  delete button_designer;
 }

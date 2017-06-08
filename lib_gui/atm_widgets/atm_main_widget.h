@@ -26,6 +26,9 @@ class AtmMainWidget : public QMainWindow {
 
  private:
   void SetFrameLayout();
+  void ColorizeButtons(const QString& main_color = "black",
+                       const QString& secondary_color = "grey",
+                       const QString& additional_color = "blue");
 
   Ui::AtmMainWidget* ui = nullptr;
 };
