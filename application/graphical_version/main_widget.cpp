@@ -17,7 +17,7 @@ gui::MainWidget::~MainWidget() {
 }
 
 void gui::MainWidget::SetMainWidgetAppearance() {
-  main_widget_->SetAppearance("#00FFFF", "#001933", "#009999");
+  main_widget_->SetWidgetAppearance("#00FFFF", "#001933", "#009999");
 }
 
 void gui::MainWidget::ShowMainWidget() {

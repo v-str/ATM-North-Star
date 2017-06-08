@@ -2,6 +2,7 @@
 #include <ui_atm_main_widget.h>
 
 #include <QPaintEvent>
+#include <QVector>
 
 #include <initial_property_installer.h>
 #include <painter.h>
@@ -15,21 +16,18 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
 
 AtmMainWidget::~AtmMainWidget() { delete ui; }
 
-void AtmMainWidget::SetAppearance(const QString& main_color,
-                                  const QString& secondary_color,
-                                  const QString& additional_color) {
-  Painter::ChangeButtonColor(ui->exit_button, main_color, secondary_color,
-                             additional_color);
-  Painter::ChangeButtonColor(ui->minimize_button, main_color, secondary_color,
-                             additional_color);
-  Painter::ChangeButtonColor(ui->maximize_button, main_color, secondary_color,
-                             additional_color);
-  Painter::ChangeButtonColor(ui->demo_mode_button, main_color, secondary_color,
-                             additional_color);
-  Painter::ChangeButtonColor(ui->registration_button, main_color,
-                             secondary_color, additional_color);
-  Painter::ChangeButtonColor(ui->login_button, main_color, secondary_color,
-                             additional_color);
+void AtmMainWidget::SetWidgetAppearance(const QString& main_color,
+                                        const QString& secondary_color,
+                                        const QString& additional_color) {
+  QVector<QPushButton*> button_color_list = {
+      ui->exit_button,      ui->minimize_button,     ui->maximize_button,
+      ui->demo_mode_button, ui->registration_button, ui->login_button};
+  for (auto color_maker = button_color_list.begin();
+       color_maker != button_color_list.end(); ++color_maker) {
+    Painter::ChangeButtonColor(*color_maker, main_color, secondary_color,
+                               additional_color);
+  }
+
   Painter::ChangeFrameColor(ui->main_fraim, main_color);
 }
 
