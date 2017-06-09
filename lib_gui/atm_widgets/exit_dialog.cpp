@@ -6,7 +6,7 @@
 
 #include <initial_property_installer.h>
 #include <painter.h>
-#include <widget_centerer.h>
+#include <widget_center_arranger.h>
 
 ExitDialog::ExitDialog(QWidget* parent)
     : QDialog(parent), ui(new Ui::ExitDialog) {
@@ -38,7 +38,7 @@ void ExitDialog::SetBackgroundColor(const QString& background_color) {
 }
 
 void ExitDialog::ShowWidgetOnCenterAt(const QRect& widget_geometry) {
-  WidgetCenterer::MoveToCenterRelativelyOf(this, widget_geometry);
+  WidgetCenterArranger::MoveToCenterRelativelyOf(this, widget_geometry);
   show();
 }
 
