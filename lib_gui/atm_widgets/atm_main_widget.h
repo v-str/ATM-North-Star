@@ -27,6 +27,7 @@ class AtmMainWidget : public QMainWindow {
   virtual void resizeEvent(QResizeEvent* event);
 
  private:
+  void SetUpProperties();
   void SetFrameLayout();
   void ColorizeButtons(const WidgetColor& widget_color);
 
