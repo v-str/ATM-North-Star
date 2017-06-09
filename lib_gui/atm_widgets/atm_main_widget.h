@@ -5,8 +5,7 @@
 
 class QPaintEvent;
 class QString;
-
-struct WidgetColor;
+class WidgetColor;
 
 namespace Ui {
 class AtmMainWidget;
