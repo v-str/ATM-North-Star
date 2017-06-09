@@ -1,8 +1,8 @@
 ﻿#include <atm_main_widget.h>
 #include <ui_atm_main_widget.h>
 
+#include <QList>
 #include <QPaintEvent>
-#include <QVector>
 
 #include <button_color_designer.h>
 #include <initial_property_installer.h>
