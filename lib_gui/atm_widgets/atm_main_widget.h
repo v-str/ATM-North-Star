@@ -28,10 +28,9 @@ class AtmMainWidget : public QMainWindow {
 
  private:
   void SetFrameLayout();
-  void ColorizeButtons();
+  void ColorizeButtons(const WidgetColor& widget_color);
 
   Ui::AtmMainWidget* ui = nullptr;
-  WidgetColor* widget_color_ = nullptr;
 };
 
 #endif  // ATM_MAIN_WIDGET_H

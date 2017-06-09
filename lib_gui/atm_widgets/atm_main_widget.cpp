@@ -10,28 +10,21 @@
 #include <widget_color.h>
 
 AtmMainWidget::AtmMainWidget(QWidget* parent)
-    : QMainWindow(parent),
-      ui(new Ui::AtmMainWidget),
-      widget_color_(new WidgetColor) {
+    : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
   ui->setupUi(this);
   setMinimumSize(600, 400);
   SetWidgetAppearance();
   InitialPropertyInstaller::SetInitialProperties(this, 600, 400);
 }
 
-AtmMainWidget::~AtmMainWidget() {
-  delete ui;
-  delete widget_color_;
-}
+AtmMainWidget::~AtmMainWidget() { delete ui; }
 
 void AtmMainWidget::SetWidgetAppearance(const QString& main_color,
                                         const QString& secondary_color,
                                         const QString& additional_color) {
-  widget_color_->main_color_ = main_color;
-  widget_color_->secondary_color_ = secondary_color;
-  widget_color_->additional_color_ = additional_color;
+  WidgetColor widget_color(main_color, secondary_color, additional_color);
 
-  ColorizeButtons();
+  ColorizeButtons(widget_color);
   Painter::ChangeFrameColor(ui->main_fraim, main_color);
 }
 
@@ -45,13 +38,13 @@ void AtmMainWidget::SetFrameLayout() {
                                    332 + extra_height);
 }
 
-void AtmMainWidget::ColorizeButtons() {
+void AtmMainWidget::ColorizeButtons(const WidgetColor& widget_color) {
   QList<QWidget*> color_list = {ui->exit_button,         ui->minimize_button,
                                 ui->maximize_button,     ui->demo_mode_button,
                                 ui->registration_button, ui->login_button};
 
   ButtonColorDesigner* button_designer = new ButtonColorDesigner(color_list);
-  button_designer->SetWidgetPalette(*widget_color_);
+  button_designer->SetWidgetPalette(widget_color);
   button_designer->PaintWidgets();
   delete button_designer;
 }
