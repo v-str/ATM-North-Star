@@ -1,19 +1,16 @@
 ﻿#include <frame_color_designer.h>
 
 #include <QFrame>
-#include <QWidget>
 
 #include <painter.h>
 
-FrameColorDesigner::FrameColorDesigner(QList<QWidget*> label_list)
-    : ColorDesigner(label_list) {}
+FrameColorDesigner::FrameColorDesigner(QList<QFrame*> frame_list)
+    : frame_list_(frame_list) {}
 
 FrameColorDesigner::~FrameColorDesigner() {}
 
 void FrameColorDesigner::PaintWidgets() {
-  QList<QWidget*> frame_list = GetWidgetList();
-  for (auto frame = frame_list.begin(); frame != frame_list.end(); ++frame) {
-    Painter::ChangeFrameColor(static_cast<QFrame*>(*frame),
-                              GetWidgetColor().MainColor());
+  for (auto frame = frame_list_.begin(); frame != frame_list_.end(); ++frame) {
+    Painter::ChangeFrameColor(*frame, GetWidgetColor().MainColor());
   }
 }

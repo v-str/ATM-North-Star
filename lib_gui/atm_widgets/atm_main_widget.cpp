@@ -43,12 +43,11 @@ void AtmMainWidget::SetFrameLayout() {
 }
 
 void AtmMainWidget::ColorizeButtons(const WidgetColor& widget_color) {
-  QList<QWidget*> color_list = {ui->exit_button,         ui->minimize_button,
-                                ui->maximize_button,     ui->demo_mode_button,
-                                ui->registration_button, ui->login_button};
+  QList<QPushButton*> color_list = {
+      ui->exit_button,      ui->minimize_button,     ui->maximize_button,
+      ui->demo_mode_button, ui->registration_button, ui->login_button};
 
-  ButtonColorDesigner* button_designer = new ButtonColorDesigner(color_list);
-  button_designer->SetWidgetPalette(widget_color);
-  button_designer->PaintWidgets();
-  delete button_designer;
+  ButtonColorDesigner button_designer(color_list);
+  button_designer.SetWidgetColor(widget_color);
+  button_designer.PaintWidgets();
 }
