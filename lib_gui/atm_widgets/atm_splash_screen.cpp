@@ -10,6 +10,7 @@
 #include <QString>
 #include <QTimer>
 
+#include <button_color_designer.h>
 #include <close_block_filter.h>
 #include <exit_dialog.h>
 #include <initial_property_installer.h>
@@ -56,9 +57,8 @@ void AtmSplashScreen::SetSplashScreenAppearance(
   WidgetColor widget_color(main_color, secondary_color, additional_color);
 
   ColorizeLabels(widget_color);
+  ColorizeButtons(widget_color);
 
-  Painter::ChangeButtonColor(ui->exit_button, main_color, secondary_color,
-                             additional_color);
   Painter::ChangeFrameColor(ui->frame, main_color);
   exit_dialog_->SetExitDialogAppearance(main_color, secondary_color,
                                         additional_color);
@@ -132,6 +132,13 @@ void AtmSplashScreen::ColorizeLabels(const WidgetColor& widget_color) {
   label_designer->SetWidgetPalette(widget_color);
   label_designer->PaintWidgets();
   delete label_designer;
+}
+
+void AtmSplashScreen::ColorizeButtons(const WidgetColor& widget_color) {
+  QList<QWidget*> color_list = {ui->exit_button};
+  ButtonColorDesigner button_color_designer(color_list);
+  button_color_designer.SetWidgetPalette(widget_color);
+  button_color_designer.PaintWidgets();
 }
 
 void AtmSplashScreen::SetConnections() {
