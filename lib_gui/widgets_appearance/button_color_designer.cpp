@@ -11,7 +11,7 @@ ButtonColorDesigner::ButtonColorDesigner(QList<QWidget*> color_list)
 ButtonColorDesigner::~ButtonColorDesigner() {}
 
 void ButtonColorDesigner::PaintWidgets() {
-  QList<QWidget*> color_list = GetWidgetColorList();
+  QList<QWidget*> color_list = GetWidgetList();
   for (auto widget = color_list.begin(); widget != color_list.end(); ++widget) {
     Painter::ChangeButtonColor(
         static_cast<QPushButton*>(*widget), GetWidgetColor().MainColor(),

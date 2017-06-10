@@ -10,18 +10,18 @@ class QWidget;
 
 class ColorDesigner {
  public:
-  ColorDesigner(QList<QWidget*> color_list);
+  ColorDesigner(QList<QWidget*> widget_list);
   virtual ~ColorDesigner();
 
   void SetWidgetPalette(const WidgetColor& widget_color);
 
   virtual void PaintWidgets() = 0;
 
-  QList<QWidget*> GetWidgetColorList() const;
+  QList<QWidget*> GetWidgetList() const;
   WidgetColor GetWidgetColor() const;
 
  private:
-  QList<QWidget*> color_list_;
+  QList<QWidget*> widget_list_;
   WidgetColor widget_color_;
 };
 
