@@ -8,6 +8,7 @@ class ExitDialog;
 class QString;
 class QTimer;
 class WidgetColor;
+class ColorDesigner;
 
 namespace Ui {
 class AtmSplashScreen;
@@ -49,6 +50,9 @@ class AtmSplashScreen : public QMainWindow {
   void ColorizeLabels(const WidgetColor& widget_color);
   void ColorizeButtons(const WidgetColor& widget_color);
   void ColorizeFrames(const WidgetColor& widget_color);
+  void SetColorDesigner(ColorDesigner* color_designer,
+                        const WidgetColor& widget_color);
+
   void SetConnections();
   void InitializeObjects();
   void RunTimers();

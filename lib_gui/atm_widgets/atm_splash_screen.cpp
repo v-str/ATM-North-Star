@@ -129,22 +129,25 @@ void AtmSplashScreen::ColorizeLabels(const WidgetColor& widget_color) {
   QList<QLabel*> label_list = {ui->atm_company_name_label, ui->text_label,
                                ui->timedate_label, ui->version_label};
   LabelColorDesigner label_designer(label_list);
-  label_designer.SetWidgetColor(widget_color);
-  label_designer.PaintWidgets();
+  SetColorDesigner(&label_designer, widget_color);
 }
 
 void AtmSplashScreen::ColorizeButtons(const WidgetColor& widget_color) {
   QList<QPushButton*> button_list = {ui->exit_button};
   ButtonColorDesigner button_color_designer(button_list);
-  button_color_designer.SetWidgetColor(widget_color);
-  button_color_designer.PaintWidgets();
+  SetColorDesigner(&button_color_designer, widget_color);
 }
 
 void AtmSplashScreen::ColorizeFrames(const WidgetColor& widget_color) {
   QList<QFrame*> frame_list = {ui->frame};
   FrameColorDesigner frame_color_designer(frame_list);
-  frame_color_designer.SetWidgetColor(widget_color);
-  frame_color_designer.PaintWidgets();
+  SetColorDesigner(&frame_color_designer, widget_color);
+}
+
+void AtmSplashScreen::SetColorDesigner(ColorDesigner* color_designer,
+                                       const WidgetColor& widget_color) {
+  color_designer->SetWidgetColor(widget_color);
+  color_designer->PaintWidgets();
 }
 
 void AtmSplashScreen::SetConnections() {
