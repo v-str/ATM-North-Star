@@ -7,6 +7,8 @@ class FrameColorDesigner : public ColorDesigner {
  public:
   FrameColorDesigner(QList<QWidget*> label_list);
   ~FrameColorDesigner();
+
+  void PaintWidgets() override;
 };
 
 #endif  // FRAME_COLOR_DESIGNER_H

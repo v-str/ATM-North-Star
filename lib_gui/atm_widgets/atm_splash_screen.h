@@ -48,6 +48,7 @@ class AtmSplashScreen : public QMainWindow {
   void SetWidgetAppearance();
   void ColorizeLabels(const WidgetColor& widget_color);
   void ColorizeButtons(const WidgetColor& widget_color);
+  void ColorizeFrames(const WidgetColor& widget_color);
   void SetConnections();
   void InitializeObjects();
   void RunTimers();

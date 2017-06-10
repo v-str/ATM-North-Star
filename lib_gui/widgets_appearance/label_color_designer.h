@@ -8,7 +8,7 @@ class LabelColorDesigner : public ColorDesigner {
   LabelColorDesigner(QList<QWidget*> label_list);
   ~LabelColorDesigner();
 
-  virtual void PaintWidgets();
+  void PaintWidgets() override;
 };
 
 #endif  // LABEL_COLOR_DESIGNER_H
