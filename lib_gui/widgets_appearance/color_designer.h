@@ -17,7 +17,7 @@ class ColorDesigner {
 
   virtual void PaintWidgets() = 0;
 
-  QList<QWidget*> GetColorList() const;
+  QList<QWidget*> GetWidgetColorList() const;
   WidgetColor GetWidgetColor() const;
 
  private:

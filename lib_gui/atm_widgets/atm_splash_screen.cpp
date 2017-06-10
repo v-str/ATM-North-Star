@@ -5,6 +5,7 @@
 #include <QCoreApplication>
 #include <QIcon>
 #include <QKeyEvent>
+#include <QList>
 #include <QPoint>
 #include <QString>
 #include <QTimer>
@@ -12,9 +13,11 @@
 #include <close_block_filter.h>
 #include <exit_dialog.h>
 #include <initial_property_installer.h>
+#include <label_color_designer.h>
 #include <painter.h>
 #include <text_color_swapper.h>
 #include <timedate_changer.h>
+#include <widget_color.h>
 
 AtmSplashScreen::AtmSplashScreen(QWidget* parent)
     : QMainWindow(parent),
@@ -50,10 +53,14 @@ void AtmSplashScreen::SetSplashScreenAppearance(
     const QString& main_color,
     const QString& secondary_color,
     const QString& additional_color) {
-  Painter::ChangeLabelColor(ui->atm_company_name_label, main_color);
-  Painter::ChangeLabelColor(ui->text_label, main_color);
-  Painter::ChangeLabelColor(ui->timedate_label, main_color);
-  Painter::ChangeLabelColor(ui->version_label, main_color);
+  WidgetColor widget_color(main_color, secondary_color, additional_color);
+
+  //  Painter::ChangeLabelColor(ui->atm_company_name_label, main_color);
+  //  Painter::ChangeLabelColor(ui->text_label, main_color);
+  //  Painter::ChangeLabelColor(ui->timedate_label, main_color);
+  //  Painter::ChangeLabelColor(ui->version_label, main_color);
+  ColorizeLabels(widget_color);
+
   Painter::ChangeButtonColor(ui->exit_button, main_color, secondary_color,
                              additional_color);
   Painter::ChangeFrameColor(ui->frame, main_color);
@@ -119,6 +126,16 @@ void AtmSplashScreen::InitialSettings() {
 void AtmSplashScreen::SetWidgetAppearance() {
   InitialPropertyInstaller::SetInitialProperties(this, 600, 400);
   setWindowIcon(QIcon(":/images/project_icon.png"));
+}
+
+void AtmSplashScreen::ColorizeLabels(const WidgetColor& widget_color) {
+  QList<QWidget*> color_list = {ui->atm_company_name_label, ui->text_label,
+                                ui->timedate_label, ui->version_label};
+
+  LabelColorDesigner* label_designer = new LabelColorDesigner(color_list);
+  label_designer->SetWidgetPalette(widget_color);
+  label_designer->PaintWidgets();
+  delete label_designer;
 }
 
 void AtmSplashScreen::SetConnections() {
