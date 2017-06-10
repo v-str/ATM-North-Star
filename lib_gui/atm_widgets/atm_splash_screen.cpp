@@ -55,10 +55,6 @@ void AtmSplashScreen::SetSplashScreenAppearance(
     const QString& additional_color) {
   WidgetColor widget_color(main_color, secondary_color, additional_color);
 
-  //  Painter::ChangeLabelColor(ui->atm_company_name_label, main_color);
-  //  Painter::ChangeLabelColor(ui->text_label, main_color);
-  //  Painter::ChangeLabelColor(ui->timedate_label, main_color);
-  //  Painter::ChangeLabelColor(ui->version_label, main_color);
   ColorizeLabels(widget_color);
 
   Painter::ChangeButtonColor(ui->exit_button, main_color, secondary_color,
