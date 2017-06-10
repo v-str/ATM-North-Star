@@ -60,6 +60,7 @@ void AtmSplashScreen::SetSplashScreenAppearance(
   ColorizeLabels(widget_color);
   ColorizeButtons(widget_color);
   ColorizeFrames(widget_color);
+
   exit_dialog_->SetExitDialogAppearance(main_color, secondary_color,
                                         additional_color);
 }
@@ -125,25 +126,23 @@ void AtmSplashScreen::SetWidgetAppearance() {
 }
 
 void AtmSplashScreen::ColorizeLabels(const WidgetColor& widget_color) {
-  QList<QWidget*> color_list = {ui->atm_company_name_label, ui->text_label,
+  QList<QWidget*> label_list = {ui->atm_company_name_label, ui->text_label,
                                 ui->timedate_label, ui->version_label};
-
-  LabelColorDesigner* label_designer = new LabelColorDesigner(color_list);
-  label_designer->SetWidgetPalette(widget_color);
-  label_designer->PaintWidgets();
-  delete label_designer;
+  LabelColorDesigner label_designer(label_list);
+  label_designer.SetWidgetPalette(widget_color);
+  label_designer.PaintWidgets();
 }
 
 void AtmSplashScreen::ColorizeButtons(const WidgetColor& widget_color) {
-  QList<QWidget*> label_list = {ui->exit_button};
-  ButtonColorDesigner button_color_designer(label_list);
+  QList<QWidget*> button_list = {ui->exit_button};
+  ButtonColorDesigner button_color_designer(button_list);
   button_color_designer.SetWidgetPalette(widget_color);
   button_color_designer.PaintWidgets();
 }
 
 void AtmSplashScreen::ColorizeFrames(const WidgetColor& widget_color) {
-  QList<QWidget*> button_list = {ui->frame};
-  FrameColorDesigner frame_color_designer(button_list);
+  QList<QWidget*> frame_list = {ui->frame};
+  FrameColorDesigner frame_color_designer(frame_list);
   frame_color_designer.SetWidgetPalette(widget_color);
   frame_color_designer.PaintWidgets();
 }
