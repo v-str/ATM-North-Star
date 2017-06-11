@@ -68,11 +68,6 @@ void AtmSplashScreen::SetAtmBlinkColor(const QString& color_one,
   emit BlinkColor();
 }
 
-void AtmSplashScreen::SetBackgroundImage(const QString& background_image) {
-  Painter::ChangeBackgroundImage(this, background_image);
-  exit_dialog_->SetBackgroundImage(background_image);
-}
-
 void AtmSplashScreen::SetBackgroundColor(const QString& background_color) {
   Painter::ChangeBackgroundColor(this, background_color);
   exit_dialog_->SetBackgroundColor(background_color);
@@ -112,7 +107,6 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
 void AtmSplashScreen::InitialSettings() {
   SetCompanyName();
   SetAtmBlinkColor();
-  SetBackgroundImage();
 }
 
 void AtmSplashScreen::SetWidgetAppearance() {

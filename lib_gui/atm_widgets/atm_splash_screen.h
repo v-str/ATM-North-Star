@@ -27,8 +27,7 @@ class AtmSplashScreen : public QMainWindow {
                                  const QString& additional_color);
   void SetAtmBlinkColor(const QString& color_one = "black",
                         const QString& color_two = "grey");
-  void SetBackgroundImage(
-      const QString& background_image = ":/images/black_background.jpg");
+
   void SetBackgroundColor(const QString& background_color = "black");
 
  signals:

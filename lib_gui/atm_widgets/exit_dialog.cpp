@@ -29,10 +29,6 @@ void ExitDialog::SetExitDialogAppearance(const QString& main_color,
   PaintWidgets();
 }
 
-void ExitDialog::SetBackgroundImage(const QString& background_image) {
-  Painter::ChangeBackgroundImage(this, background_image);
-}
-
 void ExitDialog::SetBackgroundColor(const QString& background_color) {
   Painter::ChangeBackgroundColor(this, background_color);
 }

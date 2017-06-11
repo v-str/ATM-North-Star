@@ -23,8 +23,6 @@ class ExitDialog : public QDialog {
   void SetExitDialogAppearance(const QString& main_color,
                                const QString& secondary_color,
                                const QString& additional_color);
-  void SetBackgroundImage(
-      const QString& background_image = ":/images/north_star_background.jpg");
   void SetBackgroundColor(
       const QString& background_color = "rgb(115, 210, 22)");
   void ShowWidgetOnCenterAt(const QRect& widget_geometry);
