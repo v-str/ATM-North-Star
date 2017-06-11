@@ -20,7 +20,7 @@ AtmMainWidget::~AtmMainWidget() { delete ui; }
 void AtmMainWidget::SetWidgetAppearance(const QString& main_color,
                                         const QString& secondary_color,
                                         const QString& additional_color) {
-  color_designer_.CustomizeColorSet(
+  color_designer_.ConfigureWidgetColorSet(
       WidgetColor(main_color, secondary_color, additional_color));
   PaintWidgets();
 }

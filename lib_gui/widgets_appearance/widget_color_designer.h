@@ -13,7 +13,7 @@ class WidgetColorDesigner {
  public:
   WidgetColorDesigner();
 
-  void CustomizeColorSet(const WidgetColor& widget_color);
+  void ConfigureWidgetColorSet(const WidgetColor& widget_color);
 
   void PaintWidgetSet(QList<QLabel*> label_list) const;
   void PaintWidgetSet(QList<QPushButton*> button_list) const;

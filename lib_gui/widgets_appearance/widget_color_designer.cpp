@@ -8,7 +8,8 @@
 
 WidgetColorDesigner::WidgetColorDesigner() {}
 
-void WidgetColorDesigner::CustomizeColorSet(const WidgetColor& widget_color) {
+void WidgetColorDesigner::ConfigureWidgetColorSet(
+    const WidgetColor& widget_color) {
   widget_color_ = widget_color;
 }
 
