@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include <widget_color_designer.h>
+
 class QPaintEvent;
 class QString;
 class WidgetColor;
@@ -28,9 +30,11 @@ class AtmMainWidget : public QMainWindow {
  private:
   void SetUpWidgetProperties();
   void SetFrameLayout();
-  void ColorizeButtons(const WidgetColor& widget_color);
+  void PaintWidgets();
 
   Ui::AtmMainWidget* ui = nullptr;
+
+  WidgetColorDesigner color_designer_;
 };
 
 #endif  // ATM_MAIN_WIDGET_H

@@ -4,7 +4,6 @@
 #include <QList>
 #include <QPaintEvent>
 
-#include <button_color_designer.h>
 #include <initial_property_installer.h>
 #include <painter.h>
 #include <widget_color.h>
@@ -13,6 +12,7 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
     : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
   ui->setupUi(this);
   SetUpWidgetProperties();
+  PaintWidgets();
 }
 
 AtmMainWidget::~AtmMainWidget() { delete ui; }
@@ -22,8 +22,9 @@ void AtmMainWidget::SetWidgetAppearance(const QString& main_color,
                                         const QString& additional_color) {
   WidgetColor widget_color(main_color, secondary_color, additional_color);
 
-  ColorizeButtons(widget_color);
-  Painter::ChangeFrameColor(ui->main_fraim, main_color);
+  color_designer_.CustomizeColorSet(widget_color);
+
+  PaintWidgets();
 }
 
 void AtmMainWidget::resizeEvent(QResizeEvent*) { SetFrameLayout(); }
@@ -42,12 +43,12 @@ void AtmMainWidget::SetFrameLayout() {
                                    332 + extra_height);
 }
 
-void AtmMainWidget::ColorizeButtons(const WidgetColor& widget_color) {
-  QList<QPushButton*> color_list = {
+void AtmMainWidget::PaintWidgets() {
+  QList<QFrame*> frame_list = {ui->main_fraim, ui->secondary_frame};
+  QList<QPushButton*> button_list = {
       ui->exit_button,      ui->minimize_button,     ui->maximize_button,
       ui->demo_mode_button, ui->registration_button, ui->login_button};
 
-  ButtonColorDesigner button_designer(color_list);
-  button_designer.SetWidgetColor(widget_color);
-  button_designer.PaintWidgets();
+  color_designer_.PaintWidgetSet(frame_list);
+  color_designer_.PaintWidgetSet(button_list);
 }
