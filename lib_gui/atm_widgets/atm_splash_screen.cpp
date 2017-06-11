@@ -111,7 +111,6 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
 
 void AtmSplashScreen::InitialSettings() {
   SetCompanyName();
-  SetSplashScreenAppearance();
   SetAtmBlinkColor();
   SetBackgroundImage();
 }
