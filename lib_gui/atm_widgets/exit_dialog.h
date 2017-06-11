@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+#include <widget_color_designer.h>
+
 class QTimer;
 class QString;
 class QRect;
@@ -30,8 +32,11 @@ class ExitDialog : public QDialog {
  private:
   void SetConnections();
   void SetInitialProperties();
+  void PaintWidgets();
 
   Ui::ExitDialog* ui = nullptr;
+
+  WidgetColorDesigner color_designer_;
 };
 
 #endif  // EXIT_DIALOG_H
