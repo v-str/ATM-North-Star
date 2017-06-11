@@ -18,6 +18,12 @@
 7. Continue create colorize classes inherited from color designer, and apply
    it into main widget -
 
+8. Add black background for main widget -
+
+9. Continue add sets of widget to new class WidgetColorDesigner -
+
+10. Insert WidgetColorDesigner instead color hierarchy of designers -
+
 ---------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE ---------------------------------------
 ---------------------------------------------------------------------------------------

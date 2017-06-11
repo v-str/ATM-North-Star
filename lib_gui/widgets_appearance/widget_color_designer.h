@@ -6,6 +6,8 @@
 #include <widget_color.h>
 
 class QLabel;
+class QPushButton;
+class QFrame;
 
 class WidgetColorDesigner {
  public:
@@ -14,6 +16,8 @@ class WidgetColorDesigner {
   void CustomizeColorSet(const WidgetColor& widget_color);
 
   void PaintWidgetSet(QList<QLabel*> label_list) const;
+  void PaintWidgetSet(QList<QPushButton*> button_list) const;
+  void PaintWidgetSet(QList<QFrame*> frame_list) const;
 
  private:
   WidgetColor widget_color_;
