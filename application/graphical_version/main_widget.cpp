@@ -21,8 +21,10 @@ void gui::MainWidget::SetMainWidgetAppearance() {
 }
 
 void gui::MainWidget::ShowMainWidget() {
-  main_widget_->move(initial_main_widget_position_->x(),
-                     initial_main_widget_position_->y());
+  main_widget_->setGeometry(initial_main_widget_position_->x(),
+                            initial_main_widget_position_->y(),
+                            initial_main_widget_position_->width(),
+                            initial_main_widget_position_->height());
   main_widget_->show();
 }
 
