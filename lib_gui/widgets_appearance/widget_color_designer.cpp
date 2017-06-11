@@ -28,4 +28,8 @@ void WidgetColorDesigner::PaintWidgetSet(
   }
 }
 
-void WidgetColorDesigner::PaintWidgetSet(QList<QFrame*> frame_list) const {}
+void WidgetColorDesigner::PaintWidgetSet(QList<QFrame*> frame_list) const {
+  for (auto frame = frame_list.begin(); frame != frame_list.end(); ++frame) {
+    Painter::ChangeFrameColor(*frame, widget_color_.MainColor());
+  }
+}
