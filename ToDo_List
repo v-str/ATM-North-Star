@@ -13,16 +13,16 @@
 5. Develop class, that mapping all widgets according of scale of main widget -
 
 6. How apply new functional from main atm widget to splash screen? -
-   How to remove old code from splash screen and add new from atm main widget? -
+   How to remove old code from splash screen and add new from atm main widget? +
 
 7. Continue create colorize classes inherited from color designer, and apply
-   it into main widget -
+   it into main widget + // Removed
 
-8. Add black background for main widget -
+8. Add black background for main widget +
 
-9. Continue add sets of widget to new class WidgetColorDesigner -
+9. Continue add sets of widget to new class WidgetColorDesigner +
 
-10. Insert WidgetColorDesigner instead color hierarchy of designers -
+10. Insert WidgetColorDesigner instead color hierarchy of designers +
 
 11. Make ATM splash screen layout mapping according of screen scale -
 

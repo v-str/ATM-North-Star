@@ -23,7 +23,7 @@
       <x>5</x>
       <y>5</y>
       <width>590</width>
-      <height>368</height>
+      <height>390</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -183,7 +183,6 @@ border-radius: 3px;
     </widget>
    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections>
