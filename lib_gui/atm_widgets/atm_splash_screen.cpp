@@ -52,8 +52,8 @@ void AtmSplashScreen::SetSplashScreenAppearance(
     const QString& main_color,
     const QString& secondary_color,
     const QString& additional_color) {
-  WidgetColor widget_color(main_color, secondary_color, additional_color);
-  color_designer_.CustomizeColorSet(widget_color);
+  color_designer_.CustomizeColorSet(
+      WidgetColor(main_color, secondary_color, additional_color));
 
   PaintWidgets();
 
