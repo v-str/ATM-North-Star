@@ -20,10 +20,6 @@ class Painter {
                                     const QString& background_color);
   static void ChangeBackgroundColor(QDialog* widget,
                                     const QString& background_color);
-  static void ChangeBackgroundImage(QMainWindow* widget,
-                                    const QString& background_image);
-  static void ChangeBackgroundImage(QDialog* widget,
-                                    const QString& background_image);
 };
 
 #endif  // PAINTER_H

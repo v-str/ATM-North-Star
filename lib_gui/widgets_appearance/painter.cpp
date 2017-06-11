@@ -60,15 +60,6 @@ void Painter::ChangeBackgroundColor(QMainWindow* widget,
   widget->setStyleSheet(string_background_string.arg(background_color));
 }
 
-void Painter::ChangeBackgroundImage(QMainWindow* widget,
-                                    const QString& background_image) {
-  QString string_background_string =
-      "QMainWindow{"
-      "background-image: url(%1);"
-      "}";
-
-  widget->setStyleSheet(string_background_string.arg(background_image));
-}
 void Painter::ChangeBackgroundColor(QDialog* widget,
                                     const QString& background_color) {
   QString string_background_string =
@@ -77,14 +68,4 @@ void Painter::ChangeBackgroundColor(QDialog* widget,
       "}";
 
   widget->setStyleSheet(string_background_string.arg(background_color));
-}
-
-void Painter::ChangeBackgroundImage(QDialog* widget,
-                                    const QString& background_image) {
-  QString string_background_string =
-      "QDialog{"
-      "background-image: url(%1);"
-      "}";
-
-  widget->setStyleSheet(string_background_string.arg(background_image));
 }
