@@ -25,6 +25,10 @@ void AtmMainWidget::SetWidgetAppearance(const QString& main_color,
   PaintWidgets();
 }
 
+void AtmMainWidget::SetBackgroundColor(const QString& background_color) {
+  Painter::ChangeBackgroundColor(this, background_color);
+}
+
 void AtmMainWidget::resizeEvent(QResizeEvent*) { SetFrameLayout(); }
 
 void AtmMainWidget::SetUpWidgetProperties() {
