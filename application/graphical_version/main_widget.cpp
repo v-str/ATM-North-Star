@@ -7,13 +7,13 @@
 gui::MainWidget::MainWidget(QObject* parent)
     : QObject(parent),
       main_widget_(new AtmMainWidget),
-      initial_main_widget_position_(new QRect) {
+      main_widget_position_(new QRect) {
   SetMainWidgetAppearance();
 }
 
 gui::MainWidget::~MainWidget() {
   delete main_widget_;
-  delete initial_main_widget_position_;
+  delete main_widget_position_;
 }
 
 void gui::MainWidget::SetMainWidgetAppearance() {
@@ -22,13 +22,12 @@ void gui::MainWidget::SetMainWidgetAppearance() {
 }
 
 void gui::MainWidget::ShowMainWidget() {
-  main_widget_->setGeometry(initial_main_widget_position_->x(),
-                            initial_main_widget_position_->y(),
-                            initial_main_widget_position_->width(),
-                            initial_main_widget_position_->height());
+  main_widget_->setGeometry(
+      main_widget_position_->x(), main_widget_position_->y(),
+      main_widget_position_->width(), main_widget_position_->height());
   main_widget_->show();
 }
 
-void gui::MainWidget::SetInitialPosition(const QRect& initial_position) {
-  *initial_main_widget_position_ = initial_position;
+void gui::MainWidget::SetWidgetPosition(const QRect& initial_position) {
+  *main_widget_position_ = initial_position;
 }

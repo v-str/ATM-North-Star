@@ -23,7 +23,6 @@ class AtmMainWidget : public QMainWindow {
   void SetWidgetAppearance(const QString& main_color,
                            const QString& secondary_color,
                            const QString& additional_color);
-
   void SetBackgroundColor(const QString& background_color);
 
  protected:
