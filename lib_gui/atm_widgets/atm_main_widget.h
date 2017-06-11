@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-#include <widget_color_designer.h>
+#include <atm_color_designer.h>
 
 class QPaintEvent;
 class QString;
@@ -34,7 +34,7 @@ class AtmMainWidget : public QMainWindow {
 
   Ui::AtmMainWidget* ui = nullptr;
 
-  WidgetColorDesigner color_designer_;
+  AtmColorDesigner color_designer_;
 };
 
 #endif  // ATM_MAIN_WIDGET_H

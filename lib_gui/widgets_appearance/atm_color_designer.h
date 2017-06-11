@@ -1,5 +1,5 @@
-﻿#ifndef WIDGET_COLOR_DESIGNER_H
-#define WIDGET_COLOR_DESIGNER_H
+﻿#ifndef ATM_COLOR_DESIGNER_H
+#define ATM_COLOR_DESIGNER_H
 
 #include <QList>
 
@@ -9,9 +9,9 @@ class QLabel;
 class QPushButton;
 class QFrame;
 
-class WidgetColorDesigner {
+class AtmColorDesigner {
  public:
-  WidgetColorDesigner();
+  AtmColorDesigner();
 
   void ConfigureWidgetColorSet(const WidgetColor& widget_color);
 
@@ -23,4 +23,4 @@ class WidgetColorDesigner {
   WidgetColor widget_color_;
 };
 
-#endif  // WIDGET_COLOR_DESIGNER_H
+#endif  // ATM_COLOR_DESIGNER_H

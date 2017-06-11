@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-#include <widget_color_designer.h>
+#include <atm_color_designer.h>
 
 class TextColorSwapper;
 class ExitDialog;
@@ -61,7 +61,7 @@ class AtmSplashScreen : public QMainWindow {
   QString blink_color_one_ = "black";
   QString blink_color_two_ = "grey";
 
-  WidgetColorDesigner color_designer_;
+  AtmColorDesigner color_designer_;
 };
 
 #endif  // ATM_SPLASH_SCREEN_H

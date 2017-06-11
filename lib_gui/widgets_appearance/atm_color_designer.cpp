@@ -1,4 +1,4 @@
-﻿#include <widget_color_designer.h>
+﻿#include <atm_color_designer.h>
 
 #include <QFrame>
 #include <QLabel>
@@ -6,20 +6,20 @@
 
 #include <painter.h>
 
-WidgetColorDesigner::WidgetColorDesigner() {}
+AtmColorDesigner::AtmColorDesigner() {}
 
-void WidgetColorDesigner::ConfigureWidgetColorSet(
+void AtmColorDesigner::ConfigureWidgetColorSet(
     const WidgetColor& widget_color) {
   widget_color_ = widget_color;
 }
 
-void WidgetColorDesigner::PaintWidgetSet(QList<QLabel*> label_list) const {
+void AtmColorDesigner::PaintWidgetSet(QList<QLabel*> label_list) const {
   for (auto label = label_list.begin(); label != label_list.end(); ++label) {
     Painter::ChangeLabelColor(*label, widget_color_.MainColor());
   }
 }
 
-void WidgetColorDesigner::PaintWidgetSet(
+void AtmColorDesigner::PaintWidgetSet(
     QList<QPushButton*> button_list) const {
   for (auto button = button_list.begin(); button != button_list.end();
        ++button) {
@@ -29,7 +29,7 @@ void WidgetColorDesigner::PaintWidgetSet(
   }
 }
 
-void WidgetColorDesigner::PaintWidgetSet(QList<QFrame*> frame_list) const {
+void AtmColorDesigner::PaintWidgetSet(QList<QFrame*> frame_list) const {
   for (auto frame = frame_list.begin(); frame != frame_list.end(); ++frame) {
     Painter::ChangeFrameColor(*frame, widget_color_.MainColor());
   }
