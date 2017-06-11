@@ -10,15 +10,13 @@
 #include <QString>
 #include <QTimer>
 
-#include <button_color_designer.h>
 #include <close_block_filter.h>
 #include <exit_dialog.h>
-#include <frame_color_designer.h>
 #include <initial_property_installer.h>
-#include <label_color_designer.h>
 #include <painter.h>
 #include <text_color_swapper.h>
 #include <timedate_changer.h>
+#include <widget_color.h>
 
 AtmSplashScreen::AtmSplashScreen(QWidget* parent)
     : QMainWindow(parent),
@@ -35,6 +33,7 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
   SetWidgetAppearance();
   BlockKeys();
   InitialSettings();
+  PaintWidgets();
   SetConnections();
   RunTimers();
 }
@@ -55,10 +54,9 @@ void AtmSplashScreen::SetSplashScreenAppearance(
     const QString& secondary_color,
     const QString& additional_color) {
   WidgetColor widget_color(main_color, secondary_color, additional_color);
+  color_designer_.CustomizeColorSet(widget_color);
 
-  ColorizeLabels(widget_color);
-  ColorizeButtons(widget_color);
-  ColorizeFrames(widget_color);
+  PaintWidgets();
 
   exit_dialog_->SetExitDialogAppearance(main_color, secondary_color,
                                         additional_color);
@@ -124,29 +122,15 @@ void AtmSplashScreen::SetWidgetAppearance() {
   setWindowIcon(QIcon(":/images/project_icon.png"));
 }
 
-void AtmSplashScreen::ColorizeLabels(const WidgetColor& widget_color) {
+void AtmSplashScreen::PaintWidgets() {
   QList<QLabel*> label_list = {ui->atm_company_name_label, ui->text_label,
                                ui->timedate_label, ui->version_label};
-  LabelColorDesigner label_designer(label_list);
-  SetColorDesigner(&label_designer, widget_color);
-}
-
-void AtmSplashScreen::ColorizeButtons(const WidgetColor& widget_color) {
   QList<QPushButton*> button_list = {ui->exit_button};
-  ButtonColorDesigner button_color_designer(button_list);
-  SetColorDesigner(&button_color_designer, widget_color);
-}
-
-void AtmSplashScreen::ColorizeFrames(const WidgetColor& widget_color) {
   QList<QFrame*> frame_list = {ui->frame};
-  FrameColorDesigner frame_color_designer(frame_list);
-  SetColorDesigner(&frame_color_designer, widget_color);
-}
 
-void AtmSplashScreen::SetColorDesigner(ColorDesigner* color_designer,
-                                       const WidgetColor& widget_color) {
-  color_designer->SetWidgetColor(widget_color);
-  color_designer->PaintWidgets();
+  color_designer_.PaintWidgetSet(label_list);
+  color_designer_.PaintWidgetSet(button_list);
+  color_designer_.PaintWidgetSet(frame_list);
 }
 
 void AtmSplashScreen::SetConnections() {
