@@ -21,7 +21,7 @@ class AtmSplashScreen : public QMainWindow {
   explicit AtmSplashScreen(QWidget* parent = nullptr);
   ~AtmSplashScreen();
 
-  void SetCompanyName(const QString& atm_company_name = "Company Name");
+  void SetCompanyName(const QString& atm_company_name);
 
   void SetSplashScreenAppearance(const QString& main_color,
                                  const QString& secondary_color,

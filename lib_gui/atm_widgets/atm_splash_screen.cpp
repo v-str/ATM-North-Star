@@ -100,7 +100,7 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
   QWidget::keyPressEvent(event);
 }
 
-void AtmSplashScreen::InitialSettings() { SetCompanyName(); }
+void AtmSplashScreen::InitialSettings() { SetCompanyName(""); }
 
 void AtmSplashScreen::SetWidgetAppearance() {
   InitialPropertyInstaller::SetInitialProperties(this, 600, 400);
