@@ -20,9 +20,9 @@ class ExitDialog : public QDialog {
   explicit ExitDialog(QWidget* parent = nullptr);
   ~ExitDialog();
 
-  void SetExitDialogAppearance(const QString& main_color = "black",
-                               const QString& secondary_color = "grey",
-                               const QString& additional_color = "blue");
+  void SetExitDialogAppearance(const QString& main_color,
+                               const QString& secondary_color,
+                               const QString& additional_color);
   void SetBackgroundImage(
       const QString& background_image = ":/images/north_star_background.jpg");
   void SetBackgroundColor(
