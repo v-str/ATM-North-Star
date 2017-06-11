@@ -21,9 +21,7 @@
 AtmSplashScreen::AtmSplashScreen(QWidget* parent)
     : QMainWindow(parent),
       ui(new Ui::AtmSplashScreen),
-      exit_dialog_(new ExitDialog(this)),
-      blink_color_one_("black"),
-      blink_color_two_("grey") {
+      exit_dialog_(new ExitDialog(this)) {
   ui->setupUi(this);
   exit_dialog_->setModal(true);
 
@@ -63,9 +61,7 @@ void AtmSplashScreen::SetSplashScreenAppearance(
 
 void AtmSplashScreen::SetAtmBlinkColor(const QString& color_one,
                                        const QString& color_two) {
-  blink_color_one_ = color_one;
-  blink_color_two_ = color_two;
-  emit BlinkColor();
+  color_swapper_->SetSwapColors(color_one, color_two);
 }
 
 void AtmSplashScreen::SetBackgroundColor(const QString& background_color) {
@@ -73,9 +69,9 @@ void AtmSplashScreen::SetBackgroundColor(const QString& background_color) {
   exit_dialog_->SetBackgroundColor(background_color);
 }
 
-void AtmSplashScreen::AtmBlinkColor() {
-  color_swapper_->ChangeColor(ui->atm_label, blink_color_one_,
-                              blink_color_two_);
+void AtmSplashScreen::BlinkAtmLabelColor() {
+  color_swapper_->ChangeColor(ui->atm_label, color_swapper_->SwapColorOne(),
+                              color_swapper_->SwapColorTwo());
 }
 
 void AtmSplashScreen::ChangeTimeDate() {
@@ -104,10 +100,7 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
   QWidget::keyPressEvent(event);
 }
 
-void AtmSplashScreen::InitialSettings() {
-  SetCompanyName();
-  SetAtmBlinkColor();
-}
+void AtmSplashScreen::InitialSettings() { SetCompanyName(); }
 
 void AtmSplashScreen::SetWidgetAppearance() {
   InitialPropertyInstaller::SetInitialProperties(this, 600, 400);
@@ -126,8 +119,7 @@ void AtmSplashScreen::PaintWidgets() {
 }
 
 void AtmSplashScreen::SetConnections() {
-  connect(this, SIGNAL(BlinkColor()), SLOT(AtmBlinkColor()));
-  connect(color_swap_timer_, SIGNAL(timeout()), SLOT(AtmBlinkColor()));
+  connect(color_swap_timer_, SIGNAL(timeout()), SLOT(BlinkAtmLabelColor()));
   connect(time_date_timer_, SIGNAL(timeout()), SLOT(ChangeTimeDate()));
   connect(this, SIGNAL(Exit()), SLOT(ShowExitWidget()));
   connect(ui->exit_button, SIGNAL(clicked(bool)), SLOT(ShowExitWidget()));

@@ -25,18 +25,15 @@ class AtmSplashScreen : public QMainWindow {
   void SetSplashScreenAppearance(const QString& main_color,
                                  const QString& secondary_color,
                                  const QString& additional_color);
-  void SetAtmBlinkColor(const QString& color_one = "black",
-                        const QString& color_two = "grey");
-
+  void SetAtmBlinkColor(const QString& color_one, const QString& color_two);
   void SetBackgroundColor(const QString& background_color = "black");
 
  signals:
-  void BlinkColor();
   void Exit();
   void PassPositionWhenEnterPressed(const QRect& end_value);
 
  public slots:
-  void AtmBlinkColor();
+  void BlinkAtmLabelColor();
   void ChangeTimeDate();
   void ShowExitWidget();
 
@@ -57,9 +54,6 @@ class AtmSplashScreen : public QMainWindow {
   QTimer* time_date_timer_ = nullptr;
   TextColorSwapper* color_swapper_ = nullptr;
   ExitDialog* exit_dialog_ = nullptr;
-
-  QString blink_color_one_ = "black";
-  QString blink_color_two_ = "grey";
 
   AtmColorDesigner color_designer_;
 };

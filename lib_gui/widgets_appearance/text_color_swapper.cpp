@@ -9,11 +9,21 @@ void TextColorSwapper::ChangeColor(QLabel* label,
       "color: %1;"
       "}";
 
-  if (state_) {
+  if (swap_state_) {
     label->setStyleSheet(stylesheet.arg(first_color));
-    state_ = false;
+    swap_state_ = false;
   } else {
     label->setStyleSheet(stylesheet.arg(second_color));
-    state_ = true;
+    swap_state_ = true;
   }
 }
+
+void TextColorSwapper::SetSwapColors(const QString& swap_color_one,
+                                     const QString& swap_color_two) {
+  swap_color_one_ = swap_color_one;
+  swap_color_two_ = swap_color_two;
+}
+
+QString TextColorSwapper::SwapColorOne() const { return swap_color_one_; }
+
+QString TextColorSwapper::SwapColorTwo() const { return swap_color_two_; }
