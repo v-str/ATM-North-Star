@@ -28,6 +28,6 @@ void gui::MainWidget::ShowMainWidget() {
   main_widget_->show();
 }
 
-void gui::MainWidget::SetWidgetPosition(const QRect& initial_position) {
+void gui::MainWidget::SetWidgetGeometry(const QRect& initial_position) {
   *main_widget_position_ = initial_position;
 }

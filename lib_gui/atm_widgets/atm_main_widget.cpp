@@ -11,6 +11,7 @@
 AtmMainWidget::AtmMainWidget(QWidget* parent)
     : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
   ui->setupUi(this);
+  setWindowTitle("ATM");
   SetUpWidgetProperties();
   PaintWidgets();
 }

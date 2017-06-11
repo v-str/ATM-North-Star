@@ -18,7 +18,7 @@ class MainWidget : public QObject {
 
  public slots:
   void ShowMainWidget();
-  void SetWidgetPosition(const QRect& initial_position);
+  void SetWidgetGeometry(const QRect& initial_position);
 
  private:
   AtmMainWidget* main_widget_ = nullptr;
