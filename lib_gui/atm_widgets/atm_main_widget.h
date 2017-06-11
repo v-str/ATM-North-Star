@@ -20,9 +20,9 @@ class AtmMainWidget : public QMainWindow {
   explicit AtmMainWidget(QWidget* parent = nullptr);
   ~AtmMainWidget();
 
-  void SetWidgetAppearance(const QString& main_color = "yellow",
-                           const QString& secondary_color = "red",
-                           const QString& additional_color = "blue");
+  void SetWidgetAppearance(const QString& main_color,
+                           const QString& secondary_color,
+                           const QString& additional_color);
 
  protected:
   virtual void resizeEvent(QResizeEvent* event);

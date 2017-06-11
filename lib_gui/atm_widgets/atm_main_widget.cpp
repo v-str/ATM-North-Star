@@ -31,7 +31,6 @@ void AtmMainWidget::resizeEvent(QResizeEvent*) { SetFrameLayout(); }
 
 void AtmMainWidget::SetUpWidgetProperties() {
   setMinimumSize(600, 400);
-  SetWidgetAppearance();
   InitialPropertyInstaller::SetInitialProperties(this, 600, 400);
 }
 
