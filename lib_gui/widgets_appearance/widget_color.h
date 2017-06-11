@@ -9,6 +9,10 @@ class WidgetColor {
               const QString& secondary_color = "red",
               const QString& additional_color = "blue");
 
+  void SetWidgetColor(const QString main_color,
+                      const QString secondary_color,
+                      const QString additional_color);
+
   QString MainColor() const;
   QString SecondaryColor() const;
   QString AdditionalColor() const;

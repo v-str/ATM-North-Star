@@ -19,7 +19,6 @@
 #include <painter.h>
 #include <text_color_swapper.h>
 #include <timedate_changer.h>
-#include <widget_color.h>
 
 AtmSplashScreen::AtmSplashScreen(QWidget* parent)
     : QMainWindow(parent),

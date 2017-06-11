@@ -9,6 +9,7 @@ QMAKE_CXX = ccache clang++
 DEPENDPATH += \
     ../lib_console/messengers \
     ../lib_console/output_configuration \
+    ../lib_gui/widgets_appearance \
     ../lib_gui/atm_widgets \
     ../lib_gui/features \
     ../atm/atm_machine \
@@ -17,6 +18,7 @@ DEPENDPATH += \
 INCLUDEPATH += \
     ../lib_console/messengers \
     ../lib_console/output_configuration \
+    ../lib_gui/widgets_appearance \
     ../lib_gui/atm_widgets \
     ../lib_gui/features \
     ../atm/atm_machine \

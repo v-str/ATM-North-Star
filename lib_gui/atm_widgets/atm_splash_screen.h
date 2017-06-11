@@ -3,11 +3,12 @@
 
 #include <QMainWindow>
 
+#include <widget_color.h>
+
 class TextColorSwapper;
 class ExitDialog;
 class QString;
 class QTimer;
-class WidgetColor;
 class ColorDesigner;
 
 namespace Ui {
@@ -66,6 +67,8 @@ class AtmSplashScreen : public QMainWindow {
 
   QString blink_color_one_ = "black";
   QString blink_color_two_ = "grey";
+
+  WidgetColor widget_color_;
 };
 
 #endif  // ATM_SPLASH_SCREEN_H
