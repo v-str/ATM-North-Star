@@ -42,7 +42,7 @@ class AtmSplashScreen : public QMainWindow {
   void keyPressEvent(QKeyEvent* event);
 
  private:
-  void InitialSettings();
+  void SetInitialSettings();
   void SetWidgetAppearance();
   void PaintWidgets();
   void SetConnections();

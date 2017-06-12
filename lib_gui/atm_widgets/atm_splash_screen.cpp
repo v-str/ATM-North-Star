@@ -29,7 +29,7 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
   InitializeObjects();
   SetWidgetAppearance();
   BlockKeys();
-  InitialSettings();
+  SetInitialSettings();
   PaintWidgets();
   SetConnections();
   RunTimers();
@@ -100,7 +100,7 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
   QWidget::keyPressEvent(event);
 }
 
-void AtmSplashScreen::InitialSettings() { SetCompanyName(""); }
+void AtmSplashScreen::SetInitialSettings() { SetCompanyName(""); }
 
 void AtmSplashScreen::SetWidgetAppearance() {
   InitialPropertyInstaller::SetInitialProperties(this, 600, 400);
