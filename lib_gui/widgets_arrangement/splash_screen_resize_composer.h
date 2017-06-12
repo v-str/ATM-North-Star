@@ -26,6 +26,8 @@ class SplashScreenResizeComposer {
   void SetExtraHeight(int extra_height);
 
  private:
+  void ComputeExtraButtonParameters();
+
   QRect splash_screen_;
   QRect exit_button_;
   QRect version_label_;
