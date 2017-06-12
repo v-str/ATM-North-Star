@@ -1,5 +1,7 @@
 ﻿#include <splash_screen_resize_composer.h>
 
+#include <QFrame>
+
 void SplashScreenResizeComposer::SetGeometry(const QRect& splash_screen,
                                              const QRect& exit_button,
                                              const QRect& version_label,
@@ -18,10 +20,15 @@ void SplashScreenResizeComposer::SetGeometry(const QRect& splash_screen,
   frame_ = frame;
 }
 
-void SplashScreenResizeComposer::GetExtraWidth(int extra_width) {
-  extra_width_ = extra_width;
+void SplashScreenResizeComposer::ResizeWidgets(QFrame* frame) {
+  frame->setGeometry(frame_.x(), frame->y(), frame_.width() + extra_width_,
+                     frame_.height() + extra_height_);
 }
 
-void SplashScreenResizeComposer::GetExtraHeight(int extra_height) {
-  extra_height_ = extra_height;
+void SplashScreenResizeComposer::SetExtraWidth(int extra_width) {
+  extra_width_ = extra_width - splash_screen_.width();
+}
+
+void SplashScreenResizeComposer::SetExtraHeight(int extra_height) {
+  extra_height_ = extra_height - splash_screen_.height();
 }

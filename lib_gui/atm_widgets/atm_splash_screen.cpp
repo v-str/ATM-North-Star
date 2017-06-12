@@ -102,11 +102,22 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
   QWidget::keyPressEvent(event);
 }
 
-void AtmSplashScreen::resizeEvent(QResizeEvent*) {}
+void AtmSplashScreen::resizeEvent(QResizeEvent*) {
+  resize_composer_.SetExtraWidth(width());
+  resize_composer_.SetExtraHeight(height());
+
+  resize_composer_.ResizeWidgets(ui->frame);
+}
 
 void AtmSplashScreen::SetInitialSettings() {
   SetCompanyName("");
   setMinimumSize(600, 400);
+
+  resize_composer_.SetGeometry(
+      this->geometry(), ui->exit_button->geometry(),
+      ui->version_label->geometry(), ui->atm_company_name_label->geometry(),
+      ui->timedate_label->geometry(), ui->atm_label->geometry(),
+      ui->text_label->geometry(), ui->frame->geometry());
 }
 
 void AtmSplashScreen::SetWidgetAppearance() {

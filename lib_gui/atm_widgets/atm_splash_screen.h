@@ -4,6 +4,7 @@
 #include <QMainWindow>
 
 #include <atm_color_designer.h>
+#include <splash_screen_resize_composer.h>
 
 class TextColorSwapper;
 class ExitDialog;
@@ -61,6 +62,7 @@ class AtmSplashScreen : public QMainWindow {
   ExitDialog* exit_dialog_ = nullptr;
 
   AtmColorDesigner color_designer_;
+  SplashScreenResizeComposer resize_composer_;
 };
 
 #endif  // ATM_SPLASH_SCREEN_H

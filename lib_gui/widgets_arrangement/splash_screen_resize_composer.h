@@ -19,8 +19,10 @@ class SplashScreenResizeComposer {
                    const QRect& text_label,
                    const QRect& frame);
 
-  void GetExtraWidth(int extra_width);
-  void GetExtraHeight(int extra_height);
+  void ResizeWidgets(QFrame* frame);
+
+  void SetExtraWidth(int extra_width);
+  void SetExtraHeight(int extra_height);
 
  private:
   QRect splash_screen_;
