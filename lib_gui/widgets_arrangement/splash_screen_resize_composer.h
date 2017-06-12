@@ -3,7 +3,6 @@
 
 #include <QRect>
 
-class AtmSplashScreen;
 class QPushButton;
 class QLabel;
 class QFrame;
@@ -20,6 +19,7 @@ class SplashScreenResizeComposer {
                    const QRect& frame);
 
   void ResizeFrame(QFrame* frame);
+  void ResizeExitButton(QPushButton* button);
 
   void SetExtraWidth(int extra_width);
   void SetExtraHeight(int extra_height);
