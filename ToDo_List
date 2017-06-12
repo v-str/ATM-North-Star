@@ -52,6 +52,9 @@
 6. Continue make registration module                                                | - |
                                                                                     |   |
 7. Delete excess code in AuthenticationMessenger (e.g. constexpr variables )        | - |
+                                                                                    |   |
+8. Check initial input screen on comand "2j" or the same                            |   |
+   Why gui mode is start after that? where is warning message?                      | - |
 -----------------------------------------------------------------------------------------
 ---------------------------------------- ATM --------------------------------------------
 -----------------------------------------------------------------------------------------
