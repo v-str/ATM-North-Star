@@ -42,6 +42,7 @@ class AtmSplashScreen : public QMainWindow {
 
  protected:
   void keyPressEvent(QKeyEvent* event);
+  void resizeEvent(QResizeEvent* event);
 
  private:
   void SetInitialSettings();

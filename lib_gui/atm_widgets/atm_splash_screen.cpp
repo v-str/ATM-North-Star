@@ -102,6 +102,8 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
   QWidget::keyPressEvent(event);
 }
 
+void AtmSplashScreen::resizeEvent(QResizeEvent*) {}
+
 void AtmSplashScreen::SetInitialSettings() {
   SetCompanyName("");
   setMinimumSize(600, 400);
