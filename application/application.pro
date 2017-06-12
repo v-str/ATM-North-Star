@@ -11,7 +11,6 @@ DEPENDPATH += \
     ../lib_console/output_configuration \
     ../lib_gui/widgets_appearance \
     ../lib_gui/widgets_arrangement \
-    ../widgets_arrangement/font_settings \
     ../lib_gui/atm_widgets \
     ../lib_gui/features \
     ../atm/atm_machine \
@@ -22,7 +21,6 @@ INCLUDEPATH += \
     ../lib_console/output_configuration \
     ../lib_gui/widgets_appearance \
     ../lib_gui/widgets_arrangement \
-    ../widgets_arrangement/font_settings \
     ../lib_gui/atm_widgets \
     ../lib_gui/features \
     ../atm/atm_machine \
