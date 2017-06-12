@@ -20,7 +20,7 @@ void SplashScreenResizeComposer::SetGeometry(const QRect& splash_screen,
   frame_ = frame;
 }
 
-void SplashScreenResizeComposer::ResizeWidgets(QFrame* frame) {
+void SplashScreenResizeComposer::ResizeFrame(QFrame* frame) {
   frame->setGeometry(frame_.x(), frame->y(), frame_.width() + extra_width_,
                      frame_.height() + extra_height_);
 }
