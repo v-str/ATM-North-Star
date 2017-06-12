@@ -129,7 +129,8 @@ void AtmSplashScreen::SetWidgetAppearance() {
 void AtmSplashScreen::PaintWidgets() {
   QList<QLabel*> label_list = {ui->atm_company_name_label, ui->text_label,
                                ui->timedate_label, ui->version_label};
-  QList<QPushButton*> button_list = {ui->exit_button};
+  QList<QPushButton*> button_list = {ui->exit_button, ui->minimize_button,
+                                     ui->maximaze_button};
   QList<QFrame*> frame_list = {ui->frame};
 
   color_designer_.PaintWidgetSet(label_list);
