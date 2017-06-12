@@ -108,6 +108,7 @@ void AtmSplashScreen::resizeEvent(QResizeEvent*) {
 
   resize_composer_.ResizeFrame(ui->frame);
   resize_composer_.ResizeExitButton(ui->exit_button);
+  resize_composer_.ResizeMinimizeButton(ui->minimize_button);
 }
 
 void AtmSplashScreen::SetInitialSettings() {

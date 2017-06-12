@@ -29,6 +29,9 @@
 10. Insert WidgetColorDesigner instead color hierarchy of designers                 | + |
                                                                                     |   |
 11. Make ATM splash screen layout mapping according of screen scale                 | - |
+                                                                                    |   |
+12. Fix bugs related with incorrect mapping push buttons. Develop properly classes  | - |
+    responding of widgets resizing. Rewrite code if is it necessary.                |   |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
