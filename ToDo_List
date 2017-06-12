@@ -1,86 +1,58 @@
-﻿﻿---------------------------------------------------------------------------------------
--------------------------------------- GUI MODE ---------------------------------------
----------------------------------------------------------------------------------------
+﻿﻿-----------------------------------------------------------------------------------------
+-------------------------------------- GUI MODE -----------------------------------------
+-----------------------------------------------------------------------------------------
+                                                                                    |   |
+1. Return boolean variable if key Enter is pressed                                  | - |
+                                                                                    |   |
+2. Close Splash Screen using animation                                              | + |
+                                                                                    |   |
+3. Open main program after splash widget                                            | + |
+                                                                                    |   |
+4. Begin make main widget appearance                                                | + |
+                                                                                    |   |
+5. Develop class, that mapping all widgets according of scale of main widget        | - |
+                                                                                    |   |
+6. How apply new functional from main atm widget to splash screen?                  | + |
+   How to remove old code from splash screen and add new from atm main widget?      | + |
+                                                                                    |   |
+7. Remove colorize classes inherited from color designer, and apply                 | + |
+   it into main widget                                                              |   |
+                                                                                    |   |
+8. Add black background for main widget                                             | + |
+                                                                                    |   |
+9. Continue add sets of widget to new class WidgetColorDesigner                     | + |
+                                                                                    |   |
+10. Insert WidgetColorDesigner instead color hierarchy of designers                 | + |
+                                                                                    |   |
+11. Make ATM splash screen layout mapping according of screen scale                 | - |
 
-1. Return boolean variable if key Enter is pressed -
-
-2. Close Splash Screen using animation +
-
-3. Open main program after splash widget +
-
-4. Begin make main widget appearance +
-
-5. Develop class, that mapping all widgets according of scale of main widget -
-
-6. How apply new functional from main atm widget to splash screen? -
-   How to remove old code from splash screen and add new from atm main widget? +
-
-7. Continue create colorize classes inherited from color designer, and apply
-   it into main widget + // Removed
-
-8. Add black background for main widget +
-
-9. Continue add sets of widget to new class WidgetColorDesigner +
-
-10. Insert WidgetColorDesigner instead color hierarchy of designers +
-
-11. Make ATM splash screen layout mapping according of screen scale -
-
----------------------------------------------------------------------------------------
--------------------------------------- CLI MODE ---------------------------------------
----------------------------------------------------------------------------------------
-
-84. Make class ModeSelector like a simple class that maintain user input processing +
-
-86. Modify user_input for maintain exit through char q or Q +
-
-1. Continue separate console_mode on classes +
-
-2. Add messages for every authentication error +
-
-3. Delete unnecessary staic fields in authenication messenger +
-
-4. Continue make registration error handling +
-
-5. Decide problem related with incorrect login registration +
-
-6. Continue make registration module -
-
-7. Delete excess code in AuthenticationMessenger (e.g. constexpr variables ) -
----------------------------------------------------------------------------------------
----------------------------------------- ATM ------------------------------------------
----------------------------------------------------------------------------------------
-
-88. How make user registration class for both interface? -
-
----------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> cli_mode
+-----------------------------------------------------------------------------------------
+-------------------------------------- CLI MODE -----------------------------------------
+-----------------------------------------------------------------------------------------
+                                                                                    |   |
+84. Make class ModeSelector like a simple class that                                | + |
+    maintain user input processing                                                  |   |
+                                                                                    |   |
+86. Modify user_input for maintain exit through char q or Q                         | + |
+                                                                                    |   |
+1. Continue separate console_mode on classes                                        | + |
+                                                                                    |   |
+2. Add messages for every authentication error                                      | + |
+                                                                                    |   |
+3. Delete unnecessary staic fields in authenication messenger                       | + |
+                                                                                    |   |
+4. Continue make registration error handling                                        | + |
+                                                                                    |   |
+5. Decide problem related with incorrect login registration                         | + |
+                                                                                    |   |
+6. Continue make registration module                                                | - |
+                                                                                    |   |
+7. Delete excess code in AuthenticationMessenger (e.g. constexpr variables )        | - |
+-----------------------------------------------------------------------------------------
+---------------------------------------- ATM --------------------------------------------
+-----------------------------------------------------------------------------------------
+                                                                                    |   |
+88. How make user registration class for both interface?                            | - |
+                                                                                    |   |
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
