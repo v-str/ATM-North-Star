@@ -69,6 +69,8 @@ void AtmSplashScreen::SetBackgroundColor(const QString& background_color) {
   exit_dialog_->SetBackgroundColor(background_color);
 }
 
+void AtmSplashScreen::UnlockFixedGeometry() { setMinimumSize(0, 0); }
+
 void AtmSplashScreen::BlinkAtmLabelColor() {
   color_swapper_->ChangeColor(ui->atm_label, color_swapper_->SwapColorOne(),
                               color_swapper_->SwapColorTwo());
@@ -90,17 +92,20 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
       event->ignore();
       break;
     case Qt::Key_Enter:
-      emit PassPositionWhenEnterPressed(this->geometry());
+      ProcessKeyEnterPressing();
       break;
     case Qt::Key_Return:
-      emit PassPositionWhenEnterPressed(this->geometry());
+      ProcessKeyEnterPressing();
     default:
       break;
   }
   QWidget::keyPressEvent(event);
 }
 
-void AtmSplashScreen::SetInitialSettings() { SetCompanyName(""); }
+void AtmSplashScreen::SetInitialSettings() {
+  SetCompanyName("");
+  setMinimumSize(600, 400);
+}
 
 void AtmSplashScreen::SetWidgetAppearance() {
   InitialPropertyInstaller::SetInitialProperties(this, 600, 400);
@@ -123,6 +128,7 @@ void AtmSplashScreen::SetConnections() {
   connect(time_date_timer_, SIGNAL(timeout()), SLOT(ChangeTimeDate()));
   connect(this, SIGNAL(Exit()), SLOT(ShowExitWidget()));
   connect(ui->exit_button, SIGNAL(clicked(bool)), SLOT(ShowExitWidget()));
+  connect(this, SIGNAL(EnterIsPressed()), SLOT(UnlockFixedGeometry()));
 }
 
 void AtmSplashScreen::InitializeObjects() {
@@ -138,4 +144,9 @@ void AtmSplashScreen::RunTimers() {
 
 void AtmSplashScreen::BlockKeys() {
   ui->exit_button->installEventFilter(new CloseBlockFilter(ui->exit_button));
+}
+
+void AtmSplashScreen::ProcessKeyEnterPressing() {
+  emit PassPositionWhenEnterPressed(this->geometry());
+  emit EnterIsPressed();
 }

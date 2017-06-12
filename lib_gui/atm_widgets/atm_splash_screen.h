@@ -31,9 +31,11 @@ class AtmSplashScreen : public QMainWindow {
 
  signals:
   void Exit();
+  void EnterIsPressed();
   void PassPositionWhenEnterPressed(const QRect& end_value);
 
  public slots:
+  void UnlockFixedGeometry();
   void BlinkAtmLabelColor();
   void ChangeTimeDate();
   void ShowExitWidget();
@@ -49,6 +51,7 @@ class AtmSplashScreen : public QMainWindow {
   void InitializeObjects();
   void RunTimers();
   void BlockKeys();
+  void ProcessKeyEnterPressing();
 
   Ui::AtmSplashScreen* ui = nullptr;
   QTimer* color_swap_timer_ = nullptr;
