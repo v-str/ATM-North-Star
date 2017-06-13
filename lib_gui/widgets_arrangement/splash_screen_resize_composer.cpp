@@ -7,6 +7,8 @@
 void SplashScreenResizeComposer::RememberInitialGeometry(
     const QRect& splash_screen,
     const QRect& exit_button,
+    const QRect& minimize_button,
+    const QRect& maximaize_button,
     const QRect& version_label,
     const QRect& company_name_label,
     const QRect& time_date_label,
@@ -15,6 +17,8 @@ void SplashScreenResizeComposer::RememberInitialGeometry(
     const QRect& frame) {
   splash_screen_ = splash_screen;
   exit_button_ = exit_button;
+  minimize_button_ = minimize_button;
+  maximaize_button_ = maximaize_button;
   version_label_ = version_label;
   company_name_label_ = company_name_label;
   time_date_label_ = time_date_label;
@@ -37,7 +41,14 @@ void SplashScreenResizeComposer::ResizeExitButton(QPushButton* exit_button) {
 }
 
 void SplashScreenResizeComposer::ResizeMinimizeButton(
-    QPushButton* minimize_button) {}
+    QPushButton* minimize_button) {
+  ComputeExtraButtonParameters();
+
+  minimize_button->setGeometry(
+      minimize_button_.x() + extra_button_width_, minimize_button_.y(),
+      minimize_button_.width() + extra_button_width_,
+      minimize_button_.height() + extra_button_height_);
+}
 
 void SplashScreenResizeComposer::SetExtraWidth(int extra_width) {
   extra_width_ = extra_width - splash_screen_.width();

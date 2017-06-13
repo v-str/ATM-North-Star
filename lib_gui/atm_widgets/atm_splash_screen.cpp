@@ -108,6 +108,7 @@ void AtmSplashScreen::resizeEvent(QResizeEvent*) {
 
   resize_composer_.ResizeFrame(ui->frame);
   resize_composer_.ResizeExitButton(ui->exit_button);
+  resize_composer_.ResizeMinimizeButton(ui->minimize_button);
 }
 
 void AtmSplashScreen::SetInitialSettings() {
@@ -116,6 +117,7 @@ void AtmSplashScreen::SetInitialSettings() {
 
   resize_composer_.RememberInitialGeometry(
       this->geometry(), ui->exit_button->geometry(),
+      ui->minimize_button->geometry(), ui->maximaze_button->geometry(),
       ui->version_label->geometry(), ui->atm_company_name_label->geometry(),
       ui->timedate_label->geometry(), ui->atm_label->geometry(),
       ui->text_label->geometry(), ui->frame->geometry());

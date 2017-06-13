@@ -11,6 +11,8 @@ class SplashScreenResizeComposer {
  public:
   void RememberInitialGeometry(const QRect& splash_screen,
                                const QRect& exit_button,
+                               const QRect& minimize_button,
+                               const QRect& maximaize_button,
                                const QRect& version_label,
                                const QRect& company_name_label,
                                const QRect& time_date_label,
@@ -30,6 +32,8 @@ class SplashScreenResizeComposer {
 
   QRect splash_screen_;
   QRect exit_button_;
+  QRect minimize_button_;
+  QRect maximaize_button_;
   QRect version_label_;
   QRect company_name_label_;
   QRect time_date_label_;
