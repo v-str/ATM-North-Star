@@ -8,6 +8,6 @@ void InitialPropertyInstaller::SetInitialProperties(QWidget* widget,
                                                     int widget_width,
                                                     int widget_height) {
   widget->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-  widget->resize(widget_width, widget_height);
+  widget->setFixedSize(widget_width, widget_height);
   WidgetCenterArranger::MoveToCenter(widget);
 }
