@@ -13,7 +13,7 @@
                                                                                     |   |
 4. Begin make main widget appearance                                                | + |
                                                                                     |   |
-5. Develop class, that mapping all widgets according of scale of main widget        | - |
+5. Develop class, that mapping all widgets according of scale of main widget        | + |
                                                                                     |   |
 6. How apply new functional from main atm widget to splash screen?                  | + |
    How to remove old code from splash screen and add new from atm main widget?      | + |
@@ -29,8 +29,12 @@
                                                                                     |   |
 11. Make ATM splash screen layout mapping according of screen scale                 | - |
                                                                                     |   |
-12. Fix bugs related with incorrect mapping push buttons. Develop properly classes  | - |
+12. Fix bugs related with incorrect mapping push buttons. Develop properly classes  | + |
     responding of widgets resizing. Rewrite code if is it necessary.                |   |
+                                                                                    |   |
+13. Continue divide dependencies related with subwidgets mapping.                   | - |
+    Make class SplashScreenSizeComposer like as aggregator of sub composers         |   |
+    for any  subwidget.                                                             |   |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
