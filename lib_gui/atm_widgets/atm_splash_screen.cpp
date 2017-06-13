@@ -122,7 +122,8 @@ void AtmSplashScreen::SetInitialSettings() {
 }
 
 void AtmSplashScreen::SetWidgetAppearance() {
-  InitialPropertyInstaller::SetInitialProperties(this, 600, 400);
+  InitialPropertyInstaller::SetInitialProperties(
+      this, 600, 400, InitialPropertyInstaller::kResize);
   setWindowIcon(QIcon(":/images/project_icon.png"));
 }
 
