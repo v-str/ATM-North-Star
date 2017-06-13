@@ -3,6 +3,8 @@
 
 #include <QRect>
 
+#include <window_buttons_composer.h>
+
 class QPushButton;
 class QLabel;
 class QFrame;
@@ -19,6 +21,10 @@ class SplashScreenSizeComposer {
                                const QRect& atm_label,
                                const QRect& text_label,
                                const QRect& frame);
+
+  void InitializeControlButtonsGeometry(const QRect& exit_button,
+                                        const QRect& minimize_button,
+                                        const QRect& maximaze_button);
 
   void ResizeFrame(QFrame* frame);
 
@@ -48,6 +54,8 @@ class SplashScreenSizeComposer {
 
   int extra_button_width_ = 0;
   int extra_button_height_ = 0;
+
+  WindowButtonsComposer window_button_composer_;
 };
 
 #endif  // SPLASH_SCREEN_SIZE_COMPOSER_H

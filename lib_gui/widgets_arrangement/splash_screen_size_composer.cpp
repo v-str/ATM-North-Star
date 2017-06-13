@@ -27,6 +27,14 @@ void SplashScreenSizeComposer::RememberInitialGeometry(
   frame_ = frame;
 }
 
+void SplashScreenSizeComposer::InitializeControlButtonsGeometry(
+    const QRect& exit_button,
+    const QRect& minimize_button,
+    const QRect& maximaze_button) {
+  window_button_composer_.InitializeButtons(exit_button, minimize_button,
+                                            maximaze_button);
+}
+
 void SplashScreenSizeComposer::ResizeFrame(QFrame* frame) {
   frame->setGeometry(frame_.x(), frame->y(), frame_.width() + extra_width_,
                      frame_.height() + extra_height_);
