@@ -36,6 +36,9 @@ void SplashScreenResizeComposer::ResizeExitButton(QPushButton* exit_button) {
                            exit_button_.height() + extra_button_height_);
 }
 
+void SplashScreenResizeComposer::ResizeMinimizeButton(
+    QPushButton* minimize_button) {}
+
 void SplashScreenResizeComposer::SetExtraWidth(int extra_width) {
   extra_width_ = extra_width - splash_screen_.width();
 }
@@ -45,6 +48,9 @@ void SplashScreenResizeComposer::SetExtraHeight(int extra_height) {
 }
 
 void SplashScreenResizeComposer::ComputeExtraButtonParameters() {
-  extra_button_width_ = qCeil(extra_width_ / 100);
-  extra_button_height_ = qCeil(extra_height_ / 100);
+  int extra_width = extra_width_;
+  int extra_height = extra_height_;
+
+  extra_button_width_ = qCeil(extra_width / 100);
+  extra_button_height_ = qCeil(extra_height / 100);
 }
