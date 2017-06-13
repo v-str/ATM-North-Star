@@ -1,10 +1,10 @@
-﻿#include <splash_screen_resize_composer.h>
+﻿#include <splash_screen_size_composer.h>
 
 #include <QtCore/qmath.h>
 #include <QFrame>
 #include <QPushButton>
 
-void SplashScreenResizeComposer::RememberInitialGeometry(
+void SplashScreenSizeComposer::RememberInitialGeometry(
     const QRect& splash_screen,
     const QRect& exit_button,
     const QRect& minimize_button,
@@ -27,12 +27,12 @@ void SplashScreenResizeComposer::RememberInitialGeometry(
   frame_ = frame;
 }
 
-void SplashScreenResizeComposer::ResizeFrame(QFrame* frame) {
+void SplashScreenSizeComposer::ResizeFrame(QFrame* frame) {
   frame->setGeometry(frame_.x(), frame->y(), frame_.width() + extra_width_,
                      frame_.height() + extra_height_);
 }
 
-void SplashScreenResizeComposer::ResizeExitButton(QPushButton* exit_button) {
+void SplashScreenSizeComposer::ResizeExitButton(QPushButton* exit_button) {
   ComputeExtraButtonParameters();
 
   exit_button->setGeometry(exit_button_.x(), exit_button_.y(),
@@ -40,7 +40,7 @@ void SplashScreenResizeComposer::ResizeExitButton(QPushButton* exit_button) {
                            exit_button_.height() + extra_button_height_);
 }
 
-void SplashScreenResizeComposer::ResizeMinimizeButton(
+void SplashScreenSizeComposer::ResizeMinimizeButton(
     QPushButton* minimize_button) {
   ComputeExtraButtonParameters();
 
@@ -50,7 +50,7 @@ void SplashScreenResizeComposer::ResizeMinimizeButton(
       minimize_button_.height() + extra_button_height_);
 }
 
-void SplashScreenResizeComposer::ResizeMaximizeButton(
+void SplashScreenSizeComposer::ResizeMaximizeButton(
     QPushButton* maximaize_button) {
   ComputeExtraButtonParameters();
 
@@ -60,15 +60,15 @@ void SplashScreenResizeComposer::ResizeMaximizeButton(
       maximaize_button_.height() + extra_button_height_);
 }
 
-void SplashScreenResizeComposer::SetExtraWidth(int extra_width) {
+void SplashScreenSizeComposer::SetExtraWidth(int extra_width) {
   extra_width_ = extra_width - splash_screen_.width();
 }
 
-void SplashScreenResizeComposer::SetExtraHeight(int extra_height) {
+void SplashScreenSizeComposer::SetExtraHeight(int extra_height) {
   extra_height_ = extra_height - splash_screen_.height();
 }
 
-void SplashScreenResizeComposer::ComputeExtraButtonParameters() {
+void SplashScreenSizeComposer::ComputeExtraButtonParameters() {
   int extra_width = extra_width_;
   int extra_height = extra_height_;
 

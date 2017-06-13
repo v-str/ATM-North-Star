@@ -1,5 +1,5 @@
-﻿#ifndef SPLASH_SCREEN_RESIZE_COMPOSER_H
-#define SPLASH_SCREEN_RESIZE_COMPOSER_H
+﻿#ifndef SPLASH_SCREEN_SIZE_COMPOSER_H
+#define SPLASH_SCREEN_SIZE_COMPOSER_H
 
 #include <QRect>
 
@@ -7,7 +7,7 @@ class QPushButton;
 class QLabel;
 class QFrame;
 
-class SplashScreenResizeComposer {
+class SplashScreenSizeComposer {
  public:
   void RememberInitialGeometry(const QRect& splash_screen,
                                const QRect& exit_button,
@@ -50,4 +50,4 @@ class SplashScreenResizeComposer {
   int extra_button_height_ = 0;
 };
 
-#endif  // SPLASH_SCREEN_RESIZE_COMPOSER_H
+#endif  // SPLASH_SCREEN_SIZE_COMPOSER_H
