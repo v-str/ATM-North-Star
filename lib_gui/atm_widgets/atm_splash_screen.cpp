@@ -107,9 +107,8 @@ void AtmSplashScreen::resizeEvent(QResizeEvent*) {
   size_composer_.SetExtraHeight(height());
 
   size_composer_.ResizeFrame(ui->frame);
-  size_composer_.ResizeExitButton(ui->exit_button);
-  size_composer_.ResizeMinimizeButton(ui->minimize_button);
-  size_composer_.ResizeMaximizeButton(ui->maximaze_button);
+  size_composer_.ResizeControlButtons(ui->exit_button, ui->minimize_button,
+                                      ui->maximize_button);
 }
 
 void AtmSplashScreen::SetInitialSettings() {
@@ -117,11 +116,14 @@ void AtmSplashScreen::SetInitialSettings() {
   setMinimumSize(600, 400);
 
   size_composer_.RememberInitialGeometry(
-      this->geometry(), ui->exit_button->geometry(),
-      ui->minimize_button->geometry(), ui->maximaze_button->geometry(),
-      ui->version_label->geometry(), ui->atm_company_name_label->geometry(),
-      ui->timedate_label->geometry(), ui->atm_label->geometry(),
-      ui->text_label->geometry(), ui->frame->geometry());
+      this->geometry(), ui->version_label->geometry(),
+      ui->atm_company_name_label->geometry(), ui->timedate_label->geometry(),
+      ui->atm_label->geometry(), ui->text_label->geometry(),
+      ui->frame->geometry());
+
+  size_composer_.InitializeControlButtonsGeometry(
+      ui->exit_button->geometry(), ui->minimize_button->geometry(),
+      ui->maximize_button->geometry());
 }
 
 void AtmSplashScreen::SetWidgetAppearance() {
@@ -134,7 +136,7 @@ void AtmSplashScreen::PaintWidgets() {
   QList<QLabel*> label_list = {ui->atm_company_name_label, ui->text_label,
                                ui->timedate_label, ui->version_label};
   QList<QPushButton*> button_list = {ui->exit_button, ui->minimize_button,
-                                     ui->maximaze_button};
+                                     ui->maximize_button};
   QList<QFrame*> frame_list = {ui->frame};
 
   color_designer_.PaintWidgetSet(label_list);

@@ -256,7 +256,7 @@ color: rgb(32, 74, 135);
      <string>_</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="maximaze_button">
+   <widget class="QPushButton" name="maximize_button">
     <property name="geometry">
      <rect>
       <x>65</x>
