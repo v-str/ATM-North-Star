@@ -21,8 +21,10 @@ class SplashScreenResizeComposer {
                                const QRect& frame);
 
   void ResizeFrame(QFrame* frame);
+
   void ResizeExitButton(QPushButton* exit_button);
   void ResizeMinimizeButton(QPushButton* minimize_button);
+  void ResizeMaximizeButton(QPushButton* maximaize_button);
 
   void SetExtraWidth(int extra_width);
   void SetExtraHeight(int extra_height);

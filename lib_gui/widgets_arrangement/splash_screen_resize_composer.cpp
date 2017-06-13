@@ -50,6 +50,16 @@ void SplashScreenResizeComposer::ResizeMinimizeButton(
       minimize_button_.height() + extra_button_height_);
 }
 
+void SplashScreenResizeComposer::ResizeMaximizeButton(
+    QPushButton* maximaize_button) {
+  ComputeExtraButtonParameters();
+
+  maximaize_button->setGeometry(
+      maximaize_button_.x() + extra_button_width_ * 2, maximaize_button_.y(),
+      maximaize_button_.width() + extra_button_width_,
+      maximaize_button_.height() + extra_button_height_);
+}
+
 void SplashScreenResizeComposer::SetExtraWidth(int extra_width) {
   extra_width_ = extra_width - splash_screen_.width();
 }

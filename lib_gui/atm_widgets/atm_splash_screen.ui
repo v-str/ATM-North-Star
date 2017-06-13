@@ -245,8 +245,8 @@ color: rgb(32, 74, 135);
      <font>
       <family>Tlwg Mono</family>
       <pointsize>12</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -274,7 +274,7 @@ color: rgb(32, 74, 135);
      </font>
     </property>
     <property name="layoutDirection">
-     <enum>Qt::RightToLeft</enum>
+     <enum>Qt::LeftToRight</enum>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
