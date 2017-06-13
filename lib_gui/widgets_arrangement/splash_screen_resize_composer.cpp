@@ -4,14 +4,15 @@
 #include <QFrame>
 #include <QPushButton>
 
-void SplashScreenResizeComposer::SetGeometry(const QRect& splash_screen,
-                                             const QRect& exit_button,
-                                             const QRect& version_label,
-                                             const QRect& company_name_label,
-                                             const QRect& time_date_label,
-                                             const QRect& atm_label,
-                                             const QRect& text_label,
-                                             const QRect& frame) {
+void SplashScreenResizeComposer::RememerInitialGeometry(
+    const QRect& splash_screen,
+    const QRect& exit_button,
+    const QRect& version_label,
+    const QRect& company_name_label,
+    const QRect& time_date_label,
+    const QRect& atm_label,
+    const QRect& text_label,
+    const QRect& frame) {
   splash_screen_ = splash_screen;
   exit_button_ = exit_button;
   version_label_ = version_label;
