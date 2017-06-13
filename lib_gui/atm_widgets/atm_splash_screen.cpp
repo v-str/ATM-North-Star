@@ -103,20 +103,20 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
 }
 
 void AtmSplashScreen::resizeEvent(QResizeEvent*) {
-  resize_composer_.SetExtraWidth(width());
-  resize_composer_.SetExtraHeight(height());
+  size_composer_.SetExtraWidth(width());
+  size_composer_.SetExtraHeight(height());
 
-  resize_composer_.ResizeFrame(ui->frame);
-  resize_composer_.ResizeExitButton(ui->exit_button);
-  resize_composer_.ResizeMinimizeButton(ui->minimize_button);
-  resize_composer_.ResizeMaximizeButton(ui->maximaze_button);
+  size_composer_.ResizeFrame(ui->frame);
+  size_composer_.ResizeExitButton(ui->exit_button);
+  size_composer_.ResizeMinimizeButton(ui->minimize_button);
+  size_composer_.ResizeMaximizeButton(ui->maximaze_button);
 }
 
 void AtmSplashScreen::SetInitialSettings() {
   SetCompanyName("");
   setMinimumSize(600, 400);
 
-  resize_composer_.RememberInitialGeometry(
+  size_composer_.RememberInitialGeometry(
       this->geometry(), ui->exit_button->geometry(),
       ui->minimize_button->geometry(), ui->maximaze_button->geometry(),
       ui->version_label->geometry(), ui->atm_company_name_label->geometry(),
