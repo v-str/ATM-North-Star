@@ -4,7 +4,7 @@
 #include <QFrame>
 #include <QPushButton>
 
-void SplashScreenResizeComposer::RememerInitialGeometry(
+void SplashScreenResizeComposer::RememberInitialGeometry(
     const QRect& splash_screen,
     const QRect& exit_button,
     const QRect& version_label,

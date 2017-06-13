@@ -9,14 +9,14 @@ class QFrame;
 
 class SplashScreenResizeComposer {
  public:
-  void RememerInitialGeometry(const QRect& splash_screen,
-                              const QRect& exit_button,
-                              const QRect& version_label,
-                              const QRect& company_name_label,
-                              const QRect& time_date_label,
-                              const QRect& atm_label,
-                              const QRect& text_label,
-                              const QRect& frame);
+  void RememberInitialGeometry(const QRect& splash_screen,
+                               const QRect& exit_button,
+                               const QRect& version_label,
+                               const QRect& company_name_label,
+                               const QRect& time_date_label,
+                               const QRect& atm_label,
+                               const QRect& text_label,
+                               const QRect& frame);
 
   void ResizeFrame(QFrame* frame);
   void ResizeExitButton(QPushButton* exit_button);
