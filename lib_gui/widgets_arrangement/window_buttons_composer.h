@@ -15,8 +15,7 @@ class WindowButtonsComposer {
   void ResizeMinimizeButton(QPushButton* minimize_button);
   void ResizeMaximizeButton(QPushButton* maximize_button);
 
-  void SetExtraWidthSize(int extra_width);
-  void SetExtraHeightSize(int extra_height);
+  void SetExtraGeometryButtonSize(int extra_width, int extra_height);
 
  private:
   void ComputeExtraButtonSize();
