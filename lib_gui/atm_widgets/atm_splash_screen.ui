@@ -305,7 +305,7 @@ color: rgb(32, 74, 135);
   </connection>
   <connection>
    <sender>maximize_button</sender>
-   <signal>clicked()</signal>
+   <signal>clicked(bool)</signal>
    <receiver>AtmSplashScreen</receiver>
    <slot>showMaximized()</slot>
    <hints>

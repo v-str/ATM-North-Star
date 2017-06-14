@@ -117,7 +117,6 @@ void AtmSplashScreen::SetInitialSettings() {
       ui->atm_label->geometry(), ui->text_label->geometry());
 
   size_composer_.InitializeFrameGeometry(ui->frame->geometry());
-
   size_composer_.InitializeControlButtonsGeometry(
       ui->exit_button->geometry(), ui->minimize_button->geometry(),
       ui->maximize_button->geometry());
@@ -175,6 +174,7 @@ void AtmSplashScreen::ComputeNewGeometry() {
 
 void AtmSplashScreen::ResizeWidgets() {
   size_composer_.ResizeFrame(ui->frame);
+  size_composer_.ResizeVersionLabel(ui->version_label);
   size_composer_.ResizeWindowControlButtons(
       ui->exit_button, ui->minimize_button, ui->maximize_button);
 }

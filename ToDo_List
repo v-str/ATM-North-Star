@@ -32,9 +32,11 @@
 12. Fix bugs related with incorrect mapping push buttons. Develop properly classes  | + |
     responding of widgets resizing. Rewrite code if is it necessary.                |   |
                                                                                     |   |
-13. Continue divide dependencies related with subwidgets mapping.                   | - |
+13. Divide dependencies related with subwidgets mapping.                            | - |
     Make class SplashScreenSizeComposer like as aggregator of sub composers         |   |
     for any subwidget.                                                              |   |
+                                                                                    |   |
+14. Extract growth criterion and use it in all widget resize subclasses             | - |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------

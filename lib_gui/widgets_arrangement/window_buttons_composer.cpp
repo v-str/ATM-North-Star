@@ -50,8 +50,8 @@ void WindowButtonsComposer::ComputeExtraButtonSize() {
   int extra_width = extra_width_;
   int extra_height = extra_height_;
 
-  growth_width_criterion_ = qCeil(extra_width / 100);
-  growth_height_criterion_ = qCeil(extra_height / 100);
+  growth_width_criterion_ = qCeil(extra_width / 50);
+  growth_height_criterion_ = qCeil(extra_height / 50);
 
   x_offset_ = growth_width_criterion_;
 }

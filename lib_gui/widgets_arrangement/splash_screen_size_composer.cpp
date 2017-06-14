@@ -1,6 +1,7 @@
 ﻿#include <splash_screen_size_composer.h>
 
 #include <QFrame>
+#include <QLabel>
 #include <QPushButton>
 
 void SplashScreenSizeComposer::RememberInitialGeometry(
@@ -33,6 +34,12 @@ void SplashScreenSizeComposer::InitializeControlButtonsGeometry(
 void SplashScreenSizeComposer::ResizeFrame(QFrame* frame) {
   frame->setGeometry(frame_.x(), frame->y(), frame_.width() + extra_width_,
                      frame_.height() + extra_height_);
+}
+
+void SplashScreenSizeComposer::ResizeVersionLabel(QLabel* version_label) {
+  version_label->setGeometry(version_label_.x() + extra_width_,
+                             version_label_.y(), version_label_.width(),
+                             version_label_.height());
 }
 
 void SplashScreenSizeComposer::ResizeWindowControlButtons(
