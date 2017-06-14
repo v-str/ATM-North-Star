@@ -29,8 +29,7 @@ class SplashScreenSizeComposer {
                             QPushButton* minimize_button,
                             QPushButton* maximize_button);
 
-  void SetExtraWidth(int extra_width);
-  void SetExtraHeight(int extra_height);
+  void SetExtraGeometrySize(int extra_width, int extra_height);
 
  private:
   void ComputeExtraButtonParameters();

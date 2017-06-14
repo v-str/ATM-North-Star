@@ -44,10 +44,8 @@ void SplashScreenSizeComposer::ResizeControlButtons(
   window_button_composer_.ResizeMaximizeButton(maximize_button);
 }
 
-void SplashScreenSizeComposer::SetExtraWidth(int extra_width) {
+void SplashScreenSizeComposer::SetExtraGeometrySize(int extra_width,
+                                                    int extra_height) {
   extra_width_ = extra_width - splash_screen_.width();
-}
-
-void SplashScreenSizeComposer::SetExtraHeight(int extra_height) {
   extra_height_ = extra_height - splash_screen_.height();
 }
