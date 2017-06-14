@@ -5,17 +5,16 @@
 
 class QPushButton;
 
+enum class ButtonRole { kExitButton, kMinimizeButton, kMaximizeButton };
+
 class WindowButtonsComposer {
  public:
-  enum ButtonRole { kExit, kMinimize, kMaximize };
-
   void InitializeButtons(const QRect& exit_button,
                          const QRect& minimize_button,
                          const QRect& maximize_button);
 
-  void ResizeExitButton(QPushButton* exit_button);
-  void ResizeMinimizeButton(QPushButton* minimize_button);
-  void ResizeMaximizeButton(QPushButton* maximize_button);
+  void ResizeWindowButton(QPushButton* window_button,
+                          const ButtonRole& button_role);
 
   void InitializeExtraParameters(int extra_width, int extra_height);
 

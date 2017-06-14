@@ -39,9 +39,13 @@ void SplashScreenSizeComposer::ResizeControlButtons(
     QPushButton* maximize_button) {
   window_button_composer_.InitializeExtraParameters(extra_width_,
                                                     extra_height_);
-  window_button_composer_.ResizeExitButton(exit_button);
-  window_button_composer_.ResizeMinimizeButton(minimize_button);
-  window_button_composer_.ResizeMaximizeButton(maximize_button);
+
+  window_button_composer_.ResizeWindowButton(exit_button,
+                                             ButtonRole::kExitButton);
+  window_button_composer_.ResizeWindowButton(minimize_button,
+                                             ButtonRole::kMinimizeButton);
+  window_button_composer_.ResizeWindowButton(maximize_button,
+                                             ButtonRole::kMaximizeButton);
 }
 
 void SplashScreenSizeComposer::SetExtraGeometrySize(int extra_width,

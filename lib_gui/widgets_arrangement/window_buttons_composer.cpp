@@ -11,24 +11,31 @@ void WindowButtonsComposer::InitializeButtons(const QRect& exit_button,
   maximize_button_ = maximize_button;
 }
 
-void WindowButtonsComposer::ResizeExitButton(QPushButton* exit_button) {
-  exit_button->setGeometry(exit_button_.x(), exit_button_.y(),
-                           exit_button_.width() + growth_width_criterion_,
-                           exit_button_.height() + growth_height_criterion_);
-}
+void WindowButtonsComposer::ResizeWindowButton(QPushButton* window_button,
+                                               const ButtonRole& button_role) {
+  QRect new_geometry(0, 0, 0, 0);
+  int x_offset = x_offset_;
 
-void WindowButtonsComposer::ResizeMinimizeButton(QPushButton* minimize_button) {
-  minimize_button->setGeometry(
-      minimize_button_.x() + x_offset_, minimize_button_.y(),
-      minimize_button_.width() + growth_width_criterion_,
-      minimize_button_.height() + growth_height_criterion_);
-}
+  switch (button_role) {
+    case ButtonRole::kExitButton:
+      new_geometry = exit_button_;
+      x_offset *= 0;
+      break;
+    case ButtonRole::kMinimizeButton:
+      new_geometry = minimize_button_;
+      x_offset *= 1;
+      break;
+    case ButtonRole::kMaximizeButton:
+      new_geometry = maximize_button_;
+      x_offset *= 2;
+      break;
+    default:
+      break;
+  }
 
-void WindowButtonsComposer::ResizeMaximizeButton(QPushButton* maximize_button) {
-  maximize_button->setGeometry(
-      maximize_button_.x() + x_offset_ * 2, maximize_button_.y(),
-      maximize_button_.width() + growth_width_criterion_,
-      maximize_button_.height() + growth_height_criterion_);
+  window_button->setGeometry(new_geometry.x() + x_offset, new_geometry.y(),
+                             new_geometry.width() + growth_width_criterion_,
+                             new_geometry.height() + growth_height_criterion_);
 }
 
 void WindowButtonsComposer::InitializeExtraParameters(int extra_width,
