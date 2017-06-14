@@ -37,8 +37,8 @@ void WindowButtonsComposer::ResizeMaximizeButton(QPushButton* maximize_button) {
       maximize_button_.height() + growth_height_criterion_);
 }
 
-void WindowButtonsComposer::SetExtraGeometryButtonSize(int extra_width,
-                                                       int extra_height) {
+void WindowButtonsComposer::InitializeExtraParameters(int extra_width,
+                                                      int extra_height) {
   extra_width_ = extra_width;
   extra_height_ = extra_height;
 }
