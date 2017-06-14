@@ -7,6 +7,8 @@ class QPushButton;
 
 class WindowButtonsComposer {
  public:
+  enum ButtonRole { kExit, kMinimize, kMaximize };
+
   void InitializeButtons(const QRect& exit_button,
                          const QRect& minimize_button,
                          const QRect& maximize_button);
@@ -29,6 +31,8 @@ class WindowButtonsComposer {
 
   int growth_width_criterion_ = 0;
   int growth_height_criterion_ = 0;
+
+  int x_offset_ = 0;
 };
 
 #endif  // WINDOW_BUTTONS_COMPOSER_H
