@@ -12,16 +12,12 @@ void WindowButtonsComposer::InitializeButtons(const QRect& exit_button,
 }
 
 void WindowButtonsComposer::ResizeExitButton(QPushButton* exit_button) {
-  ComputeExtraButtonSize();
-
   exit_button->setGeometry(exit_button_.x(), exit_button_.y(),
                            exit_button_.width() + growth_width_criterion_,
                            exit_button_.height() + growth_height_criterion_);
 }
 
 void WindowButtonsComposer::ResizeMinimizeButton(QPushButton* minimize_button) {
-  ComputeExtraButtonSize();
-
   minimize_button->setGeometry(
       minimize_button_.x() + growth_width_criterion_, minimize_button_.y(),
       minimize_button_.width() + growth_width_criterion_,
@@ -29,8 +25,6 @@ void WindowButtonsComposer::ResizeMinimizeButton(QPushButton* minimize_button) {
 }
 
 void WindowButtonsComposer::ResizeMaximizeButton(QPushButton* maximize_button) {
-  ComputeExtraButtonSize();
-
   maximize_button->setGeometry(
       maximize_button_.x() + growth_width_criterion_ * 2, maximize_button_.y(),
       maximize_button_.width() + growth_width_criterion_,
@@ -41,6 +35,8 @@ void WindowButtonsComposer::InitializeExtraParameters(int extra_width,
                                                       int extra_height) {
   extra_width_ = extra_width;
   extra_height_ = extra_height;
+
+  ComputeExtraButtonSize();
 }
 
 void WindowButtonsComposer::ComputeExtraButtonSize() {
