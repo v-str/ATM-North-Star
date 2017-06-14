@@ -104,10 +104,7 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
 
 void AtmSplashScreen::resizeEvent(QResizeEvent*) {
   ComputeNewGeometry();
-
-  size_composer_.ResizeFrame(ui->frame);
-  size_composer_.ResizeControlButtons(ui->exit_button, ui->minimize_button,
-                                      ui->maximize_button);
+  ResizeWidgets();
 }
 
 void AtmSplashScreen::SetInitialSettings() {
@@ -174,4 +171,10 @@ void AtmSplashScreen::ProcessKeyEnterPressing() {
 void AtmSplashScreen::ComputeNewGeometry() {
   size_composer_.SetExtraWidth(width());
   size_composer_.SetExtraHeight(height());
+}
+
+void AtmSplashScreen::ResizeWidgets() {
+  size_composer_.ResizeFrame(ui->frame);
+  size_composer_.ResizeControlButtons(ui->exit_button, ui->minimize_button,
+                                      ui->maximize_button);
 }
