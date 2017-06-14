@@ -8,13 +8,13 @@ void SplashScreenSizeComposer::RememberInitialGeometry(
     const QRect& splash_screen,
     const QRect& version_label,
     const QRect& company_name_label,
-    const QRect& time_date_label,
+    const QRect& timedate_label,
     const QRect& atm_label,
     const QRect& text_label) {
   splash_screen_ = splash_screen;
   version_label_ = version_label;
   company_name_label_ = company_name_label;
-  time_date_label_ = time_date_label;
+  timedate_label_ = timedate_label;
   atm_label_ = atm_label;
   text_label_ = text_label;
 }

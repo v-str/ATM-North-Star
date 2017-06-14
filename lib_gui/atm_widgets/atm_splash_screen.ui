@@ -209,7 +209,7 @@ color: rgb(32, 74, 135);
     <property name="font">
      <font>
       <family>Tlwg Mono</family>
-      <pointsize>15</pointsize>
+      <pointsize>16</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>

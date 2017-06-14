@@ -37,6 +37,9 @@
     for any subwidget.                                                              |   |
                                                                                     |   |
 14. Extract growth criterion and use it in all widget resize subclasses             | - |
+                                                                                    |   |
+15. Develop TimeDateSizeComposer for mapping timedate widget and develop            | - |
+    univerral font resizer for font resize in any widget with scale accordingly     |   |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
