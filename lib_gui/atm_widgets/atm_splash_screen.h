@@ -54,6 +54,7 @@ class AtmSplashScreen : public QMainWindow {
   void RunTimers();
   void BlockKeys();
   void ProcessKeyEnterPressing();
+  void ComputeNewGeometry();
 
   Ui::AtmSplashScreen* ui = nullptr;
   QTimer* color_swap_timer_ = nullptr;

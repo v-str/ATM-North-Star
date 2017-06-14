@@ -103,8 +103,7 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
 }
 
 void AtmSplashScreen::resizeEvent(QResizeEvent*) {
-  size_composer_.SetExtraWidth(width());
-  size_composer_.SetExtraHeight(height());
+  ComputeNewGeometry();
 
   size_composer_.ResizeFrame(ui->frame);
   size_composer_.ResizeControlButtons(ui->exit_button, ui->minimize_button,
@@ -170,4 +169,9 @@ void AtmSplashScreen::BlockKeys() {
 void AtmSplashScreen::ProcessKeyEnterPressing() {
   emit PassPositionWhenEnterPressed(this->geometry());
   emit EnterIsPressed();
+}
+
+void AtmSplashScreen::ComputeNewGeometry() {
+  size_composer_.SetExtraWidth(width());
+  size_composer_.SetExtraHeight(height());
 }
