@@ -9,14 +9,16 @@ void SplashScreenSizeComposer::RememberInitialGeometry(
     const QRect& company_name_label,
     const QRect& time_date_label,
     const QRect& atm_label,
-    const QRect& text_label,
-    const QRect& frame) {
+    const QRect& text_label) {
   splash_screen_ = splash_screen;
   version_label_ = version_label;
   company_name_label_ = company_name_label;
   time_date_label_ = time_date_label;
   atm_label_ = atm_label;
   text_label_ = text_label;
+}
+
+void SplashScreenSizeComposer::InitializeFrameGeometry(const QRect& frame) {
   frame_ = frame;
 }
 

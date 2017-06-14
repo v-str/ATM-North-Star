@@ -16,8 +16,9 @@ class SplashScreenSizeComposer {
                                const QRect& company_name_label,
                                const QRect& time_date_label,
                                const QRect& atm_label,
-                               const QRect& text_label,
-                               const QRect& frame);
+                               const QRect& text_label);
+
+  void InitializeFrameGeometry(const QRect& frame);
 
   void InitializeControlButtonsGeometry(const QRect& exit_button,
                                         const QRect& minimize_button,

@@ -303,5 +303,21 @@ color: rgb(32, 74, 135);
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>maximize_button</sender>
+   <signal>clicked()</signal>
+   <receiver>AtmSplashScreen</receiver>
+   <slot>showMaximized()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>77</x>
+     <y>27</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>4</x>
+     <y>119</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
 </ui>
