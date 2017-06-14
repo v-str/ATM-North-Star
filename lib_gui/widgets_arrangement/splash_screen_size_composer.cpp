@@ -33,7 +33,7 @@ void SplashScreenSizeComposer::ResizeFrame(QFrame* frame) {
                      frame_.height() + extra_height_);
 }
 
-void SplashScreenSizeComposer::ResizeControlButtons(
+void SplashScreenSizeComposer::ResizeWindowControlButtons(
     QPushButton* exit_button,
     QPushButton* minimize_button,
     QPushButton* maximize_button) {

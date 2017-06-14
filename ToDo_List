@@ -34,7 +34,7 @@
                                                                                     |   |
 13. Continue divide dependencies related with subwidgets mapping.                   | - |
     Make class SplashScreenSizeComposer like as aggregator of sub composers         |   |
-    for any  subwidget.                                                             |   |
+    for any subwidget.                                                              |   |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
