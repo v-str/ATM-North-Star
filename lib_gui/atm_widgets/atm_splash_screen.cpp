@@ -177,4 +177,5 @@ void AtmSplashScreen::ResizeWidgets() {
   size_composer_.ComposeVersionLabel(ui->version_label);
   size_composer_.ComposeWindowControlButtons(
       ui->exit_button, ui->minimize_button, ui->maximize_button);
+  size_composer_.ComposeSplashScreenLabels(ui->timedate_label);
 }

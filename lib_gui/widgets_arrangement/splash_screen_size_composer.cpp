@@ -57,6 +57,12 @@ void SplashScreenSizeComposer::ComposeWindowControlButtons(
                                               ButtonRole::kMaximizeButton);
 }
 
+void SplashScreenSizeComposer::ComposeSplashScreenLabels(QLabel* label) {
+  label->setGeometry(timedate_label_.x() + extra_width_ / 2,
+                     timedate_label_.y() + extra_height_,
+                     timedate_label_.width(), timedate_label_.height());
+}
+
 void SplashScreenSizeComposer::SetExtraGeometrySize(int extra_width,
                                                     int extra_height) {
   extra_width_ = extra_width - splash_screen_.width();
