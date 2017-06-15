@@ -29,7 +29,10 @@ class SplashScreenSizeComposer {
   void ComposeWindowControlButtons(QPushButton* exit_button,
                                    QPushButton* minimize_button,
                                    QPushButton* maximize_button);
-  void ComposeSplashScreenLabels(QLabel* label);
+  void ComposeSplashScreenLabels(QLabel* timedate_label,
+                                 QLabel* company_name_label,
+                                 QLabel* text_label,
+                                 QLabel* atm_label);
 
   void SetExtraGeometrySize(int extra_width, int extra_height);
 

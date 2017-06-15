@@ -57,10 +57,27 @@ void SplashScreenSizeComposer::ComposeWindowControlButtons(
                                               ButtonRole::kMaximizeButton);
 }
 
-void SplashScreenSizeComposer::ComposeSplashScreenLabels(QLabel* label) {
-  label->setGeometry(timedate_label_.x() + extra_width_ / 2,
-                     timedate_label_.y() + extra_height_,
-                     timedate_label_.width(), timedate_label_.height());
+void SplashScreenSizeComposer::ComposeSplashScreenLabels(
+    QLabel* timedate_label,
+    QLabel* company_name_label,
+    QLabel* text_label,
+    QLabel* atm_label) {
+  timedate_label->setGeometry(timedate_label_.x() + extra_width_ / 2,
+                              timedate_label_.y() + extra_height_,
+                              timedate_label_.width(),
+                              timedate_label_.height());
+
+  company_name_label->setGeometry(
+      company_name_label_.x() + extra_width_ / 2, company_name_label->y(),
+      company_name_label->width(), company_name_label->height());
+
+  text_label->setGeometry(text_label_.x() + extra_width_ / 2,
+                          text_label_.y() + extra_height_, text_label_.width(),
+                          text_label_.height());
+
+  atm_label->setGeometry(atm_label_.x() + extra_width_ / 2,
+                         atm_label_.y() + extra_height_ / 2, atm_label_.width(),
+                         atm_label_.height());
 }
 
 void SplashScreenSizeComposer::SetExtraGeometrySize(int extra_width,
