@@ -173,8 +173,8 @@ void AtmSplashScreen::ComputeNewGeometry() {
 }
 
 void AtmSplashScreen::ResizeWidgets() {
-  size_composer_.ResizeFrame(ui->frame);
-  size_composer_.ResizeVersionLabel(ui->version_label);
-  size_composer_.ResizeWindowControlButtons(
+  size_composer_.ComposeFrame(ui->frame);
+  size_composer_.ComposeVersionLabel(ui->version_label);
+  size_composer_.ComposeWindowControlButtons(
       ui->exit_button, ui->minimize_button, ui->maximize_button);
 }

@@ -31,30 +31,30 @@ void SplashScreenSizeComposer::InitializeControlButtonsGeometry(
                                             maximaze_button);
 }
 
-void SplashScreenSizeComposer::ResizeFrame(QFrame* frame) {
+void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
   frame->setGeometry(frame_.x(), frame->y(), frame_.width() + extra_width_,
                      frame_.height() + extra_height_);
 }
 
-void SplashScreenSizeComposer::ResizeVersionLabel(QLabel* version_label) {
+void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
   version_label->setGeometry(version_label_.x() + extra_width_,
                              version_label_.y(), version_label_.width(),
                              version_label_.height());
 }
 
-void SplashScreenSizeComposer::ResizeWindowControlButtons(
+void SplashScreenSizeComposer::ComposeWindowControlButtons(
     QPushButton* exit_button,
     QPushButton* minimize_button,
     QPushButton* maximize_button) {
   window_button_composer_.InitializeExtraParameters(extra_width_,
                                                     extra_height_);
 
-  window_button_composer_.ResizeWindowButton(exit_button,
-                                             ButtonRole::kExitButton);
-  window_button_composer_.ResizeWindowButton(minimize_button,
-                                             ButtonRole::kMinimizeButton);
-  window_button_composer_.ResizeWindowButton(maximize_button,
-                                             ButtonRole::kMaximizeButton);
+  window_button_composer_.ComposeWindowButton(exit_button,
+                                              ButtonRole::kExitButton);
+  window_button_composer_.ComposeWindowButton(minimize_button,
+                                              ButtonRole::kMinimizeButton);
+  window_button_composer_.ComposeWindowButton(maximize_button,
+                                              ButtonRole::kMaximizeButton);
 }
 
 void SplashScreenSizeComposer::SetExtraGeometrySize(int extra_width,

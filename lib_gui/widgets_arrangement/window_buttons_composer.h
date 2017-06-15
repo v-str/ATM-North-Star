@@ -13,8 +13,8 @@ class WindowButtonsComposer {
                          const QRect& minimize_button,
                          const QRect& maximize_button);
 
-  void ResizeWindowButton(QPushButton* window_button,
-                          const ButtonRole& button_role);
+  void ComposeWindowButton(QPushButton* window_button,
+                           const ButtonRole& button_role);
 
   void InitializeExtraParameters(int extra_width, int extra_height);
 

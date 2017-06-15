@@ -11,8 +11,8 @@ void WindowButtonsComposer::InitializeButtons(const QRect& exit_button,
   maximize_button_ = maximize_button;
 }
 
-void WindowButtonsComposer::ResizeWindowButton(QPushButton* window_button,
-                                               const ButtonRole& button_role) {
+void WindowButtonsComposer::ComposeWindowButton(QPushButton* window_button,
+                                                const ButtonRole& button_role) {
   QRect new_geometry(0, 0, 0, 0);
   int x_offset = x_offset_;
 
