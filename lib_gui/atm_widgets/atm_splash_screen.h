@@ -64,7 +64,7 @@ class AtmSplashScreen : public QMainWindow {
   ExitDialog* exit_dialog_ = nullptr;
 
   AtmColorDesigner color_designer_;
-  SplashScreenSizeComposer size_composer_;
+  SplashScreenSizeComposer composer_;
 };
 
 #endif  // ATM_SPLASH_SCREEN_H

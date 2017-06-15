@@ -111,15 +111,15 @@ void AtmSplashScreen::SetInitialSettings() {
   SetCompanyName("");
   setMinimumSize(600, 400);
 
-  size_composer_.RememberInitialGeometry(
+  composer_.RememberInitialGeometry(
       this->geometry(), ui->version_label->geometry(),
       ui->atm_company_name_label->geometry(), ui->timedate_label->geometry(),
       ui->atm_label->geometry(), ui->text_label->geometry());
 
-  size_composer_.InitializeFrameGeometry(ui->frame->geometry());
-  size_composer_.InitializeControlButtonsGeometry(
-      ui->exit_button->geometry(), ui->minimize_button->geometry(),
-      ui->maximize_button->geometry());
+  composer_.InitializeFrameGeometry(ui->frame->geometry());
+  composer_.InitializeControlButtonsGeometry(ui->exit_button->geometry(),
+                                             ui->minimize_button->geometry(),
+                                             ui->maximize_button->geometry());
 }
 
 void AtmSplashScreen::SetWidgetAppearance() {
@@ -169,15 +169,15 @@ void AtmSplashScreen::ProcessKeyEnterPressing() {
 }
 
 void AtmSplashScreen::ComputeNewGeometry() {
-  size_composer_.SetExtraGeometrySize(width(), height());
+  composer_.SetExtraGeometrySize(width(), height());
 }
 
 void AtmSplashScreen::ResizeWidgets() {
-  size_composer_.ComposeFrame(ui->frame);
-  size_composer_.ComposeVersionLabel(ui->version_label);
-  size_composer_.ComposeWindowControlButtons(
-      ui->exit_button, ui->minimize_button, ui->maximize_button);
-  size_composer_.ComposeSplashScreenLabels(ui->timedate_label,
-                                           ui->atm_company_name_label,
-                                           ui->text_label, ui->atm_label);
+  composer_.ComposeFrame(ui->frame);
+  composer_.ComposeVersionLabel(ui->version_label);
+  composer_.ComposeWindowControlButtons(ui->exit_button, ui->minimize_button,
+                                        ui->maximize_button);
+  composer_.ComposeSplashScreenLabels(ui->timedate_label,
+                                      ui->atm_company_name_label,
+                                      ui->text_label, ui->atm_label);
 }
