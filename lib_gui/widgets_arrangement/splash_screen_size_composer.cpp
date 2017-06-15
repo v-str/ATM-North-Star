@@ -46,8 +46,7 @@ void SplashScreenSizeComposer::ComposeWindowControlButtons(
     QPushButton* exit_button,
     QPushButton* minimize_button,
     QPushButton* maximize_button) {
-  window_button_composer_.InitializeExtraParameters(extra_width_,
-                                                    extra_height_);
+  window_button_composer_.AssignExtraParameters(extra_width_, extra_height_);
 
   window_button_composer_.ComposeWindowButton(exit_button,
                                               ButtonRole::kExitButton);

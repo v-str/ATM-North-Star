@@ -38,8 +38,8 @@ void WindowButtonsComposer::ComposeWindowButton(QPushButton* window_button,
                              new_geometry.height() + growth_height_criterion_);
 }
 
-void WindowButtonsComposer::InitializeExtraParameters(int extra_width,
-                                                      int extra_height) {
+void WindowButtonsComposer::AssignExtraParameters(int extra_width,
+                                                  int extra_height) {
   extra_width_ = extra_width;
   extra_height_ = extra_height;
 

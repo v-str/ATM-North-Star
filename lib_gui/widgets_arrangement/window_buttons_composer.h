@@ -16,7 +16,7 @@ class WindowButtonsComposer {
   void ComposeWindowButton(QPushButton* window_button,
                            const ButtonRole& button_role);
 
-  void InitializeExtraParameters(int extra_width, int extra_height);
+  void AssignExtraParameters(int extra_width, int extra_height);
 
  private:
   void ComputeExtraButtonSize();
