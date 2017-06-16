@@ -31,8 +31,9 @@ class SplashScreenSizeComposer {
                                    QPushButton* maximize_button);
   void ComposeSplashScreenLabels(QLabel* timedate_label,
                                  QLabel* company_name_label,
-                                 QLabel* text_label,
-                                 QLabel* atm_label);
+                                 QLabel* text_label);
+
+  void ComposeAtmLabel(QLabel* atm_label);
 
   void SetExtraGeometrySize(int extra_width, int extra_height);
 
@@ -46,6 +47,8 @@ class SplashScreenSizeComposer {
   QRect atm_label_;
   QRect text_label_;
   QRect frame_;
+
+  static const int atm_label_font_ = 100;
 
   int extra_width_ = 0;
   int extra_height_ = 0;
