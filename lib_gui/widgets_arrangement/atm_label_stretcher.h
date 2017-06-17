@@ -1,11 +1,11 @@
-﻿#ifndef ATM_SIZE_LABEL_CALCULATOR_H
-#define ATM_SIZE_LABEL_CALCULATOR_H
+﻿#ifndef ATM_LABEL_STRETCHER
+#define ATM_LABEL_STRETCHER
 
 #include <QFont>
 
 class QLabel;
 
-class AtmSizeLabelCalculator {
+class AtmLabelStretcher {
  public:
   void StretchAtmLabel(QLabel* atm_label,
                        int width_increase,
@@ -32,4 +32,4 @@ class AtmSizeLabelCalculator {
   QFont font_;
 };
 
-#endif  // ATM_SIZE_LABEL_CALCULATOR_H
+#endif  // ATM_LABEL_STRETCHER

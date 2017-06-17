@@ -1,9 +1,9 @@
-﻿#include <atm_size_label_calculator.h>
+﻿#include <atm_label_stretcher.h>
 
 #include <QFontMetrics>
 #include <QLabel>
 
-void AtmSizeLabelCalculator::StretchAtmLabel(QLabel* atm_label,
+void AtmLabelStretcher::StretchAtmLabel(QLabel* atm_label,
                                              int width_increase,
                                              int height_increase) {
   width_increase_ = width_increase;
@@ -14,7 +14,7 @@ void AtmSizeLabelCalculator::StretchAtmLabel(QLabel* atm_label,
   PerformStretching(atm_label);
 }
 
-void AtmSizeLabelCalculator::ComputeFontSize() {
+void AtmLabelStretcher::ComputeFontSize() {
   int font_growth = (width_increase_ - height_increase_) / 3;
   font_pointsize_ = kInitFontSize + font_growth;
 
@@ -22,7 +22,7 @@ void AtmSizeLabelCalculator::ComputeFontSize() {
   if (font_pointsize_ > kFontSizeLimit) font_pointsize_ = kFontSizeLimit;
 }
 
-void AtmSizeLabelCalculator::FitFrameByFontSize(const QLabel* atm_label) {
+void AtmLabelStretcher::FitFrameByFontSize(const QLabel* atm_label) {
   font_ = atm_label->font();
   QFontMetrics font_metrics(atm_label->font());
 
@@ -34,7 +34,7 @@ void AtmSizeLabelCalculator::FitFrameByFontSize(const QLabel* atm_label) {
   }
 }
 
-void AtmSizeLabelCalculator::PerformStretching(QLabel* atm_label) {
+void AtmLabelStretcher::PerformStretching(QLabel* atm_label) {
   font_.setPointSize(font_pointsize_);
   atm_label->setFont(font_);
 
