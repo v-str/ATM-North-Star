@@ -20,7 +20,7 @@ class AtmLabelStretcher {
   static const int kInitYPos = 100;
   static const int kInitWidth = 300;
   static const int kInitHeight = 150;
-  static const int kInitFontSize = 100;
+  static const int kInitFontSize = 90;
   static const int kFontSizeLimit = 150;
 
   int font_pointsize_ = 0;

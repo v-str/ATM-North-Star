@@ -118,7 +118,7 @@ color: rgb(32, 74, 135);
      <property name="font">
       <font>
        <family>FreeSans</family>
-       <pointsize>100</pointsize>
+       <pointsize>90</pointsize>
        <weight>75</weight>
        <bold>true</bold>
        <underline>false</underline>
