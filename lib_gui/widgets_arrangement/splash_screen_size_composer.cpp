@@ -4,7 +4,6 @@
 #include <QFontMetrics>
 #include <QFrame>
 #include <QLabel>
-#include <QPushButton>
 
 #include <atm_splash_screen.h>
 
@@ -15,14 +14,6 @@ QRect SplashScreenSizeComposer::kAtmLabel(140, 100, 300, 150);
 QRect SplashScreenSizeComposer::kTextLabel(170, 270, 240, 30);
 QRect SplashScreenSizeComposer::kFrame(10, 10, 580, 380);
 
-void SplashScreenSizeComposer::InitializeControlButtonsGeometry(
-    const QRect& exit_button,
-    const QRect& minimize_button,
-    const QRect& maximaze_button) {
-  window_button_composer_.InitializeButtons(exit_button, minimize_button,
-                                            maximaze_button);
-}
-
 void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
   frame->setGeometry(kFrame.x(), frame->y(), kFrame.width() + extra_width_,
                      kFrame.height() + extra_height_);
@@ -32,20 +23,6 @@ void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
   version_label->setGeometry(kVersionLabel.x() + extra_width_,
                              kVersionLabel.y(), kVersionLabel.width(),
                              kVersionLabel.height());
-}
-
-void SplashScreenSizeComposer::ComposeWindowControlButtons(
-    QPushButton* exit_button,
-    QPushButton* minimize_button,
-    QPushButton* maximize_button) {
-  window_button_composer_.AssignExtraParameters(extra_width_, extra_height_);
-
-  window_button_composer_.ComposeWindowButton(exit_button,
-                                              ButtonRole::kExitButton);
-  window_button_composer_.ComposeWindowButton(minimize_button,
-                                              ButtonRole::kMinimizeButton);
-  window_button_composer_.ComposeWindowButton(maximize_button,
-                                              ButtonRole::kMaximizeButton);
 }
 
 void SplashScreenSizeComposer::ComposeSplashScreenLabels(

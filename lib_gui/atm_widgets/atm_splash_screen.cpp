@@ -110,10 +110,6 @@ void AtmSplashScreen::resizeEvent(QResizeEvent*) {
 void AtmSplashScreen::SetInitialSettings() {
   SetCompanyName("");
   setMinimumSize(600, 400);
-
-  composer_.InitializeControlButtonsGeometry(ui->exit_button->geometry(),
-                                             ui->minimize_button->geometry(),
-                                             ui->maximize_button->geometry());
 }
 
 void AtmSplashScreen::SetWidgetAppearance() {
@@ -169,10 +165,7 @@ void AtmSplashScreen::ComputeNewGeometry() {
 void AtmSplashScreen::ResizeWidgets() {
   composer_.ComposeFrame(ui->frame);
   composer_.ComposeVersionLabel(ui->version_label);
-  composer_.ComposeWindowControlButtons(ui->exit_button, ui->minimize_button,
-                                        ui->maximize_button);
   composer_.ComposeSplashScreenLabels(
       ui->timedate_label, ui->atm_company_name_label, ui->text_label);
-
   composer_.ComposeAtmLabel(ui->atm_label);
 }
