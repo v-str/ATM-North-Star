@@ -1,9 +1,9 @@
-﻿#ifndef ATM_LABEL_COMPOSER_H
-#define ATM_LABEL_COMPOSER_H
+﻿#ifndef ATM_SIZE_LABEL_CALCULATOR_H
+#define ATM_SIZE_LABEL_CALCULATOR_H
 
 class QLabel;
 
-class AtmLabelComposer {
+class AtmSizeLabelCalculator {
  public:
   void ComposeLabel(QLabel* atm_label,
                     int main_widget_width,
@@ -22,4 +22,4 @@ class AtmLabelComposer {
   int final_font_size_ = 0;
 };
 
-#endif  // ATM_LABEL_COMPOSER_H
+#endif  // ATM_SIZE_LABEL_CALCULATOR_H
