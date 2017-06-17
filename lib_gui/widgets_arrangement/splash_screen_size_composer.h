@@ -9,8 +9,13 @@ class QPushButton;
 class QLabel;
 class QFrame;
 
+class AtmSplashScreen;
+
 class SplashScreenSizeComposer {
  public:
+  SplashScreenSizeComposer();
+  SplashScreenSizeComposer(const AtmSplashScreen& splash_screen);
+
   void RememberInitialGeometry(const QRect& splash_screen,
                                const QRect& version_label,
                                const QRect& company_name_label,
