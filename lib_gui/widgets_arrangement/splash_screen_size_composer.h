@@ -13,10 +13,6 @@ class AtmSplashScreen;
 
 class SplashScreenSizeComposer {
  public:
-  void InitializeControlButtonsGeometry(const QRect& exit_button,
-                                        const QRect& minimize_button,
-                                        const QRect& maximaze_button);
-
   void ComposeFrame(QFrame* frame);
   void ComposeVersionLabel(QLabel* version_label);
   void ComposeSplashScreenLabels(QLabel* timedate_label,
