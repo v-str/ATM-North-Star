@@ -42,13 +42,13 @@ class SplashScreenSizeComposer {
  private:
   void ComputeExtraButtonParameters();
 
-  QRect splash_screen_;
-  QRect version_label_;
-  QRect company_name_label_;
-  QRect timedate_label_;
-  QRect atm_label_;
-  QRect text_label_;
-  QRect frame_;
+  QRect kSplashScreen;
+  QRect kVersionLabel;
+  QRect kCompanyNameLabel;
+  QRect kTimedateLabel;
+  QRect kAtmLabel;
+  QRect kTextLabel;
+  QRect kFrame;
 
   static const int atm_label_font_ = 100;
 

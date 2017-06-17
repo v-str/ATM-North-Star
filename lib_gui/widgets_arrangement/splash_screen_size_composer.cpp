@@ -15,16 +15,16 @@ void SplashScreenSizeComposer::RememberInitialGeometry(
     const QRect& timedate_label,
     const QRect& atm_label,
     const QRect& text_label) {
-  splash_screen_ = splash_screen;
-  version_label_ = version_label;
-  company_name_label_ = company_name_label;
-  timedate_label_ = timedate_label;
-  atm_label_ = atm_label;
-  text_label_ = text_label;
+  kSplashScreen = splash_screen;
+  kVersionLabel = version_label;
+  kCompanyNameLabel = company_name_label;
+  kTimedateLabel = timedate_label;
+  kAtmLabel = atm_label;
+  kTextLabel = text_label;
 }
 
 void SplashScreenSizeComposer::InitializeFrameGeometry(const QRect& frame) {
-  frame_ = frame;
+  kFrame = frame;
 }
 
 void SplashScreenSizeComposer::InitializeControlButtonsGeometry(
@@ -36,14 +36,14 @@ void SplashScreenSizeComposer::InitializeControlButtonsGeometry(
 }
 
 void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
-  frame->setGeometry(frame_.x(), frame->y(), frame_.width() + extra_width_,
-                     frame_.height() + extra_height_);
+  frame->setGeometry(kFrame.x(), frame->y(), kFrame.width() + extra_width_,
+                     kFrame.height() + extra_height_);
 }
 
 void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
-  version_label->setGeometry(version_label_.x() + extra_width_,
-                             version_label_.y(), version_label_.width(),
-                             version_label_.height());
+  version_label->setGeometry(kVersionLabel.x() + extra_width_,
+                             kVersionLabel.y(), kVersionLabel.width(),
+                             kVersionLabel.height());
 }
 
 void SplashScreenSizeComposer::ComposeWindowControlButtons(
@@ -62,24 +62,23 @@ void SplashScreenSizeComposer::ComposeWindowControlButtons(
 
 void SplashScreenSizeComposer::ComposeSplashScreenLabels(
     QLabel* timedate_label, QLabel* company_name_label, QLabel* text_label) {
-  timedate_label->setGeometry(timedate_label_.x() + extra_width_ / 2,
-                              timedate_label_.y() + extra_height_,
-                              timedate_label_.width(),
-                              timedate_label_.height());
+  timedate_label->setGeometry(kTimedateLabel.x() + extra_width_ / 2,
+                              kTimedateLabel.y() + extra_height_,
+                              kTimedateLabel.width(), kTimedateLabel.height());
 
   company_name_label->setGeometry(
-      company_name_label_.x() + extra_width_ / 2, company_name_label->y(),
+      kCompanyNameLabel.x() + extra_width_ / 2, company_name_label->y(),
       company_name_label->width(), company_name_label->height());
 
-  text_label->setGeometry(text_label_.x() + extra_width_ / 2,
-                          text_label_.y() + extra_height_, text_label_.width(),
-                          text_label_.height());
+  text_label->setGeometry(kTextLabel.x() + extra_width_ / 2,
+                          kTextLabel.y() + extra_height_, kTextLabel.width(),
+                          kTextLabel.height());
 }
 
 void SplashScreenSizeComposer::ComposeAtmLabel(QLabel* atm_label) {
-  atm_label->setGeometry(atm_label_.x(), atm_label_.y(),
-                         atm_label_.width() + extra_width_,
-                         atm_label_.height() + extra_height_);
+  atm_label->setGeometry(kAtmLabel.x(), kAtmLabel.y(),
+                         kAtmLabel.width() + extra_width_,
+                         kAtmLabel.height() + extra_height_);
 
   int font_size = atm_label_font_;
 
@@ -97,9 +96,9 @@ void SplashScreenSizeComposer::ComposeAtmLabel(QLabel* atm_label) {
 
   int font_height = font_metrics.capHeight();
 
-  if (font_height > (atm_label_.height() + extra_height_)) {
-    atm_label->setGeometry(atm_label_.x(), atm_label_.y(),
-                           atm_label_.width() + extra_width_, font_height);
+  if (font_height > (kAtmLabel.height() + extra_height_)) {
+    atm_label->setGeometry(kAtmLabel.x(), kAtmLabel.y(),
+                           kAtmLabel.width() + extra_width_, font_height);
   }
 
   atm_label->setFont(QFont("FreeSans", font_size, QFont::Bold));
@@ -107,6 +106,6 @@ void SplashScreenSizeComposer::ComposeAtmLabel(QLabel* atm_label) {
 
 void SplashScreenSizeComposer::SetExtraGeometrySize(int extra_width,
                                                     int extra_height) {
-  extra_width_ = extra_width - splash_screen_.width();
-  extra_height_ = extra_height - splash_screen_.height();
+  extra_width_ = extra_width - kSplashScreen.width();
+  extra_height_ = extra_height - kSplashScreen.height();
 }
