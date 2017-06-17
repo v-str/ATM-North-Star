@@ -21,11 +21,9 @@ class SplashScreenSizeComposer {
 
   void ComposeAtmLabel(QLabel* atm_label);
 
-  void SetExtraGeometrySize(int extra_width, int extra_height);
+  void ComputeSizeIncrease(int extra_width, int extra_height);
 
  private:
-  void ComputeExtraButtonParameters();
-
   static QRect kVersionLabel;
   static QRect kCompanyNameLabel;
   static QRect kTimedateLabel;

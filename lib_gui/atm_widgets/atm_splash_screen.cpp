@@ -159,7 +159,7 @@ void AtmSplashScreen::ProcessKeyEnterPressing() {
 }
 
 void AtmSplashScreen::ComputeNewGeometry() {
-  composer_.SetExtraGeometrySize(width(), height());
+  composer_.ComputeSizeIncrease(width(), height());
 }
 
 void AtmSplashScreen::ResizeWidgets() {

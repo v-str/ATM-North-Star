@@ -44,8 +44,8 @@ void SplashScreenSizeComposer::ComposeAtmLabel(QLabel* atm_label) {
                                        height_increase_);
 }
 
-void SplashScreenSizeComposer::SetExtraGeometrySize(int extra_width,
-                                                    int extra_height) {
+void SplashScreenSizeComposer::ComputeSizeIncrease(int extra_width,
+                                                   int extra_height) {
   width_increase_ = extra_width - kSplashScreenWidth;
   height_increase_ = extra_height - kSplashScreenHeight;
 }
