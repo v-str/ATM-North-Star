@@ -8,22 +8,12 @@
 
 #include <atm_splash_screen.h>
 
-void SplashScreenSizeComposer::RememberInitialGeometry(
-    const QRect& version_label,
-    const QRect& company_name_label,
-    const QRect& timedate_label,
-    const QRect& atm_label,
-    const QRect& text_label) {
-  kVersionLabel = version_label;
-  kCompanyNameLabel = company_name_label;
-  kTimedateLabel = timedate_label;
-  kAtmLabel = atm_label;
-  kTextLabel = text_label;
-}
-
-void SplashScreenSizeComposer::InitializeFrameGeometry(const QRect& frame) {
-  kFrame = frame;
-}
+QRect SplashScreenSizeComposer::kVersionLabel(520, 17, 60, 15);
+QRect SplashScreenSizeComposer::kCompanyNameLabel(35, 40, 510, 70);
+QRect SplashScreenSizeComposer::kTimedateLabel(160, 360, 280, 20);
+QRect SplashScreenSizeComposer::kAtmLabel(140, 100, 300, 150);
+QRect SplashScreenSizeComposer::kTextLabel(170, 270, 240, 30);
+QRect SplashScreenSizeComposer::kFrame(10, 10, 580, 380);
 
 void SplashScreenSizeComposer::InitializeControlButtonsGeometry(
     const QRect& exit_button,

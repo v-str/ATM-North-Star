@@ -13,14 +13,6 @@ class AtmSplashScreen;
 
 class SplashScreenSizeComposer {
  public:
-  void RememberInitialGeometry(const QRect& version_label,
-                               const QRect& company_name_label,
-                               const QRect& timedate_label,
-                               const QRect& atm_label,
-                               const QRect& text_label);
-
-  void InitializeFrameGeometry(const QRect& frame);
-
   void InitializeControlButtonsGeometry(const QRect& exit_button,
                                         const QRect& minimize_button,
                                         const QRect& maximaze_button);
@@ -41,12 +33,12 @@ class SplashScreenSizeComposer {
  private:
   void ComputeExtraButtonParameters();
 
-  QRect kVersionLabel;
-  QRect kCompanyNameLabel;
-  QRect kTimedateLabel;
-  QRect kAtmLabel;
-  QRect kTextLabel;
-  QRect kFrame;
+  static QRect kVersionLabel;
+  static QRect kCompanyNameLabel;
+  static QRect kTimedateLabel;
+  static QRect kAtmLabel;
+  static QRect kTextLabel;
+  static QRect kFrame;
 
   static const int kAtmLabelFont = 100;
   static const int kSplashScreenWidth = 600;

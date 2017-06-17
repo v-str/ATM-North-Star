@@ -111,12 +111,6 @@ void AtmSplashScreen::SetInitialSettings() {
   SetCompanyName("");
   setMinimumSize(600, 400);
 
-  composer_.RememberInitialGeometry(
-      ui->version_label->geometry(), ui->atm_company_name_label->geometry(),
-      ui->timedate_label->geometry(), ui->atm_label->geometry(),
-      ui->text_label->geometry());
-
-  composer_.InitializeFrameGeometry(ui->frame->geometry());
   composer_.InitializeControlButtonsGeometry(ui->exit_button->geometry(),
                                              ui->minimize_button->geometry(),
                                              ui->maximize_button->geometry());
