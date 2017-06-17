@@ -1,5 +1,5 @@
-﻿#ifndef ATM_LABEL_STRETCHER
-#define ATM_LABEL_STRETCHER
+﻿#ifndef ATM_LABEL_STRETCHER_H
+#define ATM_LABEL_STRETCHER_H
 
 #include <QFont>
 
@@ -32,4 +32,4 @@ class AtmLabelStretcher {
   QFont font_;
 };
 
-#endif  // ATM_LABEL_STRETCHER
+#endif  // ATM_LABEL_STRETCHER_H

@@ -36,8 +36,8 @@ class SplashScreenSizeComposer {
   static const int kSplashScreenWidth = 600;
   static const int kSplashScreenHeight = 400;
 
-  int extra_width_ = 0;
-  int extra_height_ = 0;
+  int width_increase_ = 0;
+  int height_increase_ = 0;
 
   AtmLabelStretcher atm_label_stretcher_;
 };

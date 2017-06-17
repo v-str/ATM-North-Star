@@ -14,37 +14,38 @@ QRect SplashScreenSizeComposer::kTextLabel(170, 270, 240, 30);
 QRect SplashScreenSizeComposer::kFrame(10, 10, 580, 380);
 
 void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
-  frame->setGeometry(kFrame.x(), frame->y(), kFrame.width() + extra_width_,
-                     kFrame.height() + extra_height_);
+  frame->setGeometry(kFrame.x(), frame->y(), kFrame.width() + width_increase_,
+                     kFrame.height() + height_increase_);
 }
 
 void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
-  version_label->setGeometry(kVersionLabel.x() + extra_width_,
+  version_label->setGeometry(kVersionLabel.x() + width_increase_,
                              kVersionLabel.y(), kVersionLabel.width(),
                              kVersionLabel.height());
 }
 
 void SplashScreenSizeComposer::ComposeSplashScreenLabels(
     QLabel* timedate_label, QLabel* company_name_label, QLabel* text_label) {
-  timedate_label->setGeometry(kTimedateLabel.x() + extra_width_ / 2,
-                              kTimedateLabel.y() + extra_height_,
+  timedate_label->setGeometry(kTimedateLabel.x() + width_increase_ / 2,
+                              kTimedateLabel.y() + height_increase_,
                               kTimedateLabel.width(), kTimedateLabel.height());
 
   company_name_label->setGeometry(
-      kCompanyNameLabel.x() + extra_width_ / 2, company_name_label->y(),
+      kCompanyNameLabel.x() + width_increase_ / 2, company_name_label->y(),
       company_name_label->width(), company_name_label->height());
 
-  text_label->setGeometry(kTextLabel.x() + extra_width_ / 2,
-                          kTextLabel.y() + extra_height_, kTextLabel.width(),
+  text_label->setGeometry(kTextLabel.x() + width_increase_ / 2,
+                          kTextLabel.y() + height_increase_, kTextLabel.width(),
                           kTextLabel.height());
 }
 
 void SplashScreenSizeComposer::ComposeAtmLabel(QLabel* atm_label) {
-  atm_label_stretcher_.StretchAtmLabel(atm_label, extra_width_, extra_height_);
+  atm_label_stretcher_.StretchAtmLabel(atm_label, width_increase_,
+                                       height_increase_);
 }
 
 void SplashScreenSizeComposer::SetExtraGeometrySize(int extra_width,
                                                     int extra_height) {
-  extra_width_ = extra_width - kSplashScreenWidth;
-  extra_height_ = extra_height - kSplashScreenHeight;
+  width_increase_ = extra_width - kSplashScreenWidth;
+  height_increase_ = extra_height - kSplashScreenHeight;
 }
