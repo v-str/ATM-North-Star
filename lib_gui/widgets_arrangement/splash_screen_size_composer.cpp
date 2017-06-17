@@ -8,11 +8,6 @@
 
 #include <atm_splash_screen.h>
 
-SplashScreenSizeComposer::SplashScreenSizeComposer() {}
-
-SplashScreenSizeComposer::SplashScreenSizeComposer(
-    const AtmSplashScreen& splash_screen) {}
-
 void SplashScreenSizeComposer::RememberInitialGeometry(
     const QRect& splash_screen,
     const QRect& version_label,
