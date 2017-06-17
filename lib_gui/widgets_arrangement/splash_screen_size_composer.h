@@ -35,7 +35,7 @@ class SplashScreenSizeComposer {
   static QRect kTextLabel;
   static QRect kFrame;
 
-  static const int kAtmLabelFont = 100;
+  static const int kAtmLabelFontSize = 100;
   static const int kSplashScreenWidth = 600;
   static const int kSplashScreenHeight = 400;
 

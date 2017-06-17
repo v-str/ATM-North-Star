@@ -41,32 +41,27 @@ void SplashScreenSizeComposer::ComposeSplashScreenLabels(
 }
 
 void SplashScreenSizeComposer::ComposeAtmLabel(QLabel* atm_label) {
-  atm_label->setGeometry(kAtmLabel.x(), kAtmLabel.y(),
-                         kAtmLabel.width() + extra_width_,
-                         kAtmLabel.height() + extra_height_);
-
-  int font_size = kAtmLabelFont;
-
-  int font_criterion = 0;
-
-  font_criterion = (extra_width_ - extra_height_) / 3;
+  int font_criterion = (extra_width_ - extra_height_) / 3;
+  int font_size = kAtmLabelFontSize;
 
   font_size += font_criterion;
 
-  if (font_size < kAtmLabelFont) font_size = kAtmLabelFont;
+  if (font_size < kAtmLabelFontSize) font_size = kAtmLabelFontSize;
   if (font_size > 170) font_size = 170;
 
-  QFont font("FreeSans", font_size, QFont::Bold);
+  QFont font(atm_label->font());
   QFontMetrics font_metrics(font);
 
   int font_height = font_metrics.capHeight();
+  int frame_height = kAtmLabel.height() + extra_height_;
 
-  if (font_height > (kAtmLabel.height() + extra_height_)) {
-    atm_label->setGeometry(kAtmLabel.x(), kAtmLabel.y(),
-                           kAtmLabel.width() + extra_width_, font_height);
+  if (font_height > frame_height) {
+    frame_height = font_height + 10;
   }
-
-  atm_label->setFont(QFont("FreeSans", font_size, QFont::Bold));
+  font.setPointSize(font_size);
+  atm_label->setFont(font);
+  atm_label->setGeometry(kAtmLabel.x(), kAtmLabel.y(),
+                         kAtmLabel.width() + extra_width_, frame_height);
 }
 
 void SplashScreenSizeComposer::SetExtraGeometrySize(int extra_width,
