@@ -10,7 +10,6 @@
 QRect SplashScreenSizeComposer::kVersionLabel(520, 17, 60, 15);
 QRect SplashScreenSizeComposer::kCompanyNameLabel(35, 40, 510, 70);
 QRect SplashScreenSizeComposer::kTimedateLabel(160, 360, 280, 20);
-QRect SplashScreenSizeComposer::kAtmLabel(140, 100, 300, 150);
 QRect SplashScreenSizeComposer::kTextLabel(170, 270, 240, 30);
 QRect SplashScreenSizeComposer::kFrame(10, 10, 580, 380);
 
@@ -41,27 +40,7 @@ void SplashScreenSizeComposer::ComposeSplashScreenLabels(
 }
 
 void SplashScreenSizeComposer::ComposeAtmLabel(QLabel* atm_label) {
-  int font_criterion = (extra_width_ - extra_height_) / 3;
-  int font_size = kAtmLabelFontSize;
-
-  font_size += font_criterion;
-
-  if (font_size < kAtmLabelFontSize) font_size = kAtmLabelFontSize;
-  if (font_size > 170) font_size = 170;
-
-  QFont font(atm_label->font());
-  QFontMetrics font_metrics(font);
-
-  int font_height = font_metrics.capHeight();
-  int frame_height = kAtmLabel.height() + extra_height_;
-
-  if (font_height > frame_height) {
-    frame_height = font_height + 10;
-  }
-  font.setPointSize(font_size);
-  atm_label->setFont(font);
-  atm_label->setGeometry(kAtmLabel.x(), kAtmLabel.y(),
-                         kAtmLabel.width() + extra_width_, frame_height);
+  atm_label_stretcher_.StretchAtmLabel(atm_label, extra_width_, extra_height_);
 }
 
 void SplashScreenSizeComposer::SetExtraGeometrySize(int extra_width,

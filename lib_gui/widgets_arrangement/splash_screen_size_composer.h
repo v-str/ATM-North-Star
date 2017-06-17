@@ -3,6 +3,8 @@
 
 #include <QRect>
 
+#include <atm_size_label_calculator.h>
+
 class QPushButton;
 class QLabel;
 class QFrame;
@@ -31,7 +33,6 @@ class SplashScreenSizeComposer {
   static QRect kVersionLabel;
   static QRect kCompanyNameLabel;
   static QRect kTimedateLabel;
-  static QRect kAtmLabel;
   static QRect kTextLabel;
   static QRect kFrame;
 
@@ -41,6 +42,8 @@ class SplashScreenSizeComposer {
 
   int extra_width_ = 0;
   int extra_height_ = 0;
+
+  AtmSizeLabelCalculator atm_label_stretcher_;
 };
 
 #endif  // SPLASH_SCREEN_SIZE_COMPOSER_H

@@ -1,20 +1,43 @@
 ﻿#include <atm_size_label_calculator.h>
 
-#include <QFont>
 #include <QFontMetrics>
 #include <QLabel>
 
-void AtmSizeLabelCalculator::ComposeLabel(QLabel* atm_label,
-                                    int main_widget_width,
-                                    int main_widget_height) {
-  ComputeFontSize(main_widget_width, main_widget_height);
+void AtmSizeLabelCalculator::StretchAtmLabel(QLabel* atm_label,
+                                             int width_increase,
+                                             int height_increase) {
+  width_increase_ = width_increase;
+  height_increase_ = height_increase;
+
+  ComputeFontSize();
+  FitFrameByFontSize(atm_label);
+  PerformStretching(atm_label);
 }
 
-void AtmSizeLabelCalculator::ComputeFontSize(int main_widget_width,
-                                       int main_widget_height) {
-  int font_growth = (main_widget_width - main_widget_height) / 3;
-  final_font_size_ = kInitFontSize + font_growth;
+void AtmSizeLabelCalculator::ComputeFontSize() {
+  int font_growth = (width_increase_ - height_increase_) / 3;
+  font_pointsize_ = kInitFontSize + font_growth;
 
-  if (final_font_size_ < kInitFontSize) final_font_size_ = kInitFontSize;
-  if (final_font_size_ > kFontSizeLimit) final_font_size_ = kFontSizeLimit;
+  if (font_pointsize_ < kInitFontSize) font_pointsize_ = kInitFontSize;
+  if (font_pointsize_ > kFontSizeLimit) font_pointsize_ = kFontSizeLimit;
+}
+
+void AtmSizeLabelCalculator::FitFrameByFontSize(const QLabel* atm_label) {
+  font_ = atm_label->font();
+  QFontMetrics font_metrics(atm_label->font());
+
+  font_height_ = font_metrics.capHeight();
+  int frame_height = kInitHeight + height_increase_;
+
+  if (font_height_ > frame_height) {
+    frame_height = font_height_ + 15;
+  }
+}
+
+void AtmSizeLabelCalculator::PerformStretching(QLabel* atm_label) {
+  font_.setPointSize(font_pointsize_);
+  atm_label->setFont(font_);
+
+  atm_label->setGeometry(kInitXPos, kInitYPos, kInitWidth + width_increase_,
+                         kInitHeight + height_increase_);
 }
