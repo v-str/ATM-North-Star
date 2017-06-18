@@ -55,7 +55,7 @@ class AtmSplashScreen : public QMainWindow {
   void SetConnections();
   void InitializeObjects();
   void RunTimers();
-  void BlockKeys();
+  void BlockSpace();
   void ProcessKeyEnterPressing();
   void ComputeNewGeometry();
   void ResizeWidgets();

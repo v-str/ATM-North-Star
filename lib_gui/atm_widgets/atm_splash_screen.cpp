@@ -10,10 +10,10 @@
 #include <QString>
 #include <QTimer>
 
-#include <close_block_filter.h>
 #include <exit_dialog.h>
 #include <initial_property_installer.h>
 #include <painter.h>
+#include <space_block_filter.h>
 #include <text_color_swapper.h>
 #include <timedate_changer.h>
 #include <widget_color.h>
@@ -28,7 +28,7 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
   setWindowTitle("ATM splash screen");
   InitializeObjects();
   SetWidgetAppearance();
-  BlockKeys();
+  BlockSpace();
   SetInitialSettings();
   PaintWidgets();
   SetConnections();
@@ -164,8 +164,12 @@ void AtmSplashScreen::RunTimers() {
   time_date_timer_->start(1000);
 }
 
-void AtmSplashScreen::BlockKeys() {
-  ui->exit_button->installEventFilter(new CloseBlockFilter(ui->exit_button));
+void AtmSplashScreen::BlockSpace() {
+  ui->exit_button->installEventFilter(new SpaceBlockFilter(ui->exit_button));
+  ui->minimize_button->installEventFilter(
+      new SpaceBlockFilter(ui->minimize_button));
+  ui->maximize_button->installEventFilter(
+      new SpaceBlockFilter(ui->maximize_button));
 }
 
 void AtmSplashScreen::ProcessKeyEnterPressing() {
