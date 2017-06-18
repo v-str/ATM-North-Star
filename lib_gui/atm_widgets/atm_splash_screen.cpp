@@ -90,10 +90,10 @@ void AtmSplashScreen::MaximizeButtonClicked() { emit SizeWindowModified(); }
 
 void AtmSplashScreen::ResizeWindow() {
   if (!is_full_screen_) {
-    this->showFullScreen();
+    showFullScreen();
     is_full_screen_ = true;
   } else {
-    this->showNormal();
+    showNormal();
     is_full_screen_ = false;
   }
 }
