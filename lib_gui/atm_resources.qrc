@@ -2,7 +2,7 @@
     <qresource prefix="/">
         <file>images/north_star_background.jpg</file>
         <file>images/black_background.jpg</file>
-        <file>images/project_icon.ico</file>
         <file>images/project_icon.png</file>
+        <file>images/app_cursor.png</file>
     </qresource>
 </RCC>
