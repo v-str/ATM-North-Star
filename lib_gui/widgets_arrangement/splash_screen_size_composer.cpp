@@ -7,10 +7,10 @@
 
 #include <atm_splash_screen.h>
 
-QRect SplashScreenSizeComposer::kVersionLabel(520, 17, 60, 15);
+QRect SplashScreenSizeComposer::kVersionLabel(485, 17, 100, 15);
 QRect SplashScreenSizeComposer::kCompanyNameLabel(35, 40, 510, 70);
-QRect SplashScreenSizeComposer::kTimedateLabel(160, 360, 280, 20);
-QRect SplashScreenSizeComposer::kTextLabel(170, 270, 240, 30);
+QRect SplashScreenSizeComposer::kTimedateLabel(150, 360, 300, 20);
+QRect SplashScreenSizeComposer::kTextLabel(150, 270, 280, 30);
 QRect SplashScreenSizeComposer::kFrame(10, 10, 580, 380);
 
 void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
