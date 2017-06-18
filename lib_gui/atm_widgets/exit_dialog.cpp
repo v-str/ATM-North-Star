@@ -2,7 +2,9 @@
 #include "ui_exit_dialog.h"
 
 #include <QApplication>
+#include <QCursor>
 #include <QList>
+#include <QPixmap>
 #include <QString>
 
 #include <initial_property_installer.h>
@@ -46,6 +48,9 @@ void ExitDialog::SetConnections() {
 void ExitDialog::SetInitialProperties() {
   InitialPropertyInstaller::SetInitialProperties(
       this, 300, 150, InitialPropertyInstaller::kFixedSize);
+
+  QCursor custom_cursor(QPixmap(":/images/app_cursor.png"));
+  setCursor(custom_cursor);
 }
 
 void ExitDialog::PaintWidgets() {
