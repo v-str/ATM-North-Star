@@ -2,13 +2,11 @@
 #include <ui_atm_splash_screen.h>
 
 #include <QApplication>
-#include <QCoreApplication>
 #include <QCursor>
 #include <QIcon>
 #include <QKeyEvent>
 #include <QList>
 #include <QPixmap>
-#include <QPoint>
 #include <QString>
 #include <QTimer>
 
