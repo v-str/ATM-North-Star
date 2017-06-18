@@ -28,22 +28,11 @@
    <widget class="QLabel" name="version_label">
     <property name="geometry">
      <rect>
-      <x>485</x>
+      <x>520</x>
       <y>17</y>
-      <width>100</width>
+      <width>60</width>
       <height>15</height>
      </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Ubuntu</family>
-      <weight>50</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-      <underline>false</underline>
-      <stylestrategy>PreferAntialias</stylestrategy>
-      <kerning>false</kerning>
-     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QLabel{
@@ -98,14 +87,11 @@ color: rgb(32, 74, 135);
      </property>
      <property name="font">
       <font>
-       <family>Ubuntu</family>
+       <family>DejaVu Sans</family>
        <pointsize>25</pointsize>
        <weight>50</weight>
        <italic>false</italic>
        <bold>false</bold>
-       <underline>false</underline>
-       <stylestrategy>PreferAntialias</stylestrategy>
-       <kerning>false</kerning>
       </font>
      </property>
      <property name="styleSheet">
@@ -134,15 +120,13 @@ color: rgb(32, 74, 135);
      </property>
      <property name="font">
       <font>
-       <family>Ubuntu</family>
+       <family>FreeSans</family>
        <pointsize>90</pointsize>
        <weight>75</weight>
-       <italic>false</italic>
        <bold>true</bold>
        <underline>false</underline>
        <strikeout>false</strikeout>
-       <stylestrategy>PreferAntialias</stylestrategy>
-       <kerning>true</kerning>
+       <kerning>false</kerning>
       </font>
      </property>
      <property name="styleSheet">
@@ -164,22 +148,16 @@ color: rgb(32, 74, 135);
     <widget class="QLabel" name="text_label">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>170</x>
        <y>270</y>
-       <width>280</width>
+       <width>240</width>
        <height>30</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <family>Ubuntu</family>
        <pointsize>14</pointsize>
-       <weight>50</weight>
-       <italic>false</italic>
-       <bold>false</bold>
        <underline>false</underline>
-       <stylestrategy>PreferAntialias</stylestrategy>
-       <kerning>false</kerning>
       </font>
      </property>
      <property name="styleSheet">
@@ -212,7 +190,6 @@ color: rgb(32, 74, 135);
       <family>Tlwg Mono</family>
       <pointsize>12</pointsize>
       <weight>75</weight>
-      <italic>false</italic>
       <bold>true</bold>
      </font>
     </property>
@@ -226,22 +203,18 @@ color: rgb(32, 74, 135);
    <widget class="QLabel" name="timedate_label">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>160</x>
       <y>360</y>
-      <width>300</width>
+      <width>280</width>
       <height>20</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Ubuntu</family>
+      <family>Tlwg Mono</family>
       <pointsize>16</pointsize>
-      <weight>50</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-      <underline>false</underline>
-      <stylestrategy>PreferAntialias</stylestrategy>
-      <kerning>false</kerning>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
