@@ -4,8 +4,8 @@
 #include <QLabel>
 
 void AtmLabelStretcher::StretchAtmLabel(QLabel* atm_label,
-                                             int width_increase,
-                                             int height_increase) {
+                                        int width_increase,
+                                        int height_increase) {
   width_increase_ = width_increase;
   height_increase_ = height_increase;
 
@@ -18,8 +18,13 @@ void AtmLabelStretcher::ComputeFontSize() {
   int font_growth = (width_increase_ - height_increase_) / 3;
   font_pointsize_ = kInitFontSize + font_growth;
 
-  if (font_pointsize_ < kInitFontSize) font_pointsize_ = kInitFontSize;
-  if (font_pointsize_ > kFontSizeLimit) font_pointsize_ = kFontSizeLimit;
+  if (font_pointsize_ < kInitFontSize) {
+    font_pointsize_ = kInitFontSize;
+  }
+
+  if (font_pointsize_ > kFontSizeLimit) {
+    font_pointsize_ = kFontSizeLimit;
+  }
 }
 
 void AtmLabelStretcher::FitFrameByFontSize(const QLabel* atm_label) {
