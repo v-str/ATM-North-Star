@@ -4,5 +4,7 @@
         <file>images/black_background.jpg</file>
         <file>images/project_icon.png</file>
         <file>images/app_cursor.png</file>
+        <file>sounds/button_hovered.wav</file>
+        <file>sounds/button_pressed.wav</file>
     </qresource>
 </RCC>

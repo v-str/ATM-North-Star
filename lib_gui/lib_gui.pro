@@ -19,6 +19,7 @@ DEPENDPATH += \
     ../widgets_arrangement \
     ../features \
     ../images \
+    ../sounds \
 
 INCLUDEPATH += \
     $$PWD/atm_widgets \

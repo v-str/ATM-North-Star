@@ -26,7 +26,7 @@ class AtmMainWidget : public QMainWindow {
   void SetBackgroundColor(const QString& background_color);
 
  protected:
-  virtual void resizeEvent(QResizeEvent* event);
+  void resizeEvent(QResizeEvent* event);
 
  private:
   void SetUpWidgetProperties();

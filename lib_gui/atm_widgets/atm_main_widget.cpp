@@ -3,6 +3,7 @@
 
 #include <QList>
 #include <QPaintEvent>
+#include <QResizeEvent>
 
 #include <initial_property_installer.h>
 #include <painter.h>
