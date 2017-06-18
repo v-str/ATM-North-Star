@@ -72,8 +72,8 @@ void AtmSplashScreen::SetBackgroundColor(const QString& background_color) {
 void AtmSplashScreen::UnlockFixedGeometry() { setMinimumSize(0, 0); }
 
 void AtmSplashScreen::BlinkAtmLabelColor() {
-  color_swapper_->ChangeColor(ui->atm_label, color_swapper_->SwapColorOne(),
-                              color_swapper_->SwapColorTwo());
+  color_swapper_->SwapColors(ui->atm_label, color_swapper_->SwapColorOne(),
+                             color_swapper_->SwapColorTwo());
 }
 
 void AtmSplashScreen::ChangeTimeDate() {
@@ -82,6 +82,18 @@ void AtmSplashScreen::ChangeTimeDate() {
 
 void AtmSplashScreen::ShowExitWidget() {
   exit_dialog_->ShowWidgetOnCenterAt(geometry());
+}
+
+void AtmSplashScreen::MaximizeButtonClicked() { emit SizeWindowModified(); }
+
+void AtmSplashScreen::ResizeWindow() {
+  if (!is_full_screen_) {
+    this->showFullScreen();
+    is_full_screen_ = true;
+  } else {
+    this->showNormal();
+    is_full_screen_ = false;
+  }
 }
 
 void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
@@ -136,6 +148,9 @@ void AtmSplashScreen::SetConnections() {
   connect(this, SIGNAL(Exit()), SLOT(ShowExitWidget()));
   connect(ui->exit_button, SIGNAL(clicked(bool)), SLOT(ShowExitWidget()));
   connect(this, SIGNAL(EnterIsPressed()), SLOT(UnlockFixedGeometry()));
+  connect(ui->maximize_button, SIGNAL(clicked(bool)),
+          SLOT(MaximizeButtonClicked()));
+  connect(this, SIGNAL(SizeWindowModified()), SLOT(ResizeWindow()));
 }
 
 void AtmSplashScreen::InitializeObjects() {

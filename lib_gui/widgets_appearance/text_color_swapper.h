@@ -6,7 +6,7 @@
 
 class TextColorSwapper {
  public:
-  void ChangeColor(QLabel* label,
+  void SwapColors(QLabel* label,
                    const QString& first_color,
                    const QString& second_color);
 

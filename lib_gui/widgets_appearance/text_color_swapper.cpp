@@ -1,8 +1,8 @@
 ﻿#include "text_color_swapper.h"
 
-void TextColorSwapper::ChangeColor(QLabel* label,
-                                   const QString& first_color,
-                                   const QString& second_color) {
+void TextColorSwapper::SwapColors(QLabel* label,
+                                  const QString& first_color,
+                                  const QString& second_color) {
   QString stylesheet =
       "QLabel{"
       "border: 0px solid black;"
