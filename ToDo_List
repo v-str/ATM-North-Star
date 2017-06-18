@@ -27,19 +27,19 @@
                                                                                     |   |
 10. Insert WidgetColorDesigner instead color hierarchy of designers                 | + |
                                                                                     |   |
-11. Make ATM splash screen layout mapping according of screen scale                 | - |
+11. Make ATM splash screen layout mapping according of screen scale                 | + |
                                                                                     |   |
 12. Fix bugs related with incorrect mapping push buttons. Develop properly classes  | + |
     responding of widgets resizing. Rewrite code if is it necessary.                |   |
                                                                                     |   |
-13. Divide dependencies related with subwidgets mapping.                            | - |
+13. Divide dependencies related with subwidgets mapping.                            | + |
     Make class SplashScreenSizeComposer like as aggregator of sub composers         |   |
     for any subwidget.                                                              |   |
                                                                                     |   |
-14. Extract growth criterion and use it in all widget resize subclasses             | - |
-                                                                                    |   |
-15. Develop TimeDateSizeComposer for mapping timedate widget and develop            | - |
+14. Develop TimeDateSizeComposer for mapping timedate widget and develop            | - |
     univerral font resizer for font resize in any widget with scale accordingly     |   |
+                                                                                    |   |
+15. Develop main atm widget interface                                               | - |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
