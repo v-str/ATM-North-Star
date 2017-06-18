@@ -8,7 +8,6 @@
 #include <QString>
 
 #include <initial_property_installer.h>
-#include <painter.h>
 #include <widget_center_arranger.h>
 #include <widget_color.h>
 
@@ -32,7 +31,7 @@ void ExitDialog::SetExitDialogAppearance(const QString& main_color,
 }
 
 void ExitDialog::SetBackgroundColor(const QString& background_color) {
-  Painter::ChangeBackgroundColor(this, background_color);
+  color_designer_.SetBackgroundColor(this, background_color);
 }
 
 void ExitDialog::ShowWidgetOnCenterAt(const QRect& widget_geometry) {

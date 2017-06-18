@@ -12,7 +12,6 @@
 
 #include <exit_dialog.h>
 #include <initial_property_installer.h>
-#include <painter.h>
 #include <space_block_filter.h>
 #include <text_color_swapper.h>
 #include <timedate_changer.h>
@@ -65,7 +64,7 @@ void AtmSplashScreen::SetAtmBlinkColor(const QString& color_one,
 }
 
 void AtmSplashScreen::SetBackgroundColor(const QString& background_color) {
-  Painter::ChangeBackgroundColor(this, background_color);
+  color_designer_.SetBackgroundColor(this, background_color);
   exit_dialog_->SetBackgroundColor(background_color);
 }
 

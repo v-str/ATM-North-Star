@@ -8,12 +8,18 @@
 class QLabel;
 class QPushButton;
 class QFrame;
+class QMainWindow;
+class QDialog;
+class QString;
 
 class AtmColorDesigner {
  public:
   AtmColorDesigner();
 
   void ConfigureWidgetColorSet(const WidgetColor& widget_color);
+  void SetBackgroundColor(QMainWindow* main_window,
+                          const QString& background_color);
+  void SetBackgroundColor(QDialog* dialog, const QString& background_color);
 
   void PaintWidgetSet(QList<QLabel*> label_list) const;
   void PaintWidgetSet(QList<QPushButton*> button_list) const;
