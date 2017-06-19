@@ -35,6 +35,7 @@ class AtmSplashScreen : public QMainWindow {
   void EnterIsPressed();
   void PassPositionWhenEnterPressed(const QRect& end_value);
   void SizeWindowModified();
+  void PassScreenSizeCondition(bool size_condition);
 
  public slots:
   void UnlockFixedGeometry();
@@ -42,7 +43,6 @@ class AtmSplashScreen : public QMainWindow {
   void TimeDateTick();
   void ShowExitWidget();
   void MaximizeButtonClicked();
-  void ResizeSplashScreen();
 
  protected:
   void keyPressEvent(QKeyEvent* event);

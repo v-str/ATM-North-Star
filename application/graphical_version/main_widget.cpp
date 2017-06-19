@@ -25,9 +25,17 @@ void gui::MainWidget::ShowMainWidget() {
   main_widget_->setGeometry(
       main_widget_position_->x(), main_widget_position_->y(),
       main_widget_position_->width(), main_widget_position_->height());
-  main_widget_->show();
+  if (is_full_screen_) {
+    main_widget_->showFullScreen();
+  } else {
+    main_widget_->show();
+  }
 }
 
 void gui::MainWidget::SetWidgetGeometry(const QRect& initial_position) {
   *main_widget_position_ = initial_position;
+}
+
+void gui::MainWidget::FullScreenSizeCondition(bool screen_condition) {
+  is_full_screen_ = screen_condition;
 }

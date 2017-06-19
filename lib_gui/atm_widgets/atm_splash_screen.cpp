@@ -84,9 +84,7 @@ void AtmSplashScreen::ShowExitWidget() {
   exit_dialog_->ShowWidgetOnCenterAt(geometry());
 }
 
-void AtmSplashScreen::MaximizeButtonClicked() { emit SizeWindowModified(); }
-
-void AtmSplashScreen::ResizeSplashScreen() {
+void AtmSplashScreen::MaximizeButtonClicked() {
   if (!SizeScreenController::IsFullScreen()) {
     SizeScreenController::SetFullScreen(this);
   } else {
@@ -151,7 +149,6 @@ void AtmSplashScreen::SetConnections() {
   connect(this, SIGNAL(EnterIsPressed()), SLOT(UnlockFixedGeometry()));
   connect(ui->maximize_button, SIGNAL(clicked(bool)),
           SLOT(MaximizeButtonClicked()));
-  connect(this, SIGNAL(SizeWindowModified()), SLOT(ResizeSplashScreen()));
 }
 
 void AtmSplashScreen::InitializeObjects() {
@@ -176,6 +173,7 @@ void AtmSplashScreen::BlockSpace() {
 void AtmSplashScreen::ProcessKeyEnterPressing() {
   emit PassPositionWhenEnterPressed(this->geometry());
   emit EnterIsPressed();
+  emit PassScreenSizeCondition(SizeScreenController::IsFullScreen());
 }
 
 void AtmSplashScreen::ComputeNewGeometry() {
