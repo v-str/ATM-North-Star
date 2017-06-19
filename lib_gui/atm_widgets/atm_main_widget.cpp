@@ -1,9 +1,11 @@
 ﻿#include <atm_main_widget.h>
 #include <ui_atm_main_widget.h>
 
+#include <QCursor>
 #include <QLabel>
 #include <QList>
 #include <QPaintEvent>
+#include <QPixmap>
 #include <QResizeEvent>
 #include <QTimer>
 
@@ -16,8 +18,7 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
     : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
   ui->setupUi(this);
   setWindowTitle("ATM");
-  InitializeObject();
-  SetUpWidgetProperties();
+  SetInitialSettings();
   PaintWidgets();
   RunTimers();
   SetConnections();
@@ -50,7 +51,15 @@ void AtmMainWidget::SetConnections() {
   connect(timedate_timer_, SIGNAL(timeout()), SLOT(TimeDateTick()));
 }
 
-void AtmMainWidget::SetUpWidgetProperties() {
+void AtmMainWidget::SetInitialSettings() {
+  QCursor custom_cursor(QPixmap(":/images/app_cursor.png"));
+  setCursor(custom_cursor);
+
+  InitializeObject();
+  SetWidgetAppearance();
+}
+
+void AtmMainWidget::SetWidgetAppearance() {
   setMinimumSize(600, 400);
   InitialPropertyInstaller::SetInitialProperties(
       this, 600, 400, InitialPropertyInstaller::kResize);

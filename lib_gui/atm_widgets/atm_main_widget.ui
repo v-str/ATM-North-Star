@@ -177,7 +177,7 @@ border-radius: 3px;
        <string notr="true">color:green;</string>
       </property>
       <property name="text">
-       <string>Log-in</string>
+       <string>Sign in</string>
       </property>
      </widget>
     </widget>
@@ -194,7 +194,7 @@ border-radius: 3px;
       <string notr="true">color:green;</string>
      </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string>date and time</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
