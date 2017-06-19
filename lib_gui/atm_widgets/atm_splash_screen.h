@@ -39,7 +39,7 @@ class AtmSplashScreen : public QMainWindow {
  public slots:
   void UnlockFixedGeometry();
   void BlinkAtmLabelColor();
-  void ChangeTimeDate();
+  void TimeDateTick();
   void ShowExitWidget();
   void MaximizeButtonClicked();
   void ResizeWindow();

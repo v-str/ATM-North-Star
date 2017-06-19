@@ -75,7 +75,7 @@ void AtmSplashScreen::BlinkAtmLabelColor() {
                              color_swapper_->SwapColorTwo());
 }
 
-void AtmSplashScreen::ChangeTimeDate() {
+void AtmSplashScreen::TimeDateTick() {
   TimeDateChanger::ChangeTimeData(ui->timedate_label);
 }
 
@@ -146,7 +146,7 @@ void AtmSplashScreen::PaintWidgets() {
 
 void AtmSplashScreen::SetConnections() {
   connect(color_swap_timer_, SIGNAL(timeout()), SLOT(BlinkAtmLabelColor()));
-  connect(time_date_timer_, SIGNAL(timeout()), SLOT(ChangeTimeDate()));
+  connect(time_date_timer_, SIGNAL(timeout()), SLOT(TimeDateTick()));
   connect(this, SIGNAL(Exit()), SLOT(ShowExitWidget()));
   connect(ui->exit_button, SIGNAL(clicked(bool)), SLOT(ShowExitWidget()));
   connect(this, SIGNAL(EnterIsPressed()), SLOT(UnlockFixedGeometry()));
