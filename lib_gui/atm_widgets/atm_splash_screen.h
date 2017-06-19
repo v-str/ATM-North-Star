@@ -68,8 +68,6 @@ class AtmSplashScreen : public QMainWindow {
 
   AtmColorDesigner color_designer_;
   SplashScreenSizeComposer composer_;
-
-  bool is_full_screen_ = false;
 };
 
 #endif  // ATM_SPLASH_SCREEN_H

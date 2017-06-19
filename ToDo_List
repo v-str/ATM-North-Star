@@ -40,6 +40,8 @@
     univerral font resizer for font resize in any widget with scale accordingly     |   |
                                                                                     |   |
 15. Develop main atm widget interface                                               | - |
+                                                                                    |   |
+16. Realize full screen showing both splash screen and main widget                  | - |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------

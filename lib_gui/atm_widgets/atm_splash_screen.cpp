@@ -12,6 +12,7 @@
 
 #include <exit_dialog.h>
 #include <initial_property_installer.h>
+#include <size_screen_controller.h>
 #include <space_block_filter.h>
 #include <text_color_swapper.h>
 #include <timedate_changer.h>
@@ -86,12 +87,10 @@ void AtmSplashScreen::ShowExitWidget() {
 void AtmSplashScreen::MaximizeButtonClicked() { emit SizeWindowModified(); }
 
 void AtmSplashScreen::ResizeSplashScreen() {
-  if (!is_full_screen_) {
-    showFullScreen();
-    is_full_screen_ = true;
+  if (!SizeScreenController::IsFullScreen()) {
+    SizeScreenController::SetFullScreen(this);
   } else {
-    showNormal();
-    is_full_screen_ = false;
+    SizeScreenController::SetNormalScreen(this);
   }
 }
 
