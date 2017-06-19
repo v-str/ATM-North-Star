@@ -42,7 +42,7 @@ class AtmSplashScreen : public QMainWindow {
   void TimeDateTick();
   void ShowExitWidget();
   void MaximizeButtonClicked();
-  void ResizeWindow();
+  void ResizeSplashScreen();
 
  protected:
   void keyPressEvent(QKeyEvent* event);
