@@ -28,6 +28,7 @@ class AtmMainWidget : public QMainWindow {
 
  public slots:
   void TimeDateTick();
+  void ResizeMainWidget();
 
  protected:
   void resizeEvent(QResizeEvent* event);
