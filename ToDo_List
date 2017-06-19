@@ -41,7 +41,10 @@
                                                                                     |   |
 15. Develop main atm widget interface                                               | - |
                                                                                     |   |
-16. Realize full screen showing both splash screen and main widget                  | - |
+16. Realize full screen showing both splash screen and main widget                  | + |
+                                                                                    |   |
+17. Add medium main widget screen size when maximize button clicked after           | - |
+    fullscreen widget mode                                                          |   |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
