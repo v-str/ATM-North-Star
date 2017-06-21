@@ -82,7 +82,7 @@ void AtmMainWidget::SetFrameLayout() {
   int extra_height = height() - minimumHeight();
   ui->main_fraim->setGeometry(5, 5, 590 + extra_width, 390 + extra_height);
   ui->secondary_frame->setGeometry(5, 30, 580 + extra_width,
-                                   332 + extra_height);
+                                   355 + extra_height);
 }
 
 void AtmMainWidget::PaintWidgets() {
