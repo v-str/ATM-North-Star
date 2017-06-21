@@ -76,7 +76,7 @@ void AtmSplashScreen::BlinkAtmLabelColor() {
 }
 
 void AtmSplashScreen::TimeDateTick() {
-  TimeDateChanger::ChangeTimeData(ui->timedate_label);
+  TimeDateChanger::ChangeDate(ui->timedate_label);
 }
 
 void AtmSplashScreen::ShowExitWidget() {
