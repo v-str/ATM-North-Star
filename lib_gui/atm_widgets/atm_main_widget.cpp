@@ -11,7 +11,6 @@
 
 #include <initial_property_installer.h>
 #include <painter.h>
-#include <size_screen_controller.h>
 #include <timedate_changer.h>
 #include <widget_color.h>
 
@@ -46,11 +45,11 @@ void AtmMainWidget::TimeDateTick() {
   TimeDateChanger::ChangeTimeData(ui->timedate_label);
 }
 
-void AtmMainWidget::ResizeMainWidget() {
-  if (!SizeScreenController::IsFullScreen()) {
-    SizeScreenController::SetFullScreen(this);
+void AtmMainWidget::MaximizeButtonClicked(bool) {
+  if (!isFullScreen()) {
+    showFullScreen();
   } else {
-    SizeScreenController::SetNormalScreen(this);
+    showNormal();
   }
 }
 
@@ -58,7 +57,8 @@ void AtmMainWidget::resizeEvent(QResizeEvent*) { SetFrameLayout(); }
 
 void AtmMainWidget::SetConnections() {
   connect(timedate_timer_, SIGNAL(timeout()), SLOT(TimeDateTick()));
-  connect(ui->maximize_button, SIGNAL(clicked(bool)), SLOT(ResizeMainWidget()));
+  connect(ui->maximize_button, SIGNAL(clicked(bool)),
+          SLOT(MaximizeButtonClicked(bool)));
 }
 
 void AtmMainWidget::SetInitialSettings() {

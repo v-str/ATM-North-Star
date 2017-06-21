@@ -237,21 +237,5 @@ border-radius: 3px;
     </hint>
    </hints>
   </connection>
-  <connection>
-   <sender>maximize_button</sender>
-   <signal>clicked()</signal>
-   <receiver>AtmMainWidget</receiver>
-   <slot>showFullScreen()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>78</x>
-     <y>17</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>197</x>
-     <y>35</y>
-    </hint>
-   </hints>
-  </connection>
  </connections>
 </ui>

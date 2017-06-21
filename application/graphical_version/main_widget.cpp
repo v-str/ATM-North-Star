@@ -28,7 +28,7 @@ void gui::MainWidget::ShowMainWidget() {
   if (is_full_screen_) {
     main_widget_->showFullScreen();
   } else {
-    main_widget_->show();
+    main_widget_->showNormal();
   }
 }
 

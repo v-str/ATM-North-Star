@@ -12,7 +12,6 @@
 
 #include <exit_dialog.h>
 #include <initial_property_installer.h>
-#include <size_screen_controller.h>
 #include <space_block_filter.h>
 #include <text_color_swapper.h>
 #include <timedate_changer.h>
@@ -85,10 +84,10 @@ void AtmSplashScreen::ShowExitWidget() {
 }
 
 void AtmSplashScreen::MaximizeButtonClicked() {
-  if (!SizeScreenController::IsFullScreen()) {
-    SizeScreenController::SetFullScreen(this);
+  if (!isFullScreen()) {
+    showFullScreen();
   } else {
-    SizeScreenController::SetNormalScreen(this);
+    showNormal();
   }
 }
 
@@ -173,7 +172,7 @@ void AtmSplashScreen::BlockSpace() {
 void AtmSplashScreen::ProcessKeyEnterPressing() {
   emit PassPositionWhenEnterPressed(this->geometry());
   emit EnterIsPressed();
-  emit PassScreenSizeCondition(SizeScreenController::IsFullScreen());
+  emit PassScreenSizeCondition(isFullScreen());
 }
 
 void AtmSplashScreen::ComputeNewGeometry() {
