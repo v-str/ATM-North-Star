@@ -2,6 +2,7 @@
 #include <ui_atm_main_widget.h>
 
 #include <QCursor>
+#include <QIcon>
 #include <QLabel>
 #include <QList>
 #include <QPaintEvent>
@@ -73,6 +74,7 @@ void AtmMainWidget::SetWidgetAppearance() {
   setMinimumSize(600, 400);
   InitialPropertyInstaller::SetInitialProperties(
       this, 600, 400, InitialPropertyInstaller::kResize);
+  setWindowIcon(QIcon(":/images/project_icon.png"));
 }
 
 void AtmMainWidget::SetFrameLayout() {
