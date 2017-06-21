@@ -38,7 +38,8 @@ AtmSplashScreen::~AtmSplashScreen() {
   delete ui;
   delete color_swap_timer_;
   delete color_swapper_;
-  delete time_date_timer_;
+  delete date_timer_;
+  delete time_timer_;
 }
 
 void AtmSplashScreen::SetCompanyName(const QString& atm_company_name) {
@@ -75,8 +76,9 @@ void AtmSplashScreen::BlinkAtmLabelColor() {
                              color_swapper_->SwapColorTwo());
 }
 
-void AtmSplashScreen::TimeDateTick() {
-  TimeDateChanger::ChangeDate(ui->timedate_label);
+void AtmSplashScreen::Tick() {
+  TimeDateChanger::ChangeDate(ui->date_label);
+  TimeDateChanger::ChangeTime(ui->time_label);
 }
 
 void AtmSplashScreen::ShowExitWidget() {
@@ -130,7 +132,8 @@ void AtmSplashScreen::SetWidgetAppearance() {
 
 void AtmSplashScreen::PaintWidgets() {
   QList<QLabel*> label_list = {ui->atm_company_name_label, ui->text_label,
-                               ui->timedate_label, ui->version_label};
+                               ui->date_label, ui->time_label,
+                               ui->version_label};
   QList<QPushButton*> button_list = {ui->exit_button, ui->minimize_button,
                                      ui->maximize_button};
   QList<QFrame*> frame_list = {ui->frame};
@@ -142,7 +145,8 @@ void AtmSplashScreen::PaintWidgets() {
 
 void AtmSplashScreen::SetConnections() {
   connect(color_swap_timer_, SIGNAL(timeout()), SLOT(BlinkAtmLabelColor()));
-  connect(time_date_timer_, SIGNAL(timeout()), SLOT(TimeDateTick()));
+  connect(date_timer_, SIGNAL(timeout()), SLOT(Tick()));
+  connect(time_timer_, SIGNAL(timeout()), SLOT(Tick()));
   connect(this, SIGNAL(Exit()), SLOT(ShowExitWidget()));
   connect(ui->exit_button, SIGNAL(clicked(bool)), SLOT(ShowExitWidget()));
   connect(this, SIGNAL(EnterIsPressed()), SLOT(UnlockFixedGeometry()));
@@ -153,12 +157,14 @@ void AtmSplashScreen::SetConnections() {
 void AtmSplashScreen::InitializeObjects() {
   color_swap_timer_ = new QTimer(ui->atm_label);
   color_swapper_ = new TextColorSwapper();
-  time_date_timer_ = new QTimer(ui->timedate_label);
+  date_timer_ = new QTimer(ui->date_label);
+  time_timer_ = new QTimer(ui->time_label);
 }
 
 void AtmSplashScreen::RunTimers() {
   color_swap_timer_->start(350);
-  time_date_timer_->start(1000);
+  date_timer_->start(1000);
+  time_timer_->start(1000);
 }
 
 void AtmSplashScreen::BlockSpace() {
@@ -182,7 +188,8 @@ void AtmSplashScreen::ComputeNewGeometry() {
 void AtmSplashScreen::ResizeWidgets() {
   composer_.ComposeFrame(ui->frame);
   composer_.ComposeVersionLabel(ui->version_label);
-  composer_.ComposeSplashScreenLabels(
-      ui->timedate_label, ui->atm_company_name_label, ui->text_label);
+  composer_.ComposeSplashScreenLabels(ui->date_label, ui->time_label,
+                                      ui->atm_company_name_label,
+                                      ui->text_label);
   composer_.ComposeAtmLabel(ui->atm_label);
 }

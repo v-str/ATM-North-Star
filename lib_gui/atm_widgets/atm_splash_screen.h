@@ -40,7 +40,7 @@ class AtmSplashScreen : public QMainWindow {
  public slots:
   void UnlockFixedGeometry();
   void BlinkAtmLabelColor();
-  void TimeDateTick();
+  void Tick();
   void ShowExitWidget();
   void MaximizeButtonClicked();
 
@@ -62,7 +62,8 @@ class AtmSplashScreen : public QMainWindow {
 
   Ui::AtmSplashScreen* ui = nullptr;
   QTimer* color_swap_timer_ = nullptr;
-  QTimer* time_date_timer_ = nullptr;
+  QTimer* date_timer_ = nullptr;
+  QTimer* time_timer_ = nullptr;
   TextColorSwapper* color_swapper_ = nullptr;
   ExitDialog* exit_dialog_ = nullptr;
 
