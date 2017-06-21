@@ -22,7 +22,7 @@ class MainWidget : public QObject {
   void FullScreenSizeCondition(bool screen_condition);
 
  private:
-  AtmMainWidget* main_widget_ = nullptr;
+  AtmMainWidget* atm_main_widget_ = nullptr;
   QRect* main_widget_position_ = nullptr;
 
   bool is_full_screen_ = false;

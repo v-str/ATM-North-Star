@@ -56,6 +56,8 @@ void AtmMainWidget::SetInitialSettings() {
   QCursor custom_cursor(QPixmap(":/images/app_cursor.png"));
   setCursor(custom_cursor);
 
+  setWindowIcon(QIcon(":/images/project_icon.png"));
+
   InitializeObject();
   SetWidgetAppearance();
 }
@@ -64,7 +66,6 @@ void AtmMainWidget::SetWidgetAppearance() {
   setMinimumSize(600, 400);
   InitialPropertyInstaller::SetInitialProperties(
       this, 600, 400, InitialPropertyInstaller::kResize);
-  setWindowIcon(QIcon(":/images/project_icon.png"));
 }
 
 void AtmMainWidget::SetFrameLayout() {
