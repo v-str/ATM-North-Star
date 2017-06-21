@@ -8,7 +8,6 @@
 #include <QPaintEvent>
 #include <QPixmap>
 #include <QResizeEvent>
-#include <QTimer>
 
 #include <initial_property_installer.h>
 #include <painter.h>
@@ -21,14 +20,10 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
   setWindowTitle("ATM");
   SetInitialSettings();
   PaintWidgets();
-  RunTimers();
   SetConnections();
 }
 
-AtmMainWidget::~AtmMainWidget() {
-  delete ui;
-  delete timedate_timer_;
-}
+AtmMainWidget::~AtmMainWidget() { delete ui; }
 
 void AtmMainWidget::SetWidgetAppearance(const QString& main_color,
                                         const QString& secondary_color,
@@ -42,10 +37,6 @@ void AtmMainWidget::SetBackgroundColor(const QString& background_color) {
   Painter::ChangeBackgroundColor(this, background_color);
 }
 
-void AtmMainWidget::TimeDateTick() {
-  TimeDateChanger::ChangeTimeData(ui->timedate_label);
-}
-
 void AtmMainWidget::MaximizeButtonClicked(bool) {
   if (!isFullScreen()) {
     showFullScreen();
@@ -57,7 +48,6 @@ void AtmMainWidget::MaximizeButtonClicked(bool) {
 void AtmMainWidget::resizeEvent(QResizeEvent*) { SetFrameLayout(); }
 
 void AtmMainWidget::SetConnections() {
-  connect(timedate_timer_, SIGNAL(timeout()), SLOT(TimeDateTick()));
   connect(ui->maximize_button, SIGNAL(clicked(bool)),
           SLOT(MaximizeButtonClicked(bool)));
 }
@@ -90,15 +80,9 @@ void AtmMainWidget::PaintWidgets() {
   QList<QPushButton*> button_list = {
       ui->exit_button,      ui->minimize_button,     ui->maximize_button,
       ui->demo_mode_button, ui->registration_button, ui->login_button};
-  QList<QLabel*> label_list = {ui->timedate_label};
 
   color_designer_.PaintWidgetSet(frame_list);
   color_designer_.PaintWidgetSet(button_list);
-  color_designer_.PaintWidgetSet(label_list);
 }
 
-void AtmMainWidget::InitializeObject() {
-  timedate_timer_ = new QTimer(ui->timedate_label);
-}
-
-void AtmMainWidget::RunTimers() { timedate_timer_->start(1000); }
+void AtmMainWidget::InitializeObject() {}

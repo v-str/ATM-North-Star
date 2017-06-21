@@ -40,7 +40,7 @@ SOURCES += \
     $$PWD/features/*.cpp \
 
 FORMS += \
-    $$PWD/atm_widgets/*.ui \
+    $$PWD/atm_widgets/*.ui
 
 RESOURCES += \
     atm_resources.qrc
