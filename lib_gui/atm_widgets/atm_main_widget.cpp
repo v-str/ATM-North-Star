@@ -15,6 +15,9 @@
 #include <timedate_changer.h>
 #include <widget_color.h>
 
+QRect AtmMainWidget::kTimeLabel = {470, 5, 114, 20};
+QRect AtmMainWidget::kFrame = {5, 30, 580, 335};
+
 AtmMainWidget::AtmMainWidget(QWidget* parent)
     : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
   ui->setupUi(this);

@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include <QRect>
+
 #include <atm_color_designer.h>
 
 class QPaintEvent;
@@ -46,6 +48,9 @@ class AtmMainWidget : public QMainWindow {
   QTimer* time_timer_ = nullptr;
 
   AtmColorDesigner color_designer_;
+
+  static QRect kTimeLabel;
+  static QRect kFrame;
 };
 
 #endif  // ATM_MAIN_WIDGET_H
