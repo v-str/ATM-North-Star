@@ -47,6 +47,10 @@
     fullscreen widget mode                                                          |   |
                                                                                     |   |
 18. Remove double icon in task panel                                                | - |
+                                                                                    |   |
+19. Time label - make size composition                                              | - |
+                                                                                    |   |
+20. Remove secondary frame, and make it separate, make size composing this frame    | - |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
