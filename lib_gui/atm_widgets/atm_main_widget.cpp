@@ -8,6 +8,7 @@
 #include <QPaintEvent>
 #include <QPixmap>
 #include <QResizeEvent>
+#include <QTimer>
 
 #include <initial_property_installer.h>
 #include <painter.h>
@@ -21,9 +22,13 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
   SetInitialSettings();
   PaintWidgets();
   SetConnections();
+  RunTimers();
 }
 
-AtmMainWidget::~AtmMainWidget() { delete ui; }
+AtmMainWidget::~AtmMainWidget() {
+  delete ui;
+  delete time_timer_;
+}
 
 void AtmMainWidget::SetWidgetAppearance(const QString& main_color,
                                         const QString& secondary_color,
@@ -45,11 +50,14 @@ void AtmMainWidget::MaximizeButtonClicked(bool) {
   }
 }
 
+void AtmMainWidget::TickTime() { TimeDateChanger::ChangeTime(ui->time_label); }
+
 void AtmMainWidget::resizeEvent(QResizeEvent*) { SetFrameLayout(); }
 
 void AtmMainWidget::SetConnections() {
   connect(ui->maximize_button, SIGNAL(clicked(bool)),
           SLOT(MaximizeButtonClicked(bool)));
+  connect(time_timer_, SIGNAL(timeout()), SLOT(TickTime()));
 }
 
 void AtmMainWidget::SetInitialSettings() {
@@ -76,14 +84,20 @@ void AtmMainWidget::SetFrameLayout() {
                                    355 + extra_height);
 }
 
+void AtmMainWidget::RunTimers() { time_timer_->start(1000); }
+
 void AtmMainWidget::PaintWidgets() {
   QList<QFrame*> frame_list = {ui->main_fraim, ui->secondary_frame};
   QList<QPushButton*> button_list = {
       ui->exit_button,      ui->minimize_button,     ui->maximize_button,
       ui->demo_mode_button, ui->registration_button, ui->login_button};
+  QList<QLabel*> label_list = {ui->time_label};
 
   color_designer_.PaintWidgetSet(frame_list);
   color_designer_.PaintWidgetSet(button_list);
+  color_designer_.PaintWidgetSet(label_list);
 }
 
-void AtmMainWidget::InitializeObject() {}
+void AtmMainWidget::InitializeObject() {
+  time_timer_ = new QTimer(ui->time_label);
+}

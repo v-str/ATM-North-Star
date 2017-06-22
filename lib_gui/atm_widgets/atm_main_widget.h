@@ -8,6 +8,7 @@
 class QPaintEvent;
 class QString;
 class WidgetColor;
+class QTimer;
 
 namespace Ui {
 class AtmMainWidget;
@@ -27,6 +28,7 @@ class AtmMainWidget : public QMainWindow {
 
  public slots:
   void MaximizeButtonClicked(bool);
+  void TickTime();
 
  protected:
   void resizeEvent(QResizeEvent* event);
@@ -36,10 +38,12 @@ class AtmMainWidget : public QMainWindow {
   void SetInitialSettings();
   void SetWidgetAppearance();
   void SetFrameLayout();
+  void RunTimers();
   void PaintWidgets();
   void InitializeObject();
 
   Ui::AtmMainWidget* ui = nullptr;
+  QTimer* time_timer_ = nullptr;
 
   AtmColorDesigner color_designer_;
 };

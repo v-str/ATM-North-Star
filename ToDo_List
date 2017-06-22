@@ -43,8 +43,10 @@
                                                                                     |   |
 16. Realize full screen showing both splash screen and main widget                  | + |
                                                                                     |   |
-17. Add medium main widget screen size when maximize button clicked after           | - |
+17. Add medium main widget screen size when maximize button clicked after           | + |
     fullscreen widget mode                                                          |   |
+                                                                                    |   |
+18. Remove double icon in task panel                                                | - |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
