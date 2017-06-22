@@ -17,7 +17,7 @@
    <string notr="true">background-color: black;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="main_fraim">
+   <widget class="QFrame" name="main_frame">
     <property name="geometry">
      <rect>
       <x>5</x>

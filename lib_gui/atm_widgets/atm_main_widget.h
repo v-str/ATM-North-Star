@@ -43,6 +43,7 @@ class AtmMainWidget : public QMainWindow {
   void RunTimers();
   void PaintWidgets();
   void InitializeObject();
+  void ComputeExtraSize();
 
   Ui::AtmMainWidget* ui = nullptr;
   QTimer* time_timer_ = nullptr;
@@ -50,7 +51,14 @@ class AtmMainWidget : public QMainWindow {
   AtmColorDesigner color_designer_;
 
   static QRect kTimeLabel;
-  static QRect kFrame;
+  static QRect kMainFrame;
+  static QRect kSecondaryFrame;
+
+  static const int kWidth = 600;
+  static const int kHeight = 400;
+
+  int extra_width_ = 0;
+  int extra_height_ = 0;
 };
 
 #endif  // ATM_MAIN_WIDGET_H

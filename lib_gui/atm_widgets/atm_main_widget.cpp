@@ -16,7 +16,8 @@
 #include <widget_color.h>
 
 QRect AtmMainWidget::kTimeLabel = {470, 5, 114, 20};
-QRect AtmMainWidget::kFrame = {5, 30, 580, 335};
+QRect AtmMainWidget::kMainFrame = {5, 5, 590, 390};
+QRect AtmMainWidget::kSecondaryFrame = {5, 30, 580, 335};
 
 AtmMainWidget::AtmMainWidget(QWidget* parent)
     : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
@@ -55,7 +56,10 @@ void AtmMainWidget::MaximizeButtonClicked(bool) {
 
 void AtmMainWidget::TickTime() { TimeDateChanger::ChangeTime(ui->time_label); }
 
-void AtmMainWidget::resizeEvent(QResizeEvent*) { SetFrameArrangement(); }
+void AtmMainWidget::resizeEvent(QResizeEvent*) {
+  ComputeExtraSize();
+  SetFrameArrangement();
+}
 
 void AtmMainWidget::SetConnections() {
   connect(ui->maximize_button, SIGNAL(clicked(bool)),
@@ -80,17 +84,18 @@ void AtmMainWidget::SetWidgetAppearance() {
 }
 
 void AtmMainWidget::SetFrameArrangement() {
-  int extra_width = width() - minimumWidth();
-  int extra_height = height() - minimumHeight();
-  ui->main_fraim->setGeometry(5, 5, 590 + extra_width, 390 + extra_height);
-  ui->secondary_frame->setGeometry(5, 30, 580 + extra_width,
-                                   355 + extra_height);
+  ui->main_frame->setGeometry(kMainFrame.x(), kMainFrame.y(),
+                              kMainFrame.width() + extra_width_,
+                              kMainFrame.height() + extra_height_);
+  ui->secondary_frame->setGeometry(kSecondaryFrame.x(), kSecondaryFrame.y(),
+                                   kSecondaryFrame.width() + extra_width_,
+                                   kSecondaryFrame.height() + extra_height_);
 }
 
 void AtmMainWidget::RunTimers() { time_timer_->start(1000); }
 
 void AtmMainWidget::PaintWidgets() {
-  QList<QFrame*> frame_list = {ui->main_fraim, ui->secondary_frame};
+  QList<QFrame*> frame_list = {ui->main_frame, ui->secondary_frame};
   QList<QPushButton*> button_list = {
       ui->exit_button,      ui->minimize_button,     ui->maximize_button,
       ui->demo_mode_button, ui->registration_button, ui->login_button};
@@ -103,4 +108,9 @@ void AtmMainWidget::PaintWidgets() {
 
 void AtmMainWidget::InitializeObject() {
   time_timer_ = new QTimer(ui->time_label);
+}
+
+void AtmMainWidget::ComputeExtraSize() {
+  extra_width_ = width() - kWidth;
+  extra_height_ = height() - kHeight;
 }
