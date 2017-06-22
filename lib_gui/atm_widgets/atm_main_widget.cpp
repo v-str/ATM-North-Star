@@ -55,7 +55,7 @@ void AtmMainWidget::MaximizeButtonClicked(bool) {
 
 void AtmMainWidget::TickTime() { TimeDateChanger::ChangeTime(ui->time_label); }
 
-void AtmMainWidget::resizeEvent(QResizeEvent*) { SetFrameLayout(); }
+void AtmMainWidget::resizeEvent(QResizeEvent*) { SetFrameArrangement(); }
 
 void AtmMainWidget::SetConnections() {
   connect(ui->maximize_button, SIGNAL(clicked(bool)),
@@ -79,7 +79,7 @@ void AtmMainWidget::SetWidgetAppearance() {
       this, 600, 400, InitialPropertyInstaller::kResize);
 }
 
-void AtmMainWidget::SetFrameLayout() {
+void AtmMainWidget::SetFrameArrangement() {
   int extra_width = width() - minimumWidth();
   int extra_height = height() - minimumHeight();
   ui->main_fraim->setGeometry(5, 5, 590 + extra_width, 390 + extra_height);
