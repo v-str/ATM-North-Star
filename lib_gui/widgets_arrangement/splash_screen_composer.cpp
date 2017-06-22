@@ -1,4 +1,4 @@
-﻿#include <splash_screen_size_composer.h>
+﻿#include <splash_screen_composer.h>
 
 #include <QFont>
 #include <QFontMetrics>

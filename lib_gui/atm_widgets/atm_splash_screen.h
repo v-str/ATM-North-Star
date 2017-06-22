@@ -4,7 +4,7 @@
 #include <QMainWindow>
 
 #include <atm_color_designer.h>
-#include <splash_screen_size_composer.h>
+#include <splash_screen_composer.h>
 
 class TextColorSwapper;
 class ExitDialog;
