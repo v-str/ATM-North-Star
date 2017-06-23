@@ -17,7 +17,7 @@
 
 QRect AtmMainWidget::kTimeLabel = {470, 5, 114, 20};
 QRect AtmMainWidget::kMainFrame = {5, 5, 590, 390};
-QRect AtmMainWidget::kSecondaryFrame = {5, 30, 580, 335};
+QRect AtmMainWidget::kSecondaryFrame = {5, 30, 580, 355};
 
 AtmMainWidget::AtmMainWidget(QWidget* parent)
     : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
