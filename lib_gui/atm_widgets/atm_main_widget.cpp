@@ -59,6 +59,7 @@ void AtmMainWidget::TickTime() { TimeDateChanger::ChangeTime(ui->time_label); }
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeExtraSize();
   SetFrameArrangement();
+  SetTimeLabelArrangement();
 }
 
 void AtmMainWidget::SetConnections() {
@@ -90,6 +91,11 @@ void AtmMainWidget::SetFrameArrangement() {
   ui->secondary_frame->setGeometry(kSecondaryFrame.x(), kSecondaryFrame.y(),
                                    kSecondaryFrame.width() + extra_width_,
                                    kSecondaryFrame.height() + extra_height_);
+}
+
+void AtmMainWidget::SetTimeLabelArrangement() {
+  ui->time_label->setGeometry(kTimeLabel.x() + extra_width_, kTimeLabel.y(),
+                              kTimeLabel.width(), kTimeLabel.height());
 }
 
 void AtmMainWidget::RunTimers() { time_timer_->start(1000); }
