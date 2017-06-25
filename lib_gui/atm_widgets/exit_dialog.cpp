@@ -9,7 +9,6 @@
 
 #include <initial_property_installer.h>
 #include <widget_center_arranger.h>
-#include <widget_color.h>
 
 ExitDialog::ExitDialog(QWidget* parent)
     : QDialog(parent), ui(new Ui::ExitDialog) {
@@ -22,13 +21,7 @@ ExitDialog::ExitDialog(QWidget* parent)
 
 ExitDialog::~ExitDialog() { delete ui; }
 
-void ExitDialog::SetExitDialogAppearance(const QString& main_color,
-                                         const QString& secondary_color,
-                                         const QString& additional_color) {
-  color_designer_.ConfigureWidgetColorSet(
-      WidgetColor(main_color, secondary_color, additional_color));
-  PaintWidgets();
-}
+void ExitDialog::SetExitDialogAppearance() { PaintWidgets(); }
 
 void ExitDialog::SetBackgroundColor(const QString& background_color) {
   color_designer_.SetBackgroundColor(this, background_color);

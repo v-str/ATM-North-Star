@@ -17,7 +17,7 @@ gui::MainWidget::~MainWidget() {
 }
 
 void gui::MainWidget::SetMainWidgetAppearance() {
-  atm_main_widget_->SetWidgetAppearance("#00FFFF", "#001933", "#006666");
+  atm_main_widget_->SetWidgetAppearance();
   atm_main_widget_->SetBackgroundColor("black");
 }
 

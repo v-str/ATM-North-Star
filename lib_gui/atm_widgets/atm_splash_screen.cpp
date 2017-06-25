@@ -15,7 +15,6 @@
 #include <space_block_filter.h>
 #include <text_color_swapper.h>
 #include <timedate_changer.h>
-#include <widget_color.h>
 
 AtmSplashScreen::AtmSplashScreen(QWidget* parent)
     : QMainWindow(parent),
@@ -46,17 +45,10 @@ void AtmSplashScreen::SetCompanyName(const QString& atm_company_name) {
   ui->atm_company_name_label->setText(atm_company_name);
 }
 
-void AtmSplashScreen::SetSplashScreenAppearance(
-    const QString& main_color,
-    const QString& secondary_color,
-    const QString& additional_color) {
-  color_designer_.ConfigureWidgetColorSet(
-      WidgetColor(main_color, secondary_color, additional_color));
-
+void AtmSplashScreen::SetSplashScreenAppearance() {
   PaintWidgets();
 
-  exit_dialog_->SetExitDialogAppearance(main_color, secondary_color,
-                                        additional_color);
+  exit_dialog_->SetExitDialogAppearance();
 }
 
 void AtmSplashScreen::SetAtmBlinkColor(const QString& color_one,

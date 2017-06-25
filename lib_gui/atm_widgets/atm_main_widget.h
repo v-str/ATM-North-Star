@@ -23,9 +23,7 @@ class AtmMainWidget : public QMainWindow {
   explicit AtmMainWidget(QWidget* parent = nullptr);
   ~AtmMainWidget();
 
-  void SetWidgetAppearance(const QString& main_color,
-                           const QString& secondary_color,
-                           const QString& additional_color);
+  void SetWidgetAppearance();
   void SetBackgroundColor(const QString& background_color);
 
  public slots:
@@ -38,7 +36,7 @@ class AtmMainWidget : public QMainWindow {
  private:
   void SetConnections();
   void SetInitialSettings();
-  void SetWidgetAppearance();
+  void SetWidgetProperties();
   void SetFrameArrangement();
   void SetTimeLabelArrangement();
   void RunTimers();

@@ -5,22 +5,18 @@
 
 class WidgetColor {
  public:
-  WidgetColor(const QString& main_color = "yellow",
-              const QString& secondary_color = "red",
-              const QString& additional_color = "blue");
+  static void SetWidgetColor(const QString main_color,
+                             const QString secondary_color,
+                             const QString additional_color);
 
-  void SetWidgetColor(const QString main_color,
-                      const QString secondary_color,
-                      const QString additional_color);
-
-  QString MainColor() const;
-  QString SecondaryColor() const;
-  QString AdditionalColor() const;
+  static QString MainColor();
+  static QString SecondaryColor();
+  static QString AdditionalColor();
 
  private:
-  QString main_color_;
-  QString secondary_color_;
-  QString additional_color_;
+  static QString main_color_;
+  static QString secondary_color_;
+  static QString additional_color_;
 };
 
 #endif  // WIDGET_COLOR_H

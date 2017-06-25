@@ -20,9 +20,7 @@ class ExitDialog : public QDialog {
   explicit ExitDialog(QWidget* parent = nullptr);
   ~ExitDialog();
 
-  void SetExitDialogAppearance(const QString& main_color,
-                               const QString& secondary_color,
-                               const QString& additional_color);
+  void SetExitDialogAppearance();
   void SetBackgroundColor(const QString& background_color);
   void ShowWidgetOnCenterAt(const QRect& widget_geometry);
 

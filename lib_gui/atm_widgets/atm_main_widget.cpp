@@ -13,7 +13,6 @@
 #include <initial_property_installer.h>
 #include <painter.h>
 #include <timedate_changer.h>
-#include <widget_color.h>
 
 QRect AtmMainWidget::kTimeLabel = {470, 5, 114, 20};
 QRect AtmMainWidget::kMainFrame = {5, 5, 590, 390};
@@ -24,6 +23,7 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
   ui->setupUi(this);
   setWindowTitle("ATM");
   SetInitialSettings();
+  SetWidgetProperties();
   PaintWidgets();
   SetConnections();
   RunTimers();
@@ -34,13 +34,7 @@ AtmMainWidget::~AtmMainWidget() {
   delete time_timer_;
 }
 
-void AtmMainWidget::SetWidgetAppearance(const QString& main_color,
-                                        const QString& secondary_color,
-                                        const QString& additional_color) {
-  color_designer_.ConfigureWidgetColorSet(
-      WidgetColor(main_color, secondary_color, additional_color));
-  PaintWidgets();
-}
+void AtmMainWidget::SetWidgetAppearance() { PaintWidgets(); }
 
 void AtmMainWidget::SetBackgroundColor(const QString& background_color) {
   Painter::ChangeBackgroundColor(this, background_color);
@@ -78,7 +72,7 @@ void AtmMainWidget::SetInitialSettings() {
   SetWidgetAppearance();
 }
 
-void AtmMainWidget::SetWidgetAppearance() {
+void AtmMainWidget::SetWidgetProperties() {
   setMinimumSize(600, 400);
   InitialPropertyInstaller::SetInitialProperties(
       this, 600, 400, InitialPropertyInstaller::kResize);

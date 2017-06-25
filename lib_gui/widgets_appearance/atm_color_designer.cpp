@@ -8,13 +8,9 @@
 #include <QString>
 
 #include <painter.h>
+#include <widget_color.h>
 
 AtmColorDesigner::AtmColorDesigner() {}
-
-void AtmColorDesigner::ConfigureWidgetColorSet(
-    const WidgetColor& widget_color) {
-  widget_color_ = widget_color;
-}
 
 void AtmColorDesigner::SetBackgroundColor(QMainWindow* main_window,
                                           const QString& background_color) {
@@ -28,21 +24,21 @@ void AtmColorDesigner::SetBackgroundColor(QDialog* dialog,
 
 void AtmColorDesigner::PaintWidgetSet(QList<QLabel*> label_list) const {
   for (auto label = label_list.begin(); label != label_list.end(); ++label) {
-    Painter::ChangeLabelColor(*label, widget_color_.MainColor());
+    Painter::ChangeLabelColor(*label, WidgetColor::MainColor());
   }
 }
 
 void AtmColorDesigner::PaintWidgetSet(QList<QPushButton*> button_list) const {
   for (auto button = button_list.begin(); button != button_list.end();
        ++button) {
-    Painter::ChangeButtonColor(*button, widget_color_.MainColor(),
-                               widget_color_.SecondaryColor(),
-                               widget_color_.AdditionalColor());
+    Painter::ChangeButtonColor(*button, WidgetColor::MainColor(),
+                               WidgetColor::SecondaryColor(),
+                               WidgetColor::AdditionalColor());
   }
 }
 
 void AtmColorDesigner::PaintWidgetSet(QList<QFrame*> frame_list) const {
   for (auto frame = frame_list.begin(); frame != frame_list.end(); ++frame) {
-    Painter::ChangeFrameColor(*frame, widget_color_.MainColor());
+    Painter::ChangeFrameColor(*frame, WidgetColor::MainColor());
   }
 }
