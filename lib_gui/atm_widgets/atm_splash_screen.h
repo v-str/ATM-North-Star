@@ -24,8 +24,6 @@ class AtmSplashScreen : public QMainWindow {
 
   void SetCompanyName(const QString& atm_company_name);
 
-  void SetBackgroundColor(const QString& background_color);
-
  signals:
   void Exit();
   void EnterIsPressed();
@@ -48,6 +46,8 @@ class AtmSplashScreen : public QMainWindow {
   void SetSplashScreenAppearance();
 
   void SetInitialSettings();
+  void SetBackgroundColor();
+
   void SetWidgetAppearance();
   void PaintWidgets();
   void SetConnections();

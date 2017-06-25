@@ -7,6 +7,8 @@ QString ApplicationColor::additional_app_color_ = "blue";
 QString ApplicationColor::splash_screen_blink_color_one_ = "#CCCC00";
 QString ApplicationColor::splash_screen_blink_color_two_ = "#999900";
 
+QString ApplicationColor::application_background_color_ = "black";
+
 void ApplicationColor::SetWidgetColor(const QString main_color,
                                       const QString secondary_color,
                                       const QString additional_color) {
@@ -27,4 +29,8 @@ QString ApplicationColor::BlinkColorOne() {
 
 QString ApplicationColor::BlinkColorTwo() {
   return splash_screen_blink_color_two_;
+}
+
+QString ApplicationColor::ApplicationBackgroundColor() {
+  return application_background_color_;
 }

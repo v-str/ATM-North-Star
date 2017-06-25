@@ -30,10 +30,7 @@ void gui::GraphicalSplashScreen::SetSplashScreen() {
   //  "#006666");
   // splash_screen_->SetAtmBlinkColor("#00FFFF", "#009999");
 
-  // splash_screen_->SetSplashScreenAppearance();
-
-  // splash_screen_->SetAtmBlinkColor("#00FFFF", "#009999");
-  splash_screen_->SetBackgroundColor("black");
+  // splash_screen_->SetBackgroundColor("black");
 }
 
 void gui::GraphicalSplashScreen::SetConnections() {

@@ -16,6 +16,8 @@ class ApplicationColor {
   static QString BlinkColorOne();
   static QString BlinkColorTwo();
 
+  static QString ApplicationBackgroundColor();
+
  private:
   static QString main_app_color_;
   static QString secondary_app_color_;
@@ -23,6 +25,8 @@ class ApplicationColor {
 
   static QString splash_screen_blink_color_one_;
   static QString splash_screen_blink_color_two_;
+
+  static QString application_background_color_;
 };
 
 #endif  // APPLICATION_COLOR_H

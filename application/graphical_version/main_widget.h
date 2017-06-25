@@ -14,8 +14,6 @@ class MainWidget : public QObject {
   explicit MainWidget(QObject* parent = nullptr);
   ~MainWidget();
 
-  void SetMainWidgetAppearance();
-
  public slots:
   void ShowMainWidget();
   void SetWidgetGeometry(const QRect& initial_position);

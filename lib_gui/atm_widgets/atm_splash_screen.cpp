@@ -26,6 +26,7 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
   setWindowTitle("ATM splash screen");
 
   SetSplashScreenAppearance();
+  SetBackgroundColor();
 
   InitializeObjects();
   SetWidgetAppearance();
@@ -48,15 +49,10 @@ void AtmSplashScreen::SetCompanyName(const QString& atm_company_name) {
   ui->atm_company_name_label->setText(atm_company_name);
 }
 
-void AtmSplashScreen::SetSplashScreenAppearance() {
-  PaintWidgets();
+void AtmSplashScreen::SetSplashScreenAppearance() { PaintWidgets(); }
 
-  exit_dialog_->SetExitDialogAppearance();
-}
-
-void AtmSplashScreen::SetBackgroundColor(const QString& background_color) {
-  color_designer_.SetBackgroundColor(this, background_color);
-  exit_dialog_->SetBackgroundColor(background_color);
+void AtmSplashScreen::SetBackgroundColor() {
+  color_designer_.SetBackgroundColor(this);
 }
 
 void AtmSplashScreen::UnlockFixedGeometry() { setMinimumSize(0, 0); }

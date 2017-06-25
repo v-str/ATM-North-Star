@@ -12,14 +12,14 @@
 
 AtmColorDesigner::AtmColorDesigner() {}
 
-void AtmColorDesigner::SetBackgroundColor(QMainWindow* main_window,
-                                          const QString& background_color) {
-  Painter::ChangeBackgroundColor(main_window, background_color);
+void AtmColorDesigner::SetBackgroundColor(QMainWindow* main_window) {
+  Painter::ChangeBackgroundColor(
+      main_window, ApplicationColor::ApplicationBackgroundColor());
 }
 
-void AtmColorDesigner::SetBackgroundColor(QDialog* dialog,
-                                          const QString& background_color) {
-  Painter::ChangeBackgroundColor(dialog, background_color);
+void AtmColorDesigner::SetBackgroundColor(QDialog* dialog) {
+  Painter::ChangeBackgroundColor(
+      dialog, ApplicationColor::ApplicationBackgroundColor());
 }
 
 void AtmColorDesigner::PaintWidgetSet(QList<QLabel*> label_list) const {

@@ -14,6 +14,10 @@ ExitDialog::ExitDialog(QWidget* parent)
     : QDialog(parent), ui(new Ui::ExitDialog) {
   ui->setupUi(this);
   setWindowTitle("Exit window");
+
+  SetExitDialogAppearance();
+  SetBackgroundColor();
+
   SetInitialProperties();
   PaintWidgets();
   SetConnections();
@@ -23,8 +27,8 @@ ExitDialog::~ExitDialog() { delete ui; }
 
 void ExitDialog::SetExitDialogAppearance() { PaintWidgets(); }
 
-void ExitDialog::SetBackgroundColor(const QString& background_color) {
-  color_designer_.SetBackgroundColor(this, background_color);
+void ExitDialog::SetBackgroundColor() {
+  color_designer_.SetBackgroundColor(this);
 }
 
 void ExitDialog::ShowWidgetOnCenterAt(const QRect& widget_geometry) {
