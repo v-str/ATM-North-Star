@@ -19,6 +19,7 @@ DEPENDPATH += \
     ../widgets_arrangement \
     ../features \
     ../images \
+    ../sounds \
 
 INCLUDEPATH += \
     $$PWD/atm_widgets \
@@ -39,7 +40,7 @@ SOURCES += \
     $$PWD/features/*.cpp \
 
 FORMS += \
-    $$PWD/atm_widgets/*.ui \
+    $$PWD/atm_widgets/*.ui
 
 RESOURCES += \
     atm_resources.qrc

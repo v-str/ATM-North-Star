@@ -15,7 +15,8 @@ class SplashScreenSizeComposer {
  public:
   void ComposeFrame(QFrame* frame);
   void ComposeVersionLabel(QLabel* version_label);
-  void ComposeSplashScreenLabels(QLabel* timedate_label,
+  void ComposeSplashScreenLabels(QLabel* date_label,
+                                 QLabel* time_label,
                                  QLabel* company_name_label,
                                  QLabel* text_label);
 
@@ -26,7 +27,8 @@ class SplashScreenSizeComposer {
  private:
   static QRect kVersionLabel;
   static QRect kCompanyNameLabel;
-  static QRect kTimedateLabel;
+  static QRect kDateLabel;
+  static QRect kTimeLabel;
   static QRect kTextLabel;
   static QRect kFrame;
 
