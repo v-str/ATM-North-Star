@@ -10,16 +10,19 @@
 #include <QResizeEvent>
 #include <QTimer>
 
+#include <initial_menu_frame.h>
 #include <initial_property_installer.h>
 #include <painter.h>
 #include <timedate_changer.h>
 
 QRect AtmMainWidget::kTimeLabel = {470, 5, 114, 20};
 QRect AtmMainWidget::kMainFrame = {5, 5, 590, 390};
-QRect AtmMainWidget::kSecondaryFrame = {5, 30, 580, 355};
+QRect AtmMainWidget::kSecondaryFrame = {10, 35, 580, 355};
 
 AtmMainWidget::AtmMainWidget(QWidget* parent)
-    : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
+    : QMainWindow(parent),
+      ui(new Ui::AtmMainWidget),
+      initial_frame_(new InitialMenuFrame(this)) {
   ui->setupUi(this);
   setWindowTitle("ATM");
 
@@ -72,6 +75,8 @@ void AtmMainWidget::SetInitialSettings() {
 
   setWindowIcon(QIcon(":/images/project_icon.png"));
 
+  initial_frame_->setGeometry(kSecondaryFrame);
+
   InitializeObject();
   SetWidgetAppearance();
 }
@@ -86,9 +91,6 @@ void AtmMainWidget::SetFrameArrangement() {
   ui->main_frame->setGeometry(kMainFrame.x(), kMainFrame.y(),
                               kMainFrame.width() + extra_width_,
                               kMainFrame.height() + extra_height_);
-  ui->secondary_frame->setGeometry(kSecondaryFrame.x(), kSecondaryFrame.y(),
-                                   kSecondaryFrame.width() + extra_width_,
-                                   kSecondaryFrame.height() + extra_height_);
 }
 
 void AtmMainWidget::SetTimeLabelArrangement() {
@@ -99,10 +101,10 @@ void AtmMainWidget::SetTimeLabelArrangement() {
 void AtmMainWidget::RunTimers() { time_timer_->start(1000); }
 
 void AtmMainWidget::PaintWidgets() {
-  QList<QFrame*> frame_list = {ui->main_frame, ui->secondary_frame};
-  QList<QPushButton*> button_list = {
-      ui->exit_button,      ui->minimize_button,     ui->maximize_button,
-      ui->demo_mode_button, ui->registration_button, ui->login_button};
+  QList<QFrame*> frame_list = {ui->main_frame};
+  QList<QPushButton*> button_list = {ui->exit_button, ui->minimize_button,
+                                     ui->maximize_button};
+
   QList<QLabel*> label_list = {ui->time_label};
 
   color_designer_.PaintWidgetSet(frame_list);
