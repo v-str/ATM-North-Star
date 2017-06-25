@@ -20,3 +20,11 @@ QString ApplicationColor::MainColor() { return main_app_color_; }
 QString ApplicationColor::SecondaryColor() { return secondary_app_color_; }
 
 QString ApplicationColor::AdditionalColor() { return additional_app_color_; }
+
+QString ApplicationColor::BlinkColorOne() {
+  return splash_screen_blink_color_one_;
+}
+
+QString ApplicationColor::BlinkColorTwo() {
+  return splash_screen_blink_color_two_;
+}

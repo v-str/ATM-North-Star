@@ -13,6 +13,9 @@ class ApplicationColor {
   static QString SecondaryColor();
   static QString AdditionalColor();
 
+  static QString BlinkColorOne();
+  static QString BlinkColorTwo();
+
  private:
   static QString main_app_color_;
   static QString secondary_app_color_;

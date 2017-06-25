@@ -31,7 +31,8 @@ void gui::GraphicalSplashScreen::SetSplashScreen() {
   // splash_screen_->SetAtmBlinkColor("#00FFFF", "#009999");
 
   // splash_screen_->SetSplashScreenAppearance();
-  splash_screen_->SetAtmBlinkColor("#00FFFF", "#009999");
+
+  // splash_screen_->SetAtmBlinkColor("#00FFFF", "#009999");
   splash_screen_->SetBackgroundColor("black");
 }
 

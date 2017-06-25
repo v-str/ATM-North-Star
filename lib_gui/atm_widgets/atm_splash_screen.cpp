@@ -24,7 +24,9 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
   exit_dialog_->setModal(true);
 
   setWindowTitle("ATM splash screen");
+
   SetSplashScreenAppearance();
+
   InitializeObjects();
   SetWidgetAppearance();
   BlockSpace();
@@ -37,7 +39,7 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
 AtmSplashScreen::~AtmSplashScreen() {
   delete ui;
   delete color_swap_timer_;
-  delete color_swapper_;
+  delete text_color_swapper_;
   delete date_timer_;
   delete time_timer_;
 }
@@ -52,11 +54,6 @@ void AtmSplashScreen::SetSplashScreenAppearance() {
   exit_dialog_->SetExitDialogAppearance();
 }
 
-void AtmSplashScreen::SetAtmBlinkColor(const QString& color_one,
-                                       const QString& color_two) {
-  color_swapper_->SetSwapColors(color_one, color_two);
-}
-
 void AtmSplashScreen::SetBackgroundColor(const QString& background_color) {
   color_designer_.SetBackgroundColor(this, background_color);
   exit_dialog_->SetBackgroundColor(background_color);
@@ -65,8 +62,7 @@ void AtmSplashScreen::SetBackgroundColor(const QString& background_color) {
 void AtmSplashScreen::UnlockFixedGeometry() { setMinimumSize(0, 0); }
 
 void AtmSplashScreen::BlinkAtmLabelColor() {
-  color_swapper_->SwapColors(ui->atm_label, color_swapper_->SwapColorOne(),
-                             color_swapper_->SwapColorTwo());
+  text_color_swapper_->SwapColors(ui->atm_label);
 }
 
 void AtmSplashScreen::Tick() {
@@ -149,7 +145,7 @@ void AtmSplashScreen::SetConnections() {
 
 void AtmSplashScreen::InitializeObjects() {
   color_swap_timer_ = new QTimer(ui->atm_label);
-  color_swapper_ = new TextColorSwapper();
+  text_color_swapper_ = new TextColorSwapper();
   date_timer_ = new QTimer(ui->date_label);
   time_timer_ = new QTimer(ui->time_label);
 }

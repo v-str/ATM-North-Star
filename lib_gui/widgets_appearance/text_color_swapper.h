@@ -6,15 +6,9 @@
 
 class TextColorSwapper {
  public:
-  void SwapColors(QLabel* label,
-                   const QString& first_color,
-                   const QString& second_color);
+  TextColorSwapper();
 
-  void SetSwapColors(const QString& swap_color_one,
-                     const QString& swap_color_two);
-
-  QString SwapColorOne() const;
-  QString SwapColorTwo() const;
+  void SwapColors(QLabel* label);
 
  private:
   QString swap_color_one_ = "#994C00";

@@ -24,7 +24,6 @@ class AtmSplashScreen : public QMainWindow {
 
   void SetCompanyName(const QString& atm_company_name);
 
-  void SetAtmBlinkColor(const QString& color_one, const QString& color_two);
   void SetBackgroundColor(const QString& background_color);
 
  signals:
@@ -63,7 +62,7 @@ class AtmSplashScreen : public QMainWindow {
   QTimer* color_swap_timer_ = nullptr;
   QTimer* date_timer_ = nullptr;
   QTimer* time_timer_ = nullptr;
-  TextColorSwapper* color_swapper_ = nullptr;
+  TextColorSwapper* text_color_swapper_ = nullptr;
   ExitDialog* exit_dialog_ = nullptr;
 
   AtmColorDesigner color_designer_;
