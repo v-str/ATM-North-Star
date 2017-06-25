@@ -14,9 +14,9 @@ class WidgetColor {
   static QString AdditionalColor();
 
  private:
-  static QString main_color_;
-  static QString secondary_color_;
-  static QString additional_color_;
+  static QString main_app_color_;
+  static QString secondary_app_color_;
+  static QString additional_app_color_;
 };
 
 #endif  // WIDGET_COLOR_H
