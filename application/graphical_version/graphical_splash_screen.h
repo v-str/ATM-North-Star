@@ -16,7 +16,6 @@ class GraphicalSplashScreen {
   void RunInitialScreen();
 
  private:
-  void SetSplashScreen();
   void SetConnections();
 
   AtmSplashScreen* splash_screen_ = nullptr;

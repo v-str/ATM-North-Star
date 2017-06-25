@@ -29,7 +29,7 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
   SetBackgroundColor();
 
   InitializeObjects();
-  SetWidgetAppearance();
+  SetWidgetProperties();
   BlockSpace();
   SetInitialSettings();
   PaintWidgets();
@@ -120,7 +120,7 @@ void AtmSplashScreen::SetInitialSettings() {
   setCursor(custom_cursor);
 }
 
-void AtmSplashScreen::SetWidgetAppearance() {
+void AtmSplashScreen::SetWidgetProperties() {
   InitialPropertyInstaller::SetInitialProperties(
       this, 600, 400, InitialPropertyInstaller::kResize);
   setWindowIcon(QIcon(":/images/project_icon.png"));
