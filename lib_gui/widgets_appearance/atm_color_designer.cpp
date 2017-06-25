@@ -7,8 +7,8 @@
 #include <QPushButton>
 #include <QString>
 
+#include <application_color.h>
 #include <painter.h>
-#include <widget_color.h>
 
 AtmColorDesigner::AtmColorDesigner() {}
 
@@ -24,21 +24,21 @@ void AtmColorDesigner::SetBackgroundColor(QDialog* dialog,
 
 void AtmColorDesigner::PaintWidgetSet(QList<QLabel*> label_list) const {
   for (auto label = label_list.begin(); label != label_list.end(); ++label) {
-    Painter::ChangeLabelColor(*label, WidgetColor::MainColor());
+    Painter::ChangeLabelColor(*label, ApplicationColor::MainColor());
   }
 }
 
 void AtmColorDesigner::PaintWidgetSet(QList<QPushButton*> button_list) const {
   for (auto button = button_list.begin(); button != button_list.end();
        ++button) {
-    Painter::ChangeButtonColor(*button, WidgetColor::MainColor(),
-                               WidgetColor::SecondaryColor(),
-                               WidgetColor::AdditionalColor());
+    Painter::ChangeButtonColor(*button, ApplicationColor::MainColor(),
+                               ApplicationColor::SecondaryColor(),
+                               ApplicationColor::AdditionalColor());
   }
 }
 
 void AtmColorDesigner::PaintWidgetSet(QList<QFrame*> frame_list) const {
   for (auto frame = frame_list.begin(); frame != frame_list.end(); ++frame) {
-    Painter::ChangeFrameColor(*frame, WidgetColor::MainColor());
+    Painter::ChangeFrameColor(*frame, ApplicationColor::MainColor());
   }
 }

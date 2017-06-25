@@ -1,9 +1,9 @@
-﻿#ifndef WIDGET_COLOR_H
-#define WIDGET_COLOR_H
+﻿#ifndef APPLICATION_COLOR_H
+#define APPLICATION_COLOR_H
 
 #include <QString>
 
-class WidgetColor {
+class ApplicationColor {
  public:
   static void SetWidgetColor(const QString main_color,
                              const QString secondary_color,
@@ -17,6 +17,9 @@ class WidgetColor {
   static QString main_app_color_;
   static QString secondary_app_color_;
   static QString additional_app_color_;
+
+  static QString splash_screen_blink_color_one_;
+  static QString splash_screen_blink_color_two_;
 };
 
-#endif  // WIDGET_COLOR_H
+#endif  // APPLICATION_COLOR_H

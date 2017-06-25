@@ -9,7 +9,7 @@
 
 class QPaintEvent;
 class QString;
-class WidgetColor;
+class ApplicationColor;
 class QTimer;
 
 namespace Ui {
