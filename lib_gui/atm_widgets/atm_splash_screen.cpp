@@ -25,7 +25,7 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
 
   setWindowTitle("ATM splash screen");
 
-  SetSplashScreenAppearance();
+  PaintWidgets();
   SetBackgroundColor();
 
   InitializeObjects();
@@ -49,7 +49,18 @@ void AtmSplashScreen::SetCompanyName(const QString& atm_company_name) {
   ui->atm_company_name_label->setText(atm_company_name);
 }
 
-void AtmSplashScreen::SetSplashScreenAppearance() { PaintWidgets(); }
+void AtmSplashScreen::PaintWidgets() {
+  QList<QLabel*> label_list = {ui->atm_company_name_label, ui->text_label,
+                               ui->date_label, ui->time_label,
+                               ui->version_label};
+  QList<QPushButton*> button_list = {ui->exit_button, ui->minimize_button,
+                                     ui->maximize_button};
+  QList<QFrame*> frame_list = {ui->frame};
+
+  color_designer_.PaintWidgetSet(label_list);
+  color_designer_.PaintWidgetSet(button_list);
+  color_designer_.PaintWidgetSet(frame_list);
+}
 
 void AtmSplashScreen::SetBackgroundColor() {
   color_designer_.SetBackgroundColor(this);
@@ -113,19 +124,6 @@ void AtmSplashScreen::SetWidgetAppearance() {
   InitialPropertyInstaller::SetInitialProperties(
       this, 600, 400, InitialPropertyInstaller::kResize);
   setWindowIcon(QIcon(":/images/project_icon.png"));
-}
-
-void AtmSplashScreen::PaintWidgets() {
-  QList<QLabel*> label_list = {ui->atm_company_name_label, ui->text_label,
-                               ui->date_label, ui->time_label,
-                               ui->version_label};
-  QList<QPushButton*> button_list = {ui->exit_button, ui->minimize_button,
-                                     ui->maximize_button};
-  QList<QFrame*> frame_list = {ui->frame};
-
-  color_designer_.PaintWidgetSet(label_list);
-  color_designer_.PaintWidgetSet(button_list);
-  color_designer_.PaintWidgetSet(frame_list);
 }
 
 void AtmSplashScreen::SetConnections() {

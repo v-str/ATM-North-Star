@@ -43,13 +43,12 @@ class AtmSplashScreen : public QMainWindow {
   void resizeEvent(QResizeEvent* event);
 
  private:
-  void SetSplashScreenAppearance();
+  void PaintWidgets();
 
   void SetInitialSettings();
   void SetBackgroundColor();
 
   void SetWidgetAppearance();
-  void PaintWidgets();
   void SetConnections();
   void InitializeObjects();
   void RunTimers();
