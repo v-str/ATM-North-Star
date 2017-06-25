@@ -17,6 +17,28 @@ void ApplicationColor::SetWidgetColor(const QString main_color,
   additional_app_color_ = additional_color;
 }
 
+void ApplicationColor::SetMainColor(const QString& main_color) {
+  main_app_color_ = main_color;
+}
+
+void ApplicationColor::SetSecondaryColor(const QString& secondary_color) {
+  secondary_app_color_ = secondary_color;
+}
+
+void ApplicationColor::SetAdditionalColor(const QString& additional_color) {
+  additional_app_color_ = additional_color;
+}
+
+void ApplicationColor::SetSplashScreenBlinkColor(const QString& color_one,
+                                                 const QString& color_two) {
+  splash_screen_blink_color_one_ = color_one;
+  splash_screen_blink_color_two_ = color_two;
+}
+
+void ApplicationColor::SetBackgroundColor(const QString& background_color) {
+  application_background_color_ = background_color;
+}
+
 QString ApplicationColor::MainColor() { return main_app_color_; }
 
 QString ApplicationColor::SecondaryColor() { return secondary_app_color_; }

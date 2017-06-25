@@ -9,6 +9,13 @@ class ApplicationColor {
                              const QString secondary_color,
                              const QString additional_color);
 
+  static void SetMainColor(const QString& main_color);
+  static void SetSecondaryColor(const QString& secondary_color);
+  static void SetAdditionalColor(const QString& additional_color);
+  static void SetSplashScreenBlinkColor(const QString& color_one,
+                                        const QString& color_two);
+  static void SetBackgroundColor(const QString& background_color);
+
   static QString MainColor();
   static QString SecondaryColor();
   static QString AdditionalColor();
