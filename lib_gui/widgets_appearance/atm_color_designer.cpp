@@ -8,6 +8,7 @@
 #include <QString>
 
 #include <application_color.h>
+#include <initial_menu_frame.h>
 #include <painter.h>
 
 AtmColorDesigner::AtmColorDesigner() {}
@@ -41,4 +42,15 @@ void AtmColorDesigner::PaintWidgetSet(QList<QFrame*> frame_list) const {
   for (auto frame = frame_list.begin(); frame != frame_list.end(); ++frame) {
     Painter::ChangeFrameColor(*frame, ApplicationColor::MainColor());
   }
+}
+
+void AtmColorDesigner::PaintInitialFrame(InitialMenuFrame* frame) const {
+  QString string_color =
+      "QFrame{"
+      "background:transparent;"
+      "border: 1px solid %1;"
+      "border-radius: 5px;"
+      "}";
+
+  frame->setStyleSheet(string_color.arg(ApplicationColor::MainColor()));
 }

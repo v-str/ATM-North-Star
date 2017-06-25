@@ -12,23 +12,14 @@ InitialMenuFrame::InitialMenuFrame(QWidget* parent)
     : QFrame(parent),
       example_button_(new QPushButton(this)),
       atm_color_designer_(new AtmColorDesigner) {
+  PaintWidgets();
   example_button_->setGeometry(220, 112, 140, 40);
-
-  QString background_color = ApplicationColor::ApplicationBackgroundColor();
-  QString frame_color = ApplicationColor::MainColor();
-
-  QString style_sheet =
-      "QFrame {"
-      "background-color: %1;"
-      "border: 1px solid %2;"
-      "border-radius: 3px;"
-      "}";
-
-  setStyleSheet(style_sheet.arg(background_color, frame_color));
+  example_button_->setText("ATM");
 }
 
 InitialMenuFrame::~InitialMenuFrame() { delete atm_color_designer_; }
 
 void InitialMenuFrame::PaintWidgets() {
+  atm_color_designer_->PaintInitialFrame(this);
   atm_color_designer_->PaintWidgetSet(QList<QPushButton*>{example_button_});
 }
