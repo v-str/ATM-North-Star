@@ -24,6 +24,7 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
   setWindowTitle("ATM");
 
   SetWidgetAppearance();
+  SetBackgroundColor();
 
   SetInitialSettings();
   SetWidgetProperties();
@@ -39,8 +40,8 @@ AtmMainWidget::~AtmMainWidget() {
 
 void AtmMainWidget::SetWidgetAppearance() { PaintWidgets(); }
 
-void AtmMainWidget::SetBackgroundColor(const QString& background_color) {
-  Painter::ChangeBackgroundColor(this, background_color);
+void AtmMainWidget::SetBackgroundColor() {
+  color_designer_.SetBackgroundColor(this);
 }
 
 void AtmMainWidget::MaximizeButtonClicked(bool) {

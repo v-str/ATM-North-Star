@@ -23,8 +23,6 @@ class AtmMainWidget : public QMainWindow {
   explicit AtmMainWidget(QWidget* parent = nullptr);
   ~AtmMainWidget();
 
-  void SetBackgroundColor(const QString& background_color);
-
  public slots:
   void MaximizeButtonClicked(bool);
   void TickTime();
@@ -37,6 +35,7 @@ class AtmMainWidget : public QMainWindow {
   void SetInitialSettings();
 
   void SetWidgetAppearance();
+  void SetBackgroundColor();
 
   void SetWidgetProperties();
   void SetFrameArrangement();
