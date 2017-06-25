@@ -24,12 +24,6 @@ gui::GraphicalSplashScreen::~GraphicalSplashScreen() {
 
 void gui::GraphicalSplashScreen::RunInitialScreen() { splash_screen_->show(); }
 
-//  splash_screen_->SetSplashScreenAppearance("#00FFFF", "#001933",
-//  "#006666");
-// splash_screen_->SetAtmBlinkColor("#00FFFF", "#009999");
-
-// splash_screen_->SetBackgroundColor("black");
-
 void gui::GraphicalSplashScreen::SetConnections() {
   QObject::connect(splash_screen_,
                    SIGNAL(PassPositionWhenEnterPressed(const QRect&)), hider_,
