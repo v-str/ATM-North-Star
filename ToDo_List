@@ -37,7 +37,7 @@
     for any subwidget.                                                              |   |
                                                                                     |   |
 14. Develop TimeDateSizeComposer for mapping timedate widget and develop            | - |
-    univerral font resizer for font resize in any widget with scale accordingly     |   |
+    universal font resizer for font resize in any widget with scale accordingly     |   |
                                                                                     |   |
 15. Develop main atm widget interface                                               | - |
                                                                                     |   |
@@ -50,16 +50,18 @@
                                                                                     |   |
 19. Time label - make size composition                                              | + |
                                                                                     |   |
-20. Remove secondary frame, and make it separate, make size composing this frame    | - |
+20. Remove secondary frame, and make it separate, make size composing this frame    | + |
+                                                                                    |   |
+21. Begin make initial frame                                                        |   |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
 -----------------------------------------------------------------------------------------
                                                                                     |   |
-84. Make class ModeSelector like a simple class that                                | + |
+-1. Make class ModeSelector like a simple class that                                | + |
     maintain user input processing                                                  |   |
                                                                                     |   |
-86. Modify user_input for maintain exit through char q or Q                         | + |
+0. Modify user_input for maintain exit through char q or Q                          | + |
                                                                                     |   |
 1. Continue separate console_mode on classes                                        | + |
                                                                                     |   |
