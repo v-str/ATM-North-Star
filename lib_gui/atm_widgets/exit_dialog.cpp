@@ -48,9 +48,6 @@ void ExitDialog::SetConnections() {
 void ExitDialog::SetInitialProperties() {
   InitialPropertyInstaller::SetInitialProperties(
       this, 300, 150, InitialPropertyInstaller::kFixedSize);
-
-  QCursor custom_cursor(QPixmap(":/images/app_cursor.png"));
-  setCursor(custom_cursor);
 }
 
 void ExitDialog::PaintWidgets() {

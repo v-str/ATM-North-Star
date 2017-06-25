@@ -124,9 +124,6 @@ void AtmSplashScreen::resizeEvent(QResizeEvent*) {
 void AtmSplashScreen::SetInitialSettings() {
   SetCompanyName("");
   setMinimumSize(600, 400);
-
-  QCursor custom_cursor(QPixmap(":/images/app_cursor.png"));
-  setCursor(custom_cursor);
 }
 
 void AtmSplashScreen::SetWidgetAppearance() {
