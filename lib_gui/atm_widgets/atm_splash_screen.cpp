@@ -24,6 +24,7 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
   exit_dialog_->setModal(true);
 
   setWindowTitle("ATM splash screen");
+  SetSplashScreenAppearance();
   InitializeObjects();
   SetWidgetAppearance();
   BlockSpace();
