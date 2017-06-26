@@ -76,7 +76,7 @@ void AtmMainWidget::SetInitialSettings() {
   SetBackgroundColor();
   SetImages();
 
-  initial_frame_->setGeometry(kInitialFrame);
+  initial_menu_->setGeometry(kInitialFrame);
 }
 
 void AtmMainWidget::SetWidgetProperties() {
@@ -90,10 +90,10 @@ void AtmMainWidget::SetFrameArrangement() {
                               kMainFrame.width() + extra_width_,
                               kMainFrame.height() + extra_height_);
 
-  initial_frame_->SetExtraGeometryParameters(extra_width_, extra_height_);
-  initial_frame_->setGeometry(kInitialFrame.x(), kInitialFrame.y(),
-                              kInitialFrame.width() + extra_width_,
-                              kInitialFrame.height() + extra_height_);
+  initial_menu_->SetExtraGeometryParameters(extra_width_, extra_height_);
+  initial_menu_->setGeometry(kInitialFrame.x(), kInitialFrame.y(),
+                             kInitialFrame.width() + extra_width_,
+                             kInitialFrame.height() + extra_height_);
 }
 
 void AtmMainWidget::SetTimeLabelArrangement() {
@@ -117,7 +117,7 @@ void AtmMainWidget::PaintWidgets() {
 
 void AtmMainWidget::InitializeObject() {
   time_timer_ = new QTimer(ui->time_label);
-  initial_frame_ = new InitialMenu(ui->main_frame);
+  initial_menu_ = new InitialMenu(ui->main_frame);
 }
 
 void AtmMainWidget::ComputeExtraSize() {

@@ -48,7 +48,7 @@ class AtmMainWidget : public QMainWindow {
 
   Ui::AtmMainWidget* ui = nullptr;
   QTimer* time_timer_ = nullptr;
-  InitialMenu* initial_frame_ = nullptr;
+  InitialMenu* initial_menu_ = nullptr;
 
   AtmColorDesigner color_designer_;
 

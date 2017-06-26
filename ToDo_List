@@ -53,6 +53,9 @@
 20. Remove secondary frame, and make it separate, make size composing this frame    | + |
                                                                                     |   |
 21. Begin make initial frame                                                        |   |
+                                                                                    |   |
+22. Develop Initial menu hierarchy, including frame composition and                 | - |
+    buttons stretching                                                              |   |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
