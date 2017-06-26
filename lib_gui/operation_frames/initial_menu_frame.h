@@ -24,9 +24,11 @@ class InitialMenuFrame : public QFrame {
   void PaintWidgets();
 
   QPushButton* sign_in_button_ = nullptr;
+  QPushButton* registration_button_ = nullptr;
   AtmColorDesigner* atm_color_designer_ = nullptr;
 
-  static QRect kSignInButton;
+  static QRect kSignInButtonGeometry;
+  static QRect kRegistrationButtonGeometry;
 
   int extra_width_ = 0;
   int extra_height_ = 0;
