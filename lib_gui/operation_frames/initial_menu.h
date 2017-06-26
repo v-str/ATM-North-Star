@@ -1,5 +1,5 @@
-﻿#ifndef INITIAL_MENU_FRAME_H
-#define INITIAL_MENU_FRAME_H
+﻿#ifndef INITIAL_MENU_H
+#define INITIAL_MENU_H
 
 #include <QFrame>
 #include <QObject>
@@ -9,11 +9,11 @@ class QWidget;
 class QPushButton;
 class AtmColorDesigner;
 
-class InitialMenuFrame : public QFrame {
+class InitialMenu : public QFrame {
   Q_OBJECT
  public:
-  InitialMenuFrame(QWidget* parent);
-  ~InitialMenuFrame();
+  InitialMenu(QWidget* parent);
+  ~InitialMenu();
 
   void SetExtraGeometryParameters(int extra_width, int extra_height);
 
@@ -38,4 +38,4 @@ class InitialMenuFrame : public QFrame {
   int extra_height_ = 0;
 };
 
-#endif  // INITIAL_MENU_FRAME_H
+#endif  // INITIAL_MENU_H

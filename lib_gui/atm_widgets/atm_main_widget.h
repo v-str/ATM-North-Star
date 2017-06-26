@@ -11,7 +11,7 @@ class QPaintEvent;
 class QString;
 class ApplicationColor;
 class QTimer;
-class InitialMenuFrame;
+class InitialMenu;
 
 namespace Ui {
 class AtmMainWidget;
@@ -48,7 +48,7 @@ class AtmMainWidget : public QMainWindow {
 
   Ui::AtmMainWidget* ui = nullptr;
   QTimer* time_timer_ = nullptr;
-  InitialMenuFrame* initial_frame_ = nullptr;
+  InitialMenu* initial_frame_ = nullptr;
 
   AtmColorDesigner color_designer_;
 

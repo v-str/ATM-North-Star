@@ -10,7 +10,7 @@
 #include <QResizeEvent>
 #include <QTimer>
 
-#include <initial_menu_frame.h>
+#include <initial_menu.h>
 #include <initial_property_installer.h>
 #include <painter.h>
 #include <timedate_changer.h>
@@ -117,7 +117,7 @@ void AtmMainWidget::PaintWidgets() {
 
 void AtmMainWidget::InitializeObject() {
   time_timer_ = new QTimer(ui->time_label);
-  initial_frame_ = new InitialMenuFrame(ui->main_frame);
+  initial_frame_ = new InitialMenu(ui->main_frame);
 }
 
 void AtmMainWidget::ComputeExtraSize() {

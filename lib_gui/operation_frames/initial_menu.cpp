@@ -1,4 +1,4 @@
-﻿#include <initial_menu_frame.h>
+﻿#include <initial_menu.h>
 
 #include <QList>
 #include <QPushButton>
@@ -8,11 +8,11 @@
 #include <application_color.h>
 #include <atm_color_designer.h>
 
-QRect InitialMenuFrame::kSignInButtonGeometry = {220, 112, 140, 40};
-QRect InitialMenuFrame::kRegistrationButtonGeometry = {220, 162, 140, 40};
-QRect InitialMenuFrame::kDemoButtonGeometry = {220, 212, 140, 40};
+QRect InitialMenu::kSignInButtonGeometry = {220, 112, 140, 40};
+QRect InitialMenu::kRegistrationButtonGeometry = {220, 162, 140, 40};
+QRect InitialMenu::kDemoButtonGeometry = {220, 212, 140, 40};
 
-InitialMenuFrame::InitialMenuFrame(QWidget* parent)
+InitialMenu::InitialMenu(QWidget* parent)
     : QFrame(parent),
       sign_in_button_(new QPushButton("Sign-in", this)),
       registration_button_(new QPushButton("Registration", this)),
@@ -22,27 +22,27 @@ InitialMenuFrame::InitialMenuFrame(QWidget* parent)
   SetInitialSetting();
 }
 
-InitialMenuFrame::~InitialMenuFrame() { delete atm_color_designer_; }
+InitialMenu::~InitialMenu() { delete atm_color_designer_; }
 
-void InitialMenuFrame::SetExtraGeometryParameters(int extra_width,
+void InitialMenu::SetExtraGeometryParameters(int extra_width,
                                                   int extra_height) {
   extra_width_ = extra_width;
   extra_height_ = extra_height;
 }
 
-void InitialMenuFrame::PaintWidgets() {
+void InitialMenu::PaintWidgets() {
   atm_color_designer_->PaintInitialFrame(this);
   atm_color_designer_->PaintWidgetSet(
       QList<QPushButton*>{sign_in_button_, registration_button_, demo_button_});
 }
 
-void InitialMenuFrame::SetInitialSetting() {
+void InitialMenu::SetInitialSetting() {
   sign_in_button_->setGeometry(kSignInButtonGeometry);
   registration_button_->setGeometry(kRegistrationButtonGeometry);
   demo_button_->setGeometry(kDemoButtonGeometry);
 }
 
-void InitialMenuFrame::resizeEvent(QResizeEvent*) {
+void InitialMenu::resizeEvent(QResizeEvent*) {
   sign_in_button_->setGeometry(kSignInButtonGeometry.x() + extra_width_ / 2,
                                kSignInButtonGeometry.y() + extra_height_ / 2,
                                kSignInButtonGeometry.width(),
