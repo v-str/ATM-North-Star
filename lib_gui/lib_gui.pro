@@ -17,7 +17,8 @@ DEPENDPATH += \
     ../atm_widgets \
     ../widgets_appearance \
     ../operation_frames \
-    ../widgets_arrangement \
+    ../widgets_arrangement/common \
+    ../widgets_arrangement/splash_screen \
     ../features \
     ../images \
     ../sounds \
@@ -26,21 +27,24 @@ INCLUDEPATH += \
     $$PWD/atm_widgets \
     $$PWD/widgets_appearance \
     $$PWD/operation_frames \
-    $$PWD/widgets_arrangement \
+    $$PWD/widgets_arrangement/common \
+    $$PWD/widgets_arrangement/splash_screen \
     $$PWD/features \
 
 HEADERS += \
     $$PWD/atm_widgets/*.h \
     $$PWD/widgets_appearance/*.h \
     $$PWD/operation_frames/*.h \
-    $$PWD/widgets_arrangement/*.h \
+    $$PWD/widgets_arrangement/common/*.h \
+    $$PWD/widgets_arrangement/splash_screen/*.h \
     $$PWD/features/*.h \
 
 SOURCES += \
     $$PWD/atm_widgets/*.cpp \
     $$PWD/widgets_appearance/*.cpp \
     $$PWD/operation_frames/*.cpp \
-    $$PWD/widgets_arrangement/*.cpp \
+    $$PWD/widgets_arrangement/common/*.cpp \
+    $$PWD/widgets_arrangement/splash_screen/*.cpp \
     $$PWD/features/*.cpp \
 
 FORMS += \
