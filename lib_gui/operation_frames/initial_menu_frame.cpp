@@ -21,7 +21,19 @@ InitialMenuFrame::InitialMenuFrame(QWidget* parent)
 
 InitialMenuFrame::~InitialMenuFrame() { delete atm_color_designer_; }
 
+void InitialMenuFrame::SetExtraGeometryParameters(int extra_width,
+                                                  int extra_height) {
+  extra_width_ = extra_width;
+  extra_height_ = extra_height;
+}
+
 void InitialMenuFrame::PaintWidgets() {
   atm_color_designer_->PaintInitialFrame(this);
   atm_color_designer_->PaintWidgetSet(QList<QPushButton*>{sign_in_button_});
+}
+
+void InitialMenuFrame::resizeEvent(QResizeEvent*) {
+  sign_in_button_->setGeometry(kSignInButton.x() + extra_width_ / 2,
+                               kSignInButton.y(), kSignInButton.width(),
+                               kSignInButton.height());
 }

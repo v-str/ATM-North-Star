@@ -17,7 +17,7 @@
 
 QRect AtmMainWidget::kTimeLabel = {470, 5, 114, 20};
 QRect AtmMainWidget::kMainFrame = {5, 5, 590, 390};
-QRect AtmMainWidget::kSecondaryFrame = {5, 30, 580, 355};
+QRect AtmMainWidget::kInitialFrame = {5, 30, 580, 355};
 
 AtmMainWidget::AtmMainWidget(QWidget* parent)
     : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
@@ -76,7 +76,7 @@ void AtmMainWidget::SetInitialSettings() {
   SetBackgroundColor();
   SetImages();
 
-  initial_frame_->setGeometry(kSecondaryFrame);
+  initial_frame_->setGeometry(kInitialFrame);
 }
 
 void AtmMainWidget::SetWidgetProperties() {
@@ -89,6 +89,11 @@ void AtmMainWidget::SetFrameArrangement() {
   ui->main_frame->setGeometry(kMainFrame.x(), kMainFrame.y(),
                               kMainFrame.width() + extra_width_,
                               kMainFrame.height() + extra_height_);
+
+  initial_frame_->SetExtraGeometryParameters(extra_width_, extra_height_);
+  initial_frame_->setGeometry(kInitialFrame.x(), kInitialFrame.y(),
+                              kInitialFrame.width() + extra_width_,
+                              kInitialFrame.height() + extra_height_);
 }
 
 void AtmMainWidget::SetTimeLabelArrangement() {
