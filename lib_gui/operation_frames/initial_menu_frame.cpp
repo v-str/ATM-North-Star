@@ -10,14 +10,16 @@
 
 QRect InitialMenuFrame::kSignInButtonGeometry = {220, 112, 140, 40};
 QRect InitialMenuFrame::kRegistrationButtonGeometry = {220, 162, 140, 40};
+QRect InitialMenuFrame::kDemoButtonGeometry = {220, 212, 140, 40};
 
 InitialMenuFrame::InitialMenuFrame(QWidget* parent)
     : QFrame(parent),
       sign_in_button_(new QPushButton("Sign-in", this)),
       registration_button_(new QPushButton("Registration", this)),
+      demo_button_(new QPushButton("Demo", this)),
       atm_color_designer_(new AtmColorDesigner) {
   PaintWidgets();
-  sign_in_button_->setGeometry(kSignInButtonGeometry);
+  SetInitialSetting();
 }
 
 InitialMenuFrame::~InitialMenuFrame() { delete atm_color_designer_; }
@@ -31,7 +33,13 @@ void InitialMenuFrame::SetExtraGeometryParameters(int extra_width,
 void InitialMenuFrame::PaintWidgets() {
   atm_color_designer_->PaintInitialFrame(this);
   atm_color_designer_->PaintWidgetSet(
-      QList<QPushButton*>{sign_in_button_, registration_button_});
+      QList<QPushButton*>{sign_in_button_, registration_button_, demo_button_});
+}
+
+void InitialMenuFrame::SetInitialSetting() {
+  sign_in_button_->setGeometry(kSignInButtonGeometry);
+  registration_button_->setGeometry(kRegistrationButtonGeometry);
+  demo_button_->setGeometry(kDemoButtonGeometry);
 }
 
 void InitialMenuFrame::resizeEvent(QResizeEvent*) {
@@ -43,4 +51,8 @@ void InitialMenuFrame::resizeEvent(QResizeEvent*) {
       kRegistrationButtonGeometry.x() + extra_width_ / 2,
       kRegistrationButtonGeometry.y(), kRegistrationButtonGeometry.width(),
       kRegistrationButtonGeometry.height());
+
+  demo_button_->setGeometry(
+      kDemoButtonGeometry.x() + extra_width_ / 2, kDemoButtonGeometry.y(),
+      kDemoButtonGeometry.width(), kDemoButtonGeometry.height());
 }
