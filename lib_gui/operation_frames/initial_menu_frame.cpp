@@ -43,16 +43,19 @@ void InitialMenuFrame::SetInitialSetting() {
 }
 
 void InitialMenuFrame::resizeEvent(QResizeEvent*) {
-  sign_in_button_->setGeometry(
-      kSignInButtonGeometry.x() + extra_width_ / 2, kSignInButtonGeometry.y(),
-      kSignInButtonGeometry.width(), kSignInButtonGeometry.height());
+  sign_in_button_->setGeometry(kSignInButtonGeometry.x() + extra_width_ / 2,
+                               kSignInButtonGeometry.y() + extra_height_ / 2,
+                               kSignInButtonGeometry.width(),
+                               kSignInButtonGeometry.height());
 
   registration_button_->setGeometry(
       kRegistrationButtonGeometry.x() + extra_width_ / 2,
-      kRegistrationButtonGeometry.y(), kRegistrationButtonGeometry.width(),
+      kRegistrationButtonGeometry.y() + extra_height_ / 2,
+      kRegistrationButtonGeometry.width(),
       kRegistrationButtonGeometry.height());
 
-  demo_button_->setGeometry(
-      kDemoButtonGeometry.x() + extra_width_ / 2, kDemoButtonGeometry.y(),
-      kDemoButtonGeometry.width(), kDemoButtonGeometry.height());
+  demo_button_->setGeometry(kDemoButtonGeometry.x() + extra_width_ / 2,
+                            kDemoButtonGeometry.y() + extra_height_ / 2,
+                            kDemoButtonGeometry.width(),
+                            kDemoButtonGeometry.height());
 }
