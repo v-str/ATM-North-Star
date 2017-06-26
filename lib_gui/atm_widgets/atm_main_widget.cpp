@@ -22,14 +22,12 @@ QRect AtmMainWidget::kSecondaryFrame = {5, 30, 580, 355};
 AtmMainWidget::AtmMainWidget(QWidget* parent)
     : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
   ui->setupUi(this);
-  initial_frame_ = new InitialMenuFrame(ui->main_frame);
 
   setWindowTitle("ATM");
+  SetInitialSettings();
 
-  SetWidgetAppearance();
   SetBackgroundColor();
 
-  SetInitialSettings();
   SetWidgetProperties();
   PaintWidgets();
   SetConnections();
@@ -70,15 +68,15 @@ void AtmMainWidget::SetConnections() {
 }
 
 void AtmMainWidget::SetInitialSettings() {
+  InitializeObject();
+  SetWidgetAppearance();
+
   QCursor custom_cursor(QPixmap(":/images/app_cursor.png"));
   setCursor(custom_cursor);
 
   setWindowIcon(QIcon(":/images/project_icon.png"));
 
   initial_frame_->setGeometry(kSecondaryFrame);
-
-  InitializeObject();
-  SetWidgetAppearance();
 }
 
 void AtmMainWidget::SetWidgetProperties() {
@@ -114,6 +112,7 @@ void AtmMainWidget::PaintWidgets() {
 
 void AtmMainWidget::InitializeObject() {
   time_timer_ = new QTimer(ui->time_label);
+  initial_frame_ = new InitialMenuFrame(ui->main_frame);
 }
 
 void AtmMainWidget::ComputeExtraSize() {
