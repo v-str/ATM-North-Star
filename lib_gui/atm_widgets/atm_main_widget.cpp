@@ -26,8 +26,6 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
   setWindowTitle("ATM");
   SetInitialSettings();
 
-  SetBackgroundColor();
-
   SetWidgetProperties();
   PaintWidgets();
   SetConnections();
@@ -41,6 +39,13 @@ AtmMainWidget::~AtmMainWidget() {
 
 void AtmMainWidget::SetBackgroundColor() {
   color_designer_.SetBackgroundColor(this);
+}
+
+void AtmMainWidget::SetImages() {
+  QCursor custom_cursor(QPixmap(":/images/app_cursor.png"));
+  setCursor(custom_cursor);
+
+  setWindowIcon(QIcon(":/images/project_icon.png"));
 }
 
 void AtmMainWidget::MaximizeButtonClicked(bool) {
@@ -68,11 +73,8 @@ void AtmMainWidget::SetConnections() {
 void AtmMainWidget::SetInitialSettings() {
   InitializeObject();
   PaintWidgets();
-
-  QCursor custom_cursor(QPixmap(":/images/app_cursor.png"));
-  setCursor(custom_cursor);
-
-  setWindowIcon(QIcon(":/images/project_icon.png"));
+  SetBackgroundColor();
+  SetImages();
 
   initial_frame_->setGeometry(kSecondaryFrame);
 }
