@@ -3,6 +3,7 @@
 
 #include <QFrame>
 #include <QObject>
+#include <QRect>
 
 class QWidget;
 class QPushButton;
@@ -17,8 +18,10 @@ class InitialMenuFrame : public QFrame {
   void PaintWidgets();
 
  private:
-  QPushButton* example_button_ = nullptr;
+  QPushButton* sign_in_button_ = nullptr;
   AtmColorDesigner* atm_color_designer_ = nullptr;
+
+  static QRect kSignInButton;
 };
 
 #endif  // INITIAL_MENU_FRAME_H
