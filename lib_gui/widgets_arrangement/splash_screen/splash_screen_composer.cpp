@@ -7,7 +7,8 @@
 #include <geometry.h>
 
 void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
-  frame->setGeometry(Geometry::SplashScreenFrame().x(), frame->y(),
+  frame->setGeometry(Geometry::SplashScreenFrame().x(),
+                     Geometry::SplashScreenFrame().y(),
                      Geometry::SplashScreenFrame().width() + width_increase_,
                      Geometry::SplashScreenFrame().height() + height_increase_);
 }

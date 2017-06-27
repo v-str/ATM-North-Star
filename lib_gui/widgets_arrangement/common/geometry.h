@@ -16,8 +16,8 @@ class Geometry {
   static QRect SplashScreenFrame();
 
  private:
-  static const int kStandardScreenWidth = 600;
-  static const int kStandardScreenHeight = 400;
+  static const int kInitialScreenWidth = 600;
+  static const int kInitialScreenHeight = 400;
 
   static QRect kVersionLabel;
   static QRect kCompanyNameLabel;
