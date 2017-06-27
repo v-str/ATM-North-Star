@@ -1,7 +1,6 @@
 ﻿#include <splash_screen_composer.h>
 
 #include <QFont>
-#include <QFontMetrics>
 #include <QFrame>
 #include <QLabel>
 
@@ -43,8 +42,8 @@ void SplashScreenSizeComposer::ComposeAtmLabel(QLabel* atm_label) {
 
 void SplashScreenSizeComposer::ComputeSizeIncrease(int extra_width,
                                                    int extra_height) {
-  width_increase_ = extra_width - kSplashScreenWidth;
-  height_increase_ = extra_height - kSplashScreenHeight;
+  width_increase_ = extra_width - Geometry::InitialScreenWidth();
+  height_increase_ = extra_height - Geometry::InitialScreenHeight();
 }
 
 QRect SplashScreenSizeComposer::NewLabelGeometry(const QRect& label) {

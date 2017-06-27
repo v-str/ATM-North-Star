@@ -7,6 +7,10 @@ QRect Geometry::kTimeLabel = {300, 360, 160, 20};
 QRect Geometry::kTextLabel = {150, 270, 280, 30};
 QRect Geometry::kSplashScreenFrame = {10, 10, 580, 380};
 
+int Geometry::InitialScreenWidth() { return kStandardScreenWidth; }
+
+int Geometry::InitialScreenHeight() { return kStandardScreenHeight; }
+
 QRect Geometry::VersionLabel() { return kVersionLabel; }
 
 QRect Geometry::CompanyNameLabel() { return kCompanyNameLabel; }

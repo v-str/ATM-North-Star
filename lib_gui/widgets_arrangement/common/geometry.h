@@ -5,6 +5,9 @@
 
 class Geometry {
  public:
+  static int InitialScreenWidth();
+  static int InitialScreenHeight();
+
   static QRect VersionLabel();
   static QRect CompanyNameLabel();
   static QRect DateLabel();
@@ -13,6 +16,9 @@ class Geometry {
   static QRect SplashScreenFrame();
 
  private:
+  static const int kStandardScreenWidth = 600;
+  static const int kStandardScreenHeight = 400;
+
   static QRect kVersionLabel;
   static QRect kCompanyNameLabel;
   static QRect kDateLabel;
