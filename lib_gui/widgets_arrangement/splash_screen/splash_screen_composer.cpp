@@ -7,8 +7,6 @@
 
 #include <geometry.h>
 
-QRect SplashScreenSizeComposer::kVersionLabel(485, 17, 100, 15);
-QRect SplashScreenSizeComposer::kCompanyNameLabel(35, 40, 510, 70);
 QRect SplashScreenSizeComposer::kDateLabel(140, 360, 160, 20);
 QRect SplashScreenSizeComposer::kTimeLabel(300, 360, 160, 20);
 QRect SplashScreenSizeComposer::kTextLabel(150, 270, 280, 30);
@@ -29,8 +27,9 @@ void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
 void SplashScreenSizeComposer::ComposeCompanyNameLabel(
     QLabel* company_name_label) {
   company_name_label->setGeometry(
-      kCompanyNameLabel.x() + width_increase_ / 2, company_name_label->y(),
-      company_name_label->width(), company_name_label->height());
+      Geometry::CompanyNameLabel().x() + width_increase_ / 2,
+      Geometry::CompanyNameLabel().y(), Geometry::CompanyNameLabel().width(),
+      Geometry::CompanyNameLabel().height());
 }
 
 void SplashScreenSizeComposer::ComposeSplashScreenLabels(QLabel* date_label,
