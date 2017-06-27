@@ -52,10 +52,14 @@
                                                                                     |   |
 20. Remove secondary frame, and make it separate, make size composing this frame    | + |
                                                                                     |   |
-21. Begin make initial frame                                                        |   |
+21. Make initial frame                                                              | - |
                                                                                     |   |
 22. Develop Initial menu hierarchy, including frame composition and                 | - |
     buttons stretching                                                              |   |
+                                                                                    |   |
+23. Produce size composer for whole app                                             | - |
+                                                                                    |   |
+24. Rename all "extras" on delta                                                    | - |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
