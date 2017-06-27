@@ -25,6 +25,8 @@ class SplashScreenSizeComposer {
   void ComputeSizeIncrease(int extra_width, int extra_height);
 
  private:
+  QRect NewLabelGeometry(const QRect& label);
+
   static QRect kVersionLabel;
   static QRect kCompanyNameLabel;
   static QRect kDateLabel;

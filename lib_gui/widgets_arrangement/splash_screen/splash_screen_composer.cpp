@@ -57,3 +57,8 @@ void SplashScreenSizeComposer::ComputeSizeIncrease(int extra_width,
   width_increase_ = extra_width - kSplashScreenWidth;
   height_increase_ = extra_height - kSplashScreenHeight;
 }
+
+QRect SplashScreenSizeComposer::NewLabelGeometry(const QRect& label) {
+  return QRect(label.x() + width_increase_ / 2, label.y() + height_increase_,
+               label.width(), label.height());
+}
