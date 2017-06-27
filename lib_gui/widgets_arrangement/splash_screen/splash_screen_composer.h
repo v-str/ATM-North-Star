@@ -15,9 +15,9 @@ class SplashScreenSizeComposer {
  public:
   void ComposeFrame(QFrame* frame);
   void ComposeVersionLabel(QLabel* version_label);
+  void ComposeCompanyNameLabel(QLabel* company_name_label);
   void ComposeSplashScreenLabels(QLabel* date_label,
                                  QLabel* time_label,
-                                 QLabel* company_name_label,
                                  QLabel* text_label);
 
   void ComposeAtmLabel(QLabel* atm_label);

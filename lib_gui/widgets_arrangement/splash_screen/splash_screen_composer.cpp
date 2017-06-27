@@ -25,26 +25,19 @@ void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
                              kVersionLabel.height());
 }
 
-void SplashScreenSizeComposer::ComposeSplashScreenLabels(
-    QLabel* date_label,
-    QLabel* time_label,
-    QLabel* company_name_label,
-    QLabel* text_label) {
-  date_label->setGeometry(kDateLabel.x() + width_increase_ / 2,
-                          kDateLabel.y() + height_increase_, kDateLabel.width(),
-                          kDateLabel.height());
-
-  time_label->setGeometry(kTimeLabel.x() + width_increase_ / 2,
-                          kTimeLabel.y() + height_increase_, kTimeLabel.width(),
-                          kTimeLabel.height());
-
+void SplashScreenSizeComposer::ComposeCompanyNameLabel(
+    QLabel* company_name_label) {
   company_name_label->setGeometry(
       kCompanyNameLabel.x() + width_increase_ / 2, company_name_label->y(),
       company_name_label->width(), company_name_label->height());
+}
 
-  text_label->setGeometry(kTextLabel.x() + width_increase_ / 2,
-                          kTextLabel.y() + height_increase_, kTextLabel.width(),
-                          kTextLabel.height());
+void SplashScreenSizeComposer::ComposeSplashScreenLabels(QLabel* date_label,
+                                                         QLabel* time_label,
+                                                         QLabel* text_label) {
+  date_label->setGeometry(NewLabelGeometry(kDateLabel));
+  time_label->setGeometry(NewLabelGeometry(kTimeLabel));
+  text_label->setGeometry(NewLabelGeometry(kTextLabel));
 }
 
 void SplashScreenSizeComposer::ComposeAtmLabel(QLabel* atm_label) {

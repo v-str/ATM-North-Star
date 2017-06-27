@@ -171,8 +171,8 @@ void AtmSplashScreen::ComputeNewGeometry() {
 void AtmSplashScreen::ResizeWidgets() {
   composer_.ComposeFrame(ui->frame);
   composer_.ComposeVersionLabel(ui->version_label);
+  composer_.ComposeCompanyNameLabel(ui->atm_company_name_label);
   composer_.ComposeSplashScreenLabels(ui->date_label, ui->time_label,
-                                      ui->atm_company_name_label,
                                       ui->text_label);
   composer_.ComposeAtmLabel(ui->atm_label);
 }
