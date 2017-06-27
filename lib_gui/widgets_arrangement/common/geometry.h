@@ -1,9 +1,14 @@
 ﻿#ifndef GEOMETRY_H
 #define GEOMETRY_H
 
+#include <QRect>
+
 class Geometry {
  public:
-  Geometry();
+  static QRect VersionLabel();
+
+ private:
+  static QRect kVersionLabel;
 };
 
 #endif  // GEOMETRY_H

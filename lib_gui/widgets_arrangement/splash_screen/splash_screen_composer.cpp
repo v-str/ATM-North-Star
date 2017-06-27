@@ -5,7 +5,7 @@
 #include <QFrame>
 #include <QLabel>
 
-#include <atm_splash_screen.h>
+#include <geometry.h>
 
 QRect SplashScreenSizeComposer::kVersionLabel(485, 17, 100, 15);
 QRect SplashScreenSizeComposer::kCompanyNameLabel(35, 40, 510, 70);
@@ -20,9 +20,10 @@ void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
 }
 
 void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
-  version_label->setGeometry(kVersionLabel.x() + width_increase_,
-                             kVersionLabel.y(), kVersionLabel.width(),
-                             kVersionLabel.height());
+  version_label->setGeometry(Geometry::VersionLabel().x() + width_increase_,
+                             Geometry::VersionLabel().y(),
+                             Geometry::VersionLabel().width(),
+                             Geometry::VersionLabel().height());
 }
 
 void SplashScreenSizeComposer::ComposeCompanyNameLabel(
