@@ -27,11 +27,6 @@ class SplashScreenSizeComposer {
  private:
   QRect NewLabelGeometry(const QRect& label);
 
-  static QRect kDateLabel;
-  static QRect kTimeLabel;
-  static QRect kTextLabel;
-  static QRect kFrame;
-
   static const int kAtmLabelFontSize = 100;
   static const int kSplashScreenWidth = 600;
   static const int kSplashScreenHeight = 400;

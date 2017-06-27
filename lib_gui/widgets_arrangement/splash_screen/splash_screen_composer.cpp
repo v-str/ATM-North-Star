@@ -7,14 +7,10 @@
 
 #include <geometry.h>
 
-QRect SplashScreenSizeComposer::kDateLabel(140, 360, 160, 20);
-QRect SplashScreenSizeComposer::kTimeLabel(300, 360, 160, 20);
-QRect SplashScreenSizeComposer::kTextLabel(150, 270, 280, 30);
-QRect SplashScreenSizeComposer::kFrame(10, 10, 580, 380);
-
 void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
-  frame->setGeometry(kFrame.x(), frame->y(), kFrame.width() + width_increase_,
-                     kFrame.height() + height_increase_);
+  frame->setGeometry(Geometry::SplashScreenFrame().x(), frame->y(),
+                     Geometry::SplashScreenFrame().width() + width_increase_,
+                     Geometry::SplashScreenFrame().height() + height_increase_);
 }
 
 void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
@@ -35,9 +31,9 @@ void SplashScreenSizeComposer::ComposeCompanyNameLabel(
 void SplashScreenSizeComposer::ComposeSplashScreenLabels(QLabel* date_label,
                                                          QLabel* time_label,
                                                          QLabel* text_label) {
-  date_label->setGeometry(NewLabelGeometry(kDateLabel));
-  time_label->setGeometry(NewLabelGeometry(kTimeLabel));
-  text_label->setGeometry(NewLabelGeometry(kTextLabel));
+  date_label->setGeometry(NewLabelGeometry(Geometry::DateLabel()));
+  time_label->setGeometry(NewLabelGeometry(Geometry::TimeLabel()));
+  text_label->setGeometry(NewLabelGeometry(Geometry::TextLabel()));
 }
 
 void SplashScreenSizeComposer::ComposeAtmLabel(QLabel* atm_label) {
