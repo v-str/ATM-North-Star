@@ -3,7 +3,11 @@
 
 class WidgetShifter {
  public:
-  WidgetShifter();
+ private:
+  int delta_width_ = 0;
+  int delta_height_ = 0;
+
+  double shift_coefficient_ = 0.0;
 };
 
 #endif  // WIDGET_SHIFTER_H

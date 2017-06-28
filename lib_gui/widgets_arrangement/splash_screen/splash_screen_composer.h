@@ -22,15 +22,15 @@ class SplashScreenSizeComposer {
 
   void ComposeAtmLabel(QLabel* atm_label);
 
-  void ComputeSizeIncrease(int extra_width, int extra_height);
+  void ComputeDeltas(int extra_width, int extra_height);
 
  private:
   QRect NewLabelGeometry(const QRect& label);
 
   static const int kAtmLabelFontSize = 100;
 
-  int width_increase_ = 0;
-  int height_increase_ = 0;
+  int delta_width_ = 0;
+  int delta_height_ = 0;
 
   AtmLabelStretcher atm_label_stretcher_;
 };

@@ -9,21 +9,20 @@
 void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
   frame->setGeometry(Geometry::SplashScreenFrame().x(),
                      Geometry::SplashScreenFrame().y(),
-                     Geometry::SplashScreenFrame().width() + width_increase_,
-                     Geometry::SplashScreenFrame().height() + height_increase_);
+                     Geometry::SplashScreenFrame().width() + delta_width_,
+                     Geometry::SplashScreenFrame().height() + delta_height_);
 }
 
 void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
-  version_label->setGeometry(Geometry::VersionLabel().x() + width_increase_,
-                             Geometry::VersionLabel().y(),
-                             Geometry::VersionLabel().width(),
-                             Geometry::VersionLabel().height());
+  version_label->setGeometry(
+      Geometry::VersionLabel().x() + delta_width_, Geometry::VersionLabel().y(),
+      Geometry::VersionLabel().width(), Geometry::VersionLabel().height());
 }
 
 void SplashScreenSizeComposer::ComposeCompanyNameLabel(
     QLabel* company_name_label) {
   company_name_label->setGeometry(
-      Geometry::CompanyNameLabel().x() + width_increase_ / 2,
+      Geometry::CompanyNameLabel().x() + delta_width_ / 2,
       Geometry::CompanyNameLabel().y(), Geometry::CompanyNameLabel().width(),
       Geometry::CompanyNameLabel().height());
 }
@@ -37,17 +36,16 @@ void SplashScreenSizeComposer::ComposeSplashScreenLabels(QLabel* date_label,
 }
 
 void SplashScreenSizeComposer::ComposeAtmLabel(QLabel* atm_label) {
-  atm_label_stretcher_.StretchAtmLabel(atm_label, width_increase_,
-                                       height_increase_);
+  atm_label_stretcher_.StretchAtmLabel(atm_label, delta_width_, delta_height_);
 }
 
-void SplashScreenSizeComposer::ComputeSizeIncrease(int extra_width,
-                                                   int extra_height) {
-  width_increase_ = extra_width - Geometry::InitialScreenWidth();
-  height_increase_ = extra_height - Geometry::InitialScreenHeight();
+void SplashScreenSizeComposer::ComputeDeltas(int extra_width,
+                                             int extra_height) {
+  delta_width_ = extra_width - Geometry::InitialScreenWidth();
+  delta_height_ = extra_height - Geometry::InitialScreenHeight();
 }
 
 QRect SplashScreenSizeComposer::NewLabelGeometry(const QRect& label) {
-  return QRect(label.x() + width_increase_ / 2, label.y() + height_increase_,
+  return QRect(label.x() + delta_width_ / 2, label.y() + delta_height_,
                label.width(), label.height());
 }
