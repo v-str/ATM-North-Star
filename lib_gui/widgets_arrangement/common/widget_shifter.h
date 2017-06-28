@@ -3,11 +3,19 @@
 
 #include <delta_size.h>
 
+class QRect;
+class QLabel;
+
 class WidgetShifter {
  public:
   enum ShiftDirection { kShiftRight, kShiftLeft, kShiftUp, kShiftDown };
 
   void SetDeltaSize(const DeltaSize& delta_size);
+
+  void ShiftLabel(double shift_coefficient,
+                  ShiftDirection direction,
+                  const QRect& initial_geometry,
+                  QLabel* label);
 
  private:
   DeltaSize delta_size_;

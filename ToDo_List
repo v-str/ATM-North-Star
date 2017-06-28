@@ -59,7 +59,10 @@
                                                                                     |   |
 23. Produce size composer for whole app                                             | - |
                                                                                     |   |
-24. Rename all "extras" on delta                                                    | - |
+24. Rename all "extras" on delta                                                    | + |
+                                                                                    |   |
+25. Continue develop Widget Shifter                                                 | - |
+    How to addition two enum variables using & for shift direction?                 |   |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
