@@ -5,6 +5,8 @@
 
 #include <atm_label_stretcher.h>
 
+#include <delta_size.h>
+
 class QPushButton;
 class QLabel;
 class QFrame;
@@ -33,6 +35,8 @@ class SplashScreenSizeComposer {
   int delta_height_ = 0;
 
   AtmLabelStretcher atm_label_stretcher_;
+
+  DeltaSize delta_size_;
 };
 
 #endif  // SPLASH_SCREEN_SIZE_COMPOSER_H

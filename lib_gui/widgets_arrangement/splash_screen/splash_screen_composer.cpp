@@ -43,6 +43,8 @@ void SplashScreenSizeComposer::ComputeDeltas(int extra_width,
                                              int extra_height) {
   delta_width_ = extra_width - Geometry::InitialScreenWidth();
   delta_height_ = extra_height - Geometry::InitialScreenHeight();
+
+  delta_size_.SetDeltaSize(DeltaSize(delta_width_, delta_height_));
 }
 
 QRect SplashScreenSizeComposer::NewLabelGeometry(const QRect& label) {
