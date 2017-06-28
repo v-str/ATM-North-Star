@@ -5,6 +5,8 @@
 
 class WidgetShifter {
  public:
+  enum ShiftDirection { kShiftRight, kShiftLeft, kShiftUp, kShiftDown };
+
   void SetDeltaSize(const DeltaSize& delta_size);
 
  private:
