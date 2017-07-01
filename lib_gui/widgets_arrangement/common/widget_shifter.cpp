@@ -1,6 +1,7 @@
 ﻿#include <widget_shifter.h>
 
 #include <QLabel>
+#include <QPushButton>
 #include <QWidget>
 
 void WidgetShifter::SetDeltaSize(const DeltaSize& delta_size) {
@@ -13,20 +14,22 @@ void WidgetShifter::SetMainWidgetPosition(const QRect& main_widget_position) {
 
 void WidgetShifter::ShiftLabel(double shift_coefficient,
                                unsigned int direction_flag,
-                               const QRect& initial_geometry,
+                               const QRect& initial_label_geometry,
                                QLabel* label) {
   ResetShiftPosition();
+  AssignShiftCoefficient(shift_coefficient);
+  SetShifting(direction_flag, initial_label_geometry);
+  MakeShifting(label);
+}
 
-  shift_coefficient_ = AssignShiftCoefficient(shift_coefficient);
-
-  SetShifting(direction_flag, initial_geometry);
-
-  if (!IsMainWidgetBorderCrossed()) {
-    label->move(shift_position_.x(), shift_position_.y());
-  } else {
-    label->move(main_widget_position_.width() - shift_position_.width(),
-                main_widget_position_.height() - shift_position_.height());
-  }
+void WidgetShifter::ShiftButton(double shift_coefficient,
+                                unsigned int direction_flag,
+                                const QRect& initial_button_geometry,
+                                QPushButton* button) {
+  ResetShiftPosition();
+  AssignShiftCoefficient(shift_coefficient);
+  SetShifting(direction_flag, initial_button_geometry);
+  MakeShifting(button);
 }
 
 void WidgetShifter::ResetShiftPosition() {
@@ -72,9 +75,30 @@ bool WidgetShifter::IsMainWidgetBorderCrossed() const {
   return false;
 }
 
-double WidgetShifter::AssignShiftCoefficient(double shift_coefficient) {
-  if (shift_coefficient > 3.0 || shift_coefficient < 0.0) {
+void WidgetShifter::AssignShiftCoefficient(double shift_coefficient) {
+  if (shift_coefficient > 3.0) {
     shift_coefficient = 3.0;
   }
-  return shift_coefficient;
+  if (shift_coefficient < 0.0) {
+    shift_coefficient = 0.0;
+  }
+  shift_coefficient_ = shift_coefficient;
+}
+
+void WidgetShifter::MakeShifting(QLabel* label) {
+  if (!IsMainWidgetBorderCrossed()) {
+    label->move(shift_position_.x(), shift_position_.y());
+  } else {
+    label->move(main_widget_position_.width() - shift_position_.width(),
+                main_widget_position_.height() - shift_position_.height());
+  }
+}
+
+void WidgetShifter::MakeShifting(QPushButton* button) {
+  if (!IsMainWidgetBorderCrossed()) {
+    button->move(shift_position_.x(), shift_position_.y());
+  } else {
+    button->move(main_widget_position_.width() - shift_position_.width(),
+                 main_widget_position_.height() - shift_position_.height());
+  }
 }

@@ -7,6 +7,7 @@
 #include <delta_size.h>
 
 class QLabel;
+class QPushButton;
 
 class WidgetShifter {
  public:
@@ -23,16 +24,23 @@ class WidgetShifter {
 
   void ShiftLabel(double shift_coefficient,
                   unsigned int direction_flag,
-                  const QRect& initial_geometry,
+                  const QRect& initial_label_geometry,
                   QLabel* label);
+
+  void ShiftButton(double shift_coefficient,
+                   unsigned int direction_flag,
+                   const QRect& initial_button_geometry,
+                   QPushButton* button);
 
  private:
   void ResetShiftPosition();
   void SetShifting(unsigned int direction_flag, const QRect& initial_geometry);
+  void AssignShiftCoefficient(double shift_coefficient);
+
+  void MakeShifting(QLabel* label);
+  void MakeShifting(QPushButton* button);
 
   bool IsMainWidgetBorderCrossed() const;
-
-  double AssignShiftCoefficient(double shift_coefficient);
 
   DeltaSize delta_size_;
   QRect shift_position_;
