@@ -19,7 +19,7 @@ class WidgetShifter {
   void SetDeltaSize(const DeltaSize& delta_size);
 
   void ShiftLabel(double shift_coefficient,
-                  ShiftDirection direction,
+                  unsigned int direction,
                   const QRect& initial_geometry,
                   QLabel* label);
 

@@ -25,7 +25,7 @@ InitialMenu::InitialMenu(QWidget* parent)
 InitialMenu::~InitialMenu() { delete atm_color_designer_; }
 
 void InitialMenu::SetExtraGeometryParameters(int extra_width,
-                                                  int extra_height) {
+                                             int extra_height) {
   extra_width_ = extra_width;
   extra_height_ = extra_height;
 }
