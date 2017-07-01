@@ -27,6 +27,9 @@ class WidgetShifter {
                   QLabel* label);
 
  private:
+  void ResetShiftPosition();
+  void SetShifting(unsigned int direction_flag, const QRect& initial_geometry);
+
   bool IsMainWidgetBorderCrossed() const;
 
   double AssignShiftCoefficient(double shift_coefficient);

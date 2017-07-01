@@ -15,7 +15,28 @@ void WidgetShifter::ShiftLabel(double shift_coefficient,
                                unsigned int direction_flag,
                                const QRect& initial_geometry,
                                QLabel* label) {
+  ResetShiftPosition();
+
   shift_coefficient_ = AssignShiftCoefficient(shift_coefficient);
+
+  SetShifting(direction_flag, initial_geometry);
+
+  if (!IsMainWidgetBorderCrossed()) {
+    label->move(shift_position_.x(), shift_position_.y());
+  } else {
+    label->move(main_widget_position_.width() - shift_position_.width(),
+                main_widget_position_.height() - shift_position_.height());
+  }
+}
+
+void WidgetShifter::ResetShiftPosition() {
+  shift_position_ = QRect(0, 0, 0, 0);
+}
+
+void WidgetShifter::SetShifting(unsigned int direction_flag,
+                                const QRect& initial_geometry) {
+  shift_position_.setWidth(initial_geometry.width());
+  shift_position_.setHeight(initial_geometry.height());
 
   if (direction_flag & kNone) {
     shift_position_.setX(initial_geometry.x());
@@ -41,17 +62,10 @@ void WidgetShifter::ShiftLabel(double shift_coefficient,
     shift_position_.setY(initial_geometry.y() +
                          (shift_coefficient_ * delta_size_.DeltaHeight()));
   }
-
-  shift_position_.setWidth(initial_geometry.width());
-  shift_position_.setHeight(initial_geometry.height());
-
-  if (IsMainWidgetBorderCrossed()) {
-    label->move(shift_position_.x(), shift_position_.y());
-  }
 }
 
 bool WidgetShifter::IsMainWidgetBorderCrossed() const {
-  if (shift_position_.x() + shift_position_.width() <=
+  if (shift_position_.x() + shift_position_.width() >
       main_widget_position_.width()) {
     return true;
   }
