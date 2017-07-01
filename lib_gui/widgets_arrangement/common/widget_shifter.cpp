@@ -2,44 +2,43 @@
 
 #include <QLabel>
 #include <QRect>
+#include <QWidget>
 
 void WidgetShifter::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
 void WidgetShifter::ShiftLabel(double shift_coefficient,
-                               unsigned int direction,
+                               unsigned int direction_flag,
                                const QRect& initial_geometry,
                                QLabel* label) {
   shift_coefficient_ = VerifyShiftCoefficient(shift_coefficient);
 
-  if (direction & kNone) {
-    label->setGeometry(initial_geometry);
+  if (direction_flag & kNone) {
+    shift_position_.setX(initial_geometry.x());
+    shift_position_.setY(initial_geometry.y());
   }
-  if (direction & kShiftLeft) {
-    label->setGeometry(
-        initial_geometry.x() - (shift_coefficient_ * delta_size_.DeltaWidth()),
-        initial_geometry.y(), initial_geometry.width(),
-        initial_geometry.height());
+  if (direction_flag & kShiftLeft) {
+    shift_position_.setX(initial_geometry.x() -
+                         (shift_coefficient_ * delta_size_.DeltaWidth()));
+    shift_position_.setY(initial_geometry.y());
   }
-  if (direction & kShiftRight) {
-    label->setGeometry(
-        initial_geometry.x() + (shift_coefficient_ * delta_size_.DeltaWidth()),
-        initial_geometry.y(), initial_geometry.width(),
-        initial_geometry.height());
+  if (direction_flag & kShiftRight) {
+    shift_position_.setX(initial_geometry.x() -
+                         (shift_coefficient_ * delta_size_.DeltaWidth()));
+    shift_position_.setY(initial_geometry.y());
   }
-  if (direction & kShiftUp) {
-    label->setGeometry(
-        initial_geometry.x(),
-        initial_geometry.y() - (shift_coefficient_ * delta_size_.DeltaHeight()),
-        initial_geometry.width(), initial_geometry.height());
+  if (direction_flag & kShiftUp) {
+    shift_position_.setX(initial_geometry.x());
+    shift_position_.setY(initial_geometry.y() -
+                         (shift_coefficient_ * delta_size_.DeltaHeight()));
   }
-  if (direction & kShiftDown) {
-    label->setGeometry(
-        initial_geometry.x(),
-        initial_geometry.y() + (shift_coefficient_ * delta_size_.DeltaHeight()),
-        initial_geometry.width(), initial_geometry.height());
+  if (direction_flag & kShiftDown) {
+    shift_position_.setX(initial_geometry.x());
+    shift_position_.setY(initial_geometry.y() +
+                         (shift_coefficient_ * delta_size_.DeltaHeight()));
   }
+  label->move(shift_position_);
 }
 
 double WidgetShifter::VerifyShiftCoefficient(double shift_coefficient) {

@@ -1,10 +1,12 @@
 ﻿#ifndef WIDGET_SHIFTER_H
 #define WIDGET_SHIFTER_H
 
+#include <QPoint>
+
 #include <delta_size.h>
 
-class QRect;
 class QLabel;
+class QRect;
 
 class WidgetShifter {
  public:
@@ -19,7 +21,7 @@ class WidgetShifter {
   void SetDeltaSize(const DeltaSize& delta_size);
 
   void ShiftLabel(double shift_coefficient,
-                  unsigned int direction,
+                  unsigned int direction_flag,
                   const QRect& initial_geometry,
                   QLabel* label);
 
@@ -27,6 +29,7 @@ class WidgetShifter {
   double VerifyShiftCoefficient(double shift_coefficient);
 
   DeltaSize delta_size_;
+  QPoint shift_position_;
 
   double shift_coefficient_ = 0.0;
 };
