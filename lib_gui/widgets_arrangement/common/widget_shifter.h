@@ -2,11 +2,11 @@
 #define WIDGET_SHIFTER_H
 
 #include <QPoint>
+#include <QRect>
 
 #include <delta_size.h>
 
 class QLabel;
-class QRect;
 
 class WidgetShifter {
  public:
@@ -19,6 +19,7 @@ class WidgetShifter {
   };
 
   void SetDeltaSize(const DeltaSize& delta_size);
+  void SetMainWidgetPosition(const QRect& main_widget_position);
 
   void ShiftLabel(double shift_coefficient,
                   unsigned int direction_flag,
@@ -26,10 +27,13 @@ class WidgetShifter {
                   QLabel* label);
 
  private:
-  double VerifyShiftCoefficient(double shift_coefficient);
+  bool IsMainWidgetBorderCrossed() const;
+
+  double AssignShiftCoefficient(double shift_coefficient);
 
   DeltaSize delta_size_;
-  QPoint shift_position_;
+  QRect shift_position_;
+  QRect main_widget_position_;
 
   double shift_coefficient_ = 0.0;
 };
