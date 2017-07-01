@@ -13,7 +13,7 @@ class WidgetShifter {
     kShiftLeft = 1,
     kShiftRight = 2,
     kShiftUp = 4,
-    kShiftDown = 5
+    kShiftDown = 8
   };
 
   void SetDeltaSize(const DeltaSize& delta_size);
@@ -24,6 +24,8 @@ class WidgetShifter {
                   QLabel* label);
 
  private:
+  double VerifyShiftCoefficient(double shift_coefficient);
+
   DeltaSize delta_size_;
 
   double shift_coefficient_ = 0.0;
