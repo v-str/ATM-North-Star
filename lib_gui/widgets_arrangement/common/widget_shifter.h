@@ -8,7 +8,13 @@ class QLabel;
 
 class WidgetShifter {
  public:
-  enum ShiftDirection { kShiftRight, kShiftLeft, kShiftUp, kShiftDown };
+  enum ShiftDirection {
+    kNone = 0,
+    kShiftLeft = 1,
+    kShiftRight = 2,
+    kShiftUp = 4,
+    kShiftDown = 5
+  };
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
