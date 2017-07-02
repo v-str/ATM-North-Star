@@ -1,7 +1,7 @@
 ﻿#include <geometry.h>
 
 QPoint Geometry::kVersionLabel = {485, 17};
-QRect Geometry::kCompanyNameLabel = {35, 40, 510, 70};
+QPoint Geometry::kCompanyNameLabel = {35, 40};
 QRect Geometry::kDateLabel = {140, 360, 160, 20};
 QRect Geometry::kTimeLabel = {300, 360, 160, 20};
 QRect Geometry::kTextLabel = {150, 270, 280, 30};
@@ -13,7 +13,7 @@ int Geometry::InitialScreenHeight() { return kInitialScreenHeight; }
 
 QPoint Geometry::VersionLabel() { return kVersionLabel; }
 
-QRect Geometry::CompanyNameLabel() { return kCompanyNameLabel; }
+QPoint Geometry::CompanyNameLabel() { return kCompanyNameLabel; }
 
 QRect Geometry::DateLabel() { return kDateLabel; }
 

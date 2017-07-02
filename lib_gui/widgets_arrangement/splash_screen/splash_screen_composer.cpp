@@ -21,10 +21,8 @@ void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
 
 void SplashScreenSizeComposer::ComposeCompanyNameLabel(
     QLabel* company_name_label) {
-  company_name_label->setGeometry(
-      Geometry::CompanyNameLabel().x() + delta_size_.DeltaWidth() / 2,
-      Geometry::CompanyNameLabel().y(), Geometry::CompanyNameLabel().width(),
-      Geometry::CompanyNameLabel().height());
+  shifter_.ShiftWidget(0.5, WidgetShifter::kShiftRight,
+                       Geometry::CompanyNameLabel(), company_name_label);
 }
 
 void SplashScreenSizeComposer::ComposeSplashScreenLabels(QLabel* date_label,

@@ -10,7 +10,7 @@ class Geometry {
   static int InitialScreenHeight();
 
   static QPoint VersionLabel();
-  static QRect CompanyNameLabel();
+  static QPoint CompanyNameLabel();
   static QRect DateLabel();
   static QRect TimeLabel();
   static QRect TextLabel();
@@ -21,7 +21,7 @@ class Geometry {
   static const int kInitialScreenHeight = 400;
 
   static QPoint kVersionLabel;
-  static QRect kCompanyNameLabel;
+  static QPoint kCompanyNameLabel;
   static QRect kDateLabel;
   static QRect kTimeLabel;
   static QRect kTextLabel;
