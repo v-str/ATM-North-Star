@@ -87,17 +87,19 @@ void AtmMainWidget::SetWidgetProperties() {
 
 void AtmMainWidget::SetFrameArrangement() {
   ui->main_frame->setGeometry(kMainFrame.x(), kMainFrame.y(),
-                              kMainFrame.width() + extra_width_,
-                              kMainFrame.height() + extra_height_);
+                              kMainFrame.width() + delta_size_.DeltaWidth(),
+                              kMainFrame.height() + delta_size_.DeltaHeight());
 
-  initial_menu_->setGeometry(kInitialFrame.x(), kInitialFrame.y(),
-                             kInitialFrame.width() + extra_width_,
-                             kInitialFrame.height() + extra_height_);
+  initial_menu_->setGeometry(
+      kInitialFrame.x(), kInitialFrame.y(),
+      kInitialFrame.width() + delta_size_.DeltaWidth(),
+      kInitialFrame.height() + delta_size_.DeltaHeight());
 }
 
 void AtmMainWidget::SetTimeLabelArrangement() {
-  ui->time_label->setGeometry(kTimeLabel.x() + extra_width_, kTimeLabel.y(),
-                              kTimeLabel.width(), kTimeLabel.height());
+  ui->time_label->setGeometry(kTimeLabel.x() + delta_size_.DeltaWidth(),
+                              kTimeLabel.y(), kTimeLabel.width(),
+                              kTimeLabel.height());
 }
 
 void AtmMainWidget::RunTimers() { time_timer_->start(1000); }
@@ -120,8 +122,8 @@ void AtmMainWidget::InitializeObject() {
 }
 
 void AtmMainWidget::ComputeExtraSize() {
-  extra_width_ = width() - kWidth;
-  extra_height_ = height() - kHeight;
+  delta_size_.SetDeltaWidth(width() - kWidth);
+  delta_size_.SetDeltaHeight(height() - kHeight);
 
-  initial_menu_->SetDeltaSize(extra_width_, extra_height_);
+  initial_menu_->SetDeltaSize(delta_size_);
 }

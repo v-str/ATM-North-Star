@@ -24,9 +24,8 @@ InitialMenu::InitialMenu(QWidget* parent)
 
 InitialMenu::~InitialMenu() { delete atm_color_designer_; }
 
-void InitialMenu::SetDeltaSize(int extra_width, int extra_height) {
-  delta_size_.SetDeltaWidth(extra_width);
-  delta_size_.SetDeltaHeight(extra_height);
+void InitialMenu::SetDeltaSize(const DeltaSize& delta_size) {
+  delta_size_ = delta_size;
 }
 
 void InitialMenu::PaintWidgets() {

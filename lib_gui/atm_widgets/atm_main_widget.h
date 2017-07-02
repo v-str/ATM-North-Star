@@ -6,6 +6,7 @@
 #include <QRect>
 
 #include <atm_color_designer.h>
+#include <delta_size.h>
 
 class QPaintEvent;
 class QString;
@@ -51,6 +52,7 @@ class AtmMainWidget : public QMainWindow {
   InitialMenu* initial_menu_ = nullptr;
 
   AtmColorDesigner color_designer_;
+  DeltaSize delta_size_;
 
   static QRect kTimeLabel;
   static QRect kMainFrame;
@@ -58,9 +60,6 @@ class AtmMainWidget : public QMainWindow {
 
   static const int kWidth = 600;
   static const int kHeight = 400;
-
-  int extra_width_ = 0;
-  int extra_height_ = 0;
 };
 
 #endif  // ATM_MAIN_WIDGET_H

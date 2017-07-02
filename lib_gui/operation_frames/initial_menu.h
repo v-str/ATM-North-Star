@@ -18,7 +18,7 @@ class InitialMenu : public QFrame {
   InitialMenu(QWidget* parent);
   ~InitialMenu();
 
-  void SetDeltaSize(int extra_width, int extra_height);
+  void SetDeltaSize(const DeltaSize& delta_size);
 
  protected:
   void resizeEvent(QResizeEvent*);
