@@ -5,6 +5,8 @@
 #include <QObject>
 #include <QRect>
 
+#include <widget_shifter.h>
+
 class QWidget;
 class QPushButton;
 class AtmColorDesigner;
@@ -33,6 +35,8 @@ class InitialMenu : public QFrame {
   static QRect kSignInButtonGeometry;
   static QRect kRegistrationButtonGeometry;
   static QRect kDemoButtonGeometry;
+
+  WidgetShifter shifter_;
 
   int extra_width_ = 0;
   int extra_height_ = 0;

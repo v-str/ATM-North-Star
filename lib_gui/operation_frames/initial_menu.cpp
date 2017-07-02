@@ -7,6 +7,7 @@
 
 #include <application_color.h>
 #include <atm_color_designer.h>
+#include <delta_size.h>
 
 QRect InitialMenu::kSignInButtonGeometry = {220, 112, 140, 40};
 QRect InitialMenu::kRegistrationButtonGeometry = {220, 162, 140, 40};
@@ -43,19 +44,14 @@ void InitialMenu::SetInitialSetting() {
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
-  sign_in_button_->setGeometry(kSignInButtonGeometry.x() + extra_width_ / 2,
-                               kSignInButtonGeometry.y() + extra_height_ / 2,
-                               kSignInButtonGeometry.width(),
-                               kSignInButtonGeometry.height());
-
-  registration_button_->setGeometry(
-      kRegistrationButtonGeometry.x() + extra_width_ / 2,
-      kRegistrationButtonGeometry.y() + extra_height_ / 2,
-      kRegistrationButtonGeometry.width(),
-      kRegistrationButtonGeometry.height());
-
-  demo_button_->setGeometry(kDemoButtonGeometry.x() + extra_width_ / 2,
-                            kDemoButtonGeometry.y() + extra_height_ / 2,
-                            kDemoButtonGeometry.width(),
-                            kDemoButtonGeometry.height());
+  shifter_.SetDeltaSize(DeltaSize(extra_width_, extra_height_));
+  shifter_.ShiftWidget(0.5,
+                       WidgetShifter::kShiftRight | WidgetShifter::kShiftDown,
+                       QPoint(220, 112), sign_in_button_);
+  shifter_.ShiftWidget(0.51,
+                       WidgetShifter::kShiftRight | WidgetShifter::kShiftDown,
+                       QPoint(220, 162), registration_button_);
+  shifter_.ShiftWidget(0.52,
+                       WidgetShifter::kShiftRight | WidgetShifter::kShiftDown,
+                       QPoint(220, 212), demo_button_);
 }

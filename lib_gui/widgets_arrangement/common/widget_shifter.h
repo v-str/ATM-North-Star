@@ -6,13 +6,12 @@
 
 #include <delta_size.h>
 
-class QLabel;
-class QPushButton;
+class QWidget;
+class QRect;
 
 class WidgetShifter {
  public:
   enum ShiftDirection {
-    kNone = 0,
     kShiftLeft = 1,
     kShiftRight = 2,
     kShiftUp = 4,
@@ -20,33 +19,24 @@ class WidgetShifter {
   };
 
   void SetDeltaSize(const DeltaSize& delta_size);
-  void SetMainWidgetPosition(const QRect& main_widget_position);
 
-  void ShiftLabel(double shift_coefficient,
-                  unsigned int direction_flag,
-                  const QRect& initial_label_geometry,
-                  QLabel* label);
-
-  void ShiftButton(double shift_coefficient,
+  void ShiftWidget(double shift_coefficient,
                    unsigned int direction_flag,
-                   const QRect& initial_button_geometry,
-                   QPushButton* button);
+                   const QPoint initial_position,
+                   QWidget* widget);
 
  private:
-  void ResetShiftPosition();
-  void SetShifting(unsigned int direction_flag, const QRect& initial_geometry);
-  void AssignShiftCoefficient(double shift_coefficient);
-
-  void MakeShifting(QLabel* label);
-  void MakeShifting(QPushButton* button);
-
-  bool IsMainWidgetBorderCrossed() const;
+  void CheckShiftCoefficient(double shift_coefficient);
+  void ComputeShifting(unsigned int direction_flag, QPoint initial_position);
 
   DeltaSize delta_size_;
-  QRect shift_position_;
-  QRect main_widget_position_;
+
+  QPoint shift_position_;
 
   double shift_coefficient_ = 0.0;
+
+  static constexpr double kMaxShiftCoefficient = 3.0;
+  static constexpr double kMinShiftCoefficient = 0.0;
 };
 
 #endif  // WIDGET_SHIFTER_H

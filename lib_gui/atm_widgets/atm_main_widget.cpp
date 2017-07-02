@@ -90,7 +90,6 @@ void AtmMainWidget::SetFrameArrangement() {
                               kMainFrame.width() + extra_width_,
                               kMainFrame.height() + extra_height_);
 
-  initial_menu_->SetExtraGeometryParameters(extra_width_, extra_height_);
   initial_menu_->setGeometry(kInitialFrame.x(), kInitialFrame.y(),
                              kInitialFrame.width() + extra_width_,
                              kInitialFrame.height() + extra_height_);
@@ -123,4 +122,6 @@ void AtmMainWidget::InitializeObject() {
 void AtmMainWidget::ComputeExtraSize() {
   extra_width_ = width() - kWidth;
   extra_height_ = height() - kHeight;
+
+  initial_menu_->SetExtraGeometryParameters(extra_width_, extra_height_);
 }
