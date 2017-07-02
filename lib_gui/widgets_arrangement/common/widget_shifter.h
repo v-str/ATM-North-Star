@@ -5,6 +5,7 @@
 #include <QRect>
 
 #include <delta_size.h>
+#include <shift_coefficient.h>
 
 class QWidget;
 class QRect;
@@ -20,22 +21,17 @@ class WidgetShifter {
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
-  void ShiftWidget(double x_shift_coefficient,
-                   double y_shift_coefficient,
+  void ShiftWidget(const ShiftCoefficient& shift_coefficient,
                    unsigned int direction_flag,
                    const QPoint initial_position,
                    QWidget* widget);
 
  private:
-  void CheckCoefficient(double x_shift_coefficient, double y_shift_coefficient);
   void ComputeShifting(unsigned int direction_flag, QPoint initial_position);
 
   DeltaSize delta_size_;
-
+  ShiftCoefficient shift_coefficient_;
   QPoint shift_position_;
-
-  double x_shift_coefficient_ = 0.0;
-  double y_shift_coefficient_ = 0.0;
 
   static constexpr double kMaxShiftCoefficient = 3.0;
   static constexpr double kMinShiftCoefficient = 0.0;

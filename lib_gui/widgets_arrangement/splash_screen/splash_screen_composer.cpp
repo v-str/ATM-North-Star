@@ -6,6 +6,7 @@
 #include <QPoint>
 
 #include <geometry.h>
+#include <shift_coefficient.h>
 
 void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
   frame->setGeometry(
@@ -15,26 +16,26 @@ void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
 }
 
 void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
-  shifter_.ShiftWidget(1.0, 0.0, WidgetShifter::kShiftRight,
+  shifter_.ShiftWidget(ShiftCoefficient(1.0, 0.0), WidgetShifter::kShiftRight,
                        Geometry::VersionLabel(), version_label);
 }
 
 void SplashScreenSizeComposer::ComposeCompanyNameLabel(
     QLabel* company_name_label) {
-  shifter_.ShiftWidget(0.5, 0.0, WidgetShifter::kShiftRight,
+  shifter_.ShiftWidget(ShiftCoefficient(0.5, 0.0), WidgetShifter::kShiftRight,
                        Geometry::CompanyNameLabel(), company_name_label);
 }
 
 void SplashScreenSizeComposer::ComposeSplashScreenLabels(QLabel* date_label,
                                                          QLabel* time_label,
                                                          QLabel* text_label) {
-  shifter_.ShiftWidget(0.5, 1.0,
+  shifter_.ShiftWidget(ShiftCoefficient(0.5, 1.0),
                        WidgetShifter::kShiftRight | WidgetShifter::kShiftDown,
                        Geometry::DateLabel(), date_label);
-  shifter_.ShiftWidget(0.5, 1.0,
+  shifter_.ShiftWidget(ShiftCoefficient(0.5, 1.0),
                        WidgetShifter::kShiftRight | WidgetShifter::kShiftDown,
                        Geometry::TimeLabel(), time_label);
-  shifter_.ShiftWidget(0.5, 1.0,
+  shifter_.ShiftWidget(ShiftCoefficient(0.5, 1.0),
                        WidgetShifter::kShiftRight | WidgetShifter::kShiftDown,
                        Geometry::TextLabel(), text_label);
 }
