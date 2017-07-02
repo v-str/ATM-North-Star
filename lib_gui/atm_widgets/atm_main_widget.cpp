@@ -123,5 +123,5 @@ void AtmMainWidget::ComputeExtraSize() {
   extra_width_ = width() - kWidth;
   extra_height_ = height() - kHeight;
 
-  initial_menu_->SetExtraGeometryParameters(extra_width_, extra_height_);
+  initial_menu_->SetDeltaSize(extra_width_, extra_height_);
 }

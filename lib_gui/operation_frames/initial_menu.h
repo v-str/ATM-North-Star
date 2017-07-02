@@ -5,6 +5,7 @@
 #include <QObject>
 #include <QRect>
 
+#include <delta_size.h>
 #include <widget_shifter.h>
 
 class QWidget;
@@ -17,7 +18,7 @@ class InitialMenu : public QFrame {
   InitialMenu(QWidget* parent);
   ~InitialMenu();
 
-  void SetExtraGeometryParameters(int extra_width, int extra_height);
+  void SetDeltaSize(int extra_width, int extra_height);
 
  protected:
   void resizeEvent(QResizeEvent*);
@@ -37,6 +38,7 @@ class InitialMenu : public QFrame {
   static QRect kDemoButtonGeometry;
 
   WidgetShifter shifter_;
+  DeltaSize delta_size_;
 
   int extra_width_ = 0;
   int extra_height_ = 0;
