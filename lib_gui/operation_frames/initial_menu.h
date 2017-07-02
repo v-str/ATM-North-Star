@@ -39,9 +39,6 @@ class InitialMenu : public QFrame {
 
   WidgetShifter shifter_;
   DeltaSize delta_size_;
-
-  int extra_width_ = 0;
-  int extra_height_ = 0;
 };
 
 #endif  // INITIAL_MENU_H
