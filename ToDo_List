@@ -61,8 +61,12 @@
                                                                                     |   |
 24. Rename all "extras" on delta                                                    | + |
                                                                                     |   |
-25. Continue develop Widget Shifter                                                 | - |
+25. Continue develop Widget Shifter                                                 | + |
     How to addition two enum variables using & for shift direction?                 |   |
+                                                                                    |   |
+26. Repaint app cursor                                                              | - |
+                                                                                    |   |
+27. Make button shifting when cursor hover to it                                    | - |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
