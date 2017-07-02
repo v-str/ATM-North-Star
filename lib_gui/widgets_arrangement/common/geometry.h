@@ -1,6 +1,7 @@
 ﻿#ifndef GEOMETRY_H
 #define GEOMETRY_H
 
+#include <QPoint>
 #include <QRect>
 
 class Geometry {
@@ -8,7 +9,7 @@ class Geometry {
   static int InitialScreenWidth();
   static int InitialScreenHeight();
 
-  static QRect VersionLabel();
+  static QPoint VersionLabel();
   static QRect CompanyNameLabel();
   static QRect DateLabel();
   static QRect TimeLabel();
@@ -19,7 +20,7 @@ class Geometry {
   static const int kInitialScreenWidth = 600;
   static const int kInitialScreenHeight = 400;
 
-  static QRect kVersionLabel;
+  static QPoint kVersionLabel;
   static QRect kCompanyNameLabel;
   static QRect kDateLabel;
   static QRect kTimeLabel;

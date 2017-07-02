@@ -3,6 +3,7 @@
 #include <QFont>
 #include <QFrame>
 #include <QLabel>
+#include <QPoint>
 
 #include <geometry.h>
 
@@ -14,10 +15,8 @@ void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
 }
 
 void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
-  version_label->setGeometry(
-      Geometry::VersionLabel().x() + delta_size_.DeltaWidth(),
-      Geometry::VersionLabel().y(), Geometry::VersionLabel().width(),
-      Geometry::VersionLabel().height());
+  shifter_.ShiftWidget(1.0, WidgetShifter::kShiftRight,
+                       Geometry::VersionLabel(), version_label);
 }
 
 void SplashScreenSizeComposer::ComposeCompanyNameLabel(
@@ -45,6 +44,7 @@ void SplashScreenSizeComposer::ComputeDeltas(int extra_width,
                                              int extra_height) {
   delta_size_.SetDeltaWidth(extra_width - Geometry::InitialScreenWidth());
   delta_size_.SetDeltaHeight(extra_height - Geometry::InitialScreenHeight());
+  shifter_.SetDeltaSize(delta_size_);
 }
 
 QRect SplashScreenSizeComposer::NewLabelGeometry(const QRect& label) {

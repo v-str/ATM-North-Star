@@ -1,6 +1,6 @@
 ﻿#include <geometry.h>
 
-QRect Geometry::kVersionLabel = {485, 17, 100, 15};
+QPoint Geometry::kVersionLabel = {485, 17};
 QRect Geometry::kCompanyNameLabel = {35, 40, 510, 70};
 QRect Geometry::kDateLabel = {140, 360, 160, 20};
 QRect Geometry::kTimeLabel = {300, 360, 160, 20};
@@ -11,7 +11,7 @@ int Geometry::InitialScreenWidth() { return kInitialScreenWidth; }
 
 int Geometry::InitialScreenHeight() { return kInitialScreenHeight; }
 
-QRect Geometry::VersionLabel() { return kVersionLabel; }
+QPoint Geometry::VersionLabel() { return kVersionLabel; }
 
 QRect Geometry::CompanyNameLabel() { return kCompanyNameLabel; }
 
