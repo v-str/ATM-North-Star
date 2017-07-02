@@ -11,9 +11,9 @@ class Geometry {
 
   static QPoint VersionLabel();
   static QPoint CompanyNameLabel();
-  static QRect DateLabel();
-  static QRect TimeLabel();
-  static QRect TextLabel();
+  static QPoint DateLabel();
+  static QPoint TimeLabel();
+  static QPoint TextLabel();
   static QRect SplashScreenFrame();
 
  private:
@@ -22,9 +22,9 @@ class Geometry {
 
   static QPoint kVersionLabel;
   static QPoint kCompanyNameLabel;
-  static QRect kDateLabel;
-  static QRect kTimeLabel;
-  static QRect kTextLabel;
+  static QPoint kDateLabel;
+  static QPoint kTimeLabel;
+  static QPoint kTextLabel;
   static QRect kSplashScreenFrame;
 };
 

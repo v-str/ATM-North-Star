@@ -3,26 +3,38 @@
 #include <QRect>
 #include <QWidget>
 
+#include <QDebug>
+
 void WidgetShifter::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
-void WidgetShifter::ShiftWidget(double shift_coefficient,
+void WidgetShifter::ShiftWidget(double x_shift_coefficient,
+                                double y_shift_coefficient,
                                 unsigned int direction_flag,
                                 const QPoint initial_position,
                                 QWidget* widget) {
-  CheckShiftCoefficient(shift_coefficient);
+  CheckCoefficient(x_shift_coefficient, y_shift_coefficient);
   ComputeShifting(direction_flag, initial_position);
   widget->move(shift_position_);
 }
 
-void WidgetShifter::CheckShiftCoefficient(double shift_coefficient) {
-  if (shift_coefficient > kMaxShiftCoefficient) {
-    shift_coefficient_ = kMaxShiftCoefficient;
-  } else if (shift_coefficient < kMinShiftCoefficient) {
-    shift_coefficient_ = kMinShiftCoefficient;
+void WidgetShifter::CheckCoefficient(double x_shift_coefficient,
+                                     double y_shift_coefficient) {
+  if (x_shift_coefficient >= kMaxShiftCoefficient) {
+    x_shift_coefficient_ = kMaxShiftCoefficient;
+  } else if (x_shift_coefficient <= kMinShiftCoefficient) {
+    x_shift_coefficient_ = kMinShiftCoefficient;
   } else {
-    shift_coefficient_ = shift_coefficient;
+    x_shift_coefficient_ = x_shift_coefficient;
+  }
+
+  if (y_shift_coefficient >= kMaxShiftCoefficient) {
+    y_shift_coefficient_ = kMaxShiftCoefficient;
+  } else if (x_shift_coefficient <= kMinShiftCoefficient) {
+    y_shift_coefficient = kMinShiftCoefficient;
+  } else {
+    y_shift_coefficient_ = y_shift_coefficient;
   }
 }
 
@@ -32,16 +44,16 @@ void WidgetShifter::ComputeShifting(unsigned int direction_flag,
   int y = initial_position.y();
 
   if (direction_flag & kShiftLeft) {
-    x -= (shift_coefficient_ * delta_size_.DeltaWidth());
+    x -= (x_shift_coefficient_ * delta_size_.DeltaWidth());
   }
   if (direction_flag & kShiftRight) {
-    x += (shift_coefficient_ * delta_size_.DeltaWidth());
+    x += (x_shift_coefficient_ * delta_size_.DeltaWidth());
   }
   if (direction_flag & kShiftUp) {
-    y -= (shift_coefficient_ * delta_size_.DeltaHeight());
+    y -= (y_shift_coefficient_ * delta_size_.DeltaHeight());
   }
   if (direction_flag & kShiftDown) {
-    y += (shift_coefficient_ * delta_size_.DeltaHeight());
+    y += (y_shift_coefficient_ * delta_size_.DeltaHeight());
   }
 
   shift_position_.setX(x);
