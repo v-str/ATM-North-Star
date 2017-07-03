@@ -9,6 +9,8 @@ QString ApplicationColor::splash_screen_blink_color_two_ = "#999900";
 
 QString ApplicationColor::application_background_color_ = "black";
 
+QString ApplicationColor::checked_background_color_ = "";
+
 void ApplicationColor::SetWidgetColor(const QString main_color,
                                       const QString secondary_color,
                                       const QString additional_color) {
@@ -39,6 +41,11 @@ void ApplicationColor::SetBackgroundColor(const QString& background_color) {
   application_background_color_ = background_color;
 }
 
+void ApplicationColor::SetCheckedBackgroundColor(
+    const QString& background_color) {
+  checked_background_color_ = background_color;
+}
+
 QString ApplicationColor::MainColor() { return main_app_color_; }
 
 QString ApplicationColor::SecondaryColor() { return secondary_app_color_; }
@@ -55,4 +62,8 @@ QString ApplicationColor::BlinkColorTwo() {
 
 QString ApplicationColor::ApplicationBackgroundColor() {
   return application_background_color_;
+}
+
+QString ApplicationColor::CheckedBackgroundColor() {
+  return checked_background_color_;
 }

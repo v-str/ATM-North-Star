@@ -15,6 +15,7 @@ class ApplicationColor {
   static void SetSplashScreenBlinkColor(const QString& color_one,
                                         const QString& color_two);
   static void SetBackgroundColor(const QString& background_color);
+  static void SetCheckedBackgroundColor(const QString& background_color);
 
   static QString MainColor();
   static QString SecondaryColor();
@@ -25,6 +26,8 @@ class ApplicationColor {
 
   static QString ApplicationBackgroundColor();
 
+  static QString CheckedBackgroundColor();
+
  private:
   static QString main_app_color_;
   static QString secondary_app_color_;
@@ -34,6 +37,8 @@ class ApplicationColor {
   static QString splash_screen_blink_color_two_;
 
   static QString application_background_color_;
+
+  static QString checked_background_color_;
 };
 
 #endif  // APPLICATION_COLOR_H

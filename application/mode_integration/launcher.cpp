@@ -28,6 +28,7 @@ void Launcher::SetGuiApplicationColor() {
   ApplicationColor::SetMainColor("#00FFFF");
   ApplicationColor::SetSecondaryColor("#001933");
   ApplicationColor::SetAdditionalColor("#006666");
+  ApplicationColor::SetCheckedBackgroundColor("#202020");
   ApplicationColor::SetSplashScreenBlinkColor("#00FFFF", "#009999");
   ApplicationColor::SetBackgroundColor("black");
 }

@@ -7,6 +7,8 @@
 #include <QPushButton>
 #include <QString>
 
+#include <application_color.h>
+
 void Painter::ChangeLabelColor(QLabel* label, const QString& text_color) {
   QString string_text_color =
       "QLabel{"
@@ -17,10 +19,7 @@ void Painter::ChangeLabelColor(QLabel* label, const QString& text_color) {
   label->setStyleSheet(string_text_color.arg(text_color));
 }
 
-void Painter::ChangeButtonColor(QPushButton* push_button,
-                                const QString& main_color,
-                                const QString& secondary_color,
-                                const QString& additional_color) {
+void Painter::ChangeButtonColor(QPushButton* push_button) {
   QString string_color =
       "QPushButton{"
       "color:%1;"
@@ -30,13 +29,19 @@ void Painter::ChangeButtonColor(QPushButton* push_button,
       "QPushButton:hover{"
       "border:1px solid %3;"
       "}"
+      "QPushButton:focus{"
+      "background-color:%4;"
+      "border: 2px solid %3;"
+      "}"
       "QPushButton:pressed{"
       "color:%2;"
       "border:1px solid %2;"
       "}";
 
-  push_button->setStyleSheet(
-      string_color.arg(main_color, secondary_color, additional_color));
+  push_button->setStyleSheet(string_color.arg(
+      ApplicationColor::MainColor(), ApplicationColor::SecondaryColor(),
+      ApplicationColor::AdditionalColor(),
+      ApplicationColor::CheckedBackgroundColor()));
 }
 
 void Painter::ChangeFrameColor(QFrame* frame, const QString& color) {

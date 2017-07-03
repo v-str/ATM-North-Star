@@ -32,9 +32,7 @@ void AtmColorDesigner::PaintWidgetSet(QList<QLabel*> label_list) const {
 void AtmColorDesigner::PaintWidgetSet(QList<QPushButton*> button_list) const {
   for (auto button = button_list.begin(); button != button_list.end();
        ++button) {
-    Painter::ChangeButtonColor(*button, ApplicationColor::MainColor(),
-                               ApplicationColor::SecondaryColor(),
-                               ApplicationColor::AdditionalColor());
+    Painter::ChangeButtonColor(*button);
   }
 }
 

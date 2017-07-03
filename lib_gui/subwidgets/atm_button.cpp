@@ -5,8 +5,6 @@
 #include <QString>
 #include <QWidget>
 
-#include <QDebug>
-
 AtmButton::AtmButton(QWidget* widget) : QPushButton(widget) {}
 
 AtmButton::AtmButton(const QString& text, QWidget* widget)
