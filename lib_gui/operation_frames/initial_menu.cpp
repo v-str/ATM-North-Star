@@ -42,7 +42,7 @@ void InitialMenu::SetInitialSetting() {
   button_->setGeometry(kButton);
   sign_in_button_->setGeometry(kSignInButtonGeometry);
   registration_button_->setGeometry(kRegistrationButtonGeometry);
-  demo_button_->setGeometry(kDemoButtonGeometry);
+  demo_button_->SetGeometry(kDemoButtonGeometry);
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
