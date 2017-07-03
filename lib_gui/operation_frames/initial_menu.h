@@ -11,6 +11,7 @@
 class QWidget;
 class QPushButton;
 class AtmColorDesigner;
+class AtmButton;
 
 class InitialMenu : public QFrame {
   Q_OBJECT
@@ -27,12 +28,14 @@ class InitialMenu : public QFrame {
   void PaintWidgets();
   void SetInitialSetting();
 
+  AtmButton* button_ = nullptr;
   QPushButton* sign_in_button_ = nullptr;
   QPushButton* registration_button_ = nullptr;
   QPushButton* demo_button_ = nullptr;
 
   AtmColorDesigner* atm_color_designer_ = nullptr;
 
+  static QRect kButton;
   static QRect kSignInButtonGeometry;
   static QRect kRegistrationButtonGeometry;
   static QRect kDemoButtonGeometry;

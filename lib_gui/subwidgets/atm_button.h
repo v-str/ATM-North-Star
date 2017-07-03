@@ -13,6 +13,10 @@ class AtmButton : public QPushButton {
   AtmButton(const QString& text, QWidget* widget = nullptr);
 
   ~AtmButton();
+
+ protected:
+  void focusInEvent(QFocusEvent*);
+  void focusOutEvent(QFocusEvent*);
 };
 
 #endif  // ATM_BUTTON_H
