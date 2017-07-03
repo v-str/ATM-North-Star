@@ -39,7 +39,7 @@ void InitialMenu::PaintWidgets() {
 }
 
 void InitialMenu::SetInitialSetting() {
-  button_->SetGeometry(kButton);
+  button_->setGeometry(kButton);
   sign_in_button_->setGeometry(kSignInButtonGeometry);
   registration_button_->setGeometry(kRegistrationButtonGeometry);
   demo_button_->setGeometry(kDemoButtonGeometry);

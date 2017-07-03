@@ -3,7 +3,7 @@
 
 #include <QPushButton>
 
-#include <QRect>
+class QRect;
 
 class QString;
 class QWidget;
@@ -14,8 +14,6 @@ class AtmButton : public QPushButton {
   AtmButton(QWidget* widget = nullptr);
   AtmButton(const QString& text, QWidget* widget = nullptr);
 
-  void SetGeometry(const QRect& geometry);
-
   ~AtmButton();
 
  protected:
@@ -23,7 +21,7 @@ class AtmButton : public QPushButton {
   void focusOutEvent(QFocusEvent*);
 
  private:
-  QRect geometry_;
+  static const int x_offset_ = 5;
 };
 
 #endif  // ATM_BUTTON_H
