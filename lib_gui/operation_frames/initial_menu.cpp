@@ -39,10 +39,10 @@ void InitialMenu::PaintWidgets() {
 }
 
 void InitialMenu::SetInitialSetting() {
-  button_->setGeometry(kButton);
+  button_->SetGeometry(kButton);
   sign_in_button_->setGeometry(kSignInButtonGeometry);
   registration_button_->setGeometry(kRegistrationButtonGeometry);
-  demo_button_->SetGeometry(kDemoButtonGeometry);
+  demo_button_->setGeometry(kDemoButtonGeometry);
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
