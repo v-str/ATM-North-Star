@@ -16,20 +16,9 @@ class AtmButton : public QPushButton {
 
   ~AtmButton();
 
- public slots:
-  void MakeOffset();
-
- signals:
-  void Hovered();
-
  protected:
   void focusInEvent(QFocusEvent*);
   void focusOutEvent(QFocusEvent*);
-
-  //  void HoverEnter(QHoverEvent*);
-  //  void HoverLeave(QHoverEvent*);
-
-  //  bool event(QEvent* e);
 
   void enterEvent(QEvent*);
   void leaveEvent(QEvent*);
