@@ -4,17 +4,17 @@
 class ConversionFactor {
  public:
   ConversionFactor();
-  ConversionFactor(double x_coefficient, double y_coefficient);
+  ConversionFactor(double x_axis_factor, double y_axis_factor);
 
-  void SetXFactor(double x_coefficient);
-  void SetYFactor(double y_coefficient);
+  void SetXFactor(double x_axis_factor);
+  void SetYFactor(double y_axis_factor);
 
-  double XFactor() const;
-  double YFactor() const;
+  double XAxisFactor() const;
+  double YAxisFactor() const;
 
  private:
-  void XCheckOutOfRange(double x_factor);
-  void YCheckOutOfRange(double y_factor);
+  void XCheckOutOfRange(double x_axis_factor);
+  void YCheckOutOfRange(double y_axis_factor);
 
   static constexpr double kMaximalFactor = 3.0;
   static constexpr double kMinimalFactor = 0.0;
