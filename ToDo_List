@@ -52,7 +52,7 @@
                                                                                     |   |
 20. Remove secondary frame, and make it separate, make size composing this frame    | + |
                                                                                     |   |
-21. Make initial frame                                                              | - |
+21. Make initial frame                                                              | + |
                                                                                     |   |
 22. Develop Initial menu hierarchy, including frame composition and                 | - |
     buttons stretching                                                              |   |
@@ -64,9 +64,9 @@
 25. Continue develop Widget Shifter                                                 | + |
     How to addition two enum variables using & for shift direction?                 |   |
                                                                                     |   |
-26. Repaint app cursor                                                              | - |
+26. Repaint app cursor                                                              | + |
                                                                                     |   |
-27. Make button shifting when cursor hover to it                                    | - |
+27. Make button shifting when cursor hover to it                                    | + |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------

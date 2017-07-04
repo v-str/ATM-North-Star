@@ -2,7 +2,6 @@
 
 #include <QApplication>
 
-#include <application_color.h>
 #include <graphical_splash_screen.h>
 #include <splash_screen.h>  // add console prefix
 
@@ -17,18 +16,8 @@ void Launcher::LaunchConsoleMode() {
 void Launcher::LaunchGuiMode(int argc, char* argv[]) {
   QApplication application(argc, argv);
   Q_INIT_RESOURCE(atm_resources);
-  SetGuiApplicationColor();
   gui::GraphicalSplashScreen splash_screen;
   splash_screen.RunInitialScreen();
 
   application.exec();
-}
-
-void Launcher::SetGuiApplicationColor() {
-  ApplicationColor::SetMainColor("#00FFFF");
-  ApplicationColor::SetSecondaryColor("#001933");
-  ApplicationColor::SetAdditionalColor("#006666");
-  ApplicationColor::SetCheckedBackgroundColor("#202020");
-  ApplicationColor::SetSplashScreenBlinkColor("#00FFFF", "#009999");
-  ApplicationColor::SetBackgroundColor("black");
 }

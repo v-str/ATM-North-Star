@@ -1,15 +1,15 @@
 ﻿#include <application_color.h>
 
-QString ApplicationColor::main_app_color_ = "yellow";
-QString ApplicationColor::secondary_app_color_ = "red";
-QString ApplicationColor::additional_app_color_ = "blue";
+QString ApplicationColor::main_app_color_ = "#00FFFF";
+QString ApplicationColor::secondary_app_color_ = "#001933";
+QString ApplicationColor::additional_app_color_ = "#006666";
 
-QString ApplicationColor::splash_screen_blink_color_one_ = "#CCCC00";
-QString ApplicationColor::splash_screen_blink_color_two_ = "#999900";
+QString ApplicationColor::splash_screen_blink_color_one_ = "#00FFFF";
+QString ApplicationColor::splash_screen_blink_color_two_ = "#009999";
 
 QString ApplicationColor::application_background_color_ = "black";
 
-QString ApplicationColor::checked_background_color_ = "";
+QString ApplicationColor::checked_background_color_ = "#202020";
 
 void ApplicationColor::SetWidgetColor(const QString main_color,
                                       const QString secondary_color,

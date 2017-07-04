@@ -13,8 +13,6 @@ class Launcher {
   void LaunchGuiMode(int argc, char* argv[]);
 
  private:
-  void SetGuiApplicationColor();
-
   std::unique_ptr<cli::InitialMenu> initial_menu_;
 };
 
