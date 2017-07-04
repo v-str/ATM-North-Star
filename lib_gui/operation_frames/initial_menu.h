@@ -28,10 +28,9 @@ class InitialMenu : public QFrame {
   void PaintWidgets();
   void SetInitialSetting();
 
-  AtmButton* button_ = nullptr;
-  QPushButton* sign_in_button_ = nullptr;
-  QPushButton* registration_button_ = nullptr;
-  QPushButton* demo_button_ = nullptr;
+  AtmButton* sign_in_button_ = nullptr;
+  AtmButton* registration_button_ = nullptr;
+  AtmButton* demo_button_ = nullptr;
 
   AtmColorDesigner* atm_color_designer_ = nullptr;
 
