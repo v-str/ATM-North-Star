@@ -17,14 +17,16 @@ class AtmButton : public QPushButton {
   ~AtmButton();
 
  protected:
-  void focusInEvent(QFocusEvent*);
-  void focusOutEvent(QFocusEvent*);
-
   void enterEvent(QEvent*);
   void leaveEvent(QEvent*);
 
  private:
+  void OffsetButton();
+  void ReturnToInitialPosition();
+
   static const int x_offset_ = 5;
+
+  bool is_focus_ = false;
 };
 
 #endif  // ATM_BUTTON_H

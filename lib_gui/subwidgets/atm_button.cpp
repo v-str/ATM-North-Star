@@ -1,13 +1,8 @@
 ﻿#include <atm_button.h>
 
 #include <QEvent>
-#include <QFocusEvent>
-#include <QHoverEvent>
-#include <QRect>
 #include <QString>
 #include <QWidget>
-
-#include <QDebug>
 
 AtmButton::AtmButton(QWidget* widget) : QPushButton(widget) {}
 
@@ -16,10 +11,20 @@ AtmButton::AtmButton(const QString& text, QWidget* widget)
 
 AtmButton::~AtmButton() {}
 
-void AtmButton::focusInEvent(QFocusEvent*) { move(x() + x_offset_, y()); }
+void AtmButton::enterEvent(QEvent*) { OffsetButton(); }
 
-void AtmButton::focusOutEvent(QFocusEvent*) { move(x() - x_offset_, y()); }
+void AtmButton::leaveEvent(QEvent*) { ReturnToInitialPosition(); }
 
-void AtmButton::enterEvent(QEvent*) { move(x() + x_offset_, y()); }
+void AtmButton::OffsetButton() {
+  if (!is_focus_) {
+    move(x() + x_offset_, y());
+    is_focus_ = true;
+  }
+}
 
-void AtmButton::leaveEvent(QEvent*) { move(x() - x_offset_, y()); }
+void AtmButton::ReturnToInitialPosition() {
+  if (is_focus_) {
+    move(x() - x_offset_, y());
+    is_focus_ = false;
+  }
+}
