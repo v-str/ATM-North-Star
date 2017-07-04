@@ -8,7 +8,7 @@
 #include <application_color.h>
 #include <atm_button.h>
 #include <atm_color_designer.h>
-#include <shift_coefficient.h>
+#include <conversion_factor.h>
 
 QRect InitialMenu::kButton = {220, 62, 140, 40};
 QRect InitialMenu::kSignInButtonGeometry = {220, 112, 140, 40};
@@ -46,13 +46,13 @@ void InitialMenu::SetInitialSetting() {
 void InitialMenu::resizeEvent(QResizeEvent*) {
   shifter_.SetDeltaSize(delta_size_);
 
-  shifter_.ShiftWidget(ShiftCoefficient(0.5, 0.5),
+  shifter_.ShiftWidget(ConversionFactor(0.5, 0.5),
                        WidgetShifter::kShiftRight | WidgetShifter::kShiftDown,
                        QPoint(220, 112), sign_in_button_);
-  shifter_.ShiftWidget(ShiftCoefficient(0.5, 0.5),
+  shifter_.ShiftWidget(ConversionFactor(0.5, 0.5),
                        WidgetShifter::kShiftRight | WidgetShifter::kShiftDown,
                        QPoint(220, 162), registration_button_);
-  shifter_.ShiftWidget(ShiftCoefficient(0.5, 0.5),
+  shifter_.ShiftWidget(ConversionFactor(0.5, 0.5),
                        WidgetShifter::kShiftRight | WidgetShifter::kShiftDown,
                        QPoint(220, 212), demo_button_);
 }
