@@ -32,6 +32,8 @@ class InitialMenu : public QFrame {
   AtmButton* registration_button_ = nullptr;
   AtmButton* demo_button_ = nullptr;
 
+  AtmButton* button_ = nullptr;
+
   AtmColorDesigner* atm_color_designer_ = nullptr;
 
   static QRect kButton;
