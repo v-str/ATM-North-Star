@@ -6,7 +6,7 @@
 #include <QRect>
 
 #include <delta_size.h>
-#include <widget_shifter.h>
+#include <widget_transformer.h>
 
 class QWidget;
 class QPushButton;
@@ -38,7 +38,7 @@ class InitialMenu : public QFrame {
 
   static QRect kButton;
 
-  WidgetShifter shifter_;
+  WidgetTransformer transformer_;
   DeltaSize delta_size_;
 };
 

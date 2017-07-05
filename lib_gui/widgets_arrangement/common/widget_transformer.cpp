@@ -1,13 +1,13 @@
-﻿#include <widget_shifter.h>
+﻿#include <widget_transformer.h>
 
 #include <QRect>
 #include <QWidget>
 
-void WidgetShifter::SetDeltaSize(const DeltaSize& delta_size) {
+void WidgetTransformer::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
-void WidgetShifter::ShiftWidget(const ConversionFactor& conversion_factor,
+void WidgetTransformer::ShiftWidget(const ConversionFactor& conversion_factor,
                                 const QRect& initial_position,
                                 unsigned int direction_flag,
                                 QWidget* widget) {
@@ -16,7 +16,7 @@ void WidgetShifter::ShiftWidget(const ConversionFactor& conversion_factor,
   widget->move(shift_position_);
 }
 
-void WidgetShifter::ComputeShifting(const QRect& initial_position,
+void WidgetTransformer::ComputeShifting(const QRect& initial_position,
                                     unsigned int direction_flag) {
   int x = initial_position.x();
   int y = initial_position.y();

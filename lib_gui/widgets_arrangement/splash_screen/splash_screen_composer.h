@@ -6,7 +6,7 @@
 #include <atm_label_stretcher.h>
 
 #include <delta_size.h>
-#include <widget_shifter.h>
+#include <widget_transformer.h>
 
 class QPushButton;
 class QLabel;
@@ -33,7 +33,7 @@ class SplashScreenSizeComposer {
   static const int kAtmLabelFontSize = 100;
 
   AtmLabelStretcher atm_label_stretcher_;
-  WidgetShifter shifter_;
+  WidgetTransformer transformer_;
   DeltaSize delta_size_;
 };
 

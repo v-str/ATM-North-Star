@@ -1,5 +1,5 @@
-﻿#ifndef WIDGET_SHIFTER_H
-#define WIDGET_SHIFTER_H
+﻿#ifndef WIDGET_TRANSFORMER_H
+#define WIDGET_TRANSFORMER_H
 
 #include <QPoint>
 #include <QRect>
@@ -10,7 +10,7 @@
 class QWidget;
 class QRect;
 
-class WidgetShifter {
+class WidgetTransformer {
  public:
   enum ShiftDirection {
     kShiftLeft = 1,
@@ -35,4 +35,4 @@ class WidgetShifter {
   QPoint shift_position_;
 };
 
-#endif  // WIDGET_SHIFTER_H
+#endif  // WIDGET_TRANSFORMER_H
