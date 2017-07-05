@@ -9,11 +9,11 @@ class InitialGeometry {
   static int InitialScreenWidth();
   static int InitialScreenHeight();
 
-  static QPoint VersionLabel();
-  static QPoint CompanyNameLabel();
-  static QPoint DateLabel();
-  static QPoint TimeLabel();
-  static QPoint TextLabel();
+  static QRect VersionLabel();
+  static QRect CompanyNameLabel();
+  static QRect DateLabel();
+  static QRect TimeLabel();
+  static QRect TextLabel();
   static QRect SplashScreenFrame();
 
   static QRect SignInButton();
@@ -24,11 +24,11 @@ class InitialGeometry {
   static const int kInitialScreenWidth = 600;
   static const int kInitialScreenHeight = 400;
 
-  static QPoint kVersionLabel;
-  static QPoint kCompanyNameLabel;
-  static QPoint kDateLabel;
-  static QPoint kTimeLabel;
-  static QPoint kTextLabel;
+  static QRect kVersionLabel;
+  static QRect kCompanyNameLabel;
+  static QRect kDateLabel;
+  static QRect kTimeLabel;
+  static QRect kTextLabel;
   static QRect kSplashScreenFrame;
 
   static QRect kSignInButton;

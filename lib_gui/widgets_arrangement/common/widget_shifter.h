@@ -22,12 +22,12 @@ class WidgetShifter {
   void SetDeltaSize(const DeltaSize& delta_size);
 
   void ShiftWidget(const ConversionFactor& conversion_factor,
-                   const QPoint& initial_position,
+                   const QRect& initial_position,
                    unsigned int direction_flag,
                    QWidget* widget);
 
  private:
-  void ComputeShifting(const QPoint& initial_position,
+  void ComputeShifting(const QRect& initial_position,
                        unsigned int direction_flag);
 
   DeltaSize delta_size_;
