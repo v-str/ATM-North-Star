@@ -19,14 +19,14 @@ void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
 void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
   transformer_.ShiftWidget(ConversionFactor(1.0, 0.0),
                            InitialGeometry::VersionLabel(),
-                           WidgetTransformer::kShiftRight, version_label);
+                           WidgetTransformer::kRight, version_label);
 }
 
 void SplashScreenSizeComposer::ComposeCompanyNameLabel(
     QLabel* company_name_label) {
   transformer_.ShiftWidget(ConversionFactor(0.5, 0.0),
                            InitialGeometry::CompanyNameLabel(),
-                           WidgetTransformer::kShiftRight, company_name_label);
+                           WidgetTransformer::kRight, company_name_label);
 }
 
 void SplashScreenSizeComposer::ComposeSplashScreenLabels(QLabel* date_label,
@@ -34,16 +34,13 @@ void SplashScreenSizeComposer::ComposeSplashScreenLabels(QLabel* date_label,
                                                          QLabel* text_label) {
   transformer_.ShiftWidget(
       ConversionFactor(0.5, 1.0), InitialGeometry::DateLabel(),
-      WidgetTransformer::kShiftRight | WidgetTransformer::kShiftDown,
-      date_label);
+      WidgetTransformer::kRight | WidgetTransformer::kDown, date_label);
   transformer_.ShiftWidget(
       ConversionFactor(0.5, 1.0), InitialGeometry::TimeLabel(),
-      WidgetTransformer::kShiftRight | WidgetTransformer::kShiftDown,
-      time_label);
+      WidgetTransformer::kRight | WidgetTransformer::kDown, time_label);
   transformer_.ShiftWidget(
       ConversionFactor(0.5, 1.0), InitialGeometry::TextLabel(),
-      WidgetTransformer::kShiftRight | WidgetTransformer::kShiftDown,
-      text_label);
+      WidgetTransformer::kRight | WidgetTransformer::kDown, text_label);
 }
 
 void SplashScreenSizeComposer::ComposeAtmLabel(QLabel* atm_label) {

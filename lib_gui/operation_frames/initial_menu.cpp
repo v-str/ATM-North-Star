@@ -50,14 +50,18 @@ void InitialMenu::resizeEvent(QResizeEvent*) {
 
   transformer_.ShiftWidget(
       ConversionFactor(0.5, 0.5), InitialGeometry::SignInButton(),
-      WidgetTransformer::kShiftRight | WidgetTransformer::kShiftDown,
-      sign_in_button_);
-  transformer_.ShiftWidget(
-      ConversionFactor(0.5, 0.5), InitialGeometry::RegistrationButton(),
-      WidgetTransformer::kShiftRight | WidgetTransformer::kShiftDown,
-      registration_button_);
+      WidgetTransformer::kRight | WidgetTransformer::kDown, sign_in_button_);
+  transformer_.ShiftWidget(ConversionFactor(0.5, 0.5),
+                           InitialGeometry::RegistrationButton(),
+                           WidgetTransformer::kRight | WidgetTransformer::kDown,
+                           registration_button_);
   transformer_.ShiftWidget(
       ConversionFactor(0.5, 0.5), InitialGeometry::DemoButton(),
-      WidgetTransformer::kShiftRight | WidgetTransformer::kShiftDown,
-      demo_button_);
+      WidgetTransformer::kRight | WidgetTransformer::kDown, demo_button_);
+
+  transformer_.StretchWidget(ConversionFactor(0.1, 0.1), kButton,
+                             WidgetTransformer::kRight |
+                                 WidgetTransformer::kDown |
+                                 WidgetTransformer::kUp,
+                             button_);
 }
