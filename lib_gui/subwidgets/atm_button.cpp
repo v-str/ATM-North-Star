@@ -11,6 +11,10 @@ AtmButton::AtmButton(const QString& text,
                      QWidget* widget)
     : QPushButton(text, widget), offset_side_(offset_side) {}
 
+void AtmButton::SetOffsetSide(unsigned int offset_side) {
+  offset_side_ = offset_side;
+}
+
 void AtmButton::SetXHoverOffset(int x_offset) { x_offset_ = x_offset; }
 
 void AtmButton::SetYHoverOffset(int y_offset) { y_offset_ = y_offset; }
@@ -61,5 +65,6 @@ void AtmButton::ReturnToInitialPosition() {
   if (offset_side_ & kDown) {
     y_pos -= y_offset_;
   }
+
   move(x_pos, y_pos);
 }
