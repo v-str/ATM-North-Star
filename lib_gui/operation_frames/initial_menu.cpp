@@ -9,7 +9,7 @@
 #include <atm_button.h>
 #include <atm_color_designer.h>
 #include <conversion_factor.h>
-#include <geometry.h>
+#include <initial_geometry.h>
 
 QRect InitialMenu::kButton = {360, 62, 140, 40};
 
@@ -37,9 +37,9 @@ void InitialMenu::PaintWidgets() {
 }
 
 void InitialMenu::SetInitialSetting() {
-  sign_in_button_->setGeometry(Geometry::SignInButton());
-  registration_button_->setGeometry(Geometry::RegistrationButton());
-  demo_button_->setGeometry(Geometry::DemoButton());
+  sign_in_button_->setGeometry(InitialGeometry::SignInButton());
+  registration_button_->setGeometry(InitialGeometry::RegistrationButton());
+  demo_button_->setGeometry(InitialGeometry::DemoButton());
 
   button_->setGeometry(kButton);
 }

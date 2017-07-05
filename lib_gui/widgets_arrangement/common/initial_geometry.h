@@ -1,10 +1,10 @@
-﻿#ifndef GEOMETRY_H
-#define GEOMETRY_H
+﻿#ifndef INITIAL_GEOMETRY_H
+#define INITIAL_GEOMETRY_H
 
 #include <QPoint>
 #include <QRect>
 
-class Geometry {
+class InitialGeometry {
  public:
   static int InitialScreenWidth();
   static int InitialScreenHeight();
@@ -36,4 +36,4 @@ class Geometry {
   static QRect kDemoButton;
 };
 
-#endif  // GEOMETRY_H
+#endif  // INITIAL_GEOMETRY_H
