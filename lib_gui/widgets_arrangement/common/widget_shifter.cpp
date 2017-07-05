@@ -8,16 +8,16 @@ void WidgetShifter::SetDeltaSize(const DeltaSize& delta_size) {
 }
 
 void WidgetShifter::ShiftWidget(const ConversionFactor& conversion_factor,
+                                const QPoint& initial_position,
                                 unsigned int direction_flag,
-                                const QPoint initial_position,
                                 QWidget* widget) {
   conversion_factor_ = conversion_factor;
-  ComputeShifting(direction_flag, initial_position);
+  ComputeShifting(initial_position, direction_flag);
   widget->move(shift_position_);
 }
 
-void WidgetShifter::ComputeShifting(unsigned int direction_flag,
-                                    QPoint initial_position) {
+void WidgetShifter::ComputeShifting(const QPoint& initial_position,
+                                    unsigned int direction_flag) {
   int x = initial_position.x();
   int y = initial_position.y();
 

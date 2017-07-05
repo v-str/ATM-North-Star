@@ -22,19 +22,17 @@ class WidgetShifter {
   void SetDeltaSize(const DeltaSize& delta_size);
 
   void ShiftWidget(const ConversionFactor& conversion_factor,
+                   const QPoint& initial_position,
                    unsigned int direction_flag,
-                   const QPoint initial_position,
                    QWidget* widget);
 
  private:
-  void ComputeShifting(unsigned int direction_flag, QPoint initial_position);
+  void ComputeShifting(const QPoint& initial_position,
+                       unsigned int direction_flag);
 
   DeltaSize delta_size_;
   ConversionFactor conversion_factor_;
   QPoint shift_position_;
-
-  static constexpr double kMaxShiftCoefficient = 3.0;
-  static constexpr double kMinShiftCoefficient = 0.0;
 };
 
 #endif  // WIDGET_SHIFTER_H

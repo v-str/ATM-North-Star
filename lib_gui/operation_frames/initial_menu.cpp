@@ -47,13 +47,13 @@ void InitialMenu::SetInitialSetting() {
 void InitialMenu::resizeEvent(QResizeEvent*) {
   shifter_.SetDeltaSize(delta_size_);
 
-  shifter_.ShiftWidget(ConversionFactor(0.5, 0.5),
+  shifter_.ShiftWidget(ConversionFactor(0.5, 0.5), QPoint(220, 112),
                        WidgetShifter::kShiftRight | WidgetShifter::kShiftDown,
-                       QPoint(220, 112), sign_in_button_);
-  shifter_.ShiftWidget(ConversionFactor(0.5, 0.5),
+                       sign_in_button_);
+  shifter_.ShiftWidget(ConversionFactor(0.5, 0.5), QPoint(220, 162),
                        WidgetShifter::kShiftRight | WidgetShifter::kShiftDown,
-                       QPoint(220, 162), registration_button_);
-  shifter_.ShiftWidget(ConversionFactor(0.5, 0.5),
+                       registration_button_);
+  shifter_.ShiftWidget(ConversionFactor(0.5, 0.5), QPoint(220, 212),
                        WidgetShifter::kShiftRight | WidgetShifter::kShiftDown,
-                       QPoint(220, 212), demo_button_);
+                       demo_button_);
 }
