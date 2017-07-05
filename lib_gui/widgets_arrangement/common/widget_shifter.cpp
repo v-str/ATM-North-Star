@@ -24,16 +24,16 @@ void WidgetShifter::ComputeShifting(unsigned int direction_flag,
   int y = initial_position.y();
 
   if (direction_flag & kShiftLeft) {
-    x -= (shift_coefficient_.XAxisFactor() * delta_size_.DeltaWidth());
+    x -= (shift_coefficient_.XAxisFactor() * delta_size_.Width());
   }
   if (direction_flag & kShiftRight) {
-    x += (shift_coefficient_.XAxisFactor() * delta_size_.DeltaWidth());
+    x += (shift_coefficient_.XAxisFactor() * delta_size_.Width());
   }
   if (direction_flag & kShiftUp) {
-    y -= (shift_coefficient_.YAxisFactor() * delta_size_.DeltaHeight());
+    y -= (shift_coefficient_.YAxisFactor() * delta_size_.Height());
   }
   if (direction_flag & kShiftDown) {
-    y += (shift_coefficient_.YAxisFactor() * delta_size_.DeltaHeight());
+    y += (shift_coefficient_.YAxisFactor() * delta_size_.Height());
   }
 
   shift_position_.setX(x);

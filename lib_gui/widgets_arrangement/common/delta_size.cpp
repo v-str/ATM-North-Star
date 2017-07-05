@@ -2,20 +2,17 @@
 
 DeltaSize::DeltaSize() {}
 
-DeltaSize::DeltaSize(int delta_width, int delta_height)
-    : delta_width_(delta_width), delta_height_(delta_height) {}
+DeltaSize::DeltaSize(int width, int height) : width_(width), height_(height) {}
 
 void DeltaSize::SetDeltaSize(const DeltaSize& delta_size) {
-  delta_width_ = delta_size.DeltaWidth();
-  delta_height_ = delta_size.DeltaHeight();
+  width_ = delta_size.Width();
+  height_ = delta_size.Height();
 }
 
-void DeltaSize::SetDeltaWidth(int delta_width) { delta_width_ = delta_width; }
+void DeltaSize::SetWidth(int delta_width) { width_ = delta_width; }
 
-void DeltaSize::SetDeltaHeight(int delta_height) {
-  delta_height_ = delta_height;
-}
+void DeltaSize::SetHeight(int delta_height) { height_ = delta_height; }
 
-int DeltaSize::DeltaWidth() const { return delta_width_; }
+int DeltaSize::Width() const { return width_; }
 
-int DeltaSize::DeltaHeight() const { return delta_height_; }
+int DeltaSize::Height() const { return height_; }

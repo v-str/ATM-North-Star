@@ -4,8 +4,8 @@
 #include <QPoint>
 #include <QRect>
 
-#include <delta_size.h>
 #include <conversion_factor.h>
+#include <delta_size.h>
 
 class QWidget;
 class QRect;
