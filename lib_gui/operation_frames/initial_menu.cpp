@@ -15,10 +15,13 @@ QRect InitialMenu::kButton = {360, 62, 140, 40};
 
 InitialMenu::InitialMenu(QWidget* parent)
     : QFrame(parent),
-      sign_in_button_(new AtmButton("Sign-in", this)),
-      registration_button_(new AtmButton("Registration", this)),
-      demo_button_(new AtmButton("Demo", this)),
-      button_(new AtmButton("&Test button", this)),
+      sign_in_button_(
+          new AtmButton("Sign-in", AtmButton::kLeft | AtmButton::kDown, this)),
+      registration_button_(new AtmButton(
+          "Registration", AtmButton::kLeft | AtmButton::kDown, this)),
+      demo_button_(
+          new AtmButton("Demo", AtmButton::kLeft | AtmButton::kDown, this)),
+      button_(new AtmButton("&Test button", AtmButton::kUp, this)),
       atm_color_designer_(new AtmColorDesigner) {
   PaintWidgets();
   SetInitialSetting();
