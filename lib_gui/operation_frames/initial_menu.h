@@ -35,9 +35,6 @@ class InitialMenu : public QFrame {
   AtmColorDesigner* atm_color_designer_ = nullptr;
 
   static QRect kButton;
-  static QRect kSignInButtonGeometry;
-  static QRect kRegistrationButtonGeometry;
-  static QRect kDemoButtonGeometry;
 
   WidgetShifter shifter_;
   DeltaSize delta_size_;

@@ -9,11 +9,9 @@
 #include <atm_button.h>
 #include <atm_color_designer.h>
 #include <conversion_factor.h>
+#include <geometry.h>
 
 QRect InitialMenu::kButton = {220, 62, 140, 40};
-QRect InitialMenu::kSignInButtonGeometry = {220, 112, 140, 40};
-QRect InitialMenu::kRegistrationButtonGeometry = {220, 162, 140, 40};
-QRect InitialMenu::kDemoButtonGeometry = {220, 212, 140, 40};
 
 InitialMenu::InitialMenu(QWidget* parent)
     : QFrame(parent),
@@ -38,9 +36,9 @@ void InitialMenu::PaintWidgets() {
 }
 
 void InitialMenu::SetInitialSetting() {
-  sign_in_button_->setGeometry(kSignInButtonGeometry);
-  registration_button_->setGeometry(kRegistrationButtonGeometry);
-  demo_button_->setGeometry(kDemoButtonGeometry);
+  sign_in_button_->setGeometry(Geometry::SignInButton());
+  registration_button_->setGeometry(Geometry::RegistrationButton());
+  demo_button_->setGeometry(Geometry::DemoButton());
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {

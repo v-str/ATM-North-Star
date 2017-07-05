@@ -16,6 +16,10 @@ class Geometry {
   static QPoint TextLabel();
   static QRect SplashScreenFrame();
 
+  static QRect SignInButton();
+  static QRect RegistrationButton();
+  static QRect DemoButton();
+
  private:
   static const int kInitialScreenWidth = 600;
   static const int kInitialScreenHeight = 400;
@@ -26,6 +30,10 @@ class Geometry {
   static QPoint kTimeLabel;
   static QPoint kTextLabel;
   static QRect kSplashScreenFrame;
+
+  static QRect kSignInButton;
+  static QRect kRegistrationButton;
+  static QRect kDemoButton;
 };
 
 #endif  // GEOMETRY_H
