@@ -3,17 +3,15 @@
 #include <QRect>
 #include <QWidget>
 
-#include <QDebug>
-
 void WidgetShifter::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
-void WidgetShifter::ShiftWidget(const ConversionFactor& shift_coefficient,
+void WidgetShifter::ShiftWidget(const ConversionFactor& conversion_factor,
                                 unsigned int direction_flag,
                                 const QPoint initial_position,
                                 QWidget* widget) {
-  shift_coefficient_ = shift_coefficient;
+  conversion_factor_ = conversion_factor;
   ComputeShifting(direction_flag, initial_position);
   widget->move(shift_position_);
 }
@@ -24,16 +22,16 @@ void WidgetShifter::ComputeShifting(unsigned int direction_flag,
   int y = initial_position.y();
 
   if (direction_flag & kShiftLeft) {
-    x -= (shift_coefficient_.XAxisFactor() * delta_size_.Width());
+    x -= (conversion_factor_.XAxisFactor() * delta_size_.Width());
   }
   if (direction_flag & kShiftRight) {
-    x += (shift_coefficient_.XAxisFactor() * delta_size_.Width());
+    x += (conversion_factor_.XAxisFactor() * delta_size_.Width());
   }
   if (direction_flag & kShiftUp) {
-    y -= (shift_coefficient_.YAxisFactor() * delta_size_.Height());
+    y -= (conversion_factor_.YAxisFactor() * delta_size_.Height());
   }
   if (direction_flag & kShiftDown) {
-    y += (shift_coefficient_.YAxisFactor() * delta_size_.Height());
+    y += (conversion_factor_.YAxisFactor() * delta_size_.Height());
   }
 
   shift_position_.setX(x);
