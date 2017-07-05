@@ -11,12 +11,15 @@ class QWidget;
 class AtmButton : public QPushButton {
   Q_OBJECT
  public:
-  enum OffsetSide { kLeft = 1, kRight = 2, kUp = 4, kDown = 8 };
+  enum OffsetSide { kNone = 0, kLeft = 1, kRight = 2, kUp = 4, kDown = 8 };
 
   AtmButton(QWidget* widget = nullptr);
   AtmButton(const QString& text,
             unsigned int offset_side,
             QWidget* widget = nullptr);
+
+  void SetXHoverOffset(int x_offset = 5);
+  void SetYHoverOffset(int y_offset = 5);
 
   ~AtmButton();
 
@@ -28,7 +31,8 @@ class AtmButton : public QPushButton {
   void OffsetButton();
   void ReturnToInitialPosition();
 
-  static const int offset_ = 7;
+  int x_offset_ = 5;
+  int y_offset_ = 5;
 
   unsigned int offset_side_;
 
