@@ -28,6 +28,8 @@ class InitialMenu : public QFrame {
   void PaintWidgets();
   void SetInitialSetting();
 
+  void SetResizeGeometry();
+
   AtmButton* sign_in_button_ = nullptr;
   AtmButton* registration_button_ = nullptr;
   AtmButton* demo_button_ = nullptr;

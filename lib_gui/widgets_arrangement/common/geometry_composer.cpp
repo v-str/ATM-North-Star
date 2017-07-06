@@ -28,6 +28,14 @@ void GeometryComposer::ComposeGeometry(
   widget->setGeometry(modified_position_);
 }
 
+void GeometryComposer::ComposeGeometry(const QRect& initial_position,
+                                       QWidget* widget) {
+  ComputeStretching(initial_position, stretch_side_);
+  ComputeShifting(modified_position_, shift_side_);
+
+  widget->setGeometry(modified_position_);
+}
+
 void GeometryComposer::SetShiftFactor(double x_shift_factor,
                                       double y_shift_factor) {
   shift_factor_.SetXFactor(x_shift_factor);
