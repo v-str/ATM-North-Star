@@ -8,12 +8,9 @@
 #include <delta_size.h>
 
 class QWidget;
-class QRect;
 
 class WidgetTransformer {
  public:
-  enum ManipulationSide { kLeft = 1, kRight = 2, kUp = 4, kDown = 8 };
-
   void SetDeltaSize(const DeltaSize& delta_size);
 
   void ShiftWidget(const ConversionFactor& shift_factor,
@@ -38,9 +35,7 @@ class WidgetTransformer {
   ConversionFactor stretch_factor_;
 
   QPoint shift_position_;
-
-  int stretch_width_ = 0;
-  int stretch_height_ = 0;
+  QRect stretch_position_;
 };
 
 #endif  // WIDGET_TRANSFORMER_H

@@ -41,6 +41,7 @@ HEADERS += \
     $$PWD/widgets_arrangement/common/*.h \
     $$PWD/widgets_arrangement/splash_screen/*.h \
     $$PWD/features/*.h \
+    widgets_arrangement/common/side.h
 
 SOURCES += \
     $$PWD/atm_widgets/*.cpp \

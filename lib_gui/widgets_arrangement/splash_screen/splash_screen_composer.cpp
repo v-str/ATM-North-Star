@@ -7,6 +7,7 @@
 
 #include <conversion_factor.h>
 #include <initial_geometry.h>
+#include <side.h>
 
 void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
   frame->setGeometry(
@@ -18,29 +19,29 @@ void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
 
 void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
   transformer_.ShiftWidget(ConversionFactor(1.0, 0.0),
-                           InitialGeometry::VersionLabel(),
-                           WidgetTransformer::kRight, version_label);
+                           InitialGeometry::VersionLabel(), Side::kRight,
+                           version_label);
 }
 
 void SplashScreenSizeComposer::ComposeCompanyNameLabel(
     QLabel* company_name_label) {
   transformer_.ShiftWidget(ConversionFactor(0.5, 0.0),
-                           InitialGeometry::CompanyNameLabel(),
-                           WidgetTransformer::kRight, company_name_label);
+                           InitialGeometry::CompanyNameLabel(), Side::kRight,
+                           company_name_label);
 }
 
 void SplashScreenSizeComposer::ComposeSplashScreenLabels(QLabel* date_label,
                                                          QLabel* time_label,
                                                          QLabel* text_label) {
-  transformer_.ShiftWidget(
-      ConversionFactor(0.5, 1.0), InitialGeometry::DateLabel(),
-      WidgetTransformer::kRight | WidgetTransformer::kDown, date_label);
-  transformer_.ShiftWidget(
-      ConversionFactor(0.5, 1.0), InitialGeometry::TimeLabel(),
-      WidgetTransformer::kRight | WidgetTransformer::kDown, time_label);
-  transformer_.ShiftWidget(
-      ConversionFactor(0.5, 1.0), InitialGeometry::TextLabel(),
-      WidgetTransformer::kRight | WidgetTransformer::kDown, text_label);
+  transformer_.ShiftWidget(ConversionFactor(0.5, 1.0),
+                           InitialGeometry::DateLabel(),
+                           Side::kRight | Side::kDown, date_label);
+  transformer_.ShiftWidget(ConversionFactor(0.5, 1.0),
+                           InitialGeometry::TimeLabel(),
+                           Side::kRight | Side::kDown, time_label);
+  transformer_.ShiftWidget(ConversionFactor(0.5, 1.0),
+                           InitialGeometry::TextLabel(),
+                           Side::kRight | Side::kDown, text_label);
 }
 
 void SplashScreenSizeComposer::ComposeAtmLabel(QLabel* atm_label) {

@@ -10,8 +10,9 @@
 #include <atm_color_designer.h>
 #include <conversion_factor.h>
 #include <initial_geometry.h>
+#include <side.h>
 
-QRect InitialMenu::kButton = {360, 62, 140, 40};
+QRect InitialMenu::kButton = {360, 270, 140, 40};
 
 InitialMenu::InitialMenu(QWidget* parent)
     : QFrame(parent),
@@ -48,20 +49,16 @@ void InitialMenu::SetInitialSetting() {
 void InitialMenu::resizeEvent(QResizeEvent*) {
   transformer_.SetDeltaSize(delta_size_);
 
-  transformer_.ShiftWidget(
-      ConversionFactor(0.5, 0.5), InitialGeometry::SignInButton(),
-      WidgetTransformer::kRight | WidgetTransformer::kDown, sign_in_button_);
+  transformer_.ShiftWidget(ConversionFactor(0.5, 0.5),
+                           InitialGeometry::SignInButton(),
+                           Side::kRight | Side::kDown, sign_in_button_);
   transformer_.ShiftWidget(ConversionFactor(0.5, 0.5),
                            InitialGeometry::RegistrationButton(),
-                           WidgetTransformer::kRight | WidgetTransformer::kDown,
-                           registration_button_);
-  transformer_.ShiftWidget(
-      ConversionFactor(0.5, 0.5), InitialGeometry::DemoButton(),
-      WidgetTransformer::kRight | WidgetTransformer::kDown, demo_button_);
+                           Side::kRight | Side::kDown, registration_button_);
+  transformer_.ShiftWidget(ConversionFactor(0.5, 0.5),
+                           InitialGeometry::DemoButton(),
+                           Side::kRight | Side::kDown, demo_button_);
 
   transformer_.StretchWidget(ConversionFactor(0.1, 0.1), kButton,
-                             WidgetTransformer::kRight |
-                                 WidgetTransformer::kDown |
-                                 WidgetTransformer::kUp,
-                             button_);
+                             Side::kRight | Side::kUp, button_);
 }
