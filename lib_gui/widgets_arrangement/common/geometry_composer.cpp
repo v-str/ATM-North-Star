@@ -15,12 +15,13 @@ void GeometryComposer::ComposeGeometry(
     TransformationType type,
     unsigned int manipulation_flag,
     QWidget* widget) {
-  conversion_factor_ = conversion_factor;
   switch (type) {
     case kShift:
+      shift_factor_ = conversion_factor;
       ComputeShifting(initial_position, manipulation_flag);
       break;
     case kStretch:
+      stretch_factor_ = conversion_factor;
       ComputeStretching(initial_position, manipulation_flag);
       break;
   }
@@ -45,16 +46,16 @@ void GeometryComposer::ComputeShifting(const QRect& initial_position,
   int y = initial_position.y();
 
   if (manipulation_flag & Side::kLeft) {
-    x -= (conversion_factor_.XAxisFactor() * delta_size_.Width());
+    x -= (shift_factor_.XAxisFactor() * delta_size_.Width());
   }
   if (manipulation_flag & Side::kRight) {
-    x += (conversion_factor_.XAxisFactor() * delta_size_.Width());
+    x += (shift_factor_.XAxisFactor() * delta_size_.Width());
   }
   if (manipulation_flag & Side::kUp) {
-    y -= (conversion_factor_.YAxisFactor() * delta_size_.Height());
+    y -= (shift_factor_.YAxisFactor() * delta_size_.Height());
   }
   if (manipulation_flag & Side::kDown) {
-    y += (conversion_factor_.YAxisFactor() * delta_size_.Height());
+    y += (shift_factor_.YAxisFactor() * delta_size_.Height());
   }
 
   SetModifiedPosition(x, y, initial_position.width(),
@@ -69,18 +70,18 @@ void GeometryComposer::ComputeStretching(const QRect& initial_position,
   int height = initial_position.height();
 
   if (manipulation_flag & Side::kLeft) {
-    width += (conversion_factor_.XAxisFactor() * delta_size_.Width());
-    x -= (conversion_factor_.XAxisFactor() * delta_size_.Width());
+    width += (stretch_factor_.XAxisFactor() * delta_size_.Width());
+    x -= (stretch_factor_.XAxisFactor() * delta_size_.Width());
   }
   if (manipulation_flag & Side::kRight) {
-    width += (conversion_factor_.XAxisFactor() * delta_size_.Width());
+    width += (stretch_factor_.XAxisFactor() * delta_size_.Width());
   }
   if (manipulation_flag & Side::kDown) {
-    height += (conversion_factor_.YAxisFactor() * delta_size_.Height());
+    height += (stretch_factor_.YAxisFactor() * delta_size_.Height());
   }
   if (manipulation_flag & Side::kUp) {
-    height += (conversion_factor_.YAxisFactor() * delta_size_.Height());
-    y -= (conversion_factor_.YAxisFactor() * delta_size_.Height());
+    height += (stretch_factor_.YAxisFactor() * delta_size_.Height());
+    y -= (stretch_factor_.YAxisFactor() * delta_size_.Height());
   }
 
   SetModifiedPosition(x, y, width, height);

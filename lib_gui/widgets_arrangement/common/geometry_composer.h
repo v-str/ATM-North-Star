@@ -34,7 +34,6 @@ class GeometryComposer {
 
   DeltaSize delta_size_;
 
-  ConversionFactor conversion_factor_;
   ConversionFactor stretch_factor_;
   ConversionFactor shift_factor_;
 
