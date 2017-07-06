@@ -10,23 +10,22 @@
 #include <QResizeEvent>
 #include <QTimer>
 
+#include <initial_menu.h>
 #include <initial_property_installer.h>
 #include <painter.h>
 #include <timedate_changer.h>
 
 QRect AtmMainWidget::kTimeLabel = {470, 5, 114, 20};
 QRect AtmMainWidget::kMainFrame = {5, 5, 590, 390};
-QRect AtmMainWidget::kSecondaryFrame = {5, 30, 580, 355};
+QRect AtmMainWidget::kInitialFrame = {5, 30, 580, 355};
 
 AtmMainWidget::AtmMainWidget(QWidget* parent)
     : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
   ui->setupUi(this);
+
   setWindowTitle("ATM");
-
-  SetWidgetAppearance();
-  SetBackgroundColor();
-
   SetInitialSettings();
+
   SetWidgetProperties();
   PaintWidgets();
   SetConnections();
@@ -38,10 +37,15 @@ AtmMainWidget::~AtmMainWidget() {
   delete time_timer_;
 }
 
-void AtmMainWidget::SetWidgetAppearance() { PaintWidgets(); }
-
 void AtmMainWidget::SetBackgroundColor() {
   color_designer_.SetBackgroundColor(this);
+}
+
+void AtmMainWidget::SetImages() {
+  QCursor custom_cursor(QPixmap(":/images/app_cursor.png"));
+  setCursor(custom_cursor);
+
+  setWindowIcon(QIcon(":/images/project_icon.png"));
 }
 
 void AtmMainWidget::MaximizeButtonClicked(bool) {
@@ -67,13 +71,12 @@ void AtmMainWidget::SetConnections() {
 }
 
 void AtmMainWidget::SetInitialSettings() {
-  QCursor custom_cursor(QPixmap(":/images/app_cursor.png"));
-  setCursor(custom_cursor);
-
-  setWindowIcon(QIcon(":/images/project_icon.png"));
-
   InitializeObject();
-  SetWidgetAppearance();
+  PaintWidgets();
+  SetBackgroundColor();
+  SetImages();
+
+  initial_menu_->setGeometry(kInitialFrame);
 }
 
 void AtmMainWidget::SetWidgetProperties() {
@@ -84,25 +87,27 @@ void AtmMainWidget::SetWidgetProperties() {
 
 void AtmMainWidget::SetFrameArrangement() {
   ui->main_frame->setGeometry(kMainFrame.x(), kMainFrame.y(),
-                              kMainFrame.width() + extra_width_,
-                              kMainFrame.height() + extra_height_);
-  ui->secondary_frame->setGeometry(kSecondaryFrame.x(), kSecondaryFrame.y(),
-                                   kSecondaryFrame.width() + extra_width_,
-                                   kSecondaryFrame.height() + extra_height_);
+                              kMainFrame.width() + delta_size_.Width(),
+                              kMainFrame.height() + delta_size_.Height());
+
+  initial_menu_->setGeometry(kInitialFrame.x(), kInitialFrame.y(),
+                             kInitialFrame.width() + delta_size_.Width(),
+                             kInitialFrame.height() + delta_size_.Height());
 }
 
 void AtmMainWidget::SetTimeLabelArrangement() {
-  ui->time_label->setGeometry(kTimeLabel.x() + extra_width_, kTimeLabel.y(),
-                              kTimeLabel.width(), kTimeLabel.height());
+  ui->time_label->setGeometry(kTimeLabel.x() + delta_size_.Width(),
+                              kTimeLabel.y(), kTimeLabel.width(),
+                              kTimeLabel.height());
 }
 
 void AtmMainWidget::RunTimers() { time_timer_->start(1000); }
 
 void AtmMainWidget::PaintWidgets() {
-  QList<QFrame*> frame_list = {ui->main_frame, ui->secondary_frame};
-  QList<QPushButton*> button_list = {
-      ui->exit_button,      ui->minimize_button,     ui->maximize_button,
-      ui->demo_mode_button, ui->registration_button, ui->login_button};
+  QList<QFrame*> frame_list = {ui->main_frame};
+  QList<QPushButton*> button_list = {ui->exit_button, ui->minimize_button,
+                                     ui->maximize_button};
+
   QList<QLabel*> label_list = {ui->time_label};
 
   color_designer_.PaintWidgetSet(frame_list);
@@ -112,9 +117,12 @@ void AtmMainWidget::PaintWidgets() {
 
 void AtmMainWidget::InitializeObject() {
   time_timer_ = new QTimer(ui->time_label);
+  initial_menu_ = new InitialMenu(ui->main_frame);
 }
 
 void AtmMainWidget::ComputeExtraSize() {
-  extra_width_ = width() - kWidth;
-  extra_height_ = height() - kHeight;
+  delta_size_.SetWidth(width() - kWidth);
+  delta_size_.SetHeight(height() - kHeight);
+
+  initial_menu_->SetDeltaSize(delta_size_);
 }

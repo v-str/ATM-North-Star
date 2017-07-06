@@ -10,7 +10,8 @@ DEPENDPATH += \
     ../lib_console/messengers \
     ../lib_console/output_configuration \
     ../lib_gui/widgets_appearance \
-    ../lib_gui/widgets_arrangement \
+    ../lib_gui/widgets_arrangement/common \
+    ../lib_gui/widgets_arrangement/splash_screen \
     ../lib_gui/atm_widgets \
     ../lib_gui/features \
     ../atm/atm_machine \
@@ -20,7 +21,8 @@ INCLUDEPATH += \
     ../lib_console/messengers \
     ../lib_console/output_configuration \
     ../lib_gui/widgets_appearance \
-    ../lib_gui/widgets_arrangement \
+    ../lib_gui/widgets_arrangement/common \
+    ../lib_gui/widgets_arrangement/splash_screen \
     ../lib_gui/atm_widgets \
     ../lib_gui/features \
     ../atm/atm_machine \

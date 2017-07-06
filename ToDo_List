@@ -37,7 +37,7 @@
     for any subwidget.                                                              |   |
                                                                                     |   |
 14. Develop TimeDateSizeComposer for mapping timedate widget and develop            | - |
-    univerral font resizer for font resize in any widget with scale accordingly     |   |
+    universal font resizer for font resize in any widget with scale accordingly     |   |
                                                                                     |   |
 15. Develop main atm widget interface                                               | - |
                                                                                     |   |
@@ -50,16 +50,36 @@
                                                                                     |   |
 19. Time label - make size composition                                              | + |
                                                                                     |   |
-20. Remove secondary frame, and make it separate, make size composing this frame    | - |
+20. Remove secondary frame, and make it separate, make size composing this frame    | + |
+                                                                                    |   |
+21. Make initial frame                                                              | + |
+                                                                                    |   |
+22. Develop Initial menu hierarchy, including frame composition and                 | - |
+    buttons stretching                                                              |   |
+                                                                                    |   |
+23. Produce size composer for whole app                                             | - |
+                                                                                    |   |
+24. Rename all "extras" on delta                                                    | + |
+                                                                                    |   |
+25. Continue develop Widget Shifter                                                 | + |
+    How to addition two enum variables using & for shift direction?                 |   |
+                                                                                    |   |
+26. Repaint app cursor                                                              | + |
+                                                                                    |   |
+27. Make button shifting when cursor hover to it                                    | + |
+                                                                                    |   |
+28. Make WidgetStretcher class (WidgetShifter modified)                             | + |
+                                                                                    |   |
+29. Add both shifting and stretching widget feature in all sides                    | - |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
 -----------------------------------------------------------------------------------------
                                                                                     |   |
-84. Make class ModeSelector like a simple class that                                | + |
+-1. Make class ModeSelector like a simple class that                                | + |
     maintain user input processing                                                  |   |
                                                                                     |   |
-86. Modify user_input for maintain exit through char q or Q                         | + |
+0. Modify user_input for maintain exit through char q or Q                          | + |
                                                                                     |   |
 1. Continue separate console_mode on classes                                        | + |
                                                                                     |   |

@@ -8,6 +8,7 @@
 #include <QString>
 
 #include <application_color.h>
+#include <initial_menu.h>
 #include <painter.h>
 
 AtmColorDesigner::AtmColorDesigner() {}
@@ -31,9 +32,7 @@ void AtmColorDesigner::PaintWidgetSet(QList<QLabel*> label_list) const {
 void AtmColorDesigner::PaintWidgetSet(QList<QPushButton*> button_list) const {
   for (auto button = button_list.begin(); button != button_list.end();
        ++button) {
-    Painter::ChangeButtonColor(*button, ApplicationColor::MainColor(),
-                               ApplicationColor::SecondaryColor(),
-                               ApplicationColor::AdditionalColor());
+    Painter::ChangeButtonColor(*button);
   }
 }
 
@@ -41,4 +40,15 @@ void AtmColorDesigner::PaintWidgetSet(QList<QFrame*> frame_list) const {
   for (auto frame = frame_list.begin(); frame != frame_list.end(); ++frame) {
     Painter::ChangeFrameColor(*frame, ApplicationColor::MainColor());
   }
+}
+
+void AtmColorDesigner::PaintInitialFrame(InitialMenu* frame) const {
+  QString string_color =
+      "QFrame{"
+      "background:transparent;"
+      "border: 1px solid %1;"
+      "border-radius: 5px;"
+      "}";
+
+  frame->setStyleSheet(string_color.arg(ApplicationColor::MainColor()));
 }
