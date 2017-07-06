@@ -42,15 +42,15 @@ void InitialMenu::SetInitialSetting() {
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
-  transformer_.SetDeltaSize(delta_size_);
+  composer_.SetDeltaSize(delta_size_);
 
-  transformer_.Transform(
+  composer_.TransformWidget(
       ConversionFactor(0.1, 0.1), InitialGeometry::SignInButton(),
       GeometryComposer::kStretch, Side::kRight | Side::kUp, sign_in_button_);
-  transformer_.Transform(
+  composer_.TransformWidget(
       ConversionFactor(0.1, 0.1), InitialGeometry::RegistrationButton(),
       GeometryComposer::kStretch, Side::kRight, registration_button_);
-  transformer_.Transform(
+  composer_.TransformWidget(
       ConversionFactor(0.1, 0.1), InitialGeometry::DemoButton(),
       GeometryComposer::kStretch, Side::kRight | Side::kDown, demo_button_);
 }

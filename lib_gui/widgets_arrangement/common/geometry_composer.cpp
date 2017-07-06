@@ -9,11 +9,12 @@ void GeometryComposer::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
-void GeometryComposer::Transform(const ConversionFactor& conversion_factor,
-                                  const QRect& initial_position,
-                                  TransformationType type,
-                                  unsigned int manipulation_flag,
-                                  QWidget* widget) {
+void GeometryComposer::TransformWidget(
+    const ConversionFactor& conversion_factor,
+    const QRect& initial_position,
+    TransformationType type,
+    unsigned int manipulation_flag,
+    QWidget* widget) {
   conversion_factor_ = conversion_factor;
   switch (type) {
     case kShift:
@@ -28,7 +29,7 @@ void GeometryComposer::Transform(const ConversionFactor& conversion_factor,
 }
 
 void GeometryComposer::ComputeShifting(const QRect& initial_position,
-                                        unsigned int manipulation_flag) {
+                                       unsigned int manipulation_flag) {
   int x = initial_position.x();
   int y = initial_position.y();
 
@@ -50,7 +51,7 @@ void GeometryComposer::ComputeShifting(const QRect& initial_position,
 }
 
 void GeometryComposer::ComputeStretching(const QRect& initial_position,
-                                          unsigned int manipulation_flag) {
+                                         unsigned int manipulation_flag) {
   int x = initial_position.x();
   int y = initial_position.y();
   int width = initial_position.width();

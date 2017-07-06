@@ -34,9 +34,7 @@ class InitialMenu : public QFrame {
 
   AtmColorDesigner* atm_color_designer_ = nullptr;
 
-  static QRect kButton;
-
-  GeometryComposer transformer_;
+  GeometryComposer composer_;
   DeltaSize delta_size_;
 };
 

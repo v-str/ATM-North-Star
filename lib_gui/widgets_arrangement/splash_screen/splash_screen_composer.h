@@ -33,7 +33,7 @@ class SplashScreenSizeComposer {
   static const int kAtmLabelFontSize = 100;
 
   AtmLabelStretcher atm_label_stretcher_;
-  GeometryComposer transformer_;
+  GeometryComposer composer_;
   DeltaSize delta_size_;
 };
 

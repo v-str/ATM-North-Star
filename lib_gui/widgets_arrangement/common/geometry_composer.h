@@ -15,11 +15,11 @@ class GeometryComposer {
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
-  void Transform(const ConversionFactor& conversion_factor,
-                 const QRect& initial_position,
-                 TransformationType type,
-                 unsigned int manipulation_flag,
-                 QWidget* widget);
+  void TransformWidget(const ConversionFactor& conversion_factor,
+                       const QRect& initial_position,
+                       TransformationType type,
+                       unsigned int manipulation_flag,
+                       QWidget* widget);
 
  private:
   void ComputeShifting(const QRect& initial_position,

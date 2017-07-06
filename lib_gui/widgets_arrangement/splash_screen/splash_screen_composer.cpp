@@ -18,14 +18,14 @@ void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
 }
 
 void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
-  transformer_.Transform(ConversionFactor(1.0, 0.0),
-                         InitialGeometry::VersionLabel(),
-                         GeometryComposer::kShift, Side::kRight, version_label);
+  composer_.TransformWidget(
+      ConversionFactor(1.0, 0.0), InitialGeometry::VersionLabel(),
+      GeometryComposer::kShift, Side::kRight, version_label);
 }
 
 void SplashScreenSizeComposer::ComposeCompanyNameLabel(
     QLabel* company_name_label) {
-  transformer_.Transform(
+  composer_.TransformWidget(
       ConversionFactor(0.5, 0.0), InitialGeometry::CompanyNameLabel(),
       GeometryComposer::kShift, Side::kRight, company_name_label);
 }
@@ -33,15 +33,15 @@ void SplashScreenSizeComposer::ComposeCompanyNameLabel(
 void SplashScreenSizeComposer::ComposeSplashScreenLabels(QLabel* date_label,
                                                          QLabel* time_label,
                                                          QLabel* text_label) {
-  transformer_.Transform(ConversionFactor(0.5, 1.0),
-                         InitialGeometry::DateLabel(), GeometryComposer::kShift,
-                         Side::kRight | Side::kDown, date_label);
-  transformer_.Transform(ConversionFactor(0.5, 1.0),
-                         InitialGeometry::TimeLabel(), GeometryComposer::kShift,
-                         Side::kRight | Side::kDown, time_label);
-  transformer_.Transform(ConversionFactor(0.5, 1.0),
-                         InitialGeometry::TextLabel(), GeometryComposer::kShift,
-                         Side::kRight | Side::kDown, text_label);
+  composer_.TransformWidget(
+      ConversionFactor(0.5, 1.0), InitialGeometry::DateLabel(),
+      GeometryComposer::kShift, Side::kRight | Side::kDown, date_label);
+  composer_.TransformWidget(
+      ConversionFactor(0.5, 1.0), InitialGeometry::TimeLabel(),
+      GeometryComposer::kShift, Side::kRight | Side::kDown, time_label);
+  composer_.TransformWidget(
+      ConversionFactor(0.5, 1.0), InitialGeometry::TextLabel(),
+      GeometryComposer::kShift, Side::kRight | Side::kDown, text_label);
 }
 
 void SplashScreenSizeComposer::ComposeAtmLabel(QLabel* atm_label) {
@@ -53,7 +53,7 @@ void SplashScreenSizeComposer::ComputeDeltas(int extra_width,
                                              int extra_height) {
   delta_size_.SetWidth(extra_width - InitialGeometry::InitialScreenWidth());
   delta_size_.SetHeight(extra_height - InitialGeometry::InitialScreenHeight());
-  transformer_.SetDeltaSize(delta_size_);
+  composer_.SetDeltaSize(delta_size_);
 }
 
 QRect SplashScreenSizeComposer::NewLabelGeometry(const QRect& label) {
