@@ -1,15 +1,15 @@
-﻿#include <widget_transformer.h>
+﻿#include <geometry_composer.h>
 
 #include <QRect>
 #include <QWidget>
 
 #include <side.h>
 
-void WidgetTransformer::SetDeltaSize(const DeltaSize& delta_size) {
+void GeometryComposer::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
-void WidgetTransformer::Transform(const ConversionFactor& conversion_factor,
+void GeometryComposer::Transform(const ConversionFactor& conversion_factor,
                                   const QRect& initial_position,
                                   TransformationType type,
                                   unsigned int manipulation_flag,
@@ -27,7 +27,7 @@ void WidgetTransformer::Transform(const ConversionFactor& conversion_factor,
   }
 }
 
-void WidgetTransformer::ComputeShifting(const QRect& initial_position,
+void GeometryComposer::ComputeShifting(const QRect& initial_position,
                                         unsigned int manipulation_flag) {
   int x = initial_position.x();
   int y = initial_position.y();
@@ -49,7 +49,7 @@ void WidgetTransformer::ComputeShifting(const QRect& initial_position,
   shift_position_.setY(y);
 }
 
-void WidgetTransformer::ComputeStretching(const QRect& initial_position,
+void GeometryComposer::ComputeStretching(const QRect& initial_position,
                                           unsigned int manipulation_flag) {
   int x = initial_position.x();
   int y = initial_position.y();

@@ -1,5 +1,5 @@
-﻿#ifndef WIDGET_TRANSFORMER_H
-#define WIDGET_TRANSFORMER_H
+﻿#ifndef GEOMETRY_COMPOSER_H
+#define GEOMETRY_COMPOSER_H
 
 #include <QPoint>
 #include <QRect>
@@ -9,7 +9,7 @@
 
 class QWidget;
 
-class WidgetTransformer {
+class GeometryComposer {
  public:
   enum TransformationType { kShift, kStretch };
 
@@ -33,4 +33,4 @@ class WidgetTransformer {
   QRect stretch_position_;
 };
 
-#endif  // WIDGET_TRANSFORMER_H
+#endif  // GEOMETRY_COMPOSER_H

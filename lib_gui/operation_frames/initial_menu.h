@@ -6,7 +6,7 @@
 #include <QRect>
 
 #include <delta_size.h>
-#include <widget_transformer.h>
+#include <geometry_composer.h>
 
 class QWidget;
 class QPushButton;
@@ -36,7 +36,7 @@ class InitialMenu : public QFrame {
 
   static QRect kButton;
 
-  WidgetTransformer transformer_;
+  GeometryComposer transformer_;
   DeltaSize delta_size_;
 };
 

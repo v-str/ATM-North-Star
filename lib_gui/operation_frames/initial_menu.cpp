@@ -46,11 +46,11 @@ void InitialMenu::resizeEvent(QResizeEvent*) {
 
   transformer_.Transform(
       ConversionFactor(0.1, 0.1), InitialGeometry::SignInButton(),
-      WidgetTransformer::kStretch, Side::kRight | Side::kUp, sign_in_button_);
+      GeometryComposer::kStretch, Side::kRight | Side::kUp, sign_in_button_);
   transformer_.Transform(
       ConversionFactor(0.1, 0.1), InitialGeometry::RegistrationButton(),
-      WidgetTransformer::kStretch, Side::kRight, registration_button_);
+      GeometryComposer::kStretch, Side::kRight, registration_button_);
   transformer_.Transform(
       ConversionFactor(0.1, 0.1), InitialGeometry::DemoButton(),
-      WidgetTransformer::kStretch, Side::kRight | Side::kDown, demo_button_);
+      GeometryComposer::kStretch, Side::kRight | Side::kDown, demo_button_);
 }
