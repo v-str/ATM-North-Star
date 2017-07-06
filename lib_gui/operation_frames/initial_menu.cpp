@@ -44,14 +44,14 @@ void InitialMenu::SetInitialSetting() {
 void InitialMenu::resizeEvent(QResizeEvent*) {
   composer_.SetDeltaSize(delta_size_);
 
-  composer_.TransformWidget(
+  composer_.ComposeGeometry(
       ConversionFactor(0.5, 0.5), InitialGeometry::SignInButton(),
       GeometryComposer::kShift, Side::kRight | Side::kDown, sign_in_button_);
-  composer_.TransformWidget(ConversionFactor(0.5, 0.5),
+  composer_.ComposeGeometry(ConversionFactor(0.5, 0.5),
                             InitialGeometry::RegistrationButton(),
                             GeometryComposer::kShift,
                             Side::kRight | Side::kDown, registration_button_);
-  composer_.TransformWidget(
+  composer_.ComposeGeometry(
       ConversionFactor(0.5, 0.5), InitialGeometry::DemoButton(),
       GeometryComposer::kShift, Side::kRight | Side::kDown, demo_button_);
 }

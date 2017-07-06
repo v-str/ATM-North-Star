@@ -15,13 +15,13 @@ class GeometryComposer {
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
-  void TransformWidget(const ConversionFactor& conversion_factor,
+  void ComposeGeometry(const ConversionFactor& conversion_factor,
                        const QRect& initial_position,
                        TransformationType type,
                        unsigned int manipulation_flag,
                        QWidget* widget);
 
-  void SetScaleShift(double x_shift_factor, double y_shift_factor);
+  void SetShiftFactor(double x_shift_factor, double y_shift_factor);
   void SetStretchFactor(double x_stretch_factor, double y_stretch_factor);
 
  private:

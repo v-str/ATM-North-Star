@@ -9,7 +9,7 @@ void GeometryComposer::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
-void GeometryComposer::TransformWidget(
+void GeometryComposer::ComposeGeometry(
     const ConversionFactor& conversion_factor,
     const QRect& initial_position,
     TransformationType type,
@@ -27,8 +27,8 @@ void GeometryComposer::TransformWidget(
   widget->setGeometry(modified_position_);
 }
 
-void GeometryComposer::SetScaleShift(double x_shift_factor,
-                                     double y_shift_factor) {
+void GeometryComposer::SetShiftFactor(double x_shift_factor,
+                                      double y_shift_factor) {
   shift_factor_.SetXFactor(x_shift_factor);
   shift_factor_.SetYFactor(y_shift_factor);
 }
