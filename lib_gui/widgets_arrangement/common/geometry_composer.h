@@ -23,6 +23,8 @@ class GeometryComposer {
 
   void SetShiftFactor(double x_shift_factor, double y_shift_factor);
   void SetStretchFactor(double x_stretch_factor, double y_stretch_factor);
+  void SetShiftSide(unsigned int shift_side);
+  void SetStretchSide(unsigned int stretch_side);
 
  private:
   void ComputeShifting(const QRect& initial_position,
@@ -41,6 +43,9 @@ class GeometryComposer {
   QRect stretch_position_;
 
   QRect modified_position_;
+
+  unsigned int shift_side_;
+  unsigned int stretch_side_;
 };
 
 #endif  // GEOMETRY_COMPOSER_H

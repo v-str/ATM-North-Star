@@ -40,6 +40,14 @@ void GeometryComposer::SetStretchFactor(double x_stretch_factor,
   stretch_factor_.SetYFactor(y_stretch_factor);
 }
 
+void GeometryComposer::SetShiftSide(unsigned int shift_side) {
+  shift_side_ = shift_side;
+}
+
+void GeometryComposer::SetStretchSide(unsigned int stretch_side) {
+  stretch_side_ = stretch_side;
+}
+
 void GeometryComposer::ComputeShifting(const QRect& initial_position,
                                        unsigned int manipulation_flag) {
   int x = initial_position.x();
