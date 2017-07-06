@@ -19,13 +19,12 @@ void GeometryComposer::TransformWidget(
   switch (type) {
     case kShift:
       ComputeShifting(initial_position, manipulation_flag);
-      widget->move(shift_position_);
       break;
     case kStretch:
       ComputeStretching(initial_position, manipulation_flag);
-      widget->setGeometry(stretch_position_);
       break;
   }
+  widget->setGeometry(modified_position_);
 }
 
 void GeometryComposer::ComputeShifting(const QRect& initial_position,
@@ -46,8 +45,8 @@ void GeometryComposer::ComputeShifting(const QRect& initial_position,
     y += (conversion_factor_.YAxisFactor() * delta_size_.Height());
   }
 
-  shift_position_.setX(x);
-  shift_position_.setY(y);
+  SetModifiedPosition(x, y, initial_position.width(),
+                      initial_position.height());
 }
 
 void GeometryComposer::ComputeStretching(const QRect& initial_position,
@@ -72,8 +71,15 @@ void GeometryComposer::ComputeStretching(const QRect& initial_position,
     y -= (conversion_factor_.YAxisFactor() * delta_size_.Height());
   }
 
-  stretch_position_.setX(x);
-  stretch_position_.setY(y);
-  stretch_position_.setWidth(width);
-  stretch_position_.setHeight(height);
+  SetModifiedPosition(x, y, width, height);
+}
+
+void GeometryComposer::SetModifiedPosition(int x,
+                                           int y,
+                                           int width,
+                                           int height) {
+  modified_position_.setX(x);
+  modified_position_.setY(y);
+  modified_position_.setWidth(width);
+  modified_position_.setHeight(height);
 }

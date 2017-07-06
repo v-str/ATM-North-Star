@@ -27,10 +27,14 @@ class GeometryComposer {
   void ComputeStretching(const QRect& initial_position,
                          unsigned int manipulation_flag);
 
+  void SetModifiedPosition(int x, int y, int width, int height);
+
   DeltaSize delta_size_;
   ConversionFactor conversion_factor_;
   QPoint shift_position_;
   QRect stretch_position_;
+
+  QRect modified_position_;
 };
 
 #endif  // GEOMETRY_COMPOSER_H
