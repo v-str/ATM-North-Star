@@ -21,6 +21,9 @@ class GeometryComposer {
                        unsigned int manipulation_flag,
                        QWidget* widget);
 
+  void SetScaleShift(double x_shift_factor, double y_shift_factor);
+  void SetStretchFactor(double x_stretch_factor, double y_stretch_factor);
+
  private:
   void ComputeShifting(const QRect& initial_position,
                        unsigned int manipulation_flag);
@@ -30,7 +33,11 @@ class GeometryComposer {
   void SetModifiedPosition(int x, int y, int width, int height);
 
   DeltaSize delta_size_;
+
   ConversionFactor conversion_factor_;
+  ConversionFactor stretch_factor_;
+  ConversionFactor shift_factor_;
+
   QPoint shift_position_;
   QRect stretch_position_;
 

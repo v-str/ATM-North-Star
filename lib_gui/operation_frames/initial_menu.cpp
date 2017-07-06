@@ -45,12 +45,13 @@ void InitialMenu::resizeEvent(QResizeEvent*) {
   composer_.SetDeltaSize(delta_size_);
 
   composer_.TransformWidget(
-      ConversionFactor(0.1, 0.1), InitialGeometry::SignInButton(),
-      GeometryComposer::kStretch, Side::kRight | Side::kUp, sign_in_button_);
+      ConversionFactor(0.5, 0.5), InitialGeometry::SignInButton(),
+      GeometryComposer::kShift, Side::kRight | Side::kDown, sign_in_button_);
+  composer_.TransformWidget(ConversionFactor(0.5, 0.5),
+                            InitialGeometry::RegistrationButton(),
+                            GeometryComposer::kShift,
+                            Side::kRight | Side::kDown, registration_button_);
   composer_.TransformWidget(
-      ConversionFactor(0.1, 0.1), InitialGeometry::RegistrationButton(),
-      GeometryComposer::kShift, Side::kRight, registration_button_);
-  composer_.TransformWidget(
-      ConversionFactor(0.1, 0.1), InitialGeometry::DemoButton(),
-      GeometryComposer::kStretch, Side::kRight | Side::kDown, demo_button_);
+      ConversionFactor(0.5, 0.5), InitialGeometry::DemoButton(),
+      GeometryComposer::kShift, Side::kRight | Side::kDown, demo_button_);
 }

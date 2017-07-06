@@ -27,6 +27,18 @@ void GeometryComposer::TransformWidget(
   widget->setGeometry(modified_position_);
 }
 
+void GeometryComposer::SetScaleShift(double x_shift_factor,
+                                     double y_shift_factor) {
+  shift_factor_.SetXFactor(x_shift_factor);
+  shift_factor_.SetYFactor(y_shift_factor);
+}
+
+void GeometryComposer::SetStretchFactor(double x_stretch_factor,
+                                        double y_stretch_factor) {
+  stretch_factor_.SetXFactor(x_stretch_factor);
+  stretch_factor_.SetYFactor(y_stretch_factor);
+}
+
 void GeometryComposer::ComputeShifting(const QRect& initial_position,
                                        unsigned int manipulation_flag) {
   int x = initial_position.x();
