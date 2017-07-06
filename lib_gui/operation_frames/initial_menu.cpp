@@ -44,13 +44,13 @@ void InitialMenu::SetInitialSetting() {
 void InitialMenu::resizeEvent(QResizeEvent*) {
   transformer_.SetDeltaSize(delta_size_);
 
-  transformer_.ShiftWidget(ConversionFactor(0.5, 0.5),
-                           InitialGeometry::SignInButton(),
-                           Side::kRight | Side::kDown, sign_in_button_);
-  transformer_.ShiftWidget(ConversionFactor(0.5, 0.5),
-                           InitialGeometry::RegistrationButton(),
-                           Side::kRight | Side::kDown, registration_button_);
-  transformer_.ShiftWidget(ConversionFactor(0.5, 0.5),
-                           InitialGeometry::DemoButton(),
-                           Side::kRight | Side::kDown, demo_button_);
+  transformer_.Transform(
+      ConversionFactor(0.1, 0.1), InitialGeometry::SignInButton(),
+      WidgetTransformer::kStretch, Side::kRight | Side::kUp, sign_in_button_);
+  transformer_.Transform(
+      ConversionFactor(0.1, 0.1), InitialGeometry::RegistrationButton(),
+      WidgetTransformer::kStretch, Side::kRight, registration_button_);
+  transformer_.Transform(
+      ConversionFactor(0.1, 0.1), InitialGeometry::DemoButton(),
+      WidgetTransformer::kStretch, Side::kRight | Side::kDown, demo_button_);
 }

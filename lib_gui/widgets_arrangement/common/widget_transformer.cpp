@@ -9,22 +9,22 @@ void WidgetTransformer::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
-void WidgetTransformer::ShiftWidget(const ConversionFactor& shift_factor,
-                                    const QRect& initial_position,
-                                    unsigned int manipulation_side,
-                                    QWidget* widget) {
-  shift_factor_ = shift_factor;
-  ComputeShifting(initial_position, manipulation_side);
-  widget->move(shift_position_);
-}
-
-void WidgetTransformer::StretchWidget(const ConversionFactor& stretch_factor,
-                                      const QRect& initial_geometry,
-                                      unsigned int manipulation_side,
-                                      QWidget* widget) {
-  stretch_factor_ = stretch_factor;
-  ComputeStretching(initial_geometry, manipulation_side);
-  widget->setGeometry(stretch_position_);
+void WidgetTransformer::Transform(const ConversionFactor& conversion_factor,
+                                  const QRect& initial_position,
+                                  TransformationType type,
+                                  unsigned int manipulation_flag,
+                                  QWidget* widget) {
+  conversion_factor_ = conversion_factor;
+  switch (type) {
+    case kShift:
+      ComputeShifting(initial_position, manipulation_flag);
+      widget->move(shift_position_);
+      break;
+    case kStretch:
+      ComputeStretching(initial_position, manipulation_flag);
+      widget->setGeometry(stretch_position_);
+      break;
+  }
 }
 
 void WidgetTransformer::ComputeShifting(const QRect& initial_position,
@@ -33,16 +33,16 @@ void WidgetTransformer::ComputeShifting(const QRect& initial_position,
   int y = initial_position.y();
 
   if (manipulation_flag & Side::kLeft) {
-    x -= (shift_factor_.XAxisFactor() * delta_size_.Width());
+    x -= (conversion_factor_.XAxisFactor() * delta_size_.Width());
   }
   if (manipulation_flag & Side::kRight) {
-    x += (shift_factor_.XAxisFactor() * delta_size_.Width());
+    x += (conversion_factor_.XAxisFactor() * delta_size_.Width());
   }
   if (manipulation_flag & Side::kUp) {
-    y -= (shift_factor_.YAxisFactor() * delta_size_.Height());
+    y -= (conversion_factor_.YAxisFactor() * delta_size_.Height());
   }
   if (manipulation_flag & Side::kDown) {
-    y += (shift_factor_.YAxisFactor() * delta_size_.Height());
+    y += (conversion_factor_.YAxisFactor() * delta_size_.Height());
   }
 
   shift_position_.setX(x);
@@ -57,18 +57,18 @@ void WidgetTransformer::ComputeStretching(const QRect& initial_position,
   int height = initial_position.height();
 
   if (manipulation_flag & Side::kLeft) {
-    width += (stretch_factor_.XAxisFactor() * delta_size_.Width());
-    x -= (stretch_factor_.XAxisFactor() * delta_size_.Width());
+    width += (conversion_factor_.XAxisFactor() * delta_size_.Width());
+    x -= (conversion_factor_.XAxisFactor() * delta_size_.Width());
   }
   if (manipulation_flag & Side::kRight) {
-    width += (stretch_factor_.XAxisFactor() * delta_size_.Width());
+    width += (conversion_factor_.XAxisFactor() * delta_size_.Width());
   }
   if (manipulation_flag & Side::kDown) {
-    height += (stretch_factor_.YAxisFactor() * delta_size_.Height());
+    height += (conversion_factor_.YAxisFactor() * delta_size_.Height());
   }
   if (manipulation_flag & Side::kUp) {
-    height += (stretch_factor_.YAxisFactor() * delta_size_.Height());
-    y -= (stretch_factor_.YAxisFactor() * delta_size_.Height());
+    height += (conversion_factor_.YAxisFactor() * delta_size_.Height());
+    y -= (conversion_factor_.YAxisFactor() * delta_size_.Height());
   }
 
   stretch_position_.setX(x);

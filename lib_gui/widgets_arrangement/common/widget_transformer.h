@@ -11,17 +11,15 @@ class QWidget;
 
 class WidgetTransformer {
  public:
+  enum TransformationType { kShift, kStretch };
+
   void SetDeltaSize(const DeltaSize& delta_size);
 
-  void ShiftWidget(const ConversionFactor& shift_factor,
-                   const QRect& initial_position,
-                   unsigned int manipulation_side,
-                   QWidget* widget);
-
-  void StretchWidget(const ConversionFactor& stretch_factor,
-                     const QRect& initial_geometry,
-                     unsigned int manipulation_side,
-                     QWidget* widget);
+  void Transform(const ConversionFactor& conversion_factor,
+                 const QRect& initial_position,
+                 TransformationType type,
+                 unsigned int manipulation_flag,
+                 QWidget* widget);
 
  private:
   void ComputeShifting(const QRect& initial_position,
@@ -30,10 +28,7 @@ class WidgetTransformer {
                          unsigned int manipulation_flag);
 
   DeltaSize delta_size_;
-
-  ConversionFactor shift_factor_;
-  ConversionFactor stretch_factor_;
-
+  ConversionFactor conversion_factor_;
   QPoint shift_position_;
   QRect stretch_position_;
 };
