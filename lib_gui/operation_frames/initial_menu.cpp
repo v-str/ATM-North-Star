@@ -9,7 +9,7 @@
 #include <atm_button.h>
 #include <atm_color_designer.h>
 #include <conversion_factor.h>
-#include <initial_geometry.h>
+#include <initial_frame_geometry.h>
 #include <side.h>
 
 InitialMenu::InitialMenu(QWidget* parent)
@@ -36,9 +36,9 @@ void InitialMenu::PaintWidgets() {
 }
 
 void InitialMenu::SetInitialSetting() {
-  sign_in_button_->setGeometry(InitialGeometry::SignInButton());
-  registration_button_->setGeometry(InitialGeometry::RegistrationButton());
-  demo_button_->setGeometry(InitialGeometry::DemoButton());
+  sign_in_button_->setGeometry(InitialFrameGeometry::SignInButton());
+  registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
+  demo_button_->setGeometry(InitialFrameGeometry::DemoButton());
 }
 
 void InitialMenu::SetResizeGeometry() {
@@ -53,13 +53,13 @@ void InitialMenu::resizeEvent(QResizeEvent*) {
   composer_.SetDeltaSize(delta_size_);
 
   SetResizeGeometry();
-  composer_.ComposeGeometry(InitialGeometry::RegistrationButton(),
+  composer_.ComposeGeometry(InitialFrameGeometry::RegistrationButton(),
                             registration_button_);
 
   composer_.ComposeGeometry(
-      ConversionFactor(0.5, 0.5), InitialGeometry::SignInButton(),
+      ConversionFactor(0.5, 0.5), InitialFrameGeometry::SignInButton(),
       GeometryComposer::kShift, Side::kRight | Side::kDown, sign_in_button_);
   composer_.ComposeGeometry(
-      ConversionFactor(0.5, 0.5), InitialGeometry::DemoButton(),
+      ConversionFactor(0.5, 0.5), InitialFrameGeometry::DemoButton(),
       GeometryComposer::kShift, Side::kRight | Side::kDown, demo_button_);
 }
