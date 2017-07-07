@@ -1,6 +1,5 @@
 ﻿#include <geometry_composer.h>
 
-#include <QRect>
 #include <QWidget>
 
 #include <side.h>

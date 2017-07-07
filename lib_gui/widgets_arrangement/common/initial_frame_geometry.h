@@ -5,11 +5,13 @@
 
 class InitialFrameGeometry {
  public:
+  static QRect InitialFrame();
   static QRect SignInButton();
   static QRect RegistrationButton();
   static QRect DemoButton();
 
  private:
+  static QRect kInitialFrame;
   static QRect kSignInButton;
   static QRect kRegistrationButton;
   static QRect kDemoButton;

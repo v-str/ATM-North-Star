@@ -56,7 +56,6 @@ class AtmMainWidget : public QMainWindow {
 
   static QRect kTimeLabel;
   static QRect kMainFrame;
-  static QRect kInitialFrame;
 
   static const int kWidth = 600;
   static const int kHeight = 400;

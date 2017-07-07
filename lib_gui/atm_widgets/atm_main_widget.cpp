@@ -10,6 +10,7 @@
 #include <QResizeEvent>
 #include <QTimer>
 
+#include <initial_frame_geometry.h>
 #include <initial_menu.h>
 #include <initial_property_installer.h>
 #include <painter.h>
@@ -17,7 +18,6 @@
 
 QRect AtmMainWidget::kTimeLabel = {470, 5, 114, 20};
 QRect AtmMainWidget::kMainFrame = {5, 5, 590, 390};
-QRect AtmMainWidget::kInitialFrame = {5, 30, 580, 355};
 
 AtmMainWidget::AtmMainWidget(QWidget* parent)
     : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
@@ -76,7 +76,7 @@ void AtmMainWidget::SetInitialSettings() {
   SetBackgroundColor();
   SetImages();
 
-  initial_menu_->setGeometry(kInitialFrame);
+  initial_menu_->setGeometry(InitialFrameGeometry::InitialFrame());
 }
 
 void AtmMainWidget::SetWidgetProperties() {
@@ -90,9 +90,11 @@ void AtmMainWidget::SetFrameArrangement() {
                               kMainFrame.width() + delta_size_.Width(),
                               kMainFrame.height() + delta_size_.Height());
 
-  initial_menu_->setGeometry(kInitialFrame.x(), kInitialFrame.y(),
-                             kInitialFrame.width() + delta_size_.Width(),
-                             kInitialFrame.height() + delta_size_.Height());
+  initial_menu_->setGeometry(
+      InitialFrameGeometry::InitialFrame().x(),
+      InitialFrameGeometry::InitialFrame().y(),
+      InitialFrameGeometry::InitialFrame().width() + delta_size_.Width(),
+      InitialFrameGeometry::InitialFrame().height() + delta_size_.Height());
 }
 
 void AtmMainWidget::SetTimeLabelArrangement() {

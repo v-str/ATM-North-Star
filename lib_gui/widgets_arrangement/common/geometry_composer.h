@@ -1,7 +1,6 @@
 ﻿#ifndef GEOMETRY_COMPOSER_H
 #define GEOMETRY_COMPOSER_H
 
-#include <QPoint>
 #include <QRect>
 
 #include <conversion_factor.h>
