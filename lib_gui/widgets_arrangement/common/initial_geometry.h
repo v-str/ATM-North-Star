@@ -1,7 +1,6 @@
 ﻿#ifndef INITIAL_GEOMETRY_H
 #define INITIAL_GEOMETRY_H
 
-#include <QPoint>
 #include <QRect>
 
 class InitialGeometry {
