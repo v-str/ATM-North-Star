@@ -9,7 +9,7 @@
 #include <atm_button.h>
 #include <atm_color_designer.h>
 #include <conversion_factor.h>
-#include <initial_geometry.h>
+#include <initial_frame_geometry.h>
 #include <side.h>
 
 InitialMenu::InitialMenu(QWidget* parent)
@@ -36,21 +36,30 @@ void InitialMenu::PaintWidgets() {
 }
 
 void InitialMenu::SetInitialSetting() {
-  sign_in_button_->setGeometry(InitialGeometry::SignInButton());
-  registration_button_->setGeometry(InitialGeometry::RegistrationButton());
-  demo_button_->setGeometry(InitialGeometry::DemoButton());
+  sign_in_button_->setGeometry(InitialFrameGeometry::SignInButton());
+  registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
+  demo_button_->setGeometry(InitialFrameGeometry::DemoButton());
+}
+
+void InitialMenu::SetResizeGeometry() {
+  composer_.SetShiftFactor(0.5, 0.5);
+  composer_.SetShiftSide(Side::kRight);
+
+  composer_.SetStretchFactor(0.5, 0.5);
+  composer_.SetStretchSide(Side::kLeft);
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
   composer_.SetDeltaSize(delta_size_);
 
-  composer_.TransformWidget(
-      ConversionFactor(0.1, 0.1), InitialGeometry::SignInButton(),
-      GeometryComposer::kStretch, Side::kRight | Side::kUp, sign_in_button_);
-  composer_.TransformWidget(
-      ConversionFactor(0.1, 0.1), InitialGeometry::RegistrationButton(),
-      GeometryComposer::kStretch, Side::kRight, registration_button_);
-  composer_.TransformWidget(
-      ConversionFactor(0.1, 0.1), InitialGeometry::DemoButton(),
-      GeometryComposer::kStretch, Side::kRight | Side::kDown, demo_button_);
+  SetResizeGeometry();
+  composer_.ComposeGeometry(InitialFrameGeometry::RegistrationButton(),
+                            registration_button_);
+
+  composer_.ComposeGeometry(
+      ConversionFactor(0.5, 0.5), InitialFrameGeometry::SignInButton(),
+      GeometryComposer::kShift, Side::kRight | Side::kDown, sign_in_button_);
+  composer_.ComposeGeometry(
+      ConversionFactor(0.5, 0.5), InitialFrameGeometry::DemoButton(),
+      GeometryComposer::kShift, Side::kRight | Side::kDown, demo_button_);
 }

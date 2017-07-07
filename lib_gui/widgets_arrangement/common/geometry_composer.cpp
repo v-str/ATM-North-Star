@@ -9,23 +9,51 @@ void GeometryComposer::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
-void GeometryComposer::TransformWidget(
+void GeometryComposer::ComposeGeometry(
     const ConversionFactor& conversion_factor,
     const QRect& initial_position,
     TransformationType type,
     unsigned int manipulation_flag,
     QWidget* widget) {
-  conversion_factor_ = conversion_factor;
   switch (type) {
     case kShift:
+      shift_factor_ = conversion_factor;
       ComputeShifting(initial_position, manipulation_flag);
-      widget->move(shift_position_);
       break;
     case kStretch:
+      stretch_factor_ = conversion_factor;
       ComputeStretching(initial_position, manipulation_flag);
-      widget->setGeometry(stretch_position_);
       break;
   }
+  widget->setGeometry(modified_position_);
+}
+
+void GeometryComposer::ComposeGeometry(const QRect& initial_position,
+                                       QWidget* widget) {
+  ComputeStretching(initial_position, stretch_side_);
+  ComputeShifting(modified_position_, shift_side_);
+
+  widget->setGeometry(modified_position_);
+}
+
+void GeometryComposer::SetShiftFactor(double x_shift_factor,
+                                      double y_shift_factor) {
+  shift_factor_.SetXFactor(x_shift_factor);
+  shift_factor_.SetYFactor(y_shift_factor);
+}
+
+void GeometryComposer::SetStretchFactor(double x_stretch_factor,
+                                        double y_stretch_factor) {
+  stretch_factor_.SetXFactor(x_stretch_factor);
+  stretch_factor_.SetYFactor(y_stretch_factor);
+}
+
+void GeometryComposer::SetShiftSide(unsigned int shift_side) {
+  shift_side_ = shift_side;
+}
+
+void GeometryComposer::SetStretchSide(unsigned int stretch_side) {
+  stretch_side_ = stretch_side;
 }
 
 void GeometryComposer::ComputeShifting(const QRect& initial_position,
@@ -34,20 +62,20 @@ void GeometryComposer::ComputeShifting(const QRect& initial_position,
   int y = initial_position.y();
 
   if (manipulation_flag & Side::kLeft) {
-    x -= (conversion_factor_.XAxisFactor() * delta_size_.Width());
+    x -= (shift_factor_.XAxisFactor() * delta_size_.Width());
   }
   if (manipulation_flag & Side::kRight) {
-    x += (conversion_factor_.XAxisFactor() * delta_size_.Width());
+    x += (shift_factor_.XAxisFactor() * delta_size_.Width());
   }
   if (manipulation_flag & Side::kUp) {
-    y -= (conversion_factor_.YAxisFactor() * delta_size_.Height());
+    y -= (shift_factor_.YAxisFactor() * delta_size_.Height());
   }
   if (manipulation_flag & Side::kDown) {
-    y += (conversion_factor_.YAxisFactor() * delta_size_.Height());
+    y += (shift_factor_.YAxisFactor() * delta_size_.Height());
   }
 
-  shift_position_.setX(x);
-  shift_position_.setY(y);
+  SetModifiedPosition(x, y, initial_position.width(),
+                      initial_position.height());
 }
 
 void GeometryComposer::ComputeStretching(const QRect& initial_position,
@@ -58,22 +86,29 @@ void GeometryComposer::ComputeStretching(const QRect& initial_position,
   int height = initial_position.height();
 
   if (manipulation_flag & Side::kLeft) {
-    width += (conversion_factor_.XAxisFactor() * delta_size_.Width());
-    x -= (conversion_factor_.XAxisFactor() * delta_size_.Width());
+    width += (stretch_factor_.XAxisFactor() * delta_size_.Width());
+    x -= (stretch_factor_.XAxisFactor() * delta_size_.Width());
   }
   if (manipulation_flag & Side::kRight) {
-    width += (conversion_factor_.XAxisFactor() * delta_size_.Width());
+    width += (stretch_factor_.XAxisFactor() * delta_size_.Width());
   }
   if (manipulation_flag & Side::kDown) {
-    height += (conversion_factor_.YAxisFactor() * delta_size_.Height());
+    height += (stretch_factor_.YAxisFactor() * delta_size_.Height());
   }
   if (manipulation_flag & Side::kUp) {
-    height += (conversion_factor_.YAxisFactor() * delta_size_.Height());
-    y -= (conversion_factor_.YAxisFactor() * delta_size_.Height());
+    height += (stretch_factor_.YAxisFactor() * delta_size_.Height());
+    y -= (stretch_factor_.YAxisFactor() * delta_size_.Height());
   }
 
-  stretch_position_.setX(x);
-  stretch_position_.setY(y);
-  stretch_position_.setWidth(width);
-  stretch_position_.setHeight(height);
+  SetModifiedPosition(x, y, width, height);
+}
+
+void GeometryComposer::SetModifiedPosition(int x,
+                                           int y,
+                                           int width,
+                                           int height) {
+  modified_position_.setX(x);
+  modified_position_.setY(y);
+  modified_position_.setWidth(width);
+  modified_position_.setHeight(height);
 }
