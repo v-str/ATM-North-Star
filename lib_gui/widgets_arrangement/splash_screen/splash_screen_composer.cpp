@@ -7,27 +7,28 @@
 
 #include <conversion_factor.h>
 #include <geometry.h>
-#include <initial_geometry.h>
 #include <side.h>
+#include <splash_screen_geometry.h>
 
 void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
   frame->setGeometry(
-      InitialGeometry::SplashScreenFrame().x(),
-      InitialGeometry::SplashScreenFrame().y(),
-      InitialGeometry::SplashScreenFrame().width() + delta_size_.Width(),
-      InitialGeometry::SplashScreenFrame().height() + delta_size_.Height());
+      SplashScreenGeometry::SplashScreenFrame().x(),
+      SplashScreenGeometry::SplashScreenFrame().y(),
+      SplashScreenGeometry::SplashScreenFrame().width() + delta_size_.Width(),
+      SplashScreenGeometry::SplashScreenFrame().height() +
+          delta_size_.Height());
 }
 
 void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
   composer_.ComposeGeometry(
-      ConversionFactor(1.0, 0.0), InitialGeometry::VersionLabel(),
+      ConversionFactor(1.0, 0.0), SplashScreenGeometry::VersionLabel(),
       GeometryComposer::kShift, Side::kRight, version_label);
 }
 
 void SplashScreenSizeComposer::ComposeCompanyNameLabel(
     QLabel* company_name_label) {
   composer_.ComposeGeometry(
-      ConversionFactor(0.5, 0.0), InitialGeometry::CompanyNameLabel(),
+      ConversionFactor(0.5, 0.0), SplashScreenGeometry::CompanyNameLabel(),
       GeometryComposer::kShift, Side::kRight, company_name_label);
 }
 
@@ -35,13 +36,13 @@ void SplashScreenSizeComposer::ComposeSplashScreenLabels(QLabel* date_label,
                                                          QLabel* time_label,
                                                          QLabel* text_label) {
   composer_.ComposeGeometry(
-      ConversionFactor(0.5, 1.0), InitialGeometry::DateLabel(),
+      ConversionFactor(0.5, 1.0), SplashScreenGeometry::DateLabel(),
       GeometryComposer::kShift, Side::kRight | Side::kDown, date_label);
   composer_.ComposeGeometry(
-      ConversionFactor(0.5, 1.0), InitialGeometry::TimeLabel(),
+      ConversionFactor(0.5, 1.0), SplashScreenGeometry::TimeLabel(),
       GeometryComposer::kShift, Side::kRight | Side::kDown, time_label);
   composer_.ComposeGeometry(
-      ConversionFactor(0.5, 1.0), InitialGeometry::TextLabel(),
+      ConversionFactor(0.5, 1.0), SplashScreenGeometry::TextLabel(),
       GeometryComposer::kShift, Side::kRight | Side::kDown, text_label);
 }
 
@@ -52,8 +53,8 @@ void SplashScreenSizeComposer::ComposeAtmLabel(QLabel* atm_label) {
 
 void SplashScreenSizeComposer::ComputeDeltas(int extra_width,
                                              int extra_height) {
-  delta_size_.SetWidth(extra_width - InitialGeometry::InitialScreenWidth());
-  delta_size_.SetHeight(extra_height - InitialGeometry::InitialScreenHeight());
+  delta_size_.SetWidth(extra_width - Geometry::InitialScreenWidth());
+  delta_size_.SetHeight(extra_height - Geometry::InitialScreenHeight());
   composer_.SetDeltaSize(delta_size_);
 }
 
