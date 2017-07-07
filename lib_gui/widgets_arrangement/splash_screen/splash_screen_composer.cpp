@@ -6,6 +6,7 @@
 #include <QPoint>
 
 #include <conversion_factor.h>
+#include <geometry.h>
 #include <initial_geometry.h>
 #include <side.h>
 
