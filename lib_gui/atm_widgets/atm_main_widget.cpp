@@ -10,11 +10,13 @@
 #include <QResizeEvent>
 #include <QTimer>
 
+#include <geometry.h>
 #include <initial_frame_geometry.h>
 #include <initial_menu.h>
 #include <initial_property_installer.h>
 #include <main_widget_geometry.h>
 #include <painter.h>
+#include <side.h>
 #include <timedate_changer.h>
 
 AtmMainWidget::AtmMainWidget(QWidget* parent)
@@ -84,24 +86,19 @@ void AtmMainWidget::SetWidgetProperties() {
 }
 
 void AtmMainWidget::SetFrameArrangement() {
-  ui->main_frame->setGeometry(
-      MainWidgetGeometry::MainFrame().x(), MainWidgetGeometry::MainFrame().y(),
-      MainWidgetGeometry::MainFrame().width() + delta_size_.Width(),
-      MainWidgetGeometry::MainFrame().height() + delta_size_.Height());
+  composer_.ComposeGeometry(
+      ConversionFactor(1.0, 1.0), MainWidgetGeometry::MainFrame(),
+      GeometryComposer::kStretch, Side::kRight | Side::kDown, ui->main_frame);
 
-  initial_menu_->setGeometry(
-      InitialFrameGeometry::InitialFrame().x(),
-      InitialFrameGeometry::InitialFrame().y(),
-      InitialFrameGeometry::InitialFrame().width() + delta_size_.Width(),
-      InitialFrameGeometry::InitialFrame().height() + delta_size_.Height());
+  composer_.ComposeGeometry(
+      ConversionFactor(1.0, 1.0), InitialFrameGeometry::InitialFrame(),
+      GeometryComposer::kStretch, Side::kRight | Side::kDown, initial_menu_);
 }
 
 void AtmMainWidget::SetTimeLabelArrangement() {
-  ui->time_label->setGeometry(
-      MainWidgetGeometry::TimeLabel().x() + delta_size_.Width(),
-      MainWidgetGeometry::TimeLabel().y(),
-      MainWidgetGeometry::TimeLabel().width(),
-      MainWidgetGeometry::TimeLabel().height());
+  composer_.ComposeGeometry(
+      ConversionFactor(1.0, 0.0), MainWidgetGeometry::TimeLabel(),
+      GeometryComposer::kShift, Side::kRight, ui->time_label);
 }
 
 void AtmMainWidget::RunTimers() { time_timer_->start(1000); }
@@ -124,8 +121,9 @@ void AtmMainWidget::InitializeObject() {
 }
 
 void AtmMainWidget::ComputeExtraSize() {
-  delta_size_.SetWidth(width() - kWidth);
-  delta_size_.SetHeight(height() - kHeight);
+  int delta_width = width() - Geometry::InitialScreenWidth();
+  int delta_height = height() - Geometry::InitialScreenHeight();
 
-  initial_menu_->SetDeltaSize(delta_size_);
+  composer_.SetDeltaSize(DeltaSize(delta_width, delta_height));
+  initial_menu_->SetDeltaSize(DeltaSize(delta_width, delta_height));
 }
