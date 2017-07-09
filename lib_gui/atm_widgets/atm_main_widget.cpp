@@ -86,19 +86,22 @@ void AtmMainWidget::SetWidgetProperties() {
 }
 
 void AtmMainWidget::SetFrameArrangement() {
-  composer_.ComposeGeometry(
-      ConversionFactor(1.0, 1.0), MainWidgetGeometry::MainFrame(),
-      GeometryComposer::kStretch, Side::kRight | Side::kDown, ui->main_frame);
+  composer_.SetStretchFactor(1.0, 1.0);
+  composer_.SetStretchSide(Side::kRight | Side::kDown);
+  composer_.SetTransformationType(GeometryComposer::kStretch);
 
-  composer_.ComposeGeometry(
-      ConversionFactor(1.0, 1.0), InitialFrameGeometry::InitialFrame(),
-      GeometryComposer::kStretch, Side::kRight | Side::kDown, initial_menu_);
+  composer_.ComposeGeometry(MainWidgetGeometry::MainFrame(), ui->main_frame);
+
+  composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(),
+                            initial_menu_);
 }
 
 void AtmMainWidget::SetTimeLabelArrangement() {
-  composer_.ComposeGeometry(
-      ConversionFactor(1.0, 0.0), MainWidgetGeometry::TimeLabel(),
-      GeometryComposer::kShift, Side::kRight, ui->time_label);
+  composer_.SetShiftFactor(1.0, 1.0);
+  composer_.SetShiftSide(Side::kRight);
+  composer_.SetTransformationType(GeometryComposer::kShift);
+
+  composer_.ComposeGeometry(MainWidgetGeometry::TimeLabel(), ui->time_label);
 }
 
 void AtmMainWidget::RunTimers() { time_timer_->start(1000); }
@@ -107,7 +110,6 @@ void AtmMainWidget::PaintWidgets() {
   QList<QFrame*> frame_list = {ui->main_frame};
   QList<QPushButton*> button_list = {ui->exit_button, ui->minimize_button,
                                      ui->maximize_button};
-
   QList<QLabel*> label_list = {ui->time_label};
 
   color_designer_.PaintWidgetSet(frame_list);

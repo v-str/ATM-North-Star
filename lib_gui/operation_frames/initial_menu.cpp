@@ -43,23 +43,18 @@ void InitialMenu::SetInitialSetting() {
 
 void InitialMenu::SetResizeGeometry() {
   composer_.SetShiftFactor(0.5, 0.5);
-  composer_.SetShiftSide(Side::kRight);
-
-  composer_.SetStretchFactor(0.5, 0.5);
-  composer_.SetStretchSide(Side::kLeft);
+  composer_.SetShiftSide(Side::kRight | Side::kDown);
+  composer_.SetTransformationType(GeometryComposer::kShift);
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
   composer_.SetDeltaSize(delta_size_);
 
   SetResizeGeometry();
+
   composer_.ComposeGeometry(InitialFrameGeometry::RegistrationButton(),
                             registration_button_);
-
-  composer_.ComposeGeometry(
-      ConversionFactor(0.5, 0.5), InitialFrameGeometry::SignInButton(),
-      GeometryComposer::kShift, Side::kRight | Side::kDown, sign_in_button_);
-  composer_.ComposeGeometry(
-      ConversionFactor(0.5, 0.5), InitialFrameGeometry::DemoButton(),
-      GeometryComposer::kShift, Side::kRight | Side::kDown, demo_button_);
+  composer_.ComposeGeometry(InitialFrameGeometry::SignInButton(),
+                            sign_in_button_);
+  composer_.ComposeGeometry(InitialFrameGeometry::DemoButton(), demo_button_);
 }

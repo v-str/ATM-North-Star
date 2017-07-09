@@ -11,39 +11,49 @@
 #include <splash_screen_geometry.h>
 
 void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
-  frame->setGeometry(
-      SplashScreenGeometry::SplashScreenFrame().x(),
-      SplashScreenGeometry::SplashScreenFrame().y(),
-      SplashScreenGeometry::SplashScreenFrame().width() + delta_size_.Width(),
-      SplashScreenGeometry::SplashScreenFrame().height() +
-          delta_size_.Height());
+  //  frame->setGeometry(
+  //      SplashScreenGeometry::SplashScreenFrame().x(),
+  //      SplashScreenGeometry::SplashScreenFrame().y(),
+  //      SplashScreenGeometry::SplashScreenFrame().width() +
+  //      delta_size_.Width(),
+  //      SplashScreenGeometry::SplashScreenFrame().height() +
+  //          delta_size_.Height());
+
+  composer_.SetStretchFactor(1.0, 1.0);
+  composer_.SetStretchSide(Side::kRight | Side::kDown);
+  composer_.SetTransformationType(GeometryComposer::kStretch);
+  composer_.ComposeGeometry(SplashScreenGeometry::SplashScreenFrame(), frame);
 }
 
 void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
-  composer_.ComposeGeometry(
-      ConversionFactor(1.0, 0.0), SplashScreenGeometry::VersionLabel(),
-      GeometryComposer::kShift, Side::kRight, version_label);
+  composer_.SetShiftFactor(1.0, 1.0);
+  composer_.SetShiftSide(Side::kRight);
+  composer_.SetTransformationType(GeometryComposer::kShift);
+
+  composer_.ComposeGeometry(SplashScreenGeometry::VersionLabel(),
+                            version_label);
 }
 
 void SplashScreenSizeComposer::ComposeCompanyNameLabel(
     QLabel* company_name_label) {
-  composer_.ComposeGeometry(
-      ConversionFactor(0.5, 0.0), SplashScreenGeometry::CompanyNameLabel(),
-      GeometryComposer::kShift, Side::kRight, company_name_label);
+  composer_.SetShiftFactor(0.5, 1.0);
+  composer_.SetShiftSide(Side::kRight);
+  composer_.SetTransformationType(GeometryComposer::kShift);
+
+  composer_.ComposeGeometry(SplashScreenGeometry::CompanyNameLabel(),
+                            company_name_label);
 }
 
 void SplashScreenSizeComposer::ComposeSplashScreenLabels(QLabel* date_label,
                                                          QLabel* time_label,
                                                          QLabel* text_label) {
-  composer_.ComposeGeometry(
-      ConversionFactor(0.5, 1.0), SplashScreenGeometry::DateLabel(),
-      GeometryComposer::kShift, Side::kRight | Side::kDown, date_label);
-  composer_.ComposeGeometry(
-      ConversionFactor(0.5, 1.0), SplashScreenGeometry::TimeLabel(),
-      GeometryComposer::kShift, Side::kRight | Side::kDown, time_label);
-  composer_.ComposeGeometry(
-      ConversionFactor(0.5, 1.0), SplashScreenGeometry::TextLabel(),
-      GeometryComposer::kShift, Side::kRight | Side::kDown, text_label);
+  composer_.SetShiftFactor(0.5, 1.0);
+  composer_.SetShiftSide(Side::kRight | Side::kDown);
+  composer_.SetTransformationType(GeometryComposer::kShift);
+
+  composer_.ComposeGeometry(SplashScreenGeometry::DateLabel(), date_label);
+  composer_.ComposeGeometry(SplashScreenGeometry::TimeLabel(), time_label);
+  composer_.ComposeGeometry(SplashScreenGeometry::TextLabel(), text_label);
 }
 
 void SplashScreenSizeComposer::ComposeAtmLabel(QLabel* atm_label) {

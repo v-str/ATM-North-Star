@@ -12,31 +12,27 @@ class GeometryComposer {
  public:
   enum TransformationType { kShift, kStretch };
 
-  void SetDeltaSize(const DeltaSize& delta_size);
-
-  void ComposeGeometry(const ConversionFactor& conversion_factor,
-                       const QRect& initial_position,
-                       TransformationType type,
-                       unsigned int manipulation_flag,
-                       QWidget* widget);
-
   void ComposeGeometry(const QRect& initial_position, QWidget* widget);
 
+  void SetDeltaSize(const DeltaSize& delta_size);
+
   void SetShiftFactor(double x_shift_factor, double y_shift_factor);
-  void SetStretchFactor(double x_stretch_factor, double y_stretch_factor);
   void SetShiftSide(unsigned int shift_side);
+
+  void SetStretchFactor(double x_stretch_factor, double y_stretch_factor);
   void SetStretchSide(unsigned int stretch_side);
 
+  void SetTransformationType(TransformationType type);
+
  private:
-  void ComputeShifting(const QRect& initial_position,
-                       unsigned int manipulation_flag);
-  void ComputeStretching(const QRect& initial_position,
-                         unsigned int manipulation_flag);
+  void ComputeShifting(const QRect& initial_position);
+  void ComputeStretching(const QRect& initial_position);
 
   void SetModifiedPosition(int x, int y, int width, int height);
 
   DeltaSize delta_size_;
 
+  TransformationType type_;
   ConversionFactor stretch_factor_;
   ConversionFactor shift_factor_;
 

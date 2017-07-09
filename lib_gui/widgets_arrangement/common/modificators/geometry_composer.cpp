@@ -8,30 +8,16 @@ void GeometryComposer::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
-void GeometryComposer::ComposeGeometry(
-    const ConversionFactor& conversion_factor,
-    const QRect& initial_position,
-    TransformationType type,
-    unsigned int manipulation_flag,
-    QWidget* widget) {
-  switch (type) {
-    case kShift:
-      shift_factor_ = conversion_factor;
-      ComputeShifting(initial_position, manipulation_flag);
-      break;
-    case kStretch:
-      stretch_factor_ = conversion_factor;
-      ComputeStretching(initial_position, manipulation_flag);
-      break;
-  }
-  widget->setGeometry(modified_position_);
-}
-
 void GeometryComposer::ComposeGeometry(const QRect& initial_position,
                                        QWidget* widget) {
-  ComputeStretching(initial_position, stretch_side_);
-  ComputeShifting(modified_position_, shift_side_);
-
+  switch (type_) {
+    case kShift:
+      ComputeShifting(initial_position);
+      break;
+    case kStretch:
+      ComputeStretching(initial_position);
+      break;
+  }
   widget->setGeometry(modified_position_);
 }
 
@@ -55,21 +41,25 @@ void GeometryComposer::SetStretchSide(unsigned int stretch_side) {
   stretch_side_ = stretch_side;
 }
 
-void GeometryComposer::ComputeShifting(const QRect& initial_position,
-                                       unsigned int manipulation_flag) {
+void GeometryComposer::SetTransformationType(
+    GeometryComposer::TransformationType type) {
+  type_ = type;
+}
+
+void GeometryComposer::ComputeShifting(const QRect& initial_position) {
   int x = initial_position.x();
   int y = initial_position.y();
 
-  if (manipulation_flag & Side::kLeft) {
+  if (shift_side_ & Side::kLeft) {
     x -= (shift_factor_.XAxisFactor() * delta_size_.Width());
   }
-  if (manipulation_flag & Side::kRight) {
+  if (shift_side_ & Side::kRight) {
     x += (shift_factor_.XAxisFactor() * delta_size_.Width());
   }
-  if (manipulation_flag & Side::kUp) {
+  if (shift_side_ & Side::kUp) {
     y -= (shift_factor_.YAxisFactor() * delta_size_.Height());
   }
-  if (manipulation_flag & Side::kDown) {
+  if (shift_side_ & Side::kDown) {
     y += (shift_factor_.YAxisFactor() * delta_size_.Height());
   }
 
@@ -77,24 +67,23 @@ void GeometryComposer::ComputeShifting(const QRect& initial_position,
                       initial_position.height());
 }
 
-void GeometryComposer::ComputeStretching(const QRect& initial_position,
-                                         unsigned int manipulation_flag) {
+void GeometryComposer::ComputeStretching(const QRect& initial_position) {
   int x = initial_position.x();
   int y = initial_position.y();
   int width = initial_position.width();
   int height = initial_position.height();
 
-  if (manipulation_flag & Side::kLeft) {
+  if (stretch_side_ & Side::kLeft) {
     width += (stretch_factor_.XAxisFactor() * delta_size_.Width());
     x -= (stretch_factor_.XAxisFactor() * delta_size_.Width());
   }
-  if (manipulation_flag & Side::kRight) {
+  if (stretch_side_ & Side::kRight) {
     width += (stretch_factor_.XAxisFactor() * delta_size_.Width());
   }
-  if (manipulation_flag & Side::kDown) {
+  if (stretch_side_ & Side::kDown) {
     height += (stretch_factor_.YAxisFactor() * delta_size_.Height());
   }
-  if (manipulation_flag & Side::kUp) {
+  if (stretch_side_ & Side::kUp) {
     height += (stretch_factor_.YAxisFactor() * delta_size_.Height());
     y -= (stretch_factor_.YAxisFactor() * delta_size_.Height());
   }
