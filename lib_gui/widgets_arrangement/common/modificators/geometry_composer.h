@@ -2,6 +2,7 @@
 #define GEOMETRY_COMPOSER_H
 
 #include <QRect>
+#include <QVector>
 
 #include <conversion_factor.h>
 #include <delta_size.h>
@@ -18,7 +19,6 @@ class GeometryComposer {
 
   void SetShiftFactor(double x_shift_factor, double y_shift_factor);
   void SetShiftSide(unsigned int shift_side);
-
   void SetStretchFactor(double x_stretch_factor, double y_stretch_factor);
   void SetStretchSide(unsigned int stretch_side);
 
@@ -26,6 +26,7 @@ class GeometryComposer {
 
  private:
   void ComputeShifting(const QRect& initial_position);
+
   void ComputeStretching(const QRect& initial_position);
 
   void SetModifiedPosition(int x, int y, int width, int height);

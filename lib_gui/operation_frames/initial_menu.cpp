@@ -42,9 +42,9 @@ void InitialMenu::SetInitialSetting() {
 }
 
 void InitialMenu::SetResizeGeometry() {
-  composer_.SetShiftFactor(0.5, 0.5);
-  composer_.SetShiftSide(Side::kRight | Side::kDown);
-  composer_.SetTransformationType(GeometryComposer::kShift);
+  composer_.SetStretchFactor(0.5, 0.5);
+  composer_.SetStretchSide(Side::kDown | Side::kRight);
+  composer_.SetTransformationType(GeometryComposer::kStretch);
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
