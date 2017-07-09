@@ -7,57 +7,59 @@ CONFIG += console c++11
 QMAKE_CXX = ccache clang++
 
 DEPENDPATH += \
-    ../lib_console/messengers \
-    ../lib_console/output_configuration \
-    ../lib_gui/widgets_appearance \
-    ../lib_gui/widgets_arrangement/common \
+    ../lib_gui/widgets_arrangement/common/widgets_geometries \
+    ../lib_gui/widgets_arrangement/common/modificators \
     ../lib_gui/widgets_arrangement/splash_screen \
+    ../lib_console/output_configuration \
+    ../atm/incoming_data_processing \
+    ../lib_gui/widgets_appearance \
+    ../lib_console/messengers \
     ../lib_gui/atm_widgets \
     ../lib_gui/features \
     ../atm/atm_machine \
-    ../atm/incoming_data_processing \
 
 INCLUDEPATH += \
-    ../lib_console/messengers \
-    ../lib_console/output_configuration \
-    ../lib_gui/widgets_appearance \
-    ../lib_gui/widgets_arrangement/common \
+    ../lib_gui/widgets_arrangement/common/widgets_geometries \
+    ../lib_gui/widgets_arrangement/common/modificators \
     ../lib_gui/widgets_arrangement/splash_screen \
+    ../lib_console/output_configuration \
+    ../atm/incoming_data_processing \
+    ../lib_gui/widgets_appearance \
+    ../lib_console/messengers \
     ../lib_gui/atm_widgets \
     ../lib_gui/features \
     ../atm/atm_machine \
-    ../atm/incoming_data_processing \
-    $$PWD/atm_operations \ #deprecated code, should be removed
-    $$PWD/atm_operations/credit_operations \ #deprecated code, should be removed
-    $$PWD/user_data \ #deprecated code, should be removed
-    $$PWD/mode_integration \
-    $$PWD/console_version/initial_menu \
-    $$PWD/console_version/transaction_menu \
-    $$PWD/console_version/authentication \
     $$PWD/console_version/user_input_handling \
+    $$PWD/console_version/transaction_menu \
+    $$PWD/atm_operations/credit_operations \ #deprecated code, should be removed
+    $$PWD/console_version/authentication \
+    $$PWD/console_version/initial_menu \
     $$PWD/graphical_version \
+    $$PWD/mode_integration \
+    $$PWD/atm_operations \ #deprecated code, should be removed
+    $$PWD/user_data \ #deprecated code, should be removed
 
 HEADERS += \
-    $$PWD/atm_operations/*.h \
-    $$PWD/atm_operations/credit_operations/*.h \
-    $$PWD/user_data/*.h \
-    $$PWD/mode_integration/*.h \
-    $$PWD/console_version/initial_menu/*.h \
-    $$PWD/console_version/transaction_menu/*.h \
-    $$PWD/console_version/authentication/*.h \
     $$PWD/console_version/user_input_handling/*.h \
+    $$PWD/console_version/transaction_menu/*.h \
+    $$PWD/atm_operations/credit_operations/*.h \
+    $$PWD/console_version/authentication/*.h \
+    $$PWD/console_version/initial_menu/*.h \
     $$PWD/graphical_version/*.h \
+    $$PWD/mode_integration/*.h \
+    $$PWD/atm_operations/*.h \
+    $$PWD/user_data/*.h \
 
 SOURCES += \
-    $$PWD/atm_operations/*.cpp \
+    $$PWD/console_version/user_input_handling/*.cpp \
     $$PWD/atm_operations/credit_operations/*.cpp \
-    $$PWD/user_data/*.cpp \
-    $$PWD/mode_integration/*.cpp \
-    $$PWD/console_version/initial_menu/*.cpp \
     $$PWD/console_version/transaction_menu/*.cpp \
     $$PWD/console_version/authentication/*.cpp \
-    $$PWD/console_version/user_input_handling/*.cpp \
+    $$PWD/console_version/initial_menu/*.cpp \
     $$PWD/graphical_version/*.cpp \
+    $$PWD/mode_integration/*.cpp \
+    $$PWD/atm_operations/*.cpp \
+    $$PWD/user_data/*.cpp \
 
 LIBS += \
     -L$$OUT_PWD/../lib_console -llib_console \

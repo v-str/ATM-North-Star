@@ -3,8 +3,6 @@
 
 #include <QMainWindow>
 
-#include <QRect>
-
 #include <atm_color_designer.h>
 #include <delta_size.h>
 
@@ -53,9 +51,6 @@ class AtmMainWidget : public QMainWindow {
 
   AtmColorDesigner color_designer_;
   DeltaSize delta_size_;
-
-  static QRect kTimeLabel;
-  static QRect kMainFrame;
 
   static const int kWidth = 600;
   static const int kHeight = 400;

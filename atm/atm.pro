@@ -7,22 +7,22 @@ QMAKE_CXXFLAGS += -std=c++11
 QMAKE_CXX = ccache clang++
 
 INCLUDEPATH += \
-    $$PWD/atm_machine \
-    $$PWD/atm_operations \
-    $$PWD/credit_department \
-    $$PWD/user_data \
     $$PWD/incoming_data_processing \
+    $$PWD/credit_department \
+    $$PWD/atm_operations \
+    $$PWD/atm_machine \
+    $$PWD/user_data \
 
 HEADERS += \
-    $$PWD/atm_machine/*.h \
-    $$PWD/atm_operations/*.h \
-    $$PWD/credit_department/*.h \
-    $$PWD/user_data/*.h / \
     $$PWD/incoming_data_processing/*.h \
+    $$PWD/credit_department/*.h \
+    $$PWD/atm_operations/*.h \
+    $$PWD/atm_machine/*.h \
+    $$PWD/user_data/*.h / \
 
 SOURCES += \
-    $$PWD/atm_machine/*.cpp \
-    $$PWD/atm_operations/*.cpp \
-    $$PWD/credit_department/*.cpp \
-    $$PWD/user_data/*.cpp \
     $$PWD/incoming_data_processing/*.cpp \
+    $$PWD/credit_department/*.cpp \
+    $$PWD/atm_operations/*.cpp \
+    $$PWD/atm_machine/*.cpp \
+    $$PWD/user_data/*.cpp \

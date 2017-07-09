@@ -13,11 +13,9 @@
 #include <initial_frame_geometry.h>
 #include <initial_menu.h>
 #include <initial_property_installer.h>
+#include <main_widget_geometry.h>
 #include <painter.h>
 #include <timedate_changer.h>
-
-QRect AtmMainWidget::kTimeLabel = {470, 5, 114, 20};
-QRect AtmMainWidget::kMainFrame = {5, 5, 590, 390};
 
 AtmMainWidget::AtmMainWidget(QWidget* parent)
     : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
@@ -86,9 +84,10 @@ void AtmMainWidget::SetWidgetProperties() {
 }
 
 void AtmMainWidget::SetFrameArrangement() {
-  ui->main_frame->setGeometry(kMainFrame.x(), kMainFrame.y(),
-                              kMainFrame.width() + delta_size_.Width(),
-                              kMainFrame.height() + delta_size_.Height());
+  ui->main_frame->setGeometry(
+      MainWidgetGeometry::MainFrame().x(), MainWidgetGeometry::MainFrame().y(),
+      MainWidgetGeometry::MainFrame().width() + delta_size_.Width(),
+      MainWidgetGeometry::MainFrame().height() + delta_size_.Height());
 
   initial_menu_->setGeometry(
       InitialFrameGeometry::InitialFrame().x(),
@@ -98,9 +97,11 @@ void AtmMainWidget::SetFrameArrangement() {
 }
 
 void AtmMainWidget::SetTimeLabelArrangement() {
-  ui->time_label->setGeometry(kTimeLabel.x() + delta_size_.Width(),
-                              kTimeLabel.y(), kTimeLabel.width(),
-                              kTimeLabel.height());
+  ui->time_label->setGeometry(
+      MainWidgetGeometry::TimeLabel().x() + delta_size_.Width(),
+      MainWidgetGeometry::TimeLabel().y(),
+      MainWidgetGeometry::TimeLabel().width(),
+      MainWidgetGeometry::TimeLabel().height());
 }
 
 void AtmMainWidget::RunTimers() { time_timer_->start(1000); }
