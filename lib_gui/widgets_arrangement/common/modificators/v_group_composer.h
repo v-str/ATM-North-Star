@@ -16,6 +16,7 @@ class VGroupComposer {
   void SetInitialGroupGeometry(const QVector<QRect>& widget_vector);
   void ScaleVGroup(QVector<QWidget*> scale_vector);
 
+  void SetStretchFactor(double x_stretch_factor, double y_stretch_factor);
   void SetWidgetInterval(int widget_interval);
 
  private:
@@ -24,10 +25,10 @@ class VGroupComposer {
   void ComputeElementSize(int element_number);
   void ComputeHeadGroupGeometry(QWidget* widget);
 
-  DeltaSize delta_size_;
-
   QVector<QRect> geometry_vector_;
 
+  DeltaSize delta_size_;
+  ConversionFactor stretch_factor_;
   QRect geometry_;
 
   int widget_interval_ = 10;

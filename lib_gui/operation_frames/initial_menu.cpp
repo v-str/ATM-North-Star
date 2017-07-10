@@ -48,6 +48,7 @@ void InitialMenu::SetResizeGeometry() {
                      InitialFrameGeometry::RegistrationButton(),
                      InitialFrameGeometry::DemoButton()});
   v_composer_.SetWidgetInterval(InitialFrameGeometry::WidgetInterval());
+  v_composer_.SetStretchFactor(0.15, 0.15);
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {

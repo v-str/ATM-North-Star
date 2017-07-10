@@ -21,6 +21,12 @@ void VGroupComposer::ScaleVGroup(QVector<QWidget*> scale_vector) {
   }
 }
 
+void VGroupComposer::SetStretchFactor(double x_stretch_factor,
+                                      double y_stretch_factor) {
+  stretch_factor_.SetXFactor(x_stretch_factor);
+  stretch_factor_.SetYFactor(y_stretch_factor);
+}
+
 void VGroupComposer::SetWidgetInterval(int widget_interval) {
   widget_interval_ = widget_interval;
 }
@@ -34,9 +40,9 @@ void VGroupComposer::ComputeElementPosition(QWidget* current_widget,
 
 void VGroupComposer::ComputeElementSize(int element_number) {
   geometry_.setWidth(geometry_vector_[element_number].width() +
-                     delta_size_.Width() * 0.1);
+                     delta_size_.Width() * stretch_factor_.XAxisFactor());
   geometry_.setHeight(geometry_vector_[element_number].height() +
-                      delta_size_.Height() * 0.1);
+                      delta_size_.Height() * stretch_factor_.YAxisFactor());
 }
 
 void VGroupComposer::ComputeHeadGroupGeometry(QWidget* widget) {
