@@ -21,7 +21,7 @@ void VGroupComposer::ScaleVGroup(QVector<QWidget*> scale_vector) {
   }
 }
 
-void VGroupComposer::SetSpace(int widget_interval) {
+void VGroupComposer::SetWidgetInterval(int widget_interval) {
   widget_interval_ = widget_interval;
 }
 

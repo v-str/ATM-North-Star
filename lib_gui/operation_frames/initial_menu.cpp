@@ -47,7 +47,7 @@ void InitialMenu::SetResizeGeometry() {
       QVector<QRect>{InitialFrameGeometry::SignInButton(),
                      InitialFrameGeometry::RegistrationButton(),
                      InitialFrameGeometry::DemoButton()});
-  v_composer_.SetSpace(InitialFrameGeometry::WidgetInterval());
+  v_composer_.SetWidgetInterval(InitialFrameGeometry::WidgetInterval());
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
