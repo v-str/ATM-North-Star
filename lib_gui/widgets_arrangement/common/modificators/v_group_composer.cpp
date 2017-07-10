@@ -14,9 +14,9 @@ void VGroupComposer::SetInitialGroupGeometry(
 void VGroupComposer::ScaleVGroup(QVector<QWidget*> scale_vector) {
   geometry_.setX(geometry_vector_[0].x());
   geometry_.setY(geometry_vector_[0].y());
-  geometry_.setWidth(geometry_vector_[0].width() + delta_size_.Width() * 0.1);
-  geometry_.setHeight(geometry_vector_[0].height() +
-                      delta_size_.Height() * 0.1);
+
+  ComputeElementSize(0);
+
   scale_vector[0]->setGeometry(geometry_);
 
   for (int element = 1; element < scale_vector.size(); ++element) {
