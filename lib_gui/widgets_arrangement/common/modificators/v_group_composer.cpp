@@ -12,20 +12,29 @@ void VGroupComposer::SetInitialGroupGeometry(
 }
 
 void VGroupComposer::ScaleVGroup(QVector<QWidget*> scale_vector) {
-  QRect geometry;
-  geometry.setX(geometry_vector_[0].x());
-  geometry.setY(geometry_vector_[0].y());
-  geometry.setWidth(geometry_vector_[0].width() + delta_size_.Width() * 0.1);
-  geometry.setHeight(geometry_vector_[0].height() + delta_size_.Height() * 0.1);
-  scale_vector[0]->setGeometry(geometry);
+  geometry_.setX(geometry_vector_[0].x());
+  geometry_.setY(geometry_vector_[0].y());
+  geometry_.setWidth(geometry_vector_[0].width() + delta_size_.Width() * 0.1);
+  geometry_.setHeight(geometry_vector_[0].height() +
+                      delta_size_.Height() * 0.1);
+  scale_vector[0]->setGeometry(geometry_);
 
   for (int i = 1; i < scale_vector.size(); ++i) {
-    geometry.setX(scale_vector[i]->x());
-    geometry.setY(scale_vector[i - 1]->y() + scale_vector[i - 1]->height() +
-                  10);
-    geometry.setWidth(geometry_vector_[i].width() + delta_size_.Width() * 0.1);
-    geometry.setHeight(geometry_vector_[i].height() +
-                       delta_size_.Height() * 0.1);
-    scale_vector[i]->setGeometry(geometry);
+    ComputeElementPosition(scale_vector[i], scale_vector[i - 1]);
+    ComputeElementSize(i);
+    scale_vector[i]->setGeometry(geometry_);
   }
+}
+
+void VGroupComposer::ComputeElementPosition(QWidget* widget_x_pos,
+                                            QWidget* widget_y_pos) {
+  geometry_.setX(widget_x_pos->x());
+  geometry_.setY(widget_y_pos->y() + widget_y_pos->height() + 10);
+}
+
+void VGroupComposer::ComputeElementSize(int element_number) {
+  geometry_.setWidth(geometry_vector_[element_number].width() +
+                     delta_size_.Width() * 0.1);
+  geometry_.setHeight(geometry_vector_[element_number].height() +
+                      delta_size_.Height() * 0.1);
 }
