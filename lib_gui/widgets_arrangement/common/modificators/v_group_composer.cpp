@@ -19,10 +19,10 @@ void VGroupComposer::ScaleVGroup(QVector<QWidget*> scale_vector) {
                       delta_size_.Height() * 0.1);
   scale_vector[0]->setGeometry(geometry_);
 
-  for (int i = 1; i < scale_vector.size(); ++i) {
-    ComputeElementPosition(scale_vector[i], scale_vector[i - 1]);
-    ComputeElementSize(i);
-    scale_vector[i]->setGeometry(geometry_);
+  for (int element = 1; element < scale_vector.size(); ++element) {
+    ComputeElementPosition(scale_vector[element], scale_vector[element - 1]);
+    ComputeElementSize(element);
+    scale_vector[element]->setGeometry(geometry_);
   }
 }
 
