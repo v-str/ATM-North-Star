@@ -12,3 +12,5 @@ QRect InitialFrameGeometry::SignInButton() { return kSignInButton; }
 QRect InitialFrameGeometry::RegistrationButton() { return kRegistrationButton; }
 
 QRect InitialFrameGeometry::DemoButton() { return kDemoButton; }
+
+int InitialFrameGeometry::WidgetInterval() { return widget_interval_pt_; }
