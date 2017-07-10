@@ -21,6 +21,7 @@ class VGroupComposer {
  private:
   void ComputeElementPosition(QWidget* widget_x_pos, QWidget* widget_y_pos);
   void ComputeElementSize(int element_number);
+  void ComputeHeadGroupGeometry(QWidget* widget);
 
   DeltaSize delta_size_;
 
