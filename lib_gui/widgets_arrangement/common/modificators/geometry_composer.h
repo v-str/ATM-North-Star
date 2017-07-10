@@ -2,7 +2,6 @@
 #define GEOMETRY_COMPOSER_H
 
 #include <QRect>
-#include <QVector>
 
 #include <conversion_factor.h>
 #include <delta_size.h>
@@ -11,6 +10,7 @@ class QWidget;
 
 class GeometryComposer {
  public:
+  // ADD THIRD enum type - kScale and process it
   enum TransformationType { kShift, kStretch };
 
   void ComposeGeometry(const QRect& initial_position, QWidget* widget);

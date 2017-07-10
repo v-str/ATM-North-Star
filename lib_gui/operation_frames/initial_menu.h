@@ -8,6 +8,8 @@
 #include <delta_size.h>
 #include <geometry_composer.h>
 
+#include <v_group_composer.h>
+
 class QWidget;
 class QPushButton;
 class AtmColorDesigner;
@@ -38,6 +40,8 @@ class InitialMenu : public QFrame {
 
   GeometryComposer composer_;
   DeltaSize delta_size_;
+
+  VGroupComposer v_composer_;
 };
 
 #endif  // INITIAL_MENU_H
