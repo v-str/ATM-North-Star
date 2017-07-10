@@ -26,10 +26,12 @@ void VGroupComposer::ScaleVGroup(QVector<QWidget*> scale_vector) {
   }
 }
 
+void VGroupComposer::SetSpace(int space) { space_ = space; }
+
 void VGroupComposer::ComputeElementPosition(QWidget* widget_x_pos,
                                             QWidget* widget_y_pos) {
   geometry_.setX(widget_x_pos->x());
-  geometry_.setY(widget_y_pos->y() + widget_y_pos->height() + 10);
+  geometry_.setY(widget_y_pos->y() + widget_y_pos->height() + space_);
 }
 
 void VGroupComposer::ComputeElementSize(int element_number) {

@@ -43,27 +43,17 @@ void InitialMenu::SetInitialSetting() {
 }
 
 void InitialMenu::SetResizeGeometry() {
-  composer_.SetStretchFactor(0.5, 0.5);
-  composer_.SetStretchSide(Side::kDown | Side::kRight);
-  composer_.SetTransformationType(GeometryComposer::kStretch);
-
   v_composer_.SetInitialGroupGeometry(
       QVector<QRect>{InitialFrameGeometry::SignInButton(),
                      InitialFrameGeometry::RegistrationButton(),
                      InitialFrameGeometry::DemoButton()});
+  v_composer_.SetSpace(10);  // Use constant in further
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
-  composer_.SetDeltaSize(delta_size_);
   v_composer_.SetDeltaSize(delta_size_);
 
   SetResizeGeometry();
-
-  //  composer_.ComposeGeometry(InitialFrameGeometry::RegistrationButton(),
-  //                            registration_button_);
-
-  //  composer_.ComposeGeometry(InitialFrameGeometry::DemoButton(),
-  //  demo_button_);
 
   v_composer_.ScaleVGroup(
       QVector<QWidget*>{sign_in_button_, registration_button_, demo_button_});

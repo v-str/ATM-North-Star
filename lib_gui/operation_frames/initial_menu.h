@@ -6,7 +6,6 @@
 #include <QRect>
 
 #include <delta_size.h>
-#include <geometry_composer.h>
 
 #include <v_group_composer.h>
 
@@ -38,7 +37,6 @@ class InitialMenu : public QFrame {
 
   AtmColorDesigner* atm_color_designer_ = nullptr;
 
-  GeometryComposer composer_;
   DeltaSize delta_size_;
 
   VGroupComposer v_composer_;

@@ -16,6 +16,8 @@ class VGroupComposer {
   void SetInitialGroupGeometry(const QVector<QRect>& widget_vector);
   void ScaleVGroup(QVector<QWidget*> scale_vector);
 
+  void SetSpace(int space);
+
  private:
   void ComputeElementPosition(QWidget* widget_x_pos, QWidget* widget_y_pos);
   void ComputeElementSize(int element_number);
@@ -25,6 +27,8 @@ class VGroupComposer {
   QVector<QRect> geometry_vector_;
 
   QRect geometry_;
+
+  int space_ = 10;
 };
 
 #endif  // V_GROUP_COMPOSER_H
