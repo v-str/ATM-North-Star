@@ -25,10 +25,11 @@ void VGroupComposer::SetSpace(int widget_interval) {
   widget_interval_ = widget_interval;
 }
 
-void VGroupComposer::ComputeElementPosition(QWidget* widget_x_pos,
-                                            QWidget* widget_y_pos) {
-  geometry_.setX(widget_x_pos->x());
-  geometry_.setY(widget_y_pos->y() + widget_y_pos->height() + widget_interval_);
+void VGroupComposer::ComputeElementPosition(QWidget* current_widget,
+                                            QWidget* previous_widget) {
+  geometry_.setX(current_widget->x());
+  geometry_.setY(previous_widget->y() + previous_widget->height() +
+                 widget_interval_);
 }
 
 void VGroupComposer::ComputeElementSize(int element_number) {

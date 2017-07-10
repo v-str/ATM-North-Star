@@ -19,7 +19,8 @@ class VGroupComposer {
   void SetSpace(int widget_interval);
 
  private:
-  void ComputeElementPosition(QWidget* widget_x_pos, QWidget* widget_y_pos);
+  void ComputeElementPosition(QWidget* current_widget,
+                              QWidget* previous_widget);
   void ComputeElementSize(int element_number);
   void ComputeHeadGroupGeometry(QWidget* widget);
 
