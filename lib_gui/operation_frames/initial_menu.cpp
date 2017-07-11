@@ -55,7 +55,7 @@ void InitialMenu::SetResizeProperties() {
   group_composer_.SetShiftSide(Side::kRight | Side::kDown);
 
   group_composer_.SetStretchFactor(0.2, 0.2);
-  group_composer_.SetStretchSide(Side::kRight | Side::kDown);
+  group_composer_.SetStretchSide(Side::kDown | Side::kRight);
 
   group_composer_.SetTransformationType(GeometryComposer::kScale);
 

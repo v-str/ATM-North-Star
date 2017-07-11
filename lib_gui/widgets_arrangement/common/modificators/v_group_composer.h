@@ -16,8 +16,7 @@ class VGroupComposer : public GeometryComposer {
   void SetWidgetInterval(int widget_interval);
 
  private:
-  void ComputeElementGeometry(QWidget* previous_widget,
-                              const QRect& current_widget_geometry);
+  void ComputeElementGeometry(QWidget* previous_widget);
 
   void ComputeHeadGroupGeometry(QWidget* widget);
 
