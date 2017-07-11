@@ -11,14 +11,6 @@
 #include <splash_screen_geometry.h>
 
 void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
-  //  frame->setGeometry(
-  //      SplashScreenGeometry::SplashScreenFrame().x(),
-  //      SplashScreenGeometry::SplashScreenFrame().y(),
-  //      SplashScreenGeometry::SplashScreenFrame().width() +
-  //      delta_size_.Width(),
-  //      SplashScreenGeometry::SplashScreenFrame().height() +
-  //          delta_size_.Height());
-
   composer_.SetStretchFactor(1.0, 1.0);
   composer_.SetStretchSide(Side::kRight | Side::kDown);
   composer_.SetTransformationType(GeometryComposer::kStretch);

@@ -12,6 +12,14 @@ void Shifter::ShiftLeft(QRect* rect) {
   }
 }
 
+void Shifter::ShiftRight(QRect* rect) {
+  rect->setX(rect->x() + shift_factor_.XAxisFactor() * delta_size_.Width());
+  if (is_center_) {
+    rect->setX(rect->x() -
+               (stretch_factor_.XAxisFactor() * delta_size_.Width()) / 2);
+  }
+}
+
 void Shifter::SetShiftFactor(const ConversionFactor& shift_factor) {
   shift_factor_ = shift_factor;
 }

@@ -5,7 +5,6 @@
 
 #include <conversion_factor.h>
 #include <delta_size.h>
-#include <shifter.h>
 
 class QWidget;
 
@@ -35,6 +34,7 @@ class GeometryComposer {
 
   void SetModifiedPosition(int x, int y, int width, int height);
 
+  void LeftShiftProcessing();
   void RightShiftProcessing();
 
   void UpShiftProcessing();
@@ -45,8 +45,6 @@ class GeometryComposer {
   TransformationType type_;
   ConversionFactor stretch_factor_;
   ConversionFactor shift_factor_;
-
-  Shifter shifter_;
 
   QRect modified_widget_geometry_;
 

@@ -11,6 +11,7 @@ class Shifter {
   Shifter();
 
   void ShiftLeft(QRect* rect);
+  void ShiftRight(QRect* rect);
 
   void SetShiftFactor(const ConversionFactor& shift_factor);
   void SetStretchFactor(const ConversionFactor& stretch_factor);
