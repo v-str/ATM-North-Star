@@ -52,7 +52,7 @@ void InitialMenu::SetResizeProperties() {
   group_composer_.SetWidgetInterval(InitialFrameGeometry::WidgetInterval());
 
   group_composer_.SetShiftFactor(0.5, 0.25);
-  group_composer_.SetShiftSide(Side::kRight | Side::kDown);
+  group_composer_.SetShiftSide(Side::kLeft);
 
   group_composer_.SetStretchFactor(0.2, 0.2);
   group_composer_.SetStretchSide(Side::kDown | Side::kRight);
