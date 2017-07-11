@@ -19,10 +19,10 @@ void GeometryComposer::ComposeGeometry(const QRect& initial_position,
       break;
     case kScale:
       ComputeStretching(initial_position);
-      ComputeShifting(modified_position_);
+      ComputeShifting(modified_widget_geometry_);
       break;
   }
-  widget->setGeometry(modified_position_);
+  widget->setGeometry(modified_widget_geometry_);
 }
 
 void GeometryComposer::SetShiftFactor(double x_shift_factor,
@@ -108,10 +108,10 @@ void GeometryComposer::SetModifiedPosition(int x,
                                            int y,
                                            int width,
                                            int height) {
-  modified_position_.setX(x);
-  modified_position_.setY(y);
-  modified_position_.setWidth(width);
-  modified_position_.setHeight(height);
+  modified_widget_geometry_.setX(x);
+  modified_widget_geometry_.setY(y);
+  modified_widget_geometry_.setWidth(width);
+  modified_widget_geometry_.setHeight(height);
 }
 
 void GeometryComposer::LeftShiftProcessing() {

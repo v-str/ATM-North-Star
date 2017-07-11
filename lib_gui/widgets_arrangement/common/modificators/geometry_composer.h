@@ -46,7 +46,7 @@ class GeometryComposer {
   ConversionFactor stretch_factor_;
   ConversionFactor shift_factor_;
 
-  QRect modified_position_;
+  QRect modified_widget_geometry_;
 
   unsigned int shift_side_ = 0;
   unsigned int stretch_side_ = 0;
