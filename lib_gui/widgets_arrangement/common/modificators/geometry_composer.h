@@ -34,6 +34,12 @@ class GeometryComposer {
 
   void SetModifiedPosition(int x, int y, int width, int height);
 
+  void LeftShiftProcessing();
+  void RightShiftProcessing();
+
+  void UpShiftProcessing();
+  void DownShiftProcessing();
+
   DeltaSize delta_size_;
 
   TransformationType type_;
@@ -42,8 +48,11 @@ class GeometryComposer {
 
   QRect modified_position_;
 
-  unsigned int shift_side_;
-  unsigned int stretch_side_;
+  unsigned int shift_side_ = 0;
+  unsigned int stretch_side_ = 0;
+
+  unsigned int x_pos_ = 0;
+  unsigned int y_pos_ = 0;
 
   bool is_center_ = false;
 };

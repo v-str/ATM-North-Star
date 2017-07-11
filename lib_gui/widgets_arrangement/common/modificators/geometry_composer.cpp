@@ -61,35 +61,23 @@ ConversionFactor GeometryComposer::StretchFactor() const {
 }
 
 void GeometryComposer::ComputeShifting(const QRect& position) {
-  int x = position.x();
-  int y = position.y();
+  x_pos_ = position.x();
+  y_pos_ = position.y();
 
   if (shift_side_ & Side::kLeft) {
-    x -= (shift_factor_.XAxisFactor() * delta_size_.Width());
-    if (is_center_) {
-      x += (stretch_factor_.XAxisFactor() * delta_size_.Width()) / 2;
-    }
+    LeftShiftProcessing();
   }
   if (shift_side_ & Side::kRight) {
-    x += (shift_factor_.XAxisFactor() * delta_size_.Width());
-    if (is_center_) {
-      x -= (stretch_factor_.XAxisFactor() * delta_size_.Width()) / 2;
-    }
+    RightShiftProcessing();
   }
   if (shift_side_ & Side::kUp) {
-    y -= (shift_factor_.YAxisFactor() * delta_size_.Height());
-    if (is_center_) {
-      y += (stretch_factor_.YAxisFactor() * delta_size_.Height()) / 2;
-    }
+    UpShiftProcessing();
   }
   if (shift_side_ & Side::kDown) {
-    y += (shift_factor_.YAxisFactor() * delta_size_.Height());
-    if (is_center_) {
-      y -= (stretch_factor_.YAxisFactor() * delta_size_.Height()) / 2;
-    }
+    DownShiftProcessing();
   }
 
-  SetModifiedPosition(x, y, position.width(), position.height());
+  SetModifiedPosition(x_pos_, y_pos_, position.width(), position.height());
 }
 
 void GeometryComposer::ComputeStretching(const QRect& position) {
@@ -124,4 +112,32 @@ void GeometryComposer::SetModifiedPosition(int x,
   modified_position_.setY(y);
   modified_position_.setWidth(width);
   modified_position_.setHeight(height);
+}
+
+void GeometryComposer::LeftShiftProcessing() {
+  x_pos_ -= (shift_factor_.XAxisFactor() * delta_size_.Width());
+  if (is_center_) {
+    x_pos_ += (stretch_factor_.XAxisFactor() * delta_size_.Width()) / 2;
+  }
+}
+
+void GeometryComposer::RightShiftProcessing() {
+  x_pos_ += (shift_factor_.XAxisFactor() * delta_size_.Width());
+  if (is_center_) {
+    x_pos_ -= (stretch_factor_.XAxisFactor() * delta_size_.Width()) / 2;
+  }
+}
+
+void GeometryComposer::UpShiftProcessing() {
+  y_pos_ -= (shift_factor_.YAxisFactor() * delta_size_.Height());
+  if (is_center_) {
+    y_pos_ += (stretch_factor_.YAxisFactor() * delta_size_.Height()) / 2;
+  }
+}
+
+void GeometryComposer::DownShiftProcessing() {
+  y_pos_ += (shift_factor_.YAxisFactor() * delta_size_.Height());
+  if (is_center_) {
+    y_pos_ -= (stretch_factor_.YAxisFactor() * delta_size_.Height()) / 2;
+  }
 }
