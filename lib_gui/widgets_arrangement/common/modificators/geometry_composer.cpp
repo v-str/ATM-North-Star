@@ -17,6 +17,10 @@ void GeometryComposer::ComposeGeometry(const QRect& initial_position,
     case kStretch:
       ComputeStretching(initial_position);
       break;
+    case kScale:
+      ComputeStretching(initial_position);
+      ComputeShifting(modified_position_);
+      break;
   }
   widget->setGeometry(modified_position_);
 }
@@ -46,32 +50,53 @@ void GeometryComposer::SetTransformationType(
   type_ = type;
 }
 
-void GeometryComposer::ComputeShifting(const QRect& initial_position) {
-  int x = initial_position.x();
-  int y = initial_position.y();
+void GeometryComposer::KeepCenter(bool is_center) { is_center_ = is_center; }
+
+DeltaSize GeometryComposer::GetDeltaSize() const { return delta_size_; }
+
+ConversionFactor GeometryComposer::ShiftFactor() const { return shift_factor_; }
+
+ConversionFactor GeometryComposer::StretchFactor() const {
+  return stretch_factor_;
+}
+
+void GeometryComposer::ComputeShifting(const QRect& position) {
+  int x = position.x();
+  int y = position.y();
 
   if (shift_side_ & Side::kLeft) {
     x -= (shift_factor_.XAxisFactor() * delta_size_.Width());
+    if (is_center_) {
+      x += (stretch_factor_.XAxisFactor() * delta_size_.Width()) / 2;
+    }
   }
   if (shift_side_ & Side::kRight) {
     x += (shift_factor_.XAxisFactor() * delta_size_.Width());
+    if (is_center_) {
+      x -= (stretch_factor_.XAxisFactor() * delta_size_.Width()) / 2;
+    }
   }
   if (shift_side_ & Side::kUp) {
     y -= (shift_factor_.YAxisFactor() * delta_size_.Height());
+    if (is_center_) {
+      y += (stretch_factor_.YAxisFactor() * delta_size_.Height()) / 2;
+    }
   }
   if (shift_side_ & Side::kDown) {
     y += (shift_factor_.YAxisFactor() * delta_size_.Height());
+    if (is_center_) {
+      y -= (stretch_factor_.YAxisFactor() * delta_size_.Height()) / 2;
+    }
   }
 
-  SetModifiedPosition(x, y, initial_position.width(),
-                      initial_position.height());
+  SetModifiedPosition(x, y, position.width(), position.height());
 }
 
-void GeometryComposer::ComputeStretching(const QRect& initial_position) {
-  int x = initial_position.x();
-  int y = initial_position.y();
-  int width = initial_position.width();
-  int height = initial_position.height();
+void GeometryComposer::ComputeStretching(const QRect& position) {
+  int x = position.x();
+  int y = position.y();
+  int width = position.width();
+  int height = position.height();
 
   if (stretch_side_ & Side::kLeft) {
     width += (stretch_factor_.XAxisFactor() * delta_size_.Width());

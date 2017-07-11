@@ -10,8 +10,7 @@ class QWidget;
 
 class GeometryComposer {
  public:
-  // ADD THIRD enum type - kScale and process it
-  enum TransformationType { kShift, kStretch };
+  enum TransformationType { kShift, kStretch, kScale };
 
   void ComposeGeometry(const QRect& initial_position, QWidget* widget);
 
@@ -23,11 +22,15 @@ class GeometryComposer {
   void SetStretchSide(unsigned int stretch_side);
 
   void SetTransformationType(TransformationType type);
+  void KeepCenter(bool is_center);
+
+  DeltaSize GetDeltaSize() const;
+  ConversionFactor ShiftFactor() const;
+  ConversionFactor StretchFactor() const;
 
  private:
-  void ComputeShifting(const QRect& initial_position);
-
-  void ComputeStretching(const QRect& initial_position);
+  void ComputeShifting(const QRect& position);
+  void ComputeStretching(const QRect& position);
 
   void SetModifiedPosition(int x, int y, int width, int height);
 
@@ -41,6 +44,8 @@ class GeometryComposer {
 
   unsigned int shift_side_;
   unsigned int stretch_side_;
+
+  bool is_center_ = false;
 };
 
 #endif  // GEOMETRY_COMPOSER_H

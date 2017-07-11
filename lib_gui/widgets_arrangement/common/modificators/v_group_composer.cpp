@@ -2,10 +2,6 @@
 
 #include <QWidget>
 
-void VGroupComposer::SetDeltaSize(const DeltaSize& delta_size) {
-  delta_size_ = delta_size;
-}
-
 void VGroupComposer::SetInitialGroupGeometry(
     const QVector<QRect>& widget_vector) {
   geometry_vector_ = widget_vector;
@@ -15,41 +11,29 @@ void VGroupComposer::ScaleVGroup(QVector<QWidget*> scale_vector) {
   ComputeHeadGroupGeometry(scale_vector[0]);
 
   for (int element = 1; element < scale_vector.size(); ++element) {
-    ComputeElementPosition(scale_vector[element], scale_vector[element - 1]);
-    ComputeElementSize(element);
+    ComputeElementGeometry(scale_vector[element - 1],
+                           geometry_vector_[element]);
     scale_vector[element]->setGeometry(geometry_);
   }
-}
-
-void VGroupComposer::SetStretchFactor(double x_stretch_factor,
-                                      double y_stretch_factor) {
-  stretch_factor_.SetXFactor(x_stretch_factor);
-  stretch_factor_.SetYFactor(y_stretch_factor);
 }
 
 void VGroupComposer::SetWidgetInterval(int widget_interval) {
   widget_interval_ = widget_interval;
 }
 
-void VGroupComposer::ComputeElementPosition(QWidget* current_widget,
-                                            QWidget* previous_widget) {
-  geometry_.setX(current_widget->x());
+void VGroupComposer::ComputeElementGeometry(
+    QWidget* previous_widget, const QRect& current_widget_geometry) {
+  geometry_.setX(previous_widget->x());
   geometry_.setY(previous_widget->y() + previous_widget->height() +
                  widget_interval_);
-}
 
-void VGroupComposer::ComputeElementSize(int element_number) {
-  geometry_.setWidth(geometry_vector_[element_number].width() +
-                     delta_size_.Width() * stretch_factor_.XAxisFactor());
-  geometry_.setHeight(geometry_vector_[element_number].height() +
-                      delta_size_.Height() * stretch_factor_.YAxisFactor());
+  geometry_.setWidth(current_widget_geometry.width() +
+                     (GetDeltaSize().Width() * StretchFactor().XAxisFactor()));
+  geometry_.setHeight(
+      current_widget_geometry.height() +
+      (GetDeltaSize().Height() * StretchFactor().YAxisFactor()));
 }
 
 void VGroupComposer::ComputeHeadGroupGeometry(QWidget* widget) {
-  geometry_.setX(geometry_vector_[0].x());
-  geometry_.setY(geometry_vector_[0].y());
-
-  ComputeElementSize(0);
-
-  widget->setGeometry(geometry_);
+  ComposeGeometry(geometry_vector_[0], widget);
 }

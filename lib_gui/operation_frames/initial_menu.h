@@ -29,7 +29,7 @@ class InitialMenu : public QFrame {
   void PaintWidgets();
   void SetInitialSetting();
 
-  void SetResizeGeometry();
+  void SetResizeProperties();
 
   AtmButton* sign_in_button_ = nullptr;
   AtmButton* registration_button_ = nullptr;
@@ -39,7 +39,7 @@ class InitialMenu : public QFrame {
 
   DeltaSize delta_size_;
 
-  VGroupComposer v_composer_;
+  VGroupComposer group_composer_;
 };
 
 #endif  // INITIAL_MENU_H

@@ -40,22 +40,31 @@ void InitialMenu::SetInitialSetting() {
   sign_in_button_->setGeometry(InitialFrameGeometry::SignInButton());
   registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
   demo_button_->setGeometry(InitialFrameGeometry::DemoButton());
+
+  SetResizeProperties();
 }
 
-void InitialMenu::SetResizeGeometry() {
-  v_composer_.SetInitialGroupGeometry(
+void InitialMenu::SetResizeProperties() {
+  group_composer_.SetInitialGroupGeometry(
       QVector<QRect>{InitialFrameGeometry::SignInButton(),
                      InitialFrameGeometry::RegistrationButton(),
                      InitialFrameGeometry::DemoButton()});
-  v_composer_.SetWidgetInterval(InitialFrameGeometry::WidgetInterval());
-  v_composer_.SetStretchFactor(0.15, 0.15);
+  group_composer_.SetWidgetInterval(InitialFrameGeometry::WidgetInterval());
+
+  group_composer_.SetShiftFactor(0.5, 0.25);
+  group_composer_.SetShiftSide(Side::kRight | Side::kDown);
+
+  group_composer_.SetStretchFactor(0.2, 0.2);
+  group_composer_.SetStretchSide(Side::kRight | Side::kDown);
+
+  group_composer_.SetTransformationType(GeometryComposer::kScale);
+
+  group_composer_.KeepCenter(true);
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
-  v_composer_.SetDeltaSize(delta_size_);
+  group_composer_.SetDeltaSize(delta_size_);
 
-  SetResizeGeometry();
-
-  v_composer_.ScaleVGroup(
+  group_composer_.ScaleVGroup(
       QVector<QWidget*>{sign_in_button_, registration_button_, demo_button_});
 }

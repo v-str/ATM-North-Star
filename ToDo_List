@@ -71,6 +71,10 @@
 28. Make WidgetStretcher class (WidgetShifter modified)                             | + |
                                                                                     |   |
 29. Add both shifting and stretching widget feature in all sides                    | - |
+                                                                                    |   |
+30. Solve problem related with incorrect scaling                                    | - |
+                                                                                    |   |
+31. Finish VGroupComposer                                                           | - |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
