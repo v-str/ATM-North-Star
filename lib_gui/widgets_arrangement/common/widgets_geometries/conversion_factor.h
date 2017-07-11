@@ -5,6 +5,7 @@ class ConversionFactor {
  public:
   ConversionFactor();
   ConversionFactor(double x_axis_factor, double y_axis_factor);
+  ConversionFactor(const ConversionFactor& conversion_factor);
 
   void SetXFactor(double x_axis_factor);
   void SetYFactor(double y_axis_factor);

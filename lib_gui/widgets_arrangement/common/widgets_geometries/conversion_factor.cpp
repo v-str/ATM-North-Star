@@ -7,6 +7,11 @@ ConversionFactor::ConversionFactor(double x_axis_factor, double y_axis_factor) {
   YCheckOutOfRange(y_axis_factor);
 }
 
+ConversionFactor::ConversionFactor(const ConversionFactor& conversion_factor) {
+  x_axis_factor_ = conversion_factor.x_axis_factor_;
+  y_axis_factor_ = conversion_factor.y_axis_factor_;
+}
+
 void ConversionFactor::SetXFactor(double x_axis_factor) {
   XCheckOutOfRange(x_axis_factor);
 }
