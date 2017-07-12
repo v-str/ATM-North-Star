@@ -8,23 +8,28 @@
 
 class Shifter {
  public:
-  Shifter();
-
-  void ShiftLeft(QRect* rect);
-  void ShiftRight(QRect* rect);
+  void ComputeShifting(const QRect& initial_position);
 
   void SetShiftFactor(const ConversionFactor& shift_factor);
+  void SetshiftSide(unsigned int shift_side);
+
   void SetStretchFactor(const ConversionFactor& stretch_factor);
 
   void SetDeltaSize(const DeltaSize& delta_size);
   void SetCenter(bool is_center);
 
- private:
-  QRect temp_rect_;
+  int XPos() const;
+  int YPOs() const;
 
+ private:
   DeltaSize delta_size_;
   ConversionFactor shift_factor_;
   ConversionFactor stretch_factor_;
+
+  unsigned int shift_side_ = 0;
+
+  int x_pos_ = 0;
+  int y_pos_ = 0;
 
   bool is_center_ = false;
 };

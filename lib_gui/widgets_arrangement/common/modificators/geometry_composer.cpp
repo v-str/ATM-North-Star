@@ -5,7 +5,8 @@
 #include <side.h>
 
 void GeometryComposer::SetDeltaSize(const DeltaSize& delta_size) {
-  delta_size_ = delta_size;
+  shifter_.SetDeltaSize(delta_size);
+  stretcher_.SetDeltaSize(delta_size);
 }
 
 void GeometryComposer::ComposeGeometry(const QRect& initial_position,
@@ -27,22 +28,23 @@ void GeometryComposer::ComposeGeometry(const QRect& initial_position,
 
 void GeometryComposer::SetShiftFactor(double x_shift_factor,
                                       double y_shift_factor) {
-  shift_factor_.SetXFactor(x_shift_factor);
-  shift_factor_.SetYFactor(y_shift_factor);
+  shifter_.SetShiftFactor(ConversionFactor(x_shift_factor, y_shift_factor));
 }
 
 void GeometryComposer::SetStretchFactor(double x_stretch_factor,
                                         double y_stretch_factor) {
-  stretch_factor_.SetXFactor(x_stretch_factor);
-  stretch_factor_.SetYFactor(y_stretch_factor);
+  shifter_.SetStretchFactor(
+      ConversionFactor(x_stretch_factor, y_stretch_factor));
+  stretcher_.SetStretchFactor(
+      ConversionFactor(x_stretch_factor, y_stretch_factor));
 }
 
 void GeometryComposer::SetShiftSide(unsigned int shift_side) {
-  shift_side_ = shift_side;
+  shifter_.SetshiftSide(shift_side);
 }
 
 void GeometryComposer::SetStretchSide(unsigned int stretch_side) {
-  stretch_side_ = stretch_side;
+  stretcher_.SetStretchSide(stretch_side);
 }
 
 void GeometryComposer::SetTransformationType(
@@ -50,58 +52,22 @@ void GeometryComposer::SetTransformationType(
   type_ = type;
 }
 
-void GeometryComposer::KeepCenter(bool is_center) { is_center_ = is_center; }
-
-DeltaSize GeometryComposer::GetDeltaSize() const { return delta_size_; }
-
-ConversionFactor GeometryComposer::ShiftFactor() const { return shift_factor_; }
-
-ConversionFactor GeometryComposer::StretchFactor() const {
-  return stretch_factor_;
+void GeometryComposer::KeepCenter(bool is_center) {
+  shifter_.SetCenter(is_center);
 }
 
 void GeometryComposer::ComputeShifting(const QRect& position) {
-  x_pos_ = position.x();
-  y_pos_ = position.y();
+  shifter_.ComputeShifting(position);
 
-  if (shift_side_ & Side::kLeft) {
-    LeftShiftProcessing();
-  }
-  if (shift_side_ & Side::kRight) {
-    RightShiftProcessing();
-  }
-  if (shift_side_ & Side::kUp) {
-    UpShiftProcessing();
-  }
-  if (shift_side_ & Side::kDown) {
-    DownShiftProcessing();
-  }
-
-  SetModifiedPosition(x_pos_, y_pos_, position.width(), position.height());
+  SetModifiedPosition(shifter_.XPos(), shifter_.YPOs(), position.width(),
+                      position.height());
 }
 
 void GeometryComposer::ComputeStretching(const QRect& position) {
-  int x = position.x();
-  int y = position.y();
-  int width = position.width();
-  int height = position.height();
+  stretcher_.ComputeStretching(position);
 
-  if (stretch_side_ & Side::kLeft) {
-    width += (stretch_factor_.XAxisFactor() * delta_size_.Width());
-    x -= (stretch_factor_.XAxisFactor() * delta_size_.Width());
-  }
-  if (stretch_side_ & Side::kRight) {
-    width += (stretch_factor_.XAxisFactor() * delta_size_.Width());
-  }
-  if (stretch_side_ & Side::kDown) {
-    height += (stretch_factor_.YAxisFactor() * delta_size_.Height());
-  }
-  if (stretch_side_ & Side::kUp) {
-    height += (stretch_factor_.YAxisFactor() * delta_size_.Height());
-    y -= (stretch_factor_.YAxisFactor() * delta_size_.Height());
-  }
-
-  SetModifiedPosition(x, y, width, height);
+  SetModifiedPosition(stretcher_.XPos(), stretcher_.YPos(), stretcher_.Width(),
+                      stretcher_.Height());
 }
 
 void GeometryComposer::SetModifiedPosition(int x,
@@ -112,32 +78,4 @@ void GeometryComposer::SetModifiedPosition(int x,
   modified_widget_geometry_.setY(y);
   modified_widget_geometry_.setWidth(width);
   modified_widget_geometry_.setHeight(height);
-}
-
-void GeometryComposer::LeftShiftProcessing() {
-  x_pos_ -= (shift_factor_.XAxisFactor() * delta_size_.Width());
-  if (is_center_) {
-    x_pos_ += (stretch_factor_.XAxisFactor() * delta_size_.Width()) / 2;
-  }
-}
-
-void GeometryComposer::RightShiftProcessing() {
-  x_pos_ += (shift_factor_.XAxisFactor() * delta_size_.Width());
-  if (is_center_) {
-    x_pos_ -= (stretch_factor_.XAxisFactor() * delta_size_.Width()) / 2;
-  }
-}
-
-void GeometryComposer::UpShiftProcessing() {
-  y_pos_ -= (shift_factor_.YAxisFactor() * delta_size_.Height());
-  if (is_center_) {
-    y_pos_ += (stretch_factor_.YAxisFactor() * delta_size_.Height()) / 2;
-  }
-}
-
-void GeometryComposer::DownShiftProcessing() {
-  y_pos_ += (shift_factor_.YAxisFactor() * delta_size_.Height());
-  if (is_center_) {
-    y_pos_ -= (stretch_factor_.YAxisFactor() * delta_size_.Height()) / 2;
-  }
 }

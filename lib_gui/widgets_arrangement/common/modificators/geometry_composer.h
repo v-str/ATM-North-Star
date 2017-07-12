@@ -6,6 +6,9 @@
 #include <conversion_factor.h>
 #include <delta_size.h>
 
+#include <shifter.h>
+#include <stretcher.h>
+
 class QWidget;
 
 class GeometryComposer {
@@ -24,9 +27,9 @@ class GeometryComposer {
   void SetTransformationType(TransformationType type);
   void KeepCenter(bool is_center);
 
-  DeltaSize GetDeltaSize() const;
-  ConversionFactor ShiftFactor() const;
-  ConversionFactor StretchFactor() const;
+  //  DeltaSize GetDeltaSize() const;
+  //  ConversionFactor ShiftFactor() const;
+  //  ConversionFactor StretchFactor() const;
 
  private:
   void ComputeShifting(const QRect& position);
@@ -34,27 +37,30 @@ class GeometryComposer {
 
   void SetModifiedPosition(int x, int y, int width, int height);
 
-  void LeftShiftProcessing();
-  void RightShiftProcessing();
+  //  void LeftShiftProcessing();
+  //  void RightShiftProcessing();
 
-  void UpShiftProcessing();
-  void DownShiftProcessing();
+  //  void UpShiftProcessing();
+  //  void DownShiftProcessing();
 
-  DeltaSize delta_size_;
+  //  DeltaSize delta_size_;
 
   TransformationType type_;
-  ConversionFactor stretch_factor_;
-  ConversionFactor shift_factor_;
+  //  ConversionFactor stretch_factor_;
+  //  ConversionFactor shift_factor_;
 
   QRect modified_widget_geometry_;
 
-  unsigned int shift_side_ = 0;
-  unsigned int stretch_side_ = 0;
+  Shifter shifter_;
+  Stretcher stretcher_;
 
-  unsigned int x_pos_ = 0;
-  unsigned int y_pos_ = 0;
+  //  unsigned int shift_side_ = 0;
+  //  unsigned int stretch_side_ = 0;
 
-  bool is_center_ = false;
+  //  unsigned int x_pos_ = 0;
+  //  unsigned int y_pos_ = 0;
+
+  //  bool is_center_ = false;
 };
 
 #endif  // GEOMETRY_COMPOSER_H
