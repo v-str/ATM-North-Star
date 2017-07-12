@@ -27,40 +27,18 @@ class GeometryComposer {
   void SetTransformationType(TransformationType type);
   void KeepCenter(bool is_center);
 
-  //  DeltaSize GetDeltaSize() const;
-  //  ConversionFactor ShiftFactor() const;
-  //  ConversionFactor StretchFactor() const;
-
  private:
   void ComputeShifting(const QRect& position);
   void ComputeStretching(const QRect& position);
 
   void SetModifiedPosition(int x, int y, int width, int height);
 
-  //  void LeftShiftProcessing();
-  //  void RightShiftProcessing();
-
-  //  void UpShiftProcessing();
-  //  void DownShiftProcessing();
-
-  //  DeltaSize delta_size_;
-
   TransformationType type_;
-  //  ConversionFactor stretch_factor_;
-  //  ConversionFactor shift_factor_;
 
   QRect modified_widget_geometry_;
 
   Shifter shifter_;
   Stretcher stretcher_;
-
-  //  unsigned int shift_side_ = 0;
-  //  unsigned int stretch_side_ = 0;
-
-  //  unsigned int x_pos_ = 0;
-  //  unsigned int y_pos_ = 0;
-
-  //  bool is_center_ = false;
 };
 
 #endif  // GEOMETRY_COMPOSER_H
