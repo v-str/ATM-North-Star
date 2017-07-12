@@ -39,7 +39,7 @@
 14. Develop TimeDateSizeComposer for mapping timedate widget and develop            | - |
     universal font resizer for font resize in any widget with scale accordingly     |   |
                                                                                     |   |
-15. Develop main atm widget interface                                               | - |
+15. Develop main atm widget interface                                               | + |
                                                                                     |   |
 16. Realize full screen showing both splash screen and main widget                  | + |
                                                                                     |   |
@@ -54,10 +54,10 @@
                                                                                     |   |
 21. Make initial frame                                                              | + |
                                                                                     |   |
-22. Develop Initial menu hierarchy, including frame composition and                 | - |
+22. Develop Initial menu hierarchy, including frame composition and                 | + |
     buttons stretching                                                              |   |
                                                                                     |   |
-23. Produce size composer for whole app                                             | - |
+23. Produce size composer for whole app                                             | + |
                                                                                     |   |
 24. Rename all "extras" on delta                                                    | + |
                                                                                     |   |
