@@ -18,6 +18,7 @@ class GeometryComposer {
   void ComposeGeometry(const QRect& initial_position, QWidget* widget);
 
   void SetDeltaSize(const DeltaSize& delta_size);
+  void SetParentGeometry(const QRect& parent_geometry);
 
   void SetShiftFactor(double x_shift_factor, double y_shift_factor);
   void SetShiftSide(unsigned int shift_side);
@@ -36,6 +37,7 @@ class GeometryComposer {
   TransformationType type_;
 
   QRect modified_widget_geometry_;
+  QRect parent_geometry_;
 
   Shifter shifter_;
   Stretcher stretcher_;

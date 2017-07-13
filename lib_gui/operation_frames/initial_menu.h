@@ -38,7 +38,6 @@ class InitialMenu : public QFrame {
   AtmColorDesigner* atm_color_designer_ = nullptr;
 
   DeltaSize delta_size_;
-
   VGroupComposer group_composer_;
 };
 

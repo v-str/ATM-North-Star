@@ -9,6 +9,10 @@ void GeometryComposer::SetDeltaSize(const DeltaSize& delta_size) {
   stretcher_.SetDeltaSize(delta_size);
 }
 
+void GeometryComposer::SetParentGeometry(const QRect& parent_geometry) {
+  parent_geometry_ = parent_geometry;
+}
+
 void GeometryComposer::ComposeGeometry(const QRect& initial_position,
                                        QWidget* widget) {
   switch (type_) {
