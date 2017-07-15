@@ -7,7 +7,7 @@ class QWidget;
 
 class WidgetBorderController {
  public:
-  void SetParentGeometry(const QRect& parent_geometry);
+  void SetBorderLimits(const QRect& parent_geometry);
   void ControlModifiableWidget(QWidget* widget);
 
   void SetBorderSpacing(int border_spacer);
@@ -17,16 +17,19 @@ class WidgetBorderController {
   QRect ParentGeometry() const;
 
  private:
-  void ControlUp();
-  void ControlDown();
-  void ControlLeft();
-  void ControlRight();
-
-  void SetModifiedX(int x);
-  void SetModifiedY(int y);
-
   QRect parent_geometry_;
   QRect modifiable_widget_geometry_;
+
+  void SetLimits(int widget_width, int widget_height);
+  void PerformSideControl();
+
+  int left_side_limit_ = 0;
+  int right_side_limit_ = 0;
+  int up_side_limit_ = 0;
+  int bottom_side_limit_ = 0;
+
+  int width_limit_ = 0;
+  int height_limit_ = 0;
 
   int border_spacer_ = 10;
 
