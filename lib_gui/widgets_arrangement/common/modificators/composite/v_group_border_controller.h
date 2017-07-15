@@ -14,8 +14,6 @@ class VGroupBorderController : public BorderController {
   void SetGroupInterval(int widget_interval);
 
  private:
-
-
   int group_interval_ = 10;
 };
 

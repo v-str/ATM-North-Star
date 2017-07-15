@@ -3,8 +3,8 @@
 #include <QRect>
 #include <QWidget>
 
-void BorderController::SetParentGeometry(const QRect& parent_size) {
-  parent_size_ = parent_size;
+void BorderController::SetParentGeometry(const QRect& parent_geometry) {
+  parent_geometry_ = parent_geometry;
 }
 
 void BorderController::ControlModifiableWidget(QWidget* widget) {
@@ -24,6 +24,8 @@ void BorderController::SetBorderSpacing(int border_spacer) {
 
 bool BorderController::IsBorderOverstepped() { return is_border_overstepped; }
 
+QRect BorderController::ParentGeometry() const { return parent_geometry_; }
+
 void BorderController::ControlUp() {
   int up_limit = border_spacing_;
 
@@ -36,7 +38,7 @@ void BorderController::ControlUp() {
 }
 
 void BorderController::ControlDown() {
-  int down_limit = parent_size_.height() -
+  int down_limit = parent_geometry_.height() -
                    modifiable_widget_position_.height() - border_spacing_;
 
   if (modifiable_widget_position_.y() > down_limit) {
@@ -59,8 +61,8 @@ void BorderController::ControlLeft() {
 }
 
 void BorderController::ControlRight() {
-  int right_limit = parent_size_.width() - modifiable_widget_position_.width() -
-                    border_spacing_;
+  int right_limit = parent_geometry_.width() -
+                    modifiable_widget_position_.width() - border_spacing_;
 
   if (modifiable_widget_position_.x() > right_limit) {
     is_border_overstepped = true;

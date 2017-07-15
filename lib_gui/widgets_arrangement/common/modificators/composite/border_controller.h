@@ -7,12 +7,14 @@ class QWidget;
 
 class BorderController {
  public:
-  void SetParentGeometry(const QRect& parent_size);
+  void SetParentGeometry(const QRect& parent_geometry);
   void ControlModifiableWidget(QWidget* widget);
 
   void SetBorderSpacing(int border_spacer);
 
   bool IsBorderOverstepped();
+
+  QRect ParentGeometry() const;
 
  private:
   void ControlUp();
@@ -23,7 +25,7 @@ class BorderController {
   void SetModifiedX(int x);
   void SetModifiedY(int y);
 
-  QRect parent_size_;
+  QRect parent_geometry_;
   QRect modifiable_widget_position_;
 
   int border_spacing_ = 10;
