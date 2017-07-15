@@ -10,6 +10,8 @@ class BorderController {
   void SetParentSize(const QRect& parent_size);
   void ControlModifiableWidget(QWidget* widget);
 
+  void SetBorderSpacing(int border_spacer);
+
  private:
   void ControlUp();
   void ControlDown();
@@ -19,7 +21,7 @@ class BorderController {
   QRect parent_size_;
   QRect modifiable_widget_position_;
 
-  static const int kBorderSpacer = 5;
+  int border_spacer_ = 5;
 };
 
 #endif  // BORDER_CONTROLLER_H
