@@ -5,7 +5,8 @@
 VGroupBorderController::VGroupBorderController()
     : group_geometry_(QRect{0, 0, 0, 0}) {}
 
-void VGroupBorderController::ControlGroup(QVector<QWidget*>& widget_vector) {}
+// void VGroupBorderController::ControlGroup(QVector<QWidget*>& widget_vector)
+// {}
 
 void VGroupBorderController::SetIntervalBetweenWidgets(
     int interval_between_widgets_pt) {

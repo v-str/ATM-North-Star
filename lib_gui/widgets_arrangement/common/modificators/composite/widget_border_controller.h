@@ -1,11 +1,11 @@
-﻿#ifndef BORDER_CONTROLLER_H
-#define BORDER_CONTROLLER_H
+﻿#ifndef WIDGET_BORDER_CONTROLLER_H
+#define WIDGET_BORDER_CONTROLLER_H
 
 #include <QRect>
 
 class QWidget;
 
-class BorderController {
+class WidgetBorderController {
  public:
   void SetParentGeometry(const QRect& parent_geometry);
   void ControlModifiableWidget(QWidget* widget);
@@ -26,11 +26,11 @@ class BorderController {
   void SetModifiedY(int y);
 
   QRect parent_geometry_;
-  QRect modifiable_widget_position_;
+  QRect modifiable_widget_geometry_;
 
   int border_spacing_ = 10;
 
   bool is_border_overstepped = false;
 };
 
-#endif  // BORDER_CONTROLLER_H
+#endif  // WIDGET_BORDER_CONTROLLER_H

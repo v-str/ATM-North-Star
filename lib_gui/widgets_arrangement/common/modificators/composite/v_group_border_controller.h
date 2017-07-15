@@ -3,15 +3,15 @@
 
 #include <QVector>
 
-#include <border_controller.h>
+#include <widget_border_controller.h>
 
 class QWidget;
 
-class VGroupBorderController : public BorderController {
+class VGroupBorderController : public WidgetBorderController {
  public:
   VGroupBorderController();
 
-  void ControlGroup(QVector<QWidget*>& widget_vector);
+  void ControlGroup(QVector<QWidget*> widget_vector);
 
   void SetIntervalBetweenWidgets(int interval_between_widgets_pt);
 

@@ -54,7 +54,7 @@ void InitialMenu::SetResizeProperties() {
   group_composer_.SetWidgetInterval(InitialFrameGeometry::WidgetInterval());
   group_composer_.SetShiftFactor(3.8, 3.8);
   group_composer_.SetShiftSide(Side::kRight | Side::kDown);
-  group_composer_.SetStretchFactor(0.8, 0.8);
+  group_composer_.SetStretchFactor(3.8, 3.8);
   group_composer_.SetStretchSide(Side::kRight | Side::kDown);
   group_composer_.SetTransformationType(GeometryComposer::kScale);
   group_composer_.KeepCenter(true);
@@ -68,6 +68,4 @@ void InitialMenu::resizeEvent(QResizeEvent*) {
       QVector<QWidget*>{sign_in_button_, registration_button_, demo_button_});
 
   border_controller_.ControlModifiableWidget(sign_in_button_);
-  border_controller_.ControlModifiableWidget(registration_button_);
-  border_controller_.ControlModifiableWidget(demo_button_);
 }
