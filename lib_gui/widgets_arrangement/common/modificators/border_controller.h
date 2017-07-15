@@ -18,6 +18,8 @@ class BorderController {
 
   QPoint parent_size_;
   QPoint modifiable_widget_position_;
+
+  static const int kBorderSpacer = 5;
 };
 
 #endif  // BORDER_CONTROLLER_H
