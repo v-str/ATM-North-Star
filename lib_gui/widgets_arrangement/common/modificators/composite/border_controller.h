@@ -20,6 +20,11 @@ class BorderController {
   void ControlLeft();
   void ControlRight();
 
+  void SetModifiedX(int x);
+  void SetModifiedY(int y);
+  void SetModifiedWidth(int width);
+  void SetModifiedHeight(int height);
+
   QRect parent_size_;
   QRect modifiable_widget_position_;
 
