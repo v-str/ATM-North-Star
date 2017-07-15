@@ -12,6 +12,8 @@ class BorderController {
 
   void SetBorderSpacing(int border_spacer);
 
+  bool IsBorderOverstepped();
+
  private:
   void ControlUp();
   void ControlDown();
@@ -22,6 +24,8 @@ class BorderController {
   QRect modifiable_widget_position_;
 
   int border_spacing_ = 10;
+
+  bool is_border_overstepped = false;
 };
 
 #endif  // BORDER_CONTROLLER_H

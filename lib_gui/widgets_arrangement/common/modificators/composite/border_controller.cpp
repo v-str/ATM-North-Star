@@ -22,14 +22,19 @@ void BorderController::SetBorderSpacing(int border_spacer) {
   border_spacing_ = border_spacer;
 }
 
+bool BorderController::IsBorderOverstepped() { return is_border_overstepped; }
+
 void BorderController::ControlUp() {
   int up_limit = border_spacing_;
 
   if (modifiable_widget_position_.y() < up_limit) {
+    is_border_overstepped = true;
     modifiable_widget_position_ =
         QRect(modifiable_widget_position_.x(), up_limit,
               modifiable_widget_position_.width(),
               modifiable_widget_position_.height());
+  } else {
+    is_border_overstepped = false;
   }
 }
 
@@ -38,10 +43,13 @@ void BorderController::ControlDown() {
                    modifiable_widget_position_.height() - border_spacing_;
 
   if (modifiable_widget_position_.y() > down_limit) {
+    is_border_overstepped = true;
     modifiable_widget_position_ =
         QRect(modifiable_widget_position_.x(), down_limit,
               modifiable_widget_position_.width(),
               modifiable_widget_position_.height());
+  } else {
+    is_border_overstepped = false;
   }
 }
 
@@ -49,10 +57,13 @@ void BorderController::ControlLeft() {
   int left_limit = border_spacing_;
 
   if (modifiable_widget_position_.x() < left_limit) {
+    is_border_overstepped = true;
     modifiable_widget_position_ =
         QRect(left_limit, modifiable_widget_position_.y(),
               modifiable_widget_position_.width(),
               modifiable_widget_position_.height());
+  } else {
+    is_border_overstepped = false;
   }
 }
 
@@ -61,9 +72,12 @@ void BorderController::ControlRight() {
                     border_spacing_;
 
   if (modifiable_widget_position_.x() > right_limit) {
+    is_border_overstepped = true;
     modifiable_widget_position_ =
         QRect(right_limit, modifiable_widget_position_.y(),
               modifiable_widget_position_.width(),
               modifiable_widget_position_.height());
+  } else {
+    is_border_overstepped = false;
   }
 }
