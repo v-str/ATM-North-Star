@@ -7,7 +7,7 @@
 
 class QWidget;
 
-class GroupBorderController : public BorderController {
+class VGroupBorderController : public BorderController {
  public:
   void ControlGroup(QVector<QWidget*>& widget_vector);
 
