@@ -28,7 +28,7 @@ class WidgetBorderController {
   QRect parent_geometry_;
   QRect modifiable_widget_geometry_;
 
-  int border_spacing_ = 10;
+  int border_spacer_ = 10;
 
   bool is_border_overstepped = false;
 };

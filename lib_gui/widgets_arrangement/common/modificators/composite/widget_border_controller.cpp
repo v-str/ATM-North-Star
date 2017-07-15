@@ -19,7 +19,7 @@ void WidgetBorderController::ControlModifiableWidget(QWidget* widget) {
 }
 
 void WidgetBorderController::SetBorderSpacing(int border_spacer) {
-  border_spacing_ = border_spacer;
+  border_spacer_ = border_spacer;
 }
 
 bool WidgetBorderController::IsBorderOverstepped() { return is_border_overstepped; }
@@ -27,7 +27,7 @@ bool WidgetBorderController::IsBorderOverstepped() { return is_border_oversteppe
 QRect WidgetBorderController::ParentGeometry() const { return parent_geometry_; }
 
 void WidgetBorderController::ControlUp() {
-  int up_limit = border_spacing_;
+  int up_limit = border_spacer_;
 
   if (modifiable_widget_geometry_.y() < up_limit) {
     is_border_overstepped = true;
@@ -39,7 +39,7 @@ void WidgetBorderController::ControlUp() {
 
 void WidgetBorderController::ControlDown() {
   int down_limit = parent_geometry_.height() -
-                   modifiable_widget_geometry_.height() - border_spacing_;
+                   modifiable_widget_geometry_.height() - border_spacer_;
 
   if (modifiable_widget_geometry_.y() > down_limit) {
     is_border_overstepped = true;
@@ -50,7 +50,7 @@ void WidgetBorderController::ControlDown() {
 }
 
 void WidgetBorderController::ControlLeft() {
-  int left_limit = border_spacing_;
+  int left_limit = border_spacer_;
 
   if (modifiable_widget_geometry_.x() < left_limit) {
     is_border_overstepped = true;
@@ -62,7 +62,7 @@ void WidgetBorderController::ControlLeft() {
 
 void WidgetBorderController::ControlRight() {
   int right_limit = parent_geometry_.width() -
-                    modifiable_widget_geometry_.width() - border_spacing_;
+                    modifiable_widget_geometry_.width() - border_spacer_;
 
   if (modifiable_widget_geometry_.x() > right_limit) {
     is_border_overstepped = true;
