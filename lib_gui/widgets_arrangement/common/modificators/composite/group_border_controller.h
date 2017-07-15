@@ -9,19 +9,11 @@ class QWidget;
 
 class GroupBorderController : public BorderController {
  public:
-  enum GroupMode { kVertical, kHorizontal };
-
-  void SetGroupMode(GroupMode group_mode);
-
   void ControlGroup(QVector<QWidget*>& widget_vector);
 
   void SetWidgetInterval(int widget_interval);
 
  private:
-  void ControlGroupHead(QWidget* widget);
-
-  GroupMode group_mode_;
-
   int widget_interval_ = 10;
 };
 
