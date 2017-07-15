@@ -21,10 +21,6 @@ void WidgetBorderController::SetBorderSpacing(int border_spacer) {
   border_spacer_ = border_spacer;
 }
 
-bool WidgetBorderController::IsBorderOverstepped() {
-  return is_border_overstepped;
-}
-
 QRect WidgetBorderController::ParentGeometry() const {
   return parent_geometry_;
 }
