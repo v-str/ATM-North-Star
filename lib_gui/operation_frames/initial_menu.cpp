@@ -13,6 +13,8 @@
 #include <initial_frame_geometry.h>
 #include <side.h>
 
+#include <QDebug>
+
 InitialMenu::InitialMenu(QWidget* parent)
     : QFrame(parent),
       sign_in_button_(new AtmButton("Sign-in", AtmButton::kRight, this)),
@@ -51,7 +53,7 @@ void InitialMenu::SetResizeProperties() {
                      InitialFrameGeometry::DemoButton()});
   group_composer_.SetWidgetInterval(InitialFrameGeometry::WidgetInterval());
 
-  group_composer_.SetShiftFactor(0.5, 0.25);
+  group_composer_.SetShiftFactor(1.8, 0.25);
   group_composer_.SetShiftSide(Side::kRight | Side::kDown);
 
   group_composer_.SetStretchFactor(0.2, 0.2);
@@ -65,6 +67,27 @@ void InitialMenu::SetResizeProperties() {
 void InitialMenu::resizeEvent(QResizeEvent*) {
   group_composer_.SetDeltaSize(delta_size_);
 
+  int x = geometry().x();
+  int y = geometry().y();
+  int width = geometry().width();
+  int height = geometry().height();
+
+  qDebug() << "x = " << x << "; y = " << y << "; w = " << width
+           << "; h = " << height << "\n";
+
   group_composer_.ScaleVGroup(
       QVector<QWidget*>{sign_in_button_, registration_button_, demo_button_});
+
+  int button_x = sign_in_button_->geometry().x();
+  int button_y = sign_in_button_->geometry().y();
+  int button_w = sign_in_button_->geometry().width();
+  int button_h = sign_in_button_->geometry().height();
+
+  qDebug() << "B(x) = " << button_x << "; B(y) = " << button_y
+           << "; B(w) = " << button_w << "; B(h) = " << button_h << "\n";
+
+  if (button_x > (width - button_w)) {
+    QRect rect = QRect(width - button_w - 10, button_h, button_w, button_h);
+    sign_in_button_->setGeometry(rect);
+  }
 }
