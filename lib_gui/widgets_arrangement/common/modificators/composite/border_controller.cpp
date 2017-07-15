@@ -29,7 +29,7 @@ void BorderController::ControlUp() {
 
   if (modifiable_widget_position_.y() < up_limit) {
     is_border_overstepped = true;
-    SetModifiedHeight(up_limit);
+    SetModifiedY(up_limit);
   } else {
     is_border_overstepped = false;
   }
@@ -41,7 +41,7 @@ void BorderController::ControlDown() {
 
   if (modifiable_widget_position_.y() > down_limit) {
     is_border_overstepped = true;
-    SetModifiedHeight(down_limit);
+    SetModifiedY(down_limit);
   } else {
     is_border_overstepped = false;
   }
@@ -52,7 +52,7 @@ void BorderController::ControlLeft() {
 
   if (modifiable_widget_position_.x() < left_limit) {
     is_border_overstepped = true;
-    SetModifiedWidth(left_limit);
+    SetModifiedX(left_limit);
   } else {
     is_border_overstepped = false;
   }
@@ -64,16 +64,20 @@ void BorderController::ControlRight() {
 
   if (modifiable_widget_position_.x() > right_limit) {
     is_border_overstepped = true;
-    SetModifiedWidth(right_limit);
+    SetModifiedX(right_limit);
   } else {
     is_border_overstepped = false;
   }
 }
 
-void BorderController::SetModifiedWidth(int width) {
-  modifiable_widget_position_.setWidth(width);
+void BorderController::SetModifiedX(int x) {
+  modifiable_widget_position_ = QRect(x, modifiable_widget_position_.y(),
+                                      modifiable_widget_position_.width(),
+                                      modifiable_widget_position_.height());
 }
 
-void BorderController::SetModifiedHeight(int height) {
-  modifiable_widget_position_.setHeight(height);
+void BorderController::SetModifiedY(int y) {
+  modifiable_widget_position_ = QRect(modifiable_widget_position_.x(), y,
+                                      modifiable_widget_position_.width(),
+                                      modifiable_widget_position_.height());
 }
