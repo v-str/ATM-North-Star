@@ -4,6 +4,6 @@
 
 void VGroupBorderController::ControlGroup(QVector<QWidget*>& widget_vector) {}
 
-void VGroupBorderController::SetWidgetInterval(int widget_interval) {
-  widget_interval_ = widget_interval;
+void VGroupBorderController::SetGroupInterval(int widget_interval) {
+  group_interval_ = widget_interval;
 }
