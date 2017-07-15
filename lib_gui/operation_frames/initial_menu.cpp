@@ -3,6 +3,7 @@
 #include <QList>
 #include <QPushButton>
 #include <QString>
+#include <QVector>
 #include <QWidget>
 
 #include <application_color.h>
@@ -11,6 +12,8 @@
 #include <conversion_factor.h>
 #include <initial_frame_geometry.h>
 #include <side.h>
+
+#include <QDebug>
 
 InitialMenu::InitialMenu(QWidget* parent)
     : QFrame(parent),
@@ -39,27 +42,32 @@ void InitialMenu::SetInitialSetting() {
   sign_in_button_->setGeometry(InitialFrameGeometry::SignInButton());
   registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
   demo_button_->setGeometry(InitialFrameGeometry::DemoButton());
+
+  SetResizeProperties();
 }
 
-void InitialMenu::SetResizeGeometry() {
-  composer_.SetShiftFactor(0.5, 0.5);
-  composer_.SetShiftSide(Side::kRight);
-
-  composer_.SetStretchFactor(0.5, 0.5);
-  composer_.SetStretchSide(Side::kLeft);
+void InitialMenu::SetResizeProperties() {
+  group_composer_.SetInitialGroupGeometry(
+      QVector<QRect>{InitialFrameGeometry::SignInButton(),
+                     InitialFrameGeometry::RegistrationButton(),
+                     InitialFrameGeometry::DemoButton()});
+  group_composer_.SetWidgetInterval(InitialFrameGeometry::WidgetInterval());
+  group_composer_.SetShiftFactor(3.8, 3.8);
+  group_composer_.SetShiftSide(Side::kRight | Side::kDown);
+  group_composer_.SetStretchFactor(0.8, 0.8);
+  group_composer_.SetStretchSide(Side::kRight | Side::kDown);
+  group_composer_.SetTransformationType(GeometryComposer::kScale);
+  group_composer_.KeepCenter(true);
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
-  composer_.SetDeltaSize(delta_size_);
+  group_composer_.SetDeltaSize(delta_size_);
+  border_controller_.SetParentGeometry(geometry());
 
-  SetResizeGeometry();
-  composer_.ComposeGeometry(InitialFrameGeometry::RegistrationButton(),
-                            registration_button_);
+  group_composer_.ScaleVGroup(
+      QVector<QWidget*>{sign_in_button_, registration_button_, demo_button_});
 
-  composer_.ComposeGeometry(
-      ConversionFactor(0.5, 0.5), InitialFrameGeometry::SignInButton(),
-      GeometryComposer::kShift, Side::kRight | Side::kDown, sign_in_button_);
-  composer_.ComposeGeometry(
-      ConversionFactor(0.5, 0.5), InitialFrameGeometry::DemoButton(),
-      GeometryComposer::kShift, Side::kRight | Side::kDown, demo_button_);
+  border_controller_.ControlModifiableWidget(sign_in_button_);
+  border_controller_.ControlModifiableWidget(registration_button_);
+  border_controller_.ControlModifiableWidget(demo_button_);
 }

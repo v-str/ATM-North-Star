@@ -14,41 +14,49 @@ QMAKE_CXXFLAGS += -std=c++11
 QMAKE_CXX = ccache clang++
 
 DEPENDPATH += \
-    ../atm_widgets \
+    ../widgets_arrangement/common/modificators/primitive \
+    ../widgets_arrangement/common/modificators/composite \
+    ../widgets_arrangement/common/widgets_geometries/ \
+    ../widgets_arrangement/splash_screen \
     ../widgets_appearance \
     ../operation_frames \
+    ../atm_widgets \
     ../subwidgets \
-    ../widgets_arrangement/common \
-    ../widgets_arrangement/splash_screen \
     ../features \
     ../images \
     ../sounds \
 
 INCLUDEPATH += \
-    $$PWD/atm_widgets \
+    $$PWD/widgets_arrangement/common/modificators/primitive \
+    $$PWD/widgets_arrangement/common/modificators/composite \
+    $$PWD/widgets_arrangement/common/widgets_geometries \
+    $$PWD/widgets_arrangement/splash_screen \
     $$PWD/widgets_appearance \
     $$PWD/operation_frames \
+    $$PWD/atm_widgets \
     $$PWD/subwidgets \
-    $$PWD/widgets_arrangement/common \
-    $$PWD/widgets_arrangement/splash_screen \
     $$PWD/features \
 
 HEADERS += \
-    $$PWD/atm_widgets/*.h \
+    $$PWD/widgets_arrangement/common/modificators/primitive/*.h \
+    $$PWD/widgets_arrangement/common/modificators/composite/*.h \
+    $$PWD/widgets_arrangement/common/widgets_geometries/*.h \
+    $$PWD/widgets_arrangement/splash_screen/*.h \
     $$PWD/widgets_appearance/*.h \
     $$PWD/operation_frames/*.h \
+    $$PWD/atm_widgets/*.h \
     $$PWD/subwidgets/*.h \
-    $$PWD/widgets_arrangement/common/*.h \
-    $$PWD/widgets_arrangement/splash_screen/*.h \
     $$PWD/features/*.h \
 
 SOURCES += \
-    $$PWD/atm_widgets/*.cpp \
+    $$PWD/widgets_arrangement/common/modificators/primitive/*.cpp \
+    $$PWD/widgets_arrangement/common/modificators/composite/*.cpp \
+    $$PWD/widgets_arrangement/common/widgets_geometries/*.cpp \
+    $$PWD/widgets_arrangement/splash_screen/*.cpp \
     $$PWD/widgets_appearance/*.cpp \
     $$PWD/operation_frames/*.cpp \
+    $$PWD/atm_widgets/*.cpp \
     $$PWD/subwidgets/*.cpp \
-    $$PWD/widgets_arrangement/common/*.cpp \
-    $$PWD/widgets_arrangement/splash_screen/*.cpp \
     $$PWD/features/*.cpp \
 
 FORMS += \

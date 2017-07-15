@@ -10,14 +10,14 @@
 #include <QResizeEvent>
 #include <QTimer>
 
+#include <geometry.h>
+#include <initial_frame_geometry.h>
 #include <initial_menu.h>
 #include <initial_property_installer.h>
+#include <main_widget_geometry.h>
 #include <painter.h>
+#include <side.h>
 #include <timedate_changer.h>
-
-QRect AtmMainWidget::kTimeLabel = {470, 5, 114, 20};
-QRect AtmMainWidget::kMainFrame = {5, 5, 590, 390};
-QRect AtmMainWidget::kInitialFrame = {5, 30, 580, 355};
 
 AtmMainWidget::AtmMainWidget(QWidget* parent)
     : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
@@ -76,7 +76,7 @@ void AtmMainWidget::SetInitialSettings() {
   SetBackgroundColor();
   SetImages();
 
-  initial_menu_->setGeometry(kInitialFrame);
+  initial_menu_->setGeometry(InitialFrameGeometry::InitialFrame());
 }
 
 void AtmMainWidget::SetWidgetProperties() {
@@ -86,19 +86,22 @@ void AtmMainWidget::SetWidgetProperties() {
 }
 
 void AtmMainWidget::SetFrameArrangement() {
-  ui->main_frame->setGeometry(kMainFrame.x(), kMainFrame.y(),
-                              kMainFrame.width() + delta_size_.Width(),
-                              kMainFrame.height() + delta_size_.Height());
+  composer_.SetStretchFactor(1.0, 1.0);
+  composer_.SetStretchSide(Side::kRight | Side::kDown);
+  composer_.SetTransformationType(GeometryComposer::kStretch);
 
-  initial_menu_->setGeometry(kInitialFrame.x(), kInitialFrame.y(),
-                             kInitialFrame.width() + delta_size_.Width(),
-                             kInitialFrame.height() + delta_size_.Height());
+  composer_.ComposeGeometry(MainWidgetGeometry::MainFrame(), ui->main_frame);
+
+  composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(),
+                            initial_menu_);
 }
 
 void AtmMainWidget::SetTimeLabelArrangement() {
-  ui->time_label->setGeometry(kTimeLabel.x() + delta_size_.Width(),
-                              kTimeLabel.y(), kTimeLabel.width(),
-                              kTimeLabel.height());
+  composer_.SetShiftFactor(1.0, 1.0);
+  composer_.SetShiftSide(Side::kRight);
+  composer_.SetTransformationType(GeometryComposer::kShift);
+
+  composer_.ComposeGeometry(MainWidgetGeometry::TimeLabel(), ui->time_label);
 }
 
 void AtmMainWidget::RunTimers() { time_timer_->start(1000); }
@@ -107,7 +110,6 @@ void AtmMainWidget::PaintWidgets() {
   QList<QFrame*> frame_list = {ui->main_frame};
   QList<QPushButton*> button_list = {ui->exit_button, ui->minimize_button,
                                      ui->maximize_button};
-
   QList<QLabel*> label_list = {ui->time_label};
 
   color_designer_.PaintWidgetSet(frame_list);
@@ -121,8 +123,9 @@ void AtmMainWidget::InitializeObject() {
 }
 
 void AtmMainWidget::ComputeExtraSize() {
-  delta_size_.SetWidth(width() - kWidth);
-  delta_size_.SetHeight(height() - kHeight);
+  int delta_width = width() - Geometry::InitialScreenWidth();
+  int delta_height = height() - Geometry::InitialScreenHeight();
 
-  initial_menu_->SetDeltaSize(delta_size_);
+  composer_.SetDeltaSize(DeltaSize(delta_width, delta_height));
+  initial_menu_->SetDeltaSize(DeltaSize(delta_width, delta_height));
 }

@@ -7,16 +7,16 @@ QMAKE_CXXFLAGS += -std=c++11
 QMAKE_CXX = ccache clang++
 
 INCLUDEPATH += \
-    $$PWD/messengers \
     $$PWD/output_configuration \
+    $$PWD/messengers \
 
 HEADERS += \
-    $$PWD/messengers/*.h \
     $$PWD/output_configuration/*.h \
+    $$PWD/messengers/*.h \
 
 SOURCES += \
-    $$PWD/messengers/*.cpp \
     $$PWD/output_configuration/*.cpp \
+    $$PWD/messengers/*.cpp \
 
 
 

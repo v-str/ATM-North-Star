@@ -23,11 +23,14 @@ class AtmButton : public QPushButton {
   void SetXHoverOffset(int x_offset = 5);
   void SetYHoverOffset(int y_offset = 5);
 
+  void SetDivideCoefficient(unsigned int divide_coefficient);
+
   ~AtmButton();
 
  protected:
   void enterEvent(QEvent*);
   void leaveEvent(QEvent*);
+  void resizeEvent(QResizeEvent* event);
 
  private:
   void OffsetButton();
@@ -36,9 +39,13 @@ class AtmButton : public QPushButton {
   int x_offset_ = 5;
   int y_offset_ = 5;
 
-  unsigned int offset_side_;
+  unsigned int offset_side_ = 0;
+  unsigned int grows_coefficient_ = 0;
+  unsigned int divide_coefficient_ = 40;
 
   bool is_focus_ = false;
+
+  static const int kInitialFontSize = 11;
 };
 
 #endif  // ATM_BUTTON_H
