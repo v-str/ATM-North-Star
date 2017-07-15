@@ -11,7 +11,13 @@ class BorderController {
   void ControlModifiableWidget(QWidget* widget);
 
  private:
+  void ControlUp();
+  void ControlDown();
+  void ControlLeft();
+  void ControlRight();
+
   QPoint parent_size_;
+  QPoint modifiable_widget_position_;
 };
 
 #endif  // BORDER_CONTROLLER_H
