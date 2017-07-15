@@ -18,6 +18,8 @@ class GroupBorderController : public BorderController {
   void SetWidgetInterval(int widget_interval);
 
  private:
+  void ControlGroupHead(QWidget* widget);
+
   GroupMode group_mode_;
 
   int widget_interval_ = 10;

@@ -8,7 +8,7 @@ void GroupBorderController::SetGroupMode(
 }
 
 void GroupBorderController::ControlGroup(QVector<QWidget*>& widget_vector) {
-  // Control head of group
+  ControlGroupHead(widget_vector[0]);
   // if (IsBorderOverstepped()) {
   // control body of the group
   // switch (group_mode) {
@@ -20,4 +20,8 @@ void GroupBorderController::ControlGroup(QVector<QWidget*>& widget_vector) {
 
 void GroupBorderController::SetWidgetInterval(int widget_interval) {
   widget_interval_ = widget_interval;
+}
+
+void GroupBorderController::ControlGroupHead(QWidget* widget) {
+  ControlModifiableWidget(widget);
 }
