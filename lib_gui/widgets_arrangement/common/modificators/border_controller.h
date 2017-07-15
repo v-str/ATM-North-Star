@@ -21,7 +21,7 @@ class BorderController {
   QRect parent_size_;
   QRect modifiable_widget_position_;
 
-  int border_spacer_ = 10;
+  int border_spacing_ = 10;
 };
 
 #endif  // BORDER_CONTROLLER_H
