@@ -5,8 +5,8 @@
 #include <QObject>
 #include <QRect>
 
+#include <border_controller.h>
 #include <delta_size.h>
-
 #include <v_group_composer.h>
 
 class QWidget;
@@ -38,6 +38,7 @@ class InitialMenu : public QFrame {
   AtmColorDesigner* atm_color_designer_ = nullptr;
 
   DeltaSize delta_size_;
+  BorderController border_controller_;
   VGroupComposer group_composer_;
 };
 

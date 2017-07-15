@@ -3,7 +3,7 @@
 #include <QRect>
 #include <QWidget>
 
-void BorderController::SetParentSize(const QRect& parent_size) {
+void BorderController::SetParentGeometry(const QRect& parent_size) {
   parent_size_ = parent_size;
 }
 
@@ -54,6 +54,9 @@ void BorderController::ControlRight() {
                     border_spacer_;
 
   if (modifiable_widget_position_.x() > right_limit) {
-    modifiable_widget_position_.setX(right_limit);
+    modifiable_widget_position_ =
+        QRect(right_limit, modifiable_widget_position_.y(),
+              modifiable_widget_position_.width(),
+              modifiable_widget_position_.height());
   }
 }

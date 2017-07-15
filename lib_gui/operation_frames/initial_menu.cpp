@@ -53,10 +53,10 @@ void InitialMenu::SetResizeProperties() {
                      InitialFrameGeometry::DemoButton()});
   group_composer_.SetWidgetInterval(InitialFrameGeometry::WidgetInterval());
 
-  group_composer_.SetShiftFactor(1.8, 0.25);
+  group_composer_.SetShiftFactor(3.8, 0.25);
   group_composer_.SetShiftSide(Side::kRight | Side::kDown);
 
-  group_composer_.SetStretchFactor(0.2, 0.2);
+  group_composer_.SetStretchFactor(0.8, 0.2);
   group_composer_.SetStretchSide(Side::kDown | Side::kRight);
 
   group_composer_.SetTransformationType(GeometryComposer::kScale);
@@ -66,6 +66,7 @@ void InitialMenu::SetResizeProperties() {
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
   group_composer_.SetDeltaSize(delta_size_);
+  border_controller_.SetParentGeometry(geometry());
 
   int x = geometry().x();
   int y = geometry().y();
@@ -86,8 +87,11 @@ void InitialMenu::resizeEvent(QResizeEvent*) {
   qDebug() << "B(x) = " << button_x << "; B(y) = " << button_y
            << "; B(w) = " << button_w << "; B(h) = " << button_h << "\n";
 
-  if (button_x > (width - button_w)) {
-    QRect rect = QRect(width - button_w - 10, button_h, button_w, button_h);
-    sign_in_button_->setGeometry(rect);
-  }
+  //  if (button_x > (width - button_w)) {
+  //    QRect rect = QRect(width - button_w - 10, button_y, button_w, button_h);
+  //    sign_in_button_->setGeometry(rect);
+  //  }
+  border_controller_.ControlModifiableWidget(sign_in_button_);
+  border_controller_.ControlModifiableWidget(registration_button_);
+  border_controller_.ControlModifiableWidget(demo_button_);
 }
