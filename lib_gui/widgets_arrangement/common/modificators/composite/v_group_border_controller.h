@@ -13,12 +13,12 @@ class VGroupBorderController : public BorderController {
 
   void ControlGroup(QVector<QWidget*>& widget_vector);
 
-  void SetGroupInterval(int widget_interval);
+  void SetIntervalBetweenWidgets(int interval_between_widgets_pt);
 
  private:
   QRect group_geometry_;
 
-  int group_interval_ = 10;
+  int interval_between_widgets_pt_ = 10;
 };
 
 #endif  // GROUP_BORDER_CONTROLLER_H

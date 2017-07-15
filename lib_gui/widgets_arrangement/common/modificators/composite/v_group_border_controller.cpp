@@ -7,6 +7,7 @@ VGroupBorderController::VGroupBorderController()
 
 void VGroupBorderController::ControlGroup(QVector<QWidget*>& widget_vector) {}
 
-void VGroupBorderController::SetGroupInterval(int widget_interval) {
-  group_interval_ = widget_interval;
+void VGroupBorderController::SetIntervalBetweenWidgets(
+    int interval_between_widgets_pt) {
+  interval_between_widgets_pt_ = interval_between_widgets_pt;
 }
