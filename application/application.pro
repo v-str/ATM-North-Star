@@ -7,8 +7,9 @@ CONFIG += console c++11
 QMAKE_CXX = ccache clang++
 
 DEPENDPATH += \
+    ../lib_gui/widgets_arrangement/common/modificators/primitive \
+    ../lib_gui/widgets_arrangement/common/modificators/composite \
     ../lib_gui/widgets_arrangement/common/widgets_geometries \
-    ../lib_gui/widgets_arrangement/common/modificators \
     ../lib_gui/widgets_arrangement/splash_screen \
     ../lib_console/output_configuration \
     ../atm/incoming_data_processing \
@@ -19,8 +20,9 @@ DEPENDPATH += \
     ../atm/atm_machine \
 
 INCLUDEPATH += \
+    ../lib_gui/widgets_arrangement/common/modificators/primitive \
+    ../lib_gui/widgets_arrangement/common/modificators/composite \
     ../lib_gui/widgets_arrangement/common/widgets_geometries \
-    ../lib_gui/widgets_arrangement/common/modificators \
     ../lib_gui/widgets_arrangement/splash_screen \
     ../lib_console/output_configuration \
     ../atm/incoming_data_processing \

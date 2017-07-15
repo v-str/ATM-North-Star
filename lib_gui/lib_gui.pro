@@ -14,8 +14,9 @@ QMAKE_CXXFLAGS += -std=c++11
 QMAKE_CXX = ccache clang++
 
 DEPENDPATH += \
-    ../widgets_arrangement/common/widgets_geometries \
-    ../widgets_arrangement/common/modificators \
+    ../widgets_arrangement/common/modificators/primitive \
+    ../widgets_arrangement/common/modificators/composite \
+    ../widgets_arrangement/common/widgets_geometries/ \
     ../widgets_arrangement/splash_screen \
     ../widgets_appearance \
     ../operation_frames \
@@ -26,8 +27,9 @@ DEPENDPATH += \
     ../sounds \
 
 INCLUDEPATH += \
+    $$PWD/widgets_arrangement/common/modificators/primitive \
+    $$PWD/widgets_arrangement/common/modificators/composite \
     $$PWD/widgets_arrangement/common/widgets_geometries \
-    $$PWD/widgets_arrangement/common/modificators \
     $$PWD/widgets_arrangement/splash_screen \
     $$PWD/widgets_appearance \
     $$PWD/operation_frames \
@@ -36,8 +38,9 @@ INCLUDEPATH += \
     $$PWD/features \
 
 HEADERS += \
+    $$PWD/widgets_arrangement/common/modificators/primitive/*.h \
+    $$PWD/widgets_arrangement/common/modificators/composite/*.h \
     $$PWD/widgets_arrangement/common/widgets_geometries/*.h \
-    $$PWD/widgets_arrangement/common/modificators/*.h \
     $$PWD/widgets_arrangement/splash_screen/*.h \
     $$PWD/widgets_appearance/*.h \
     $$PWD/operation_frames/*.h \
@@ -46,8 +49,9 @@ HEADERS += \
     $$PWD/features/*.h \
 
 SOURCES += \
+    $$PWD/widgets_arrangement/common/modificators/primitive/*.cpp \
+    $$PWD/widgets_arrangement/common/modificators/composite/*.cpp \
     $$PWD/widgets_arrangement/common/widgets_geometries/*.cpp \
-    $$PWD/widgets_arrangement/common/modificators/*.cpp \
     $$PWD/widgets_arrangement/splash_screen/*.cpp \
     $$PWD/widgets_appearance/*.cpp \
     $$PWD/operation_frames/*.cpp \
