@@ -9,11 +9,15 @@ class QWidget;
 
 class VGroupBorderController : public BorderController {
  public:
+  VGroupBorderController();
+
   void ControlGroup(QVector<QWidget*>& widget_vector);
 
   void SetGroupInterval(int widget_interval);
 
  private:
+  QRect group_geometry_;
+
   int group_interval_ = 10;
 };
 

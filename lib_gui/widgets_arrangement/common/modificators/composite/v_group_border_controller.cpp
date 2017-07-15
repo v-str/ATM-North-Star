@@ -2,6 +2,9 @@
 
 #include <QWidget>
 
+VGroupBorderController::VGroupBorderController()
+    : group_geometry_(QRect{0, 0, 0, 0}) {}
+
 void VGroupBorderController::ControlGroup(QVector<QWidget*>& widget_vector) {}
 
 void VGroupBorderController::SetGroupInterval(int widget_interval) {
