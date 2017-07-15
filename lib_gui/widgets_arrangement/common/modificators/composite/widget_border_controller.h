@@ -3,6 +3,8 @@
 
 #include <QRect>
 
+#include <widget_geometry_limiter.h>
+
 class QWidget;
 
 class WidgetBorderController {
@@ -23,13 +25,7 @@ class WidgetBorderController {
   void SetLimits(int widget_width, int widget_height);
   void PerformSideControl();
 
-  int left_side_limit_ = 0;
-  int right_side_limit_ = 0;
-  int up_side_limit_ = 0;
-  int bottom_side_limit_ = 0;
-
-  int width_limit_ = 0;
-  int height_limit_ = 0;
+  WidgetGeometryLimiter geometry_limiter_;
 
   int border_spacer_ = 10;
 

@@ -30,15 +30,16 @@ QRect WidgetBorderController::ParentGeometry() const {
 }
 
 void WidgetBorderController::SetLimits(int widget_width, int widget_height) {
-  left_side_limit_ = border_spacer_;
-  up_side_limit_ = border_spacer_;
-
-  right_side_limit_ = parent_geometry_.width() - border_spacer_ - widget_width;
-  bottom_side_limit_ =
-      parent_geometry_.height() - border_spacer_ - widget_height;
-
-  width_limit_ = parent_geometry_.width() - (2 * border_spacer_);
-  height_limit_ = parent_geometry_.height() - (2 * border_spacer_);
+  geometry_limiter_.SetLeftSideLimit(border_spacer_);
+  geometry_limiter_.SetUpSideLimit(border_spacer_);
+  geometry_limiter_.SetRightSideLimit(parent_geometry_.width() -
+                                      border_spacer_ - widget_width);
+  geometry_limiter_.SetBottomSideLimit(parent_geometry_.height() -
+                                       border_spacer_ - widget_height);
+  geometry_limiter_.SetLimitWidth(parent_geometry_.width() -
+                                  (2 * border_spacer_));
+  geometry_limiter_.SetLimitHeight(parent_geometry_.height() -
+                                   (2 * border_spacer_));
 }
 
 void WidgetBorderController::PerformSideControl() {
@@ -47,25 +48,25 @@ void WidgetBorderController::PerformSideControl() {
   int width = modifiable_widget_geometry_.width();
   int height = modifiable_widget_geometry_.height();
 
-  if (x < left_side_limit_) {
-    x = left_side_limit_;
+  if (x < geometry_limiter_.LeftSideLimit()) {
+    x = geometry_limiter_.LeftSideLimit();
   }
-  if (x > right_side_limit_) {
-    x = right_side_limit_;
+  if (x > geometry_limiter_.RightSIdeLimit()) {
+    x = geometry_limiter_.RightSIdeLimit();
   }
-  if (y < up_side_limit_) {
-    y = up_side_limit_;
+  if (y < geometry_limiter_.UpSideLimit()) {
+    y = geometry_limiter_.UpSideLimit();
   }
-  if (y > bottom_side_limit_) {
-    y = bottom_side_limit_;
+  if (y > geometry_limiter_.BottomSideLimit()) {
+    y = geometry_limiter_.BottomSideLimit();
   }
-  if (width > width_limit_) {
-    x = left_side_limit_;
-    width = width_limit_;
+  if (width > geometry_limiter_.LimitWidth()) {
+    x = geometry_limiter_.LeftSideLimit();
+    width = geometry_limiter_.LimitWidth();
   }
-  if (height > height_limit_) {
-    y = up_side_limit_;
-    height = height_limit_;
+  if (height > geometry_limiter_.LimitHeight()) {
+    y = geometry_limiter_.UpSideLimit();
+    height = geometry_limiter_.LimitHeight();
   }
 
   modifiable_widget_geometry_ = QRect(x, y, width, height);
