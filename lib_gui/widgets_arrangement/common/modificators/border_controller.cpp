@@ -3,21 +3,19 @@
 #include <QRect>
 #include <QWidget>
 
-void BorderController::SetParentSize(const QPoint& parent_size) {
+void BorderController::SetParentSize(const QRect& parent_size) {
   parent_size_ = parent_size;
 }
 
 void BorderController::ControlModifiableWidget(QWidget* widget) {
-  modifiable_widget_position_ = QPoint(widget->x(), widget->y());
+  modifiable_widget_position_ = widget->geometry();
 
   ControlUp();
   ControlDown();
   ControlLeft();
   ControlRight();
 
-  widget->setGeometry(QRect(modifiable_widget_position_.x(),
-                            modifiable_widget_position_.y(), widget->width(),
-                            widget->height()));
+  widget->setGeometry(modifiable_widget_position_);
 }
 
 void BorderController::ControlUp() {}

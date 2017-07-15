@@ -1,13 +1,13 @@
 ﻿#ifndef BORDER_CONTROLLER_H
 #define BORDER_CONTROLLER_H
 
-#include <QPoint>
+#include <QRect>
 
 class QWidget;
 
 class BorderController {
  public:
-  void SetParentSize(const QPoint& parent_size);
+  void SetParentSize(const QRect& parent_size);
   void ControlModifiableWidget(QWidget* widget);
 
  private:
@@ -16,8 +16,8 @@ class BorderController {
   void ControlLeft();
   void ControlRight();
 
-  QPoint parent_size_;
-  QPoint modifiable_widget_position_;
+  QRect parent_size_;
+  QRect modifiable_widget_position_;
 
   static const int kBorderSpacer = 5;
 };
