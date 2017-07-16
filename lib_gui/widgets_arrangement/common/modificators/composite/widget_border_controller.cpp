@@ -3,11 +3,11 @@
 #include <QRect>
 #include <QWidget>
 
-void WidgetBorderController::SetBorderLimits(const QRect& parent_geometry) {
+void WidgetBorderController::SetGeometryLimit(const QRect& parent_geometry) {
   parent_geometry_ = parent_geometry;
 }
 
-void WidgetBorderController::ControlModifiableWidget(QWidget* widget) {
+void WidgetBorderController::ControlWidget(QWidget* widget) {
   modifiable_widget_geometry_ = widget->geometry();
 
   SetLimits(widget->width(), widget->height());

@@ -9,8 +9,8 @@ class QWidget;
 
 class WidgetBorderController {
  public:
-  void SetBorderLimits(const QRect& parent_geometry);
-  void ControlModifiableWidget(QWidget* widget);
+  void SetGeometryLimit(const QRect& parent_geometry);
+  void ControlWidget(QWidget* widget);
 
   void SetBorderSpacing(int border_spacer);
 

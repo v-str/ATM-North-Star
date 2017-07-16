@@ -62,10 +62,10 @@ void InitialMenu::SetResizeProperties() {
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
   group_composer_.SetDeltaSize(delta_size_);
-  border_controller_.SetBorderLimits(geometry());
+  border_controller_.SetGeometryLimit(geometry());
 
   group_composer_.ScaleVGroup(
       QVector<QWidget*>{sign_in_button_, registration_button_, demo_button_});
 
-  border_controller_.ControlModifiableWidget(sign_in_button_);
+  border_controller_.ControlWidget(sign_in_button_);
 }
