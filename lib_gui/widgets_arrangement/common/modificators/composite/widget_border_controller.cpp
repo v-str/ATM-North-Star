@@ -17,21 +17,21 @@ void WidgetBorderController::ControlWidget(QWidget* widget) {
   widget->setGeometry(modifiable_widget_geometry_);
 }
 
-void WidgetBorderController::SetBorderSpacing(int border_spacer) {
-  border_spacer_ = border_spacer;
+void WidgetBorderController::SetDistanceToBorder(int border_spacer) {
+  distance_to_border_ = border_spacer;
 }
 
 void WidgetBorderController::SetLimits(int widget_width, int widget_height) {
-  geometry_limiter_.SetLeftSideLimit(border_spacer_);
-  geometry_limiter_.SetUpSideLimit(border_spacer_);
+  geometry_limiter_.SetLeftSideLimit(distance_to_border_);
+  geometry_limiter_.SetUpSideLimit(distance_to_border_);
   geometry_limiter_.SetRightSideLimit(parent_geometry_.width() -
-                                      border_spacer_ - widget_width);
+                                      distance_to_border_ - widget_width);
   geometry_limiter_.SetBottomSideLimit(parent_geometry_.height() -
-                                       border_spacer_ - widget_height);
+                                       distance_to_border_ - widget_height);
   geometry_limiter_.SetLimitWidth(parent_geometry_.width() -
-                                  (2 * border_spacer_));
+                                  (2 * distance_to_border_));
   geometry_limiter_.SetLimitHeight(parent_geometry_.height() -
-                                   (2 * border_spacer_));
+                                   (2 * distance_to_border_));
 }
 
 void WidgetBorderController::PerformSideControl() {

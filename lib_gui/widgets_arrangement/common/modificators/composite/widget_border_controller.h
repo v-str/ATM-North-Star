@@ -12,7 +12,7 @@ class WidgetBorderController {
   void SetGeometryLimit(const QRect& parent_geometry);
   void ControlWidget(QWidget* widget);
 
-  void SetBorderSpacing(int border_spacer);
+  void SetDistanceToBorder(int border_spacer);
 
  private:
   void SetLimits(int widget_width, int widget_height);
@@ -23,7 +23,7 @@ class WidgetBorderController {
 
   WidgetLimitGeometry geometry_limiter_;
 
-  int border_spacer_ = 10;
+  int distance_to_border_ = 10;
 };
 
 #endif  // WIDGET_BORDER_CONTROLLER_H
