@@ -17,10 +17,9 @@
 
 InitialMenu::InitialMenu(QWidget* parent)
     : QFrame(parent),
-      sign_in_button_(new AtmButton("Sign-in", AtmButton::kRight, this)),
-      registration_button_(
-          new AtmButton("Registration", AtmButton::kRight, this)),
-      demo_button_(new AtmButton("Demo", AtmButton::kRight, this)),
+      sign_in_button_(new AtmButton("Sign-in", this)),
+      registration_button_(new AtmButton("Registration", this)),
+      demo_button_(new AtmButton("Demo", this)),
       atm_color_designer_(new AtmColorDesigner) {
   PaintWidgets();
   SetInitialSetting();

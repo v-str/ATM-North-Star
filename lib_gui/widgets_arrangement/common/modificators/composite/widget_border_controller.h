@@ -21,7 +21,7 @@ class WidgetBorderController {
   QRect parent_geometry_;
   QRect modifiable_widget_geometry_;
 
-  WidgetLimitGeometry geometry_limiter_;
+  WidgetLimitGeometry limit_geometry_;
 
   int distance_to_border_ = 10;
 };

@@ -4,6 +4,7 @@
 #include <QFrame>
 #include <QObject>
 #include <QRect>
+#include <QVBoxLayout>
 
 #include <delta_size.h>
 #include <v_group_composer.h>
@@ -34,6 +35,8 @@ class InitialMenu : public QFrame {
   AtmButton* sign_in_button_ = nullptr;
   AtmButton* registration_button_ = nullptr;
   AtmButton* demo_button_ = nullptr;
+
+  QVBoxLayout* v_layout_ = nullptr;
 
   AtmColorDesigner* atm_color_designer_ = nullptr;
 
