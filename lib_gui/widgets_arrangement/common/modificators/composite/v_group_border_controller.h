@@ -11,7 +11,7 @@ class VGroupBorderController : public WidgetBorderController {
  public:
   VGroupBorderController();
 
-  void PerformGroupControl(QVector<QWidget*> widget_vector);
+  void ControlGroup(QVector<QWidget*> widget_vector);
 
   void SetIntervalBetweenWidgets(int interval_between_widgets_pt);
 
