@@ -3,7 +3,7 @@
 
 #include <QRect>
 
-#include <widget_geometry_limiter.h>
+#include <widget_limit_geometry.h>
 
 class QWidget;
 
@@ -14,8 +14,6 @@ class WidgetBorderController {
 
   void SetBorderSpacing(int border_spacer);
 
-  QRect ParentGeometry() const;
-
  private:
   void SetLimits(int widget_width, int widget_height);
   void PerformSideControl();
@@ -23,7 +21,7 @@ class WidgetBorderController {
   QRect parent_geometry_;
   QRect modifiable_widget_geometry_;
 
-  WidgetGeometryLimiter geometry_limiter_;
+  WidgetLimitGeometry geometry_limiter_;
 
   int border_spacer_ = 10;
 };

@@ -21,10 +21,6 @@ void WidgetBorderController::SetBorderSpacing(int border_spacer) {
   border_spacer_ = border_spacer;
 }
 
-QRect WidgetBorderController::ParentGeometry() const {
-  return parent_geometry_;
-}
-
 void WidgetBorderController::SetLimits(int widget_width, int widget_height) {
   geometry_limiter_.SetLeftSideLimit(border_spacer_);
   geometry_limiter_.SetUpSideLimit(border_spacer_);

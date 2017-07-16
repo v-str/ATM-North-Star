@@ -1,7 +1,7 @@
-﻿#ifndef WIDGET_GEOMETRY_LIMITER_H
-#define WIDGET_GEOMETRY_LIMITER_H
+﻿#ifndef WIDGET_LIMIT_GEOMETRY_H
+#define WIDGET_LIMIT_GEOMETRY_H
 
-class WidgetGeometryLimiter {
+class WidgetLimitGeometry {
  public:
   void SetLeftSideLimit(int left_side_limit);
   void SetRightSideLimit(int right_side_limit);
@@ -28,4 +28,4 @@ class WidgetGeometryLimiter {
   int limit_height_ = 0;
 };
 
-#endif  // WIDGET_GEOMETRY_LIMITER_H
+#endif  // WIDGET_LIMIT_GEOMETRY_H
