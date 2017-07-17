@@ -9,6 +9,8 @@
 
 AtmButton::AtmButton(const QString& text, QWidget* widget)
     : QPushButton(text, widget) {
+  setMinimumSize(kMinimalWidth, kMinimalHeight);
+
   offset_side_ = kRight | kDown;
 }
 

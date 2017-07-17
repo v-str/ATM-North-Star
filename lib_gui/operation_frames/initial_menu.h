@@ -10,6 +10,8 @@
 #include <v_group_composer.h>
 #include <widget_border_controller.h>
 
+#include <geometry_composer.h>
+
 class QWidget;
 class QPushButton;
 class AtmColorDesigner;
@@ -29,8 +31,10 @@ class InitialMenu : public QFrame {
  private:
   void PaintWidgets();
   void SetInitialSetting();
-
   void SetResizeProperties();
+  void SetButtonFrame();
+
+  QFrame* button_frame_ = nullptr;
 
   AtmButton* sign_in_button_ = nullptr;
   AtmButton* registration_button_ = nullptr;
@@ -42,7 +46,10 @@ class InitialMenu : public QFrame {
 
   DeltaSize delta_size_;
   WidgetBorderController border_controller_;
-  VGroupComposer group_composer_;
+
+  GeometryComposer composer_;
+
+  QRect button_frame_geometry_;
 };
 
 #endif  // INITIAL_MENU_H

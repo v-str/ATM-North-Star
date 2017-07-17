@@ -17,11 +17,13 @@
 
 InitialMenu::InitialMenu(QWidget* parent)
     : QFrame(parent),
-      sign_in_button_(new AtmButton("Sign-in", this)),
-      registration_button_(new AtmButton("Registration", this)),
-      demo_button_(new AtmButton("Demo", this)),
+      button_frame_(new QFrame(this)),
+      sign_in_button_(new AtmButton("Sign-in", button_frame_)),
+      registration_button_(new AtmButton("Registration", button_frame_)),
+      demo_button_(new AtmButton("Demo", button_frame_)),
+      v_layout_(new QVBoxLayout),
       atm_color_designer_(new AtmColorDesigner) {
-  PaintWidgets();
+  SetButtonFrame();
   SetInitialSetting();
 }
 
@@ -46,25 +48,39 @@ void InitialMenu::SetInitialSetting() {
 }
 
 void InitialMenu::SetResizeProperties() {
-  group_composer_.SetInitialGroupGeometry(
-      QVector<QRect>{InitialFrameGeometry::SignInButton(),
-                     InitialFrameGeometry::RegistrationButton(),
-                     InitialFrameGeometry::DemoButton()});
-  group_composer_.SetWidgetInterval(InitialFrameGeometry::WidgetInterval());
-  group_composer_.SetShiftFactor(3.8, 3.8);
-  group_composer_.SetShiftSide(Side::kRight | Side::kDown);
-  group_composer_.SetStretchFactor(3.8, 3.8);
-  group_composer_.SetStretchSide(Side::kRight | Side::kDown);
-  group_composer_.SetTransformationType(GeometryComposer::kScale);
-  group_composer_.KeepCenter(true);
+  composer_.SetShiftFactor(1.5, 1.3);
+  composer_.SetShiftSide(Side::kRight | Side::kDown);
+
+  composer_.SetStretchFactor(0.5, 0.1);
+  composer_.SetStretchSide(Side::kRight | Side::kDown);
+
+  composer_.SetTransformationType(GeometryComposer::kScale);
+  composer_.KeepCenter(true);
+}
+
+void InitialMenu::SetButtonFrame() {
+  button_frame_geometry_ = QRect{30, 30, 160, 160};
+
+  button_frame_->setGeometry(button_frame_geometry_);
+
+  v_layout_->addWidget(sign_in_button_);
+  v_layout_->addWidget(registration_button_);
+  v_layout_->addWidget(demo_button_);
+
+  button_frame_->setLayout(v_layout_);
+
+  button_frame_->setStyleSheet(
+      "QFrame {"
+      "border: 0px;}");
+  PaintWidgets();
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
-  group_composer_.SetDeltaSize(delta_size_);
+  SetResizeProperties();
   border_controller_.SetGeometryLimit(geometry());
 
-  group_composer_.ScaleVGroup(
-      QVector<QWidget*>{sign_in_button_, registration_button_, demo_button_});
+  composer_.SetDeltaSize(delta_size_);
+  composer_.ComposeGeometry(button_frame_geometry_, button_frame_);
 
-  border_controller_.ControlWidget(sign_in_button_);
+  border_controller_.ControlWidget(button_frame_);
 }

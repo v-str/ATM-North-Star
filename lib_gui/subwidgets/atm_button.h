@@ -43,6 +43,8 @@ class AtmButton : public QPushButton {
   bool is_focus_ = false;
 
   static const int kInitialFontSize = 11;
+  static const int kMinimalWidth = 140;
+  static const int kMinimalHeight = 40;
 };
 
 #endif  // ATM_BUTTON_H
