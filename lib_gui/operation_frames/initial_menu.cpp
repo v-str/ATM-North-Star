@@ -23,8 +23,8 @@ InitialMenu::InitialMenu(QWidget* parent)
       demo_button_(new AtmButton("Demo", button_frame_)),
       v_layout_(new QVBoxLayout),
       atm_color_designer_(new AtmColorDesigner) {
-  SetButtonFrame();
   SetInitialSetting();
+  SetButtonFrame();
 }
 
 InitialMenu::~InitialMenu() { delete atm_color_designer_; }
