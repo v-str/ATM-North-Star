@@ -48,8 +48,6 @@ class InitialMenu : public QFrame {
   WidgetBorderController border_controller_;
 
   GeometryComposer composer_;
-
-  QRect button_frame_geometry_;
 };
 
 #endif  // INITIAL_MENU_H

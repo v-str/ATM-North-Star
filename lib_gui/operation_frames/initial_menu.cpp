@@ -43,6 +43,7 @@ void InitialMenu::SetInitialSetting() {
   sign_in_button_->setGeometry(InitialFrameGeometry::SignInButton());
   registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
   demo_button_->setGeometry(InitialFrameGeometry::DemoButton());
+  button_frame_->setGeometry(InitialFrameGeometry::ButtonFrame());
 
   SetResizeProperties();
 }
@@ -59,10 +60,6 @@ void InitialMenu::SetResizeProperties() {
 }
 
 void InitialMenu::SetButtonFrame() {
-  button_frame_geometry_ = QRect{30, 30, 160, 160};
-
-  button_frame_->setGeometry(button_frame_geometry_);
-
   v_layout_->addWidget(sign_in_button_);
   v_layout_->addWidget(registration_button_);
   v_layout_->addWidget(demo_button_);
@@ -80,7 +77,7 @@ void InitialMenu::resizeEvent(QResizeEvent*) {
   border_controller_.SetGeometryLimit(geometry());
 
   composer_.SetDeltaSize(delta_size_);
-  composer_.ComposeGeometry(button_frame_geometry_, button_frame_);
+  composer_.ComposeGeometry(InitialFrameGeometry::ButtonFrame(), button_frame_);
 
   border_controller_.ControlWidget(button_frame_);
 }
