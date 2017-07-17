@@ -63,7 +63,6 @@ void InitialMenu::SetButtonFrame() {
   v_layout_->addWidget(demo_button_);
 
   button_frame_->setLayout(v_layout_);
-
   button_frame_->setStyleSheet(
       "QFrame {"
       "border: 0px;}");
