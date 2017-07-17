@@ -49,12 +49,10 @@ void InitialMenu::SetInitialSetting() {
 }
 
 void InitialMenu::SetResizeProperties() {
-  composer_.SetShiftFactor(1.5, 1.3);
+  composer_.SetShiftFactor(0.5, 0.5);
   composer_.SetShiftSide(Side::kRight | Side::kDown);
-
-  composer_.SetStretchFactor(0.5, 0.1);
+  composer_.SetStretchFactor(0.5, 0.5);
   composer_.SetStretchSide(Side::kRight | Side::kDown);
-
   composer_.SetTransformationType(GeometryComposer::kScale);
   composer_.KeepCenter(true);
 }
