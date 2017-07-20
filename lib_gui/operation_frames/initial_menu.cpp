@@ -64,9 +64,9 @@ void InitialMenu::SetButtonSizePolicy() {
 }
 
 void InitialMenu::SetScalingProperties() {
-  composer_.SetShiftFactor(0.5, 0.5);
+  composer_.SetShiftFactor(kHalfOfSize, kHalfOfHeight);
   composer_.SetShiftSide(Side::kRight | Side::kDown);
-  composer_.SetStretchFactor(0.5, 0.5);
+  composer_.SetStretchFactor(kHalfOfSize, kHalfOfHeight);
   composer_.SetStretchSide(Side::kRight | Side::kDown);
   composer_.SetTransformationType(GeometryComposer::kScale);
   composer_.KeepCenter(true);

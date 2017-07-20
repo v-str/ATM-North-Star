@@ -50,6 +50,9 @@ class InitialMenu : public QFrame {
   WidgetBorderController border_controller_;
 
   GeometryComposer composer_;
+
+  static constexpr double kHalfOfSize = 0.5;
+  static constexpr double kHalfOfHeight = 0.5;
 };
 
 #endif  // INITIAL_MENU_H
