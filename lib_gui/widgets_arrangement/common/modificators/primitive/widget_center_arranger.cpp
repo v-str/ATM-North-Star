@@ -9,7 +9,7 @@ void WidgetCenterArranger::MoveToCenter(QWidget* widget) {
 }
 
 void WidgetCenterArranger::MoveToCenterRelativelyOf(QWidget* move_widget,
-                                              const QRect& position) {
+                                                    const QRect& position) {
   int x = position.x() + (position.width() / 2) - (move_widget->width() / 2);
   int y = position.y() + (position.height() / 2) - (move_widget->height() / 2);
 

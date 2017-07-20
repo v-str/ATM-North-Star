@@ -7,13 +7,11 @@
 #include <QString>
 #include <QWidget>
 
-AtmButton::AtmButton(QWidget* widget) : QPushButton(widget) {}
+AtmButton::AtmButton(const QString& text, QWidget* widget)
+    : QPushButton(text, widget) {
+  setMinimumSize(kMinimalWidth, kMinimalHeight);
 
-AtmButton::AtmButton(const QString& text,
-                     unsigned int offset_side,
-                     QWidget* widget)
-    : QPushButton(text, widget), offset_side_(offset_side) {
-  QFont initial_font = font();
+  offset_side_ = kRight;
 }
 
 void AtmButton::SetOffsetSide(unsigned int offset_side) {

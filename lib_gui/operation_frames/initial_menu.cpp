@@ -2,6 +2,7 @@
 
 #include <QList>
 #include <QPushButton>
+#include <QSizePolicy>
 #include <QString>
 #include <QVector>
 #include <QWidget>
@@ -17,13 +18,16 @@
 
 InitialMenu::InitialMenu(QWidget* parent)
     : QFrame(parent),
-      sign_in_button_(new AtmButton("Sign-in", AtmButton::kRight, this)),
-      registration_button_(
-          new AtmButton("Registration", AtmButton::kRight, this)),
-      demo_button_(new AtmButton("Demo", AtmButton::kRight, this)),
+      button_frame_(new QFrame(this)),
+      sign_in_button_(new AtmButton("Sign-in", button_frame_)),
+      registration_button_(new AtmButton("Registration", button_frame_)),
+      demo_button_(new AtmButton("Demo", button_frame_)),
+      v_layout_(new QVBoxLayout),
       atm_color_designer_(new AtmColorDesigner) {
+  SetButtonsInitialSetting();
+  SetScalingProperties();
+  SetButtonFrame();
   PaintWidgets();
-  SetInitialSetting();
 }
 
 InitialMenu::~InitialMenu() { delete atm_color_designer_; }
@@ -38,34 +42,55 @@ void InitialMenu::PaintWidgets() {
       QList<QPushButton*>{sign_in_button_, registration_button_, demo_button_});
 }
 
-void InitialMenu::SetInitialSetting() {
+void InitialMenu::SetButtonsInitialSetting() {
+  SetButtonGeometry();
+  SetButtonSizePolicy();
+}
+
+void InitialMenu::SetButtonGeometry() {
   sign_in_button_->setGeometry(InitialFrameGeometry::SignInButton());
   registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
   demo_button_->setGeometry(InitialFrameGeometry::DemoButton());
-
-  SetResizeProperties();
+  button_frame_->setGeometry(InitialFrameGeometry::ButtonFrame());
 }
 
-void InitialMenu::SetResizeProperties() {
-  group_composer_.SetInitialGroupGeometry(
-      QVector<QRect>{InitialFrameGeometry::SignInButton(),
-                     InitialFrameGeometry::RegistrationButton(),
-                     InitialFrameGeometry::DemoButton()});
-  group_composer_.SetWidgetInterval(InitialFrameGeometry::WidgetInterval());
-  group_composer_.SetShiftFactor(3.8, 3.8);
-  group_composer_.SetShiftSide(Side::kRight | Side::kDown);
-  group_composer_.SetStretchFactor(3.8, 3.8);
-  group_composer_.SetStretchSide(Side::kRight | Side::kDown);
-  group_composer_.SetTransformationType(GeometryComposer::kScale);
-  group_composer_.KeepCenter(true);
+void InitialMenu::SetButtonSizePolicy() {
+  QSizePolicy size_policy = sign_in_button_->sizePolicy();
+  size_policy.setVerticalPolicy(QSizePolicy::Expanding);
+
+  sign_in_button_->setSizePolicy(size_policy);
+  registration_button_->setSizePolicy(size_policy);
+  demo_button_->setSizePolicy(size_policy);
+}
+
+void InitialMenu::SetScalingProperties() {
+  composer_.SetShiftFactor(0.5, 0.5);
+  composer_.SetShiftSide(Side::kRight | Side::kDown);
+  composer_.SetStretchFactor(0.5, 0.5);
+  composer_.SetStretchSide(Side::kRight | Side::kDown);
+  composer_.SetTransformationType(GeometryComposer::kScale);
+  composer_.KeepCenter(true);
+}
+
+void InitialMenu::SetButtonFrame() {
+  button_frame_->setStyleSheet(
+      "QFrame {"
+      "border: 0px;}");
+
+  v_layout_->addWidget(sign_in_button_);
+  v_layout_->addWidget(registration_button_);
+  v_layout_->addWidget(demo_button_);
+
+  button_frame_->setLayout(v_layout_);
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
-  group_composer_.SetDeltaSize(delta_size_);
-  border_controller_.SetBorderLimits(geometry());
+  SetScalingProperties();
+  composer_.SetDeltaSize(delta_size_);
 
-  group_composer_.ScaleVGroup(
-      QVector<QWidget*>{sign_in_button_, registration_button_, demo_button_});
+  border_controller_.SetGeometryLimit(geometry());
 
-  border_controller_.ControlModifiableWidget(sign_in_button_);
+  composer_.ComposeGeometry(InitialFrameGeometry::ButtonFrame(), button_frame_);
+
+  border_controller_.ControlWidget(button_frame_);
 }

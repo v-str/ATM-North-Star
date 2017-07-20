@@ -13,10 +13,7 @@ class AtmButton : public QPushButton {
  public:
   enum OffsetSide { kNone = 0, kLeft = 1, kRight = 2, kUp = 4, kDown = 8 };
 
-  AtmButton(QWidget* widget = nullptr);
-  AtmButton(const QString& text,
-            unsigned int offset_side,
-            QWidget* widget = nullptr);
+  AtmButton(const QString& text, QWidget* widget = nullptr);
 
   void SetOffsetSide(unsigned int offset_side);
 
@@ -46,6 +43,8 @@ class AtmButton : public QPushButton {
   bool is_focus_ = false;
 
   static const int kInitialFontSize = 11;
+  static const int kMinimalWidth = 140;
+  static const int kMinimalHeight = 40;
 };
 
 #endif  // ATM_BUTTON_H

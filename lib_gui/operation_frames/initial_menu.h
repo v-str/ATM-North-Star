@@ -4,10 +4,13 @@
 #include <QFrame>
 #include <QObject>
 #include <QRect>
+#include <QVBoxLayout>
 
 #include <delta_size.h>
 #include <v_group_composer.h>
 #include <widget_border_controller.h>
+
+#include <geometry_composer.h>
 
 class QWidget;
 class QPushButton;
@@ -27,19 +30,28 @@ class InitialMenu : public QFrame {
 
  private:
   void PaintWidgets();
-  void SetInitialSetting();
 
-  void SetResizeProperties();
+  void SetButtonsInitialSetting();
+  void SetButtonGeometry();
+  void SetButtonSizePolicy();
+
+  void SetScalingProperties();
+  void SetButtonFrame();
+
+  QFrame* button_frame_ = nullptr;
 
   AtmButton* sign_in_button_ = nullptr;
   AtmButton* registration_button_ = nullptr;
   AtmButton* demo_button_ = nullptr;
 
+  QVBoxLayout* v_layout_ = nullptr;
+
   AtmColorDesigner* atm_color_designer_ = nullptr;
 
   DeltaSize delta_size_;
   WidgetBorderController border_controller_;
-  VGroupComposer group_composer_;
+
+  GeometryComposer composer_;
 };
 
 #endif  // INITIAL_MENU_H
