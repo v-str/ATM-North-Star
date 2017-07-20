@@ -2,6 +2,7 @@
 
 #include <QList>
 #include <QPushButton>
+#include <QSizePolicy>
 #include <QString>
 #include <QVector>
 #include <QWidget>
@@ -45,6 +46,13 @@ void InitialMenu::SetInitialSetting() {
   demo_button_->setGeometry(InitialFrameGeometry::DemoButton());
   button_frame_->setGeometry(InitialFrameGeometry::ButtonFrame());
 
+  QSizePolicy size_policy = sign_in_button_->sizePolicy();
+  size_policy.setVerticalPolicy(QSizePolicy::Expanding);
+
+  sign_in_button_->setSizePolicy(size_policy);
+  registration_button_->setSizePolicy(size_policy);
+  demo_button_->setSizePolicy(size_policy);
+
   SetResizeProperties();
 }
 
@@ -71,9 +79,10 @@ void InitialMenu::SetButtonFrame() {
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
   SetResizeProperties();
+  composer_.SetDeltaSize(delta_size_);
+
   border_controller_.SetGeometryLimit(geometry());
 
-  composer_.SetDeltaSize(delta_size_);
   composer_.ComposeGeometry(InitialFrameGeometry::ButtonFrame(), button_frame_);
 
   border_controller_.ControlWidget(button_frame_);
