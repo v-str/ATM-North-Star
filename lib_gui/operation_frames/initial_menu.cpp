@@ -24,7 +24,7 @@ InitialMenu::InitialMenu(QWidget* parent)
       demo_button_(new AtmButton("Demo", button_frame_)),
       v_layout_(new QVBoxLayout),
       atm_color_designer_(new AtmColorDesigner) {
-  SetInitialSetting();
+  SetButtonsInitialSetting();
   SetScalingProperties();
   SetButtonFrame();
 }
@@ -41,7 +41,7 @@ void InitialMenu::PaintWidgets() {
       QList<QPushButton*>{sign_in_button_, registration_button_, demo_button_});
 }
 
-void InitialMenu::SetInitialSetting() {
+void InitialMenu::SetButtonsInitialSetting() {
   sign_in_button_->setGeometry(InitialFrameGeometry::SignInButton());
   registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
   demo_button_->setGeometry(InitialFrameGeometry::DemoButton());
