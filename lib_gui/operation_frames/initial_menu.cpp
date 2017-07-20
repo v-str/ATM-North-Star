@@ -25,6 +25,7 @@ InitialMenu::InitialMenu(QWidget* parent)
       v_layout_(new QVBoxLayout),
       atm_color_designer_(new AtmColorDesigner) {
   SetInitialSetting();
+  SetScalingProperties();
   SetButtonFrame();
 }
 
@@ -52,11 +53,9 @@ void InitialMenu::SetInitialSetting() {
   sign_in_button_->setSizePolicy(size_policy);
   registration_button_->setSizePolicy(size_policy);
   demo_button_->setSizePolicy(size_policy);
-
-  SetResizeProperties();
 }
 
-void InitialMenu::SetResizeProperties() {
+void InitialMenu::SetScalingProperties() {
   composer_.SetShiftFactor(0.5, 0.5);
   composer_.SetShiftSide(Side::kRight | Side::kDown);
   composer_.SetStretchFactor(0.5, 0.5);
@@ -78,7 +77,7 @@ void InitialMenu::SetButtonFrame() {
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
-  SetResizeProperties();
+  SetScalingProperties();
   composer_.SetDeltaSize(delta_size_);
 
   border_controller_.SetGeometryLimit(geometry());

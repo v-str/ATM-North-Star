@@ -31,7 +31,7 @@ class InitialMenu : public QFrame {
  private:
   void PaintWidgets();
   void SetInitialSetting();
-  void SetResizeProperties();
+  void SetScalingProperties();
   void SetButtonFrame();
 
   QFrame* button_frame_ = nullptr;
