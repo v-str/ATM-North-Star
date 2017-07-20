@@ -27,6 +27,7 @@ InitialMenu::InitialMenu(QWidget* parent)
   SetButtonsInitialSetting();
   SetScalingProperties();
   SetButtonFrame();
+  PaintWidgets();
 }
 
 InitialMenu::~InitialMenu() { delete atm_color_designer_; }
@@ -72,15 +73,15 @@ void InitialMenu::SetScalingProperties() {
 }
 
 void InitialMenu::SetButtonFrame() {
+  button_frame_->setStyleSheet(
+      "QFrame {"
+      "border: 0px;}");
+
   v_layout_->addWidget(sign_in_button_);
   v_layout_->addWidget(registration_button_);
   v_layout_->addWidget(demo_button_);
 
   button_frame_->setLayout(v_layout_);
-  button_frame_->setStyleSheet(
-      "QFrame {"
-      "border: 0px;}");
-  PaintWidgets();
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
