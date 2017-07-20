@@ -7,10 +7,8 @@
 #include <QVBoxLayout>
 
 #include <delta_size.h>
-#include <v_group_composer.h>
-#include <widget_border_controller.h>
-
 #include <geometry_composer.h>
+#include <widget_border_controller.h>
 
 class QWidget;
 class QPushButton;
