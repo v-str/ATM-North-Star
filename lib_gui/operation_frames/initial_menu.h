@@ -30,7 +30,10 @@ class InitialMenu : public QFrame {
 
  private:
   void PaintWidgets();
+
   void SetButtonsInitialSetting();
+  void SetButtonGeometry();
+
   void SetScalingProperties();
   void SetButtonFrame();
 
