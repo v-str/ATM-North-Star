@@ -43,13 +43,7 @@ void InitialMenu::PaintWidgets() {
 
 void InitialMenu::SetButtonsInitialSetting() {
   SetButtonGeometry();
-
-  QSizePolicy size_policy = sign_in_button_->sizePolicy();
-  size_policy.setVerticalPolicy(QSizePolicy::Expanding);
-
-  sign_in_button_->setSizePolicy(size_policy);
-  registration_button_->setSizePolicy(size_policy);
-  demo_button_->setSizePolicy(size_policy);
+  SetButtonSizePolicy();
 }
 
 void InitialMenu::SetButtonGeometry() {
@@ -57,6 +51,15 @@ void InitialMenu::SetButtonGeometry() {
   registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
   demo_button_->setGeometry(InitialFrameGeometry::DemoButton());
   button_frame_->setGeometry(InitialFrameGeometry::ButtonFrame());
+}
+
+void InitialMenu::SetButtonSizePolicy() {
+  QSizePolicy size_policy = sign_in_button_->sizePolicy();
+  size_policy.setVerticalPolicy(QSizePolicy::Expanding);
+
+  sign_in_button_->setSizePolicy(size_policy);
+  registration_button_->setSizePolicy(size_policy);
+  demo_button_->setSizePolicy(size_policy);
 }
 
 void InitialMenu::SetScalingProperties() {

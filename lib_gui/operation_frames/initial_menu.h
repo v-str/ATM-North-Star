@@ -33,6 +33,7 @@ class InitialMenu : public QFrame {
 
   void SetButtonsInitialSetting();
   void SetButtonGeometry();
+  void SetButtonSizePolicy();
 
   void SetScalingProperties();
   void SetButtonFrame();
