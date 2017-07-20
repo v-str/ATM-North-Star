@@ -80,8 +80,10 @@
                                                                                     |   |
 33. Develop widget group border control                                             | - |
                                                                                     |   |
-34. Make refactoring of initial frame class                                         | - |
+34. Make refactoring of initial frame class                                         | + |
     Implement correct button resizing - change proportion of expanding by height    |   |
+                                                                                    |   |
+35. Start develop frame changing mechanism                                          | - |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
