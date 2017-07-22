@@ -26,9 +26,11 @@ class InitialMenu : public QFrame {
 
  public slots:
   void RememberGeometry();
+  void Close();
 
  signals:
   void PassWidgetGeometry(const QRect& rect);
+  void AlreadyClosed();
 
  protected:
   void resizeEvent(QResizeEvent*);

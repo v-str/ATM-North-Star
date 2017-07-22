@@ -48,6 +48,11 @@ void InitialMenu::RememberGeometry() {
   emit PassWidgetGeometry(this->geometry());
 }
 
+void InitialMenu::Close() {
+  emit AlreadyClosed();
+  close();
+}
+
 void InitialMenu::PaintWidgets() {
   atm_color_designer_->PaintFrame(this);
   atm_color_designer_->PaintWidgetSet(
@@ -100,7 +105,7 @@ void InitialMenu::SetConnections() {
   connect(demo_button_, SIGNAL(clicked(bool)), SLOT(RememberGeometry()));
   connect(this, SIGNAL(PassWidgetGeometry(QRect)), widget_hider_,
           SLOT(Hide(QRect)));
-  connect(widget_hider_, SIGNAL(IsAlreadyHidden()), SLOT(close()));
+  connect(widget_hider_, SIGNAL(IsAlreadyHidden()), SLOT(Close()));
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
