@@ -32,6 +32,7 @@ InitialMenu::InitialMenu(QWidget* parent)
   SetScalingProperties();
   SetButtonFrame();
   PaintWidgets();
+  SetConnections();
 }
 
 InitialMenu::~InitialMenu() {
@@ -95,7 +96,12 @@ void InitialMenu::SetButtonFrame() {
   button_frame_->setLayout(v_layout_);
 }
 
-void InitialMenu::SetConnections() {}
+void InitialMenu::SetConnections() {
+  connect(demo_button_, SIGNAL(clicked(bool)), SLOT(RememberGeometry()));
+  connect(this, SIGNAL(PassWidgetGeometry(QRect)), widget_hider_,
+          SLOT(Hide(QRect)));
+  connect(widget_hider_, SIGNAL(IsAlreadyHidden()), SLOT(close()));
+}
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
   SetScalingProperties();
