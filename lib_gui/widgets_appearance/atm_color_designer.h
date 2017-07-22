@@ -22,7 +22,7 @@ class AtmColorDesigner {
   void PaintWidgetSet(QList<QPushButton*> button_list) const;
   void PaintWidgetSet(QList<QFrame*> frame_list) const;
 
-  void PaintInitialFrame(InitialMenu* frame) const;
+  void PaintFrame(QFrame* frame) const;
 };
 
 #endif  // ATM_COLOR_DESIGNER_H

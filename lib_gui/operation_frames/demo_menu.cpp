@@ -2,6 +2,11 @@
 
 #include <QWidget>
 
-DemoMenu::DemoMenu(QWidget* parent) {}
+#include <atm_color_designer.h>
 
-DemoMenu::~DemoMenu() {}
+DemoMenu::DemoMenu(QWidget* parent)
+    : QFrame(parent), color_designer_(new AtmColorDesigner) {
+  color_designer_->PaintFrame(this);
+}
+
+DemoMenu::~DemoMenu() { delete color_designer_; }

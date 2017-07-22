@@ -37,7 +37,7 @@ void InitialMenu::SetDeltaSize(const DeltaSize& delta_size) {
 }
 
 void InitialMenu::PaintWidgets() {
-  atm_color_designer_->PaintInitialFrame(this);
+  atm_color_designer_->PaintFrame(this);
   atm_color_designer_->PaintWidgetSet(
       QList<QPushButton*>{sign_in_button_, registration_button_, demo_button_});
 }
