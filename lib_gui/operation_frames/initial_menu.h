@@ -14,6 +14,7 @@ class QWidget;
 class QPushButton;
 class AtmColorDesigner;
 class AtmButton;
+class WidgetHider;
 
 class InitialMenu : public QFrame {
   Q_OBJECT
@@ -36,19 +37,18 @@ class InitialMenu : public QFrame {
   void SetScalingProperties();
   void SetButtonFrame();
 
-  QFrame* button_frame_ = nullptr;
+  void SetConnections();
 
+  QFrame* button_frame_ = nullptr;
   AtmButton* sign_in_button_ = nullptr;
   AtmButton* registration_button_ = nullptr;
   AtmButton* demo_button_ = nullptr;
-
   QVBoxLayout* v_layout_ = nullptr;
-
   AtmColorDesigner* atm_color_designer_ = nullptr;
+  WidgetHider* widget_hider_ = nullptr;
 
   DeltaSize delta_size_;
   WidgetBorderController border_controller_;
-
   GeometryComposer composer_;
 
   static constexpr double kHalfOfSize = 0.5;

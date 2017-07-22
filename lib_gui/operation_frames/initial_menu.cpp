@@ -13,6 +13,7 @@
 #include <conversion_factor.h>
 #include <initial_frame_geometry.h>
 #include <side.h>
+#include <widget_hider.h>
 
 #include <QDebug>
 
@@ -23,14 +24,20 @@ InitialMenu::InitialMenu(QWidget* parent)
       registration_button_(new AtmButton("Registration", button_frame_)),
       demo_button_(new AtmButton("Demo", button_frame_)),
       v_layout_(new QVBoxLayout),
-      atm_color_designer_(new AtmColorDesigner) {
+      atm_color_designer_(new AtmColorDesigner),
+      widget_hider_(new WidgetHider) {
+  widget_hider_->SetWidgetForHideAnimation(this);
+
   SetButtonsInitialSetting();
   SetScalingProperties();
   SetButtonFrame();
   PaintWidgets();
 }
 
-InitialMenu::~InitialMenu() { delete atm_color_designer_; }
+InitialMenu::~InitialMenu() {
+  delete atm_color_designer_;
+  delete widget_hider_;
+}
 
 void InitialMenu::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
@@ -83,6 +90,8 @@ void InitialMenu::SetButtonFrame() {
 
   button_frame_->setLayout(v_layout_);
 }
+
+void InitialMenu::SetConnections() {}
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
   SetScalingProperties();
