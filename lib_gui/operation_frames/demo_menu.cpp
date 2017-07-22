@@ -10,3 +10,7 @@ DemoMenu::DemoMenu(QWidget* parent)
 }
 
 DemoMenu::~DemoMenu() { delete color_designer_; }
+
+void DemoMenu::SetDeltaSize(const DeltaSize& delta_size) {
+  delta_size_ = delta_size;
+}

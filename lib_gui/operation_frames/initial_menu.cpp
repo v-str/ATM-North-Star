@@ -27,7 +27,7 @@ InitialMenu::InitialMenu(QWidget* parent)
       atm_color_designer_(new AtmColorDesigner),
       widget_hider_(new WidgetHider) {
   widget_hider_->SetWidgetForHideAnimation(this);
-  widget_hider_->SetHideDirection(Side::kDown | Side::kRight);
+  widget_hider_->SetHideDirection(Side::kUp | Side::kLeft);
 
   SetButtonsInitialSetting();
   SetScalingProperties();

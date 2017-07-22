@@ -68,7 +68,7 @@ void AtmMainWidget::ShowDemoMenu() {
 
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeExtraSize();
-  SetFrameArrangement();
+  SetInitialFrameArrangement();
   SetTimeLabelArrangement();
 }
 
@@ -94,7 +94,7 @@ void AtmMainWidget::SetWidgetProperties() {
       this, 600, 400, InitialPropertyInstaller::kResize);
 }
 
-void AtmMainWidget::SetFrameArrangement() {
+void AtmMainWidget::SetInitialFrameArrangement() {
   composer_.SetStretchFactor(1.0, 1.0);
   composer_.SetStretchSide(Side::kRight | Side::kDown);
   composer_.SetTransformationType(GeometryComposer::kStretch);
@@ -137,4 +137,5 @@ void AtmMainWidget::ComputeExtraSize() {
 
   composer_.SetDeltaSize(DeltaSize(delta_width, delta_height));
   initial_menu_->SetDeltaSize(DeltaSize(delta_width, delta_height));
+  demo_menu_->SetDeltaSize(DeltaSize(delta_width, delta_height));
 }

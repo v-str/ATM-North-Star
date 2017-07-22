@@ -14,7 +14,7 @@ gui::GraphicalSplashScreen::GraphicalSplashScreen()
       main_widget_(new gui::MainWidget) {
   splash_screen_->SetCompanyName("North Star");
   hider_->SetWidgetForHideAnimation(splash_screen_);
-  hider_->SetHideDirection(Side::kDown);
+  hider_->SetHideDirection(Side::kUp);
   SetConnections();
 }
 

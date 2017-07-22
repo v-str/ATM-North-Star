@@ -40,7 +40,7 @@ class AtmMainWidget : public QMainWindow {
   void SetImages();
 
   void SetWidgetProperties();
-  void SetFrameArrangement();
+  void SetInitialFrameArrangement();
   void SetTimeLabelArrangement();
   void RunTimers();
   void PaintWidgets();
