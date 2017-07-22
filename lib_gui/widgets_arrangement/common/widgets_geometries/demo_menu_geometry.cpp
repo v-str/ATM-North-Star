@@ -1,3 +1,5 @@
-﻿#include "demo_menu_geometry.h"
+﻿#include <demo_menu_geometry.h>
 
-DemoMenuGeometry::DemoMenuGeometry() {}
+QRect DemoMenuGeometry::kDemoFrame = {5, 30, 580, 355};
+
+QRect DemoMenuGeometry::DemoFrame() { return kDemoFrame; }
