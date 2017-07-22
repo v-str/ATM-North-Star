@@ -40,7 +40,7 @@ class AtmMainWidget : public QMainWindow {
   void SetImages();
 
   void SetWidgetProperties();
-  void SetInitialFrameArrangement();
+  void SetFrameArrangement();
   void SetTimeLabelArrangement();
   void RunTimers();
   void PaintWidgets();
@@ -54,6 +54,9 @@ class AtmMainWidget : public QMainWindow {
 
   AtmColorDesigner color_designer_;
   GeometryComposer composer_;
+
+  int delta_width_ = 0;
+  int delta_height_ = 0;
 };
 
 #endif  // ATM_MAIN_WIDGET_H
