@@ -10,6 +10,8 @@
 #include <QResizeEvent>
 #include <QTimer>
 
+#include <demo_menu.h>
+#include <demo_menu_geometry.h>
 #include <geometry.h>
 #include <initial_frame_geometry.h>
 #include <initial_menu.h>
@@ -58,6 +60,12 @@ void AtmMainWidget::MaximizeButtonClicked(bool) {
 
 void AtmMainWidget::TickTime() { TimeDateChanger::ChangeTime(ui->time_label); }
 
+void AtmMainWidget::ShowDemoMenu() {
+  demo_menu_ = new DemoMenu(ui->main_frame);
+  demo_menu_->setGeometry(DemoMenuGeometry::DemoFrame());
+  demo_menu_->show();
+}
+
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeExtraSize();
   SetFrameArrangement();
@@ -68,6 +76,7 @@ void AtmMainWidget::SetConnections() {
   connect(ui->maximize_button, SIGNAL(clicked(bool)),
           SLOT(MaximizeButtonClicked(bool)));
   connect(time_timer_, SIGNAL(timeout()), SLOT(TickTime()));
+  connect(initial_menu_, SIGNAL(AlreadyClosed()), SLOT(ShowDemoMenu()));
 }
 
 void AtmMainWidget::SetInitialSettings() {

@@ -11,6 +11,7 @@ class QString;
 class ApplicationColor;
 class QTimer;
 class InitialMenu;
+class DemoMenu;
 
 namespace Ui {
 class AtmMainWidget;
@@ -26,6 +27,7 @@ class AtmMainWidget : public QMainWindow {
  public slots:
   void MaximizeButtonClicked(bool);
   void TickTime();
+  void ShowDemoMenu();
 
  protected:
   void resizeEvent(QResizeEvent* event);
@@ -48,6 +50,7 @@ class AtmMainWidget : public QMainWindow {
   Ui::AtmMainWidget* ui = nullptr;
   QTimer* time_timer_ = nullptr;
   InitialMenu* initial_menu_ = nullptr;
+  DemoMenu* demo_menu_ = nullptr;
 
   AtmColorDesigner color_designer_;
   GeometryComposer composer_;
