@@ -5,6 +5,7 @@
 
 #include <atm_splash_screen.h>
 #include <main_widget.h>
+#include <side.h>
 #include <widget_hider.h>
 
 gui::GraphicalSplashScreen::GraphicalSplashScreen()
@@ -13,6 +14,7 @@ gui::GraphicalSplashScreen::GraphicalSplashScreen()
       main_widget_(new gui::MainWidget) {
   splash_screen_->SetCompanyName("North Star");
   hider_->SetWidgetForHideAnimation(splash_screen_);
+  hider_->SetHideDirection(Side::kDown);
   SetConnections();
 }
 

@@ -31,7 +31,7 @@ class WidgetHider : public QObject {
 
   bool widget_is_hidden_ = false;
 
-  unsigned int hide_direction_ = 0;
+  unsigned int hide_direction_ = 4;
 };
 
 #endif  // WIDGET_HIDER_H
