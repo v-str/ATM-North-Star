@@ -20,6 +20,10 @@ void WidgetHider::SetWidgetForHideAnimation(QWidget* widget) {
   hide_animation_->setEasingCurve(QEasingCurve::OutCirc);
 }
 
+void WidgetHider::SetHideDirection(unsigned int hide_direction) {
+  hide_direction_ = hide_direction;
+}
+
 bool WidgetHider::IsHidden() { return widget_is_hidden_; }
 
 void WidgetHider::Hide(const QRect& geometry) {
