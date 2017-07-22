@@ -26,6 +26,8 @@ InitialMenu::InitialMenu(QWidget* parent)
       v_layout_(new QVBoxLayout),
       atm_color_designer_(new AtmColorDesigner),
       widget_hider_(new WidgetHider) {
+  setGeometry(InitialFrameGeometry::InitialFrame());
+
   widget_hider_->SetWidgetForHideAnimation(this);
   widget_hider_->SetHideDirection(Side::kUp | Side::kLeft);
 

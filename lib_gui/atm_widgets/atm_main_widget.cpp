@@ -26,6 +26,7 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
   ui->setupUi(this);
 
   setWindowTitle("ATM");
+
   SetInitialSettings();
 
   SetWidgetProperties();
@@ -81,7 +82,7 @@ void AtmMainWidget::SetInitialSettings() {
   SetBackgroundColor();
   SetImages();
 
-  initial_menu_->setGeometry(InitialFrameGeometry::InitialFrame());
+  demo_menu_->close();
 }
 
 void AtmMainWidget::SetWidgetProperties() {
@@ -127,7 +128,6 @@ void AtmMainWidget::InitializeObject() {
   time_timer_ = new QTimer(ui->time_label);
   initial_menu_ = new InitialMenu(ui->main_frame);
   demo_menu_ = new DemoMenu(ui->main_frame);
-  demo_menu_->close();
 }
 
 void AtmMainWidget::ComputeExtraSize() {
