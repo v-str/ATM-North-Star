@@ -43,6 +43,10 @@ void InitialMenu::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
+void InitialMenu::RememberGeometry() {
+  emit PassWidgetGeometry(this->geometry());
+}
+
 void InitialMenu::PaintWidgets() {
   atm_color_designer_->PaintFrame(this);
   atm_color_designer_->PaintWidgetSet(
