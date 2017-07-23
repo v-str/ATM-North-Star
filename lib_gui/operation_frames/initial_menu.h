@@ -29,7 +29,7 @@ class InitialMenu : public QFrame {
   void Close();
 
  signals:
-  void PassWidgetGeometry(const QRect& rect);
+  void PassGeometry(const QRect&);
   void AlreadyClosed();
 
  protected:

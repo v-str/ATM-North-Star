@@ -47,9 +47,7 @@ void InitialMenu::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
-void InitialMenu::RememberGeometry() {
-  emit PassWidgetGeometry(this->geometry());
-}
+void InitialMenu::RememberGeometry() { emit PassGeometry(geometry()); }
 
 void InitialMenu::Close() {
   emit AlreadyClosed();
@@ -106,8 +104,7 @@ void InitialMenu::SetButtonFrame() {
 
 void InitialMenu::SetConnections() {
   connect(demo_button_, SIGNAL(clicked(bool)), SLOT(RememberGeometry()));
-  connect(this, SIGNAL(PassWidgetGeometry(QRect)), widget_hider_,
-          SLOT(Hide(QRect)));
+  connect(this, SIGNAL(PassGeometry(QRect)), widget_hider_, SLOT(Hide(QRect)));
   connect(widget_hider_, SIGNAL(IsAlreadyHidden()), SLOT(Close()));
 }
 
