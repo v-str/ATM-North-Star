@@ -22,6 +22,9 @@ class DemoMenu : public QFrame {
   void resizeEvent(QResizeEvent*);
 
  private:
+  void SetInitialGeometry();
+  void PaintWidgets();
+
   void SetScalingProperties();
 
   AtmColorDesigner* color_designer_ = nullptr;
