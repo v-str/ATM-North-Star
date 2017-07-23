@@ -12,7 +12,7 @@
 DemoMenu::DemoMenu(QWidget* parent)
     : QFrame(parent),
       color_designer_(new AtmColorDesigner),
-      back_button_(new AtmButton("<-", this)) {
+      back_button_(new AtmButton("back", this)) {
   SetHidingAnimation();
   SetInitialGeometry();
   PaintWidgets();
