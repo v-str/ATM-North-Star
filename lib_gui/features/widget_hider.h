@@ -30,7 +30,7 @@ class WidgetHider : public QObject {
 
   QPropertyAnimation* hide_animation_ = nullptr;
 
-  bool widget_is_hidden_ = false;
+  bool is_widget_hidden_ = false;
 
   unsigned int hide_direction_ = 4;
 };

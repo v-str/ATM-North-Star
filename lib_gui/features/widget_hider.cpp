@@ -26,7 +26,7 @@ void WidgetHider::SetHideDirection(unsigned int hide_direction) {
   hide_direction_ = hide_direction;
 }
 
-bool WidgetHider::IsHidden() const { return widget_is_hidden_; }
+bool WidgetHider::IsHidden() const { return is_widget_hidden_; }
 
 void WidgetHider::Hide(const QRect& geometry) {
   SetStartHideValue(geometry);
@@ -36,7 +36,7 @@ void WidgetHider::Hide(const QRect& geometry) {
 }
 
 void WidgetHider::AnimationTimeOut() {
-  widget_is_hidden_ = true;
+  is_widget_hidden_ = true;
   emit IsAlreadyHidden();
 }
 
