@@ -23,7 +23,6 @@ class DemoMenu : public QFrame {
   void SetDeltaSize(const DeltaSize& delta_size);
 
  public slots:
-  void ReturnToInitialMenu();
   void RememberGeometry();
   void Show();
   void Close();

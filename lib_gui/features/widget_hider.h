@@ -14,14 +14,15 @@ class WidgetHider : public QObject {
 
   void SetWidgetForHideAnimation(QWidget* widget);
   void SetHideDirection(unsigned int hide_direction);
-  bool IsHidden();
 
- signals:
-  void IsAlreadyHidden();
+  bool IsHidden() const;
 
  public slots:
   void Hide(const QRect& geometry);
   void AnimationTimeOut();
+
+ signals:
+  void IsAlreadyHidden();
 
  private:
   void SetStartHideValue(const QRect& start_value);

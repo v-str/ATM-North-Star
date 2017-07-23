@@ -25,8 +25,6 @@ void DemoMenu::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
-void DemoMenu::ReturnToInitialMenu() { emit BackButtonClicked(); }
-
 void DemoMenu::RememberGeometry() { emit PassGeometry(geometry()); }
 
 void DemoMenu::Show() {
@@ -72,11 +70,10 @@ void DemoMenu::SetScalingProperties() {
 
 void DemoMenu::SetHidingAnimation() {
   widget_hider_.SetWidgetForHideAnimation(this);
-  widget_hider_.SetHideDirection(/*Side::kDown | */ Side::kRight);
+  widget_hider_.SetHideDirection(Side::kUp | Side::kRight);
 }
 
 void DemoMenu::SetConnections() {
-  // connect(back_button_, SIGNAL(clicked(bool)), SLOT(ReturnToInitialMenu()));
   connect(back_button_, SIGNAL(clicked(bool)), SLOT(RememberGeometry()));
   connect(this, SIGNAL(PassGeometry(QRect)), &widget_hider_, SLOT(Hide(QRect)));
   connect(&widget_hider_, SIGNAL(IsAlreadyHidden()), SLOT(Close()));

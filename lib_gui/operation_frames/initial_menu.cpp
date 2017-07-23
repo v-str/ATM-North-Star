@@ -29,7 +29,7 @@ InitialMenu::InitialMenu(QWidget* parent)
   setGeometry(InitialFrameGeometry::InitialFrame());
 
   widget_hider_->SetWidgetForHideAnimation(this);
-  widget_hider_->SetHideDirection(/*Side::kUp | */ Side::kLeft);
+  widget_hider_->SetHideDirection(Side::kUp | Side::kLeft);
 
   SetButtonsInitialSetting();
   SetScalingProperties();
