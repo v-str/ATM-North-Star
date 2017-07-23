@@ -8,6 +8,7 @@
 
 class QWidget;
 class AtmColorDesigner;
+class AtmButton;
 
 class DemoMenu : public QFrame {
   Q_OBJECT
@@ -24,6 +25,7 @@ class DemoMenu : public QFrame {
   void SetScalingProperties();
 
   AtmColorDesigner* color_designer_ = nullptr;
+  AtmButton* back_button_ = nullptr;
 
   GeometryComposer composer_;
   DeltaSize delta_size_;
