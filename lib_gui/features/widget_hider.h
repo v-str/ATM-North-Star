@@ -19,6 +19,8 @@ class WidgetHider : public QObject {
 
   bool IsHidden() const;
 
+  unsigned int AnimationDurationMSec() const;
+
  public slots:
   void Hide(const QRect& geometry);
   void AnimationTimeOut();

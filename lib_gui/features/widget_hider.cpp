@@ -32,6 +32,10 @@ void WidgetHider::SetAnimationDuration(unsigned int animation_duration_msec) {
 
 bool WidgetHider::IsHidden() const { return is_widget_hidden_; }
 
+unsigned int WidgetHider::AnimationDurationMSec() const {
+  return animation_duration_msec_;
+}
+
 void WidgetHider::Hide(const QRect& geometry) {
   SetStartHideValue(geometry);
   SetEndHideValue(geometry);

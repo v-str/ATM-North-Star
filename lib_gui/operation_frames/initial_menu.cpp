@@ -4,6 +4,7 @@
 #include <QPushButton>
 #include <QSizePolicy>
 #include <QString>
+#include <QTimer>
 #include <QVector>
 #include <QWidget>
 
@@ -58,7 +59,8 @@ void InitialMenu::Show() {
       InitialFrameGeometry::InitialFrame().height() + delta_size_.Height()};
 
   setGeometry(geometry);
-  show();
+  QTimer::singleShot(widget_hider_->AnimationDurationMSec(), this,
+                     SLOT(show()));
 }
 
 void InitialMenu::PaintWidgets() {
