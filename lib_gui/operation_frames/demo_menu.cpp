@@ -13,8 +13,10 @@ DemoMenu::DemoMenu(QWidget* parent)
     : QFrame(parent),
       color_designer_(new AtmColorDesigner),
       back_button_(new AtmButton("<-", this)) {
+  SetHidingAnimation();
   SetInitialGeometry();
   PaintWidgets();
+  SetConnections();
 }
 
 DemoMenu::~DemoMenu() { delete color_designer_; }
@@ -26,6 +28,11 @@ void DemoMenu::SetDeltaSize(const DeltaSize& delta_size) {
 void DemoMenu::ReturnToInitialMenu() { emit BackButtonClicked(); }
 
 void DemoMenu::RememberGeometry() { emit PassGeometry(geometry()); }
+
+void DemoMenu::Close() {
+  emit AlreadyClosed();
+  close();
+}
 
 void DemoMenu::resizeEvent(QResizeEvent*) {
   SetScalingProperties();
@@ -53,6 +60,14 @@ void DemoMenu::SetScalingProperties() {
   composer_.SetTransformationType(GeometryComposer::kScale);
 }
 
+void DemoMenu::SetHidingAnimation() {
+  widget_hider_.SetWidgetForHideAnimation(this);
+  widget_hider_.SetHideDirection(/*Side::kDown | */ Side::kRight);
+}
+
 void DemoMenu::SetConnections() {
   connect(back_button_, SIGNAL(clicked(bool)), SLOT(ReturnToInitialMenu()));
+  connect(back_button_, SIGNAL(clicked(bool)), SLOT(RememberGeometry()));
+  connect(this, SIGNAL(PassGeometry(QRect)), &widget_hider_, SLOT(Hide(QRect)));
+  connect(&widget_hider_, SIGNAL(IsAlreadyHidden()), SLOT(Close()));
 }

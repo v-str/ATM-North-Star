@@ -2,7 +2,6 @@
 #define INITIAL_MENU_H
 
 #include <QFrame>
-#include <QObject>
 #include <QRect>
 #include <QVBoxLayout>
 

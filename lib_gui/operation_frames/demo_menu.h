@@ -2,11 +2,13 @@
 #define DEMO_MENU_H
 
 #include <QFrame>
+#include <QObject>
 #include <QRect>
 
 #include <delta_size.h>
 #include <geometry_composer.h>
 #include <widget_border_controller.h>
+#include <widget_hider.h>
 
 class QWidget;
 class AtmColorDesigner;
@@ -23,10 +25,12 @@ class DemoMenu : public QFrame {
  public slots:
   void ReturnToInitialMenu();
   void RememberGeometry();
+  void Close();
 
  signals:
   void BackButtonClicked();
   void PassGeometry(const QRect&);
+  void AlreadyClosed();
 
  protected:
   void resizeEvent(QResizeEvent*);
@@ -35,6 +39,7 @@ class DemoMenu : public QFrame {
   void SetInitialGeometry();
   void PaintWidgets();
   void SetScalingProperties();
+  void SetHidingAnimation();
 
   void SetConnections();
 
@@ -43,6 +48,7 @@ class DemoMenu : public QFrame {
 
   GeometryComposer composer_;
   WidgetBorderController border_controller_;
+  WidgetHider widget_hider_;
   DeltaSize delta_size_;
 };
 
