@@ -42,7 +42,7 @@ void AtmColorDesigner::PaintWidgetSet(QList<QFrame*> frame_list) const {
   }
 }
 
-void AtmColorDesigner::PaintInitialFrame(InitialMenu* frame) const {
+void AtmColorDesigner::PaintFrame(QFrame* frame) const {
   QString string_color =
       "QFrame{"
       "background:transparent;"

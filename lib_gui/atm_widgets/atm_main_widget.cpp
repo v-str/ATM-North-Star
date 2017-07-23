@@ -10,6 +10,8 @@
 #include <QResizeEvent>
 #include <QTimer>
 
+#include <demo_menu.h>
+#include <demo_menu_geometry.h>
 #include <geometry.h>
 #include <initial_frame_geometry.h>
 #include <initial_menu.h>
@@ -24,6 +26,7 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
   ui->setupUi(this);
 
   setWindowTitle("ATM");
+
   SetInitialSettings();
 
   SetWidgetProperties();
@@ -68,6 +71,8 @@ void AtmMainWidget::SetConnections() {
   connect(ui->maximize_button, SIGNAL(clicked(bool)),
           SLOT(MaximizeButtonClicked(bool)));
   connect(time_timer_, SIGNAL(timeout()), SLOT(TickTime()));
+  connect(initial_menu_, SIGNAL(AlreadyClosed()), demo_menu_, SLOT(Show()));
+  connect(demo_menu_, SIGNAL(BackButtonClicked()), initial_menu_, SLOT(Show()));
 }
 
 void AtmMainWidget::SetInitialSettings() {
@@ -76,7 +81,7 @@ void AtmMainWidget::SetInitialSettings() {
   SetBackgroundColor();
   SetImages();
 
-  initial_menu_->setGeometry(InitialFrameGeometry::InitialFrame());
+  demo_menu_->close();
 }
 
 void AtmMainWidget::SetWidgetProperties() {
@@ -86,21 +91,20 @@ void AtmMainWidget::SetWidgetProperties() {
 }
 
 void AtmMainWidget::SetFrameArrangement() {
+  composer_.SetDeltaSize(DeltaSize(delta_width_, delta_height_));
   composer_.SetStretchFactor(1.0, 1.0);
   composer_.SetStretchSide(Side::kRight | Side::kDown);
   composer_.SetTransformationType(GeometryComposer::kStretch);
-
   composer_.ComposeGeometry(MainWidgetGeometry::MainFrame(), ui->main_frame);
-
   composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(),
                             initial_menu_);
+  composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(), demo_menu_);
 }
 
 void AtmMainWidget::SetTimeLabelArrangement() {
   composer_.SetShiftFactor(1.0, 1.0);
   composer_.SetShiftSide(Side::kRight);
   composer_.SetTransformationType(GeometryComposer::kShift);
-
   composer_.ComposeGeometry(MainWidgetGeometry::TimeLabel(), ui->time_label);
 }
 
@@ -120,12 +124,13 @@ void AtmMainWidget::PaintWidgets() {
 void AtmMainWidget::InitializeObject() {
   time_timer_ = new QTimer(ui->time_label);
   initial_menu_ = new InitialMenu(ui->main_frame);
+  demo_menu_ = new DemoMenu(ui->main_frame);
 }
 
 void AtmMainWidget::ComputeExtraSize() {
-  int delta_width = width() - Geometry::InitialScreenWidth();
-  int delta_height = height() - Geometry::InitialScreenHeight();
+  delta_width_ = width() - Geometry::InitialScreenWidth();
+  delta_height_ = height() - Geometry::InitialScreenHeight();
 
-  composer_.SetDeltaSize(DeltaSize(delta_width, delta_height));
-  initial_menu_->SetDeltaSize(DeltaSize(delta_width, delta_height));
+  initial_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
+  demo_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
 }
