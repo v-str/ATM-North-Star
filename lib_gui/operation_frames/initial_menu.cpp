@@ -29,7 +29,7 @@ InitialMenu::InitialMenu(QWidget* parent)
   setGeometry(InitialFrameGeometry::InitialFrame());
 
   widget_hider_->SetWidgetForHideAnimation(this);
-  widget_hider_->SetHideDirection(Side::kUp | Side::kLeft);
+  widget_hider_->SetHideDirection(/*Side::kUp | */ Side::kLeft);
 
   SetButtonsInitialSetting();
   SetScalingProperties();
@@ -48,6 +48,17 @@ void InitialMenu::SetDeltaSize(const DeltaSize& delta_size) {
 }
 
 void InitialMenu::RememberGeometry() { emit PassGeometry(geometry()); }
+
+void InitialMenu::Show() {
+  QRect geometry = {
+      InitialFrameGeometry::InitialFrame().x(),
+      InitialFrameGeometry::InitialFrame().y(),
+      InitialFrameGeometry::InitialFrame().width() + delta_size_.Width(),
+      InitialFrameGeometry::InitialFrame().height() + delta_size_.Height()};
+
+  setGeometry(geometry);
+  show();
+}
 
 void InitialMenu::Close() {
   emit AlreadyClosed();

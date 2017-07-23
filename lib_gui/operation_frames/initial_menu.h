@@ -25,6 +25,7 @@ class InitialMenu : public QFrame {
 
  public slots:
   void RememberGeometry();
+  void Show();
   void Close();
 
  signals:

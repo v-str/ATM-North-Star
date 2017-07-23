@@ -25,6 +25,7 @@ class DemoMenu : public QFrame {
  public slots:
   void ReturnToInitialMenu();
   void RememberGeometry();
+  void Show();
   void Close();
 
  signals:

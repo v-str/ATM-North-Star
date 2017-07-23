@@ -27,7 +27,6 @@ class AtmMainWidget : public QMainWindow {
  public slots:
   void MaximizeButtonClicked(bool);
   void TickTime();
-  void ShowDemoMenu();
 
  protected:
   void resizeEvent(QResizeEvent* event);

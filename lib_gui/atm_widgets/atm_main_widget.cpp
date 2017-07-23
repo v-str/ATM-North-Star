@@ -61,8 +61,6 @@ void AtmMainWidget::MaximizeButtonClicked(bool) {
 
 void AtmMainWidget::TickTime() { TimeDateChanger::ChangeTime(ui->time_label); }
 
-void AtmMainWidget::ShowDemoMenu() { demo_menu_->show(); }
-
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeExtraSize();
   SetFrameArrangement();
@@ -73,7 +71,8 @@ void AtmMainWidget::SetConnections() {
   connect(ui->maximize_button, SIGNAL(clicked(bool)),
           SLOT(MaximizeButtonClicked(bool)));
   connect(time_timer_, SIGNAL(timeout()), SLOT(TickTime()));
-  connect(initial_menu_, SIGNAL(AlreadyClosed()), SLOT(ShowDemoMenu()));
+  connect(initial_menu_, SIGNAL(AlreadyClosed()), demo_menu_, SLOT(Show()));
+  connect(demo_menu_, SIGNAL(BackButtonClicked()), initial_menu_, SLOT(Show()));
 }
 
 void AtmMainWidget::SetInitialSettings() {

@@ -29,8 +29,18 @@ void DemoMenu::ReturnToInitialMenu() { emit BackButtonClicked(); }
 
 void DemoMenu::RememberGeometry() { emit PassGeometry(geometry()); }
 
+void DemoMenu::Show() {
+  QRect geometry = {
+      DemoMenuGeometry::DemoFrame().x(), DemoMenuGeometry::DemoFrame().y(),
+      DemoMenuGeometry::DemoFrame().width() + delta_size_.Width(),
+      DemoMenuGeometry::DemoFrame().height() + delta_size_.Height()};
+
+  setGeometry(geometry);
+  show();
+}
+
 void DemoMenu::Close() {
-  emit AlreadyClosed();
+  emit BackButtonClicked();
   close();
 }
 
@@ -66,7 +76,7 @@ void DemoMenu::SetHidingAnimation() {
 }
 
 void DemoMenu::SetConnections() {
-  connect(back_button_, SIGNAL(clicked(bool)), SLOT(ReturnToInitialMenu()));
+  // connect(back_button_, SIGNAL(clicked(bool)), SLOT(ReturnToInitialMenu()));
   connect(back_button_, SIGNAL(clicked(bool)), SLOT(RememberGeometry()));
   connect(this, SIGNAL(PassGeometry(QRect)), &widget_hider_, SLOT(Hide(QRect)));
   connect(&widget_hider_, SIGNAL(IsAlreadyHidden()), SLOT(Close()));
