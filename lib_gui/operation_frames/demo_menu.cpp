@@ -2,6 +2,7 @@
 
 #include <QList>
 #include <QResizeEvent>
+#include <QTimer>
 #include <QWidget>
 
 #include <atm_button.h>
@@ -25,7 +26,10 @@ void DemoMenu::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
-void DemoMenu::RememberGeometry() { emit PassGeometry(geometry()); }
+void DemoMenu::ProcessBackButtonClick() {
+  emit PassGeometry(geometry());
+  emit BackButtonClicked();
+}
 
 void DemoMenu::Show() {
   QRect geometry = {
@@ -34,12 +38,7 @@ void DemoMenu::Show() {
       DemoMenuGeometry::DemoFrame().height() + delta_size_.Height()};
 
   setGeometry(geometry);
-  show();
-}
-
-void DemoMenu::Close() {
-  emit BackButtonClicked();
-  close();
+  QTimer::singleShot(widget_hider_.AnimationDurationMSec(), this, SLOT(show()));
 }
 
 void DemoMenu::resizeEvent(QResizeEvent*) {
@@ -74,7 +73,7 @@ void DemoMenu::SetHidingAnimation() {
 }
 
 void DemoMenu::SetConnections() {
-  connect(back_button_, SIGNAL(clicked(bool)), SLOT(RememberGeometry()));
+  connect(back_button_, SIGNAL(clicked(bool)), SLOT(ProcessBackButtonClick()));
   connect(this, SIGNAL(PassGeometry(QRect)), &widget_hider_, SLOT(Hide(QRect)));
-  connect(&widget_hider_, SIGNAL(IsAlreadyHidden()), SLOT(Close()));
+  connect(&widget_hider_, SIGNAL(IsAlreadyHidden()), SLOT(close()));
 }

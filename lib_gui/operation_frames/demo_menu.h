@@ -23,9 +23,8 @@ class DemoMenu : public QFrame {
   void SetDeltaSize(const DeltaSize& delta_size);
 
  public slots:
-  void RememberGeometry();
+  void ProcessBackButtonClick();
   void Show();
-  void Close();
 
  signals:
   void BackButtonClicked();
