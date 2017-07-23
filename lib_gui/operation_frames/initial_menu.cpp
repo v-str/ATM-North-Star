@@ -15,8 +15,6 @@
 #include <side.h>
 #include <widget_hider.h>
 
-#include <QDebug>
-
 InitialMenu::InitialMenu(QWidget* parent)
     : QFrame(parent),
       button_frame_(new QFrame(this)),
@@ -47,7 +45,10 @@ void InitialMenu::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
-void InitialMenu::RememberGeometry() { emit PassGeometry(geometry()); }
+void InitialMenu::ProcessDemoButtonClick() {
+  emit PassGeometry(geometry());
+  emit DemoButtonClicked();
+}
 
 void InitialMenu::Show() {
   QRect geometry = {
@@ -58,11 +59,6 @@ void InitialMenu::Show() {
 
   setGeometry(geometry);
   show();
-}
-
-void InitialMenu::Close() {
-  emit AlreadyClosed();
-  close();
 }
 
 void InitialMenu::PaintWidgets() {
@@ -114,9 +110,9 @@ void InitialMenu::SetButtonFrame() {
 }
 
 void InitialMenu::SetConnections() {
-  connect(demo_button_, SIGNAL(clicked(bool)), SLOT(RememberGeometry()));
+  connect(demo_button_, SIGNAL(clicked(bool)), SLOT(ProcessDemoButtonClick()));
   connect(this, SIGNAL(PassGeometry(QRect)), widget_hider_, SLOT(Hide(QRect)));
-  connect(widget_hider_, SIGNAL(IsAlreadyHidden()), SLOT(Close()));
+  connect(widget_hider_, SIGNAL(IsAlreadyHidden()), SLOT(close()));
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {

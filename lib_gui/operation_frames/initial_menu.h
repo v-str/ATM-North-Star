@@ -24,13 +24,12 @@ class InitialMenu : public QFrame {
   void SetDeltaSize(const DeltaSize& delta_size);
 
  public slots:
-  void RememberGeometry();
+  void ProcessDemoButtonClick();
   void Show();
-  void Close();
 
  signals:
   void PassGeometry(const QRect&);
-  void AlreadyClosed();
+  void DemoButtonClicked();
 
  protected:
   void resizeEvent(QResizeEvent*);
