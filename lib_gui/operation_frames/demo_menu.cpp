@@ -23,6 +23,10 @@ void DemoMenu::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
+void DemoMenu::ReturnToInitialMenu() { emit BackButtonClicked(); }
+
+void DemoMenu::RememberGeometry() { emit PassGeometry(geometry()); }
+
 void DemoMenu::resizeEvent(QResizeEvent*) {
   SetScalingProperties();
   composer_.SetDeltaSize(delta_size_);
@@ -47,4 +51,8 @@ void DemoMenu::SetScalingProperties() {
   composer_.SetStretchFactor(0.07, 0.03);
   composer_.SetStretchSide(Side::kUp | Side::kRight);
   composer_.SetTransformationType(GeometryComposer::kScale);
+}
+
+void DemoMenu::SetConnections() {
+  connect(back_button_, SIGNAL(clicked(bool)), SLOT(ReturnToInitialMenu()));
 }
