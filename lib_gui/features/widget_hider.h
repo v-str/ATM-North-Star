@@ -15,6 +15,8 @@ class WidgetHider : public QObject {
   void SetWidgetForHideAnimation(QWidget* widget);
   void SetHideDirection(unsigned int hide_direction);
 
+  void SetAnimationDuration(unsigned int animation_duration_msec);
+
   bool IsHidden() const;
 
  public slots:
@@ -33,6 +35,7 @@ class WidgetHider : public QObject {
   bool is_widget_hidden_ = false;
 
   unsigned int hide_direction_ = 4;
+  unsigned int animation_duration_msec_ = 500;
 };
 
 #endif  // WIDGET_HIDER_H

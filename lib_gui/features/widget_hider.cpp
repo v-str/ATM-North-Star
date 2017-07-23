@@ -18,12 +18,16 @@ void WidgetHider::SetWidgetForHideAnimation(QWidget* widget) {
   }
 
   hide_animation_ = new QPropertyAnimation(widget, "geometry");
-  hide_animation_->setDuration(500);
+  hide_animation_->setDuration(animation_duration_msec_);
   hide_animation_->setEasingCurve(QEasingCurve::OutCirc);
 }
 
 void WidgetHider::SetHideDirection(unsigned int hide_direction) {
   hide_direction_ = hide_direction;
+}
+
+void WidgetHider::SetAnimationDuration(unsigned int animation_duration_msec) {
+  animation_duration_msec_ = animation_duration_msec;
 }
 
 bool WidgetHider::IsHidden() const { return is_widget_hidden_; }
