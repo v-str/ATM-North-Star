@@ -3,6 +3,7 @@
 
 #include <delta_size.h>
 #include <geometry_composer.h>
+#include <widget_border_controller.h>
 
 #include <QFrame>
 
@@ -31,6 +32,7 @@ class DemoMenu : public QFrame {
   AtmButton* back_button_ = nullptr;
 
   GeometryComposer composer_;
+  WidgetBorderController border_controller_;
   DeltaSize delta_size_;
 };
 
