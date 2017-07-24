@@ -29,7 +29,8 @@ class InitialMenu : public QFrame {
   void Show();
 
  signals:
-  void PassGeometry(const QRect&);
+  void PassGeometryForExtrude(const QRect&);
+  void PassGeometryForHide(const QRect&);
   void DemoButtonClicked();
 
  protected:
@@ -37,7 +38,7 @@ class InitialMenu : public QFrame {
 
  private:
   void PaintWidgets();
-
+  void SetFrameAnimation();
   void SetButtonsInitialSetting();
   void SetButtonGeometry();
   void SetButtonSizePolicy();

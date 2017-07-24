@@ -29,9 +29,7 @@ InitialMenu::InitialMenu(QWidget* parent)
       widget_extruder_(new WidgetExtruder) {
   setGeometry(InitialFrameGeometry::InitialFrame());
 
-  widget_hider_->SetWidgetForHideAnimation(this);
-  widget_hider_->SetHideDirection(Side::kUp | Side::kLeft);
-
+  SetFrameAnimation();
   SetButtonsInitialSetting();
   SetScalingProperties();
   SetButtonFrame();
@@ -50,26 +48,35 @@ void InitialMenu::SetDeltaSize(const DeltaSize& delta_size) {
 }
 
 void InitialMenu::ProcessDemoButtonClick() {
-  emit PassGeometry(geometry());
+  emit PassGeometryForHide(geometry());
   emit DemoButtonClicked();
 }
 
 void InitialMenu::Show() {
-  QRect geometry = {
+  QRect widget_geometry = {
       InitialFrameGeometry::InitialFrame().x(),
       InitialFrameGeometry::InitialFrame().y(),
       InitialFrameGeometry::InitialFrame().width() + delta_size_.Width(),
       InitialFrameGeometry::InitialFrame().height() + delta_size_.Height()};
 
-  setGeometry(geometry);
-  QTimer::singleShot(widget_hider_->AnimationDurationMSec(), this,
-                     SLOT(show()));
+  setGeometry(widget_geometry);
+  //  QTimer::singleShot(widget_hider_->AnimationDurationMSec(), this,
+  //                     SLOT(show()));
+  emit PassGeometryForExtrude(widget_geometry);
 }
 
 void InitialMenu::PaintWidgets() {
   atm_color_designer_->PaintFrame(this);
   atm_color_designer_->PaintWidgetSet(
       QList<QPushButton*>{sign_in_button_, registration_button_, demo_button_});
+}
+
+void InitialMenu::SetFrameAnimation() {
+  widget_hider_->SetWidgetForHideAnimation(this);
+  widget_hider_->SetHideDirection(Side::kUp | Side::kLeft);
+
+  widget_extruder_->SetWidgetForExtrudeAnimaiton(this);
+  widget_extruder_->SetExtrudeDirection(Side::kDown | Side::kRight);
 }
 
 void InitialMenu::SetButtonsInitialSetting() {
@@ -116,7 +123,8 @@ void InitialMenu::SetButtonFrame() {
 
 void InitialMenu::SetConnections() {
   connect(demo_button_, SIGNAL(clicked(bool)), SLOT(ProcessDemoButtonClick()));
-  connect(this, SIGNAL(PassGeometry(QRect)), widget_hider_, SLOT(Hide(QRect)));
+  connect(this, SIGNAL(PassGeometryForHide(QRect)), widget_hider_,
+          SLOT(Hide(QRect)));
   connect(widget_hider_, SIGNAL(IsAlreadyHidden()), SLOT(close()));
 }
 
