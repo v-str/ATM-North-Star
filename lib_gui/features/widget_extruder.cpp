@@ -19,14 +19,18 @@ void WidgetExtruder::SetWidgetForExtrudeAnimaiton(QWidget* widget) {
   extrude_animation_->setEasingCurve(QEasingCurve::OutCirc);
 }
 
-void WidgetExtruder::SetExtrudeDirection(unsigned int direction) {
-  extrude_direction_ = direction;
+void WidgetExtruder::SetExtrudeDirection(unsigned int extrude_direction) {
+  extrude_direction_ = extrude_direction;
 }
 
 void WidgetExtruder::SetAnimationDuration(
     unsigned int animation_duration_msec) {
   animation_duration_msec_ = animation_duration_msec;
   extrude_animation_->setDuration(animation_duration_msec_);
+}
+
+void WidgetExtruder::SetAnimationCurve(QEasingCurve curve) {
+  extrude_animation_->setEasingCurve(curve);
 }
 
 void WidgetExtruder::Extrude(const QRect& geometry) {

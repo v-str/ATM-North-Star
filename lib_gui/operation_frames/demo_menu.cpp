@@ -1,5 +1,6 @@
 ﻿#include <demo_menu.h>
 
+#include <QEasingCurve>
 #include <QList>
 #include <QResizeEvent>
 #include <QTimer>
@@ -70,11 +71,13 @@ void DemoMenu::SetScalingProperties() {
 void DemoMenu::SetFrameAnimation() {
   widget_hider_.SetWidgetForHideAnimation(this);
   widget_hider_.SetHideDirection(Side::kLeft);
-  widget_hider_.SetAnimationDuration(1000);
+  widget_hider_.SetAnimationDuration(500);
+  widget_hider_.SetAnimationCurve(QEasingCurve::OutQuad);
 
   widget_extruder_.SetWidgetForExtrudeAnimaiton(this);
   widget_extruder_.SetExtrudeDirection(Side::kRight);
-  widget_extruder_.SetAnimationDuration(1000);
+  widget_extruder_.SetAnimationDuration(500);
+  widget_extruder_.SetAnimationCurve(QEasingCurve::OutQuad);
 }
 
 void DemoMenu::SetConnections() {

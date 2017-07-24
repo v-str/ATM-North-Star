@@ -6,6 +6,7 @@
 
 class QPropertyAnimation;
 class QWidget;
+class QEasingCurve;
 
 class WidgetExtruder : public QObject {
   Q_OBJECT
@@ -13,8 +14,9 @@ class WidgetExtruder : public QObject {
   ~WidgetExtruder();
 
   void SetWidgetForExtrudeAnimaiton(QWidget* widget);
-  void SetExtrudeDirection(unsigned int direction);
+  void SetExtrudeDirection(unsigned int extrude_direction);
   void SetAnimationDuration(unsigned int animation_duration_msec);
+  void SetAnimationCurve(QEasingCurve curve);
 
  public slots:
   void Extrude(const QRect& geometry);

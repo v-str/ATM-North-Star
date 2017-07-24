@@ -6,6 +6,7 @@
 class QPropertyAnimation;
 class QWidget;
 class QRect;
+class QEasingCurve;
 
 class WidgetHider : public QObject {
   Q_OBJECT
@@ -14,8 +15,8 @@ class WidgetHider : public QObject {
 
   void SetWidgetForHideAnimation(QWidget* widget);
   void SetHideDirection(unsigned int hide_direction);
-
   void SetAnimationDuration(unsigned int animation_duration_msec);
+  void SetAnimationCurve(QEasingCurve curve);
 
   unsigned int AnimationDurationMSec() const;
 

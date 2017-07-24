@@ -31,6 +31,10 @@ void WidgetHider::SetAnimationDuration(unsigned int animation_duration_msec) {
   hide_animation_->setDuration(animation_duration_msec_);
 }
 
+void WidgetHider::SetAnimationCurve(QEasingCurve curve) {
+  hide_animation_->setEasingCurve(curve);
+}
+
 unsigned int WidgetHider::AnimationDurationMSec() const {
   return animation_duration_msec_;
 }
