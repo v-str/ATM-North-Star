@@ -14,6 +14,7 @@ class QPushButton;
 class AtmColorDesigner;
 class AtmButton;
 class WidgetHider;
+class WidgetExtruder;
 
 class InitialMenu : public QFrame {
   Q_OBJECT
@@ -24,20 +25,20 @@ class InitialMenu : public QFrame {
   void SetDeltaSize(const DeltaSize& delta_size);
 
  public slots:
-  void RememberGeometry();
+  void ProcessDemoButtonClick();
   void Show();
-  void Close();
 
  signals:
-  void PassGeometry(const QRect&);
-  void AlreadyClosed();
+  void PassGeometryForExtrude(const QRect&);
+  void PassGeometryForHide(const QRect&);
+  void DemoButtonClicked();
 
  protected:
   void resizeEvent(QResizeEvent*);
 
  private:
   void PaintWidgets();
-
+  void SetFrameAnimation();
   void SetButtonsInitialSetting();
   void SetButtonGeometry();
   void SetButtonSizePolicy();
@@ -54,6 +55,7 @@ class InitialMenu : public QFrame {
   QVBoxLayout* v_layout_ = nullptr;
   AtmColorDesigner* atm_color_designer_ = nullptr;
   WidgetHider* widget_hider_ = nullptr;
+  WidgetExtruder* widget_extruder_ = nullptr;
 
   DeltaSize delta_size_;
   WidgetBorderController border_controller_;

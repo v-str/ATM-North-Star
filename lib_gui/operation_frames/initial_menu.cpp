@@ -1,9 +1,11 @@
 ﻿#include <initial_menu.h>
 
+#include <QEasingCurve>
 #include <QList>
 #include <QPushButton>
 #include <QSizePolicy>
 #include <QString>
+#include <QTimer>
 #include <QVector>
 #include <QWidget>
 
@@ -13,9 +15,8 @@
 #include <conversion_factor.h>
 #include <initial_frame_geometry.h>
 #include <side.h>
+#include <widget_extruder.h>
 #include <widget_hider.h>
-
-#include <QDebug>
 
 InitialMenu::InitialMenu(QWidget* parent)
     : QFrame(parent),
@@ -25,12 +26,11 @@ InitialMenu::InitialMenu(QWidget* parent)
       demo_button_(new AtmButton("Demo", button_frame_)),
       v_layout_(new QVBoxLayout),
       atm_color_designer_(new AtmColorDesigner),
-      widget_hider_(new WidgetHider) {
+      widget_hider_(new WidgetHider),
+      widget_extruder_(new WidgetExtruder) {
   setGeometry(InitialFrameGeometry::InitialFrame());
 
-  widget_hider_->SetWidgetForHideAnimation(this);
-  widget_hider_->SetHideDirection(/*Side::kUp | */ Side::kLeft);
-
+  SetFrameAnimation();
   SetButtonsInitialSetting();
   SetScalingProperties();
   SetButtonFrame();
@@ -41,34 +41,45 @@ InitialMenu::InitialMenu(QWidget* parent)
 InitialMenu::~InitialMenu() {
   delete atm_color_designer_;
   delete widget_hider_;
+  delete widget_extruder_;
 }
 
 void InitialMenu::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
-void InitialMenu::RememberGeometry() { emit PassGeometry(geometry()); }
+void InitialMenu::ProcessDemoButtonClick() {
+  emit PassGeometryForHide(geometry());
+  emit DemoButtonClicked();
+}
 
 void InitialMenu::Show() {
-  QRect geometry = {
+  QRect widget_geometry = {
       InitialFrameGeometry::InitialFrame().x(),
       InitialFrameGeometry::InitialFrame().y(),
       InitialFrameGeometry::InitialFrame().width() + delta_size_.Width(),
       InitialFrameGeometry::InitialFrame().height() + delta_size_.Height()};
 
-  setGeometry(geometry);
-  show();
-}
-
-void InitialMenu::Close() {
-  emit AlreadyClosed();
-  close();
+  setGeometry(widget_geometry);
+  emit PassGeometryForExtrude(widget_geometry);
 }
 
 void InitialMenu::PaintWidgets() {
   atm_color_designer_->PaintFrame(this);
   atm_color_designer_->PaintWidgetSet(
       QList<QPushButton*>{sign_in_button_, registration_button_, demo_button_});
+}
+
+void InitialMenu::SetFrameAnimation() {
+  widget_hider_->SetWidgetForHideAnimation(this);
+  widget_hider_->SetHideDirection(Side::kLeft);
+  widget_hider_->SetAnimationDuration(500);
+  widget_hider_->SetAnimationCurve(QEasingCurve::OutQuad);
+
+  widget_extruder_->SetWidgetForExtrudeAnimaiton(this);
+  widget_extruder_->SetExtrudeDirection(Side::kRight);
+  widget_extruder_->SetAnimationDuration(500);
+  widget_extruder_->SetAnimationCurve(QEasingCurve::OutQuad);
 }
 
 void InitialMenu::SetButtonsInitialSetting() {
@@ -114,9 +125,14 @@ void InitialMenu::SetButtonFrame() {
 }
 
 void InitialMenu::SetConnections() {
-  connect(demo_button_, SIGNAL(clicked(bool)), SLOT(RememberGeometry()));
-  connect(this, SIGNAL(PassGeometry(QRect)), widget_hider_, SLOT(Hide(QRect)));
-  connect(widget_hider_, SIGNAL(IsAlreadyHidden()), SLOT(Close()));
+  connect(this, SIGNAL(PassGeometryForExtrude(QRect)), widget_extruder_,
+          SLOT(Extrude(QRect)));
+  connect(widget_extruder_, SIGNAL(AlreadyExtruded()), SLOT(show()));
+
+  connect(demo_button_, SIGNAL(clicked(bool)), SLOT(ProcessDemoButtonClick()));
+  connect(this, SIGNAL(PassGeometryForHide(QRect)), widget_hider_,
+          SLOT(Hide(QRect)));
+  connect(widget_hider_, SIGNAL(IsAlreadyHidden()), SLOT(close()));
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {

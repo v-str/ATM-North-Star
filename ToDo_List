@@ -83,9 +83,15 @@
 34. Make refactoring of initial frame class                                         | + |
     Implement correct button resizing - change proportion of expanding by height    |   |
                                                                                     |   |
-35. Develop frame changing mechanism                                                | - |
+35. Develop frame changing mechanism                                                | + |
                                                                                     |   |
 36. Develop demo menu                                                               | - |
+                                                                                    |   |
+37. Solve problem related with widgets sliding animation                            | + |
+                                                                                    |   |
+38. Fix repetitive code in animation classes -> develop base class for them         | - |
+                                                                                    |   |
+39. Develop second base class for operation frames, fix repetitive code             | - |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------

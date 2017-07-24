@@ -8,11 +8,12 @@
 #include <delta_size.h>
 #include <geometry_composer.h>
 #include <widget_border_controller.h>
-#include <widget_hider.h>
 
 class QWidget;
 class AtmColorDesigner;
 class AtmButton;
+class WidgetHider;
+class WidgetExtruder;
 
 class DemoMenu : public QFrame {
   Q_OBJECT
@@ -23,14 +24,13 @@ class DemoMenu : public QFrame {
   void SetDeltaSize(const DeltaSize& delta_size);
 
  public slots:
-  void ReturnToInitialMenu();
-  void RememberGeometry();
+  void ProcessBackButtonClick();
   void Show();
-  void Close();
 
  signals:
   void BackButtonClicked();
-  void PassGeometry(const QRect&);
+  void PassGeometryForHide(const QRect&);
+  void PassGeometryForExtrude(const QRect&);
   void AlreadyClosed();
 
  protected:
@@ -40,16 +40,17 @@ class DemoMenu : public QFrame {
   void SetInitialGeometry();
   void PaintWidgets();
   void SetScalingProperties();
-  void SetHidingAnimation();
+  void SetFrameAnimation();
 
   void SetConnections();
 
   AtmColorDesigner* color_designer_ = nullptr;
   AtmButton* back_button_ = nullptr;
+  WidgetHider* widget_hider_ = nullptr;
+  WidgetExtruder* widget_extruder_ = nullptr;
 
   GeometryComposer composer_;
   WidgetBorderController border_controller_;
-  WidgetHider widget_hider_;
   DeltaSize delta_size_;
 };
 

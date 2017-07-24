@@ -1,47 +1,53 @@
 ﻿#include <demo_menu.h>
 
+#include <QEasingCurve>
 #include <QList>
 #include <QResizeEvent>
+#include <QTimer>
 #include <QWidget>
 
 #include <atm_button.h>
 #include <atm_color_designer.h>
 #include <demo_menu_geometry.h>
 #include <side.h>
+#include <widget_extruder.h>
+#include <widget_hider.h>
 
 DemoMenu::DemoMenu(QWidget* parent)
     : QFrame(parent),
       color_designer_(new AtmColorDesigner),
-      back_button_(new AtmButton("back", this)) {
-  SetHidingAnimation();
+      back_button_(new AtmButton("back", this)),
+      widget_hider_(new WidgetHider),
+      widget_extruder_(new WidgetExtruder) {
+  SetFrameAnimation();
   SetInitialGeometry();
   PaintWidgets();
   SetConnections();
 }
 
-DemoMenu::~DemoMenu() { delete color_designer_; }
+DemoMenu::~DemoMenu() {
+  delete color_designer_;
+  delete widget_hider_;
+  delete widget_extruder_;
+}
 
 void DemoMenu::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
-void DemoMenu::ReturnToInitialMenu() { emit BackButtonClicked(); }
-
-void DemoMenu::RememberGeometry() { emit PassGeometry(geometry()); }
+void DemoMenu::ProcessBackButtonClick() {
+  emit PassGeometryForHide(geometry());
+  emit BackButtonClicked();
+}
 
 void DemoMenu::Show() {
-  QRect geometry = {
+  QRect widget_geometry = {
       DemoMenuGeometry::DemoFrame().x(), DemoMenuGeometry::DemoFrame().y(),
       DemoMenuGeometry::DemoFrame().width() + delta_size_.Width(),
       DemoMenuGeometry::DemoFrame().height() + delta_size_.Height()};
 
-  setGeometry(geometry);
-  show();
-}
-
-void DemoMenu::Close() {
-  emit BackButtonClicked();
-  close();
+  setGeometry(widget_geometry);
+  emit PassGeometryForExtrude(widget_geometry);
 }
 
 void DemoMenu::resizeEvent(QResizeEvent*) {
@@ -70,14 +76,25 @@ void DemoMenu::SetScalingProperties() {
   composer_.SetTransformationType(GeometryComposer::kScale);
 }
 
-void DemoMenu::SetHidingAnimation() {
-  widget_hider_.SetWidgetForHideAnimation(this);
-  widget_hider_.SetHideDirection(/*Side::kDown | */ Side::kRight);
+void DemoMenu::SetFrameAnimation() {
+  widget_hider_->SetWidgetForHideAnimation(this);
+  widget_hider_->SetHideDirection(Side::kLeft);
+  widget_hider_->SetAnimationDuration(500);
+  widget_hider_->SetAnimationCurve(QEasingCurve::OutQuad);
+
+  widget_extruder_->SetWidgetForExtrudeAnimaiton(this);
+  widget_extruder_->SetExtrudeDirection(Side::kRight);
+  widget_extruder_->SetAnimationDuration(500);
+  widget_extruder_->SetAnimationCurve(QEasingCurve::OutQuad);
 }
 
 void DemoMenu::SetConnections() {
-  // connect(back_button_, SIGNAL(clicked(bool)), SLOT(ReturnToInitialMenu()));
-  connect(back_button_, SIGNAL(clicked(bool)), SLOT(RememberGeometry()));
-  connect(this, SIGNAL(PassGeometry(QRect)), &widget_hider_, SLOT(Hide(QRect)));
-  connect(&widget_hider_, SIGNAL(IsAlreadyHidden()), SLOT(Close()));
+  connect(this, SIGNAL(PassGeometryForExtrude(QRect)), widget_extruder_,
+          SLOT(Extrude(QRect)));
+  connect(widget_extruder_, SIGNAL(AlreadyExtruded()), SLOT(show()));
+
+  connect(back_button_, SIGNAL(clicked(bool)), SLOT(ProcessBackButtonClick()));
+  connect(this, SIGNAL(PassGeometryForHide(QRect)), widget_hider_,
+          SLOT(Hide(QRect)));
+  connect(widget_hider_, SIGNAL(IsAlreadyHidden()), SLOT(close()));
 }
