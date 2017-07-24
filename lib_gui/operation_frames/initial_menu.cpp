@@ -14,6 +14,7 @@
 #include <conversion_factor.h>
 #include <initial_frame_geometry.h>
 #include <side.h>
+#include <widget_extruder.h>
 #include <widget_hider.h>
 
 InitialMenu::InitialMenu(QWidget* parent)
@@ -24,7 +25,8 @@ InitialMenu::InitialMenu(QWidget* parent)
       demo_button_(new AtmButton("Demo", button_frame_)),
       v_layout_(new QVBoxLayout),
       atm_color_designer_(new AtmColorDesigner),
-      widget_hider_(new WidgetHider) {
+      widget_hider_(new WidgetHider),
+      widget_extruder_(new WidgetExtruder) {
   setGeometry(InitialFrameGeometry::InitialFrame());
 
   widget_hider_->SetWidgetForHideAnimation(this);
@@ -40,6 +42,7 @@ InitialMenu::InitialMenu(QWidget* parent)
 InitialMenu::~InitialMenu() {
   delete atm_color_designer_;
   delete widget_hider_;
+  delete widget_extruder_;
 }
 
 void InitialMenu::SetDeltaSize(const DeltaSize& delta_size) {

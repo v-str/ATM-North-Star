@@ -14,6 +14,7 @@ class QPushButton;
 class AtmColorDesigner;
 class AtmButton;
 class WidgetHider;
+class WidgetExtruder;
 
 class InitialMenu : public QFrame {
   Q_OBJECT
@@ -53,6 +54,7 @@ class InitialMenu : public QFrame {
   QVBoxLayout* v_layout_ = nullptr;
   AtmColorDesigner* atm_color_designer_ = nullptr;
   WidgetHider* widget_hider_ = nullptr;
+  WidgetExtruder* widget_extruder_ = nullptr;
 
   DeltaSize delta_size_;
   WidgetBorderController border_controller_;
