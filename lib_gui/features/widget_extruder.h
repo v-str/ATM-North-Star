@@ -21,9 +21,10 @@ class WidgetExtruder : public QObject {
  public slots:
   void Extrude(const QRect& geometry);
   void StartAnimation();
+  void EndAnimation();
 
  signals:
-  void IsAlreadyExtruded();
+  void AlreadyExtruded();
 
  private:
   void SetStartExtrudeAnimation(const QRect& start_widget_geometry);

@@ -14,6 +14,8 @@ void WidgetExtruder::SetWidgetForExtrudeAnimaiton(QWidget* widget) {
     delete extrude_animation_;
   }
 
+  is_widget_extruded_ = false;
+
   extrude_animation_ = new QPropertyAnimation(widget, "geometry");
   extrude_animation_->setDuration(animation_duration_msec_);
   extrude_animation_->setEasingCurve(QEasingCurve::OutCirc);
@@ -28,13 +30,21 @@ void WidgetExtruder::SetAnimationDuration(
   animation_duration_msec_ = animation_duration_msec;
 }
 
+bool WidgetExtruder::IsExtruded() const { return is_widget_extruded_; }
+
 void WidgetExtruder::Extrude(const QRect& geometry) {
   SetStartExtrudeAnimation(geometry);
   SetEndExtrudeAnimation(geometry);
   QTimer::singleShot(animation_duration_msec_, this, SLOT(StartAnimation()));
+  QTimer::singleShot(100, this, SLOT(EndAnimation()));
 }
 
-void WidgetExtruder::StartAnimation() { extrude_animation_->start(); }
+void WidgetExtruder::StartAnimation() {
+  extrude_animation_->start();
+  is_widget_extruded_ = true;
+}
+
+void WidgetExtruder::EndAnimation() { emit AlreadyExtruded(); }
 
 void WidgetExtruder::SetStartExtrudeAnimation(
     const QRect& start_widget_geometry) {
