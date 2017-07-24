@@ -29,7 +29,8 @@ class DemoMenu : public QFrame {
 
  signals:
   void BackButtonClicked();
-  void PassGeometry(const QRect&);
+  void PassGeometryForHide(const QRect&);
+  void PassGeometryForExtrude(const QRect&);
   void AlreadyClosed();
 
  protected:

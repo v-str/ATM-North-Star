@@ -36,7 +36,7 @@ void WidgetExtruder::Extrude(const QRect& geometry) {
   SetStartExtrudeAnimation(geometry);
   SetEndExtrudeAnimation(geometry);
   QTimer::singleShot(animation_duration_msec_, this, SLOT(StartAnimation()));
-  QTimer::singleShot(100, this, SLOT(EndAnimation()));
+  QTimer::singleShot(animation_duration_msec_, this, SLOT(EndAnimation()));
 }
 
 void WidgetExtruder::StartAnimation() {
