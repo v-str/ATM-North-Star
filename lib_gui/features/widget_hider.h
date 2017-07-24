@@ -27,8 +27,8 @@ class WidgetHider : public QObject {
   void IsAlreadyHidden();
 
  private:
-  void SetStartHideValue(const QRect& start_value);
-  void SetEndHideValue(const QRect& end_value);
+  void SetStartHideValue(const QRect& start_geometry);
+  void SetEndHideValue(const QRect& end_geometry);
 
   QPropertyAnimation* hide_animation_ = nullptr;
 

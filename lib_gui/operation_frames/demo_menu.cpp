@@ -69,10 +69,12 @@ void DemoMenu::SetScalingProperties() {
 
 void DemoMenu::SetFrameAnimation() {
   widget_hider_.SetWidgetForHideAnimation(this);
-  widget_hider_.SetHideDirection(Side::kUp | Side::kRight);
+  widget_hider_.SetHideDirection(Side::kLeft);
+  widget_hider_.SetAnimationDuration(1000);
 
   widget_extruder_.SetWidgetForExtrudeAnimaiton(this);
-  widget_extruder_.SetExtrudeDirection(Side::kDown | Side::kRight);
+  widget_extruder_.SetExtrudeDirection(Side::kRight);
+  widget_extruder_.SetAnimationDuration(1000);
 }
 
 void DemoMenu::SetConnections() {

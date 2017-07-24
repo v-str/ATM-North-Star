@@ -26,6 +26,7 @@ void WidgetExtruder::SetExtrudeDirection(unsigned int direction) {
 void WidgetExtruder::SetAnimationDuration(
     unsigned int animation_duration_msec) {
   animation_duration_msec_ = animation_duration_msec;
+  extrude_animation_->setDuration(animation_duration_msec_);
 }
 
 void WidgetExtruder::Extrude(const QRect& geometry) {
@@ -39,22 +40,21 @@ void WidgetExtruder::StartAnimation() { extrude_animation_->start(); }
 
 void WidgetExtruder::EndAnimation() { emit AlreadyExtruded(); }
 
-void WidgetExtruder::SetStartExtrudeAnimation(
-    const QRect& start_widget_geometry) {
-  int x = start_widget_geometry.x();
-  int y = start_widget_geometry.y();
-  int width = start_widget_geometry.width();
-  int height = start_widget_geometry.height();
+void WidgetExtruder::SetStartExtrudeAnimation(const QRect& start_geometry) {
+  int x = start_geometry.x();
+  int y = start_geometry.y();
+  int width = start_geometry.width();
+  int height = start_geometry.height();
 
   if (extrude_direction_ & Side::kDown) {
     height = 0;
   }
   if (extrude_direction_ & Side::kUp) {
-    y += start_widget_geometry.height();
+    y += start_geometry.height();
     height = 0;
   }
   if (extrude_direction_ & Side::kLeft) {
-    x += start_widget_geometry.width();
+    x += start_geometry.width();
     width = 0;
   }
   if (extrude_direction_ & Side::kRight) {
@@ -64,11 +64,11 @@ void WidgetExtruder::SetStartExtrudeAnimation(
   extrude_animation_->setStartValue(QRect(x, y, width, height));
 }
 
-void WidgetExtruder::SetEndExtrudeAnimation(const QRect& end_widget_geometry) {
-  int x = end_widget_geometry.x();
-  int y = end_widget_geometry.y();
-  int width = end_widget_geometry.width();
-  int height = end_widget_geometry.height();
+void WidgetExtruder::SetEndExtrudeAnimation(const QRect& end_geometry) {
+  int x = end_geometry.x();
+  int y = end_geometry.y();
+  int width = end_geometry.width();
+  int height = end_geometry.height();
 
   extrude_animation_->setEndValue(QRect(x, y, width, height));
 }

@@ -60,8 +60,6 @@ void InitialMenu::Show() {
       InitialFrameGeometry::InitialFrame().height() + delta_size_.Height()};
 
   setGeometry(widget_geometry);
-  //  QTimer::singleShot(widget_hider_->AnimationDurationMSec(), this,
-  //                     SLOT(show()));
   emit PassGeometryForExtrude(widget_geometry);
 }
 
@@ -73,10 +71,12 @@ void InitialMenu::PaintWidgets() {
 
 void InitialMenu::SetFrameAnimation() {
   widget_hider_->SetWidgetForHideAnimation(this);
-  widget_hider_->SetHideDirection(Side::kUp | Side::kLeft);
+  widget_hider_->SetHideDirection(Side::kLeft);
+  widget_hider_->SetAnimationDuration(1000);
 
   widget_extruder_->SetWidgetForExtrudeAnimaiton(this);
-  widget_extruder_->SetExtrudeDirection(Side::kDown | Side::kRight);
+  widget_extruder_->SetExtrudeDirection(Side::kRight);
+  widget_extruder_->SetAnimationDuration(1000);
 }
 
 void InitialMenu::SetButtonsInitialSetting() {
@@ -122,6 +122,10 @@ void InitialMenu::SetButtonFrame() {
 }
 
 void InitialMenu::SetConnections() {
+  connect(this, SIGNAL(PassGeometryForExtrude(QRect)), widget_extruder_,
+          SLOT(Extrude(QRect)));
+  connect(widget_extruder_, SIGNAL(AlreadyExtruded()), SLOT(show()));
+
   connect(demo_button_, SIGNAL(clicked(bool)), SLOT(ProcessDemoButtonClick()));
   connect(this, SIGNAL(PassGeometryForHide(QRect)), widget_hider_,
           SLOT(Hide(QRect)));

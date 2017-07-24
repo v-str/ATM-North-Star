@@ -25,8 +25,8 @@ class WidgetExtruder : public QObject {
   void AlreadyExtruded();
 
  private:
-  void SetStartExtrudeAnimation(const QRect& start_widget_geometry);
-  void SetEndExtrudeAnimation(const QRect& end_widget_geometry);
+  void SetStartExtrudeAnimation(const QRect& start_geometry);
+  void SetEndExtrudeAnimation(const QRect& end_geometry);
 
   QPropertyAnimation* extrude_animation_ = nullptr;
 
