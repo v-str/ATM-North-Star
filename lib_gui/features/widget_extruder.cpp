@@ -14,7 +14,7 @@ void WidgetExtruder::SetWidgetForExtrudeAnimaiton(QWidget* widget) {
   }
 
   extrude_animation_ = new QPropertyAnimation(widget, "geometry");
-  extrude_animation_->setDuration(extrude_animation_msec_);
+  extrude_animation_->setDuration(animation_duration_msec_);
   extrude_animation_->setEasingCurve(QEasingCurve::OutCirc);
 
   SetStartExtrudeGeometry(widget->geometry());
@@ -22,6 +22,11 @@ void WidgetExtruder::SetWidgetForExtrudeAnimaiton(QWidget* widget) {
 
 void WidgetExtruder::SetExtrudeDirection(unsigned int direction) {
   extrude_direction_ = direction;
+}
+
+void WidgetExtruder::SetAnimationDuration(
+    unsigned int animation_duration_msec) {
+  animation_duration_msec_ = animation_duration_msec;
 }
 
 void WidgetExtruder::SetStartExtrudeGeometry(const QRect& geometry) {

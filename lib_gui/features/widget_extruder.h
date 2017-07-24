@@ -14,6 +14,7 @@ class WidgetExtruder : public QObject {
 
   void SetWidgetForExtrudeAnimaiton(QWidget* widget);
   void SetExtrudeDirection(unsigned int direction);
+  void SetAnimationDuration(unsigned int animation_duration_msec);
 
   bool IsExtruded() const;
 
@@ -37,7 +38,7 @@ class WidgetExtruder : public QObject {
   bool is_widget_extruded_ = false;
 
   unsigned int extrude_direction_ = 4;
-  unsigned int extrude_animation_msec_ = 500;
+  unsigned int animation_duration_msec_ = 500;
 };
 
 #endif  // WIDGET_EXTRUDER_H
