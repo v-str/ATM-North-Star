@@ -16,8 +16,6 @@ class WidgetExtruder : public QObject {
   void SetExtrudeDirection(unsigned int direction);
   void SetAnimationDuration(unsigned int animation_duration_msec);
 
-  bool IsExtruded() const;
-
  public slots:
   void Extrude(const QRect& geometry);
   void StartAnimation();
@@ -33,8 +31,6 @@ class WidgetExtruder : public QObject {
   QPropertyAnimation* extrude_animation_ = nullptr;
 
   QRect start_widget_geometry_;
-
-  bool is_widget_extruded_ = false;
 
   unsigned int extrude_direction_ = 4;
   unsigned int animation_duration_msec_ = 500;

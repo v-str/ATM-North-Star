@@ -30,8 +30,6 @@ void WidgetHider::SetAnimationDuration(unsigned int animation_duration_msec) {
   animation_duration_msec_ = animation_duration_msec;
 }
 
-bool WidgetHider::IsHidden() const { return is_widget_hidden_; }
-
 unsigned int WidgetHider::AnimationDurationMSec() const {
   return animation_duration_msec_;
 }
@@ -40,13 +38,10 @@ void WidgetHider::Hide(const QRect& geometry) {
   SetStartHideValue(geometry);
   SetEndHideValue(geometry);
   hide_animation_->start();
-  QTimer::singleShot(500, this, SLOT(AnimationTimeOut()));
+  QTimer::singleShot(animation_duration_msec_, this, SLOT(EndAnimation()));
 }
 
-void WidgetHider::AnimationTimeOut() {
-  is_widget_hidden_ = true;
-  emit IsAlreadyHidden();
-}
+void WidgetHider::EndAnimation() { emit IsAlreadyHidden(); }
 
 void WidgetHider::SetStartHideValue(const QRect& start_value) {
   hide_animation_->setStartValue(start_value);
