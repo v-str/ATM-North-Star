@@ -14,7 +14,7 @@ DemoMenu::DemoMenu(QWidget* parent)
     : QFrame(parent),
       color_designer_(new AtmColorDesigner),
       back_button_(new AtmButton("back", this)) {
-  SetHidingAnimation();
+  SetFrameAnimation();
   SetInitialGeometry();
   PaintWidgets();
   SetConnections();
@@ -67,7 +67,7 @@ void DemoMenu::SetScalingProperties() {
   composer_.SetTransformationType(GeometryComposer::kScale);
 }
 
-void DemoMenu::SetHidingAnimation() {
+void DemoMenu::SetFrameAnimation() {
   widget_hider_.SetWidgetForHideAnimation(this);
   widget_hider_.SetHideDirection(Side::kUp | Side::kRight);
 }
