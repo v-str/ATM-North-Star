@@ -2,10 +2,10 @@
 #define WIDGET_EXTRUDER_H
 
 #include <QObject>
+#include <QRect>
 
 class QPropertyAnimation;
 class QWidget;
-class QRect;
 
 class WidgetExtruder : public QObject {
   Q_OBJECT
@@ -25,10 +25,14 @@ class WidgetExtruder : public QObject {
   void IsAlreadyExtruded();
 
  private:
+  void SetStartExtrudeGeometry(const QRect& geometry);
+
   void SetStartExtrudeAnimation(const QRect& start_value);
   void SetEndExtrudeAnimation(const QRect& end_value);
 
   QPropertyAnimation* extrude_animation_ = nullptr;
+
+  QRect start_widget_geometry_;
 
   bool is_widget_extruded_ = false;
 
