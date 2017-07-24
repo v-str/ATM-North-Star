@@ -72,6 +72,7 @@ void DemoMenu::SetFrameAnimation() {
   widget_hider_.SetHideDirection(Side::kUp | Side::kRight);
 
   widget_extruder_.SetWidgetForExtrudeAnimaiton(this);
+  widget_extruder_.SetExtrudeDirection(Side::kDown | Side::kRight);
 }
 
 void DemoMenu::SetConnections() {
