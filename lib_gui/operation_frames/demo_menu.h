@@ -8,12 +8,12 @@
 #include <delta_size.h>
 #include <geometry_composer.h>
 #include <widget_border_controller.h>
-#include <widget_extruder.h>
-#include <widget_hider.h>
 
 class QWidget;
 class AtmColorDesigner;
 class AtmButton;
+class WidgetHider;
+class WidgetExtruder;
 
 class DemoMenu : public QFrame {
   Q_OBJECT
@@ -46,11 +46,11 @@ class DemoMenu : public QFrame {
 
   AtmColorDesigner* color_designer_ = nullptr;
   AtmButton* back_button_ = nullptr;
+  WidgetHider* widget_hider_ = nullptr;
+  WidgetExtruder* widget_extruder_ = nullptr;
 
   GeometryComposer composer_;
   WidgetBorderController border_controller_;
-  WidgetHider widget_hider_;
-  WidgetExtruder widget_extruder_;
   DeltaSize delta_size_;
 };
 
