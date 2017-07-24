@@ -70,6 +70,8 @@ void DemoMenu::SetScalingProperties() {
 void DemoMenu::SetFrameAnimation() {
   widget_hider_.SetWidgetForHideAnimation(this);
   widget_hider_.SetHideDirection(Side::kUp | Side::kRight);
+
+  widget_extruder_.SetWidgetForExtrudeAnimaiton(this);
 }
 
 void DemoMenu::SetConnections() {

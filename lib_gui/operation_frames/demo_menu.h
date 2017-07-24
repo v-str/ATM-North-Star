@@ -8,6 +8,7 @@
 #include <delta_size.h>
 #include <geometry_composer.h>
 #include <widget_border_controller.h>
+#include <widget_extruder.h>
 #include <widget_hider.h>
 
 class QWidget;
@@ -48,6 +49,7 @@ class DemoMenu : public QFrame {
   GeometryComposer composer_;
   WidgetBorderController border_controller_;
   WidgetHider widget_hider_;
+  WidgetExtruder widget_extruder_;
   DeltaSize delta_size_;
 };
 
