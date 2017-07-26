@@ -51,7 +51,6 @@ HEADERS += \
     $$PWD/atm_widgets/*.h \
     $$PWD/subwidgets/*.h \
 
-
 SOURCES += \
     $$PWD/widgets_arrangement/common/modificators/primitive/*.cpp \
     $$PWD/widgets_arrangement/common/modificators/composite/*.cpp \
