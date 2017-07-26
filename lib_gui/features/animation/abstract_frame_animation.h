@@ -12,9 +12,14 @@ class AbstractFrameAnimation : public QObject {
   explicit AbstractFrameAnimation(QWidget* parent = nullptr);
   ~AbstractFrameAnimation();
 
- signals:
+  void SetWidgetForAnimation(QWidget* widget);
 
  public slots:
+
+ signals:
+
+ protected:
+  QPropertyAnimation* PropertyAnimation() const;
 
  private:
   QPropertyAnimation* property_animation_ = nullptr;
