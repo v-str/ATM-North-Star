@@ -19,10 +19,15 @@ class AbstractFrameAnimation : public QObject {
  signals:
 
  protected:
+  int CheckOnPositiveValue(int value);
+
   QPropertyAnimation* PropertyAnimation() const;
 
  private:
   QPropertyAnimation* property_animation_ = nullptr;
+
+  int animation_direction_ = 4;
+  int animation_duration_msec_ = 500;
 };
 
 #endif  // ABSTRACT_FRAME_ANIMATION_H

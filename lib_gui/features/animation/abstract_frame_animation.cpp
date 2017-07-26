@@ -14,6 +14,13 @@ void AbstractFrameAnimation::SetWidgetForAnimation(QWidget* widget) {
   property_animation_->setTargetObject(widget);
 }
 
+int AbstractFrameAnimation::CheckOnPositiveValue(int value) {
+  if (value < 0) {
+    value = 0;
+  }
+  return value;
+}
+
 QPropertyAnimation* AbstractFrameAnimation::PropertyAnimation() const {
   return property_animation_;
 }
