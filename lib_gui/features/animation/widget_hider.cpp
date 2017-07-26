@@ -35,10 +35,6 @@ void WidgetHider::SetAnimationCurve(QEasingCurve curve) {
   hide_animation_->setEasingCurve(curve);
 }
 
-unsigned int WidgetHider::AnimationDurationMSec() const {
-  return animation_duration_msec_;
-}
-
 void WidgetHider::Hide(const QRect& geometry) {
   SetStartHideValue(geometry);
   SetEndHideValue(geometry);

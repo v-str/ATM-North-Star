@@ -18,8 +18,6 @@ class WidgetHider : public QObject {
   void SetAnimationDuration(unsigned int animation_duration_msec);
   void SetAnimationCurve(QEasingCurve curve);
 
-  unsigned int AnimationDurationMSec() const;
-
  public slots:
   void Hide(const QRect& geometry);
   void EndAnimation();
