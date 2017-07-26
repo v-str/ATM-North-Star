@@ -5,6 +5,7 @@
 
 class QPropertyAnimation;
 class QWidget;
+class QEasingCurve;
 
 class AbstractFrameAnimation : public QObject {
   Q_OBJECT
@@ -13,10 +14,12 @@ class AbstractFrameAnimation : public QObject {
   ~AbstractFrameAnimation();
 
   void SetWidgetForAnimation(QWidget* widget);
-
- public slots:
+  void SetAnimationCurve(QEasingCurve& animation_curve);
+  void SetDuration(unsigned int animation_duration_msec);
+  void AnimationDirection(unsigned int animation_direction);
 
  signals:
+  void AnimationComplete();
 
  protected:
   int CheckOnPositiveValue(int value);
