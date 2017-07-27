@@ -26,6 +26,9 @@ class FrameAnimator : public QObject {
 
  public slots:
   void HideFrame(const QRect& geometry);
+  void ExtrudeFrame(const QRect& geometry);
+
+  void StartAnimation();
   void EndAnimation();
 
  signals:
@@ -33,12 +36,13 @@ class FrameAnimator : public QObject {
 
  private:
   void SetAnimationGeometry(const QRect& geometry);
-
   void SetStartAnimationGeometry(const QRect& start_geometry);
   void SetEndAnimationGeometry(const QRect& end_geometry);
 
   void SetStartHideGeometry(const QRect& start_geometry);
   void SetEndHideGeometry(const QRect& end_geometry);
+  void SetStartExtrudeGeometry(const QRect& start_geometry);
+  void SetEndExtrudeGeometry(const QRect& end_geometry);
 
   int CheckOnPositiveValue(int value);
 

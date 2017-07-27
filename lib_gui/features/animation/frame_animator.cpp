@@ -36,6 +36,14 @@ void FrameAnimator::HideFrame(const QRect& geometry) {
   QTimer::singleShot(animation_duration_msec_, this, SLOT(EndAnimation()));
 }
 
+void FrameAnimator::ExtrudeFrame(const QRect& geometry) {
+  SetAnimationGeometry(geometry);
+  QTimer::singleShot(animation_duration_msec_, this, SLOT(StartAnimation()));
+  QTimer::singleShot(animation_duration_msec_, this, SLOT(EndAnimation()));
+}
+
+void FrameAnimator::StartAnimation() { animation_->start(); }
+
 void FrameAnimator::EndAnimation() { emit AnimationComplete(); }
 
 void FrameAnimator::SetAnimationGeometry(const QRect& geometry) {
@@ -49,8 +57,8 @@ void FrameAnimator::SetStartAnimationGeometry(const QRect& start_geometry) {
       SetStartHideGeometry(start_geometry);
       break;
     case kExtrudeFrame:
-    // SetStartExtrudeGeometry(start_geometry);
-    // break;
+      SetStartExtrudeGeometry(start_geometry);
+      break;
     default:
       break;
   }
@@ -62,8 +70,8 @@ void FrameAnimator::SetEndAnimationGeometry(const QRect& end_geometry) {
       SetEndHideGeometry(end_geometry);
       break;
     case kExtrudeFrame:
-    // SetEndExtrudeGeometry();
-    // break;
+      SetEndExtrudeGeometry(end_geometry);
+      break;
     default:
       break;
   }
@@ -93,6 +101,39 @@ void FrameAnimator::SetEndHideGeometry(const QRect& end_geometry) {
     x += width;
     width = 0;
   }
+
+  animation_->setEndValue(QRect(x, y, width, height));
+}
+
+void FrameAnimator::SetStartExtrudeGeometry(const QRect& start_geometry) {
+  int x = start_geometry.x();
+  int y = start_geometry.y();
+  int width = start_geometry.width();
+  int height = start_geometry.height();
+
+  if (animation_direction_ & Side::kDown) {
+    height = 0;
+  }
+  if (animation_direction_ & Side::kUp) {
+    y += height;
+    height = 0;
+  }
+  if (animation_direction_ & Side::kLeft) {
+    x += width;
+    width = 0;
+  }
+  if (animation_direction_ & Side::kRight) {
+    width = 0;
+  }
+
+  animation_->setStartValue(QRect(x, y, width, height));
+}
+
+void FrameAnimator::SetEndExtrudeGeometry(const QRect& end_geometry) {
+  int x = end_geometry.x();
+  int y = end_geometry.y();
+  int width = end_geometry.width();
+  int height = end_geometry.height();
 
   animation_->setEndValue(QRect(x, y, width, height));
 }
