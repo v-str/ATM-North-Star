@@ -1,5 +1,5 @@
-﻿#ifndef ABSTRACT_WIDGET_ANIMATION_H
-#define ABSTRACT_WIDGET_ANIMATION_H
+﻿#ifndef FRAME_ANIMATOR_H
+#define FRAME_ANIMATOR_H
 
 #include <QObject>
 
@@ -8,11 +8,11 @@ class QWidget;
 class QEasingCurve;
 class QRect;
 
-class AbstractWidgetAnimation : public QObject {
+class FrameAnimator : public QObject {
   Q_OBJECT
  public:
-  explicit AbstractWidgetAnimation(QWidget* parent = nullptr);
-  ~AbstractWidgetAnimation();
+  explicit FrameAnimator(QWidget* parent = nullptr);
+  ~FrameAnimator();
 
   void SetWidgetForAnimation(QWidget* widget);
   void SetAnimationCurve(QEasingCurve& animation_curve);
@@ -40,4 +40,4 @@ class AbstractWidgetAnimation : public QObject {
   int animation_duration_msec_ = 500;
 };
 
-#endif  // ABSTRACT_WIDGET_ANIMATION_H
+#endif  // FRAME_ANIMATOR_H
