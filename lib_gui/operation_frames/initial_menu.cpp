@@ -13,10 +13,9 @@
 #include <atm_button.h>
 #include <atm_color_designer.h>
 #include <conversion_factor.h>
+#include <frame_animator.h>
 #include <initial_frame_geometry.h>
 #include <side.h>
-#include <widget_extruder.h>
-#include <widget_hider.h>
 
 InitialMenu::InitialMenu(QWidget* parent)
     : QFrame(parent),
@@ -26,8 +25,8 @@ InitialMenu::InitialMenu(QWidget* parent)
       demo_button_(new AtmButton("Demo", button_frame_)),
       v_layout_(new QVBoxLayout),
       atm_color_designer_(new AtmColorDesigner),
-      widget_hider_(new WidgetHider),
-      widget_extruder_(new WidgetExtruder) {
+      hide_animator_(new FrameAnimator),
+      extrude_animator_(new FrameAnimator) {
   setGeometry(InitialFrameGeometry::InitialFrame());
 
   SetFrameAnimation();
@@ -40,8 +39,8 @@ InitialMenu::InitialMenu(QWidget* parent)
 
 InitialMenu::~InitialMenu() {
   delete atm_color_designer_;
-  delete widget_hider_;
-  delete widget_extruder_;
+  delete hide_animator_;
+  delete extrude_animator_;
 }
 
 void InitialMenu::SetDeltaSize(const DeltaSize& delta_size) {
@@ -71,15 +70,11 @@ void InitialMenu::PaintWidgets() {
 }
 
 void InitialMenu::SetFrameAnimation() {
-  widget_hider_->SetWidgetForHideAnimation(this);
-  widget_hider_->SetHideDirection(Side::kLeft);
-  widget_hider_->SetAnimationDuration(500);
-  widget_hider_->SetAnimationCurve(QEasingCurve::OutQuad);
+  hide_animator_->SetWidgetForAnimation(this);
+  hide_animator_->SetAnimationDirection(Side::kLeft);
 
-  widget_extruder_->SetWidgetForExtrudeAnimaiton(this);
-  widget_extruder_->SetExtrudeDirection(Side::kRight);
-  widget_extruder_->SetAnimationDuration(500);
-  widget_extruder_->SetAnimationCurve(QEasingCurve::OutQuad);
+  extrude_animator_->SetWidgetForAnimation(this, FrameAnimator::kExtrudeFrame);
+  extrude_animator_->SetAnimationDirection(Side::kLeft);
 }
 
 void InitialMenu::SetButtonsInitialSetting() {
@@ -125,14 +120,14 @@ void InitialMenu::SetButtonFrame() {
 }
 
 void InitialMenu::SetConnections() {
-  connect(this, SIGNAL(PassGeometryForExtrude(QRect)), widget_extruder_,
-          SLOT(Extrude(QRect)));
-  connect(widget_extruder_, SIGNAL(AlreadyExtruded()), SLOT(show()));
+  connect(this, SIGNAL(PassGeometryForExtrude(QRect)), extrude_animator_,
+          SLOT(ExtrudeFrame(QRect)));
+  connect(extrude_animator_, SIGNAL(AnimationComplete()), SLOT(show()));
 
   connect(demo_button_, SIGNAL(clicked(bool)), SLOT(ProcessDemoButtonClick()));
-  connect(this, SIGNAL(PassGeometryForHide(QRect)), widget_hider_,
-          SLOT(Hide(QRect)));
-  connect(widget_hider_, SIGNAL(IsAlreadyHidden()), SLOT(close()));
+  connect(this, SIGNAL(PassGeometryForHide(QRect)), hide_animator_,
+          SLOT(HideFrame(QRect)));
+  connect(hide_animator_, SIGNAL(AnimationComplete()), SLOT(close()));
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
