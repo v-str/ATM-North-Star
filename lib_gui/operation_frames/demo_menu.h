@@ -12,8 +12,7 @@
 class QWidget;
 class AtmColorDesigner;
 class AtmButton;
-class WidgetHider;
-class WidgetExtruder;
+class FrameAnimator;
 
 class DemoMenu : public QFrame {
   Q_OBJECT
@@ -46,8 +45,8 @@ class DemoMenu : public QFrame {
 
   AtmColorDesigner* color_designer_ = nullptr;
   AtmButton* back_button_ = nullptr;
-  WidgetHider* widget_hider_ = nullptr;
-  WidgetExtruder* widget_extruder_ = nullptr;
+  FrameAnimator* hide_animator_ = nullptr;
+  FrameAnimator* extrude_animator_ = nullptr;
 
   GeometryComposer composer_;
   WidgetBorderController border_controller_;
