@@ -15,10 +15,7 @@ gui::GraphicalSplashScreen::GraphicalSplashScreen()
       main_widget_(new gui::MainWidget) {
   splash_screen_->SetCompanyName("North Star");
 
-  frame_animator_->SetWidgetForAnimation(splash_screen_);
-  frame_animator_->SetAnimationCurve(QEasingCurve::OutCirc);
-  frame_animator_->SetAnimationDirection(Side::kUp);
-
+  SetAnimation();
   SetConnections();
 }
 
@@ -29,6 +26,12 @@ gui::GraphicalSplashScreen::~GraphicalSplashScreen() {
 }
 
 void gui::GraphicalSplashScreen::RunInitialScreen() { splash_screen_->show(); }
+
+void gui::GraphicalSplashScreen::SetAnimation() {
+  frame_animator_->SetWidgetForAnimation(splash_screen_);
+  frame_animator_->SetAnimationCurve(QEasingCurve::OutCirc);
+  frame_animator_->SetAnimationDirection(Side::kUp);
+}
 
 void gui::GraphicalSplashScreen::SetConnections() {
   QObject::connect(splash_screen_, SIGNAL(PassPositionWhenEnterPressed(QRect)),
