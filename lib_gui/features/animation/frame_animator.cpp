@@ -12,11 +12,14 @@ FrameAnimator::FrameAnimator(QWidget* parent)
 
 FrameAnimator::~FrameAnimator() { delete animation_; }
 
-void FrameAnimator::SetWidgetForAnimation(QWidget* widget) {
+void FrameAnimator::SetWidgetForAnimation(QWidget* widget,
+                                          AnimationType animation_type) {
   animation_->setTargetObject(widget);
   animation_->setPropertyName("geometry");
   animation_->setEasingCurve(QEasingCurve::OutCirc);
   animation_->setDuration(animation_duration_msec_);
+
+  animation_type_ = animation_type;
 }
 
 void FrameAnimator::SetAnimationCurve(QEasingCurve animation_curve) {
@@ -37,10 +40,36 @@ void FrameAnimator::HideFrame(const QRect& geometry) {
 void FrameAnimator::EndAnimation() { emit AnimationComplete(); }
 
 void FrameAnimator::SetStartAnimationGeometry(const QRect& start_geometry) {
-  animation_->setStartValue(start_geometry);
+  switch (animation_type_) {
+    case kHideFrame:
+      SetStartHideGeometry(start_geometry);
+      break;
+    case kExtrudeFrame:
+    // SetStartExtrudeGeometry(start_geometry);
+    // break;
+    default:
+      break;
+  }
 }
 
 void FrameAnimator::SetEndAnimationGeometry(const QRect& end_geometry) {
+  switch (animation_type_) {
+    case kHideFrame:
+      SetEndHideGeometry(end_geometry);
+      break;
+    case kExtrudeFrame:
+    // SetEndExtrudeGeometry();
+    // break;
+    default:
+      break;
+  }
+}
+
+void FrameAnimator::SetStartHideGeometry(const QRect& start_geometry) {
+  animation_->setStartValue(start_geometry);
+}
+
+void FrameAnimator::SetEndHideGeometry(const QRect& end_geometry) {
   int x = end_geometry.x();
   int y = end_geometry.y();
   int width = end_geometry.width();

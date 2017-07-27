@@ -11,10 +11,15 @@ class QRect;
 class FrameAnimator : public QObject {
   Q_OBJECT
  public:
+  enum AnimationType { kHideFrame, kExtrudeFrame };
+
   explicit FrameAnimator(QWidget* parent = nullptr);
   ~FrameAnimator();
 
-  void SetWidgetForAnimation(QWidget* widget);
+  void SetWidgetForAnimation(
+      QWidget* widget,
+      AnimationType animation_type = AnimationType::kHideFrame);
+
   void SetAnimationCurve(QEasingCurve animation_curve);
   void SetDuration(unsigned int animation_duration_msec);
   void SetAnimationDirection(unsigned int animation_direction);
@@ -30,9 +35,13 @@ class FrameAnimator : public QObject {
   void SetStartAnimationGeometry(const QRect& start_geometry);
   void SetEndAnimationGeometry(const QRect& end_geometry);
 
+  void SetStartHideGeometry(const QRect& start_geometry);
+  void SetEndHideGeometry(const QRect& end_geometry);
+
   int CheckOnPositiveValue(int value);
 
   QPropertyAnimation* animation_ = nullptr;
+  AnimationType animation_type_;
 
   int animation_direction_ = 4;
   int animation_duration_msec_ = 500;
