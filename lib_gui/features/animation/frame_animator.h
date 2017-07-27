@@ -32,6 +32,8 @@ class FrameAnimator : public QObject {
   void AnimationComplete();
 
  private:
+  void SetAnimationGeometry(const QRect& geometry);
+
   void SetStartAnimationGeometry(const QRect& start_geometry);
   void SetEndAnimationGeometry(const QRect& end_geometry);
 

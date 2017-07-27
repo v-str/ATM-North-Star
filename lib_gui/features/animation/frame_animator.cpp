@@ -31,13 +31,17 @@ void FrameAnimator::SetAnimationDirection(unsigned int animation_direction) {
 }
 
 void FrameAnimator::HideFrame(const QRect& geometry) {
-  SetStartAnimationGeometry(geometry);
-  SetEndAnimationGeometry(geometry);
+  SetAnimationGeometry(geometry);
   animation_->start();
   QTimer::singleShot(animation_duration_msec_, this, SLOT(EndAnimation()));
 }
 
 void FrameAnimator::EndAnimation() { emit AnimationComplete(); }
+
+void FrameAnimator::SetAnimationGeometry(const QRect& geometry) {
+  SetStartAnimationGeometry(geometry);
+  SetEndAnimationGeometry(geometry);
+}
 
 void FrameAnimator::SetStartAnimationGeometry(const QRect& start_geometry) {
   switch (animation_type_) {
