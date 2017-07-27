@@ -15,9 +15,9 @@ class FrameAnimator : public QObject {
   ~FrameAnimator();
 
   void SetWidgetForAnimation(QWidget* widget);
-  void SetAnimationCurve(QEasingCurve& animation_curve);
+  void SetAnimationCurve(QEasingCurve animation_curve);
   void SetDuration(unsigned int animation_duration_msec);
-  void AnimationDirection(unsigned int animation_direction);
+  void SetAnimationDirection(unsigned int animation_direction);
 
  public slots:
   void HideFrame(const QRect& geometry);

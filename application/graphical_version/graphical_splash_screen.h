@@ -2,7 +2,7 @@
 #define GRAPHICAL_SPLASH_SCREEN_H
 
 class AtmSplashScreen;
-class WidgetHider;
+class FrameAnimator;
 
 namespace gui {
 
@@ -19,7 +19,7 @@ class GraphicalSplashScreen {
   void SetConnections();
 
   AtmSplashScreen* splash_screen_ = nullptr;
-  WidgetHider* hider_ = nullptr;
+  FrameAnimator* frame_animator_ = nullptr;
   MainWidget* main_widget_ = nullptr;
 };
 }

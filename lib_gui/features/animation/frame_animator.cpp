@@ -14,13 +14,16 @@ FrameAnimator::~FrameAnimator() { delete animation_; }
 
 void FrameAnimator::SetWidgetForAnimation(QWidget* widget) {
   animation_->setTargetObject(widget);
+  animation_->setPropertyName("geometry");
+  animation_->setEasingCurve(QEasingCurve::OutCirc);
+  animation_->setDuration(animation_duration_msec_);
 }
 
-void FrameAnimator::SetAnimationCurve(QEasingCurve& animation_curve) {
+void FrameAnimator::SetAnimationCurve(QEasingCurve animation_curve) {
   animation_->setEasingCurve(animation_curve);
 }
 
-void FrameAnimator::AnimationDirection(unsigned int animation_direction) {
+void FrameAnimator::SetAnimationDirection(unsigned int animation_direction) {
   animation_direction_ = CheckOnPositiveValue(animation_direction);
 }
 
@@ -63,6 +66,7 @@ void FrameAnimator::SetEndAnimationGeometry(const QRect& end_geometry) {
 
 void FrameAnimator::SetDuration(unsigned int animation_duration_msec) {
   animation_duration_msec_ = CheckOnPositiveValue(animation_duration_msec);
+  animation_->setDuration(animation_duration_msec_);
 }
 
 int FrameAnimator::CheckOnPositiveValue(int value) {
