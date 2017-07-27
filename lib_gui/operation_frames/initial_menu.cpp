@@ -71,10 +71,12 @@ void InitialMenu::PaintWidgets() {
 
 void InitialMenu::SetFrameAnimation() {
   hide_animator_->SetWidgetForAnimation(this);
-  hide_animator_->SetAnimationDirection(Side::kLeft);
+  hide_animator_->SetAnimationDirection(Side::kUp);
+  hide_animator_->SetDuration(700);
 
   extrude_animator_->SetWidgetForAnimation(this, FrameAnimator::kExtrudeFrame);
-  extrude_animator_->SetAnimationDirection(Side::kLeft);
+  extrude_animator_->SetAnimationDirection(Side::kDown);
+  extrude_animator_->SetDuration(700);
 }
 
 void InitialMenu::SetButtonsInitialSetting() {
