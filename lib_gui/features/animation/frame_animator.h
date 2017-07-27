@@ -20,21 +20,19 @@ class FrameAnimator : public QObject {
   void AnimationDirection(unsigned int animation_direction);
 
  public slots:
+  void HideFrame(const QRect& geometry);
   void EndAnimation();
 
  signals:
   void AnimationComplete();
 
- protected:
-  virtual void SetStartAnimationGeometry(QRect& start_geometry) = 0;
-  virtual void SetEndAnimationGeometry(QRect& end_geometry) = 0;
-
-  QPropertyAnimation* PropertyAnimation() const;
-
  private:
+  void SetStartAnimationGeometry(const QRect& start_geometry);
+  void SetEndAnimationGeometry(const QRect& end_geometry);
+
   int CheckOnPositiveValue(int value);
 
-  QPropertyAnimation* property_animation_ = nullptr;
+  QPropertyAnimation* animation_ = nullptr;
 
   int animation_direction_ = 4;
   int animation_duration_msec_ = 500;

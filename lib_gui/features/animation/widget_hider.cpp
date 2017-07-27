@@ -55,7 +55,6 @@ void WidgetHider::SetEndHideValue(const QRect& end_geometry) {
   int height = end_geometry.height();
 
   if (hide_direction_ & Side::kUp) {
-    hide_animation_->setEndValue(QRect(x, y, width, 0));
     height = 0;
   }
   if (hide_direction_ & Side::kDown) {
