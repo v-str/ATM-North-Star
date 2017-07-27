@@ -89,7 +89,8 @@
                                                                                     |   |
 37. Solve problem related with widgets sliding animation                            | + |
                                                                                     |   |
-38. Fix repetitive code in animation classes -> develop base class for them         | - |
+38. Fix repetitive code in animation classes -> develop base class for them         | + |
+    Remove both animation classes and develop one for same tasks                    |   |
                                                                                     |   |
 39. Develop second base class for operation frames, fix repetitive code             | - |
 
