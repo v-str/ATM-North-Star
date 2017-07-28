@@ -21,6 +21,7 @@ class InitialMenu : public QFrame {
   explicit InitialMenu(QWidget* parent = nullptr);
   ~InitialMenu();
 
+  // same code
   void SetDeltaSize(const DeltaSize& delta_size);
 
  public slots:
@@ -36,8 +37,10 @@ class InitialMenu : public QFrame {
   void resizeEvent(QResizeEvent*);
 
  private:
+  // same code
   void PaintWidgets();
   void SetFrameAnimation();
+
   void SetButtonsInitialSetting();
   void SetButtonGeometry();
   void SetButtonSizePolicy();
@@ -52,11 +55,11 @@ class InitialMenu : public QFrame {
   AtmButton* registration_button_ = nullptr;
   AtmButton* demo_button_ = nullptr;
   QVBoxLayout* v_layout_ = nullptr;
-  AtmColorDesigner* atm_color_designer_ = nullptr;
 
+  // same code
+  AtmColorDesigner* atm_color_designer_ = nullptr;
   FrameAnimator* hide_animator_ = nullptr;
   FrameAnimator* extrude_animator_ = nullptr;
-
   DeltaSize delta_size_;
   WidgetBorderController border_controller_;
   GeometryComposer composer_;

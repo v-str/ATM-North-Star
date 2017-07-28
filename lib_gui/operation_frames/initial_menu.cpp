@@ -124,16 +124,20 @@ void InitialMenu::SetButtonFrame() {
 void InitialMenu::SetConnections() {
   connect(this, SIGNAL(PassGeometryForExtrude(QRect)), extrude_animator_,
           SLOT(ExtrudeFrame(QRect)));
+
   connect(extrude_animator_, SIGNAL(AnimationComplete()), SLOT(show()));
 
   connect(demo_button_, SIGNAL(clicked(bool)), SLOT(ProcessDemoButtonClick()));
+
   connect(this, SIGNAL(PassGeometryForHide(QRect)), hide_animator_,
           SLOT(HideFrame(QRect)));
+
   connect(hide_animator_, SIGNAL(AnimationComplete()), SLOT(close()));
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
   SetScalingProperties();
+
   composer_.SetDeltaSize(delta_size_);
 
   border_controller_.SetGeometryLimit(geometry());

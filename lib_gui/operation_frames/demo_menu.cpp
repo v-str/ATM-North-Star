@@ -14,8 +14,8 @@
 
 DemoMenu::DemoMenu(QWidget* parent)
     : QFrame(parent),
-      color_designer_(new AtmColorDesigner),
       back_button_(new AtmButton("back", this)),
+      color_designer_(new AtmColorDesigner),
       hide_animator_(new FrameAnimator),
       extrude_animator_(new FrameAnimator) {
   SetFrameAnimation();
@@ -51,9 +51,13 @@ void DemoMenu::Show() {
 
 void DemoMenu::resizeEvent(QResizeEvent*) {
   SetScalingProperties();
+
   composer_.SetDeltaSize(delta_size_);
+
   border_controller_.SetGeometryLimit(geometry());
+
   composer_.ComposeGeometry(DemoMenuGeometry::BackButton(), back_button_);
+
   border_controller_.ControlWidget(back_button_);
 }
 
@@ -88,10 +92,13 @@ void DemoMenu::SetFrameAnimation() {
 void DemoMenu::SetConnections() {
   connect(this, SIGNAL(PassGeometryForExtrude(QRect)), extrude_animator_,
           SLOT(ExtrudeFrame(QRect)));
+
   connect(extrude_animator_, SIGNAL(AnimationComplete()), SLOT(show()));
 
   connect(back_button_, SIGNAL(clicked(bool)), SLOT(ProcessBackButtonClick()));
+
   connect(this, SIGNAL(PassGeometryForHide(QRect)), hide_animator_,
           SLOT(HideFrame(QRect)));
+
   connect(hide_animator_, SIGNAL(AnimationComplete()), SLOT(close()));
 }

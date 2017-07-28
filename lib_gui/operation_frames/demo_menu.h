@@ -20,6 +20,7 @@ class DemoMenu : public QFrame {
   explicit DemoMenu(QWidget* parent = nullptr);
   ~DemoMenu();
 
+  // same code
   void SetDeltaSize(const DeltaSize& delta_size);
 
  public slots:
@@ -30,24 +31,26 @@ class DemoMenu : public QFrame {
   void BackButtonClicked();
   void PassGeometryForHide(const QRect&);
   void PassGeometryForExtrude(const QRect&);
-  void AlreadyClosed();
 
  protected:
   void resizeEvent(QResizeEvent*);
 
  private:
-  void SetInitialGeometry();
+  // same code
   void PaintWidgets();
-  void SetScalingProperties();
   void SetFrameAnimation();
+
+  void SetInitialGeometry();
+  void SetScalingProperties();
 
   void SetConnections();
 
-  AtmColorDesigner* color_designer_ = nullptr;
   AtmButton* back_button_ = nullptr;
+
+  // same code
+  AtmColorDesigner* color_designer_ = nullptr;
   FrameAnimator* hide_animator_ = nullptr;
   FrameAnimator* extrude_animator_ = nullptr;
-
   GeometryComposer composer_;
   WidgetBorderController border_controller_;
   DeltaSize delta_size_;
