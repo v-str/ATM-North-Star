@@ -93,6 +93,9 @@
     Remove both animation classes and develop one for same tasks                    |   |
                                                                                     |   |
 39. Develop second base class for operation frames, fix repetitive code             | - |
+                                                                                    |   |
+40. Fix "Magic" numbers                                                             | - |
+                                                                                    |   |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------

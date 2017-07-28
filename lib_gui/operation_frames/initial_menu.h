@@ -18,7 +18,7 @@ class FrameAnimator;
 class InitialMenu : public QFrame {
   Q_OBJECT
  public:
-  InitialMenu(QWidget* parent);
+  explicit InitialMenu(QWidget* parent = nullptr);
   ~InitialMenu();
 
   void SetDeltaSize(const DeltaSize& delta_size);
