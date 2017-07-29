@@ -7,7 +7,6 @@
 #include <QWidget>
 
 #include <atm_button.h>
-#include <atm_color_designer.h>
 #include <demo_menu_geometry.h>
 #include <operation_frame.h>
 #include <side.h>
@@ -15,7 +14,6 @@
 DemoMenu::DemoMenu(QWidget* parent)
     : QFrame(parent),
       back_button_(new AtmButton("back", this)),
-      color_designer_(new AtmColorDesigner),
       operation_frame_(new OperationFrame(this)) {
   SetFrameAnimation();
   SetInitialGeometry();
@@ -23,7 +21,7 @@ DemoMenu::DemoMenu(QWidget* parent)
   SetConnections();
 }
 
-DemoMenu::~DemoMenu() { delete color_designer_; }
+DemoMenu::~DemoMenu() {}
 
 void DemoMenu::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
@@ -62,8 +60,8 @@ void DemoMenu::SetInitialGeometry() {
 }
 
 void DemoMenu::PaintWidgets() {
-  color_designer_->PaintFrame(this);
-  color_designer_->PaintWidgetSet(QList<QPushButton*>{back_button_});
+  QList<QPushButton*> button_list{back_button_};
+  operation_frame_->ColorizeButtons(button_list);
 }
 
 void DemoMenu::SetScalingProperties() {

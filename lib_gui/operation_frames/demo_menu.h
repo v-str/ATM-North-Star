@@ -10,7 +10,6 @@
 #include <widget_border_controller.h>
 
 class QWidget;
-class AtmColorDesigner;
 class AtmButton;
 class OperationFrame;
 
@@ -48,7 +47,6 @@ class DemoMenu : public QFrame {
   AtmButton* back_button_ = nullptr;
 
   // same code
-  AtmColorDesigner* color_designer_ = nullptr;
   OperationFrame* operation_frame_ = nullptr;
 
   GeometryComposer composer_;
