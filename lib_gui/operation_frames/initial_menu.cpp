@@ -113,12 +113,12 @@ void InitialMenu::SetButtonFrame() {
 }
 
 void InitialMenu::SetConnections() {
+  connect(demo_button_, SIGNAL(clicked(bool)), SLOT(ProcessDemoButtonClick()));
+
   connect(this, SIGNAL(PassGeometryForExtrude(QRect)), extrude_animator_,
           SLOT(ExtrudeFrame(QRect)));
 
   connect(extrude_animator_, SIGNAL(AnimationComplete()), SLOT(show()));
-
-  connect(demo_button_, SIGNAL(clicked(bool)), SLOT(ProcessDemoButtonClick()));
 
   connect(this, SIGNAL(PassGeometryForHide(QRect)), hide_animator_,
           SLOT(HideFrame(QRect)));

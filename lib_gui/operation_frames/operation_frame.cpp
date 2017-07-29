@@ -18,10 +18,24 @@ void OperationFrame::SetAnimationDirection(unsigned int hide_to,
   extrude_animator_->SetAnimationDirection(extrude_from);
 }
 
-void OperationFrame::HideFrame(const QRect& geometry) {
+void OperationFrame::StartHidingFrame(const QRect& geometry) {
   emit PassParametersForHide(geometry);
 }
 
-void OperationFrame::ExtrudeFrame(const QRect& geometry) {
+void OperationFrame::StartExtrudingFrame(const QRect& geometry) {
   emit PassParametersForExtrude(geometry);
+}
+
+void OperationFrame::FinishHiding() { emit HidingComplete(); }
+
+void OperationFrame::FinishExtruding() { emit ExtrudingComplete(); }
+
+void OperationFrame::SetConnections() {
+  connect(this, SIGNAL(PassParametersForHide(QRect)), hide_animator_,
+          SLOT(StartHidingFrame(QRect)));
+  connect(hide_animator_, SIGNAL(AnimationComplete()), SLOT(FinishHiding()));
+  connect(this, SIGNAL(PassParametersForExtrude(QRect)), extrude_animator_,
+          SLOT(ExtrudeFrame(QRect)));
+  connect(extrude_animator_, SIGNAL(AnimationComplete()), this,
+          SLOT(FinishExtruding()));
 }
