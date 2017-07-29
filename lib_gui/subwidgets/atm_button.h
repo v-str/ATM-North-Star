@@ -30,6 +30,7 @@ class AtmButton : public QPushButton {
   void resizeEvent(QResizeEvent* event);
 
  private:
+  void SetSizePolicy();
   void OffsetButton();
   void ReturnToInitialPosition();
 

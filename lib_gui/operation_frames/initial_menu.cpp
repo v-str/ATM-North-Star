@@ -69,25 +69,13 @@ void InitialMenu::SetFrameAnimation() {
   operation_frame_->SetAnimationDirection(Side::kUp, Side::kDown);
 }
 
-void InitialMenu::SetButtonsInitialSetting() {
-  SetButtonGeometry();
-  SetButtonSizePolicy();
-}
+void InitialMenu::SetButtonsInitialSetting() { SetButtonGeometry(); }
 
 void InitialMenu::SetButtonGeometry() {
   sign_in_button_->setGeometry(InitialFrameGeometry::SignInButton());
   registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
   demo_button_->setGeometry(InitialFrameGeometry::DemoButton());
   button_frame_->setGeometry(InitialFrameGeometry::ButtonFrame());
-}
-
-void InitialMenu::SetButtonSizePolicy() {
-  QSizePolicy size_policy = sign_in_button_->sizePolicy();
-  size_policy.setVerticalPolicy(QSizePolicy::Expanding);
-
-  sign_in_button_->setSizePolicy(size_policy);
-  registration_button_->setSizePolicy(size_policy);
-  demo_button_->setSizePolicy(size_policy);
 }
 
 void InitialMenu::SetButtonFrameScalingProperties() {
