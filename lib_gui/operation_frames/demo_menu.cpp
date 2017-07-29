@@ -75,7 +75,7 @@ void DemoMenu::SetScalingProperties() {
 }
 
 void DemoMenu::SetFrameAnimation() {
-  operation_frame_->SetAnimationFrame(this);
+  operation_frame_->SetOperationFrame(this);
   operation_frame_->SetAnimationDirection(Side::kDown, Side::kUp);
 }
 

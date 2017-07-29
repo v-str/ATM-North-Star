@@ -1,6 +1,7 @@
 ﻿#ifndef OPERATION_FRAME_H
 #define OPERATION_FRAME_H
 
+#include <QList>
 #include <QObject>
 #include <QRect>
 
@@ -14,9 +15,12 @@ class OperationFrame : public QObject {
   explicit OperationFrame(QWidget* widget = nullptr);
   virtual ~OperationFrame();
 
-  void SetAnimationFrame(QWidget* widget);
+  void SetOperationFrame(QWidget* widget);
+
   void SetAnimationDirection(unsigned int hide_to, unsigned int extrude_from);
   void SetAnimationDuration(unsigned int duration_msec);
+
+  void ColorizeWidget(QWidget* widget);
 
  public slots:
   void StartHidingFrame(const QRect& geometry);

@@ -14,7 +14,7 @@ OperationFrame::~OperationFrame() {
   delete extrude_animator_;
 }
 
-void OperationFrame::SetAnimationFrame(QWidget* widget) {
+void OperationFrame::SetOperationFrame(QWidget* widget) {
   if (hide_animator_ != nullptr) {
     delete hide_animator_;
   }

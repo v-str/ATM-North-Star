@@ -28,6 +28,8 @@ InitialMenu::InitialMenu(QWidget* parent)
       operation_frame_(new OperationFrame) {
   setGeometry(InitialFrameGeometry::InitialFrame());
 
+  operation_frame_->SetOperationFrame(this);
+
   SetFrameAnimation();
   SetButtonsInitialSetting();
   SetScalingProperties();
@@ -65,7 +67,6 @@ void InitialMenu::PaintWidgets() {
 }
 
 void InitialMenu::SetFrameAnimation() {
-  operation_frame_->SetAnimationFrame(this);
   operation_frame_->SetAnimationDirection(Side::kUp, Side::kDown);
 }
 
