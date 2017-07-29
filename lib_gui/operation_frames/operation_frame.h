@@ -43,7 +43,6 @@ class OperationFrame : public QObject {
   void SetAnimationConnections();
 
   AtmColorDesigner* color_designer_ = nullptr;
-
   FrameAnimator* hide_animator_ = nullptr;
   FrameAnimator* extrude_animator_ = nullptr;
 };

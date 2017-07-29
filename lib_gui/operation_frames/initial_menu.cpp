@@ -30,7 +30,7 @@ InitialMenu::InitialMenu(QWidget* parent)
 
   SetFrameAnimation();
   SetButtonsInitialSetting();
-  SetScalingProperties();
+  SetButtonFrameScalingProperties();
   SetButtonFrame();
   PaintWidgets();
   SetConnections();
@@ -90,7 +90,7 @@ void InitialMenu::SetButtonSizePolicy() {
   demo_button_->setSizePolicy(size_policy);
 }
 
-void InitialMenu::SetScalingProperties() {
+void InitialMenu::SetButtonFrameScalingProperties() {
   composer_.SetShiftFactor(kHalfOfSize, kHalfOfHeight);
   composer_.SetShiftSide(Side::kRight | Side::kDown);
   composer_.SetStretchFactor(kHalfOfSize, kHalfOfHeight);
@@ -126,7 +126,7 @@ void InitialMenu::SetConnections() {
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
-  SetScalingProperties();
+  SetButtonFrameScalingProperties();
 
   composer_.SetDeltaSize(delta_size_);
 

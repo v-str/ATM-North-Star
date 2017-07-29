@@ -44,7 +44,7 @@ class InitialMenu : public QFrame {
   void SetButtonGeometry();
   void SetButtonSizePolicy();
 
-  void SetScalingProperties();
+  void SetButtonFrameScalingProperties();
   void SetButtonFrame();
 
   void SetConnections();
