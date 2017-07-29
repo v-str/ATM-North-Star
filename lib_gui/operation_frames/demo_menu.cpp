@@ -16,19 +16,15 @@ DemoMenu::DemoMenu(QWidget* parent)
     : QFrame(parent),
       back_button_(new AtmButton("back", this)),
       color_designer_(new AtmColorDesigner),
-      hide_animator_(new FrameAnimator),
-      extrude_animator_(new FrameAnimator) {
+      hide_animator_(new FrameAnimator(this)),
+      extrude_animator_(new FrameAnimator(this, FrameAnimator::kExtrudeFrame)) {
   SetFrameAnimation();
   SetInitialGeometry();
   PaintWidgets();
   SetConnections();
 }
 
-DemoMenu::~DemoMenu() {
-  delete color_designer_;
-  delete hide_animator_;
-  delete extrude_animator_;
-}
+DemoMenu::~DemoMenu() { delete color_designer_; }
 
 void DemoMenu::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
@@ -80,13 +76,8 @@ void DemoMenu::SetScalingProperties() {
 }
 
 void DemoMenu::SetFrameAnimation() {
-  hide_animator_->SetWidgetForAnimation(this);
   hide_animator_->SetAnimationDirection(Side::kDown);
-  hide_animator_->SetDuration(500);
-
-  extrude_animator_->SetWidgetForAnimation(this, FrameAnimator::kExtrudeFrame);
   extrude_animator_->SetAnimationDirection(Side::kUp);
-  extrude_animator_->SetDuration(500);
 }
 
 void DemoMenu::SetConnections() {

@@ -13,12 +13,9 @@ class FrameAnimator : public QObject {
  public:
   enum AnimationType { kHideFrame, kExtrudeFrame };
 
-  explicit FrameAnimator(QWidget* parent = nullptr);
+  explicit FrameAnimator(QWidget* parent = nullptr,
+                         AnimationType animation_type = kHideFrame);
   ~FrameAnimator();
-
-  void SetWidgetForAnimation(
-      QWidget* widget,
-      AnimationType animation_type = AnimationType::kHideFrame);
 
   void SetAnimationCurve(QEasingCurve animation_curve);
   void SetDuration(unsigned int animation_duration_msec);

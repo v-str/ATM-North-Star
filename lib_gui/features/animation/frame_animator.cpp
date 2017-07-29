@@ -7,20 +7,16 @@
 
 #include <side.h>
 
-FrameAnimator::FrameAnimator(QWidget* parent)
-    : QObject(parent), animation_(new QPropertyAnimation) {}
-
-FrameAnimator::~FrameAnimator() { delete animation_; }
-
-void FrameAnimator::SetWidgetForAnimation(QWidget* widget,
-                                          AnimationType animation_type) {
-  animation_->setTargetObject(widget);
-  animation_->setPropertyName("geometry");
+FrameAnimator::FrameAnimator(QWidget* parent, AnimationType animation_type)
+    : QObject(parent), animation_(new QPropertyAnimation(parent, "geometry")) {
   animation_->setEasingCurve(QEasingCurve::OutCirc);
+
   animation_->setDuration(animation_duration_msec_);
 
   animation_type_ = animation_type;
 }
+
+FrameAnimator::~FrameAnimator() { delete animation_; }
 
 void FrameAnimator::SetAnimationCurve(QEasingCurve animation_curve) {
   animation_->setEasingCurve(animation_curve);

@@ -11,7 +11,7 @@
 
 gui::GraphicalSplashScreen::GraphicalSplashScreen()
     : splash_screen_(new AtmSplashScreen),
-      frame_animator_(new FrameAnimator),
+      frame_animator_(new FrameAnimator(splash_screen_)),
       main_widget_(new gui::MainWidget) {
   splash_screen_->SetCompanyName("North Star");
 
@@ -21,14 +21,12 @@ gui::GraphicalSplashScreen::GraphicalSplashScreen()
 
 gui::GraphicalSplashScreen::~GraphicalSplashScreen() {
   delete splash_screen_;
-  delete frame_animator_;
   delete main_widget_;
 }
 
 void gui::GraphicalSplashScreen::RunInitialScreen() { splash_screen_->show(); }
 
 void gui::GraphicalSplashScreen::SetAnimation() {
-  frame_animator_->SetWidgetForAnimation(splash_screen_);
   frame_animator_->SetAnimationCurve(QEasingCurve::OutCirc);
   frame_animator_->SetAnimationDirection(Side::kUp);
 }
