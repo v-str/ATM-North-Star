@@ -22,6 +22,7 @@ gui::GraphicalSplashScreen::GraphicalSplashScreen()
 gui::GraphicalSplashScreen::~GraphicalSplashScreen() {
   delete splash_screen_;
   delete main_widget_;
+  delete frame_animator_;
 }
 
 void gui::GraphicalSplashScreen::RunInitialScreen() { splash_screen_->show(); }

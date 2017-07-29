@@ -23,7 +23,7 @@ InitialMenu::InitialMenu(QWidget* parent)
       registration_button_(new AtmButton("Registration", button_frame_)),
       demo_button_(new AtmButton("Demo", button_frame_)),
       v_layout_(new QVBoxLayout),
-      operation_frame_(new OperationFrame) {
+      operation_frame_(new OperationFrame(this)) {
   setGeometry(InitialFrameGeometry::InitialFrame());
 
   operation_frame_->SetOperationFrame(this);
