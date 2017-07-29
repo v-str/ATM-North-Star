@@ -19,7 +19,6 @@ class DemoMenu : public QFrame {
   explicit DemoMenu(QWidget* parent = nullptr);
   ~DemoMenu();
 
-  // same code
   void SetDeltaSize(const DeltaSize& delta_size);
 
  public slots:
@@ -35,7 +34,6 @@ class DemoMenu : public QFrame {
   void resizeEvent(QResizeEvent*);
 
  private:
-  // same code
   void PaintWidgets();
   void SetFrameAnimation();
 
@@ -45,8 +43,6 @@ class DemoMenu : public QFrame {
   void SetConnections();
 
   AtmButton* back_button_ = nullptr;
-
-  // same code
   OperationFrame* operation_frame_ = nullptr;
 
   GeometryComposer composer_;
