@@ -18,6 +18,11 @@ void OperationFrame::SetAnimationDirection(unsigned int hide_to,
   extrude_animator_->SetAnimationDirection(extrude_from);
 }
 
+void OperationFrame::SetAnimationDuration(unsigned int duration_msec) {
+  hide_animator_->SetDuration(duration_msec);
+  extrude_animator_->SetDuration(duration_msec);
+}
+
 void OperationFrame::StartHidingFrame(const QRect& geometry) {
   emit PassParametersForHide(geometry);
 }

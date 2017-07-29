@@ -14,6 +14,7 @@ class OperationFrame : public QObject {
   virtual ~OperationFrame();
 
   void SetAnimationDirection(unsigned int hide_to, unsigned int extrude_from);
+  void SetAnimationDuration(unsigned int duration_msec);
 
  public slots:
   void StartHidingFrame(const QRect& geometry);
