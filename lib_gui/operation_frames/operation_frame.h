@@ -13,6 +13,7 @@ class OperationFrame : public QObject {
   explicit OperationFrame(QWidget* widget = nullptr);
   virtual ~OperationFrame();
 
+  void SetAnimationFrame(QWidget* widget);
   void SetAnimationDirection(unsigned int hide_to, unsigned int extrude_from);
   void SetAnimationDuration(unsigned int duration_msec);
 
@@ -31,7 +32,7 @@ class OperationFrame : public QObject {
   void PassParametersForExtrude(const QRect& geometry);
 
  private:
-  void SetConnections();
+  void SetAnimationConnections();
 
   FrameAnimator* hide_animator_ = nullptr;
   FrameAnimator* extrude_animator_ = nullptr;

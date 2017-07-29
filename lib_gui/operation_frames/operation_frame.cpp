@@ -1,15 +1,28 @@
 ﻿#include <operation_frame.h>
 
+#include <QWidget>
+
 #include <frame_animator.h>
 
-OperationFrame::OperationFrame(QWidget* widget)
-    : hide_animator_(new FrameAnimator(widget)),
-      extrude_animator_(
-          new FrameAnimator(widget, FrameAnimator::kExtrudeFrame)) {}
+OperationFrame::OperationFrame(QWidget* widget) : QObject(widget) {}
 
 OperationFrame::~OperationFrame() {
   delete hide_animator_;
   delete extrude_animator_;
+}
+
+void OperationFrame::SetAnimationFrame(QWidget* widget) {
+  if (hide_animator_ != nullptr) {
+    delete hide_animator_;
+  }
+  if (extrude_animator_ != nullptr) {
+    delete extrude_animator_;
+  }
+
+  hide_animator_ = new FrameAnimator(widget);
+  extrude_animator_ = new FrameAnimator(widget, FrameAnimator::kExtrudeFrame);
+
+  SetAnimationConnections();
 }
 
 void OperationFrame::SetAnimationDirection(unsigned int hide_to,
@@ -35,12 +48,13 @@ void OperationFrame::FinishHiding() { emit HidingComplete(); }
 
 void OperationFrame::FinishExtruding() { emit ExtrudingComplete(); }
 
-void OperationFrame::SetConnections() {
-  connect(this, SIGNAL(PassParametersForHide(QRect)), hide_animator_,
-          SLOT(StartHidingFrame(QRect)));
-  connect(hide_animator_, SIGNAL(AnimationComplete()), SLOT(FinishHiding()));
+void OperationFrame::SetAnimationConnections() {
   connect(this, SIGNAL(PassParametersForExtrude(QRect)), extrude_animator_,
           SLOT(ExtrudeFrame(QRect)));
   connect(extrude_animator_, SIGNAL(AnimationComplete()), this,
           SLOT(FinishExtruding()));
+
+  connect(this, SIGNAL(PassParametersForHide(QRect)), hide_animator_,
+          SLOT(HideFrame(QRect)));
+  connect(hide_animator_, SIGNAL(AnimationComplete()), SLOT(FinishHiding()));
 }

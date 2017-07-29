@@ -9,15 +9,14 @@
 #include <atm_button.h>
 #include <atm_color_designer.h>
 #include <demo_menu_geometry.h>
-#include <frame_animator.h>
+#include <operation_frame.h>
 #include <side.h>
 
 DemoMenu::DemoMenu(QWidget* parent)
     : QFrame(parent),
       back_button_(new AtmButton("back", this)),
       color_designer_(new AtmColorDesigner),
-      hide_animator_(new FrameAnimator(this)),
-      extrude_animator_(new FrameAnimator(this, FrameAnimator::kExtrudeFrame)) {
+      operation_frame_(new OperationFrame(this)) {
   SetFrameAnimation();
   SetInitialGeometry();
   PaintWidgets();
@@ -76,20 +75,20 @@ void DemoMenu::SetScalingProperties() {
 }
 
 void DemoMenu::SetFrameAnimation() {
-  hide_animator_->SetAnimationDirection(Side::kDown);
-  extrude_animator_->SetAnimationDirection(Side::kUp);
+  operation_frame_->SetAnimationFrame(this);
+  operation_frame_->SetAnimationDirection(Side::kDown, Side::kUp);
 }
 
 void DemoMenu::SetConnections() {
-  connect(this, SIGNAL(PassGeometryForExtrude(QRect)), extrude_animator_,
-          SLOT(ExtrudeFrame(QRect)));
-
-  connect(extrude_animator_, SIGNAL(AnimationComplete()), SLOT(show()));
-
   connect(back_button_, SIGNAL(clicked(bool)), SLOT(ProcessBackButtonClick()));
 
-  connect(this, SIGNAL(PassGeometryForHide(QRect)), hide_animator_,
-          SLOT(HideFrame(QRect)));
+  connect(this, SIGNAL(PassGeometryForExtrude(QRect)), operation_frame_,
+          SLOT(StartExtrudingFrame(QRect)));
 
-  connect(hide_animator_, SIGNAL(AnimationComplete()), SLOT(close()));
+  connect(operation_frame_, SIGNAL(ExtrudingComplete()), SLOT(show()));
+
+  connect(this, SIGNAL(PassGeometryForHide(QRect)), operation_frame_,
+          SLOT(StartHidingFrame(QRect)));
+
+  connect(operation_frame_, SIGNAL(HidingComplete()), SLOT(close()));
 }

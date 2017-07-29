@@ -8,7 +8,7 @@
 #include <side.h>
 
 FrameAnimator::FrameAnimator(QWidget* widget, AnimationType animation_type)
-    : QObject(widget), animation_(new QPropertyAnimation(widget, "geometry")) {
+    : QObject(), animation_(new QPropertyAnimation(widget, "geometry")) {
   animation_->setEasingCurve(QEasingCurve::OutCirc);
 
   animation_->setDuration(animation_duration_msec_);
