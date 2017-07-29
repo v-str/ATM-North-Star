@@ -2,11 +2,14 @@
 
 #include <QWidget>
 
+#include <atm_color_designer.h>
 #include <frame_animator.h>
 
-OperationFrame::OperationFrame(QWidget* widget) : QObject(widget) {}
+OperationFrame::OperationFrame(QWidget* widget)
+    : QObject(widget), color_designer_(new AtmColorDesigner) {}
 
 OperationFrame::~OperationFrame() {
+  delete color_designer_;
   delete hide_animator_;
   delete extrude_animator_;
 }

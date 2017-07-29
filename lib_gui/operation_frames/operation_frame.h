@@ -6,6 +6,7 @@
 
 class FrameAnimator;
 class QWidget;
+class AtmColorDesigner;
 
 class OperationFrame : public QObject {
   Q_OBJECT
@@ -33,6 +34,8 @@ class OperationFrame : public QObject {
 
  private:
   void SetAnimationConnections();
+
+  AtmColorDesigner* color_designer_ = nullptr;
 
   FrameAnimator* hide_animator_ = nullptr;
   FrameAnimator* extrude_animator_ = nullptr;

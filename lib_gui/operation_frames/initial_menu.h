@@ -59,6 +59,7 @@ class InitialMenu : public QFrame {
   // same code
   AtmColorDesigner* atm_color_designer_ = nullptr;
   OperationFrame* operation_frame_ = nullptr;
+
   DeltaSize delta_size_;
   WidgetBorderController border_controller_;
   GeometryComposer composer_;

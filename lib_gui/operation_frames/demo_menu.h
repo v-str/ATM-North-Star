@@ -49,7 +49,6 @@ class DemoMenu : public QFrame {
 
   // same code
   AtmColorDesigner* color_designer_ = nullptr;
-
   OperationFrame* operation_frame_ = nullptr;
 
   GeometryComposer composer_;
