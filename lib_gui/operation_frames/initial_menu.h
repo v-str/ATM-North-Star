@@ -11,7 +11,6 @@
 
 class QWidget;
 class QPushButton;
-class AtmColorDesigner;
 class AtmButton;
 class OperationFrame;
 
@@ -57,7 +56,6 @@ class InitialMenu : public QFrame {
   QVBoxLayout* v_layout_ = nullptr;
 
   // same code
-  AtmColorDesigner* atm_color_designer_ = nullptr;
   OperationFrame* operation_frame_ = nullptr;
 
   DeltaSize delta_size_;

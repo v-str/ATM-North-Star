@@ -1,6 +1,7 @@
 ﻿#include <operation_frame.h>
 
 #include <QFrame>
+#include <QPushButton>
 
 #include <atm_color_designer.h>
 #include <frame_animator.h>
@@ -31,6 +32,10 @@ void OperationFrame::SetAnimationDirection(unsigned int hide_to,
 void OperationFrame::SetAnimationDuration(unsigned int duration_msec) {
   hide_animator_->SetDuration(duration_msec);
   extrude_animator_->SetDuration(duration_msec);
+}
+
+void OperationFrame::ColorizeButtons(QList<QPushButton*>& button_list) {
+  color_designer_->PaintWidgetSet(button_list);
 }
 
 void OperationFrame::StartHidingFrame(const QRect& geometry) {
