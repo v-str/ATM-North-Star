@@ -13,7 +13,7 @@ class FrameAnimator : public QObject {
  public:
   enum AnimationType { kHideFrame, kExtrudeFrame };
 
-  explicit FrameAnimator(QWidget* parent = nullptr,
+  explicit FrameAnimator(QWidget* widget = nullptr,
                          AnimationType animation_type = kHideFrame);
   ~FrameAnimator();
 
