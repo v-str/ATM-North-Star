@@ -6,21 +6,21 @@
 #include <QRect>
 
 class FrameAnimator;
-class QWidget;
+class QFrame;
 class AtmColorDesigner;
 
 class OperationFrame : public QObject {
   Q_OBJECT
  public:
-  explicit OperationFrame(QWidget* widget = nullptr);
+  explicit OperationFrame(QFrame* frame = nullptr);
   virtual ~OperationFrame();
 
-  void SetOperationFrame(QWidget* widget);
+  void SetOperationFrame(QFrame* frame);
 
   void SetAnimationDirection(unsigned int hide_to, unsigned int extrude_from);
   void SetAnimationDuration(unsigned int duration_msec);
 
-  void ColorizeWidget(QWidget* widget);
+  void ColorizeWidget(QFrame* frame);
 
  public slots:
   void StartHidingFrame(const QRect& geometry);
@@ -37,7 +37,7 @@ class OperationFrame : public QObject {
   void PassParametersForExtrude(const QRect& geometry);
 
  private:
-  void InitializeAnimationObjects(QWidget* widget);
+  void InitializeAnimationObjects(QFrame* frame);
 
   void SetAnimationConnections();
 

@@ -1,12 +1,12 @@
 ﻿#include <operation_frame.h>
 
-#include <QWidget>
+#include <QFrame>
 
 #include <atm_color_designer.h>
 #include <frame_animator.h>
 
-OperationFrame::OperationFrame(QWidget* widget)
-    : QObject(widget), color_designer_(new AtmColorDesigner) {}
+OperationFrame::OperationFrame(QFrame* frame)
+    : QObject(frame), color_designer_(new AtmColorDesigner) {}
 
 OperationFrame::~OperationFrame() {
   delete color_designer_;
@@ -14,8 +14,10 @@ OperationFrame::~OperationFrame() {
   delete extrude_animator_;
 }
 
-void OperationFrame::SetOperationFrame(QWidget* widget) {
-  InitializeAnimationObjects(widget);
+void OperationFrame::SetOperationFrame(QFrame* frame) {
+  color_designer_->PaintFrame(frame);
+
+  InitializeAnimationObjects(frame);
 
   SetAnimationConnections();
 }
@@ -43,7 +45,7 @@ void OperationFrame::FinishHiding() { emit HidingComplete(); }
 
 void OperationFrame::FinishExtruding() { emit ExtrudingComplete(); }
 
-void OperationFrame::InitializeAnimationObjects(QWidget* widget) {
+void OperationFrame::InitializeAnimationObjects(QFrame* frame) {
   if (hide_animator_ != nullptr) {
     delete hide_animator_;
   }
@@ -51,8 +53,8 @@ void OperationFrame::InitializeAnimationObjects(QWidget* widget) {
     delete extrude_animator_;
   }
 
-  hide_animator_ = new FrameAnimator(widget);
-  extrude_animator_ = new FrameAnimator(widget, FrameAnimator::kExtrudeFrame);
+  hide_animator_ = new FrameAnimator(frame);
+  extrude_animator_ = new FrameAnimator(frame, FrameAnimator::kExtrudeFrame);
 }
 
 void OperationFrame::SetAnimationConnections() {
