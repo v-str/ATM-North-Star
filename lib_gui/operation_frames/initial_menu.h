@@ -13,7 +13,7 @@ class QWidget;
 class QPushButton;
 class AtmColorDesigner;
 class AtmButton;
-class FrameAnimator;
+class OperationFrame;
 
 class InitialMenu : public QFrame {
   Q_OBJECT
@@ -58,8 +58,7 @@ class InitialMenu : public QFrame {
 
   // same code
   AtmColorDesigner* atm_color_designer_ = nullptr;
-  FrameAnimator* hide_animator_ = nullptr;
-  FrameAnimator* extrude_animator_ = nullptr;
+  OperationFrame* operation_frame_ = nullptr;
   DeltaSize delta_size_;
   WidgetBorderController border_controller_;
   GeometryComposer composer_;

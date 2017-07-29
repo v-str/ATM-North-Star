@@ -13,8 +13,8 @@
 #include <atm_button.h>
 #include <atm_color_designer.h>
 #include <conversion_factor.h>
-#include <frame_animator.h>
 #include <initial_frame_geometry.h>
+#include <operation_frame.h>
 #include <side.h>
 
 InitialMenu::InitialMenu(QWidget* parent)
@@ -25,8 +25,7 @@ InitialMenu::InitialMenu(QWidget* parent)
       demo_button_(new AtmButton("Demo", button_frame_)),
       v_layout_(new QVBoxLayout),
       atm_color_designer_(new AtmColorDesigner),
-      hide_animator_(new FrameAnimator(this)),
-      extrude_animator_(new FrameAnimator(this, FrameAnimator::kExtrudeFrame)) {
+      operation_frame_(new OperationFrame) {
   setGeometry(InitialFrameGeometry::InitialFrame());
 
   SetFrameAnimation();
@@ -66,8 +65,8 @@ void InitialMenu::PaintWidgets() {
 }
 
 void InitialMenu::SetFrameAnimation() {
-  hide_animator_->SetAnimationDirection(Side::kUp);
-  extrude_animator_->SetAnimationDirection(Side::kDown);
+  operation_frame_->SetAnimationFrame(this);
+  operation_frame_->SetAnimationDirection(Side::kUp, Side::kDown);
 }
 
 void InitialMenu::SetButtonsInitialSetting() {
@@ -115,15 +114,15 @@ void InitialMenu::SetButtonFrame() {
 void InitialMenu::SetConnections() {
   connect(demo_button_, SIGNAL(clicked(bool)), SLOT(ProcessDemoButtonClick()));
 
-  connect(this, SIGNAL(PassGeometryForExtrude(QRect)), extrude_animator_,
-          SLOT(ExtrudeFrame(QRect)));
+  connect(this, SIGNAL(PassGeometryForExtrude(QRect)), operation_frame_,
+          SLOT(StartExtrudingFrame(QRect)));
 
-  connect(extrude_animator_, SIGNAL(AnimationComplete()), SLOT(show()));
+  connect(operation_frame_, SIGNAL(ExtrudingComplete()), SLOT(show()));
 
-  connect(this, SIGNAL(PassGeometryForHide(QRect)), hide_animator_,
-          SLOT(HideFrame(QRect)));
+  connect(this, SIGNAL(PassGeometryForHide(QRect)), operation_frame_,
+          SLOT(StartHidingFrame(QRect)));
 
-  connect(hide_animator_, SIGNAL(AnimationComplete()), SLOT(close()));
+  connect(operation_frame_, SIGNAL(HidingComplete()), SLOT(close()));
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
