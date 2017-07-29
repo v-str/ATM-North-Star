@@ -15,15 +15,7 @@ OperationFrame::~OperationFrame() {
 }
 
 void OperationFrame::SetOperationFrame(QWidget* widget) {
-  if (hide_animator_ != nullptr) {
-    delete hide_animator_;
-  }
-  if (extrude_animator_ != nullptr) {
-    delete extrude_animator_;
-  }
-
-  hide_animator_ = new FrameAnimator(widget);
-  extrude_animator_ = new FrameAnimator(widget, FrameAnimator::kExtrudeFrame);
+  InitializeAnimationObjects(widget);
 
   SetAnimationConnections();
 }
@@ -50,6 +42,18 @@ void OperationFrame::StartExtrudingFrame(const QRect& geometry) {
 void OperationFrame::FinishHiding() { emit HidingComplete(); }
 
 void OperationFrame::FinishExtruding() { emit ExtrudingComplete(); }
+
+void OperationFrame::InitializeAnimationObjects(QWidget* widget) {
+  if (hide_animator_ != nullptr) {
+    delete hide_animator_;
+  }
+  if (extrude_animator_ != nullptr) {
+    delete extrude_animator_;
+  }
+
+  hide_animator_ = new FrameAnimator(widget);
+  extrude_animator_ = new FrameAnimator(widget, FrameAnimator::kExtrudeFrame);
+}
 
 void OperationFrame::SetAnimationConnections() {
   connect(this, SIGNAL(PassParametersForExtrude(QRect)), extrude_animator_,

@@ -37,6 +37,8 @@ class OperationFrame : public QObject {
   void PassParametersForExtrude(const QRect& geometry);
 
  private:
+  void InitializeAnimationObjects(QWidget* widget);
+
   void SetAnimationConnections();
 
   AtmColorDesigner* color_designer_ = nullptr;
