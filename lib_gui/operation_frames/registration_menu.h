@@ -1,7 +1,6 @@
 ﻿#ifndef REGISTRATION_MENU_H
 #define REGISTRATION_MENU_H
 
-#include <QFrame>
 #include <QRect>
 
 #include <delta_size.h>
@@ -12,7 +11,9 @@ class QWidget;
 class AtmButton;
 class OperationFrame;
 
-class RegistrationMenu : public QFrame {
+#include <base_atm_frame.h>
+
+class RegistrationMenu : public BaseAtmFrame {
   Q_OBJECT
  public:
   explicit RegistrationMenu(QWidget* parent = nullptr);
@@ -20,28 +21,10 @@ class RegistrationMenu : public QFrame {
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
- public slots:
-  void ProcessBackButtonClick();
-  void Show();
-
- signals:
-  void BackButtonClicked();
-  void PassGeometryForHide(const QRect&);
-  void PassGeometryForExtrude(const QRect&);
-
  protected:
   void resizeEvent(QResizeEvent*);
 
  private:
-  void SetInitialGeometry();
-  void PaintWidgets();
-  void SetFrameAnimation();
-  void SetConnections();
-  void SetBackButtonScaling();
-
-  AtmButton* back_button_ = nullptr;
-  OperationFrame* operation_frame_ = nullptr;
-
   GeometryComposer composer_;
   WidgetBorderController border_controller_;
   DeltaSize delta_size_;
