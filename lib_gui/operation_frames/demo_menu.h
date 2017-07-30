@@ -34,12 +34,10 @@ class DemoMenu : public QFrame {
 
  private:
   void PaintWidgets();
-  void SetFrameAnimation();
   void SetInitialGeometry();
-
-  void SetButtonScalingProperties();
-
+  void SetFrameAnimation();
   void SetConnections();
+  void SetButtonScaling();
 
   AtmButton* back_button_ = nullptr;
   OperationFrame* operation_frame_ = nullptr;

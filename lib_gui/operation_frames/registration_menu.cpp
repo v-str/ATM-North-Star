@@ -21,10 +21,7 @@ RegistrationMenu::RegistrationMenu(QWidget* parent)
   SetConnections();
 }
 
-RegistrationMenu::~RegistrationMenu() {
-  delete back_button_;
-  delete operation_frame_;
-}
+RegistrationMenu::~RegistrationMenu() {}
 
 void RegistrationMenu::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;

@@ -14,10 +14,10 @@ DemoMenu::DemoMenu(QWidget* parent)
     : QFrame(parent),
       back_button_(new AtmButton("back", this)),
       operation_frame_(new OperationFrame(this)) {
-  SetFrameAnimation();
   SetInitialGeometry();
-  SetButtonScalingProperties();
   PaintWidgets();
+  SetFrameAnimation();
+  SetButtonScaling();
   SetConnections();
 }
 
@@ -62,13 +62,6 @@ void DemoMenu::PaintWidgets() {
   operation_frame_->ColorizeButtons(button_list);
 }
 
-void DemoMenu::SetButtonScalingProperties() {
-  composer_.SetShiftSide(Side::kRight | Side::kDown);
-  composer_.SetStretchFactor(0.07, 0.03);
-  composer_.SetStretchSide(Side::kUp | Side::kRight);
-  composer_.SetTransformationType(GeometryComposer::kScale);
-}
-
 void DemoMenu::SetFrameAnimation() {
   operation_frame_->SetOperationFrame(this);
   operation_frame_->SetAnimationDirection(Side::kLeft, Side::kRight);
@@ -83,4 +76,11 @@ void DemoMenu::SetConnections() {
   connect(this, SIGNAL(PassGeometryForHide(QRect)), operation_frame_,
           SLOT(StartHidingFrame(QRect)));
   connect(operation_frame_, SIGNAL(HidingComplete()), SLOT(close()));
+}
+
+void DemoMenu::SetButtonScaling() {
+  composer_.SetShiftSide(Side::kRight | Side::kDown);
+  composer_.SetStretchFactor(0.07, 0.03);
+  composer_.SetStretchSide(Side::kUp | Side::kRight);
+  composer_.SetTransformationType(GeometryComposer::kScale);
 }
