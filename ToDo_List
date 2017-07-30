@@ -92,10 +92,11 @@
 38. Fix repetitive code in animation classes -> develop base class for them         | + |
     Remove both animation classes and develop one for same tasks                    |   |
                                                                                     |   |
-39. Develop second base class for operation frames, fix repetitive code             | - |
+39. Develop second base class for operation frames, fix repetitive code             | + |
                                                                                     |   |
 40. Fix "Magic" numbers                                                             | - |
                                                                                     |   |
+41. Remade initial menu through base class of AtmFrame without back button          | - |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
