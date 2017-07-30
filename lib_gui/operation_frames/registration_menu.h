@@ -1,6 +1,8 @@
 ﻿#ifndef REGISTRATION_MENU_H
 #define REGISTRATION_MENU_H
 
+#include <base_atm_frame.h>
+
 #include <QRect>
 
 #include <delta_size.h>
@@ -10,8 +12,6 @@
 class QWidget;
 class AtmButton;
 class OperationFrame;
-
-#include <base_atm_frame.h>
 
 class RegistrationMenu : public BaseAtmFrame {
   Q_OBJECT
