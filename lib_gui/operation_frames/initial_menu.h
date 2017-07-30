@@ -49,7 +49,7 @@ class InitialMenu : public QFrame {
   void SetConnections();
 
   QFrame* button_frame_ = nullptr;
-  AtmButton* sign_in_button_ = nullptr;
+  AtmButton* login_button_ = nullptr;
   AtmButton* registration_button_ = nullptr;
   AtmButton* demo_button_ = nullptr;
   QVBoxLayout* v_layout_ = nullptr;
