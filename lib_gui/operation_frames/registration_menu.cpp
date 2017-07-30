@@ -11,7 +11,7 @@
 
 RegistrationMenu::RegistrationMenu(QWidget* parent) : BaseAtmFrame(parent) {
   SetInitialFrameGeometry(RegistrationMenuGeometry::RegistrationFrame());
-  SetBackButtonGeometry(RegistrationMenuGeometry::BackButton());
+  SetInitialBackButtonGeometry(RegistrationMenuGeometry::BackButton());
   SetFrameAnimation(Side::kLeft, Side::kRight, 500, this);
 }
 
@@ -22,4 +22,7 @@ void RegistrationMenu::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
-void RegistrationMenu::resizeEvent(QResizeEvent*) {}
+void RegistrationMenu::resizeEvent(QResizeEvent*) {
+  BaseAtmFrame::SetDeltaSize(delta_size_);
+  ScaleBackButton();
+}

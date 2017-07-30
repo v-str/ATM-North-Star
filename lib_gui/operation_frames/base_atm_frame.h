@@ -21,7 +21,7 @@ class BaseAtmFrame : public QFrame {
 
   void SetDeltaSize(const DeltaSize& delta_size);
   void SetInitialFrameGeometry(const QRect& geometry);
-  void SetBackButtonGeometry(const QRect& geometry);
+  void SetInitialBackButtonGeometry(const QRect& geometry);
   void SetFrameAnimation(unsigned int hide_to,
                          unsigned int extrude_from,
                          unsigned int duration_msec,
@@ -37,7 +37,7 @@ class BaseAtmFrame : public QFrame {
   void PassGeometryForExtrude(const QRect&);
 
  protected:
-  void resizeEvent(QResizeEvent*);
+  void ScaleBackButton();
 
  private:
   void ColorizeBackButton();
@@ -48,6 +48,8 @@ class BaseAtmFrame : public QFrame {
   OperationFrame* operation_frame_ = nullptr;
 
   QRect initial_frame_geometry_;
+  QRect initial_back_button_geometry_;
+
   GeometryComposer composer_;
   WidgetBorderController border_controller_;
   DeltaSize delta_size_;

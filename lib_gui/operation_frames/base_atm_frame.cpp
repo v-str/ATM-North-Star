@@ -7,7 +7,6 @@
 
 #include <atm_button.h>
 #include <operation_frame.h>
-#include <registration_menu_geometry.h>
 #include <side.h>
 
 BaseAtmFrame::BaseAtmFrame(QWidget* parent)
@@ -30,8 +29,9 @@ void BaseAtmFrame::SetInitialFrameGeometry(const QRect& geometry) {
   initial_frame_geometry_ = geometry;
 }
 
-void BaseAtmFrame::SetBackButtonGeometry(const QRect& geometry) {
+void BaseAtmFrame::SetInitialBackButtonGeometry(const QRect& geometry) {
   back_button_->setGeometry(geometry);
+  initial_back_button_geometry_ = geometry;
 }
 
 void BaseAtmFrame::SetFrameAnimation(unsigned int hide_to,
@@ -40,6 +40,7 @@ void BaseAtmFrame::SetFrameAnimation(unsigned int hide_to,
                                      QFrame* animated_frame) {
   // SetOperationFrame - always at the first position
   operation_frame_->SetOperationFrame(animated_frame);
+
   operation_frame_->SetAnimationDirection(hide_to, extrude_from);
   operation_frame_->SetAnimationDuration(duration_msec);
 }
@@ -59,11 +60,10 @@ void BaseAtmFrame::Show() {
   emit PassGeometryForExtrude(widget_geometry);
 }
 
-void BaseAtmFrame::resizeEvent(QResizeEvent*) {
+void BaseAtmFrame::ScaleBackButton() {
   composer_.SetDeltaSize(delta_size_);
   composer_.SetShiftFactor(0.0, 1.0);
-  composer_.ComposeGeometry(RegistrationMenuGeometry::BackButton(),
-                            back_button_);
+  composer_.ComposeGeometry(initial_back_button_geometry_, back_button_);
 
   border_controller_.SetGeometryLimit(geometry());
   border_controller_.ControlWidget(back_button_);
