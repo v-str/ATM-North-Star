@@ -3,7 +3,6 @@
 #include <QEasingCurve>
 #include <QList>
 #include <QResizeEvent>
-#include <QTimer>
 #include <QWidget>
 
 #include <atm_button.h>
