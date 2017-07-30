@@ -20,6 +20,15 @@ class RegistrationMenu : public QFrame {
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
+ public slots:
+  void ProcessBackButtonClick();
+  void Show();
+
+ signals:
+  void BackButtonClicked();
+  void PassGeometryForHide(const QRect&);
+  void PassGeometryForExtrude(const QRect&);
+
  protected:
   void resizeEvent(QResizeEvent*);
 
@@ -27,6 +36,8 @@ class RegistrationMenu : public QFrame {
   void SetInitialGeometry();
   void PaintWidgets();
   void SetFrameAnimation();
+  void SetConnections();
+  void SetBackButtonScaling();
 
   AtmButton* back_button_ = nullptr;
   OperationFrame* operation_frame_ = nullptr;

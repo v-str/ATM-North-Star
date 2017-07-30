@@ -18,6 +18,7 @@
 #include <initial_property_installer.h>
 #include <main_widget_geometry.h>
 #include <painter.h>
+#include <registration_menu.h>
 #include <side.h>
 #include <timedate_changer.h>
 
@@ -68,7 +69,12 @@ void AtmMainWidget::SetConnections() {
           SLOT(MaximizeButtonClicked(bool)));
   connect(time_timer_, SIGNAL(timeout()), SLOT(TickTime()));
   connect(initial_menu_, SIGNAL(DemoButtonClicked()), demo_menu_, SLOT(Show()));
+  connect(initial_menu_, SIGNAL(RegistrationButtonClicked()),
+          registration_menu_, SLOT(Show()));
+
   connect(demo_menu_, SIGNAL(BackButtonClicked()), initial_menu_, SLOT(Show()));
+  connect(registration_menu_, SIGNAL(BackButtonClicked()), initial_menu_,
+          SLOT(Show()));
 }
 
 void AtmMainWidget::SetInitialSettings() {
@@ -77,7 +83,8 @@ void AtmMainWidget::SetInitialSettings() {
   SetBackground();
   SetImages();
 
-  // demo_menu_->close();
+  demo_menu_->close();
+  registration_menu_->close();
 }
 
 void AtmMainWidget::SetBackground() { color_designer_.SetBackground(this); }
@@ -97,6 +104,8 @@ void AtmMainWidget::SetFrameArrangement() {
   composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(),
                             initial_menu_);
   composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(), demo_menu_);
+  composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(),
+                            registration_menu_);
 }
 
 void AtmMainWidget::SetTimeLabelArrangement() {
@@ -123,6 +132,7 @@ void AtmMainWidget::InitializeObject() {
   time_timer_ = new QTimer(ui->time_label);
   initial_menu_ = new InitialMenu(ui->main_frame);
   demo_menu_ = new DemoMenu(ui->main_frame);
+  registration_menu_ = new RegistrationMenu(ui->main_frame);
 }
 
 void AtmMainWidget::ComputeExtraSize() {
@@ -131,4 +141,5 @@ void AtmMainWidget::ComputeExtraSize() {
 
   initial_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
   demo_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
+  registration_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
 }

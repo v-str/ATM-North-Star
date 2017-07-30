@@ -12,6 +12,7 @@ class ApplicationColor;
 class QTimer;
 class InitialMenu;
 class DemoMenu;
+class RegistrationMenu;
 
 namespace Ui {
 class AtmMainWidget;
@@ -50,6 +51,7 @@ class AtmMainWidget : public QMainWindow {
   QTimer* time_timer_ = nullptr;
   InitialMenu* initial_menu_ = nullptr;
   DemoMenu* demo_menu_ = nullptr;
+  RegistrationMenu* registration_menu_ = nullptr;
 
   AtmColorDesigner color_designer_;
   GeometryComposer composer_;

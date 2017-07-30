@@ -45,6 +45,7 @@ void DemoMenu::Show() {
 void DemoMenu::resizeEvent(QResizeEvent*) {
   composer_.SetDeltaSize(delta_size_);
 
+  composer_.SetShiftFactor(0.0, 1.0);
   composer_.ComposeGeometry(DemoMenuGeometry::BackButton(), back_button_);
 
   border_controller_.SetGeometryLimit(geometry());
@@ -62,7 +63,6 @@ void DemoMenu::PaintWidgets() {
 }
 
 void DemoMenu::SetButtonScalingProperties() {
-  composer_.SetShiftFactor(0.0, 1.0);
   composer_.SetShiftSide(Side::kRight | Side::kDown);
   composer_.SetStretchFactor(0.07, 0.03);
   composer_.SetStretchSide(Side::kUp | Side::kRight);
@@ -71,7 +71,7 @@ void DemoMenu::SetButtonScalingProperties() {
 
 void DemoMenu::SetFrameAnimation() {
   operation_frame_->SetOperationFrame(this);
-  operation_frame_->SetAnimationDirection(Side::kDown, Side::kUp);
+  operation_frame_->SetAnimationDirection(Side::kLeft, Side::kRight);
 }
 
 void DemoMenu::SetConnections() {
@@ -79,11 +79,8 @@ void DemoMenu::SetConnections() {
 
   connect(this, SIGNAL(PassGeometryForExtrude(QRect)), operation_frame_,
           SLOT(StartExtrudingFrame(QRect)));
-
   connect(operation_frame_, SIGNAL(ExtrudingComplete()), SLOT(show()));
-
   connect(this, SIGNAL(PassGeometryForHide(QRect)), operation_frame_,
           SLOT(StartHidingFrame(QRect)));
-
   connect(operation_frame_, SIGNAL(HidingComplete()), SLOT(close()));
 }

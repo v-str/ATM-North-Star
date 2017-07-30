@@ -26,8 +26,6 @@ InitialMenu::InitialMenu(QWidget* parent)
       operation_frame_(new OperationFrame(this)) {
   setGeometry(InitialFrameGeometry::InitialFrame());
 
-  operation_frame_->SetOperationFrame(this);
-
   SetFrameAnimation();
   SetButtonsInitialSetting();
   SetButtonFrameScalingProperties();
@@ -45,6 +43,11 @@ void InitialMenu::SetDeltaSize(const DeltaSize& delta_size) {
 void InitialMenu::ProcessDemoButtonClick() {
   emit PassGeometryForHide(geometry());
   emit DemoButtonClicked();
+}
+
+void InitialMenu::ProcessRegistraionButtonClick() {
+  emit PassGeometryForHide(geometry());
+  emit RegistrationButtonClicked();
 }
 
 void InitialMenu::Show() {
@@ -66,7 +69,8 @@ void InitialMenu::PaintWidgets() {
 }
 
 void InitialMenu::SetFrameAnimation() {
-  operation_frame_->SetAnimationDirection(Side::kUp, Side::kDown);
+  operation_frame_->SetOperationFrame(this);
+  operation_frame_->SetAnimationDirection(Side::kLeft, Side::kRight);
 }
 
 void InitialMenu::SetButtonsInitialSetting() { SetButtonGeometry(); }
@@ -101,6 +105,8 @@ void InitialMenu::SetButtonFrame() {
 
 void InitialMenu::SetConnections() {
   connect(demo_button_, SIGNAL(clicked(bool)), SLOT(ProcessDemoButtonClick()));
+  connect(registration_button_, SIGNAL(clicked(bool)),
+          SLOT(ProcessRegistraionButtonClick()));
 
   connect(this, SIGNAL(PassGeometryForExtrude(QRect)), operation_frame_,
           SLOT(StartExtrudingFrame(QRect)));

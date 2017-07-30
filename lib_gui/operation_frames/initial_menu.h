@@ -24,12 +24,14 @@ class InitialMenu : public QFrame {
 
  public slots:
   void ProcessDemoButtonClick();
+  void ProcessRegistraionButtonClick();
   void Show();
 
  signals:
   void PassGeometryForExtrude(const QRect&);
   void PassGeometryForHide(const QRect&);
   void DemoButtonClicked();
+  void RegistrationButtonClicked();
 
  protected:
   void resizeEvent(QResizeEvent*);
