@@ -2,7 +2,6 @@
 #define DEMO_MENU_H
 
 #include <QFrame>
-#include <QObject>
 #include <QRect>
 
 #include <delta_size.h>
