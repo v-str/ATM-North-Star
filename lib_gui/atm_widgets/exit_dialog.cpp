@@ -28,7 +28,7 @@ ExitDialog::~ExitDialog() { delete ui; }
 void ExitDialog::SetExitDialogAppearance() { PaintWidgets(); }
 
 void ExitDialog::SetBackgroundColor() {
-  color_designer_.SetBackgroundColor(this);
+  color_designer_.SetBackground(this);
 }
 
 void ExitDialog::ShowWidgetOnCenterAt(const QRect& widget_geometry) {

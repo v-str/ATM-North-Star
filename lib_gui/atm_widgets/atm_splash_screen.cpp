@@ -63,7 +63,7 @@ void AtmSplashScreen::PaintWidgets() {
 }
 
 void AtmSplashScreen::SetBackgroundColor() {
-  color_designer_.SetBackgroundColor(this);
+  color_designer_.SetBackground(this);
 }
 
 void AtmSplashScreen::UnlockFixedGeometry() { setMinimumSize(0, 0); }

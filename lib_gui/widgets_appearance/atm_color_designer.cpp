@@ -13,12 +13,12 @@
 
 AtmColorDesigner::AtmColorDesigner() {}
 
-void AtmColorDesigner::SetBackgroundColor(QMainWindow* main_window) {
+void AtmColorDesigner::SetBackground(QMainWindow* main_window) {
   Painter::ChangeBackgroundColor(
       main_window, ApplicationColor::ApplicationBackgroundColor());
 }
 
-void AtmColorDesigner::SetBackgroundColor(QDialog* dialog) {
+void AtmColorDesigner::SetBackground(QDialog* dialog) {
   Painter::ChangeBackgroundColor(
       dialog, ApplicationColor::ApplicationBackgroundColor());
 }

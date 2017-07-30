@@ -74,15 +74,13 @@ void AtmMainWidget::SetConnections() {
 void AtmMainWidget::SetInitialSettings() {
   InitializeObject();
   PaintWidgets();
-  SetBackgroundColor();
+  SetBackground();
   SetImages();
 
   demo_menu_->close();
 }
 
-void AtmMainWidget::SetBackgroundColor() {
-  color_designer_.SetBackgroundColor(this);
-}
+void AtmMainWidget::SetBackground() { color_designer_.SetBackground(this); }
 
 void AtmMainWidget::SetWidgetProperties() {
   setMinimumSize(600, 400);
