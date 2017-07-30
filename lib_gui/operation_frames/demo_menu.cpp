@@ -1,6 +1,5 @@
 ﻿#include <demo_menu.h>
 
-#include <QEasingCurve>
 #include <QList>
 #include <QResizeEvent>
 #include <QWidget>

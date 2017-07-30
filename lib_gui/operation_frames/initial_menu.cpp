@@ -1,12 +1,8 @@
 ﻿#include <initial_menu.h>
 
-#include <QEasingCurve>
 #include <QList>
-#include <QPushButton>
 #include <QSizePolicy>
 #include <QString>
-#include <QTimer>
-#include <QVector>
 #include <QWidget>
 
 #include <application_color.h>
