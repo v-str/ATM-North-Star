@@ -1,5 +1,5 @@
-﻿#ifndef FRAME_SETTER_H
-#define FRAME_SETTER_H
+﻿#ifndef ATM_FRAME_SETTER_H
+#define ATM_FRAME_SETTER_H
 
 #include <QList>
 #include <QObject>
@@ -47,4 +47,4 @@ class AtmFrameSetter : public QObject {
   FrameAnimator* extrude_animator_ = nullptr;
 };
 
-#endif  // FRAME_SETTER_H
+#endif  // ATM_FRAME_SETTER_H
