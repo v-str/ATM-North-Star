@@ -5,12 +5,12 @@
 #include <QWidget>
 
 #include <atm_button.h>
-#include <demo_menu_geometry.h>
+#include <login_menu_geometry.h>
 #include <side.h>
 
 LoginMenu::LoginMenu(QWidget* parent) : BaseAtmFrame(parent) {
-  SetInitialFrameGeometry(DemoMenuGeometry::DemoFrame());
-  SetInitialBackButtonGeometry(DemoMenuGeometry::BackButton());
+  SetInitialFrameGeometry(LoginMenuGeometry::LoginFrame());
+  SetInitialBackButtonGeometry(LoginMenuGeometry::BackButton());
   SetFrameAnimation(Side::kLeft, Side::kRight, 500, this);
 }
 
