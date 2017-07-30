@@ -14,13 +14,13 @@
 AtmColorDesigner::AtmColorDesigner() {}
 
 void AtmColorDesigner::SetBackground(QMainWindow* main_window) {
-  Painter::ChangeBackgroundColor(
-      main_window, ApplicationColor::ApplicationBackgroundColor());
+  Painter::ChangeBackground(main_window,
+                            ApplicationColor::ApplicationBackgroundColor());
 }
 
 void AtmColorDesigner::SetBackground(QDialog* dialog) {
-  Painter::ChangeBackgroundColor(
-      dialog, ApplicationColor::ApplicationBackgroundColor());
+  Painter::ChangeBackground(dialog,
+                            ApplicationColor::ApplicationBackgroundColor());
 }
 
 void AtmColorDesigner::PaintWidgetSet(QList<QLabel*> label_list) const {
