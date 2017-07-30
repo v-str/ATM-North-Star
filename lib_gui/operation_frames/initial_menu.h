@@ -25,6 +25,8 @@ class InitialMenu : public QFrame {
  public slots:
   void ProcessDemoButtonClick();
   void ProcessRegistraionButtonClick();
+  void ProcessLoginButtonClick();
+
   void Show();
 
  signals:
@@ -32,6 +34,7 @@ class InitialMenu : public QFrame {
   void PassGeometryForHide(const QRect&);
   void DemoButtonClicked();
   void RegistrationButtonClicked();
+  void LoginButtonClicked();
 
  protected:
   void resizeEvent(QResizeEvent*);

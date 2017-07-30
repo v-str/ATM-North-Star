@@ -46,6 +46,11 @@ void InitialMenu::ProcessRegistraionButtonClick() {
   emit RegistrationButtonClicked();
 }
 
+void InitialMenu::ProcessLoginButtonClick() {
+  emit PassGeometryForHide(geometry());
+  emit LoginButtonClicked();
+}
+
 void InitialMenu::Show() {
   QRect widget_geometry = {
       InitialFrameGeometry::InitialFrame().x(),
@@ -103,6 +108,8 @@ void InitialMenu::SetConnections() {
   connect(demo_button_, SIGNAL(clicked(bool)), SLOT(ProcessDemoButtonClick()));
   connect(registration_button_, SIGNAL(clicked(bool)),
           SLOT(ProcessRegistraionButtonClick()));
+  connect(login_button_, SIGNAL(clicked(bool)),
+          SLOT(ProcessLoginButtonClick()));
 
   connect(this, SIGNAL(PassGeometryForExtrude(QRect)), operation_frame_,
           SLOT(StartExtrudingFrame(QRect)));

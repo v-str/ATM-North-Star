@@ -16,6 +16,7 @@
 #include <initial_frame_geometry.h>
 #include <initial_menu.h>
 #include <initial_property_installer.h>
+#include <login_menu.h>
 #include <main_widget_geometry.h>
 #include <painter.h>
 #include <registration_menu.h>
@@ -68,12 +69,17 @@ void AtmMainWidget::SetConnections() {
   connect(ui->maximize_button, SIGNAL(clicked(bool)),
           SLOT(MaximizeButtonClicked(bool)));
   connect(time_timer_, SIGNAL(timeout()), SLOT(TickTime()));
+
   connect(initial_menu_, SIGNAL(DemoButtonClicked()), demo_menu_, SLOT(Show()));
   connect(initial_menu_, SIGNAL(RegistrationButtonClicked()),
           registration_menu_, SLOT(Show()));
+  connect(initial_menu_, SIGNAL(LoginButtonClicked()), login_menu_,
+          SLOT(Show()));
 
   connect(demo_menu_, SIGNAL(BackButtonClicked()), initial_menu_, SLOT(Show()));
   connect(registration_menu_, SIGNAL(BackButtonClicked()), initial_menu_,
+          SLOT(Show()));
+  connect(login_menu_, SIGNAL(BackButtonClicked()), initial_menu_,
           SLOT(Show()));
 }
 
@@ -85,6 +91,7 @@ void AtmMainWidget::SetInitialSettings() {
 
   demo_menu_->close();
   registration_menu_->close();
+  login_menu_->close();
 }
 
 void AtmMainWidget::SetBackground() { color_designer_.SetBackground(this); }
@@ -106,6 +113,7 @@ void AtmMainWidget::SetFrameArrangement() {
   composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(), demo_menu_);
   composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(),
                             registration_menu_);
+  composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(), login_menu_);
 }
 
 void AtmMainWidget::SetTimeLabelArrangement() {
@@ -133,6 +141,7 @@ void AtmMainWidget::InitializeObject() {
   initial_menu_ = new InitialMenu(ui->main_frame);
   demo_menu_ = new DemoMenu(ui->main_frame);
   registration_menu_ = new RegistrationMenu(ui->main_frame);
+  login_menu_ = new LoginMenu(ui->main_frame);
 }
 
 void AtmMainWidget::ComputeExtraSize() {
@@ -142,4 +151,5 @@ void AtmMainWidget::ComputeExtraSize() {
   initial_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
   demo_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
   registration_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
+  login_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
 }

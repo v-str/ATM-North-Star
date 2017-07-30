@@ -13,7 +13,7 @@ class QWidget;
 class AtmButton;
 class OperationFrame;
 
-class LoginMenu : BaseAtmFrame {
+class LoginMenu : public BaseAtmFrame {
   Q_OBJECT
  public:
   explicit LoginMenu(QWidget* parent = nullptr);
