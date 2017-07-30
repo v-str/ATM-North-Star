@@ -16,6 +16,7 @@ DemoMenu::DemoMenu(QWidget* parent)
       operation_frame_(new OperationFrame(this)) {
   SetFrameAnimation();
   SetInitialGeometry();
+  SetButtonScalingProperties();
   PaintWidgets();
   SetConnections();
 }
@@ -42,14 +43,11 @@ void DemoMenu::Show() {
 }
 
 void DemoMenu::resizeEvent(QResizeEvent*) {
-  SetScalingProperties();
-
   composer_.SetDeltaSize(delta_size_);
-
-  border_controller_.SetGeometryLimit(geometry());
 
   composer_.ComposeGeometry(DemoMenuGeometry::BackButton(), back_button_);
 
+  border_controller_.SetGeometryLimit(geometry());
   border_controller_.ControlWidget(back_button_);
 }
 
@@ -63,7 +61,7 @@ void DemoMenu::PaintWidgets() {
   operation_frame_->ColorizeButtons(button_list);
 }
 
-void DemoMenu::SetScalingProperties() {
+void DemoMenu::SetButtonScalingProperties() {
   composer_.SetShiftFactor(0.0, 1.0);
   composer_.SetShiftSide(Side::kRight | Side::kDown);
   composer_.SetStretchFactor(0.07, 0.03);

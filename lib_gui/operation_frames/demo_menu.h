@@ -35,9 +35,9 @@ class DemoMenu : public QFrame {
  private:
   void PaintWidgets();
   void SetFrameAnimation();
-
   void SetInitialGeometry();
-  void SetScalingProperties();
+
+  void SetButtonScalingProperties();
 
   void SetConnections();
 

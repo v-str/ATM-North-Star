@@ -28,6 +28,8 @@ void RegistrationMenu::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
+void RegistrationMenu::resizeEvent(QResizeEvent*) {}
+
 void RegistrationMenu::SetInitialGeometry() {
   setGeometry(RegistrationMenuGeometry::RegistrationFrame());
   back_button_->setGeometry(RegistrationMenuGeometry::BackButton());

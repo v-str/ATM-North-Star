@@ -77,7 +77,7 @@ void AtmMainWidget::SetInitialSettings() {
   SetBackground();
   SetImages();
 
-  demo_menu_->close();
+  // demo_menu_->close();
 }
 
 void AtmMainWidget::SetBackground() { color_designer_.SetBackground(this); }

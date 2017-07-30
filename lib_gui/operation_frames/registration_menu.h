@@ -20,6 +20,9 @@ class RegistrationMenu : public QFrame {
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
+ protected:
+  void resizeEvent(QResizeEvent*);
+
  private:
   void SetInitialGeometry();
   void PaintWidgets();
