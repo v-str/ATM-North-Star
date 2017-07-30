@@ -1,4 +1,4 @@
-﻿#include <operation_frame.h>
+﻿#include <atm_frame_setter.h>
 
 #include <QFrame>
 #include <QPushButton>
@@ -6,16 +6,16 @@
 #include <atm_color_designer.h>
 #include <frame_animator.h>
 
-OperationFrame::OperationFrame(QFrame* frame)
+AtmFrameSetter::AtmFrameSetter(QFrame* frame)
     : QObject(frame), color_designer_(new AtmColorDesigner) {}
 
-OperationFrame::~OperationFrame() {
+AtmFrameSetter::~AtmFrameSetter() {
   delete color_designer_;
   delete hide_animator_;
   delete extrude_animator_;
 }
 
-void OperationFrame::SetOperationFrame(QFrame* frame) {
+void AtmFrameSetter::SetOperationFrame(QFrame* frame) {
   color_designer_->PaintFrame(frame);
 
   InitializeAnimationObjects(frame);
@@ -23,34 +23,34 @@ void OperationFrame::SetOperationFrame(QFrame* frame) {
   SetAnimationConnections();
 }
 
-void OperationFrame::SetAnimationDirection(unsigned int hide_to,
+void AtmFrameSetter::SetAnimationDirection(unsigned int hide_to,
                                            unsigned int extrude_from) {
   hide_animator_->SetAnimationDirection(hide_to);
   extrude_animator_->SetAnimationDirection(extrude_from);
 }
 
-void OperationFrame::SetAnimationDuration(unsigned int duration_msec) {
+void AtmFrameSetter::SetAnimationDuration(unsigned int duration_msec) {
   hide_animator_->SetDuration(duration_msec);
   extrude_animator_->SetDuration(duration_msec);
 }
 
-void OperationFrame::ColorizeButtons(QList<QPushButton*>& button_list) {
+void AtmFrameSetter::ColorizeButtons(QList<QPushButton*>& button_list) {
   color_designer_->PaintWidgetSet(button_list);
 }
 
-void OperationFrame::StartHidingFrame(const QRect& geometry) {
+void AtmFrameSetter::StartHidingFrame(const QRect& geometry) {
   emit PassParametersForHide(geometry);
 }
 
-void OperationFrame::StartExtrudingFrame(const QRect& geometry) {
+void AtmFrameSetter::StartExtrudingFrame(const QRect& geometry) {
   emit PassParametersForExtrude(geometry);
 }
 
-void OperationFrame::FinishHiding() { emit HidingComplete(); }
+void AtmFrameSetter::FinishHiding() { emit HidingComplete(); }
 
-void OperationFrame::FinishExtruding() { emit ExtrudingComplete(); }
+void AtmFrameSetter::FinishExtruding() { emit ExtrudingComplete(); }
 
-void OperationFrame::InitializeAnimationObjects(QFrame* frame) {
+void AtmFrameSetter::InitializeAnimationObjects(QFrame* frame) {
   if (hide_animator_ != nullptr) {
     delete hide_animator_;
   }
@@ -62,7 +62,7 @@ void OperationFrame::InitializeAnimationObjects(QFrame* frame) {
   extrude_animator_ = new FrameAnimator(frame, FrameAnimator::kExtrudeFrame);
 }
 
-void OperationFrame::SetAnimationConnections() {
+void AtmFrameSetter::SetAnimationConnections() {
   connect(this, SIGNAL(PassParametersForExtrude(QRect)), extrude_animator_,
           SLOT(ExtrudeFrame(QRect)));
   connect(extrude_animator_, SIGNAL(AnimationComplete()), this,

@@ -10,7 +10,7 @@
 #include <widget_border_controller.h>
 
 class AtmButton;
-class OperationFrame;
+class AtmFrameSetter;
 class QWidget;
 
 class BaseAtmFrame : public QFrame {
@@ -45,7 +45,7 @@ class BaseAtmFrame : public QFrame {
   void SetBackButtonScaling();
 
   AtmButton* back_button_ = nullptr;
-  OperationFrame* operation_frame_ = nullptr;
+  AtmFrameSetter* operation_frame_ = nullptr;
 
   QRect initial_frame_geometry_;
   QRect initial_back_button_geometry_;

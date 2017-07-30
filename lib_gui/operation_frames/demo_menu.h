@@ -9,10 +9,6 @@
 #include <geometry_composer.h>
 #include <widget_border_controller.h>
 
-class QWidget;
-class AtmButton;
-class OperationFrame;
-
 class DemoMenu : public BaseAtmFrame {
   Q_OBJECT
  public:

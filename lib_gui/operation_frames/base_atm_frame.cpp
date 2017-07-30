@@ -6,13 +6,13 @@
 #include <QWidget>
 
 #include <atm_button.h>
-#include <operation_frame.h>
+#include <atm_frame_setter.h>
 #include <side.h>
 
 BaseAtmFrame::BaseAtmFrame(QWidget* parent)
     : QFrame(parent),
       back_button_(new AtmButton("back", this)),
-      operation_frame_(new OperationFrame(this)) {
+      operation_frame_(new AtmFrameSetter(this)) {
   ColorizeBackButton();
   SetConnections();
   SetBackButtonScaling();

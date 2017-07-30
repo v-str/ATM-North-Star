@@ -12,7 +12,7 @@
 class QWidget;
 class QPushButton;
 class AtmButton;
-class OperationFrame;
+class AtmFrameSetter;
 
 class InitialMenu : public QFrame {
   Q_OBJECT
@@ -56,7 +56,7 @@ class InitialMenu : public QFrame {
   AtmButton* registration_button_ = nullptr;
   AtmButton* demo_button_ = nullptr;
   QVBoxLayout* v_layout_ = nullptr;
-  OperationFrame* operation_frame_ = nullptr;
+  AtmFrameSetter* operation_frame_ = nullptr;
 
   DeltaSize delta_size_;
   WidgetBorderController border_controller_;

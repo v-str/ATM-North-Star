@@ -1,5 +1,5 @@
-﻿#ifndef OPERATION_FRAME_H
-#define OPERATION_FRAME_H
+﻿#ifndef FRAME_SETTER_H
+#define FRAME_SETTER_H
 
 #include <QList>
 #include <QObject>
@@ -10,11 +10,11 @@ class QFrame;
 class AtmColorDesigner;
 class QPushButton;
 
-class OperationFrame : public QObject {
+class AtmFrameSetter : public QObject {
   Q_OBJECT
  public:
-  explicit OperationFrame(QFrame* frame = nullptr);
-  virtual ~OperationFrame();
+  explicit AtmFrameSetter(QFrame* frame = nullptr);
+  virtual ~AtmFrameSetter();
 
   void SetOperationFrame(QFrame* frame);
 
@@ -47,4 +47,4 @@ class OperationFrame : public QObject {
   FrameAnimator* extrude_animator_ = nullptr;
 };
 
-#endif  // OPERATION_FRAME_H
+#endif  // FRAME_SETTER_H

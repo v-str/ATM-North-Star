@@ -7,9 +7,9 @@
 
 #include <application_color.h>
 #include <atm_button.h>
+#include <atm_frame_setter.h>
 #include <conversion_factor.h>
 #include <initial_frame_geometry.h>
-#include <operation_frame.h>
 #include <side.h>
 
 InitialMenu::InitialMenu(QWidget* parent)
@@ -19,7 +19,7 @@ InitialMenu::InitialMenu(QWidget* parent)
       registration_button_(new AtmButton("Registration", button_frame_)),
       demo_button_(new AtmButton("Demo", button_frame_)),
       v_layout_(new QVBoxLayout),
-      operation_frame_(new OperationFrame(this)) {
+      operation_frame_(new AtmFrameSetter(this)) {
   setGeometry(InitialFrameGeometry::InitialFrame());
 
   SetFrameAnimation();
