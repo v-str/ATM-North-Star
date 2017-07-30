@@ -9,13 +9,20 @@
 #include <atm_frame_setter.h>
 #include <side.h>
 
-BaseAtmFrame::BaseAtmFrame(QWidget* parent)
-    : QFrame(parent),
-      back_button_(new AtmButton("back", this)),
-      operation_frame_(new AtmFrameSetter(this)) {
-  ColorizeBackButton();
-  SetConnections();
-  SetBackButtonScaling();
+BaseAtmFrame::BaseAtmFrame(QWidget* parent,
+                           BackButtonCondition back_button_condition)
+    : QFrame(parent), operation_frame_(new AtmFrameSetter(this)) {
+  switch (back_button_condition) {
+    case kBackButtonActivated:
+      back_button_ = (new AtmButton("back", this));
+      ColorizeBackButton();
+      SetBackButtonScaling();
+      SetConnections();
+      break;
+    case kBackButtonDeactivated:
+      SetConnections();
+      break;
+  }
 }
 
 BaseAtmFrame::~BaseAtmFrame() {}
@@ -75,7 +82,11 @@ void BaseAtmFrame::ColorizeBackButton() {
 }
 
 void BaseAtmFrame::SetConnections() {
-  connect(back_button_, SIGNAL(clicked(bool)), SLOT(ProcessBackButtonClick()));
+  if (back_button_ != nullptr) {
+    connect(back_button_, SIGNAL(clicked(bool)),
+            SLOT(ProcessBackButtonClick()));
+  }
+
   connect(this, SIGNAL(PassGeometryForExtrude(QRect)), operation_frame_,
           SLOT(StartExtrudingFrame(QRect)));
   connect(operation_frame_, SIGNAL(ExtrudingComplete()), SLOT(show()));

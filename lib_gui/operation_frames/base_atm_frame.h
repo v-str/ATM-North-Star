@@ -16,7 +16,11 @@ class QWidget;
 class BaseAtmFrame : public QFrame {
   Q_OBJECT
  public:
-  explicit BaseAtmFrame(QWidget* parent = nullptr);
+  enum BackButtonCondition { kBackButtonActivated, kBackButtonDeactivated };
+
+  explicit BaseAtmFrame(
+      QWidget* parent = nullptr,
+      BackButtonCondition back_button_condition = kBackButtonActivated);
   ~BaseAtmFrame();
 
   void SetDeltaSize(const DeltaSize& delta_size);
