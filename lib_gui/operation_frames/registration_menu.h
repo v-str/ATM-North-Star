@@ -21,7 +21,9 @@ class RegistrationMenu : public QFrame {
   void SetDeltaSize(const DeltaSize& delta_size);
 
  private:
+  void SetInitialGeometry();
   void PaintWidgets();
+  void SetFrameAnimation();
 
   AtmButton* back_button_ = nullptr;
   OperationFrame* operation_frame_ = nullptr;
