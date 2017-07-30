@@ -40,10 +40,6 @@ AtmMainWidget::~AtmMainWidget() {
   delete time_timer_;
 }
 
-void AtmMainWidget::SetBackgroundColor() {
-  color_designer_.SetBackgroundColor(this);
-}
-
 void AtmMainWidget::SetImages() {
   QCursor custom_cursor(QPixmap(":/images/app_cursor.png"));
   setCursor(custom_cursor);
@@ -82,6 +78,10 @@ void AtmMainWidget::SetInitialSettings() {
   SetImages();
 
   demo_menu_->close();
+}
+
+void AtmMainWidget::SetBackgroundColor() {
+  color_designer_.SetBackgroundColor(this);
 }
 
 void AtmMainWidget::SetWidgetProperties() {
