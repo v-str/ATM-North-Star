@@ -31,7 +31,6 @@ void Painter::ChangeButtonColor(QPushButton* push_button) {
       "}"
       "QPushButton:focus{"
       "background-color:%4;"
-      "border: 2px solid %3;"
       "}"
       "QPushButton:pressed{"
       "color:%2;"

@@ -1,7 +1,7 @@
 ﻿#include <application_color.h>
 
 QString ApplicationColor::main_app_color_ = "#00FFFF";
-QString ApplicationColor::secondary_app_color_ = "#001933";
+QString ApplicationColor::secondary_app_color_ = "#66FFFF";
 QString ApplicationColor::additional_app_color_ = "#006666";
 
 QString ApplicationColor::splash_screen_blink_color_one_ = "#00FFFF";
@@ -9,7 +9,7 @@ QString ApplicationColor::splash_screen_blink_color_two_ = "#009999";
 
 QString ApplicationColor::application_background_color_ = "black";
 
-QString ApplicationColor::checked_background_color_ = "#202020";
+QString ApplicationColor::checked_background_color_ = "#000000";
 
 void ApplicationColor::SetWidgetColor(const QString main_color,
                                       const QString secondary_color,
