@@ -22,8 +22,8 @@ InitialMenu::InitialMenu(QWidget* parent)
   SetFrameAnimation(Side::kLeft, Side::kRight, 500, this);
 
   SetButtonGeometry();
-  SetButtonFrameScalingProperties();
   SetButtonFrame();
+  SetButtonFrameScalingProperties();
   PaintWidgets();
   SetConnections();
 }
@@ -61,7 +61,6 @@ void InitialMenu::SetButtonGeometry() {
   login_button_->setGeometry(InitialFrameGeometry::SignInButton());
   registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
   demo_button_->setGeometry(InitialFrameGeometry::DemoButton());
-  button_frame_->setGeometry(InitialFrameGeometry::ButtonFrame());
 }
 
 void InitialMenu::SetButtonFrameScalingProperties() {
@@ -74,6 +73,8 @@ void InitialMenu::SetButtonFrameScalingProperties() {
 }
 
 void InitialMenu::SetButtonFrame() {
+  button_frame_->setGeometry(InitialFrameGeometry::ButtonFrame());
+
   button_frame_->setStyleSheet(
       "QFrame {"
       "border: 0px;}");
