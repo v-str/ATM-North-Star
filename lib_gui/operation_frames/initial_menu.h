@@ -1,7 +1,8 @@
 ﻿#ifndef INITIAL_MENU_H
 #define INITIAL_MENU_H
 
-#include <QFrame>
+#include <base_atm_frame.h>
+
 #include <QRect>
 #include <QVBoxLayout>
 
@@ -12,9 +13,8 @@
 class QWidget;
 class QPushButton;
 class AtmButton;
-class AtmFrameSetter;
 
-class InitialMenu : public QFrame {
+class InitialMenu : public BaseAtmFrame {
   Q_OBJECT
  public:
   explicit InitialMenu(QWidget* parent = nullptr);
@@ -27,11 +27,7 @@ class InitialMenu : public QFrame {
   void ProcessRegistraionButtonClick();
   void ProcessLoginButtonClick();
 
-  void Show();
-
  signals:
-  void PassGeometryForExtrude(const QRect&);
-  void PassGeometryForHide(const QRect&);
   void DemoButtonClicked();
   void RegistrationButtonClicked();
   void LoginButtonClicked();
@@ -41,14 +37,9 @@ class InitialMenu : public QFrame {
 
  private:
   void PaintWidgets();
-  void SetFrameAnimation();
-
-  void SetButtonsInitialSetting();
   void SetButtonGeometry();
-
   void SetButtonFrameScalingProperties();
   void SetButtonFrame();
-
   void SetConnections();
 
   QFrame* button_frame_ = nullptr;
@@ -56,7 +47,6 @@ class InitialMenu : public QFrame {
   AtmButton* registration_button_ = nullptr;
   AtmButton* demo_button_ = nullptr;
   QVBoxLayout* v_layout_ = nullptr;
-  AtmFrameSetter* operation_frame_ = nullptr;
 
   DeltaSize delta_size_;
   WidgetBorderController border_controller_;

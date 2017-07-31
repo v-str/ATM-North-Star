@@ -11,7 +11,7 @@
 
 BaseAtmFrame::BaseAtmFrame(QWidget* parent,
                            BackButtonCondition back_button_condition)
-    : QFrame(parent), operation_frame_(new AtmFrameSetter(this)) {
+    : QFrame(parent), frame_setter_(new AtmFrameSetter(this)) {
   switch (back_button_condition) {
     case kBackButtonActivated:
       back_button_ = (new AtmButton("back", this));
@@ -46,10 +46,14 @@ void BaseAtmFrame::SetFrameAnimation(unsigned int hide_to,
                                      unsigned int duration_msec,
                                      QFrame* animated_frame) {
   // SetOperationFrame - always at the first position
-  operation_frame_->SetOperationFrame(animated_frame);
+  frame_setter_->SetOperationFrame(animated_frame);
 
-  operation_frame_->SetAnimationDirection(hide_to, extrude_from);
-  operation_frame_->SetAnimationDuration(duration_msec);
+  frame_setter_->SetAnimationDirection(hide_to, extrude_from);
+  frame_setter_->SetAnimationDuration(duration_msec);
+}
+
+void BaseAtmFrame::ColorizeButtons(const QList<QPushButton*>& button_list) {
+  frame_setter_->ColorizeButtons(button_list);
 }
 
 void BaseAtmFrame::ProcessBackButtonClick() {
@@ -78,7 +82,7 @@ void BaseAtmFrame::ScaleBackButton() {
 
 void BaseAtmFrame::ColorizeBackButton() {
   QList<QPushButton*> button_list{back_button_};
-  operation_frame_->ColorizeButtons(button_list);
+  frame_setter_->ColorizeButtons(button_list);
 }
 
 void BaseAtmFrame::SetConnections() {
@@ -87,12 +91,12 @@ void BaseAtmFrame::SetConnections() {
             SLOT(ProcessBackButtonClick()));
   }
 
-  connect(this, SIGNAL(PassGeometryForExtrude(QRect)), operation_frame_,
+  connect(this, SIGNAL(PassGeometryForExtrude(QRect)), frame_setter_,
           SLOT(StartExtrudingFrame(QRect)));
-  connect(operation_frame_, SIGNAL(ExtrudingComplete()), SLOT(show()));
-  connect(this, SIGNAL(PassGeometryForHide(QRect)), operation_frame_,
+  connect(frame_setter_, SIGNAL(ExtrudingComplete()), SLOT(show()));
+  connect(this, SIGNAL(PassGeometryForHide(QRect)), frame_setter_,
           SLOT(StartHidingFrame(QRect)));
-  connect(operation_frame_, SIGNAL(HidingComplete()), SLOT(close()));
+  connect(frame_setter_, SIGNAL(HidingComplete()), SLOT(close()));
 }
 
 void BaseAtmFrame::SetBackButtonScaling() {

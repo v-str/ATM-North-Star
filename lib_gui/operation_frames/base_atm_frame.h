@@ -2,6 +2,7 @@
 #define BASE_ATM_FRAME_H
 
 #include <QFrame>
+#include <QList>
 #include <QObject>
 #include <QRect>
 
@@ -12,6 +13,7 @@
 class AtmButton;
 class AtmFrameSetter;
 class QWidget;
+class QPushButton;
 
 class BaseAtmFrame : public QFrame {
   Q_OBJECT
@@ -31,6 +33,8 @@ class BaseAtmFrame : public QFrame {
                          unsigned int duration_msec,
                          QFrame* animated_frame);
 
+  void ColorizeButtons(const QList<QPushButton*>& button_list);
+
  public slots:
   void ProcessBackButtonClick();
   void Show();
@@ -49,7 +53,7 @@ class BaseAtmFrame : public QFrame {
   void SetBackButtonScaling();
 
   AtmButton* back_button_ = nullptr;
-  AtmFrameSetter* operation_frame_ = nullptr;
+  AtmFrameSetter* frame_setter_ = nullptr;
 
   QRect initial_frame_geometry_;
   QRect initial_back_button_geometry_;

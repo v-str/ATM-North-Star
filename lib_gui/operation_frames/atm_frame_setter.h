@@ -21,7 +21,7 @@ class AtmFrameSetter : public QObject {
   void SetAnimationDirection(unsigned int hide_to, unsigned int extrude_from);
   void SetAnimationDuration(unsigned int duration_msec);
 
-  void ColorizeButtons(QList<QPushButton*>& button_list);
+  void ColorizeButtons(const QList<QPushButton*>& button_list);
 
  public slots:
   void StartHidingFrame(const QRect& geometry);

@@ -7,23 +7,21 @@
 
 #include <application_color.h>
 #include <atm_button.h>
-#include <atm_frame_setter.h>
 #include <conversion_factor.h>
 #include <initial_frame_geometry.h>
 #include <side.h>
 
 InitialMenu::InitialMenu(QWidget* parent)
-    : QFrame(parent),
+    : BaseAtmFrame(parent, BaseAtmFrame::kBackButtonDeactivated),
       button_frame_(new QFrame(this)),
       login_button_(new AtmButton("Login", button_frame_)),
       registration_button_(new AtmButton("Registration", button_frame_)),
       demo_button_(new AtmButton("Demo", button_frame_)),
-      v_layout_(new QVBoxLayout),
-      operation_frame_(new AtmFrameSetter(this)) {
-  setGeometry(InitialFrameGeometry::InitialFrame());
+      v_layout_(new QVBoxLayout) {
+  SetInitialFrameGeometry(InitialFrameGeometry::InitialFrame());
+  SetFrameAnimation(Side::kLeft, Side::kRight, 500, this);
 
-  SetFrameAnimation();
-  SetButtonsInitialSetting();
+  SetButtonGeometry();
   SetButtonFrameScalingProperties();
   SetButtonFrame();
   PaintWidgets();
@@ -33,6 +31,7 @@ InitialMenu::InitialMenu(QWidget* parent)
 InitialMenu::~InitialMenu() {}
 
 void InitialMenu::SetDeltaSize(const DeltaSize& delta_size) {
+  BaseAtmFrame::SetDeltaSize(delta_size);
   delta_size_ = delta_size;
 }
 
@@ -51,30 +50,12 @@ void InitialMenu::ProcessLoginButtonClick() {
   emit LoginButtonClicked();
 }
 
-void InitialMenu::Show() {
-  QRect widget_geometry = {
-      InitialFrameGeometry::InitialFrame().x(),
-      InitialFrameGeometry::InitialFrame().y(),
-      InitialFrameGeometry::InitialFrame().width() + delta_size_.Width(),
-      InitialFrameGeometry::InitialFrame().height() + delta_size_.Height()};
-
-  setGeometry(widget_geometry);
-  emit PassGeometryForExtrude(widget_geometry);
-}
-
 void InitialMenu::PaintWidgets() {
   QList<QPushButton*> button_list{login_button_, registration_button_,
                                   demo_button_};
 
-  operation_frame_->ColorizeButtons(button_list);
+  ColorizeButtons(button_list);
 }
-
-void InitialMenu::SetFrameAnimation() {
-  operation_frame_->SetOperationFrame(this);
-  operation_frame_->SetAnimationDirection(Side::kLeft, Side::kRight);
-}
-
-void InitialMenu::SetButtonsInitialSetting() { SetButtonGeometry(); }
 
 void InitialMenu::SetButtonGeometry() {
   login_button_->setGeometry(InitialFrameGeometry::SignInButton());
@@ -110,26 +91,15 @@ void InitialMenu::SetConnections() {
           SLOT(ProcessRegistraionButtonClick()));
   connect(login_button_, SIGNAL(clicked(bool)),
           SLOT(ProcessLoginButtonClick()));
-
-  connect(this, SIGNAL(PassGeometryForExtrude(QRect)), operation_frame_,
-          SLOT(StartExtrudingFrame(QRect)));
-
-  connect(operation_frame_, SIGNAL(ExtrudingComplete()), SLOT(show()));
-
-  connect(this, SIGNAL(PassGeometryForHide(QRect)), operation_frame_,
-          SLOT(StartHidingFrame(QRect)));
-
-  connect(operation_frame_, SIGNAL(HidingComplete()), SLOT(close()));
 }
 
 void InitialMenu::resizeEvent(QResizeEvent*) {
+  BaseAtmFrame::SetDeltaSize(delta_size_);
   SetButtonFrameScalingProperties();
 
   composer_.SetDeltaSize(delta_size_);
-
-  border_controller_.SetGeometryLimit(geometry());
-
   composer_.ComposeGeometry(InitialFrameGeometry::ButtonFrame(), button_frame_);
 
+  border_controller_.SetGeometryLimit(geometry());
   border_controller_.ControlWidget(button_frame_);
 }
