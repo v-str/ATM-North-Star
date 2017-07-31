@@ -1,9 +1,15 @@
 ﻿#ifndef DEMO_TRANSACTION_MENU_FRAME_H
 #define DEMO_TRANSACTION_MENU_FRAME_H
 
-class DemoTransactionMenuFrame {
+#include <QFrame>
+
+class QWidget;
+
+class DemoTransactionMenuFrame : public QFrame {
+  Q_OBJECT
  public:
-  DemoTransactionMenuFrame();
+  DemoTransactionMenuFrame(QWidget* parent = nullptr);
+  ~DemoTransactionMenuFrame();
 };
 
 #endif  // DEMO_TRANSACTION_MENU_FRAME_H

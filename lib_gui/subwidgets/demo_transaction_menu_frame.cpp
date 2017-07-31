@@ -1,3 +1,10 @@
 ﻿#include <demo_transaction_menu_frame.h>
 
-DemoTransactionMenuFrame::DemoTransactionMenuFrame() {}
+#include <QFrame>
+
+#include <demo_menu_geometry.h>
+
+DemoTransactionMenuFrame::DemoTransactionMenuFrame(QWidget* parent)
+    : QFrame(parent) {}
+
+DemoTransactionMenuFrame::~DemoTransactionMenuFrame() {}
