@@ -6,6 +6,7 @@
 
 #include <atm_button.h>
 #include <demo_menu_geometry.h>
+#include <description_frame.h>
 #include <side.h>
 
 DescriptionMenu::DescriptionMenu(QWidget* parent) : BaseAtmFrame(parent) {

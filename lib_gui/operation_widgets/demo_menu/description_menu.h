@@ -9,6 +9,8 @@
 #include <geometry_composer.h>
 #include <widget_border_controller.h>
 
+class DescriptionFrame;
+
 class DescriptionMenu : public BaseAtmFrame {
   Q_OBJECT
  public:
@@ -21,7 +23,7 @@ class DescriptionMenu : public BaseAtmFrame {
   void resizeEvent(QResizeEvent*);
 
  private:
-  QFrame* button_frame_ = nullptr;
+  DescriptionFrame* description_frame_ = nullptr;
 
   GeometryComposer composer_;
   WidgetBorderController border_controller_;

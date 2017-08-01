@@ -7,13 +7,13 @@ class DemoMenuGeometry {
  public:
   static QRect DemoFrame();
   static QRect BackButton();
-  static QRect DemoTransactionMenuFrame();
+  static QRect DescriprionFrame();
 
  private:
   static QRect kDemoFrame;
   static QRect kBackButton;
 
-  static QRect kDemoTransactionMenuFrame;
+  static QRect kDescriptionFrame;
 };
 
 #endif  // DEMO_MENU_GEOMETRY_H
