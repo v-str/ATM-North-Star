@@ -11,7 +11,7 @@
 DemoMenu::DemoMenu(QWidget* parent) : BaseAtmFrame(parent) {
   SetInitialFrameGeometry(DemoMenuGeometry::DemoFrame());
   SetInitialBackButtonGeometry(DemoMenuGeometry::BackButton());
-  SetFrameAnimation(Side::kLeft, Side::kRight, 500, this);
+  SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
 }
 
 DemoMenu::~DemoMenu() {}

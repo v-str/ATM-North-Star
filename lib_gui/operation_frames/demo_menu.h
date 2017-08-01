@@ -26,6 +26,8 @@ class DemoMenu : public BaseAtmFrame {
   GeometryComposer composer_;
   WidgetBorderController border_controller_;
   DeltaSize delta_size_;
+
+  static const int kHalfASecond = 500;
 };
 
 #endif  // DEMO_MENU_H

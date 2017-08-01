@@ -19,7 +19,7 @@ InitialMenu::InitialMenu(QWidget* parent)
       demo_button_(new AtmButton("Demo", button_frame_)),
       v_layout_(new QVBoxLayout) {
   SetInitialFrameGeometry(InitialFrameGeometry::InitialFrame());
-  SetFrameAnimation(Side::kLeft, Side::kRight, 500, this);
+  SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
 
   SetButtonGeometry();
   SetButtonFrame();
@@ -64,9 +64,9 @@ void InitialMenu::SetButtonGeometry() {
 }
 
 void InitialMenu::SetButtonFrameScalingProperties() {
-  composer_.SetShiftFactor(kHalfOfSize, kHalfOfHeight);
+  composer_.SetShiftFactor(kXFactor, kYFactor);
   composer_.SetShiftSide(Side::kRight | Side::kDown);
-  composer_.SetStretchFactor(kHalfOfSize, kHalfOfHeight);
+  composer_.SetStretchFactor(kXFactor, kYFactor);
   composer_.SetStretchSide(Side::kRight | Side::kDown);
   composer_.SetTransformationType(GeometryComposer::kScale);
   composer_.KeepCenter(true);

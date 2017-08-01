@@ -52,8 +52,10 @@ class InitialMenu : public BaseAtmFrame {
   WidgetBorderController border_controller_;
   GeometryComposer composer_;
 
-  static constexpr double kHalfOfSize = 0.5;
-  static constexpr double kHalfOfHeight = 0.5;
+  static constexpr double kXFactor = 0.5;
+  static constexpr double kYFactor = 0.5;
+
+  static const int kHalfASecond = 500;
 };
 
 #endif  // INITIAL_MENU_H
