@@ -97,14 +97,14 @@ void AtmMainWidget::SetInitialSettings() {
 void AtmMainWidget::SetBackground() { color_designer_.SetBackground(this); }
 
 void AtmMainWidget::SetWidgetProperties() {
-  setMinimumSize(600, 400);
+  setMinimumSize(kAppWidth, kAppHeight);
   InitialPropertyInstaller::SetInitialProperties(
-      this, 600, 400, InitialPropertyInstaller::kResize);
+      this, kAppWidth, kAppHeight, InitialPropertyInstaller::kResize);
 }
 
 void AtmMainWidget::SetFrameArrangement() {
   composer_.SetDeltaSize(DeltaSize(delta_width_, delta_height_));
-  composer_.SetStretchFactor(1.0, 1.0);
+  composer_.SetStretchFactor(kSideGrowth, kSideGrowth);
   composer_.SetStretchSide(Side::kRight | Side::kDown);
   composer_.SetTransformationType(GeometryComposer::kStretch);
   composer_.ComposeGeometry(MainWidgetGeometry::MainFrame(), ui->main_frame);
@@ -117,13 +117,13 @@ void AtmMainWidget::SetFrameArrangement() {
 }
 
 void AtmMainWidget::SetTimeLabelArrangement() {
-  composer_.SetShiftFactor(1.0, 1.0);
+  composer_.SetShiftFactor(kSideGrowth, kSideGrowth);
   composer_.SetShiftSide(Side::kRight);
   composer_.SetTransformationType(GeometryComposer::kShift);
   composer_.ComposeGeometry(MainWidgetGeometry::TimeLabel(), ui->time_label);
 }
 
-void AtmMainWidget::RunTimers() { time_timer_->start(1000); }
+void AtmMainWidget::RunTimers() { time_timer_->start(kOneSecond); }
 
 void AtmMainWidget::PaintWidgets() {
   QList<QFrame*> frame_list = {ui->main_frame};

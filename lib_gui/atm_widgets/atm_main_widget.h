@@ -60,6 +60,13 @@ class AtmMainWidget : public QMainWindow {
 
   int delta_width_ = 0;
   int delta_height_ = 0;
+
+  static constexpr double kSideGrowth = 1.0;
+
+  static const int kAppWidth = 600;
+  static const int kAppHeight = 400;
+
+  static const int kOneSecond = 1;
 };
 
 #endif  // ATM_MAIN_WIDGET_H

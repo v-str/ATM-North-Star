@@ -96,7 +96,7 @@
                                                                                     |   |
 40. Fix "Magic" numbers                                                             | - |
                                                                                     |   |
-41. Remade initial menu through base class of AtmFrame without back button          | - |
+41. Remade initial menu through base class of AtmFrame without back button          | + |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
