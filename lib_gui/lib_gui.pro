@@ -21,7 +21,7 @@ DEPENDPATH += \
     ../widgets_appearance \
     ../features/animation \
     ../features/service \
-    ../operation_frames \
+    ../operation_widgets \
     ../atm_widgets \
     ../subwidgets \
     ../images \
@@ -35,7 +35,7 @@ INCLUDEPATH += \
     $$PWD/widgets_appearance \
     $$PWD/features/animation \
     $$PWD/features/service \
-    $$PWD/operation_frames \
+    $$PWD/operation_widgets \
     $$PWD/atm_widgets \
     $$PWD/subwidgets \
 
@@ -47,7 +47,7 @@ HEADERS += \
     $$PWD/widgets_appearance/*.h \
     $$PWD/features/animation/*.h \
     $$PWD/features/service/*.h \
-    $$PWD/operation_frames/*.h \
+    $$PWD/operation_widgets/*.h \
     $$PWD/atm_widgets/*.h \
     $$PWD/subwidgets/*.h \
 
@@ -59,7 +59,7 @@ SOURCES += \
     $$PWD/widgets_appearance/*.cpp \
     $$PWD/features/animation/*.cpp \
     $$PWD/features/service/*.cpp \
-    $$PWD/operation_frames/*.cpp \
+    $$PWD/operation_widgets/*.cpp \
     $$PWD/atm_widgets/*.cpp \
     $$PWD/subwidgets/*.cpp \
 

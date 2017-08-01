@@ -8,8 +8,6 @@ class QPushButton;
 class QFrame;
 class QMainWindow;
 class QDialog;
-class QString;
-class InitialMenu;
 
 class AtmColorDesigner {
  public:

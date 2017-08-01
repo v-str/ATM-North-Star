@@ -5,10 +5,8 @@
 #include <QLabel>
 #include <QMainWindow>
 #include <QPushButton>
-#include <QString>
 
 #include <application_color.h>
-#include <initial_menu.h>
 #include <painter.h>
 
 AtmColorDesigner::AtmColorDesigner() {}
