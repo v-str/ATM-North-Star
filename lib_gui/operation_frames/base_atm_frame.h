@@ -61,6 +61,11 @@ class BaseAtmFrame : public QFrame {
   GeometryComposer composer_;
   WidgetBorderController border_controller_;
   DeltaSize delta_size_;
+
+  static constexpr double kXShiftFactor = 0.0;
+  static constexpr double kYShiftFactor = 1.0;
+  static constexpr double kXStretchFactor = 0.07;
+  static constexpr double kYStretchFactor = 0.03;
 };
 
 #endif  // BASE_ATM_FRAME_H

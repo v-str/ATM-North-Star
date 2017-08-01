@@ -73,7 +73,7 @@ void BaseAtmFrame::Show() {
 
 void BaseAtmFrame::ScaleBackButton() {
   composer_.SetDeltaSize(delta_size_);
-  composer_.SetShiftFactor(0.0, 1.0);
+  composer_.SetShiftFactor(kXShiftFactor, kYShiftFactor);
   composer_.ComposeGeometry(initial_back_button_geometry_, back_button_);
 
   border_controller_.SetGeometryLimit(geometry());
@@ -101,7 +101,7 @@ void BaseAtmFrame::SetConnections() {
 
 void BaseAtmFrame::SetBackButtonScaling() {
   composer_.SetShiftSide(Side::kRight | Side::kDown);
-  composer_.SetStretchFactor(0.07, 0.03);
+  composer_.SetStretchFactor(kXStretchFactor, kYStretchFactor);
   composer_.SetStretchSide(Side::kUp | Side::kRight);
   composer_.SetTransformationType(GeometryComposer::kScale);
 }
