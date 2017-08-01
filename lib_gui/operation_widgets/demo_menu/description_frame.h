@@ -18,6 +18,9 @@ class DescriptionFrame : public QFrame {
   void SetDeltaSize(const DeltaSize& delta_size);
 
  private:
+  void SetGeometries();
+  void ColorizeWidgets();
+
   AtmColorDesigner* color_designer_ = nullptr;
 
   DeltaSize delta_size_;

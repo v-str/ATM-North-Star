@@ -8,11 +8,8 @@
 
 DescriptionFrame::DescriptionFrame(QWidget* parent)
     : QFrame(parent), color_designer_(new AtmColorDesigner) {
-  color_designer_->PaintFrame(this);
-
-  setGeometry(DemoMenuGeometry::DescriprionFrame());
-
-  color_designer_->PaintFrame(this);
+  SetGeometries();
+  ColorizeWidgets();
 }
 
 DescriptionFrame::~DescriptionFrame() { delete color_designer_; }
@@ -20,3 +17,9 @@ DescriptionFrame::~DescriptionFrame() { delete color_designer_; }
 void DescriptionFrame::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
+
+void DescriptionFrame::SetGeometries() {
+  setGeometry(DemoMenuGeometry::DescriprionFrame());
+}
+
+void DescriptionFrame::ColorizeWidgets() { color_designer_->PaintFrame(this); }
