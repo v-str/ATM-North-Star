@@ -17,16 +17,9 @@ class DescriptionFrame : public QFrame {
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
- protected:
-  void resizeEvent(QResizeEvent*);
-
  private:
-  void SetFrameScaling();
-
   AtmColorDesigner* color_designer_ = nullptr;
 
-  GeometryComposer composer_;
-  WidgetBorderController border_controller_;
   DeltaSize delta_size_;
 };
 
