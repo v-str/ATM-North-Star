@@ -104,7 +104,7 @@ void AtmMainWidget::SetWidgetProperties() {
 
 void AtmMainWidget::SetFrameArrangement() {
   composer_.SetDeltaSize(DeltaSize(delta_width_, delta_height_));
-  composer_.SetStretchFactor(kSideGrowth, kSideGrowth);
+  composer_.SetStretchFactor(kXFactor, kYFactor);
   composer_.SetStretchSide(Side::kRight | Side::kDown);
   composer_.SetTransformationType(GeometryComposer::kStretch);
   composer_.ComposeGeometry(MainWidgetGeometry::MainFrame(), ui->main_frame);
@@ -117,7 +117,7 @@ void AtmMainWidget::SetFrameArrangement() {
 }
 
 void AtmMainWidget::SetTimeLabelArrangement() {
-  composer_.SetShiftFactor(kSideGrowth, kSideGrowth);
+  composer_.SetShiftFactor(kXFactor, kYFactor);
   composer_.SetShiftSide(Side::kRight);
   composer_.SetTransformationType(GeometryComposer::kShift);
   composer_.ComposeGeometry(MainWidgetGeometry::TimeLabel(), ui->time_label);
