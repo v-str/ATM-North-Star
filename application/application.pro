@@ -14,9 +14,10 @@ DEPENDPATH += \
     ../lib_console/output_configuration \
     ../atm/incoming_data_processing \
     ../lib_gui/widgets_appearance \
+    ../lib_gui/features/animation \
+    ../lib_gui/features/service \
     ../lib_console/messengers \
     ../lib_gui/atm_widgets \
-    ../lib_gui/features \
     ../atm/atm_machine \
 
 INCLUDEPATH += \
@@ -27,6 +28,8 @@ INCLUDEPATH += \
     ../lib_console/output_configuration \
     ../atm/incoming_data_processing \
     ../lib_gui/widgets_appearance \
+    ../lib_gui/features/animation \
+    ../lib_gui/features/service \
     ../lib_console/messengers \
     ../lib_gui/atm_widgets \
     ../lib_gui/features \

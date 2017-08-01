@@ -1,7 +1,8 @@
 ﻿#ifndef INITIAL_MENU_H
 #define INITIAL_MENU_H
 
-#include <QFrame>
+#include <base_atm_frame.h>
+
 #include <QRect>
 #include <QVBoxLayout>
 
@@ -11,58 +12,50 @@
 
 class QWidget;
 class QPushButton;
-class AtmColorDesigner;
 class AtmButton;
-class WidgetHider;
-class WidgetExtruder;
 
-class InitialMenu : public QFrame {
+class InitialMenu : public BaseAtmFrame {
   Q_OBJECT
  public:
-  InitialMenu(QWidget* parent);
+  explicit InitialMenu(QWidget* parent = nullptr);
   ~InitialMenu();
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
  public slots:
   void ProcessDemoButtonClick();
-  void Show();
+  void ProcessRegistraionButtonClick();
+  void ProcessLoginButtonClick();
 
  signals:
-  void PassGeometryForExtrude(const QRect&);
-  void PassGeometryForHide(const QRect&);
   void DemoButtonClicked();
+  void RegistrationButtonClicked();
+  void LoginButtonClicked();
 
  protected:
   void resizeEvent(QResizeEvent*);
 
  private:
   void PaintWidgets();
-  void SetFrameAnimation();
-  void SetButtonsInitialSetting();
   void SetButtonGeometry();
-  void SetButtonSizePolicy();
-
-  void SetScalingProperties();
+  void SetButtonFrameScalingProperties();
   void SetButtonFrame();
-
   void SetConnections();
 
   QFrame* button_frame_ = nullptr;
-  AtmButton* sign_in_button_ = nullptr;
+  AtmButton* login_button_ = nullptr;
   AtmButton* registration_button_ = nullptr;
   AtmButton* demo_button_ = nullptr;
   QVBoxLayout* v_layout_ = nullptr;
-  AtmColorDesigner* atm_color_designer_ = nullptr;
-  WidgetHider* widget_hider_ = nullptr;
-  WidgetExtruder* widget_extruder_ = nullptr;
 
   DeltaSize delta_size_;
   WidgetBorderController border_controller_;
   GeometryComposer composer_;
 
-  static constexpr double kHalfOfSize = 0.5;
-  static constexpr double kHalfOfHeight = 0.5;
+  static constexpr double kXFactor = 0.5;
+  static constexpr double kYFactor = 0.5;
+
+  static const int kHalfASecond = 500;
 };
 
 #endif  // INITIAL_MENU_H

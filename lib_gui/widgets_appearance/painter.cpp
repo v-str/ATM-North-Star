@@ -31,7 +31,6 @@ void Painter::ChangeButtonColor(QPushButton* push_button) {
       "}"
       "QPushButton:focus{"
       "background-color:%4;"
-      "border: 2px solid %3;"
       "}"
       "QPushButton:pressed{"
       "color:%2;"
@@ -55,8 +54,8 @@ void Painter::ChangeFrameColor(QFrame* frame, const QString& color) {
   frame->setStyleSheet(string_color.arg(color));
 }
 
-void Painter::ChangeBackgroundColor(QMainWindow* widget,
-                                    const QString& background_color) {
+void Painter::ChangeBackground(QMainWindow* widget,
+                               const QString& background_color) {
   QString string_background_string =
       "QMainWindow{"
       "background: %1;"
@@ -65,8 +64,8 @@ void Painter::ChangeBackgroundColor(QMainWindow* widget,
   widget->setStyleSheet(string_background_string.arg(background_color));
 }
 
-void Painter::ChangeBackgroundColor(QDialog* widget,
-                                    const QString& background_color) {
+void Painter::ChangeBackground(QDialog* widget,
+                               const QString& background_color) {
   QString string_background_string =
       "QDialog{"
       "background: %1;"

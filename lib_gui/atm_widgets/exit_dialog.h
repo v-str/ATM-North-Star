@@ -33,6 +33,9 @@ class ExitDialog : public QDialog {
   Ui::ExitDialog* ui = nullptr;
 
   AtmColorDesigner color_designer_;
+
+  static const int kWidgetWidth = 300;
+  static const int kWidgetHeight = 150;
 };
 
 #endif  // EXIT_DIALOG_H

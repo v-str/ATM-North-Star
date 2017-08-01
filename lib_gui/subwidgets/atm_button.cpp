@@ -4,12 +4,15 @@
 #include <QFont>
 #include <QResizeEvent>
 #include <QSize>
+#include <QSizePolicy>
 #include <QString>
 #include <QWidget>
 
 AtmButton::AtmButton(const QString& text, QWidget* widget)
     : QPushButton(text, widget) {
   offset_side_ = kRight;
+
+  SetSizePolicy();
 }
 
 void AtmButton::SetOffsetSide(unsigned int offset_side) {
@@ -39,6 +42,13 @@ void AtmButton::resizeEvent(QResizeEvent* event) {
   new_font.setPointSize(font_size);
 
   setFont(new_font);
+}
+
+void AtmButton::SetSizePolicy() {
+  QSizePolicy size_policy = this->sizePolicy();
+  size_policy.setVerticalPolicy(QSizePolicy::Expanding);
+
+  setSizePolicy(size_policy);
 }
 
 void AtmButton::OffsetButton() {

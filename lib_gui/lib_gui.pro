@@ -19,10 +19,11 @@ DEPENDPATH += \
     ../widgets_arrangement/common/widgets_geometries/ \
     ../widgets_arrangement/splash_screen \
     ../widgets_appearance \
-    ../operation_frames \
+    ../features/animation \
+    ../features/service \
+    ../operation_widgets \
     ../atm_widgets \
     ../subwidgets \
-    ../features \
     ../images \
     ../sounds \
 
@@ -32,10 +33,11 @@ INCLUDEPATH += \
     $$PWD/widgets_arrangement/common/widgets_geometries \
     $$PWD/widgets_arrangement/splash_screen \
     $$PWD/widgets_appearance \
-    $$PWD/operation_frames \
+    $$PWD/features/animation \
+    $$PWD/features/service \
+    $$PWD/operation_widgets \
     $$PWD/atm_widgets \
     $$PWD/subwidgets \
-    $$PWD/features \
 
 HEADERS += \
     $$PWD/widgets_arrangement/common/modificators/primitive/*.h \
@@ -43,10 +45,11 @@ HEADERS += \
     $$PWD/widgets_arrangement/common/widgets_geometries/*.h \
     $$PWD/widgets_arrangement/splash_screen/*.h \
     $$PWD/widgets_appearance/*.h \
-    $$PWD/operation_frames/*.h \
+    $$PWD/features/animation/*.h \
+    $$PWD/features/service/*.h \
+    $$PWD/operation_widgets/*.h \
     $$PWD/atm_widgets/*.h \
     $$PWD/subwidgets/*.h \
-    $$PWD/features/*.h \
 
 SOURCES += \
     $$PWD/widgets_arrangement/common/modificators/primitive/*.cpp \
@@ -54,10 +57,11 @@ SOURCES += \
     $$PWD/widgets_arrangement/common/widgets_geometries/*.cpp \
     $$PWD/widgets_arrangement/splash_screen/*.cpp \
     $$PWD/widgets_appearance/*.cpp \
-    $$PWD/operation_frames/*.cpp \
+    $$PWD/features/animation/*.cpp \
+    $$PWD/features/service/*.cpp \
+    $$PWD/operation_widgets/*.cpp \
     $$PWD/atm_widgets/*.cpp \
     $$PWD/subwidgets/*.cpp \
-    $$PWD/features/*.cpp \
 
 FORMS += \
     $$PWD/atm_widgets/*.ui

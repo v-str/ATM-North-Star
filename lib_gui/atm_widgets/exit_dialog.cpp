@@ -27,9 +27,7 @@ ExitDialog::~ExitDialog() { delete ui; }
 
 void ExitDialog::SetExitDialogAppearance() { PaintWidgets(); }
 
-void ExitDialog::SetBackgroundColor() {
-  color_designer_.SetBackgroundColor(this);
-}
+void ExitDialog::SetBackgroundColor() { color_designer_.SetBackground(this); }
 
 void ExitDialog::ShowWidgetOnCenterAt(const QRect& widget_geometry) {
   WidgetCenterArranger::MoveToCenterRelativelyOf(this, widget_geometry);
@@ -43,7 +41,10 @@ void ExitDialog::SetConnections() {
 
 void ExitDialog::SetInitialProperties() {
   InitialPropertyInstaller::SetInitialProperties(
-      this, 300, 150, InitialPropertyInstaller::kFixedSize);
+      this, kWidgetWidth, kWidgetHeight, InitialPropertyInstaller::kFixedSize);
+
+  QCursor custom_cursor(QPixmap(":/images/app_cursor.png"));
+  setCursor(custom_cursor);
 }
 
 void ExitDialog::PaintWidgets() {

@@ -1,7 +1,9 @@
-<RCC>
+﻿<RCC>
     <qresource prefix="/">
         <file>images/north_star_background.jpg</file>
         <file>images/black_background.jpg</file>
         <file>images/project_icon.png</file>
+        <file>images/app_cursor.png</file>
+        <file>images/atm_background.png</file>
     </qresource>
 </RCC>

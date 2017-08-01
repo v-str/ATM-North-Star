@@ -5,22 +5,20 @@
 #include <QLabel>
 #include <QMainWindow>
 #include <QPushButton>
-#include <QString>
 
 #include <application_color.h>
-#include <initial_menu.h>
 #include <painter.h>
 
 AtmColorDesigner::AtmColorDesigner() {}
 
-void AtmColorDesigner::SetBackgroundColor(QMainWindow* main_window) {
-  Painter::ChangeBackgroundColor(
-      main_window, ApplicationColor::ApplicationBackgroundColor());
+void AtmColorDesigner::SetBackground(QMainWindow* main_window) {
+  Painter::ChangeBackground(main_window,
+                            ApplicationColor::ApplicationBackgroundColor());
 }
 
-void AtmColorDesigner::SetBackgroundColor(QDialog* dialog) {
-  Painter::ChangeBackgroundColor(
-      dialog, ApplicationColor::ApplicationBackgroundColor());
+void AtmColorDesigner::SetBackground(QDialog* dialog) {
+  Painter::ChangeBackground(dialog,
+                            ApplicationColor::ApplicationBackgroundColor());
 }
 
 void AtmColorDesigner::PaintWidgetSet(QList<QLabel*> label_list) const {
