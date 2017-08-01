@@ -21,7 +21,7 @@ class DemoMenu : public BaseAtmFrame {
   void resizeEvent(QResizeEvent*);
 
  private:
-  QFrame* demo_button_frame_ = nullptr;
+  QFrame* button_frame_ = nullptr;
 
   GeometryComposer composer_;
   WidgetBorderController border_controller_;
