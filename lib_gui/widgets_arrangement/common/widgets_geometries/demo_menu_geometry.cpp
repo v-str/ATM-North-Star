@@ -2,12 +2,10 @@
 
 QRect DemoMenuGeometry::kDemoFrame = {5, 30, 580, 355};
 QRect DemoMenuGeometry::kBackButton = {5, 320, 50, 30};
-QRect DemoMenuGeometry::kDescriptionFrame = {5, 70, 570, 245};
+QRect DemoMenuGeometry::kDescriptionFrame = {10, 70, 560, 240};
 
 QRect DemoMenuGeometry::DemoFrame() { return kDemoFrame; }
 
 QRect DemoMenuGeometry::BackButton() { return kBackButton; }
 
-QRect DemoMenuGeometry::DescriprionFrame() {
-  return kDescriptionFrame;
-}
+QRect DemoMenuGeometry::DescriprionFrame() { return kDescriptionFrame; }
