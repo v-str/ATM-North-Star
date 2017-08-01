@@ -1,5 +1,5 @@
-﻿#ifndef DEMO_MENU_H
-#define DEMO_MENU_H
+﻿#ifndef DESCRIPTION_MENU_H
+#define DESCRIPTION_MENU_H
 
 #include <base_atm_frame.h>
 
@@ -9,11 +9,11 @@
 #include <geometry_composer.h>
 #include <widget_border_controller.h>
 
-class DemoMenu : public BaseAtmFrame {
+class DescriptionMenu : public BaseAtmFrame {
   Q_OBJECT
  public:
-  explicit DemoMenu(QWidget* parent = nullptr);
-  ~DemoMenu();
+  explicit DescriptionMenu(QWidget* parent = nullptr);
+  ~DescriptionMenu();
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
@@ -30,4 +30,4 @@ class DemoMenu : public BaseAtmFrame {
   static const int kHalfASecond = 500;
 };
 
-#endif  // DEMO_MENU_H
+#endif  // DESCRIPTION_MENU_H

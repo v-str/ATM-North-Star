@@ -11,7 +11,7 @@ class QString;
 class ApplicationColor;
 class QTimer;
 class InitialMenu;
-class DemoMenu;
+class DescriptionMenu;
 class RegistrationMenu;
 class LoginMenu;
 
@@ -51,7 +51,7 @@ class AtmMainWidget : public QMainWindow {
   Ui::AtmMainWidget* ui = nullptr;
   QTimer* time_timer_ = nullptr;
   InitialMenu* initial_menu_ = nullptr;
-  DemoMenu* demo_menu_ = nullptr;
+  DescriptionMenu* description_menu_ = nullptr;
   RegistrationMenu* registration_menu_ = nullptr;
   LoginMenu* login_menu_ = nullptr;
 

@@ -16,7 +16,7 @@ InitialMenu::InitialMenu(QWidget* parent)
       button_frame_(new QFrame(this)),
       login_button_(new AtmButton("Login", button_frame_)),
       registration_button_(new AtmButton("Registration", button_frame_)),
-      demo_button_(new AtmButton("Demo", button_frame_)),
+      demo_button_(new AtmButton("Description", button_frame_)),
       v_layout_(new QVBoxLayout) {
   SetInitialFrameGeometry(InitialFrameGeometry::InitialFrame());
   SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
