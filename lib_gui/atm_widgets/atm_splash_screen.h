@@ -66,6 +66,11 @@ class AtmSplashScreen : public QMainWindow {
 
   AtmColorDesigner color_designer_;
   SplashScreenSizeComposer composer_;
+
+  static const int kOneSecond = 1000;
+  static const int kTimerValue = 350;
+  static const int kWidgetWidth = 600;
+  static const int kWidgetHeight = 400;
 };
 
 #endif  // ATM_SPLASH_SCREEN_H

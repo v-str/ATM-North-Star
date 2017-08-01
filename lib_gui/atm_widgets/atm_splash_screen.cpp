@@ -114,7 +114,7 @@ void AtmSplashScreen::resizeEvent(QResizeEvent*) {
 
 void AtmSplashScreen::SetInitialSettings() {
   SetCompanyName("");
-  setMinimumSize(600, 400);
+  setMinimumSize(kWidgetWidth, kWidgetHeight);
 
   QCursor custom_cursor(QPixmap(":/images/app_cursor.png"));
   setCursor(custom_cursor);
@@ -122,7 +122,7 @@ void AtmSplashScreen::SetInitialSettings() {
 
 void AtmSplashScreen::SetWidgetProperties() {
   InitialPropertyInstaller::SetInitialProperties(
-      this, 600, 400, InitialPropertyInstaller::kResize);
+      this, kWidgetWidth, kWidgetHeight, InitialPropertyInstaller::kResize);
   setWindowIcon(QIcon(":/images/project_icon.png"));
 }
 
@@ -145,9 +145,9 @@ void AtmSplashScreen::InitializeObjects() {
 }
 
 void AtmSplashScreen::RunTimers() {
-  color_swap_timer_->start(350);
-  date_timer_->start(1000);
-  time_timer_->start(1000);
+  color_swap_timer_->start(kTimerValue);
+  date_timer_->start(kOneSecond);
+  time_timer_->start(kOneSecond);
 }
 
 void AtmSplashScreen::BlockSpace() {
