@@ -6,14 +6,14 @@
 #include <QWidget>
 
 #include <atm_button.h>
-#include <demo_menu_geometry.h>
 #include <description_frame.h>
+#include <description_menu_geometry.h>
 #include <side.h>
 
 DescriptionMenu::DescriptionMenu(QWidget* parent)
     : BaseAtmFrame(parent), description_frame_(new DescriptionFrame(this)) {
-  SetInitialFrameGeometry(DemoMenuGeometry::DemoFrame());
-  SetInitialBackButtonGeometry(DemoMenuGeometry::BackButton());
+  SetInitialFrameGeometry(DescriptionMenuGeometry::DescriptionMenu());
+  SetInitialBackButtonGeometry(DescriptionMenuGeometry::BackButton());
 
   SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
 
@@ -35,6 +35,6 @@ void DescriptionMenu::resizeEvent(QResizeEvent*) {
   ScaleBackButton();
 
   composer_.SetDeltaSize(delta_size_);
-  composer_.ComposeGeometry(DemoMenuGeometry::DescriprionFrame(),
+  composer_.ComposeGeometry(DescriptionMenuGeometry::DescriprionFrame(),
                             description_frame_);
 }

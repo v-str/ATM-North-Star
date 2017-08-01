@@ -10,8 +10,8 @@
 #include <QResizeEvent>
 #include <QTimer>
 
-#include <demo_menu_geometry.h>
 #include <description_menu.h>
+#include <description_menu_geometry.h>
 #include <geometry.h>
 #include <initial_frame_geometry.h>
 #include <initial_menu.h>

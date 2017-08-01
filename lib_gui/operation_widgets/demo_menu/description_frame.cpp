@@ -3,7 +3,7 @@
 #include <QWidget>
 
 #include <atm_color_designer.h>
-#include <demo_menu_geometry.h>
+#include <description_menu_geometry.h>
 #include <side.h>
 
 DescriptionFrame::DescriptionFrame(QWidget* parent)
@@ -19,7 +19,7 @@ void DescriptionFrame::SetDeltaSize(const DeltaSize& delta_size) {
 }
 
 void DescriptionFrame::SetGeometries() {
-  setGeometry(DemoMenuGeometry::DescriprionFrame());
+  setGeometry(DescriptionMenuGeometry::DescriprionFrame());
 }
 
 void DescriptionFrame::ColorizeWidgets() { color_designer_->PaintFrame(this); }
