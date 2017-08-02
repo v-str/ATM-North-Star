@@ -8,6 +8,7 @@
 #include <widget_border_controller.h>
 
 class AtmColorDesigner;
+class AtmButton;
 
 class DescriptionFrame : public QFrame {
   Q_OBJECT
@@ -18,10 +19,17 @@ class DescriptionFrame : public QFrame {
   void SetDeltaSize(const DeltaSize& delta_size);
 
  private:
+  void PerformInitialization();
   void SetGeometries();
   void ColorizeWidgets();
 
   AtmColorDesigner* color_designer_ = nullptr;
+
+  AtmButton* account_info_button_ = nullptr;
+  AtmButton* refill_button_ = nullptr;
+  AtmButton* credit_app_button_ = nullptr;
+  AtmButton* withdrawal_button_ = nullptr;
+  AtmButton* statement_butotn_ = nullptr;
 
   DeltaSize delta_size_;
 };
