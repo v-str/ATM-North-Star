@@ -54,7 +54,6 @@ void DescriptionFrame::SetGeometries() {
 }
 
 void DescriptionFrame::ColorizeWidgets() {
-  // color_designer_->PaintFrame(this);
   setStyleSheet(
       "DescriptionFrame {"
       "border: 0px;"
