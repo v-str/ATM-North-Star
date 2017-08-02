@@ -1,5 +1,8 @@
 ﻿#include <description_frame.h>
 
+#include <QGridLayout>
+#include <QList>
+#include <QPushButton>
 #include <QWidget>
 
 #include <atm_button.h>
@@ -8,8 +11,11 @@
 #include <side.h>
 
 DescriptionFrame::DescriptionFrame(QWidget* parent)
-    : QFrame(parent), color_designer_(new AtmColorDesigner) {
+    : QFrame(parent),
+      color_designer_(new AtmColorDesigner),
+      grid_layout_(new QGridLayout) {
   PerformInitialization();
+  SetGridLayout();
   SetGeometries();
   ColorizeWidgets();
 }
@@ -22,14 +28,40 @@ void DescriptionFrame::SetDeltaSize(const DeltaSize& delta_size) {
 
 void DescriptionFrame::PerformInitialization() {
   account_info_button_ = new AtmButton("Account Info", this);
+  account_info_button_->SetOffsetSide(AtmButton::kNone);
+
   refill_button_ = new AtmButton("Refill", this);
+  refill_button_->SetOffsetSide(AtmButton::kNone);
+
   credit_app_button_ = new AtmButton("Credit app", this);
+  credit_app_button_->SetOffsetSide(AtmButton::kNone);
+
   withdrawal_button_ = new AtmButton("Widthdrawal", this);
+  withdrawal_button_->SetOffsetSide(AtmButton::kNone);
+
   statement_butotn_ = new AtmButton("Statement", this);
+  statement_butotn_->SetOffsetSide(AtmButton::kNone);
+}
+
+void DescriptionFrame::SetGridLayout() {
+  grid_layout_->addWidget(account_info_button_, 0, 0, 2, 2);
+  grid_layout_->addWidget(refill_button_, 0, 2, 2, 2);
+  grid_layout_->addWidget(credit_app_button_, 2, 0, 2, 2);
+  grid_layout_->addWidget(withdrawal_button_, 2, 2, 2, 2);
+  grid_layout_->addWidget(statement_butotn_, 4, 0, 2, 2);
+
+  setLayout(grid_layout_);
 }
 
 void DescriptionFrame::SetGeometries() {
   setGeometry(DescriptionMenuGeometry::DescriprionFrame());
 }
 
-void DescriptionFrame::ColorizeWidgets() { color_designer_->PaintFrame(this); }
+void DescriptionFrame::ColorizeWidgets() {
+  color_designer_->PaintFrame(this);
+
+  QList<QPushButton*> button_list{account_info_button_, refill_button_,
+                                  credit_app_button_, withdrawal_button_,
+                                  statement_butotn_};
+  color_designer_->PaintWidgetSet(button_list);
+}

@@ -9,6 +9,7 @@
 
 class AtmColorDesigner;
 class AtmButton;
+class QGridLayout;
 
 class DescriptionFrame : public QFrame {
   Q_OBJECT
@@ -20,6 +21,7 @@ class DescriptionFrame : public QFrame {
 
  private:
   void PerformInitialization();
+  void SetGridLayout();
   void SetGeometries();
   void ColorizeWidgets();
 
@@ -30,6 +32,8 @@ class DescriptionFrame : public QFrame {
   AtmButton* credit_app_button_ = nullptr;
   AtmButton* withdrawal_button_ = nullptr;
   AtmButton* statement_butotn_ = nullptr;
+
+  QGridLayout* grid_layout_ = nullptr;
 
   DeltaSize delta_size_;
 };
