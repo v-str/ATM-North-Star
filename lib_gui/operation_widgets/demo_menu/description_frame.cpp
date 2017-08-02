@@ -44,7 +44,7 @@ void DescriptionFrame::SetGridLayout() {
   grid_layout_->addWidget(cash_refill_button_, 0, 2, 2, 2);
   grid_layout_->addWidget(credit_app_button_, 2, 0, 2, 2);
   grid_layout_->addWidget(cash_withdrawal_button_, 2, 2, 2, 2);
-  grid_layout_->addWidget(statement_butotn_, 4, 0, 2, 2);
+  grid_layout_->addWidget(statement_butotn_, 4, 1, 2, 2);
 
   setLayout(grid_layout_);
 }
@@ -54,7 +54,11 @@ void DescriptionFrame::SetGeometries() {
 }
 
 void DescriptionFrame::ColorizeWidgets() {
-  color_designer_->PaintFrame(this);
+  // color_designer_->PaintFrame(this);
+  setStyleSheet(
+      "DescriptionFrame {"
+      "border: 0px;"
+      "}");
 
   QList<QPushButton*> button_list{account_info_button_, cash_refill_button_,
                                   credit_app_button_, cash_withdrawal_button_,
