@@ -23,6 +23,8 @@ class DescriptionMenu : public BaseAtmFrame {
   void resizeEvent(QResizeEvent*);
 
  private:
+  void ComposeDescriptionFrame();
+
   DescriptionFrame* description_frame_ = nullptr;
 
   GeometryComposer composer_;

@@ -16,10 +16,6 @@ DescriptionMenu::DescriptionMenu(QWidget* parent)
   SetInitialBackButtonGeometry(DescriptionMenuGeometry::BackButton());
 
   SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
-
-  composer_.SetStretchFactor(1.0, 0.95);
-  composer_.SetStretchSide(Side::kDown | Side::kRight);
-  composer_.SetTransformationType(GeometryComposer::kStretch);
 }
 
 DescriptionMenu::~DescriptionMenu() {}
@@ -30,11 +26,17 @@ void DescriptionMenu::SetDeltaSize(const DeltaSize& delta_size) {
 }
 
 void DescriptionMenu::resizeEvent(QResizeEvent*) {
-  BaseAtmFrame::SetDeltaSize(delta_size_);
-
   ScaleBackButton();
-
+  BaseAtmFrame::SetDeltaSize(delta_size_);
   composer_.SetDeltaSize(delta_size_);
+
+  ComposeDescriptionFrame();
   composer_.ComposeGeometry(DescriptionMenuGeometry::DescriprionFrame(),
                             description_frame_);
+}
+
+void DescriptionMenu::ComposeDescriptionFrame() {
+  composer_.SetStretchFactor(1.0, 1.0);
+  composer_.SetStretchSide(Side::kDown | Side::kRight);
+  composer_.SetTransformationType(GeometryComposer::kStretch);
 }

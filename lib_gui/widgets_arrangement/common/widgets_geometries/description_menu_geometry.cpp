@@ -2,7 +2,7 @@
 
 QRect DescriptionMenuGeometry::kDescriptionMenu = {5, 30, 580, 355};
 QRect DescriptionMenuGeometry::kBackButton = {5, 320, 50, 30};
-QRect DescriptionMenuGeometry::kDescriptionFrame = {10, 90, 560, 210};
+QRect DescriptionMenuGeometry::kDescriptionFrame = {10, 80, 560, 210};
 
 QRect DescriptionMenuGeometry::DescriptionMenu() { return kDescriptionMenu; }
 
