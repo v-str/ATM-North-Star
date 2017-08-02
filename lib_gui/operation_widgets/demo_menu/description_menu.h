@@ -10,6 +10,7 @@
 #include <widget_border_controller.h>
 
 class DescriptionFrame;
+class DescriptionLabel;
 
 class DescriptionMenu : public BaseAtmFrame {
   Q_OBJECT
@@ -25,6 +26,7 @@ class DescriptionMenu : public BaseAtmFrame {
  private:
   void ComposeDescriptionFrame();
 
+  DescriptionLabel* description_label_ = nullptr;
   DescriptionFrame* description_frame_ = nullptr;
 
   GeometryComposer composer_;

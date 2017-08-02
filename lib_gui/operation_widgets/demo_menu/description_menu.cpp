@@ -7,11 +7,14 @@
 
 #include <atm_button.h>
 #include <description_frame.h>
+#include <description_label.h>
 #include <description_menu_geometry.h>
 #include <side.h>
 
 DescriptionMenu::DescriptionMenu(QWidget* parent)
-    : BaseAtmFrame(parent), description_frame_(new DescriptionFrame(this)) {
+    : BaseAtmFrame(parent),
+      description_label_(new DescriptionLabel(this)),
+      description_frame_(new DescriptionFrame(this)) {
   SetInitialFrameGeometry(DescriptionMenuGeometry::DescriptionMenu());
   SetInitialBackButtonGeometry(DescriptionMenuGeometry::BackButton());
 
@@ -33,6 +36,8 @@ void DescriptionMenu::resizeEvent(QResizeEvent*) {
   ComposeDescriptionFrame();
   composer_.ComposeGeometry(DescriptionMenuGeometry::DescriprionFrame(),
                             description_frame_);
+  composer_.ComposeGeometry(DescriptionMenuGeometry::DescriprionLabel(),
+                            description_label_);
 }
 
 void DescriptionMenu::ComposeDescriptionFrame() {
