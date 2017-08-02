@@ -13,8 +13,13 @@
 DescriptionFrame::DescriptionFrame(QWidget* parent)
     : QFrame(parent),
       color_designer_(new AtmColorDesigner),
+      account_info_button_(new AtmButton("Account information", this)),
+      cash_refill_button_(new AtmButton("Refill cash", this)),
+      credit_app_button_(new AtmButton("Credit application", this)),
+      cash_withdrawal_button_(new AtmButton("Cash withdrawal", this)),
+      statement_butotn_(new AtmButton("Statement", this)),
       grid_layout_(new QGridLayout) {
-  PerformButtonsInitialization();
+  RemoveButtonsVisualOffset();
   SetGridLayout();
   SetGeometries();
   ColorizeWidgets();
@@ -26,28 +31,19 @@ void DescriptionFrame::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
-void DescriptionFrame::PerformButtonsInitialization() {
-  account_info_button_ = new AtmButton("Account Info", this);
+void DescriptionFrame::RemoveButtonsVisualOffset() {
   account_info_button_->SetOffsetSide(AtmButton::kNone);
-
-  refill_button_ = new AtmButton("Refill", this);
-  refill_button_->SetOffsetSide(AtmButton::kNone);
-
-  credit_app_button_ = new AtmButton("Credit app", this);
+  cash_refill_button_->SetOffsetSide(AtmButton::kNone);
   credit_app_button_->SetOffsetSide(AtmButton::kNone);
-
-  withdrawal_button_ = new AtmButton("Widthdrawal", this);
-  withdrawal_button_->SetOffsetSide(AtmButton::kNone);
-
-  statement_butotn_ = new AtmButton("Statement", this);
+  cash_withdrawal_button_->SetOffsetSide(AtmButton::kNone);
   statement_butotn_->SetOffsetSide(AtmButton::kNone);
 }
 
 void DescriptionFrame::SetGridLayout() {
   grid_layout_->addWidget(account_info_button_, 0, 0, 2, 2);
-  grid_layout_->addWidget(refill_button_, 0, 2, 2, 2);
+  grid_layout_->addWidget(cash_refill_button_, 0, 2, 2, 2);
   grid_layout_->addWidget(credit_app_button_, 2, 0, 2, 2);
-  grid_layout_->addWidget(withdrawal_button_, 2, 2, 2, 2);
+  grid_layout_->addWidget(cash_withdrawal_button_, 2, 2, 2, 2);
   grid_layout_->addWidget(statement_butotn_, 4, 0, 2, 2);
 
   setLayout(grid_layout_);
@@ -60,8 +56,8 @@ void DescriptionFrame::SetGeometries() {
 void DescriptionFrame::ColorizeWidgets() {
   color_designer_->PaintFrame(this);
 
-  QList<QPushButton*> button_list{account_info_button_, refill_button_,
-                                  credit_app_button_, withdrawal_button_,
+  QList<QPushButton*> button_list{account_info_button_, cash_refill_button_,
+                                  credit_app_button_, cash_withdrawal_button_,
                                   statement_butotn_};
   color_designer_->PaintWidgetSet(button_list);
 }

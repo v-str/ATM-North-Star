@@ -20,7 +20,7 @@ class DescriptionFrame : public QFrame {
   void SetDeltaSize(const DeltaSize& delta_size);
 
  private:
-  void PerformButtonsInitialization();
+  void RemoveButtonsVisualOffset();
   void SetGridLayout();
   void SetGeometries();
   void ColorizeWidgets();
@@ -28,9 +28,9 @@ class DescriptionFrame : public QFrame {
   AtmColorDesigner* color_designer_ = nullptr;
 
   AtmButton* account_info_button_ = nullptr;
-  AtmButton* refill_button_ = nullptr;
+  AtmButton* cash_refill_button_ = nullptr;
   AtmButton* credit_app_button_ = nullptr;
-  AtmButton* withdrawal_button_ = nullptr;
+  AtmButton* cash_withdrawal_button_ = nullptr;
   AtmButton* statement_butotn_ = nullptr;
 
   QGridLayout* grid_layout_ = nullptr;
