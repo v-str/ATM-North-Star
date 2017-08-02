@@ -2,7 +2,7 @@
 
 #include <QFrame>
 
-#include <demo_menu_geometry.h>
+#include <description_menu_geometry.h>
 
 DemoTransactionMenuFrame::DemoTransactionMenuFrame(QWidget* parent)
     : QFrame(parent) {}
