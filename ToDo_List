@@ -85,9 +85,7 @@
                                                                                     |   |
 35. Develop frame changing mechanism                                                | + |
                                                                                     |   |
-
 36. Develop demo menu                                                               | - |
-
                                                                                     |   |
 37. Solve problem related with widgets sliding animation                            | + |
                                                                                     |   |
@@ -99,6 +97,8 @@
 40. Fix "Magic" numbers                                                             | + |
                                                                                     |   |
 41. Remade initial menu through base class of AtmFrame without back button          | + |
+                                                                                    |   |
+42. Develeop repetitive class for text animation and apply it into description menu | - |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
