@@ -14,7 +14,7 @@ DescriptionFrame::DescriptionFrame(QWidget* parent)
     : QFrame(parent),
       color_designer_(new AtmColorDesigner),
       grid_layout_(new QGridLayout) {
-  PerformInitialization();
+  PerformButtonsInitialization();
   SetGridLayout();
   SetGeometries();
   ColorizeWidgets();
@@ -26,7 +26,7 @@ void DescriptionFrame::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
-void DescriptionFrame::PerformInitialization() {
+void DescriptionFrame::PerformButtonsInitialization() {
   account_info_button_ = new AtmButton("Account Info", this);
   account_info_button_->SetOffsetSide(AtmButton::kNone);
 

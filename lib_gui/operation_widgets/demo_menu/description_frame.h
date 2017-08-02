@@ -20,7 +20,7 @@ class DescriptionFrame : public QFrame {
   void SetDeltaSize(const DeltaSize& delta_size);
 
  private:
-  void PerformInitialization();
+  void PerformButtonsInitialization();
   void SetGridLayout();
   void SetGeometries();
   void ColorizeWidgets();
