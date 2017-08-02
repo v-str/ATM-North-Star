@@ -36,7 +36,8 @@ void DescriptionMenu::resizeEvent(QResizeEvent*) {
 }
 
 void DescriptionMenu::ComposeDescriptionFrame() {
-  composer_.SetStretchFactor(1.0, 1.0);
-  composer_.SetStretchSide(Side::kDown | Side::kRight);
   composer_.SetTransformationType(GeometryComposer::kStretch);
+  composer_.SetStretchFactor(DescriptionXStretchFactor,
+                             DescriptionYStretchFactor);
+  composer_.SetStretchSide(Side::kDown | Side::kRight);
 }

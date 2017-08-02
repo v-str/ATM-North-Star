@@ -32,6 +32,8 @@ class DescriptionMenu : public BaseAtmFrame {
   DeltaSize delta_size_;
 
   static const int kHalfASecond = 500;
+  static constexpr int DescriptionXStretchFactor = 1.0;
+  static constexpr int DescriptionYStretchFactor = 1.0;
 };
 
 #endif  // DESCRIPTION_MENU_H
