@@ -9,6 +9,7 @@ class DescriptionMenuGeometry {
   static QRect BackButton();
   static QRect DescriprionFrame();
   static QRect DescriprionLabel();
+  static QRect DescriptionTitle();
 
  private:
   static QRect kDescriptionMenu;
@@ -16,6 +17,7 @@ class DescriptionMenuGeometry {
 
   static QRect kDescriptionFrame;
   static QRect kDescriptionLabel;
+  static QRect kDescriptionTitle;
 };
 
 #endif  // DESCRIPTION_MENU_GEOMETRY_H
