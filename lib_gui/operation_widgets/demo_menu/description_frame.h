@@ -9,7 +9,7 @@
 
 class AtmColorDesigner;
 class AtmButton;
-class QGridLayout;
+class QVBoxLayout;
 
 class DescriptionFrame : public QFrame {
   Q_OBJECT
@@ -33,7 +33,7 @@ class DescriptionFrame : public QFrame {
   AtmButton* cash_withdrawal_button_ = nullptr;
   AtmButton* statement_butotn_ = nullptr;
 
-  QGridLayout* grid_layout_ = nullptr;
+  QVBoxLayout* layout_ = nullptr;
 
   DeltaSize delta_size_;
 };

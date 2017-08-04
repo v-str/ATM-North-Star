@@ -37,17 +37,17 @@ void DescriptionMenu::resizeEvent(QResizeEvent*) {
   composer_.ComposeGeometry(DescriptionMenuGeometry::DescriprionFrame(),
                             description_frame_);
 
-  composer_.SetTransformationType(GeometryComposer::kStretch);
-  composer_.SetStretchFactor(1.0, 0.15);
+  composer_.SetTransformationType(GeometryComposer::kScale);
+  composer_.SetShiftFactor(0.5, 0.0);
+  composer_.SetShiftSide(Side::kDown | Side::kRight);
+  composer_.SetStretchFactor(0.5, 1.0);
   composer_.SetStretchSide(Side::kDown | Side::kRight);
   composer_.ComposeGeometry(DescriptionMenuGeometry::DescriprionLabel(),
                             description_label_);
 }
 
 void DescriptionMenu::ComposeDescriptionFrame() {
-  composer_.SetTransformationType(GeometryComposer::kScale);
-  composer_.SetShiftSide(Side::kDown);
-  composer_.SetShiftFactor(0.00, 0.15);
-  composer_.SetStretchFactor(1.0, 0.85);
+  composer_.SetTransformationType(GeometryComposer::kStretch);
+  composer_.SetStretchFactor(0.5, 1.0);
   composer_.SetStretchSide(Side::kDown | Side::kRight);
 }

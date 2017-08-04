@@ -3,8 +3,8 @@
 QRect DescriptionMenuGeometry::kDescriptionMenu = {5, 30, 580, 355};
 QRect DescriptionMenuGeometry::kBackButton = {20, 320, 50, 30};
 
-QRect DescriptionMenuGeometry::kDescriptionFrame = {10, 80, 560, 210};
-QRect DescriptionMenuGeometry::kDescriptionLabel = {10, 10, 560, 60};
+QRect DescriptionMenuGeometry::kDescriptionFrame = {10, 10, 260, 280};
+QRect DescriptionMenuGeometry::kDescriptionLabel = {280, 60, 290, 220};
 
 QRect DescriptionMenuGeometry::DescriptionMenu() { return kDescriptionMenu; }
 
