@@ -1,7 +1,7 @@
 ﻿#include <description_menu_geometry.h>
 
 QRect DescriptionMenuGeometry::kDescriptionMenu = {5, 30, 580, 355};
-QRect DescriptionMenuGeometry::kBackButton = {5, 320, 50, 30};
+QRect DescriptionMenuGeometry::kBackButton = {20, 320, 50, 30};
 
 QRect DescriptionMenuGeometry::kDescriptionFrame = {10, 80, 560, 210};
 QRect DescriptionMenuGeometry::kDescriptionLabel = {10, 10, 560, 60};
