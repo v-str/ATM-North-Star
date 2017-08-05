@@ -11,8 +11,14 @@ class DescriptionTitle : public QLabel {
   explicit DescriptionTitle(QWidget* parent = nullptr);
   ~DescriptionTitle();
 
+ protected:
+  void resizeEvent(QResizeEvent* event);
+
  private:
   void PaintWidget();
+
+  static const int kDivideFontCoefficient = 40;
+  static const int kInitialFontSize = 11;
 };
 
 #endif  // DESCRIPTION_TITLE_H

@@ -1,6 +1,8 @@
 ﻿#include <description_title.h>
 
+#include <QFont>
 #include <QList>
+#include <QResizeEvent>
 #include <QString>
 #include <QWidget>
 
@@ -14,6 +16,16 @@ DescriptionTitle::DescriptionTitle(QWidget* parent) : QLabel(parent) {
 }
 
 DescriptionTitle::~DescriptionTitle() {}
+
+void DescriptionTitle::resizeEvent(QResizeEvent* event) {
+  int grows_coefficient = event->size().width() / kDivideFontCoefficient;
+  int font_size = kInitialFontSize + grows_coefficient;
+
+  QFont new_font = font();
+  new_font.setPointSize(font_size);
+
+  setFont(new_font);
+}
 
 void DescriptionTitle::PaintWidget() {
   QString stylesheet_string =
