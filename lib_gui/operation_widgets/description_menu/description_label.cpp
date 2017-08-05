@@ -11,7 +11,7 @@
 DescriptionLabel::DescriptionLabel(QWidget* parent)
     : QLabel(parent),
       color_designer_(new AtmColorDesigner),
-      font_size_controller_(new FontSizeController) {
+      font_size_controller_(new FontSizeController(8, 50)) {
   SetDescriptionLabel();
   ColorizeWidget();
 }
