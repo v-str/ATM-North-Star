@@ -4,6 +4,7 @@
 #include <QLabel>
 
 class QWidget;
+class FontSizeController;
 
 class DescriptionTitle : public QLabel {
   Q_OBJECT
@@ -17,8 +18,7 @@ class DescriptionTitle : public QLabel {
  private:
   void ColorizeWidget();
 
-  static const int kDivideFontCoefficient = 40;
-  static const int kInitialFontSize = 11;
+  FontSizeController* font_size_controller_ = nullptr;
 };
 
 #endif  // DESCRIPTION_TITLE_H

@@ -8,8 +8,10 @@
 #include <QString>
 #include <QWidget>
 
+#include <font_size_controller.h>
+
 AtmButton::AtmButton(const QString& text, QWidget* widget)
-    : QPushButton(text, widget) {
+    : QPushButton(text, widget), font_size_controller_(new FontSizeController) {
   offset_side_ = kRight;
 
   SetSizePolicy();
@@ -23,10 +25,6 @@ void AtmButton::SetXHoverOffset(int x_offset) { x_offset_ = x_offset; }
 
 void AtmButton::SetYHoverOffset(int y_offset) { y_offset_ = y_offset; }
 
-void AtmButton::SetDivideCoefficient(unsigned int divide_coefficient) {
-  divide_coefficient_ = divide_coefficient;
-}
-
 AtmButton::~AtmButton() {}
 
 void AtmButton::enterEvent(QEvent*) { OffsetButton(); }
@@ -34,14 +32,7 @@ void AtmButton::enterEvent(QEvent*) { OffsetButton(); }
 void AtmButton::leaveEvent(QEvent*) { ReturnToInitialPosition(); }
 
 void AtmButton::resizeEvent(QResizeEvent* event) {
-  grows_coefficient_ = event->size().width() / divide_coefficient_;
-
-  int font_size = kInitialFontSize + grows_coefficient_;
-
-  QFont new_font = font();
-  new_font.setPointSize(font_size);
-
-  setFont(new_font);
+  font_size_controller_->ControlFontSize(event->size().width(), this);
 }
 
 void AtmButton::SetSizePolicy() {

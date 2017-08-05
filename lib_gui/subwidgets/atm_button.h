@@ -4,7 +4,7 @@
 #include <QPushButton>
 
 class QRect;
-
+class FontSizeController;
 class QString;
 class QWidget;
 
@@ -20,8 +20,6 @@ class AtmButton : public QPushButton {
   void SetXHoverOffset(int x_offset = 5);
   void SetYHoverOffset(int y_offset = 5);
 
-  void SetDivideCoefficient(unsigned int divide_coefficient);
-
   ~AtmButton();
 
  protected:
@@ -34,16 +32,13 @@ class AtmButton : public QPushButton {
   void OffsetButton();
   void ReturnToInitialPosition();
 
+  FontSizeController* font_size_controller_ = nullptr;
+
   int x_offset_ = 5;
   int y_offset_ = 5;
-
   unsigned int offset_side_ = 0;
-  unsigned int grows_coefficient_ = 0;
-  unsigned int divide_coefficient_ = 40;
 
   bool is_focus_ = false;
-
-  static const int kInitialFontSize = 11;
 };
 
 #endif  // ATM_BUTTON_H

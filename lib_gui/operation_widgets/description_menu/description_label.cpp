@@ -9,10 +9,9 @@
 #include <font_size_controller.h>
 
 DescriptionLabel::DescriptionLabel(QWidget* parent)
-    : QLabel(parent), color_designer_(new AtmColorDesigner) {
-  font_size_controller_ =
-      new FontSizeController(kInitialFontSize, kDivideFontSizeCoefficient);
-
+    : QLabel(parent),
+      color_designer_(new AtmColorDesigner),
+      font_size_controller_(new FontSizeController) {
   SetDescriptionLabel();
   ColorizeWidget();
 }
