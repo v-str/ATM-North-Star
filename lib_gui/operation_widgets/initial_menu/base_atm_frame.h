@@ -49,7 +49,7 @@ class BaseAtmFrame : public QFrame {
 
  private:
   void ColorizeBackButton();
-  void SetConnections();
+  void SetBasicConnections();
   void SetBackButtonScaling();
 
   AtmButton* back_button_ = nullptr;

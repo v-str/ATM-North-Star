@@ -17,10 +17,10 @@ BaseAtmFrame::BaseAtmFrame(QWidget* parent,
       back_button_ = (new AtmButton("back", this));
       ColorizeBackButton();
       SetBackButtonScaling();
-      SetConnections();
+      SetBasicConnections();
       break;
     case kBackButtonDeactivated:
-      SetConnections();
+      SetBasicConnections();
       break;
   }
 }
@@ -85,7 +85,7 @@ void BaseAtmFrame::ColorizeBackButton() {
   frame_setter_->ColorizeButtons(button_list);
 }
 
-void BaseAtmFrame::SetConnections() {
+void BaseAtmFrame::SetBasicConnections() {
   if (back_button_ != nullptr) {
     connect(back_button_, SIGNAL(clicked(bool)),
             SLOT(ProcessBackButtonClick()));
