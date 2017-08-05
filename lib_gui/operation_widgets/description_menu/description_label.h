@@ -24,6 +24,7 @@ class DescriptionLabel : public QLabel {
   void resizeEvent(QResizeEvent* event);
 
  private:
+  void SetDescriptionLabel();
   void ColorizeWidget();
 
   AtmColorDesigner* color_designer_ = nullptr;

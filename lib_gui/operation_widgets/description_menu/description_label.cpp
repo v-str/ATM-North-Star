@@ -10,13 +10,10 @@
 
 DescriptionLabel::DescriptionLabel(QWidget* parent)
     : QLabel(parent), color_designer_(new AtmColorDesigner) {
-  setAlignment(Qt::AlignLeft | Qt::AlignTop);
-  setGeometry(DescriptionMenuGeometry::DescriprionLabel());
-
-  setWordWrap(true);
   font_size_controller_ =
       new FontSizeController(kInitialFontSize, kDivideFontSizeCoefficient);
 
+  SetDescriptionLabel();
   ColorizeWidget();
 }
 
@@ -44,6 +41,12 @@ void DescriptionLabel::ShowStatementInfo() {
 
 void DescriptionLabel::resizeEvent(QResizeEvent* event) {
   font_size_controller_->ControlFontSize(event->size().width(), this);
+}
+
+void DescriptionLabel::SetDescriptionLabel() {
+  setAlignment(Qt::AlignLeft | Qt::AlignTop);
+  setGeometry(DescriptionMenuGeometry::DescriprionLabel());
+  setWordWrap(true);
 }
 
 void DescriptionLabel::ColorizeWidget() {
