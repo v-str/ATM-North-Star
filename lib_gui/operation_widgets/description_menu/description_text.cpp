@@ -3,7 +3,7 @@
 QString DescriptionText::kAccountInfo = "Account information";
 QString DescriptionText::kCashRefill = "Cash refill information";
 QString DescriptionText::kCreditApp = "Credit application information";
-QString DescriptionText::kWithdrawal = "Withdrawal information information";
+QString DescriptionText::kWithdrawal = "Withdrawal information";
 QString DescriptionText::kStatement = "Statement information";
 
 QString DescriptionText::AccountInfoText() { return kAccountInfo; }

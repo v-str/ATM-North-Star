@@ -7,6 +7,7 @@
 
 DescriptionLabel::DescriptionLabel(QWidget* parent)
     : QLabel(parent), color_designer_(new AtmColorDesigner) {
+  setAlignment(Qt::AlignLeft | Qt::AlignTop);
   setGeometry(DescriptionMenuGeometry::DescriprionLabel());
   ColorizeWidget();
 }
