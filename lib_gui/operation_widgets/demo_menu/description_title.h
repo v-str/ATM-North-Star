@@ -15,7 +15,7 @@ class DescriptionTitle : public QLabel {
   void resizeEvent(QResizeEvent* event);
 
  private:
-  void PaintWidget();
+  void ColorizeWidget();
 
   static const int kDivideFontCoefficient = 40;
   static const int kInitialFontSize = 11;

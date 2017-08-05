@@ -19,11 +19,27 @@ class DescriptionFrame : public QFrame {
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
+ public slots:
+  void ProcessAccountInfoButton();
+  void ProcessCashRefillButton();
+  void ProcessCreditAppButton();
+  void ProcessCashWithdrawalButton();
+  void ProcessStatementButton();
+
+ signals:
+  void AccountInfoButtonClicked();
+  void CashRefillButtonClicked();
+  void CreditAppButtonClicked();
+  void CashWithdrawalButtonClicked();
+  void StatementButtonClicked();
+
  private:
   void RemoveButtonsVisualOffset();
   void SetGridLayout();
   void SetGeometries();
   void ColorizeWidgets();
+
+  void SetConnections();
 
   AtmColorDesigner* color_designer_ = nullptr;
 

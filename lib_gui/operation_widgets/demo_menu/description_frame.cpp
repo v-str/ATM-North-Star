@@ -31,6 +31,24 @@ void DescriptionFrame::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }
 
+void DescriptionFrame::ProcessAccountInfoButton() {
+  emit AccountInfoButtonClicked();
+}
+
+void DescriptionFrame::ProcessCashRefillButton() {
+  emit CashRefillButtonClicked();
+}
+
+void DescriptionFrame::ProcessCreditAppButton() {
+  emit CreditAppButtonClicked();
+}
+
+void DescriptionFrame::ProcessCashWithdrawalButton() {
+  emit CashWithdrawalButtonClicked();
+}
+
+void DescriptionFrame::ProcessStatementButton() { StatementButtonClicked(); }
+
 void DescriptionFrame::RemoveButtonsVisualOffset() {
   account_info_button_->SetOffsetSide(AtmButton::kNone);
   cash_refill_button_->SetOffsetSide(AtmButton::kNone);
@@ -65,4 +83,17 @@ void DescriptionFrame::ColorizeWidgets() {
                                   credit_app_button_, cash_withdrawal_button_,
                                   statement_butotn_};
   color_designer_->PaintWidgetSet(button_list);
+}
+
+void DescriptionFrame::SetConnections() {
+  connect(account_info_button_, SIGNAL(clicked(bool)),
+          SLOT(ProcessAccountInfoButton()));
+  connect(cash_refill_button_, SIGNAL(clicked(bool)),
+          SLOT(ProcessCashRefillButton()));
+  connect(credit_app_button_, SIGNAL(clicked(bool)),
+          SLOT(ProcessCreditAppButton()));
+  connect(cash_withdrawal_button_, SIGNAL(clicked(bool)),
+          SLOT(ProcessCashWithdrawalButton()));
+  connect(statement_butotn_, SIGNAL(clicked(bool)),
+          SLOT(ProcessStatementButton()));
 }

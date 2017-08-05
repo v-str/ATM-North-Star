@@ -12,7 +12,7 @@
 DescriptionTitle::DescriptionTitle(QWidget* parent) : QLabel(parent) {
   setGeometry(DescriptionMenuGeometry::DescriptionTitle());
   setAlignment(Qt::AlignCenter);
-  PaintWidget();
+  ColorizeWidget();
 }
 
 DescriptionTitle::~DescriptionTitle() {}
@@ -27,7 +27,7 @@ void DescriptionTitle::resizeEvent(QResizeEvent* event) {
   setFont(new_font);
 }
 
-void DescriptionTitle::PaintWidget() {
+void DescriptionTitle::ColorizeWidget() {
   QString stylesheet_string =
       "DescriptionTitle {"
       "color: %1;"

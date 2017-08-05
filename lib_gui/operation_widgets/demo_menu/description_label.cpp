@@ -7,12 +7,12 @@
 DescriptionLabel::DescriptionLabel(QWidget* parent)
     : QLabel(parent), color_designer_(new AtmColorDesigner) {
   setGeometry(DescriptionMenuGeometry::DescriprionLabel());
-  PaintWidget();
+  ColorizeWidget();
 }
 
 DescriptionLabel::~DescriptionLabel() {}
 
-void DescriptionLabel::PaintWidget() {
+void DescriptionLabel::ColorizeWidget() {
   QString stylesheet_string =
       "DescriptionTitle {"
       "color: %1;"
