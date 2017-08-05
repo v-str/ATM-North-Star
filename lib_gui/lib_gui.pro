@@ -21,7 +21,7 @@ DEPENDPATH += \
     ../widgets_arrangement/splash_screen \
     ../operation_widgets/initial_menu \
     ../operation_widgets/login_menu \
-    ../operation_widgets/demo_menu \
+    ../operation_widgets/description_menu \
     ../widgets_appearance \
     ../features/animation \
     ../features/service \
@@ -38,7 +38,7 @@ INCLUDEPATH += \
     $$PWD/widgets_arrangement/splash_screen \
     $$PWD/operation_widgets/initial_menu \
     $$PWD/operation_widgets/login_menu \
-    $$PWD/operation_widgets/demo_menu \
+    $$PWD/operation_widgets/description_menu \
     $$PWD/widgets_appearance \
     $$PWD/features/animation \
     $$PWD/features/service \
@@ -53,7 +53,7 @@ HEADERS += \
     $$PWD/widgets_arrangement/splash_screen/*.h \
     $$PWD/operation_widgets/initial_menu/*.h \
     $$PWD/operation_widgets/login_menu/*.h \
-    $$PWD/operation_widgets/demo_menu/*.h \
+    $$PWD/operation_widgets/description_menu/*.h \
     $$PWD/widgets_appearance/*.h \
     $$PWD/features/animation/*.h \
     $$PWD/features/service/*.h \
@@ -68,7 +68,7 @@ SOURCES += \
     $$PWD/widgets_arrangement/splash_screen/*.cpp \
     $$PWD/operation_widgets/initial_menu/*.cpp \
     $$PWD/operation_widgets/login_menu/*.cpp \
-    $$PWD/operation_widgets/demo_menu/*.cpp \
+    $$PWD/operation_widgets/description_menu/*.cpp \
     $$PWD/widgets_appearance/*.cpp \
     $$PWD/features/animation/*.cpp \
     $$PWD/features/service/*.cpp \
