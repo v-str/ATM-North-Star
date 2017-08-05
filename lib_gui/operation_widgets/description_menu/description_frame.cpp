@@ -23,6 +23,7 @@ DescriptionFrame::DescriptionFrame(QWidget* parent)
   SetGridLayout();
   SetGeometries();
   ColorizeWidgets();
+  SetConnections();
 }
 
 DescriptionFrame::~DescriptionFrame() { delete color_designer_; }
@@ -58,11 +59,11 @@ void DescriptionFrame::RemoveButtonsVisualOffset() {
 }
 
 void DescriptionFrame::SetGridLayout() {
-  layout_->addWidget(statement_butotn_);
-  layout_->addWidget(cash_withdrawal_button_);
-  layout_->addWidget(credit_app_button_);
-  layout_->addWidget(cash_refill_button_);
   layout_->addWidget(account_info_button_);
+  layout_->addWidget(cash_refill_button_);
+  layout_->addWidget(credit_app_button_);
+  layout_->addWidget(cash_withdrawal_button_);
+  layout_->addWidget(statement_butotn_);
 
   layout_->setSpacing(5);
 

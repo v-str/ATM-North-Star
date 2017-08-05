@@ -35,7 +35,7 @@ void DescriptionLabel::ShowStatementInfo() {
 
 void DescriptionLabel::ColorizeWidget() {
   QString stylesheet_string =
-      "DescriptionTitle {"
+      "DescriptionLabel {"
       "color: %1;"
       "border: 1px solid %2"
       "}";

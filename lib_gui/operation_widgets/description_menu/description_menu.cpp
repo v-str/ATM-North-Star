@@ -23,6 +23,8 @@ DescriptionMenu::DescriptionMenu(QWidget* parent)
   description_title_->setText("Description");
 
   SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
+
+  SetConnections();
 }
 
 DescriptionMenu::~DescriptionMenu() {}
@@ -68,4 +70,17 @@ void DescriptionMenu::ComposeDescriptionTitle() {
   composer_.SetStretchSide(Side::kDown | Side::kRight);
   composer_.ComposeGeometry(DescriptionMenuGeometry::DescriptionTitle(),
                             description_title_);
+}
+
+void DescriptionMenu::SetConnections() {
+  connect(description_frame_, SIGNAL(AccountInfoButtonClicked()),
+          description_label_, SLOT(ShowAccountInfo()));
+  connect(description_frame_, SIGNAL(CashRefillButtonClicked()),
+          description_label_, SLOT(ShowCashRefillInfo()));
+  connect(description_frame_, SIGNAL(CreditAppButtonClicked()),
+          description_label_, SLOT(ShowCreditAppInfo()));
+  connect(description_frame_, SIGNAL(CashWithdrawalButtonClicked()),
+          description_label_, SLOT(ShowWithdrawalInfo()));
+  connect(description_frame_, SIGNAL(StatementButtonClicked()),
+          description_label_, SLOT(ShowStatementInfo()));
 }
