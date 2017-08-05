@@ -16,7 +16,10 @@ DescriptionLabel::DescriptionLabel(QWidget* parent)
   ColorizeWidget();
 }
 
-DescriptionLabel::~DescriptionLabel() {}
+DescriptionLabel::~DescriptionLabel() {
+  delete font_size_controller_;
+  delete color_designer_;
+}
 
 void DescriptionLabel::ShowAccountInfo() {
   setText(DescriptionText::AccountInfoText());

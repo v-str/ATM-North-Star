@@ -17,7 +17,7 @@ DescriptionTitle::DescriptionTitle(QWidget* parent)
   ColorizeWidget();
 }
 
-DescriptionTitle::~DescriptionTitle() {}
+DescriptionTitle::~DescriptionTitle() { delete font_size_controller_; }
 
 void DescriptionTitle::resizeEvent(QResizeEvent* event) {
   font_size_controller_->ControlFontSize(event->size().width(), this);

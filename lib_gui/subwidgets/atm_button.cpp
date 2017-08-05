@@ -25,7 +25,7 @@ void AtmButton::SetXHoverOffset(int x_offset) { x_offset_ = x_offset; }
 
 void AtmButton::SetYHoverOffset(int y_offset) { y_offset_ = y_offset; }
 
-AtmButton::~AtmButton() {}
+AtmButton::~AtmButton() { delete font_size_controller_; }
 
 void AtmButton::enterEvent(QEvent*) { OffsetButton(); }
 
