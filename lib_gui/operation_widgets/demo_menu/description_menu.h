@@ -11,6 +11,7 @@
 
 class DescriptionFrame;
 class DescriptionLabel;
+class DescriptionTitle;
 
 class DescriptionMenu : public BaseAtmFrame {
   Q_OBJECT
@@ -28,6 +29,7 @@ class DescriptionMenu : public BaseAtmFrame {
 
   DescriptionLabel* description_label_ = nullptr;
   DescriptionFrame* description_frame_ = nullptr;
+  DescriptionTitle* description_title_ = nullptr;
 
   GeometryComposer composer_;
   WidgetBorderController border_controller_;

@@ -9,14 +9,18 @@
 #include <description_frame.h>
 #include <description_label.h>
 #include <description_menu_geometry.h>
+#include <description_title.h>
 #include <side.h>
 
 DescriptionMenu::DescriptionMenu(QWidget* parent)
     : BaseAtmFrame(parent),
       description_label_(new DescriptionLabel(this)),
-      description_frame_(new DescriptionFrame(this)) {
+      description_frame_(new DescriptionFrame(this)),
+      description_title_(new DescriptionTitle(this)) {
   SetInitialFrameGeometry(DescriptionMenuGeometry::DescriptionMenu());
   SetInitialBackButtonGeometry(DescriptionMenuGeometry::BackButton());
+
+  description_title_->setText("Description");
 
   SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
 }

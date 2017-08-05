@@ -1,9 +1,18 @@
 ﻿#ifndef DESCRIPTION_TITLE_H
 #define DESCRIPTION_TITLE_H
 
-class DescriptionTitle {
+#include <QLabel>
+
+class QWidget;
+
+class DescriptionTitle : public QLabel {
+  Q_OBJECT
  public:
-  DescriptionTitle();
+  explicit DescriptionTitle(QWidget* parent = nullptr);
+  ~DescriptionTitle();
+
+ private:
+  void PaintWidget();
 };
 
 #endif  // DESCRIPTION_TITLE_H
