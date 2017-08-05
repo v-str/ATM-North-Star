@@ -58,7 +58,7 @@ void DescriptionFrame::SetGeometries() {
 void DescriptionFrame::ColorizeWidgets() {
   setStyleSheet(
       "DescriptionFrame {"
-      "border: 1px solid red;"
+      "border: 0px;"
       "}");
 
   QList<QPushButton*> button_list{account_info_button_, cash_refill_button_,

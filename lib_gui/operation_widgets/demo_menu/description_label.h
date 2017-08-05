@@ -13,6 +13,8 @@ class DescriptionLabel : public QLabel {
   ~DescriptionLabel();
 
  private:
+  void PaintWidget();
+
   AtmColorDesigner* color_designer_ = nullptr;
 };
 
