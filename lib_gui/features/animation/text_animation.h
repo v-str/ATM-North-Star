@@ -5,10 +5,12 @@
 
 class QLabel;
 class QTimer;
+class QWidget;
 
 class TextAnimation {
  public:
   void RunningTextStrip(QLabel* label);
+  void WriteTextWithDelay(const QString& text, int delay_msec, QLabel* widget);
 
  private:
 };

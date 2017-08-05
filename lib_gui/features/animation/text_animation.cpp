@@ -1,7 +1,7 @@
 ﻿#include "text_animation.h"
 
 #include <QLabel>
-#include <QTimer>
+#include <QWidget>
 
 void TextAnimation::RunningTextStrip(QLabel* label) {
   QString running_text = label->text();
@@ -13,3 +13,7 @@ void TextAnimation::RunningTextStrip(QLabel* label) {
 
   label->setText(running_text);
 }
+
+void TextAnimation::WriteTextWithDelay(const QString& text,
+                                       int delay_msec,
+                                       QLabel* widget) {}
