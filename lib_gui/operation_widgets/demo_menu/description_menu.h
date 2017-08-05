@@ -26,6 +26,7 @@ class DescriptionMenu : public BaseAtmFrame {
 
  private:
   void ComposeDescriptionFrame();
+  void ComposeDescriptionLabel();
 
   DescriptionLabel* description_label_ = nullptr;
   DescriptionFrame* description_frame_ = nullptr;

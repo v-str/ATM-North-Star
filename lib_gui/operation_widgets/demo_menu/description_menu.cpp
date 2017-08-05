@@ -38,9 +38,18 @@ void DescriptionMenu::resizeEvent(QResizeEvent*) {
   composer_.SetDeltaSize(delta_size_);
 
   ComposeDescriptionFrame();
+  ComposeDescriptionLabel();
+}
+
+void DescriptionMenu::ComposeDescriptionFrame() {
+  composer_.SetTransformationType(GeometryComposer::kStretch);
+  composer_.SetStretchFactor(0.5, 1.0);
+  composer_.SetStretchSide(Side::kDown | Side::kRight);
   composer_.ComposeGeometry(DescriptionMenuGeometry::DescriprionFrame(),
                             description_frame_);
+}
 
+void DescriptionMenu::ComposeDescriptionLabel() {
   composer_.SetTransformationType(GeometryComposer::kScale);
   composer_.SetShiftFactor(0.5, 0.0);
   composer_.SetShiftSide(Side::kDown | Side::kRight);
@@ -48,10 +57,4 @@ void DescriptionMenu::resizeEvent(QResizeEvent*) {
   composer_.SetStretchSide(Side::kDown | Side::kRight);
   composer_.ComposeGeometry(DescriptionMenuGeometry::DescriprionLabel(),
                             description_label_);
-}
-
-void DescriptionMenu::ComposeDescriptionFrame() {
-  composer_.SetTransformationType(GeometryComposer::kStretch);
-  composer_.SetStretchFactor(0.5, 1.0);
-  composer_.SetStretchSide(Side::kDown | Side::kRight);
 }
