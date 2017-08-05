@@ -12,6 +12,13 @@ class DescriptionLabel : public QLabel {
   DescriptionLabel(QWidget* parent = nullptr);
   ~DescriptionLabel();
 
+ public slots:
+  void ShowAccountInfo();
+  void ShowCashRefillInfo();
+  void ShowCreditAppInfo();
+  void ShowWithdrawalInfo();
+  void ShowStatementInfo();
+
  private:
   void ColorizeWidget();
 

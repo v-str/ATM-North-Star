@@ -5,11 +5,11 @@
 
 class DescriptionText {
  public:
-  QString AccountInfoText();
-  QString CashRefillInfoText();
-  QString CreditAppText();
-  QString WithdrawalInfoText();
-  QString StatementIndoText();
+  static QString AccountInfoText();
+  static QString CashRefillInfoText();
+  static QString CreditAppText();
+  static QString WithdrawalInfoText();
+  static QString StatementIndoText();
 
  private:
   static QString kAccountInfo;
