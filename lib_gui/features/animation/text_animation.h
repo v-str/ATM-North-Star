@@ -21,6 +21,8 @@ class TextAnimation : public QObject {
   void AnimateText();
 
  private:
+  void ResetAnimationValues();
+
   QTimer* timer_ = nullptr;
   QLabel* animation_label_ = nullptr;
 

@@ -10,9 +10,7 @@ TextAnimation::TextAnimation(QWidget* parent)
 }
 
 void TextAnimation::SetTextForAnimation(const QString& animation_text) {
-  animation_text_.clear();
-  assigned_text_.clear();
-  symbol_count_ = 0;
+  ResetAnimationValues();
   animation_text_ = animation_text;
 }
 
@@ -28,4 +26,10 @@ void TextAnimation::AnimateText() {
     timer_->stop();
   }
   symbol_count_++;
+}
+
+void TextAnimation::ResetAnimationValues() {
+  animation_text_.clear();
+  assigned_text_.clear();
+  symbol_count_ = 0;
 }
