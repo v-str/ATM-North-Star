@@ -9,7 +9,7 @@
 
 class AtmColorDesigner;
 class AtmButton;
-class QGridLayout;
+class QVBoxLayout;
 
 class DescriptionFrame : public QFrame {
   Q_OBJECT
@@ -19,11 +19,27 @@ class DescriptionFrame : public QFrame {
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
+ public slots:
+  void ProcessAccountInfoButton();
+  void ProcessCashRefillButton();
+  void ProcessCreditAppButton();
+  void ProcessCashWithdrawalButton();
+  void ProcessStatementButton();
+
+ signals:
+  void AccountInfoButtonClicked();
+  void CashRefillButtonClicked();
+  void CreditAppButtonClicked();
+  void CashWithdrawalButtonClicked();
+  void StatementButtonClicked();
+
  private:
   void RemoveButtonsVisualOffset();
   void SetGridLayout();
   void SetGeometries();
   void ColorizeWidgets();
+
+  void SetConnections();
 
   AtmColorDesigner* color_designer_ = nullptr;
 
@@ -33,7 +49,7 @@ class DescriptionFrame : public QFrame {
   AtmButton* cash_withdrawal_button_ = nullptr;
   AtmButton* statement_butotn_ = nullptr;
 
-  QGridLayout* grid_layout_ = nullptr;
+  QVBoxLayout* layout_ = nullptr;
 
   DeltaSize delta_size_;
 };
