@@ -22,6 +22,7 @@ class TextAnimation : public QObject {
 
  private:
   void ResetAnimationValues();
+  bool IsStringEnd();
 
   QTimer* timer_ = nullptr;
   QLabel* animation_label_ = nullptr;

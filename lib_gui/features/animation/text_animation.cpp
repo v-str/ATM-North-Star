@@ -22,7 +22,7 @@ void TextAnimation::StartAnimation(int delay_msec, QLabel* label) {
 void TextAnimation::AnimateText() {
   assigned_text_ += animation_text_[symbol_count_];
   animation_label_->setText(assigned_text_);
-  if (symbol_count_ == animation_text_.size() - 1) {
+  if (IsStringEnd()) {
     timer_->stop();
   }
   symbol_count_++;
@@ -32,4 +32,8 @@ void TextAnimation::ResetAnimationValues() {
   animation_text_.clear();
   assigned_text_.clear();
   symbol_count_ = 0;
+}
+
+bool TextAnimation::IsStringEnd() {
+  return symbol_count_ == (animation_text_.size() - 1);
 }
