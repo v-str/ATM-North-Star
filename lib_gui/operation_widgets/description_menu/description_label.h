@@ -6,6 +6,7 @@
 class QWidget;
 class AtmColorDesigner;
 class FontSizeController;
+class TextAnimation;
 
 class DescriptionLabel : public QLabel {
   Q_OBJECT
@@ -20,6 +21,9 @@ class DescriptionLabel : public QLabel {
   void ShowWithdrawalInfo();
   void ShowStatementInfo();
 
+ signals:
+  void StartAnimation();
+
  protected:
   void resizeEvent(QResizeEvent* event);
 
@@ -29,6 +33,7 @@ class DescriptionLabel : public QLabel {
 
   AtmColorDesigner* color_designer_ = nullptr;
   FontSizeController* font_size_controller_ = nullptr;
+  TextAnimation* text_animation_ = nullptr;
 };
 
 #endif  // DESCRIPTION_LABEL_H

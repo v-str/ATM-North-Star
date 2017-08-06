@@ -7,11 +7,13 @@
 #include <description_menu_geometry.h>
 #include <description_text.h>
 #include <font_size_controller.h>
+#include <text_animation.h>
 
 DescriptionLabel::DescriptionLabel(QWidget* parent)
     : QLabel(parent),
       color_designer_(new AtmColorDesigner),
-      font_size_controller_(new FontSizeController(8, 50)) {
+      font_size_controller_(new FontSizeController(8, 50)),
+      text_animation_(new TextAnimation(this)) {
   SetDescriptionLabel();
   ColorizeWidget();
 }
@@ -19,27 +21,21 @@ DescriptionLabel::DescriptionLabel(QWidget* parent)
 DescriptionLabel::~DescriptionLabel() {
   delete font_size_controller_;
   delete color_designer_;
+  delete text_animation_;
 }
 
 void DescriptionLabel::ShowAccountInfo() {
-  setText(DescriptionText::AccountInfoText());
+  text_animation_->SetTextForAnimation(DescriptionText::AccountInfoText());
+  text_animation_->StartAnimation(5, this);
 }
 
-void DescriptionLabel::ShowCashRefillInfo() {
-  setText(DescriptionText::CashRefillInfoText());
-}
+void DescriptionLabel::ShowCashRefillInfo() {}
 
-void DescriptionLabel::ShowCreditAppInfo() {
-  setText(DescriptionText::CreditAppText());
-}
+void DescriptionLabel::ShowCreditAppInfo() {}
 
-void DescriptionLabel::ShowWithdrawalInfo() {
-  setText(DescriptionText::WithdrawalInfoText());
-}
+void DescriptionLabel::ShowWithdrawalInfo() {}
 
-void DescriptionLabel::ShowStatementInfo() {
-  setText(DescriptionText::StatementIndoText());
-}
+void DescriptionLabel::ShowStatementInfo() {}
 
 void DescriptionLabel::resizeEvent(QResizeEvent* event) {
   font_size_controller_->ControlFontSize(event->size().width(), this);
