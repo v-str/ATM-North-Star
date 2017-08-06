@@ -26,7 +26,7 @@ DescriptionLabel::~DescriptionLabel() {
 
 void DescriptionLabel::ShowAccountInfo() {
   text_animation_->SetTextForAnimation(DescriptionText::AccountInfoText());
-  text_animation_->StartAnimation(5, this);
+  text_animation_->StartAnimation(kDelayMSec, this);
 }
 
 void DescriptionLabel::ShowCashRefillInfo() {}

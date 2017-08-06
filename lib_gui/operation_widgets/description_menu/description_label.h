@@ -34,6 +34,8 @@ class DescriptionLabel : public QLabel {
   AtmColorDesigner* color_designer_ = nullptr;
   FontSizeController* font_size_controller_ = nullptr;
   TextAnimation* text_animation_ = nullptr;
+
+  static const int kDelayMSec = 5;
 };
 
 #endif  // DESCRIPTION_LABEL_H
