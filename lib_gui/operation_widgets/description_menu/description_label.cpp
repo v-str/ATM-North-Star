@@ -29,13 +29,25 @@ void DescriptionLabel::ShowAccountInfo() {
   text_animation_->StartAnimation(kDelayMSec, this);
 }
 
-void DescriptionLabel::ShowCashRefillInfo() {}
+void DescriptionLabel::ShowCashRefillInfo() {
+  text_animation_->SetTextForAnimation(DescriptionText::CashRefillInfoText());
+  text_animation_->StartAnimation(kDelayMSec, this);
+}
 
-void DescriptionLabel::ShowCreditAppInfo() {}
+void DescriptionLabel::ShowCreditAppInfo() {
+  text_animation_->SetTextForAnimation(DescriptionText::CreditAppText());
+  text_animation_->StartAnimation(kDelayMSec, this);
+}
 
-void DescriptionLabel::ShowWithdrawalInfo() {}
+void DescriptionLabel::ShowWithdrawalInfo() {
+  text_animation_->SetTextForAnimation(DescriptionText::WithdrawalInfoText());
+  text_animation_->StartAnimation(kDelayMSec, this);
+}
 
-void DescriptionLabel::ShowStatementInfo() {}
+void DescriptionLabel::ShowStatementInfo() {
+  text_animation_->SetTextForAnimation(DescriptionText::StatementIndoText());
+  text_animation_->StartAnimation(kDelayMSec, this);
+}
 
 void DescriptionLabel::resizeEvent(QResizeEvent* event) {
   font_size_controller_->ControlFontSize(event->size().width(), this);
