@@ -1,5 +1,5 @@
 TEMPLATE = lib
-TARGET = lib_console
+TARGET = lib_cli
 CONFIG = staticlib
 
 QMAKE_CXXFLAGS += -std=c++11

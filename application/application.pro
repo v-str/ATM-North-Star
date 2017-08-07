@@ -11,12 +11,12 @@ DEPENDPATH += \
     ../lib_gui/widgets_arrangement/common/modificators/composite \
     ../lib_gui/widgets_arrangement/common/widgets_geometries \
     ../lib_gui/widgets_arrangement/splash_screen \
-    ../lib_console/output_configuration \
+    ../lib_cli/output_configuration \
     ../atm/incoming_data_processing \
     ../lib_gui/widgets_appearance \
     ../lib_gui/features/animation \
     ../lib_gui/features/service \
-    ../lib_console/messengers \
+    ../lib_cli/messengers \
     ../lib_gui/atm_widgets \
     ../atm/atm_machine \
 
@@ -25,12 +25,12 @@ INCLUDEPATH += \
     ../lib_gui/widgets_arrangement/common/modificators/composite \
     ../lib_gui/widgets_arrangement/common/widgets_geometries \
     ../lib_gui/widgets_arrangement/splash_screen \
-    ../lib_console/output_configuration \
+    ../lib_cli/output_configuration \
     ../atm/incoming_data_processing \
     ../lib_gui/widgets_appearance \
     ../lib_gui/features/animation \
     ../lib_gui/features/service \
-    ../lib_console/messengers \
+    ../lib_cli/messengers \
     ../lib_gui/atm_widgets \
     ../lib_gui/features \
     ../atm/atm_machine \
@@ -67,7 +67,7 @@ SOURCES += \
     $$PWD/user_data/*.cpp \
 
 LIBS += \
-    -L$$OUT_PWD/../lib_console -llib_console \
+    -L$$OUT_PWD/../lib_cli -llib_cli \
     -L$$OUT_PWD/../lib_gui -llib_gui \
     -L$$OUT_PWD/../atm -latm \
 

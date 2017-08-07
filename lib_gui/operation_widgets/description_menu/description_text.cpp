@@ -23,7 +23,7 @@ QString DescriptionText::kCreditApp =
 
 QString DescriptionText::kWithdrawal =
     "Withdrawal is executed from your existing account. Optionally, you can "
-    "withdraw the all cash at once or choose the amount that you need";
+    "withdraw the all cash at once or choose the amount that you need.";
 
 QString DescriptionText::kStatement =
     "Standart statement which contain information about your cash.\n";

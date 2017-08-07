@@ -124,7 +124,9 @@
 7. Delete excess code in AuthenticationMessenger (e.g. constexpr variables )        | - |
                                                                                     |   |
 8. Check initial input screen on comand "2j" or the same                            |   |
-   Why gui mode is start after that? where is warning message?                      | - |
+   Why gui mode is started after that? Where is warning message?                    | - |
+                                                                                    |   |
+9. Clean cli mode from deprecated code                                              | - |
 -----------------------------------------------------------------------------------------
 ---------------------------------------- ATM --------------------------------------------
 -----------------------------------------------------------------------------------------
