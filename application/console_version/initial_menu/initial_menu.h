@@ -1,7 +1,7 @@
 ﻿#ifndef INITIAL_MENU_H
 #define INITIAL_MENU_H
 
-#include <demo_mode.h>
+#include <demo_menu.h>
 #include <menu_input_handler.h>
 #include <registrator.h>
 
@@ -21,7 +21,7 @@ class InitialMenu {
   void RunRegistration();
 
   MenuInputHandler quit_handler_;
-  DemoMode demo_mode_;
+  DemoMenu demo_mode_;
   Registrator registrator_;
 
   int user_choice_ = 0;

@@ -1,14 +1,14 @@
-﻿#ifndef DEMO_MODE_H
-#define DEMO_MODE_H
+﻿#ifndef DEMO_MENU_H
+#define DEMO_MENU_H
 
 #include <demo_user_messenger.h>
 #include <user_input.h>
 
 namespace cli {
 
-class DemoMode {
+class DemoMenu {
  public:
-  void RunDemoMode();
+  void RunDemoMenu();
   void UserWantToExitProgram();
   void DisplayDemoPointrBasedOnUserChoice();
 
@@ -45,4 +45,4 @@ class DemoMode {
 };
 }
 
-#endif  // DEMO_MODE_H
+#endif  // DEMO_MENU_H

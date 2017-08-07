@@ -34,7 +34,7 @@ void cli::InitialMenu::RunInitialMenuEventLoop() {
 }
 
 void cli::InitialMenu::RunDemoMode() {
-  demo_mode_.RunDemoMode();
+  demo_mode_.RunDemoMenu();
 
   if (demo_mode_.UserWantToRegistrate()) {
     RunRegistration();

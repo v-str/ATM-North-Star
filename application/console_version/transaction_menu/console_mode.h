@@ -4,7 +4,7 @@
 #include <memory>
 
 #include "atm_user.h"
-#include "demo_mode.h"
+#include "demo_menu.h"
 #include "registrator.h"
 
 #include "account_informator.h"
@@ -55,7 +55,7 @@ class ConsoleMode {
   void ExecuteOperation(int user_choice);
   void SuggestToQuit();
 
-  cli::DemoMode demo_mode_;
+  cli::DemoMenu demo_mode_;
   AtmUser user_;
   cli::Registrator registrator_;
   AccountInformator account_informator_;
