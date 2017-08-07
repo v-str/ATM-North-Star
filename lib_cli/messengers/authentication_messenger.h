@@ -15,7 +15,7 @@ class AuthenticationMessenger {
   static void DisplayPasswordText();
 
   static void CorrectLoginMessage();
-  static void LoginLength(StringLength login_length);
+  static void LoginLengthStatus(StringLength login_length);
   static void LoginContainSpecialSymbol();
   static void LoginContainIncorrectSpacePosition(
       ContainSpaceSymbol space_symbol);

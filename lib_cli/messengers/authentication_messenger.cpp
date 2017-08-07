@@ -18,7 +18,7 @@ void AuthenticationMessenger::CorrectLoginMessage() {
   WtiteDevidingLine();
 }
 
-void AuthenticationMessenger::LoginLength(StringLength login_length) {
+void AuthenticationMessenger::LoginLengthStatus(StringLength login_length) {
   std::string length_status = "";
 
   switch (login_length) {

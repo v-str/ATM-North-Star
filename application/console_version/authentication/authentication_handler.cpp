@@ -22,11 +22,11 @@ void AuthenticationHandler::HandleLoginString(const std::string& login) {
       is_login_ok_ = true;
       break;
     case ATM::AuthenticationStatus::kShortLogin:
-      AuthenticationMessenger::LoginLength(
+      AuthenticationMessenger::LoginLengthStatus(
           AuthenticationMessenger::kShortLoginLength);
       break;
     case ATM::AuthenticationStatus::kLongLogin:
-      AuthenticationMessenger::LoginLength(
+      AuthenticationMessenger::LoginLengthStatus(
           AuthenticationMessenger::kLongLoginLength);
       break;
     case ATM::AuthenticationStatus::kSpecialSymbols:
