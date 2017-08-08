@@ -4,24 +4,19 @@
 #include <mode_configurator.h>
 
 int main(int argc, char* argv[]) {
-  enum ProgramMode { kConsoleMode = 1, kGuiMode };
+  enum ProgramMode { Cli = 1, Gui };
 
-  ModeSelector selector;
-  selector.SuggestMode();
+  ModeConfigurator mode_configurator;
+  Launcher app_launcher;
 
-  Launcher launcher;
-  switch (selector.GetMode()) {
-    case kConsoleMode:
-      launcher.LaunchConsoleMode();
+  switch (mode_configurator.GetMode()) {
+    case Cli:
+      app_launcher.LaunchConsoleMode();
       break;
-    case kGuiMode:
-      launcher.LaunchGuiMode(argc, argv);
+    case Gui:
+      app_launcher.LaunchGuiMode(argc, argv);
       break;
     default:
       break;
   }
-
-  //  ModeConfigurator mode_configurator;
-  // Launcher application_launcher;
-  // application_launcher.RunApp(mode_configurator.GetMode());
 }

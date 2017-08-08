@@ -8,13 +8,13 @@ ModeConfigurator::ModeConfigurator() {
   AnalyzeConfigFile();
 }
 
-unsigned int ModeConfigurator::GetMode() const { return application_mode_; }
+int ModeConfigurator::GetMode() const { return application_mode_; }
 
 void ModeConfigurator::ReadConfiguration() {
   if (stream_.is_open()) {
     std::getline(stream_, config_string_);
   } else {
-    config_string_ = "App congig file was not open...\n";
+    config_string_ = "App config file was not open...\n";
   }
 }
 
