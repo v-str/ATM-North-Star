@@ -18,4 +18,7 @@ int main(int argc, char* argv[]) {
     default:
       break;
   }
+
+  // Launcher application_launcher;
+  // application_launcher.RunApp(ModeConfigurator::GetMode());
 }
