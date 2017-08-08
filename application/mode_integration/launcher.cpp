@@ -28,5 +28,14 @@ void Launcher::LaunchGuiMode(int argc, char* argv[]) {
 void Launcher::DisplayErrorReport() const {
   std::cout
       << "Error while reading configuration file \"app_config.txt\"\n"
-         "Configuration file was not created or contain incorrect data...\n";
+         "Configuration file was not created or contain incorrect data...\n\n\n"
+         "For successful program launching you must to create a "
+         "\"app_config.txt\" file\n"
+         "and put it near the executed file.\n"
+         "In configuration file you must write which mode of app you want to "
+         "use.\n"
+         "If you want to run app in console mode, write this:\n"
+         "\"Mode: cli\"\n"
+         "Or if you want to run app in graphical mode, please write:\n"
+         "\"Mode: gui\"\n";
 }

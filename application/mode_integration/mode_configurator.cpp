@@ -18,10 +18,8 @@ void ModeConfigurator::ReadConfiguration() {
 
 void ModeConfigurator::AnalyzeConfigFile() {
   if (config_string_ == "Mode: cli") {
-    application_mode_ = kCli;
+    application_mode_ = kConsoleMode;
   } else if (config_string_ == "Mode: gui") {
-    application_mode_ = kGui;
-  } else {
-    application_mode_ = kError;
+    application_mode_ = kGraphicalMode;
   }
 }

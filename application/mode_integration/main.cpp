@@ -1,23 +1,19 @@
 ﻿#include <launcher.h>
-#include <mode_selector.h>
-
 #include <mode_configurator.h>
 
 int main(int argc, char* argv[]) {
-  enum ProgramMode { Error, Cli, Gui };
+  enum ProgramMode { kConsoleMode, kGraphicalMode };
 
   ModeConfigurator mode_configurator;
   Launcher app_launcher;
 
   int mode = mode_configurator.GetMode();
 
-  if (mode == Cli) {
+  if (mode == kConsoleMode) {
     app_launcher.LaunchConsoleMode();
-  }
-  if (mode == Gui) {
+  } else if (mode == kGraphicalMode) {
     app_launcher.LaunchGuiMode(argc, argv);
-  }
-  if (mode == Error) {
+  } else {
     app_launcher.DisplayErrorReport();
   }
 }
