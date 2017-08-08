@@ -1,6 +1,8 @@
 ﻿#include <launcher.h>
 #include <mode_selector.h>
 
+#include <mode_configurator.h>
+
 int main(int argc, char* argv[]) {
   enum ProgramMode { kConsoleMode = 1, kGuiMode };
 
@@ -19,6 +21,7 @@ int main(int argc, char* argv[]) {
       break;
   }
 
+  //  ModeConfigurator mode_configurator;
   // Launcher application_launcher;
-  // application_launcher.RunApp(ModeConfigurator::GetMode());
+  // application_launcher.RunApp(mode_configurator.GetMode());
 }
