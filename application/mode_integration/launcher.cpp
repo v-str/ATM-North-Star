@@ -26,6 +26,7 @@ void Launcher::LaunchGuiMode(int argc, char* argv[]) {
 }
 
 void Launcher::DisplayErrorReport() const {
-  std::cout << "Error while reading configuration file \"app_config.txt\"\n"
-               "Configuration file not created or contain incorrect data...\n";
+  std::cout
+      << "Error while reading configuration file \"app_config.txt\"\n"
+         "Configuration file was not created or contain incorrect data...\n";
 }
