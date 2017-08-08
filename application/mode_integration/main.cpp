@@ -4,19 +4,20 @@
 #include <mode_configurator.h>
 
 int main(int argc, char* argv[]) {
-  enum ProgramMode { Cli = 1, Gui };
+  enum ProgramMode { Error, Cli, Gui };
 
   ModeConfigurator mode_configurator;
   Launcher app_launcher;
 
-  switch (mode_configurator.GetMode()) {
-    case Cli:
-      app_launcher.LaunchConsoleMode();
-      break;
-    case Gui:
-      app_launcher.LaunchGuiMode(argc, argv);
-      break;
-    default:
-      break;
+  int mode = mode_configurator.GetMode();
+
+  if (mode == Cli) {
+    app_launcher.LaunchConsoleMode();
+  }
+  if (mode == Gui) {
+    app_launcher.LaunchGuiMode(argc, argv);
+  }
+  if (mode == Error) {
+    app_launcher.DisplayErrorReport();
   }
 }

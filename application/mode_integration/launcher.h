@@ -11,6 +11,8 @@ class Launcher {
   void LaunchConsoleMode();
   void LaunchGuiMode(int argc, char* argv[]);
 
+  void DisplayErrorReport() const;
+
  private:
   std::unique_ptr<cli::InitialMenu> initial_menu_;
   std::unique_ptr<gui::GraphicalSplashScreen> gui_splash_creen_;

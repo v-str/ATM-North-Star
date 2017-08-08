@@ -6,7 +6,7 @@
 
 class ModeConfigurator {
  public:
-  enum kAppMode { kCli = 1, kGui };
+  enum kAppMode { kError, kCli, kGui };
 
   ModeConfigurator();
 
@@ -21,7 +21,7 @@ class ModeConfigurator {
   std::fstream stream_;
   std::string config_string_;
 
-  int application_mode_ = 0;
+  int application_mode_ = kError;
 };
 
 #endif  // MODE_CONFIGURATOR_H

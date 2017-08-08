@@ -1,5 +1,7 @@
 ﻿#include <launcher.h>
 
+#include <iostream>
+
 #include <QApplication>
 
 #include <splash_screen.h>  // add console prefix
@@ -21,4 +23,9 @@ void Launcher::LaunchGuiMode(int argc, char* argv[]) {
   gui_splash_creen_->RunInitialScreen();
 
   application.exec();
+}
+
+void Launcher::DisplayErrorReport() const {
+  std::cout << "Error while reading configuration file \"app_config.txt\"\n"
+               "Configuration file not created or contain incorrect data...\n";
 }

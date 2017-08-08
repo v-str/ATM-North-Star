@@ -13,8 +13,6 @@ int ModeConfigurator::GetMode() const { return application_mode_; }
 void ModeConfigurator::ReadConfiguration() {
   if (stream_.is_open()) {
     std::getline(stream_, config_string_);
-  } else {
-    config_string_ = "App config file was not open...\n";
   }
 }
 
@@ -23,5 +21,7 @@ void ModeConfigurator::AnalyzeConfigFile() {
     application_mode_ = kCli;
   } else if (config_string_ == "Mode: gui") {
     application_mode_ = kGui;
+  } else {
+    application_mode_ = kError;
   }
 }
