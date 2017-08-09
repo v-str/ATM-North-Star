@@ -13,6 +13,7 @@ DEPENDPATH += \
     ../lib_gui/widgets_arrangement/splash_screen \
     ../lib_cli/output_configuration \
     ../atm/incoming_data_processing \
+    ../lib_cli/user_input_handling \
     ../lib_gui/widgets_appearance \
     ../lib_gui/features/animation \
     ../lib_gui/features/service \
@@ -27,42 +28,40 @@ INCLUDEPATH += \
     ../lib_gui/widgets_arrangement/splash_screen \
     ../lib_cli/output_configuration \
     ../atm/incoming_data_processing \
+    ../lib_cli/user_input_handling \
     ../lib_gui/widgets_appearance \
     ../lib_gui/features/animation \
     ../lib_gui/features/service \
-    ../lib_cli/messengers \
     ../lib_gui/atm_widgets \
+    ../lib_cli/messengers \
     ../lib_gui/features \
     ../atm/atm_machine \
-    $$PWD/console_version/user_input_handling \
     $$PWD/console_version/transaction_menu \
     $$PWD/atm_operations/credit_operations \ #deprecated code, should be removed
     $$PWD/console_version/authentication \
     $$PWD/console_version/initial_menu \
-    $$PWD/graphical_version \
     $$PWD/application_launch \
+    $$PWD/graphical_version \
     $$PWD/atm_operations \ #deprecated code, should be removed
     $$PWD/user_data \ #deprecated code, should be removed
 
 HEADERS += \
-    $$PWD/console_version/user_input_handling/*.h \
     $$PWD/console_version/transaction_menu/*.h \
     $$PWD/atm_operations/credit_operations/*.h \
     $$PWD/console_version/authentication/*.h \
     $$PWD/console_version/initial_menu/*.h \
-    $$PWD/graphical_version/*.h \
     $$PWD/application_launch/*.h \
+    $$PWD/graphical_version/*.h \
     $$PWD/atm_operations/*.h \
     $$PWD/user_data/*.h \
 
 SOURCES += \
-    $$PWD/console_version/user_input_handling/*.cpp \
     $$PWD/atm_operations/credit_operations/*.cpp \
     $$PWD/console_version/transaction_menu/*.cpp \
     $$PWD/console_version/authentication/*.cpp \
     $$PWD/console_version/initial_menu/*.cpp \
-    $$PWD/graphical_version/*.cpp \
     $$PWD/application_launch/*.cpp \
+    $$PWD/graphical_version/*.cpp \
     $$PWD/atm_operations/*.cpp \
     $$PWD/user_data/*.cpp \
 
