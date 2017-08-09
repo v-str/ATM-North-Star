@@ -4,7 +4,7 @@
 
 #include <QApplication>
 
-#include <splash_screen.h>  // add console prefix
+#include <splash_screen.h>
 
 void Launcher::LaunchConsoleMode() {
   cli::SplashScreen splash_screen;

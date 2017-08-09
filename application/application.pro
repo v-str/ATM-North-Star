@@ -40,7 +40,7 @@ INCLUDEPATH += \
     $$PWD/console_version/authentication \
     $$PWD/console_version/initial_menu \
     $$PWD/graphical_version \
-    $$PWD/mode_integration \
+    $$PWD/application_launch \
     $$PWD/atm_operations \ #deprecated code, should be removed
     $$PWD/user_data \ #deprecated code, should be removed
 
@@ -51,7 +51,7 @@ HEADERS += \
     $$PWD/console_version/authentication/*.h \
     $$PWD/console_version/initial_menu/*.h \
     $$PWD/graphical_version/*.h \
-    $$PWD/mode_integration/*.h \
+    $$PWD/application_launch/*.h \
     $$PWD/atm_operations/*.h \
     $$PWD/user_data/*.h \
 
@@ -62,7 +62,7 @@ SOURCES += \
     $$PWD/console_version/authentication/*.cpp \
     $$PWD/console_version/initial_menu/*.cpp \
     $$PWD/graphical_version/*.cpp \
-    $$PWD/mode_integration/*.cpp \
+    $$PWD/application_launch/*.cpp \
     $$PWD/atm_operations/*.cpp \
     $$PWD/user_data/*.cpp \
 
