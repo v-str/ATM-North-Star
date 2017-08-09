@@ -2,7 +2,7 @@
 
 #include <initial_messenger.h>
 
-void cli::InitialMenu::RunInitialMenu() {
+void cli::InitialMenu::RunApplication() {
   InitialMessenger::DisplayInitialScreen();
   RunInitialMenuEventLoop();
 }

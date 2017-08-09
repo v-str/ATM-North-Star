@@ -14,7 +14,7 @@ ConsoleMode::ConsoleMode() : atm_(new Atm()) {
 ConsoleMode::~ConsoleMode() {}
 
 void ConsoleMode::RunATM() {
-  initial_menu_.RunInitialMenu();
+  initial_menu_.RunApplication();
 
   RunProgram();
 }

@@ -11,7 +11,7 @@ class InitialMenu {
  public:
   enum MenuPoints { kQuit, kDemo, kRegistration, kLogin };
 
-  void RunInitialMenu();
+  void RunApplication();
 
   int UserChoice() const;
 

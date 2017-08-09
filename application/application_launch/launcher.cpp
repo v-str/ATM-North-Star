@@ -6,7 +6,7 @@
 
 void Launcher::LaunchConsoleMode() {
   initial_menu_ = std::unique_ptr<cli::InitialMenu>(new cli::InitialMenu);
-  initial_menu_->RunInitialMenu();
+  initial_menu_->RunApplication();
 }
 
 void Launcher::LaunchGuiMode(int argc, char* argv[]) {
