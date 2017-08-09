@@ -8,7 +8,7 @@ ModeConfigurator::ModeConfigurator() {
   AnalyzeConfigFile();
 }
 
-int ModeConfigurator::GetMode() const { return application_mode_; }
+int ModeConfigurator::GetUIMode() const { return application_mode_; }
 
 void ModeConfigurator::ReadConfiguration() {
   if (stream_.is_open()) {

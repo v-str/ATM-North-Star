@@ -7,7 +7,7 @@ int main(int argc, char* argv[]) {
   ModeConfigurator mode_configurator;
   Launcher app_launcher;
 
-  int mode = mode_configurator.GetMode();
+  int mode = mode_configurator.GetUIMode();
 
   if (mode == kConsoleMode) {
     app_launcher.LaunchConsoleMode();

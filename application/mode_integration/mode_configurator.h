@@ -10,7 +10,7 @@ class ModeConfigurator {
 
   ModeConfigurator();
 
-  int GetMode() const;
+  int GetUIMode() const;
 
  private:
   void ReadConfiguration();
