@@ -6,15 +6,17 @@ Prototype of desktop ATM, which maintain two variant of interfaces, console or g
 Status: is under construction.
 <br>
 <br>
-#### CLI
-Simple console interface with text animation
-<br>
-<br>
-<img src='https://github.com/OrdinaryMind/ATM-North-Star/blob/gui_mode/images/atm_cli.gif'>
-<br>
-<br>
 #### GUI
 The graphical interface is designed in minimalistic style.
 <br>
 <br>
 <img src='https://github.com/OrdinaryMind/ATM-North-Star/blob/gui_mode/images/atm_gui.gif'>
+<br>
+<br>
+#### CLI
+Simple console interface with text animation
+<br>
+<br>
+<img src='https://github.com/OrdinaryMind/ATM-North-Star/blob/gui_mode/images/atm_cli.gif'>
+
+
