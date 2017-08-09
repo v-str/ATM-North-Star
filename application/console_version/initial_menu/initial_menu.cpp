@@ -2,7 +2,10 @@
 
 #include <initial_messenger.h>
 
-void cli::InitialMenu::RunInitialMenu() { RunInitialMenuEventLoop(); }
+void cli::InitialMenu::RunInitialMenu() {
+  InitialMessenger::DisplayInitialScreen();
+  RunInitialMenuEventLoop();
+}
 
 int cli::InitialMenu::UserChoice() const { return user_choice_; }
 

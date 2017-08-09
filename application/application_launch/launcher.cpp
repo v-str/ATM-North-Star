@@ -4,12 +4,7 @@
 
 #include <QApplication>
 
-#include <splash_screen.h>
-
 void Launcher::LaunchConsoleMode() {
-  cli::SplashScreen splash_screen;
-  splash_screen.ShowSplashScreen();
-
   initial_menu_ = std::unique_ptr<cli::InitialMenu>(new cli::InitialMenu);
   initial_menu_->RunInitialMenu();
 }
