@@ -7,9 +7,9 @@ SUBDIRS += \
     atm_model \
     lib_cli \
     lib_gui \
-    atm_app \
+    lib_atm \
 
-atm_model.depends = lib_cli lib_gui atm_app
+atm_model.depends = lib_cli lib_gui lib_atm
 
 DISTFILES += \
     ToDo_List

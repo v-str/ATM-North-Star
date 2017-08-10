@@ -1,5 +1,5 @@
 TEMPLATE = lib
-TARGET = atm_app
+TARGET = lib_atm
 CONFIG = staticlib
 
 QMAKE_CXXFLAGS += -std=c++11
