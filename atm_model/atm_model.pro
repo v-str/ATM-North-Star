@@ -20,6 +20,7 @@ DEPENDPATH += \
     ../lib_gui/atm_widgets \
     ../lib_atm/atm_machine \
     ../lib_cli/messengers \
+    ../lib_atm_presenter \
 
 INCLUDEPATH += \
     ../lib_gui/widgets_arrangement/common/modificators/primitive \
@@ -36,6 +37,7 @@ INCLUDEPATH += \
     ../lib_gui/atm_widgets \
     ../lib_cli/messengers \
     ../lib_gui/features \
+    ../lib_atm_presenter \
     $$PWD/console_version/transaction_menu \
     $$PWD/atm_operations/credit_operations \ #deprecated code, should be removed
     $$PWD/console_version/authentication \
@@ -69,4 +71,5 @@ LIBS += \
     -L$$OUT_PWD/../lib_cli -llib_cli \
     -L$$OUT_PWD/../lib_gui -llib_gui \
     -L$$OUT_PWD/../lib_atm -llib_atm \
+    -L$$OUT_PWD/../lib_atm_presenter -llib_atm_presenter \
 
