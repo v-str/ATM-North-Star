@@ -4,12 +4,12 @@ TARGET = ATM-North-Star
 QMAKE_CXX = ccache clang++
 
 SUBDIRS += \
-    application \
+    atm_model \
     lib_cli \
     lib_gui \
-    atm \
+    atm_app \
 
-application.depends = lib_cli lib_gui atm
+atm_model.depends = lib_cli lib_gui atm_app
 
 DISTFILES += \
     ToDo_List

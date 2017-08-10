@@ -11,31 +11,31 @@ DEPENDPATH += \
     ../lib_gui/widgets_arrangement/common/modificators/composite \
     ../lib_gui/widgets_arrangement/common/widgets_geometries \
     ../lib_gui/widgets_arrangement/splash_screen \
+    ../atm_app/incoming_data_processing \
     ../lib_cli/output_configuration \
-    ../atm/incoming_data_processing \
     ../lib_cli/user_input_handling \
     ../lib_gui/widgets_appearance \
     ../lib_gui/features/animation \
     ../lib_gui/features/service \
-    ../lib_cli/messengers \
     ../lib_gui/atm_widgets \
-    ../atm/atm_machine \
+    ../atm_app/atm_machine \
+    ../lib_cli/messengers \
 
 INCLUDEPATH += \
     ../lib_gui/widgets_arrangement/common/modificators/primitive \
     ../lib_gui/widgets_arrangement/common/modificators/composite \
     ../lib_gui/widgets_arrangement/common/widgets_geometries \
     ../lib_gui/widgets_arrangement/splash_screen \
+    ../atm_app/incoming_data_processing \
     ../lib_cli/output_configuration \
-    ../atm/incoming_data_processing \
     ../lib_cli/user_input_handling \
     ../lib_gui/widgets_appearance \
     ../lib_gui/features/animation \
     ../lib_gui/features/service \
+    ../atm_app/atm_machine \
     ../lib_gui/atm_widgets \
     ../lib_cli/messengers \
     ../lib_gui/features \
-    ../atm/atm_machine \
     $$PWD/console_version/transaction_menu \
     $$PWD/atm_operations/credit_operations \ #deprecated code, should be removed
     $$PWD/console_version/authentication \
@@ -68,5 +68,5 @@ SOURCES += \
 LIBS += \
     -L$$OUT_PWD/../lib_cli -llib_cli \
     -L$$OUT_PWD/../lib_gui -llib_gui \
-    -L$$OUT_PWD/../atm -latm \
+    -L$$OUT_PWD/../atm_app -latm_app \
 
