@@ -7,6 +7,10 @@
 void Launcher::LaunchConsoleMode() {
   initial_menu_ = std::unique_ptr<cli::InitialMenu>(new cli::InitialMenu);
   initial_menu_->RunApplication();
+
+  // interface_presenter_ = std::unique_ptr<BaseInterfacePresenter> (new
+  // ConsolePresenter);
+  // interface_presenter_->RunApplication();
 }
 
 void Launcher::LaunchGuiMode(int argc, char* argv[]) {
@@ -18,6 +22,10 @@ void Launcher::LaunchGuiMode(int argc, char* argv[]) {
   gui_splash_creen_->RunInitialScreen();
 
   application.exec();
+
+  // interface_presenter_ = std::unique_ptr<BaseInterfacePresenter> (new
+  // ConsolePresenter);
+  // interface_presenter_->RunApplication();
 }
 
 void Launcher::DisplayErrorReport() const {

@@ -16,6 +16,9 @@ class Launcher {
  private:
   std::unique_ptr<cli::InitialMenu> initial_menu_;
   std::unique_ptr<gui::GraphicalSplashScreen> gui_splash_creen_;
+
+  // Programming by intentions
+  // std::unique_ptr<BaseInterfacePresenter> interface_presenter_;
 };
 
 #endif  // LAUNCHER_H
