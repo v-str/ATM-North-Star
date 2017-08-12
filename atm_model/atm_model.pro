@@ -18,7 +18,7 @@ DEPENDPATH += \
     ../lib_gui/features/animation \
     ../lib_gui/features/service \
     ../lib_gui/atm_widgets \
-    ../lib_atm/atm_machine \
+    ../lib_atm/interaction \
     ../lib_cli/messengers \
 
 INCLUDEPATH += \
@@ -32,7 +32,7 @@ INCLUDEPATH += \
     ../lib_gui/widgets_appearance \
     ../lib_gui/features/animation \
     ../lib_gui/features/service \
-    ../lib_atm/atm_machine \
+    ../lib_atm/interaction \
     ../lib_gui/atm_widgets \
     ../lib_cli/messengers \
     ../lib_gui/features \
