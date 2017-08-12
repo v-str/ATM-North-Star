@@ -1,15 +1,15 @@
-﻿#include "atm.h"
+﻿#include "atm_interactor.h"
 
 #include <account_informator.h>
 #include <refill.h>
 #include <user_registrator.h>
 #include <withdrawal.h>
 
-void Atm::RegisterUser(const std::string& login, const std::string& password) {
+void AtmInteractor::RegisterUser(const std::string& login, const std::string& password) {
   UserRegistrator::RegisterUser(&user_, login, password);
 }
 
-std::string Atm::AccountInfo(Atm::AccountData account_data) {
+std::string AtmInteractor::AccountInfo(AtmInteractor::AccountData account_data) {
   AccountInformator::UpdataUserData(user_);
   switch (account_data) {
     case kLogin:
@@ -27,11 +27,11 @@ std::string Atm::AccountInfo(Atm::AccountData account_data) {
   }
 }
 
-void Atm::RefillCash(int refill_cash) {
+void AtmInteractor::RefillCash(int refill_cash) {
   Refill::RefillCash(&user_, refill_cash);
 }
 
-bool Atm::WithdrawCash(int withdrawal_cash) {
+bool AtmInteractor::WithdrawCash(int withdrawal_cash) {
   if (IsWithdrawalAcceptable(withdrawal_cash)) {
     Withdrawal::WithdrawCashFrom(&user_, withdrawal_cash);
     return true;
@@ -39,11 +39,11 @@ bool Atm::WithdrawCash(int withdrawal_cash) {
   return false;
 }
 
-std::string Atm::Statement() {
+std::string AtmInteractor::Statement() {
   AccountInformator::UpdataUserData(user_);
   return AccountInformator::Cash();
 }
 
-bool Atm::IsWithdrawalAcceptable(int withdrawal_sum) const {
+bool AtmInteractor::IsWithdrawalAcceptable(int withdrawal_sum) const {
   return user_.Cash() >= withdrawal_sum;
 }

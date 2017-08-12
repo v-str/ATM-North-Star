@@ -20,7 +20,7 @@
 #include <menu_input_handler.h>
 #include <user_input_handler.h>
 
-class Atm;
+class AtmInteractor;
 class UserInputHandler;
 class MenuInputHandler;
 
@@ -67,7 +67,7 @@ class ConsoleMode {
   bool user_want_to_exit_ = true;
 
   // ============= New Code ==================
-  std::unique_ptr<Atm> atm_;
+  std::unique_ptr<AtmInteractor> atm_;
 
   cli::InitialMenu initial_menu_;
 

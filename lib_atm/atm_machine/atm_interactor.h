@@ -1,11 +1,11 @@
-﻿#ifndef ATM_h
-#define ATM_h
+﻿#ifndef ATM_INTERACTOR_H
+#define ATM_INTERACTOR_H
 
 #include <string>
 
 #include <atm_user.h>
 
-class Atm {
+class AtmInteractor {
  public:
   enum AccountData {
     kLogin,
@@ -17,7 +17,7 @@ class Atm {
   };
 
   void RegisterUser(const std::string& login, const std::string& password);
-  std::string AccountInfo(Atm::AccountData account_data);
+  std::string AccountInfo(AtmInteractor::AccountData account_data);
   void RefillCash(int refill_cash);
   bool WithdrawCash(int withdrawal_cash);
   std::string Statement();
@@ -28,4 +28,4 @@ class Atm {
   AtmUser user_;
 };
 
-#endif  // ATM_h
+#endif  // ATM_INTERACTOR_H

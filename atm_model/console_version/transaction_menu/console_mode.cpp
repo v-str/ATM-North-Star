@@ -4,10 +4,10 @@
 #include <user_messenger.h>
 
 // =========== New Code ==============
-#include <atm.h>
+#include <atm_interactor.h>
 
 // new code
-ConsoleMode::ConsoleMode() : atm_(new Atm()) {
+ConsoleMode::ConsoleMode() : atm_(new AtmInteractor()) {
   OutputSetup::SetupTwoStreamsForOutput();
 }
 // new code
