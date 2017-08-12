@@ -1,6 +1,6 @@
 ﻿#include <demo_menu.h>
 
-void cli::DemoMenu::RunDemoMenu() {
+void DemoMenu::RunDemoMenu() {
   DiplayDemoMenuWithTitle();
   for (;;) {
     DisplayDemoPointrBasedOnUserChoice();
@@ -11,9 +11,9 @@ void cli::DemoMenu::RunDemoMenu() {
   }
 }
 
-void cli::DemoMenu::UserWantToExitProgram() { user_want_to_exit_ = true; }
+void DemoMenu::UserWantToExitProgram() { user_want_to_exit_ = true; }
 
-void cli::DemoMenu::DisplayDemoPointrBasedOnUserChoice() {
+void DemoMenu::DisplayDemoPointrBasedOnUserChoice() {
   int user_choice = user_input_.GetValueFromUser();
   if (user_choice == kAccountPoint) {
     DisplaySubmenu(DemoUserMessenger::kAccountInfo);
@@ -37,27 +37,24 @@ void cli::DemoMenu::DisplayDemoPointrBasedOnUserChoice() {
   }
 }
 
-bool cli::DemoMenu::UserWantToRegistrate() const {
-  return user_want_to_registrate_;
-}
+bool DemoMenu::UserWantToRegistrate() const { return user_want_to_registrate_; }
 
-bool cli::DemoMenu::UserWantToLogin() const { return user_want_to_login_; }
+bool DemoMenu::UserWantToLogin() const { return user_want_to_login_; }
 
-void cli::DemoMenu::DisplaySubmenu(
-    DemoUserMessenger::MessageType message_type) {
+void DemoMenu::DisplaySubmenu(DemoUserMessenger::MessageType message_type) {
   DemoUserMessenger::ShowMessage(message_type);
   SuggestToExit();
 }
 
-void cli::DemoMenu::LeadToRegistration() {
+void DemoMenu::LeadToRegistration() {
   user_want_to_exit_ = user_want_to_registrate_ = true;
 }
 
-void cli::DemoMenu::LeadToLogin() {
+void DemoMenu::LeadToLogin() {
   user_want_to_exit_ = user_want_to_login_ = true;
 }
 
-void cli::DemoMenu::SuggestToExit() {
+void DemoMenu::SuggestToExit() {
   DemoUserMessenger::SuggestExit();
   for (;;) {
     int result_of_exit = 0;
@@ -75,7 +72,7 @@ void cli::DemoMenu::SuggestToExit() {
   }
 }
 
-void cli::DemoMenu::DiplayDemoMenuWithTitle() {
+void DemoMenu::DiplayDemoMenuWithTitle() {
   DemoUserMessenger::ShowMessage(DemoUserMessenger::kWelcome);
   DemoUserMessenger::ShowDemoMenu(DemoUserMessenger::kNoClearScreen);
 }

@@ -5,8 +5,6 @@
 
 #include <string>
 
-namespace cli {
-
 class MenuInputHandler : public UserInputHandler {
  public:
   int GetDigitInputFromUser() override;
@@ -20,6 +18,5 @@ class MenuInputHandler : public UserInputHandler {
   int kMainMenu = 1;
   int kSubMenuQuit = 2;
 };
-}
 
 #endif  // MENU_INPUT_HANDLER_H

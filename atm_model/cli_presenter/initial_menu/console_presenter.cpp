@@ -1,15 +1,15 @@
-﻿#include <initial_menu.h>
+﻿#include <console_presenter.h>
 
 #include <initial_messenger.h>
 
-void cli::InitialMenu::RunApplication() {
+void ConsolePresenter::RunApplication() {
   InitialMessenger::DisplayInitialScreen();
-  RunInitialMenuEventLoop();
+  RunApplicationLoop();
 }
 
-int cli::InitialMenu::UserChoice() const { return user_choice_; }
+int ConsolePresenter::UserChoice() const { return user_choice_; }
 
-void cli::InitialMenu::RunInitialMenuEventLoop() {
+void ConsolePresenter::RunApplicationLoop() {
   for (;;) {
     user_choice_ = quit_handler_.GetDigitInputFromUser();
 
@@ -36,7 +36,7 @@ void cli::InitialMenu::RunInitialMenuEventLoop() {
   }
 }
 
-void cli::InitialMenu::RunDemoMode() {
+void ConsolePresenter::RunDemoMode() {
   demo_mode_.RunDemoMenu();
 
   if (demo_mode_.UserWantToRegistrate()) {
@@ -44,4 +44,4 @@ void cli::InitialMenu::RunDemoMode() {
   }
 }
 
-void cli::InitialMenu::RunRegistration() { registrator_.RunRegistrationMenu(); }
+void ConsolePresenter::RunRegistration() { registrator_.RunRegistrationMenu(); }

@@ -1,13 +1,11 @@
-﻿#ifndef INITIAL_MENU_H
-#define INITIAL_MENU_H
+﻿#ifndef CONSOLE_PRESENTER_H
+#define CONSOLE_PRESENTER_H
 
 #include <demo_menu.h>
 #include <menu_input_handler.h>
 #include <registrator.h>
 
-namespace cli {
-
-class InitialMenu {
+class ConsolePresenter {
  public:
   enum MenuPoints { kQuit, kDemo, kRegistration, kLogin };
 
@@ -16,7 +14,7 @@ class InitialMenu {
   int UserChoice() const;
 
  private:
-  void RunInitialMenuEventLoop();
+  void RunApplicationLoop();
   void RunDemoMode();
   void RunRegistration();
 
@@ -26,6 +24,5 @@ class InitialMenu {
 
   int user_choice_ = 0;
 };
-}
 
-#endif  // INITIAL_MENU_H
+#endif  // CONSOLE_PRESENTER_H

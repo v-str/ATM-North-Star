@@ -4,8 +4,6 @@
 #include <demo_user_messenger.h>
 #include <user_input.h>
 
-namespace cli {
-
 class DemoMenu {
  public:
   void RunDemoMenu();
@@ -43,6 +41,5 @@ class DemoMenu {
 
   UserInput user_input_;
 };
-}
 
 #endif  // DEMO_MENU_H

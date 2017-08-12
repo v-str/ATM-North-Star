@@ -3,8 +3,6 @@
 
 #include <string>
 
-namespace cli {
-
 class UserInputHandler {
  public:
   virtual ~UserInputHandler();
@@ -18,6 +16,5 @@ class UserInputHandler {
  private:
   const int kInvalidChoice = -1;
 };
-}
 
 #endif  // USER_INPUT_HANDLER_H

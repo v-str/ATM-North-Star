@@ -16,7 +16,7 @@
 
 // ================ New Code ================
 
-#include <initial_menu.h>
+#include <console_presenter.h>
 #include <menu_input_handler.h>
 #include <user_input_handler.h>
 
@@ -49,15 +49,15 @@ class ConsoleMode {
 
   void RunProgram();
   void RunSectionBasedOn(int user_choice);
-  void DemoMenu();
+  void RunDemoMenu();
   void RegistrateUser();
   void MainProgramMenu();
   void ExecuteOperation(int user_choice);
   void SuggestToQuit();
 
-  cli::DemoMenu demo_mode_;
+  DemoMenu demo_mode_;
   AtmUser user_;
-  cli::Registrator registrator_;
+  Registrator registrator_;
   AccountInformator account_informator_;
   Refill refill_;
   Withdrawal withdrawal_;
@@ -69,10 +69,10 @@ class ConsoleMode {
   // ============= New Code ==================
   std::unique_ptr<AtmInteractor> atm_;
 
-  cli::InitialMenu initial_menu_;
+  ConsolePresenter initial_menu_;
 
-  cli::UserInputHandler user_input_;
-  cli::MenuInputHandler quit_menu_handler_;
+  UserInputHandler user_input_;
+  MenuInputHandler quit_menu_handler_;
 };
 
 #endif  // CONSOLE_MODE_H

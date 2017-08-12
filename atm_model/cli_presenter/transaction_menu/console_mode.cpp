@@ -32,7 +32,7 @@ void ConsoleMode::RunProgram() {
 
 void ConsoleMode::RunSectionBasedOn(int user_choice) {
   if (user_choice == kDemo) {
-    DemoMenu();
+    RunDemoMenu();
   } else if (user_choice == kRegistration) {
     RegistrateUser();
   }
@@ -42,7 +42,7 @@ void ConsoleMode::RunSectionBasedOn(int user_choice) {
   }
 }
 
-void ConsoleMode::DemoMenu() {
+void ConsoleMode::RunDemoMenu() {
   demo_mode_.RunDemoMenu();
   if (demo_mode_.UserWantToRegistrate()) {
     RegistrateUser();
