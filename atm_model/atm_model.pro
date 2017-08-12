@@ -41,7 +41,7 @@ INCLUDEPATH += \
     $$PWD/cli_presenter/authentication \
     $$PWD/cli_presenter/initial_menu \
     $$PWD/application_launch \
-    $$PWD/graphical_version \
+    $$PWD/gui_presenter \
     $$PWD/atm_operations \ #deprecated code, should be removed
     $$PWD/user_data \ #deprecated code, should be removed
 
@@ -51,7 +51,7 @@ HEADERS += \
     $$PWD/cli_presenter/authentication/*.h \
     $$PWD/cli_presenter/initial_menu/*.h \
     $$PWD/application_launch/*.h \
-    $$PWD/graphical_version/*.h \
+    $$PWD/gui_presenter/*.h \
     $$PWD/atm_operations/*.h \
     $$PWD/user_data/*.h \
 
@@ -61,7 +61,7 @@ SOURCES += \
     $$PWD/cli_presenter/authentication/*.cpp \
     $$PWD/cli_presenter/initial_menu/*.cpp \
     $$PWD/application_launch/*.cpp \
-    $$PWD/graphical_version/*.cpp \
+    $$PWD/gui_presenter/*.cpp \
     $$PWD/atm_operations/*.cpp \
     $$PWD/user_data/*.cpp \
 
