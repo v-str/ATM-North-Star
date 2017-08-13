@@ -1,9 +1,9 @@
 ﻿#include <logon_handler.h>
 
-#include <authentication_messenger.h>
+#include <logon_messenger.h>
 
-void LogonHandler::HandleLogonData(
-    const std::string login, const std::string& password) {
+void LogonHandler::HandleLogonData(const std::string login,
+                                   const std::string& password) {
   HandleLoginString(login);
   HandlePasswordString(password);
 }
@@ -14,41 +14,39 @@ bool LogonHandler::IsAuthenticationOk() const {
 }
 
 void LogonHandler::HandleLoginString(const std::string& login) {
-  AuthenticationMessenger::ClearScreen();
+  LogonMessenger::ClearScreen();
   login_status_ = authenticator_.InspectLoginString(login);
   switch (login_status_) {
     case ATM::AuthenticationStatus::kCorrectLogin:
-      AuthenticationMessenger::CorrectLoginMessage();
+      LogonMessenger::CorrectLoginMessage();
       is_login_ok_ = true;
       break;
     case ATM::AuthenticationStatus::kShortLogin:
-      AuthenticationMessenger::LoginLengthStatus(
-          AuthenticationMessenger::kShortLoginLength);
+      LogonMessenger::LoginLengthStatus(LogonMessenger::kShortLoginLength);
       break;
     case ATM::AuthenticationStatus::kLongLogin:
-      AuthenticationMessenger::LoginLengthStatus(
-          AuthenticationMessenger::kLongLoginLength);
+      LogonMessenger::LoginLengthStatus(LogonMessenger::kLongLoginLength);
       break;
     case ATM::AuthenticationStatus::kSpecialSymbols:
-      AuthenticationMessenger::LoginContainSpecialSymbol();
+      LogonMessenger::LoginContainSpecialSymbol();
       break;
     case ATM::AuthenticationStatus::kBeginWithSpace:
-      AuthenticationMessenger::LoginContainIncorrectSpacePosition(
-          AuthenticationMessenger::ContainSpaceSymbol::kBeginWithSpace);
+      LogonMessenger::LoginContainIncorrectSpacePosition(
+          LogonMessenger::ContainSpaceSymbol::kBeginWithSpace);
       break;
     case ATM::AuthenticationStatus::kEndWithSpace:
-      AuthenticationMessenger::LoginContainIncorrectSpacePosition(
-          AuthenticationMessenger::ContainSpaceSymbol::kEndWithSpace);
+      LogonMessenger::LoginContainIncorrectSpacePosition(
+          LogonMessenger::ContainSpaceSymbol::kEndWithSpace);
       break;
     case ATM::AuthenticationStatus::kAdjacentSpaces:
-      AuthenticationMessenger::LoginContainIncorrectSpacePosition(
-          AuthenticationMessenger::ContainSpaceSymbol::kAdjecentSpaces);
+      LogonMessenger::LoginContainIncorrectSpacePosition(
+          LogonMessenger::ContainSpaceSymbol::kAdjecentSpaces);
       break;
     case ATM::AuthenticationStatus::kContainOnlyDigits:
-      AuthenticationMessenger::LoginContainOnlyDigits();
+      LogonMessenger::LoginContainOnlyDigits();
       break;
     case ATM::AuthenticationStatus::kEmptyString:
-      AuthenticationMessenger::LoginEmpty();
+      LogonMessenger::LoginEmpty();
       break;
     default:
       break;
@@ -59,25 +57,23 @@ void LogonHandler::HandlePasswordString(const std::string& password) {
   password_status_ = authenticator_.InspectPasswordString(password);
   switch (password_status_) {
     case ATM::AuthenticationStatus::kCorrectPassword:
-      AuthenticationMessenger::CorrectPasswordMessage();
+      LogonMessenger::CorrectPasswordMessage();
       is_password_ok_ = true;
       break;
     case ATM::AuthenticationStatus::kShortPassword:
-      AuthenticationMessenger::PasswordLength(
-          AuthenticationMessenger::kShortPasswordLength);
+      LogonMessenger::PasswordLength(LogonMessenger::kShortPasswordLength);
       break;
     case ATM::AuthenticationStatus::kLongPassword:
-      AuthenticationMessenger::PasswordLength(
-          AuthenticationMessenger::kLongPasswordLength);
+      LogonMessenger::PasswordLength(LogonMessenger::kLongPasswordLength);
       break;
     case ATM::AuthenticationStatus::kContainSpaceSymbol:
-      AuthenticationMessenger::PasswordContainSpaceSymbol();
+      LogonMessenger::PasswordContainSpaceSymbol();
       break;
     case ATM::kEmptyString:
-      AuthenticationMessenger::PasswordEmpty();
+      LogonMessenger::PasswordEmpty();
       break;
     default:
       break;
   }
-  AuthenticationMessenger::AddEmptyLines(2);
+  LogonMessenger::AddEmptyLines(2);
 }

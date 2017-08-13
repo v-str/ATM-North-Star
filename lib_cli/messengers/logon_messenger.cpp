@@ -1,24 +1,24 @@
-﻿#include <authentication_messenger.h>
+﻿#include <logon_messenger.h>
 
 #include <string>
 
 #include <console_editor.h>
 
-void AuthenticationMessenger::DisplayLoginText() {
+void LogonMessenger::DisplayLoginText() {
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\n\n\tLogin: ", kDelay);
 }
 
-void AuthenticationMessenger::DisplayPasswordText() {
+void LogonMessenger::DisplayPasswordText() {
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\tPassword: ", kDelay);
 }
 
-void AuthenticationMessenger::CorrectLoginMessage() {
+void LogonMessenger::CorrectLoginMessage() {
   WriteLoginTitleStatus();
   ConsoleEditor::WriteText("    Correct");
   WtiteDevidingLine();
 }
 
-void AuthenticationMessenger::LoginLengthStatus(StringLength login_length) {
+void LogonMessenger::LoginLengthStatus(StringLength login_length) {
   std::string length_status = "";
 
   switch (login_length) {
@@ -40,7 +40,7 @@ void AuthenticationMessenger::LoginLengthStatus(StringLength login_length) {
   WtiteDevidingLine();
 }
 
-void AuthenticationMessenger::LoginContainSpecialSymbol() {
+void LogonMessenger::LoginContainSpecialSymbol() {
   WriteLoginTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\n  Your login contain special symbols like a % $ ^ # and so on.\n"
@@ -48,7 +48,7 @@ void AuthenticationMessenger::LoginContainSpecialSymbol() {
   WtiteDevidingLine();
 }
 
-void AuthenticationMessenger::LoginContainIncorrectSpacePosition(
+void LogonMessenger::LoginContainIncorrectSpacePosition(
     ContainSpaceSymbol space_symbol)
 
 {
@@ -76,7 +76,7 @@ void AuthenticationMessenger::LoginContainIncorrectSpacePosition(
   WtiteDevidingLine();
 }
 
-void AuthenticationMessenger::LoginContainOnlyDigits() {
+void LogonMessenger::LoginContainOnlyDigits() {
   WriteLoginTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\n Your login contain only digits.\n"
@@ -84,7 +84,7 @@ void AuthenticationMessenger::LoginContainOnlyDigits() {
   WtiteDevidingLine();
 }
 
-void AuthenticationMessenger::LoginEmpty() {
+void LogonMessenger::LoginEmpty() {
   WriteLoginTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\n Your login is empty.\n"
@@ -92,13 +92,13 @@ void AuthenticationMessenger::LoginEmpty() {
   WtiteDevidingLine();
 }
 
-void AuthenticationMessenger::CorrectPasswordMessage() {
+void LogonMessenger::CorrectPasswordMessage() {
   WritePasswordTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(" Correct");
   WtiteDevidingLine();
 }
 
-void AuthenticationMessenger::PasswordLength(StringLength password_length) {
+void LogonMessenger::PasswordLength(StringLength password_length) {
   std::string password_status = "";
 
   switch (password_length) {
@@ -120,7 +120,7 @@ void AuthenticationMessenger::PasswordLength(StringLength password_length) {
   WtiteDevidingLine();
 }
 
-void AuthenticationMessenger::PasswordContainSpaceSymbol() {
+void LogonMessenger::PasswordContainSpaceSymbol() {
   WritePasswordTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\n  Password contain space symbol.\n"
@@ -128,7 +128,7 @@ void AuthenticationMessenger::PasswordContainSpaceSymbol() {
   WtiteDevidingLine();
 }
 
-void AuthenticationMessenger::PasswordEmpty() {
+void LogonMessenger::PasswordEmpty() {
   WritePasswordTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\n  Password is empty.\n"
@@ -136,7 +136,7 @@ void AuthenticationMessenger::PasswordEmpty() {
   WtiteDevidingLine();
 }
 
-void AuthenticationMessenger::SuggestReenterAuthenticationData() {
+void LogonMessenger::SuggestReenterAuthenticationData() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "  The data was inputted﻿ in a wrong way.\n"
       "  Do you prefer to re-enter data or to quit the program?\n"
@@ -145,29 +145,29 @@ void AuthenticationMessenger::SuggestReenterAuthenticationData() {
       "  Enter: ");
 }
 
-void AuthenticationMessenger::FarewellMessage() {
+void LogonMessenger::FarewellMessage() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\tThank you for using ATM North Star.\n"
       "\tHave a nice day!\n\n");
 }
 
-void AuthenticationMessenger::ClearScreen() { ConsoleEditor::ClearScreen(); }
+void LogonMessenger::ClearScreen() { ConsoleEditor::ClearScreen(); }
 
-void AuthenticationMessenger::AddEmptyLines(int amount_of_lines) {
+void LogonMessenger::AddEmptyLines(int amount_of_lines) {
   ConsoleEditor::AddEmptyLineNTimes(amount_of_lines);
 }
 
-void AuthenticationMessenger::WriteLoginTitleStatus() {
+void LogonMessenger::WriteLoginTitleStatus() {
   ConsoleEditor::WriteText("\n");
   ConsoleEditor::WriteTextWithDelayPerSymbol(" Login status: ");
 }
 
-void AuthenticationMessenger::WritePasswordTitleStatus() {
+void LogonMessenger::WritePasswordTitleStatus() {
   ConsoleEditor::WriteText("\n\n");
   ConsoleEditor::WriteTextWithDelayPerSymbol(" Password status: ");
 }
 
-void AuthenticationMessenger::WtiteDevidingLine() {
+void LogonMessenger::WtiteDevidingLine() {
   ConsoleEditor::WriteText("\n");
   ConsoleEditor::WriteSymbolsNTimes(".", 65);
 }

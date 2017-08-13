@@ -1,6 +1,6 @@
 ﻿#include <registrator.h>
 
-#include <authentication_messenger.h>
+#include <logon_messenger.h>
 #include <registration_messenger.h>
 
 void Registrator::RunRegistrationMenu() {
@@ -20,7 +20,7 @@ void Registrator::ConfirmRegistration() {
       user_want_to_registrate = true;
       break;
     } else if (user_choice == kSymbolQuit || user_choice == kDigitQuit) {
-      AuthenticationMessenger::FarewellMessage();
+      LogonMessenger::FarewellMessage();
       user_want_to_registrate = false;
       break;
     }
@@ -38,7 +38,7 @@ void Registrator::RunRegistrationProcedure() {
       // Run transaction menu
       break;
     } else {
-      AuthenticationMessenger::SuggestReenterAuthenticationData();
+      LogonMessenger::SuggestReenterAuthenticationData();
       ConfirmRegistration();
       if (!user_want_to_registrate) {
         break;
@@ -48,18 +48,18 @@ void Registrator::RunRegistrationProcedure() {
 }
 
 void Registrator::GetRegistratoinDataFromUser() {
-  AuthenticationMessenger::ClearScreen();
+  LogonMessenger::ClearScreen();
   RegistrationMessenger::ShowRegistrationLogo();
   GetLoginStringFromUser();
   GetPasswordStringFromUser();
 }
 
 void Registrator::GetLoginStringFromUser() {
-  AuthenticationMessenger::DisplayLoginText();
+  LogonMessenger::DisplayLoginText();
   login_ = user_input_.GetStringInputFromUser();
 }
 
 void Registrator::GetPasswordStringFromUser() {
-  AuthenticationMessenger::DisplayPasswordText();
+  LogonMessenger::DisplayPasswordText();
   password_ = user_input_.GetStringInputFromUser();
 }
