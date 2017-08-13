@@ -34,7 +34,7 @@ void DemoUserMessenger::ShowWelcomeDemoMessage() {
       "# Welcome to demo mode. This chapter\n"
       "# contains basic information about ATM North Star.\n\n"
       "# First of all, look at the main menu:\n"
-      "# Please, choose interested you chapter:\n");
+      "# Please, choose interested you menu:\n");
 }
 
 void DemoUserMessenger::ShowDemoMenu(DisplayMode display_mode) {
@@ -58,10 +58,10 @@ void DemoUserMessenger::ShowDemoMenu(DisplayMode display_mode) {
       "\t#  5. Statement                                      #\n"
       "\t#                                                    #\n"
       "\t#  ------------------------------------------------  #\n"
-      "\t#    6. Log-in(!)   7. Registration     8. Exit      #\n"
+      "\t#  6. Log-in(!)    7. Registration      8. Exit      #\n"
       "\t#                                                    #\n"
       "\t######################################################\n\n"
-      "\n\t# Enter: ");
+      "\n\t# Enter interested menu: ");
 }
 
 void DemoUserMessenger::ShowDemoAccountInfoMessage() {
@@ -146,7 +146,7 @@ void DemoUserMessenger::ShowIncorrectMenuInput() {
 
 void DemoUserMessenger::SuggestExit() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t# 1. Exit to main page.\n"
-      "\t# 2. Exit program.\n"
+      "\n\t# 1. Return to demo menu\n"
+      "\t# 2. Exit program\n"
       "\t# Enter: ");
 }
