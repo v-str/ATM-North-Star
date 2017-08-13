@@ -13,10 +13,12 @@ class ConsoleViewer {
   void RunView();
 
  private:
-  void RunInitialMenuLoop();
+  void RunSubMenu();
 
   void DisplaySplashScreen() const;
   void DisplayInitialMenu() const;
+
+  bool IsInputAcceptable();
 
   MenuInputHandler* input_handler_ = nullptr;
 

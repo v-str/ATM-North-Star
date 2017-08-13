@@ -12,30 +12,14 @@ ConsoleViewer::~ConsoleViewer() { delete input_handler_; }
 void ConsoleViewer::RunView() {
   DisplaySplashScreen();
   DisplayInitialMenu();
-  RunInitialMenuLoop();
+  RunSubMenu();
 }
 
-void ConsoleViewer::RunInitialMenuLoop() {
+void ConsoleViewer::RunSubMenu() {
   for (;;) {
     user_input_ = input_handler_->GetDigitInputFromUser();
 
-    if (user_input_ == kLoginMenu) {
-      // login_menu_->RunLoginMenu();
-      std::cout << "\n\n"
-                << "LOGIN MENU\n\n";
-      break;
-    } else if (user_input_ == kRegistrationMenu) {
-      // registration_menu_->RunRegistrationMenu();
-      std::cout << "\n\n"
-                << "REGISTRATION MENU\n\n";
-      break;
-    } else if (user_input_ == kDemoMenu) {
-      // demo_menu_->RunDemoMenu();
-      std::cout << "\n\n"
-                << "DEMO MENU\n\n";
-      break;
-    } else if (user_input_ == kExit) {
-      InitialMessenger::FarewellMessage();
+    if (IsInputAcceptable()) {
       break;
     } else {
       InitialMessenger::ShowIncorrectMenuInput();
@@ -49,4 +33,20 @@ void ConsoleViewer::DisplaySplashScreen() const {
 
 void ConsoleViewer::DisplayInitialMenu() const {
   InitialMessenger::DisplayInitialMenu();
+}
+
+bool ConsoleViewer::IsInputAcceptable() {
+  if (user_input_ == kLoginMenu) {
+    return true;
+  }
+  if (user_input_ == kRegistrationMenu) {
+    return true;
+  }
+  if (user_input_ == kDemoMenu) {
+    return true;
+  }
+  if (user_input_ == kExit) {
+    return true;
+  }
+  return false;
 }

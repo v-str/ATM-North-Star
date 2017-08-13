@@ -6,7 +6,10 @@ CLIPresenter::CLIPresenter() {
   console_viewer_ = std::unique_ptr<ConsoleViewer>(new ConsoleViewer);
 }
 
-void CLIPresenter::RunApplication() { console_viewer_->RunView(); }
+void CLIPresenter::RunApplication() {
+  console_viewer_->RunView();
+  // RunSubMenu(console_viewer_->GetSubMenu());
+}
 
 int CLIPresenter::UserChoice() const { return user_choice_; }
 
