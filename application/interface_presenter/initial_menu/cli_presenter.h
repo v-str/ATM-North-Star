@@ -3,7 +3,7 @@
 
 #include <memory>
 
-#include <demo_menu.h>
+//#include <demo_menu.h>
 #include <menu_input_handler.h>
 #include <registrator.h>
 
@@ -21,11 +21,11 @@ class CLIPresenter {
 
  private:
   void RunApplicationLoop();
-  void RunDemoMode();
+  //  void RunDemoMode();
   void RunRegistration();
 
   MenuInputHandler quit_handler_;
-  DemoMenu demo_mode_;
+  //  DemoMenu demo_mode_;
   Registrator registrator_;
 
   int user_choice_ = 0;

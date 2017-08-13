@@ -9,7 +9,7 @@ CLIPresenter::CLIPresenter() {
 void CLIPresenter::RunApplication() {
   console_viewer_->DisplaySplashScreen();
   console_viewer_->DisplayInitialMenu();
-  RunApplicationLoop();
+  console_viewer_->RunInitialMenuLoop();
 }
 
 int CLIPresenter::UserChoice() const { return user_choice_; }
@@ -19,7 +19,7 @@ void CLIPresenter::RunApplicationLoop() {
     user_choice_ = quit_handler_.GetDigitInputFromUser();
 
     if (user_choice_ == kDemo) {
-      RunDemoMode();
+      //      RunDemoMode();
       break;
     }
     if (user_choice_ == kRegistration) {
@@ -41,12 +41,12 @@ void CLIPresenter::RunApplicationLoop() {
   }
 }
 
-void CLIPresenter::RunDemoMode() {
-  demo_mode_.RunDemoMenu();
+// void CLIPresenter::RunDemoMode() {
+//  demo_mode_.RunDemoMenu();
 
-  if (demo_mode_.UserWantToRegistrate()) {
-    RunRegistration();
-  }
-}
+//  if (demo_mode_.UserWantToRegistrate()) {
+//    RunRegistration();
+//  }
+//}
 
 void CLIPresenter::RunRegistration() { registrator_.RunRegistrationMenu(); }

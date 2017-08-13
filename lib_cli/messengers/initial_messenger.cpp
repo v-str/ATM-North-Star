@@ -39,9 +39,9 @@ void InitialMessenger::DisplayInitialMenu() {
   ConsoleEditor::WriteText(
       "\n\n\n\n\t ###############################\n"
       "\t #                             #\n"
-      "\t #  1. Demo                    #\n"
+      "\t #  1. Login                   #\n"
       "\t #  2. Registration            #\n"
-      "\t #  3. Log-in (not available)  #\n"
+      "\t #  3. Demo                    #\n"
       "\t #                             #\n"
       "\t #  (press 'q' for quit)       #\n"
       "\t #                             #\n"
