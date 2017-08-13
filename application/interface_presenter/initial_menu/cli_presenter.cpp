@@ -8,7 +8,7 @@ CLIPresenter::CLIPresenter() {
 
 void CLIPresenter::RunApplication() {
   console_viewer_->DisplaySplashScreen();
-  InitialMessenger::DisplayInitialMenu();
+  console_viewer_->DisplayInitialMenu();
   RunApplicationLoop();
 }
 
