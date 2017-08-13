@@ -8,13 +8,13 @@ class DemoMenu {
  public:
   void RunDemoMenu();
   void UserWantToExitProgram();
-  void DisplayDemoPointrBasedOnUserChoice();
+  void DisplayDemoSubMenu();
 
   bool UserWantToRegistrate() const;
   bool UserWantToLogin() const;
 
  private:
-  enum UserChoice { kMainMenu = 1, kExitProgram };
+  enum UserChoice { kDemoMenu = 1, kExitProgram };
 
   enum DemoSubMenu {
     kAccount = 1,
@@ -33,7 +33,8 @@ class DemoMenu {
   void LeadToLogin();
   void SuggestToExit();
 
-  void DiplayDemoMenuWithTitle();
+  void DiplayDemoMenuTitleOn();
+  void DiplayDemoMenuTitleOff();
 
   bool user_want_to_exit_ = true;
   bool user_want_to_registrate_ = false;

@@ -1,19 +1,19 @@
 ﻿#include <demo_menu.h>
 
 void DemoMenu::RunDemoMenu() {
-  DiplayDemoMenuWithTitle();
+  DiplayDemoMenuTitleOn();
   for (;;) {
-    DisplayDemoPointrBasedOnUserChoice();
-    if (user_want_to_registrate_ || user_want_to_exit_) {
+    DisplayDemoSubMenu();
+    if (user_want_to_registrate_ || user_want_to_exit_ || user_want_to_login_) {
       break;
     }
-    DemoUserMessenger::ShowDemoMenu(DemoUserMessenger::kCLearScreen);
+    DiplayDemoMenuTitleOff();
   }
 }
 
 void DemoMenu::UserWantToExitProgram() { user_want_to_exit_ = true; }
 
-void DemoMenu::DisplayDemoPointrBasedOnUserChoice() {
+void DemoMenu::DisplayDemoSubMenu() {
   int user_choice = user_input_.GetValueFromUser();
   if (user_choice == kAccount) {
     DisplaySubmenu(DemoUserMessenger::kAccountInfo);
@@ -60,7 +60,7 @@ void DemoMenu::SuggestToExit() {
     int result_of_exit = 0;
     result_of_exit = user_input_.GetValueFromUser();
 
-    if (result_of_exit == kMainMenu) {
+    if (result_of_exit == kDemoMenu) {
       user_want_to_exit_ = false;
       break;
     } else if (result_of_exit == kExitProgram) {
@@ -72,7 +72,11 @@ void DemoMenu::SuggestToExit() {
   }
 }
 
-void DemoMenu::DiplayDemoMenuWithTitle() {
+void DemoMenu::DiplayDemoMenuTitleOn() {
   DemoUserMessenger::ShowMessage(DemoUserMessenger::kWelcome);
   DemoUserMessenger::ShowDemoMenu(DemoUserMessenger::kNoClearScreen);
+}
+
+void DemoMenu::DiplayDemoMenuTitleOff() {
+  DemoUserMessenger::ShowDemoMenu(DemoUserMessenger::kCLearScreen);
 }
