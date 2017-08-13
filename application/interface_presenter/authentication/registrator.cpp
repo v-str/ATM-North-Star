@@ -32,7 +32,7 @@ void Registrator::ConfirmRegistration() {
 void Registrator::RunRegistrationProcedure() {
   for (;;) {
     GetRegistratoinDataFromUser();
-    authenticaton_handler_.HandleAuthenticationData(login_, password_);
+    authenticaton_handler_.HandleLogonData(login_, password_);
     if (authenticaton_handler_.IsAuthenticationOk()) {
       // Initialize user data in ATM
       // Run transaction menu

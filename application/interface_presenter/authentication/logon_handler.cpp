@@ -1,19 +1,19 @@
-﻿#include <authentication_handler.h>
+﻿#include <logon_handler.h>
 
 #include <authentication_messenger.h>
 
-void AuthenticationHandler::HandleAuthenticationData(
+void LogonHandler::HandleLogonData(
     const std::string login, const std::string& password) {
   HandleLoginString(login);
   HandlePasswordString(password);
 }
 
-bool AuthenticationHandler::IsAuthenticationOk() const {
+bool LogonHandler::IsAuthenticationOk() const {
   bool authentication_status = is_login_ok_ && is_password_ok_;
   return authentication_status;
 }
 
-void AuthenticationHandler::HandleLoginString(const std::string& login) {
+void LogonHandler::HandleLoginString(const std::string& login) {
   AuthenticationMessenger::ClearScreen();
   login_status_ = authenticator_.InspectLoginString(login);
   switch (login_status_) {
@@ -55,7 +55,7 @@ void AuthenticationHandler::HandleLoginString(const std::string& login) {
   }
 }
 
-void AuthenticationHandler::HandlePasswordString(const std::string& password) {
+void LogonHandler::HandlePasswordString(const std::string& password) {
   password_status_ = authenticator_.InspectPasswordString(password);
   switch (password_status_) {
     case ATM::AuthenticationStatus::kCorrectPassword:

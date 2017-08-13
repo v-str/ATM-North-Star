@@ -1,15 +1,14 @@
-﻿#ifndef AUTHENTICATION_HANLDER_H
-#define AUTHENTICATION_HANLDER_H
+﻿#ifndef LOGON_HANDLING_H
+#define LOGON_HANDLING_H
 
 #include <string>
 
 #include <authentication_status.h>
 #include <authenticator.h>
 
-class AuthenticationHandler {
+class LogonHandler {
  public:
-  void HandleAuthenticationData(const std::string login,
-                                const std::string& password);
+  void HandleLogonData(const std::string login, const std::string& password);
 
   bool IsAuthenticationOk() const;
 
@@ -25,4 +24,4 @@ class AuthenticationHandler {
   bool is_password_ok_ = false;
 };
 
-#endif  // AUTHENTICATION_HANLDER_H
+#endif  // LOGON_HANDLING_H
