@@ -36,32 +36,32 @@ INCLUDEPATH += \
     ../lib_gui/atm_widgets \
     ../lib_cli/messengers \
     ../lib_gui/features \
-    $$PWD/cli_presenter/transaction_menu \
+    $$PWD/interface_presenter/transaction_menu \
     $$PWD/atm_operations/credit_operations \ #deprecated code, should be removed
-    $$PWD/cli_presenter/authentication \
-    $$PWD/cli_presenter/initial_menu \
+    $$PWD/interface_presenter/authentication \
+    $$PWD/interface_presenter/initial_menu \
+    $$PWD/interface_presenter \
     $$PWD/application_launch \
-    $$PWD/gui_presenter \
     $$PWD/atm_operations \ #deprecated code, should be removed
     $$PWD/user_data \ #deprecated code, should be removed
 
 HEADERS += \
-    $$PWD/cli_presenter/transaction_menu/*.h \
+    $$PWD/interface_presenter/transaction_menu/*.h \
     $$PWD/atm_operations/credit_operations/*.h \
-    $$PWD/cli_presenter/authentication/*.h \
-    $$PWD/cli_presenter/initial_menu/*.h \
+    $$PWD/interface_presenter/authentication/*.h \
+    $$PWD/interface_presenter/initial_menu/*.h \
+    $$PWD/interface_presenter/*.h \
     $$PWD/application_launch/*.h \
-    $$PWD/gui_presenter/*.h \
     $$PWD/atm_operations/*.h \
     $$PWD/user_data/*.h \
 
 SOURCES += \
     $$PWD/atm_operations/credit_operations/*.cpp \
-    $$PWD/cli_presenter/transaction_menu/*.cpp \
-    $$PWD/cli_presenter/authentication/*.cpp \
-    $$PWD/cli_presenter/initial_menu/*.cpp \
+    $$PWD/interface_presenter/transaction_menu/*.cpp \
+    $$PWD/interface_presenter/authentication/*.cpp \
+    $$PWD/interface_presenter/initial_menu/*.cpp \
+    $$PWD/interface_presenter/*.cpp \
     $$PWD/application_launch/*.cpp \
-    $$PWD/gui_presenter/*.cpp \
     $$PWD/atm_operations/*.cpp \
     $$PWD/user_data/*.cpp \
 
