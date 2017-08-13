@@ -129,6 +129,10 @@
 9. Clean cli mode from deprecated code                                              | - |
                                                                                     |   |
 10. Make application interface launch form config.txt file                          | + |
+                                                                                    |   |
+11. Move logon handling into atm library                                            | - |
+                                                                                    |   |
+12. Move console view of registration into cli library                              | - |
 
 -----------------------------------------------------------------------------------------
 ---------------------------------------- ATM --------------------------------------------
