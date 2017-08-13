@@ -9,6 +9,12 @@ ConsoleViewer::ConsoleViewer() : input_handler_(new MenuInputHandler) {}
 
 ConsoleViewer::~ConsoleViewer() { delete input_handler_; }
 
+void ConsoleViewer::RunView() {
+  DisplaySplashScreen();
+  DisplayInitialMenu();
+  RunInitialMenuLoop();
+}
+
 void ConsoleViewer::RunInitialMenuLoop() {
   for (;;) {
     user_input_ = input_handler_->GetDigitInputFromUser();

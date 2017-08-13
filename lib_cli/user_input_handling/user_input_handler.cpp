@@ -31,6 +31,10 @@ bool UserInputHandler::IsContainOnlyDigits(const std::string& user_string) {
 }
 
 int UserInputHandler::GetDigitsFromString(const std::string& user_string) {
+  if (user_string.length() > kMaximalStringLength) {
+    return kInvalidChoice;
+  }
+
   try {
     return std::stoi(user_string);
   } catch (const std::invalid_argument&) {

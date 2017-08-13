@@ -15,6 +15,7 @@ class UserInputHandler {
 
  private:
   const int kInvalidChoice = -1;
+  const int kMaximalStringLength = 1;
 };
 
 #endif  // USER_INPUT_HANDLER_H

@@ -6,11 +6,7 @@ CLIPresenter::CLIPresenter() {
   console_viewer_ = std::unique_ptr<ConsoleViewer>(new ConsoleViewer);
 }
 
-void CLIPresenter::RunApplication() {
-  console_viewer_->DisplaySplashScreen();
-  console_viewer_->DisplayInitialMenu();
-  console_viewer_->RunInitialMenuLoop();
-}
+void CLIPresenter::RunApplication() { console_viewer_->RunView(); }
 
 int CLIPresenter::UserChoice() const { return user_choice_; }
 
