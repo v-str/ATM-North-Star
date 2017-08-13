@@ -5,7 +5,7 @@ class MenuInputHandler;
 
 class ConsoleViewer {
  public:
-  enum MenuSubItems { kExit, kLoginMenu, kRegistrationMenu, kDemoMenu };
+  enum SubMenu { kExit, kLoginMenu, kRegistrationMenu, kDemoMenu };
 
   ConsoleViewer();
   ~ConsoleViewer();
