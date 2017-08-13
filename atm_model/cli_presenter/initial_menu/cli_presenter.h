@@ -1,11 +1,11 @@
-﻿#ifndef CONSOLE_PRESENTER_H
-#define CONSOLE_PRESENTER_H
+﻿#ifndef CLI_PRESENTER
+#define CLI_PRESENTER
 
 #include <demo_menu.h>
 #include <menu_input_handler.h>
 #include <registrator.h>
 
-class ConsolePresenter {
+class CLIPresenter {
  public:
   enum MenuPoints { kQuit, kDemo, kRegistration, kLogin };
 
@@ -25,4 +25,4 @@ class ConsolePresenter {
   int user_choice_ = 0;
 };
 
-#endif  // CONSOLE_PRESENTER_H
+#endif  // CLI_PRESENTER

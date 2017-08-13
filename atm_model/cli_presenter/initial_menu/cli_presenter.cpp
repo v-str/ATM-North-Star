@@ -1,15 +1,15 @@
-﻿#include <console_presenter.h>
+﻿#include <cli_presenter.h>
 
 #include <initial_messenger.h>
 
-void ConsolePresenter::RunApplication() {
+void CLIPresenter::RunApplication() {
   InitialMessenger::DisplayInitialScreen();
   RunApplicationLoop();
 }
 
-int ConsolePresenter::UserChoice() const { return user_choice_; }
+int CLIPresenter::UserChoice() const { return user_choice_; }
 
-void ConsolePresenter::RunApplicationLoop() {
+void CLIPresenter::RunApplicationLoop() {
   for (;;) {
     user_choice_ = quit_handler_.GetDigitInputFromUser();
 
@@ -36,7 +36,7 @@ void ConsolePresenter::RunApplicationLoop() {
   }
 }
 
-void ConsolePresenter::RunDemoMode() {
+void CLIPresenter::RunDemoMode() {
   demo_mode_.RunDemoMenu();
 
   if (demo_mode_.UserWantToRegistrate()) {
@@ -44,4 +44,4 @@ void ConsolePresenter::RunDemoMode() {
   }
 }
 
-void ConsolePresenter::RunRegistration() { registrator_.RunRegistrationMenu(); }
+void CLIPresenter::RunRegistration() { registrator_.RunRegistrationMenu(); }
