@@ -8,10 +8,26 @@ void AtmUser::SetPassword(const std::string& password) {
   identification_data_.SetPassword(password);
 }
 
-void AtmUser::SetCash(int cash) { cash_operator_.SetCash(cash); }
+void AtmUser::SetCash(double cash) { cash_data_.SetCash(cash); }
 
-void AtmUser::SetCreditData(const CreditData& credit_data) {
-  credit_data_ = credit_data;
+void AtmUser::AddCash(double cash) { cash_data_.AddCash(cash); }
+
+void AtmUser::WithdrawCash(double cash) { cash_data_.WithdrawCash(cash); }
+
+void AtmUser::SetCreditSum(double credit_sum) {
+  credit_data_.SetCreditSum(credit_sum);
+}
+
+void AtmUser::SetCreditTerm(int credit_term) {
+  credit_data_.SetCreditTerm(credit_term);
+}
+
+void AtmUser::SetInterestRate(double interest_rate) {
+  credit_data_.SetInterestRate(interest_rate);
+}
+
+void AtmUser::SetMonthlyPayment(double monthly_payment) {
+  credit_data_.SetMonthlyPayment(monthly_payment);
 }
 
 std::string AtmUser::Login() const { return identification_data_.Login(); }
@@ -20,26 +36,12 @@ std::string AtmUser::Password() const {
   return identification_data_.Password();
 }
 
-int AtmUser::Cash() const { return cash_operator_.Cash(); }
+double AtmUser::Cash() const { return cash_data_.Cash(); }
 
-int AtmUser::CreditSum() const { return credit_data_.CreditSum(); }
-
-double AtmUser::MonthlyPayment() const { return credit_data_.MonthlyPayment(); }
+double AtmUser::CreditSum() const { return credit_data_.CreditSum(); }
 
 int AtmUser::CreditTerm() const { return credit_data_.CreditTerm(); }
 
-bool AtmUser::IsCreditExist() const { return credit_data_.IsCreditExist(); }
+double AtmUser::InterestRate() const { return credit_data_.InterestRate(); }
 
-bool AtmUser::IsNormalLogin() const {
-  return identification_data_.IsNormalLogin();
-}
-
-bool AtmUser::IsNormalPass() const {
-  return identification_data_.IsNormalPass();
-}
-
-void AtmUser::AddCash(int sum_of_cash) { cash_operator_.AddCash(sum_of_cash); }
-
-int AtmUser::WithdrawCash(int amount) {
-  return cash_operator_.WithdrawCash(amount);
-}
+double AtmUser::MonthlyPayment() const { return credit_data_.MonthlyPayment(); }

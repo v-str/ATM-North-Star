@@ -1,4 +1,4 @@
-﻿#include <graphical_splash_screen.h>
+﻿#include <gui_presenter.h>
 
 #include <QEasingCurve>
 #include <QObject>
@@ -9,30 +9,30 @@
 #include <main_widget.h>
 #include <side.h>
 
-gui::GraphicalSplashScreen::GraphicalSplashScreen()
+GUIPresenter::GUIPresenter()
     : splash_screen_(new AtmSplashScreen),
       frame_animator_(new FrameAnimator(splash_screen_)),
-      main_widget_(new gui::MainWidget) {
+      main_widget_(new MainWidget) {
   splash_screen_->SetCompanyName("North Star");
 
   SetAnimation();
   SetConnections();
 }
 
-gui::GraphicalSplashScreen::~GraphicalSplashScreen() {
+GUIPresenter::~GUIPresenter() {
   delete splash_screen_;
   delete main_widget_;
   delete frame_animator_;
 }
 
-void gui::GraphicalSplashScreen::RunInitialScreen() { splash_screen_->show(); }
+void GUIPresenter::RunInitialScreen() { splash_screen_->show(); }
 
-void gui::GraphicalSplashScreen::SetAnimation() {
+void GUIPresenter::SetAnimation() {
   frame_animator_->SetAnimationCurve(QEasingCurve::OutCirc);
   frame_animator_->SetAnimationDirection(Side::kUp);
 }
 
-void gui::GraphicalSplashScreen::SetConnections() {
+void GUIPresenter::SetConnections() {
   QObject::connect(splash_screen_, SIGNAL(PassPositionWhenEnterPressed(QRect)),
                    frame_animator_, SLOT(HideFrame(QRect)));
 

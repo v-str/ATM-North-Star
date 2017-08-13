@@ -4,7 +4,7 @@
 #include <memory>
 
 #include <cli_presenter.h>
-#include <graphical_splash_screen.h>
+#include <gui_presenter.h>
 
 class Launcher {
  public:
@@ -15,7 +15,7 @@ class Launcher {
 
  private:
   std::unique_ptr<CLIPresenter> initial_menu_;
-  std::unique_ptr<gui::GraphicalSplashScreen> gui_splash_creen_;
+  std::unique_ptr<GUIPresenter> gui_splash_creen_;
 
   // Programming by intentions
   // std::unique_ptr<BaseInterfacePresenter> interface_presenter_;

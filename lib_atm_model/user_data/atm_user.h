@@ -1,37 +1,38 @@
 ﻿#ifndef ATM_USER_H
 #define ATM_USER_H
 
-#include <memory>
+#include <string>
 
-#include "cash_operator.h"
-#include "credit_data.h"
-#include "identification_data.h"
+#include <cash_data.h>
+#include <credit_data.h>
+#include <identification_data.h>
 
 class AtmUser {
  public:
   void SetLogin(const std::string& login);
   void SetPassword(const std::string& password);
-  void SetCash(int cash);
-  void SetCreditData(const CreditData& credit_data);
+
+  void SetCash(double cash);
+  void AddCash(double cash);
+  void WithdrawCash(double cash);
+
+  void SetCreditSum(double credit_sum);
+  void SetCreditTerm(int credit_term);
+  void SetInterestRate(double interest_rate);
+  void SetMonthlyPayment(double monthly_payment);
 
   std::string Login() const;
   std::string Password() const;
-  int Cash() const;
-  int CreditSum() const;
-  double MonthlyPayment() const;
+  double Cash() const;
+  double CreditSum() const;
   int CreditTerm() const;
-
-  bool IsCreditExist() const;
-  bool IsNormalLogin() const;
-  bool IsNormalPass() const;
-
-  void AddCash(int sum_of_cash);
-  int WithdrawCash(int amount);
+  double InterestRate() const;
+  double MonthlyPayment() const;
 
  private:
-  CashOperator cash_operator_;
-  CreditData credit_data_;
   IdentificationData identification_data_;
+  CashData cash_data_;
+  CreditData credit_data_;
 };
 
 #endif  // ATM_USER_H

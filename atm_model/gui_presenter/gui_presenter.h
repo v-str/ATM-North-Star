@@ -1,17 +1,15 @@
-﻿#ifndef GRAPHICAL_SPLASH_SCREEN_H
-#define GRAPHICAL_SPLASH_SCREEN_H
+﻿#ifndef GUI_PRESENTER
+#define GUI_PRESENTER
 
 class AtmSplashScreen;
 class FrameAnimator;
 
-namespace gui {
-
 class MainWidget;
 
-class GraphicalSplashScreen {
+class GUIPresenter {
  public:
-  GraphicalSplashScreen();
-  ~GraphicalSplashScreen();
+  GUIPresenter();
+  ~GUIPresenter();
 
   void RunInitialScreen();
 
@@ -23,6 +21,5 @@ class GraphicalSplashScreen {
   FrameAnimator* frame_animator_ = nullptr;
   MainWidget* main_widget_ = nullptr;
 };
-}
 
-#endif  // GRAPHICAL_SPLASH_SCREEN_H
+#endif  // GUI_PRESENTER

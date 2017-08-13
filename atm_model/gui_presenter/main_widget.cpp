@@ -4,17 +4,17 @@
 
 #include <atm_main_widget.h>
 
-gui::MainWidget::MainWidget(QObject* parent)
+MainWidget::MainWidget(QObject* parent)
     : QObject(parent),
       atm_main_widget_(new AtmMainWidget),
       main_widget_position_(new QRect) {}
 
-gui::MainWidget::~MainWidget() {
+MainWidget::~MainWidget() {
   delete atm_main_widget_;
   delete main_widget_position_;
 }
 
-void gui::MainWidget::ShowMainWidget() {
+void MainWidget::ShowMainWidget() {
   if (is_full_screen_) {
     atm_main_widget_->showFullScreen();
 
@@ -26,10 +26,10 @@ void gui::MainWidget::ShowMainWidget() {
   }
 }
 
-void gui::MainWidget::SetWidgetGeometry(const QRect& initial_position) {
+void MainWidget::SetWidgetGeometry(const QRect& initial_position) {
   *main_widget_position_ = initial_position;
 }
 
-void gui::MainWidget::FullScreenSizeCondition(bool screen_condition) {
+void MainWidget::FullScreenSizeCondition(bool screen_condition) {
   is_full_screen_ = screen_condition;
 }

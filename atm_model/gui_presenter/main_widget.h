@@ -6,8 +6,6 @@
 class AtmMainWidget;
 class QRect;
 
-namespace gui {
-
 class MainWidget : public QObject {
   Q_OBJECT
  public:
@@ -25,6 +23,5 @@ class MainWidget : public QObject {
 
   bool is_full_screen_ = false;
 };
-}
 
 #endif  // MAIN_WIDGET_H

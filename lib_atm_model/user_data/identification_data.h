@@ -5,21 +5,17 @@
 
 class IdentificationData {
  public:
+  IdentificationData();
+
   void SetLogin(const std::string& login);
   void SetPassword(const std::string& password);
 
   std::string Login() const;
   std::string Password() const;
 
-  bool IsNormalLogin() const;
-  bool IsNormalPass() const;
-
  private:
-  static const int kMaxLenghtOfLogin = 21;
-  static const int kMaxLenghtOfPassword = 4;
-
-  std::string login_ = "no_name";
-  std::string password_ = "0000";
+  std::string login_;
+  std::string password_;
 };
 
 #endif  // IDENTIFICATION_DATA_H
