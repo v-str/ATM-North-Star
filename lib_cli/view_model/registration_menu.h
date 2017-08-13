@@ -4,6 +4,8 @@
 class RegistrationMenu {
  public:
   RegistrationMenu();
+
+  void RunRegistrationMenu();
 };
 
 #endif  // REGISTRATION_MENU_H

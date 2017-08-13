@@ -11,7 +11,7 @@ void CLIPresenter::RunApplication() {
 
 void CLIPresenter::RunSubMenu(int sub_menu) {
   if (sub_menu == ConsoleViewer::kLoginMenu) {
-    // console_viewer_->RunLoginMenu();
+    console_viewer_->RunLoginMenu();
   }
   if (sub_menu == ConsoleViewer::kRegistrationMenu) {
     // console_viewer_->RunRegistrationMenu();

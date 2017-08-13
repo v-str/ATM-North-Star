@@ -3,16 +3,33 @@
 #include <iostream>
 
 #include <initial_messenger.h>
+#include <login_menu.h>
 #include <menu_input_handler.h>
 
-ConsoleViewer::ConsoleViewer() : input_handler_(new MenuInputHandler) {}
+ConsoleViewer::ConsoleViewer()
+    : input_handler_(new MenuInputHandler), login_menu_(new LoginMenu) {}
 
-ConsoleViewer::~ConsoleViewer() { delete input_handler_; }
+ConsoleViewer::~ConsoleViewer() {
+  delete input_handler_;
+  delete login_menu_;
+  //  delete registration_menu_;
+  //  delete demo_menu_;
+}
 
 void ConsoleViewer::RunView() {
   DisplaySplashScreen();
   DisplayInitialMenu();
   RunSubMenu();
+}
+
+void ConsoleViewer::RunLoginMenu() { login_menu_->RunLoginMenu(); }
+
+void ConsoleViewer::RunRegistrationMenu() {}
+
+void ConsoleViewer::RunDemoMenu() {}
+
+void ConsoleViewer::DisplayFarewellMessage() {
+  InitialMessenger::FarewellMessage();
 }
 
 int ConsoleViewer::GetSubMenu() const { return sub_menu_input_; }
