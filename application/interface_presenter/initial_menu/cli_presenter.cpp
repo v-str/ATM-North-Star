@@ -2,11 +2,14 @@
 
 #include <initial_messenger.h>
 
+CLIPresenter::CLIPresenter() {
+  console_viewer_ = std::unique_ptr<ConsoleViewer>(new ConsoleViewer);
+}
+
 void CLIPresenter::RunApplication() {
-  InitialMessenger::DisplaySplashScreen();
+  console_viewer_->DisplaySplashScreen();
   InitialMessenger::DisplayInitialMenu();
   RunApplicationLoop();
-  // console_viewer.DisplaySplashScreen();
 }
 
 int CLIPresenter::UserChoice() const { return user_choice_; }
