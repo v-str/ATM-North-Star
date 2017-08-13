@@ -8,6 +8,7 @@ QMAKE_CXX = ccache clang++
 
 INCLUDEPATH += \
     $$PWD/incoming_data_processing \
+    $$PWD/interface_presenter \
     $$PWD/credit_department \
     $$PWD/atm_operations \
     $$PWD/interaction \
@@ -15,6 +16,7 @@ INCLUDEPATH += \
 
 HEADERS += \
     $$PWD/incoming_data_processing/*.h \
+    $$PWD/interface_presenter/*.h \
     $$PWD/credit_department/*.h \
     $$PWD/atm_operations/*.h \
     $$PWD/interaction/*.h \
@@ -22,6 +24,7 @@ HEADERS += \
 
 SOURCES += \
     $$PWD/incoming_data_processing/*.cpp \
+    $$PWD/interface_presenter/*.cpp \
     $$PWD/credit_department/*.cpp \
     $$PWD/atm_operations/*.cpp \
     $$PWD/interaction/*.cpp \
