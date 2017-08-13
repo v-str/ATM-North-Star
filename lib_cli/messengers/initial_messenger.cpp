@@ -2,10 +2,7 @@
 
 #include <console_editor.h>
 
-void InitialMessenger::DisplayInitialScreen() {
-  DisplayLogotype();
-  DisplayInitialMenu();
-}
+void InitialMessenger::DisplaySplashScreen() { DisplayLogotype(); }
 
 void InitialMessenger::DisplayLogotype() {
   ConsoleEditor::ClearScreen();

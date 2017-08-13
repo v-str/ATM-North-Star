@@ -3,8 +3,10 @@
 #include <initial_messenger.h>
 
 void CLIPresenter::RunApplication() {
-  InitialMessenger::DisplayInitialScreen();
+  InitialMessenger::DisplaySplashScreen();
+  InitialMessenger::DisplayInitialMenu();
   RunApplicationLoop();
+  // console_viewer.DisplaySplashScreen();
 }
 
 int CLIPresenter::UserChoice() const { return user_choice_; }

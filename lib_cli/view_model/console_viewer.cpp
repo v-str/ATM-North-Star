@@ -1,3 +1,7 @@
 ﻿#include <console_viewer.h>
 
-ConsoleViewer::ConsoleViewer() {}
+#include <initial_messenger.h>
+
+void ConsoleViewer::DisplaySplashScreen() const {
+  InitialMessenger::DisplaySplashScreen();
+}

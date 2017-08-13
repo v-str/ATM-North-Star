@@ -3,7 +3,7 @@
 
 class InitialMessenger {
  public:
-  static void DisplayInitialScreen();
+  static void DisplaySplashScreen();
   static void DisplayInitialMenu();
   static void DisplayLogotype();
   static void ShowIncorrectMenuInput();

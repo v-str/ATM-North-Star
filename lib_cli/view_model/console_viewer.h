@@ -3,7 +3,7 @@
 
 class ConsoleViewer {
  public:
-  ConsoleViewer();
+  void DisplaySplashScreen() const;
 };
 
 #endif  // CONSOLE_VIEWER_H
