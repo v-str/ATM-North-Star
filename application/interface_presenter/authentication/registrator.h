@@ -12,7 +12,7 @@ class Registrator {
   void RunRegistrationMenu();
 
  private:
-  enum RegistrationMenuPoints { kSymbolQuit, kStartRegistration, kDigitQuit };
+  enum MenuItems { kSymbolQuit, kStartRegistration, kDigitQuit };
 
   void ConfirmRegistration();
   void RunRegistrationProcedure();
@@ -24,7 +24,7 @@ class Registrator {
 
   UserInputHandler user_input_;
   MenuInputHandler menu_input_;
-  LogonHandler authenticaton_handler_;
+  LogonHandler logon_handler_;
 
   std::string login_ = "user";
   std::string password_ = "password";

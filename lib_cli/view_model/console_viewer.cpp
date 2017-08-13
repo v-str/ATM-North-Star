@@ -27,7 +27,9 @@ void ConsoleViewer::RunView() {
 
 void ConsoleViewer::RunLoginMenu() { login_menu_->RunLoginMenu(); }
 
-void ConsoleViewer::RunRegistrationMenu() {}
+void ConsoleViewer::RunRegistrationMenu() {
+  //  registration_menu_->RunRegistrationMenu();
+}
 
 void ConsoleViewer::RunDemoMenu() { demo_menu_->RunDemoMenu(); }
 

@@ -23,17 +23,17 @@ void Registrator::ConfirmRegistration() {
       LogonMessenger::FarewellMessage();
       user_want_to_registrate = false;
       break;
+    } else {
+      RegistrationMessenger::ShowIncorrectRegistrationConfirmation();
     }
-
-    RegistrationMessenger::ShowIncorrectRegistrationConfirmation();
   }
 }
 
 void Registrator::RunRegistrationProcedure() {
   for (;;) {
     GetRegistratoinDataFromUser();
-    authenticaton_handler_.HandleLogonData(login_, password_);
-    if (authenticaton_handler_.IsAuthenticationOk()) {
+    logon_handler_.HandleLogonData(login_, password_);
+    if (logon_handler_.IsAuthenticationOk()) {
       // Initialize user data in ATM
       // Run transaction menu
       break;
