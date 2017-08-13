@@ -4,6 +4,8 @@
 class LoginMenu {
  public:
   LoginMenu();
+
+  void RunLoginMenu();
 };
 
 #endif  // LOGIN_MENU_H
