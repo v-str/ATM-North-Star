@@ -17,9 +17,9 @@ void ConsoleViewer::RunView() {
 
 void ConsoleViewer::RunSubMenu() {
   for (;;) {
-    user_input_ = input_handler_->GetDigitInputFromUser();
+    sub_menu_input_ = input_handler_->GetDigitInputFromUser();
 
-    if (IsInputAcceptable()) {
+    if (IsInputContainSubMenu()) {
       break;
     } else {
       InitialMessenger::ShowIncorrectMenuInput();
@@ -35,17 +35,17 @@ void ConsoleViewer::DisplayInitialMenu() const {
   InitialMessenger::DisplayInitialMenu();
 }
 
-bool ConsoleViewer::IsInputAcceptable() {
-  if (user_input_ == kLoginMenu) {
+bool ConsoleViewer::IsInputContainSubMenu() {
+  if (sub_menu_input_ == kLoginMenu) {
     return true;
   }
-  if (user_input_ == kRegistrationMenu) {
+  if (sub_menu_input_ == kRegistrationMenu) {
     return true;
   }
-  if (user_input_ == kDemoMenu) {
+  if (sub_menu_input_ == kDemoMenu) {
     return true;
   }
-  if (user_input_ == kExit) {
+  if (sub_menu_input_ == kExit) {
     return true;
   }
   return false;

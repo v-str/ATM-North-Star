@@ -18,11 +18,11 @@ class ConsoleViewer {
   void DisplaySplashScreen() const;
   void DisplayInitialMenu() const;
 
-  bool IsInputAcceptable();
+  bool IsInputContainSubMenu();
 
   MenuInputHandler* input_handler_ = nullptr;
 
-  int user_input_ = 0;
+  int sub_menu_input_ = 0;
 };
 
 #endif  // CONSOLE_VIEWER_H
