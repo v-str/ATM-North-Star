@@ -15,6 +15,8 @@ void ConsoleViewer::RunView() {
   RunSubMenu();
 }
 
+int ConsoleViewer::GetSubMenu() const { return sub_menu_input_; }
+
 void ConsoleViewer::RunSubMenu() {
   for (;;) {
     sub_menu_input_ = input_handler_->GetDigitInputFromUser();

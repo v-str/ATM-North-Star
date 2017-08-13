@@ -12,6 +12,8 @@ class ConsoleViewer {
 
   void RunView();
 
+  int GetSubMenu() const;
+
  private:
   void RunSubMenu();
 

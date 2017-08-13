@@ -50,7 +50,7 @@ void InitialMessenger::DisplayInitialMenu() {
 }
 void InitialMessenger::ShowIncorrectMenuInput() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t Incorrect input, please repeat: ", 15);
+      "\t Incorrect input, please repeat: ", 15);
 }
 
 void InitialMessenger::FarewellMessage() {

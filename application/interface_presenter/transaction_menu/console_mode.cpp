@@ -20,8 +20,8 @@ void ConsoleMode::RunATM() {
 }
 
 void ConsoleMode::RunProgram() {
-  int user_choice = initial_menu_.UserChoice();
-  RunSectionBasedOn(user_choice);
+  //  int user_choice = initial_menu_.UserChoice();
+  //  RunSectionBasedOn(user_choice);
 
   if (IsCorrectRegistration()) {
     MainProgramMenu();
