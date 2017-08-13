@@ -11,7 +11,7 @@ DEPENDPATH += \
     ../lib_gui/widgets_arrangement/common/modificators/composite \
     ../lib_gui/widgets_arrangement/common/widgets_geometries \
     ../lib_gui/widgets_arrangement/splash_screen \
-    ../lib_atm_model/incoming_data_processing \
+    ../lib_atm_model/incoming_data_handling \
     ../lib_cli/output_configuration \
     ../lib_cli/user_input_handling \
     ../lib_gui/widgets_appearance \
@@ -27,7 +27,7 @@ INCLUDEPATH += \
     ../lib_gui/widgets_arrangement/common/modificators/composite \
     ../lib_gui/widgets_arrangement/common/widgets_geometries \
     ../lib_gui/widgets_arrangement/splash_screen \
-    ../lib_atm_model/incoming_data_processing \
+    ../lib_atm_model/incoming_data_handling \
     ../lib_cli/output_configuration \
     ../lib_cli/user_input_handling \
     ../lib_gui/widgets_appearance \
