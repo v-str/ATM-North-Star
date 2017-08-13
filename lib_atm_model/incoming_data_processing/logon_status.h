@@ -1,8 +1,8 @@
-﻿#ifndef AUTHENTIFICATION_STATUS_H
-#define AUTHENTIFICATION_STATUS_H
+﻿#ifndef LOGON_STATUS_H
+#define LOGON_STATUS_H
 
 namespace ATM {
-enum AuthenticationStatus {
+enum LogonStatus {
   kCorrectLogin,
   kShortLogin,
   kLongLogin,
@@ -19,4 +19,4 @@ enum AuthenticationStatus {
 };
 }
 
-#endif  // AUTHENTIFICATION_STATUS_H
+#endif  // LOGON_STATUS_H

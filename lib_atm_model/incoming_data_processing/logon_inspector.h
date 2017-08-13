@@ -1,15 +1,15 @@
-﻿#ifndef AUTHENTICATOR_H
-#define AUTHENTICATOR_H
+﻿#ifndef LOGON_INSPECTOR_H
+#define LOGON_INSPECTOR_H
 
 #include <string>
 
-#include <authentication_status.h>
+#include <logon_status.h>
 #include <string_analyzer.h>
 
-class Authenticator {
+class LogonInspector {
  public:
-  ATM::AuthenticationStatus InspectLoginString(const std::string& login);
-  ATM::AuthenticationStatus InspectPasswordString(const std::string& password);
+  ATM::LogonStatus InspectLoginString(const std::string& login);
+  ATM::LogonStatus InspectPasswordString(const std::string& password);
 
  private:
   bool IsLoginShort(int login_length) const;
@@ -29,4 +29,4 @@ class Authenticator {
   StringAnalyzer string_analyzer_;
 };
 
-#endif  // AUTHENTICATOR_H
+#endif  // LOGON_INSPECTOR_H

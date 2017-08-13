@@ -17,35 +17,35 @@ void LogonHandler::HandleLoginString(const std::string& login) {
   LogonMessenger::ClearScreen();
   login_status_ = authenticator_.InspectLoginString(login);
   switch (login_status_) {
-    case ATM::AuthenticationStatus::kCorrectLogin:
+    case ATM::LogonStatus::kCorrectLogin:
       LogonMessenger::CorrectLoginMessage();
       is_login_ok_ = true;
       break;
-    case ATM::AuthenticationStatus::kShortLogin:
+    case ATM::LogonStatus::kShortLogin:
       LogonMessenger::LoginLengthStatus(LogonMessenger::kShortLoginLength);
       break;
-    case ATM::AuthenticationStatus::kLongLogin:
+    case ATM::LogonStatus::kLongLogin:
       LogonMessenger::LoginLengthStatus(LogonMessenger::kLongLoginLength);
       break;
-    case ATM::AuthenticationStatus::kSpecialSymbols:
+    case ATM::LogonStatus::kSpecialSymbols:
       LogonMessenger::LoginContainSpecialSymbol();
       break;
-    case ATM::AuthenticationStatus::kBeginWithSpace:
+    case ATM::LogonStatus::kBeginWithSpace:
       LogonMessenger::LoginContainIncorrectSpacePosition(
           LogonMessenger::ContainSpaceSymbol::kBeginWithSpace);
       break;
-    case ATM::AuthenticationStatus::kEndWithSpace:
+    case ATM::LogonStatus::kEndWithSpace:
       LogonMessenger::LoginContainIncorrectSpacePosition(
           LogonMessenger::ContainSpaceSymbol::kEndWithSpace);
       break;
-    case ATM::AuthenticationStatus::kAdjacentSpaces:
+    case ATM::LogonStatus::kAdjacentSpaces:
       LogonMessenger::LoginContainIncorrectSpacePosition(
           LogonMessenger::ContainSpaceSymbol::kAdjecentSpaces);
       break;
-    case ATM::AuthenticationStatus::kContainOnlyDigits:
+    case ATM::LogonStatus::kContainOnlyDigits:
       LogonMessenger::LoginContainOnlyDigits();
       break;
-    case ATM::AuthenticationStatus::kEmptyString:
+    case ATM::LogonStatus::kEmptyString:
       LogonMessenger::LoginEmpty();
       break;
     default:
@@ -56,17 +56,17 @@ void LogonHandler::HandleLoginString(const std::string& login) {
 void LogonHandler::HandlePasswordString(const std::string& password) {
   password_status_ = authenticator_.InspectPasswordString(password);
   switch (password_status_) {
-    case ATM::AuthenticationStatus::kCorrectPassword:
+    case ATM::LogonStatus::kCorrectPassword:
       LogonMessenger::CorrectPasswordMessage();
       is_password_ok_ = true;
       break;
-    case ATM::AuthenticationStatus::kShortPassword:
+    case ATM::LogonStatus::kShortPassword:
       LogonMessenger::PasswordLength(LogonMessenger::kShortPasswordLength);
       break;
-    case ATM::AuthenticationStatus::kLongPassword:
+    case ATM::LogonStatus::kLongPassword:
       LogonMessenger::PasswordLength(LogonMessenger::kLongPasswordLength);
       break;
-    case ATM::AuthenticationStatus::kContainSpaceSymbol:
+    case ATM::LogonStatus::kContainSpaceSymbol:
       LogonMessenger::PasswordContainSpaceSymbol();
       break;
     case ATM::kEmptyString:

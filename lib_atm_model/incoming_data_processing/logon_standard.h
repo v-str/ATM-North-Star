@@ -1,7 +1,7 @@
-﻿#ifndef AUTHENTIFICATION_STANDARD_H
-#define AUTHENTIFICATION_STANDARD_H
+﻿#ifndef LOGON_STANDARD_H
+#define LOGON_STANDARD_H
 
-class AuthenticationStandard {
+class LogonStandard {
  public:
   static int MinLoginLength();
   static int MaxLoginLength();
@@ -13,4 +13,4 @@ class AuthenticationStandard {
   static constexpr int k_password_length_ = 6;
 };
 
-#endif  // AUTHENTIFICATION_STANDARD_H
+#endif  // LOGON_STANDARD_H
