@@ -19,6 +19,7 @@ DEPENDPATH += \
     ../lib_gui/features/service \
     ../lib_gui/atm_widgets \
     ../lib_atm_model/interaction \
+    ../lib_cli/view_model \
     ../lib_cli/messengers \
 
 INCLUDEPATH += \
@@ -34,6 +35,7 @@ INCLUDEPATH += \
     ../lib_gui/features/service \
     ../lib_atm_model/interaction \
     ../lib_gui/atm_widgets \
+    ../lib_cli/view_model \
     ../lib_cli/messengers \
     ../lib_gui/features \
     $$PWD/interface_presenter/transaction_menu \
