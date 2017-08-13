@@ -6,17 +6,17 @@
 void Registrator::RunRegistrationMenu() {
   RegistrationMessenger::ShowRegistrationLogo();
   RegistrationMessenger::ShowRegistrationReference();
-  ConfirmRegistration();
+  HandleUserInput();
   if (user_want_to_registrate) {
     RunRegistrationProcedure();
   }
 }
 
-void Registrator::ConfirmRegistration() {
+void Registrator::HandleUserInput() {
   for (;;) {
     int user_choice = menu_input_.GetDigitInputFromUser();
 
-    if (user_choice == kStartRegistration) {
+    if (user_choice == kRegistration) {
       user_want_to_registrate = true;
       break;
     } else if (user_choice == kSymbolQuit || user_choice == kDigitQuit) {
@@ -39,7 +39,7 @@ void Registrator::RunRegistrationProcedure() {
       break;
     } else {
       LogonMessenger::SuggestReenterAuthenticationData();
-      ConfirmRegistration();
+      HandleUserInput();
       if (!user_want_to_registrate) {
         break;
       }
