@@ -2,18 +2,21 @@
 
 #include <iostream>
 
+#include <demo_menu.h>
 #include <initial_messenger.h>
 #include <login_menu.h>
 #include <menu_input_handler.h>
 
 ConsoleViewer::ConsoleViewer()
-    : input_handler_(new MenuInputHandler), login_menu_(new LoginMenu) {}
+    : input_handler_(new MenuInputHandler),
+      login_menu_(new LoginMenu),
+      demo_menu_(new DemoMenu) {}
 
 ConsoleViewer::~ConsoleViewer() {
   delete input_handler_;
   delete login_menu_;
   //  delete registration_menu_;
-  //  delete demo_menu_;
+  delete demo_menu_;
 }
 
 void ConsoleViewer::RunView() {
@@ -26,7 +29,7 @@ void ConsoleViewer::RunLoginMenu() { login_menu_->RunLoginMenu(); }
 
 void ConsoleViewer::RunRegistrationMenu() {}
 
-void ConsoleViewer::RunDemoMenu() {}
+void ConsoleViewer::RunDemoMenu() { demo_menu_->RunDemoMenu(); }
 
 void ConsoleViewer::DisplayFarewellMessage() {
   InitialMessenger::FarewellMessage();

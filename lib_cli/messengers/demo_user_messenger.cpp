@@ -73,7 +73,7 @@ void DemoUserMessenger::ShowDemoAccountInfoMessage() {
   ConsoleEditor::WriteTextWithInterrupt(
       "--------------------------------------------\n# Login: Mr. Anderson\n",
       kSleep);
-  ConsoleEditor::WriteTextWithInterrupt("# Password: 7623\n", kSleep);
+  ConsoleEditor::WriteTextWithInterrupt("# Password: Correct\n", kSleep);
   ConsoleEditor::WriteTextWithInterrupt("# Credit $: 20000\n", kSleep);
   ConsoleEditor::WriteTextWithInterrupt("# Monthly payment $: 2280\n", kSleep);
   ConsoleEditor::WriteTextWithInterrupt(
