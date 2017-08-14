@@ -1,4 +1,4 @@
-﻿#include <initial_menu.h>
+﻿#include <graphical_initial_menu.h>
 
 #include <QList>
 #include <QSizePolicy>
@@ -11,7 +11,7 @@
 #include <initial_frame_geometry.h>
 #include <side.h>
 
-InitialMenu::InitialMenu(QWidget* parent)
+GraphicalInitialMenu::GraphicalInitialMenu(QWidget* parent)
     : BaseAtmFrame(parent, BaseAtmFrame::kBackButtonDeactivated),
       button_frame_(new QFrame(this)),
       login_button_(new AtmButton("Login", button_frame_)),
@@ -28,42 +28,42 @@ InitialMenu::InitialMenu(QWidget* parent)
   SetConnections();
 }
 
-InitialMenu::~InitialMenu() {}
+GraphicalInitialMenu::~GraphicalInitialMenu() {}
 
-void InitialMenu::SetDeltaSize(const DeltaSize& delta_size) {
+void GraphicalInitialMenu::SetDeltaSize(const DeltaSize& delta_size) {
   BaseAtmFrame::SetDeltaSize(delta_size);
   delta_size_ = delta_size;
 }
 
-void InitialMenu::ProcessDemoButtonClick() {
+void GraphicalInitialMenu::ProcessDemoButtonClick() {
   emit PassGeometryForHide(geometry());
   emit DemoButtonClicked();
 }
 
-void InitialMenu::ProcessRegistraionButtonClick() {
+void GraphicalInitialMenu::ProcessRegistraionButtonClick() {
   emit PassGeometryForHide(geometry());
   emit RegistrationButtonClicked();
 }
 
-void InitialMenu::ProcessLoginButtonClick() {
+void GraphicalInitialMenu::ProcessLoginButtonClick() {
   emit PassGeometryForHide(geometry());
   emit LoginButtonClicked();
 }
 
-void InitialMenu::PaintWidgets() {
+void GraphicalInitialMenu::PaintWidgets() {
   QList<QPushButton*> button_list{login_button_, registration_button_,
                                   description_button_};
 
   ColorizeButtons(button_list);
 }
 
-void InitialMenu::SetButtonGeometry() {
+void GraphicalInitialMenu::SetButtonGeometry() {
   login_button_->setGeometry(InitialFrameGeometry::SignInButton());
   registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
   description_button_->setGeometry(InitialFrameGeometry::DemoButton());
 }
 
-void InitialMenu::SetButtonFrameScalingProperties() {
+void GraphicalInitialMenu::SetButtonFrameScalingProperties() {
   composer_.SetShiftFactor(kXFactor, kYFactor);
   composer_.SetShiftSide(Side::kRight | Side::kDown);
   composer_.SetStretchFactor(kXFactor, kYFactor);
@@ -72,7 +72,7 @@ void InitialMenu::SetButtonFrameScalingProperties() {
   composer_.KeepCenter(true);
 }
 
-void InitialMenu::SetButtonFrame() {
+void GraphicalInitialMenu::SetButtonFrame() {
   button_frame_->setGeometry(InitialFrameGeometry::ButtonFrame());
 
   button_frame_->setStyleSheet(
@@ -86,7 +86,7 @@ void InitialMenu::SetButtonFrame() {
   button_frame_->setLayout(v_layout_);
 }
 
-void InitialMenu::SetConnections() {
+void GraphicalInitialMenu::SetConnections() {
   connect(description_button_, SIGNAL(clicked(bool)),
           SLOT(ProcessDemoButtonClick()));
   connect(registration_button_, SIGNAL(clicked(bool)),
@@ -95,7 +95,7 @@ void InitialMenu::SetConnections() {
           SLOT(ProcessLoginButtonClick()));
 }
 
-void InitialMenu::resizeEvent(QResizeEvent*) {
+void GraphicalInitialMenu::resizeEvent(QResizeEvent*) {
   BaseAtmFrame::SetDeltaSize(delta_size_);
   SetButtonFrameScalingProperties();
 

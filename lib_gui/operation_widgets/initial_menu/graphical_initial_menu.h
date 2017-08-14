@@ -1,5 +1,5 @@
-﻿#ifndef INITIAL_MENU_H
-#define INITIAL_MENU_H
+﻿#ifndef GRAPHICAL_INITIAL_MENU_H
+#define GRAPHICAL_INITIAL_MENU_H
 
 #include <base_atm_frame.h>
 
@@ -14,11 +14,11 @@ class QWidget;
 class QPushButton;
 class AtmButton;
 
-class InitialMenu : public BaseAtmFrame {
+class GraphicalInitialMenu : public BaseAtmFrame {
   Q_OBJECT
  public:
-  explicit InitialMenu(QWidget* parent = nullptr);
-  ~InitialMenu();
+  explicit GraphicalInitialMenu(QWidget* parent = nullptr);
+  ~GraphicalInitialMenu();
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
@@ -58,4 +58,4 @@ class InitialMenu : public BaseAtmFrame {
   static const int kHalfASecond = 500;
 };
 
-#endif  // INITIAL_MENU_H
+#endif  // GRAPHICAL_INITIAL_MENU_H
