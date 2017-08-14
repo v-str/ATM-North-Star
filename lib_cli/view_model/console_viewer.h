@@ -3,7 +3,7 @@
 
 class MenuInputHandler;
 class LoginMenu;
-class DemoMenu;
+class ConsoleDemoMenu;
 class RegistrationMenu;
 
 class ConsoleViewer {
@@ -33,7 +33,7 @@ class ConsoleViewer {
   MenuInputHandler* input_handler_ = nullptr;
   LoginMenu* login_menu_ = nullptr;
   RegistrationMenu* registration_menu_ = nullptr;
-  DemoMenu* demo_menu_ = nullptr;
+  ConsoleDemoMenu* demo_menu_ = nullptr;
 
   int sub_menu_input_ = 0;
 };
