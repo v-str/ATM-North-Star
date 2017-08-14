@@ -1,5 +1,5 @@
-﻿#ifndef REGISTRATION_MENU_H
-#define REGISTRATION_MENU_H
+﻿#ifndef GRAPHICAL_REGISTRATION_MENU_H
+#define GRAPHICAL_REGISTRATION_MENU_H
 
 #include <base_atm_frame.h>
 
@@ -9,11 +9,11 @@
 #include <geometry_composer.h>
 #include <widget_border_controller.h>
 
-class RegistrationMenu : public BaseAtmFrame {
+class GraphicalRegistrationMenu : public BaseAtmFrame {
   Q_OBJECT
  public:
-  explicit RegistrationMenu(QWidget* parent = nullptr);
-  ~RegistrationMenu();
+  explicit GraphicalRegistrationMenu(QWidget* parent = nullptr);
+  ~GraphicalRegistrationMenu();
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
@@ -28,4 +28,4 @@ class RegistrationMenu : public BaseAtmFrame {
   static const int kHalfASecond = 500;
 };
 
-#endif  // REGISTRATION_MENU_H
+#endif  // GRAPHICAL_REGISTRATION_MENU_H
