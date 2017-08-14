@@ -1,6 +1,6 @@
-﻿#include <console_demo_menu.h>
+﻿#include <console_description_menu.h>
 
-void ConsoleDemoMenu::RunDemoMenu() {
+void ConsoleDescriptionMenu::RunDemoMenu() {
   DiplayDemoMenuTitleOn();
   for (;;) {
     DisplayDemoSubMenu();
@@ -11,9 +11,9 @@ void ConsoleDemoMenu::RunDemoMenu() {
   }
 }
 
-void ConsoleDemoMenu::UserWantToExitProgram() { user_want_to_exit_ = true; }
+void ConsoleDescriptionMenu::UserWantToExitProgram() { user_want_to_exit_ = true; }
 
-void ConsoleDemoMenu::DisplayDemoSubMenu() {
+void ConsoleDescriptionMenu::DisplayDemoSubMenu() {
   int user_choice = user_input_.GetValueFromUser();
   if (user_choice == kAccount) {
     DisplaySubmenu(DemoUserMessenger::kAccountInfo);
@@ -37,27 +37,27 @@ void ConsoleDemoMenu::DisplayDemoSubMenu() {
   }
 }
 
-bool ConsoleDemoMenu::UserWantToRegistrate() const {
+bool ConsoleDescriptionMenu::UserWantToRegistrate() const {
   return user_want_to_registrate_;
 }
 
-bool ConsoleDemoMenu::UserWantToLogin() const { return user_want_to_login_; }
+bool ConsoleDescriptionMenu::UserWantToLogin() const { return user_want_to_login_; }
 
-void ConsoleDemoMenu::DisplaySubmenu(
+void ConsoleDescriptionMenu::DisplaySubmenu(
     DemoUserMessenger::MessageType message_type) {
   DemoUserMessenger::ShowMessage(message_type);
   SuggestToExit();
 }
 
-void ConsoleDemoMenu::LeadToRegistration() {
+void ConsoleDescriptionMenu::LeadToRegistration() {
   user_want_to_exit_ = user_want_to_registrate_ = true;
 }
 
-void ConsoleDemoMenu::LeadToLogin() {
+void ConsoleDescriptionMenu::LeadToLogin() {
   user_want_to_exit_ = user_want_to_login_ = true;
 }
 
-void ConsoleDemoMenu::SuggestToExit() {
+void ConsoleDescriptionMenu::SuggestToExit() {
   DemoUserMessenger::SuggestExit();
   for (;;) {
     int result_of_exit = 0;
@@ -75,11 +75,11 @@ void ConsoleDemoMenu::SuggestToExit() {
   }
 }
 
-void ConsoleDemoMenu::DiplayDemoMenuTitleOn() {
+void ConsoleDescriptionMenu::DiplayDemoMenuTitleOn() {
   DemoUserMessenger::ShowMessage(DemoUserMessenger::kWelcome);
   DemoUserMessenger::ShowDemoMenu(DemoUserMessenger::kNoClearScreen);
 }
 
-void ConsoleDemoMenu::DiplayDemoMenuTitleOff() {
+void ConsoleDescriptionMenu::DiplayDemoMenuTitleOff() {
   DemoUserMessenger::ShowDemoMenu(DemoUserMessenger::kCLearScreen);
 }

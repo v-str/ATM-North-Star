@@ -1,10 +1,10 @@
-﻿#ifndef CONSOLE_DEMO_MENU_H
-#define CONSOLE_DEMO_MENU_H
+﻿#ifndef CONSOLE_DESCRIPTION_MENU_H
+#define CONSOLE_DESCRIPTION_MENU_H
 
 #include <demo_user_messenger.h>
 #include <user_input.h>
 
-class ConsoleDemoMenu {
+class ConsoleDescriptionMenu {
  public:
   void RunDemoMenu();
   void UserWantToExitProgram();
@@ -43,4 +43,4 @@ class ConsoleDemoMenu {
   UserInput user_input_;
 };
 
-#endif  // CONSOLE_DEMO_MENU_H
+#endif  // CONSOLE_DESCRIPTION_MENU_H
