@@ -1,4 +1,4 @@
-﻿#include <login_menu.h>
+﻿#include <graphical_login_menu.h>
 
 #include <QList>
 #include <QResizeEvent>
@@ -8,20 +8,20 @@
 #include <login_menu_geometry.h>
 #include <side.h>
 
-LoginMenu::LoginMenu(QWidget* parent) : BaseAtmFrame(parent) {
+GraphicalLoginMenu::GraphicalLoginMenu(QWidget* parent) : BaseAtmFrame(parent) {
   SetInitialFrameGeometry(LoginMenuGeometry::LoginFrame());
   SetInitialBackButtonGeometry(LoginMenuGeometry::BackButton());
   SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
 }
 
-LoginMenu::~LoginMenu() {}
+GraphicalLoginMenu::~GraphicalLoginMenu() {}
 
-void LoginMenu::SetDeltaSize(const DeltaSize& delta_size) {
+void GraphicalLoginMenu::SetDeltaSize(const DeltaSize& delta_size) {
   BaseAtmFrame::SetDeltaSize(delta_size);
   delta_size_ = delta_size;
 }
 
-void LoginMenu::resizeEvent(QResizeEvent*) {
+void GraphicalLoginMenu::resizeEvent(QResizeEvent*) {
   BaseAtmFrame::SetDeltaSize(delta_size_);
   ScaleBackButton();
 }

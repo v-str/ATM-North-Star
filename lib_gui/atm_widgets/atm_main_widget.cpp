@@ -14,9 +14,9 @@
 #include <geometry.h>
 #include <graphical_description_menu.h>
 #include <graphical_initial_menu.h>
+#include <graphical_login_menu.h>
 #include <initial_frame_geometry.h>
 #include <initial_property_installer.h>
-#include <login_menu.h>
 #include <main_widget_geometry.h>
 #include <painter.h>
 #include <registration_menu.h>
@@ -144,7 +144,7 @@ void AtmMainWidget::InitializeObject() {
   initial_menu_ = new GraphicalInitialMenu(ui->main_frame);
   description_menu_ = new GraphicalDescriptionMenu(ui->main_frame);
   registration_menu_ = new RegistrationMenu(ui->main_frame);
-  login_menu_ = new LoginMenu(ui->main_frame);
+  login_menu_ = new GraphicalLoginMenu(ui->main_frame);
 }
 
 void AtmMainWidget::ComputeExtraSize() {

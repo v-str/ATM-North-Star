@@ -13,7 +13,7 @@ class QTimer;
 class GraphicalInitialMenu;
 class GraphicalDescriptionMenu;
 class RegistrationMenu;
-class LoginMenu;
+class GraphicalLoginMenu;
 
 namespace Ui {
 class AtmMainWidget;
@@ -53,7 +53,7 @@ class AtmMainWidget : public QMainWindow {
   GraphicalInitialMenu* initial_menu_ = nullptr;
   GraphicalDescriptionMenu* description_menu_ = nullptr;
   RegistrationMenu* registration_menu_ = nullptr;
-  LoginMenu* login_menu_ = nullptr;
+  GraphicalLoginMenu* login_menu_ = nullptr;
 
   AtmColorDesigner color_designer_;
   GeometryComposer composer_;

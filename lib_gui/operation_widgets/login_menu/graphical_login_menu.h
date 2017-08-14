@@ -1,5 +1,5 @@
-﻿#ifndef LOGIN_MENU_H
-#define LOGIN_MENU_H
+﻿#ifndef GRAPHICAL_LOGIN_MENU_H
+#define GRAPHICAL_LOGIN_MENU_H
 
 #include <base_atm_frame.h>
 
@@ -9,11 +9,11 @@
 #include <geometry_composer.h>
 #include <widget_border_controller.h>
 
-class LoginMenu : public BaseAtmFrame {
+class GraphicalLoginMenu : public BaseAtmFrame {
   Q_OBJECT
  public:
-  explicit LoginMenu(QWidget* parent = nullptr);
-  ~LoginMenu();
+  explicit GraphicalLoginMenu(QWidget* parent = nullptr);
+  ~GraphicalLoginMenu();
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
@@ -28,4 +28,4 @@ class LoginMenu : public BaseAtmFrame {
   static const int kHalfASecond = 500;
 };
 
-#endif  // LOGIN_MENU_H
+#endif  // GRAPHICAL_LOGIN_MENU_H
