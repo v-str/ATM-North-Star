@@ -3,7 +3,7 @@
 
 #include <memory>
 
-#include <console_viewer.h>
+#include <console_initial_menu.h>
 
 class CLIPresenter {
  public:
@@ -16,7 +16,7 @@ class CLIPresenter {
  private:
   void RunSubMenu(int sub_menu);
 
-  std::unique_ptr<ConsoleViewer> console_viewer_;
+  std::unique_ptr<ConsoleInitialMenu> initial_menu_;
 };
 
 #endif  // CLI_PRESENTER

@@ -1,4 +1,4 @@
-﻿#include <console_viewer.h>
+﻿#include <console_initial_menu.h>
 
 #include <iostream>
 
@@ -7,39 +7,39 @@
 #include <initial_messenger.h>
 #include <menu_input_handler.h>
 
-ConsoleViewer::ConsoleViewer()
+ConsoleInitialMenu::ConsoleInitialMenu()
     : input_handler_(new MenuInputHandler),
       login_menu_(new ConsoleLoginMenu),
       description_menu_(new ConsoleDescriptionMenu) {}
 
-ConsoleViewer::~ConsoleViewer() {
+ConsoleInitialMenu::~ConsoleInitialMenu() {
   delete input_handler_;
   delete login_menu_;
   //  delete registration_menu_;
   delete description_menu_;
 }
 
-void ConsoleViewer::RunView() {
+void ConsoleInitialMenu::RunInitialMenu() {
   DisplaySplashScreen();
   DisplayInitialMenu();
   RunSubMenu();
 }
 
-void ConsoleViewer::RunLoginMenu() { login_menu_->RunLoginMenu(); }
+void ConsoleInitialMenu::RunLoginMenu() { login_menu_->RunLoginMenu(); }
 
-void ConsoleViewer::RunRegistrationMenu() {
+void ConsoleInitialMenu::RunRegistrationMenu() {
   //  registration_menu_->RunRegistrationMenu();
 }
 
-void ConsoleViewer::RunDescriptionMenu() { description_menu_->RunDemoMenu(); }
+void ConsoleInitialMenu::RunDescriptionMenu() { description_menu_->RunDemoMenu(); }
 
-void ConsoleViewer::DisplayFarewellMessage() {
+void ConsoleInitialMenu::DisplayFarewellMessage() {
   InitialMessenger::FarewellMessage();
 }
 
-int ConsoleViewer::GetSubMenu() const { return sub_menu_input_; }
+int ConsoleInitialMenu::GetSubMenu() const { return sub_menu_input_; }
 
-void ConsoleViewer::RunSubMenu() {
+void ConsoleInitialMenu::RunSubMenu() {
   for (;;) {
     sub_menu_input_ = input_handler_->GetDigitInputFromUser();
 
@@ -51,15 +51,15 @@ void ConsoleViewer::RunSubMenu() {
   }
 }
 
-void ConsoleViewer::DisplaySplashScreen() const {
+void ConsoleInitialMenu::DisplaySplashScreen() const {
   InitialMessenger::DisplaySplashScreen();
 }
 
-void ConsoleViewer::DisplayInitialMenu() const {
+void ConsoleInitialMenu::DisplayInitialMenu() const {
   InitialMessenger::DisplayInitialMenu();
 }
 
-bool ConsoleViewer::IsInputContainSubMenu() {
+bool ConsoleInitialMenu::IsInputContainSubMenu() {
   if (sub_menu_input_ == kLoginMenu) {
     return true;
   }

@@ -6,14 +6,14 @@ class ConsoleLoginMenu;
 class ConsoleDescriptionMenu;
 class ConsoleRegistrationMenu;
 
-class ConsoleViewer {
+class ConsoleInitialMenu {
  public:
   enum SubMenu { kExit, kLoginMenu, kRegistrationMenu, kDemoMenu };
 
-  ConsoleViewer();
-  ~ConsoleViewer();
+  ConsoleInitialMenu();
+  ~ConsoleInitialMenu();
 
-  void RunView();
+  void RunInitialMenu();
 
   void RunLoginMenu();
   void RunRegistrationMenu();

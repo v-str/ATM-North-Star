@@ -1,25 +1,25 @@
 ﻿#include <cli_presenter.h>
 
 CLIPresenter::CLIPresenter() {
-  console_viewer_ = std::unique_ptr<ConsoleViewer>(new ConsoleViewer);
+  initial_menu_ = std::unique_ptr<ConsoleInitialMenu>(new ConsoleInitialMenu);
 }
 
 void CLIPresenter::RunApplication() {
-  console_viewer_->RunView();
-  RunSubMenu(console_viewer_->GetSubMenu());
+  initial_menu_->RunInitialMenu();
+  RunSubMenu(initial_menu_->GetSubMenu());
 }
 
 void CLIPresenter::RunSubMenu(int sub_menu) {
-  if (sub_menu == ConsoleViewer::kLoginMenu) {
-    console_viewer_->RunLoginMenu();
+  if (sub_menu == ConsoleInitialMenu::kLoginMenu) {
+    initial_menu_->RunLoginMenu();
   }
-  if (sub_menu == ConsoleViewer::kRegistrationMenu) {
+  if (sub_menu == ConsoleInitialMenu::kRegistrationMenu) {
     // console_viewer_->RunRegistrationMenu();
   }
-  if (sub_menu == ConsoleViewer::kDemoMenu) {
-    console_viewer_->RunDescriptionMenu();
+  if (sub_menu == ConsoleInitialMenu::kDemoMenu) {
+    initial_menu_->RunDescriptionMenu();
   }
-  if (sub_menu == ConsoleViewer::kExit) {
-    console_viewer_->DisplayFarewellMessage();
+  if (sub_menu == ConsoleInitialMenu::kExit) {
+    initial_menu_->DisplayFarewellMessage();
   }
 }
