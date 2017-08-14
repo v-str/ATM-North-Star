@@ -3,13 +3,13 @@
 #include <iostream>
 
 #include <console_demo_menu.h>
+#include <console_login_menu.h>
 #include <initial_messenger.h>
-#include <login_menu.h>
 #include <menu_input_handler.h>
 
 ConsoleViewer::ConsoleViewer()
     : input_handler_(new MenuInputHandler),
-      login_menu_(new LoginMenu),
+      login_menu_(new ConsoleLoginMenu),
       demo_menu_(new ConsoleDemoMenu) {}
 
 ConsoleViewer::~ConsoleViewer() {

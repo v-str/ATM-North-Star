@@ -2,9 +2,9 @@
 #define CONSOLE_VIEWER_H
 
 class MenuInputHandler;
-class LoginMenu;
+class ConsoleLoginMenu;
 class ConsoleDemoMenu;
-class RegistrationMenu;
+class ConsoleRegistrationMenu;
 
 class ConsoleViewer {
  public:
@@ -31,8 +31,8 @@ class ConsoleViewer {
   bool IsInputContainSubMenu();
 
   MenuInputHandler* input_handler_ = nullptr;
-  LoginMenu* login_menu_ = nullptr;
-  RegistrationMenu* registration_menu_ = nullptr;
+  ConsoleLoginMenu* login_menu_ = nullptr;
+  ConsoleRegistrationMenu* registration_menu_ = nullptr;
   ConsoleDemoMenu* demo_menu_ = nullptr;
 
   int sub_menu_input_ = 0;
