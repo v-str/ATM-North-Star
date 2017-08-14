@@ -10,13 +10,13 @@
 ConsoleViewer::ConsoleViewer()
     : input_handler_(new MenuInputHandler),
       login_menu_(new ConsoleLoginMenu),
-      demo_menu_(new ConsoleDescriptionMenu) {}
+      description_menu_(new ConsoleDescriptionMenu) {}
 
 ConsoleViewer::~ConsoleViewer() {
   delete input_handler_;
   delete login_menu_;
   //  delete registration_menu_;
-  delete demo_menu_;
+  delete description_menu_;
 }
 
 void ConsoleViewer::RunView() {
@@ -31,7 +31,7 @@ void ConsoleViewer::RunRegistrationMenu() {
   //  registration_menu_->RunRegistrationMenu();
 }
 
-void ConsoleViewer::RunDemoMenu() { demo_menu_->RunDemoMenu(); }
+void ConsoleViewer::RunDescriptionMenu() { description_menu_->RunDemoMenu(); }
 
 void ConsoleViewer::DisplayFarewellMessage() {
   InitialMessenger::FarewellMessage();

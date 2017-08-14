@@ -17,9 +17,9 @@ void CLIPresenter::RunSubMenu(int sub_menu) {
     // console_viewer_->RunRegistrationMenu();
   }
   if (sub_menu == ConsoleViewer::kDemoMenu) {
-    console_viewer_->RunDemoMenu();
+    console_viewer_->RunDescriptionMenu();
   }
   if (sub_menu == ConsoleViewer::kExit) {
-    // console_viewer_->DisplayFarewellMessage();
+    console_viewer_->DisplayFarewellMessage();
   }
 }
