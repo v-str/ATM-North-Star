@@ -1,5 +1,5 @@
-﻿#ifndef DESCRIPTION_MENU_H
-#define DESCRIPTION_MENU_H
+﻿#ifndef GRAPHICAL_DESCRIPTION_MENU_H
+#define GRAPHICAL_DESCRIPTION_MENU_H
 
 #include <base_atm_frame.h>
 
@@ -13,11 +13,11 @@ class DescriptionFrame;
 class DescriptionLabel;
 class DescriptionTitle;
 
-class DescriptionMenu : public BaseAtmFrame {
+class GraphicalDescriptionMenu : public BaseAtmFrame {
   Q_OBJECT
  public:
-  explicit DescriptionMenu(QWidget* parent = nullptr);
-  ~DescriptionMenu();
+  explicit GraphicalDescriptionMenu(QWidget* parent = nullptr);
+  ~GraphicalDescriptionMenu();
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
@@ -44,4 +44,4 @@ class DescriptionMenu : public BaseAtmFrame {
   static constexpr int DescriptionYStretchFactor = 1.0;
 };
 
-#endif  // DESCRIPTION_MENU_H
+#endif  // GRAPHICAL_DESCRIPTION_MENU_H

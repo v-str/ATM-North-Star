@@ -10,9 +10,9 @@
 #include <QResizeEvent>
 #include <QTimer>
 
-#include <description_menu.h>
 #include <description_menu_geometry.h>
 #include <geometry.h>
+#include <graphical_description_menu.h>
 #include <initial_frame_geometry.h>
 #include <initial_menu.h>
 #include <initial_property_installer.h>
@@ -142,7 +142,7 @@ void AtmMainWidget::PaintWidgets() {
 void AtmMainWidget::InitializeObject() {
   time_timer_ = new QTimer(ui->time_label);
   initial_menu_ = new InitialMenu(ui->main_frame);
-  description_menu_ = new DescriptionMenu(ui->main_frame);
+  description_menu_ = new GraphicalDescriptionMenu(ui->main_frame);
   registration_menu_ = new RegistrationMenu(ui->main_frame);
   login_menu_ = new LoginMenu(ui->main_frame);
 }

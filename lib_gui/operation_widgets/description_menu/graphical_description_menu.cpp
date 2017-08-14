@@ -1,4 +1,4 @@
-﻿#include <description_menu.h>
+﻿#include <graphical_description_menu.h>
 
 #include <QFrame>
 #include <QList>
@@ -12,7 +12,7 @@
 #include <description_title.h>
 #include <side.h>
 
-DescriptionMenu::DescriptionMenu(QWidget* parent)
+GraphicalDescriptionMenu::GraphicalDescriptionMenu(QWidget* parent)
     : BaseAtmFrame(parent),
       description_label_(new DescriptionLabel(this)),
       description_frame_(new DescriptionFrame(this)),
@@ -27,14 +27,14 @@ DescriptionMenu::DescriptionMenu(QWidget* parent)
   SetConnections();
 }
 
-DescriptionMenu::~DescriptionMenu() {}
+GraphicalDescriptionMenu::~GraphicalDescriptionMenu() {}
 
-void DescriptionMenu::SetDeltaSize(const DeltaSize& delta_size) {
+void GraphicalDescriptionMenu::SetDeltaSize(const DeltaSize& delta_size) {
   BaseAtmFrame::SetDeltaSize(delta_size);
   delta_size_ = delta_size;
 }
 
-void DescriptionMenu::resizeEvent(QResizeEvent*) {
+void GraphicalDescriptionMenu::resizeEvent(QResizeEvent*) {
   ScaleBackButton();
   BaseAtmFrame::SetDeltaSize(delta_size_);
   composer_.SetDeltaSize(delta_size_);
@@ -44,7 +44,7 @@ void DescriptionMenu::resizeEvent(QResizeEvent*) {
   ComposeDescriptionTitle();
 }
 
-void DescriptionMenu::ComposeDescriptionFrame() {
+void GraphicalDescriptionMenu::ComposeDescriptionFrame() {
   composer_.SetTransformationType(GeometryComposer::kStretch);
   composer_.SetStretchFactor(0.5, 1.0);
   composer_.SetStretchSide(Side::kDown | Side::kRight);
@@ -52,7 +52,7 @@ void DescriptionMenu::ComposeDescriptionFrame() {
                             description_frame_);
 }
 
-void DescriptionMenu::ComposeDescriptionLabel() {
+void GraphicalDescriptionMenu::ComposeDescriptionLabel() {
   composer_.SetTransformationType(GeometryComposer::kScale);
   composer_.SetShiftFactor(0.5, 0.0);
   composer_.SetShiftSide(Side::kDown | Side::kRight);
@@ -62,7 +62,7 @@ void DescriptionMenu::ComposeDescriptionLabel() {
                             description_label_);
 }
 
-void DescriptionMenu::ComposeDescriptionTitle() {
+void GraphicalDescriptionMenu::ComposeDescriptionTitle() {
   composer_.SetTransformationType(GeometryComposer::kScale);
   composer_.SetShiftFactor(0.5, 0.0);
   composer_.SetShiftSide(Side::kRight);
@@ -72,7 +72,7 @@ void DescriptionMenu::ComposeDescriptionTitle() {
                             description_title_);
 }
 
-void DescriptionMenu::SetConnections() {
+void GraphicalDescriptionMenu::SetConnections() {
   connect(description_frame_, SIGNAL(AccountInfoButtonClicked()),
           description_label_, SLOT(ShowAccountInfo()));
   connect(description_frame_, SIGNAL(CashRefillButtonClicked()),
