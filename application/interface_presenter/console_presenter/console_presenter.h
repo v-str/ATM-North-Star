@@ -1,27 +1,16 @@
 ﻿#ifndef CONSOLE_INTERFACE_PRESENTER_H
 #define CONSOLE_INTERFACE_PRESENTER_H
 
-#include <console_description_menu.h>
-#include <console_initial_menu.h>
-#include <console_login_menu.h>
-#include <console_registration_menu.h>
+#include <console_viewer.h>
 
 class ConsolePresenter {
  public:
-  enum MenuPoints { kQuit, kDemo, kRegistration, kLogin };
+  enum MenuItem { kQuit, kDemo, kRegistration, kLogin };
 
   void RunApplication();
 
- protected:
-  void RunSubMenu(int sub_menu);
-
  private:
-  ConsoleInitialMenu initial_menu_;
-  ConsoleLoginMenu login_menu_;
-  ConsoleDescriptionMenu description_menu_;
-  ConsoleRegistrationMenu registration_menu_;
-
-  bool user_want_exit_ = false;
+  ConsoleViewer console_viewer_;
 };
 
 #endif  // CONSOLE_INTERFACE_PRESENTER_H
