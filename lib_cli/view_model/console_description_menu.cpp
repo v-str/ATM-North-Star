@@ -1,6 +1,6 @@
 ﻿#include <console_description_menu.h>
 
-void ConsoleDescriptionMenu::RunDemoMenu() {
+void ConsoleDescriptionMenu::RunDescriptionMenu() {
   DiplayDemoMenuTitleOn();
   for (;;) {
     DisplayDemoSubMenu();

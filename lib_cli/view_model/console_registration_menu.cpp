@@ -6,5 +6,5 @@ ConsoleRegistrationMenu::ConsoleRegistrationMenu() {}
 
 void ConsoleRegistrationMenu::RunRegistrationMenu() {
   system("clear");
-  std::cout << "Login menu is under construction\n";
+  std::cout << "Registration menu is under construction\n";
 }

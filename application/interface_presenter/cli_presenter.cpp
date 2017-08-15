@@ -11,13 +11,13 @@ void CLIPresenter::RunApplication() {
 
 void CLIPresenter::RunSubMenu(int sub_menu) {
   if (sub_menu == ConsoleInitialMenu::kLoginMenu) {
-    initial_menu_->RunLoginMenu();
+    login_menu_.RunLoginMenu();
   }
   if (sub_menu == ConsoleInitialMenu::kRegistrationMenu) {
-    // console_viewer_->RunRegistrationMenu();
+    registration_menu_.RunRegistrationMenu();
   }
   if (sub_menu == ConsoleInitialMenu::kDemoMenu) {
-    initial_menu_->RunDescriptionMenu();
+    description_menu_.RunDescriptionMenu();
   }
   if (sub_menu == ConsoleInitialMenu::kExit) {
     initial_menu_->DisplayFarewellMessage();

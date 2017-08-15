@@ -6,7 +6,7 @@
 
 class ConsoleDescriptionMenu {
  public:
-  void RunDemoMenu();
+  void RunDescriptionMenu();
   void UserWantToExitProgram();
   void DisplayDemoSubMenu();
 
