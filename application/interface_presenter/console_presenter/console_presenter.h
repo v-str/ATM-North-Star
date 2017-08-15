@@ -16,9 +16,10 @@ class ConsolePresenter {
 
   void RunApplication();
 
- private:
+ protected:
   void RunSubMenu(int sub_menu);
 
+ private:
   std::unique_ptr<ConsoleInitialMenu> initial_menu_;
 
   ConsoleLoginMenu login_menu_;

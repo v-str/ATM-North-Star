@@ -42,6 +42,7 @@ INCLUDEPATH += \
     $$PWD/atm_operations/credit_operations \ #deprecated code, should be removed
     $$PWD/interface_presenter/authentication \
     $$PWD/interface_presenter \
+    $$PWD/interface_presenter/console_presenter \
     $$PWD/application_launch \
     $$PWD/atm_operations \ #deprecated code, should be removed
     $$PWD/user_data \ #deprecated code, should be removed
@@ -51,6 +52,7 @@ HEADERS += \
     $$PWD/atm_operations/credit_operations/*.h \
     $$PWD/interface_presenter/authentication/*.h \
     $$PWD/interface_presenter/*.h \
+    $$PWD/interface_presenter/console_presenter/*.h \
     $$PWD/application_launch/*.h \
     $$PWD/atm_operations/*.h \
     $$PWD/user_data/*.h
@@ -60,6 +62,7 @@ SOURCES += \
     $$PWD/interface_presenter/transaction_menu/*.cpp \
     $$PWD/interface_presenter/authentication/*.cpp \
     $$PWD/interface_presenter/*.cpp \
+    $$PWD/interface_presenter/console_presenter/*.cpp \
     $$PWD/application_launch/*.cpp \
     $$PWD/atm_operations/*.cpp \
     $$PWD/user_data/*.cpp \
