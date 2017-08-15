@@ -7,11 +7,11 @@
 class ConsoleDescriptionMenu {
  public:
   void RunDescriptionMenu();
-  void UserWantToExitProgram();
   void DisplayDemoSubMenu();
 
   bool UserWantToRegistrate() const;
   bool UserWantToLogin() const;
+  bool UserWantToExitProgram() const;
 
  private:
   enum UserChoice { kDemoMenu = 1, kExitProgram };

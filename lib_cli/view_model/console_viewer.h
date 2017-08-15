@@ -11,6 +11,7 @@ class ConsoleViewer {
   enum MenuItem { kQuit, kDemo, kRegistration, kLogin };
 
   void RunApplication();
+  void RunDescriptionMenu();
 
  protected:
   void RunSubMenu(int sub_menu);

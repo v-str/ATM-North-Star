@@ -11,8 +11,6 @@ void ConsoleDescriptionMenu::RunDescriptionMenu() {
   }
 }
 
-void ConsoleDescriptionMenu::UserWantToExitProgram() { user_want_to_exit_ = true; }
-
 void ConsoleDescriptionMenu::DisplayDemoSubMenu() {
   int user_choice = user_input_.GetValueFromUser();
   if (user_choice == kAccount) {
@@ -30,7 +28,7 @@ void ConsoleDescriptionMenu::DisplayDemoSubMenu() {
   } else if (user_choice == kRegistration) {
     LeadToRegistration();
   } else if (user_choice == kExit) {
-    UserWantToExitProgram();
+    user_want_to_exit_ = true;
   } else {
     DemoUserMessenger::ShowIncorrectMenuInput();
     SuggestToExit();
@@ -41,7 +39,13 @@ bool ConsoleDescriptionMenu::UserWantToRegistrate() const {
   return user_want_to_registrate_;
 }
 
-bool ConsoleDescriptionMenu::UserWantToLogin() const { return user_want_to_login_; }
+bool ConsoleDescriptionMenu::UserWantToLogin() const {
+  return user_want_to_login_;
+}
+
+bool ConsoleDescriptionMenu::UserWantToExitProgram() const {
+  return user_want_to_exit_;
+}
 
 void ConsoleDescriptionMenu::DisplaySubmenu(
     DemoUserMessenger::MessageType message_type) {
