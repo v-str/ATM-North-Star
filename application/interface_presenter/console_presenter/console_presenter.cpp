@@ -1,16 +1,12 @@
 ﻿#include <console_presenter.h>
 
-ConsolePresenter::ConsolePresenter() {
-  initial_menu_ = std::unique_ptr<ConsoleInitialMenu>(new ConsoleInitialMenu);
-}
-
 void ConsolePresenter::RunApplication() {
-  initial_menu_->DisplaySplashScreen();
+  initial_menu_.DisplaySplashScreen();
   for (;;) {
-    initial_menu_->RunInitialMenu();
-    RunSubMenu(initial_menu_->GetSubMenu());
+    initial_menu_.RunInitialMenu();
+    RunSubMenu(initial_menu_.GetSubMenu());
     if (user_want_exit_) {
-      initial_menu_->DisplayFarewellMessage();
+      initial_menu_.DisplayFarewellMessage();
       break;
     }
   }
