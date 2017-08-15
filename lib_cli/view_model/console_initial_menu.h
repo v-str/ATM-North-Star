@@ -1,5 +1,5 @@
-﻿#ifndef CONSOLE_VIEWER_H
-#define CONSOLE_VIEWER_H
+﻿#ifndef CONSOLE_INITIAL_MENU
+#define CONSOLE_INITIAL_MENU
 
 class MenuInputHandler;
 class ConsoleLoginMenu;
@@ -23,7 +23,7 @@ class ConsoleInitialMenu {
   int GetSubMenu() const;
 
  private:
-  void RunSubMenu();
+  void SuggestInputSubMenu();
 
   void DisplaySplashScreen() const;
   void DisplayInitialMenu() const;
@@ -38,4 +38,4 @@ class ConsoleInitialMenu {
   int sub_menu_input_ = 0;
 };
 
-#endif  // CONSOLE_VIEWER_H
+#endif  // CONSOLE_INITIAL_MENU

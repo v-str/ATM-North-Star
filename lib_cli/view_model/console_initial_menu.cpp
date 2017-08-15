@@ -22,7 +22,7 @@ ConsoleInitialMenu::~ConsoleInitialMenu() {
 void ConsoleInitialMenu::RunInitialMenu() {
   DisplaySplashScreen();
   DisplayInitialMenu();
-  RunSubMenu();
+  SuggestInputSubMenu();
 }
 
 void ConsoleInitialMenu::RunLoginMenu() { login_menu_->RunLoginMenu(); }
@@ -31,7 +31,9 @@ void ConsoleInitialMenu::RunRegistrationMenu() {
   //  registration_menu_->RunRegistrationMenu();
 }
 
-void ConsoleInitialMenu::RunDescriptionMenu() { description_menu_->RunDemoMenu(); }
+void ConsoleInitialMenu::RunDescriptionMenu() {
+  description_menu_->RunDemoMenu();
+}
 
 void ConsoleInitialMenu::DisplayFarewellMessage() {
   InitialMessenger::FarewellMessage();
@@ -39,7 +41,7 @@ void ConsoleInitialMenu::DisplayFarewellMessage() {
 
 int ConsoleInitialMenu::GetSubMenu() const { return sub_menu_input_; }
 
-void ConsoleInitialMenu::RunSubMenu() {
+void ConsoleInitialMenu::SuggestInputSubMenu() {
   for (;;) {
     sub_menu_input_ = input_handler_->GetDigitInputFromUser();
 
