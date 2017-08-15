@@ -1,5 +1,5 @@
-﻿#ifndef CLI_PRESENTER
-#define CLI_PRESENTER
+﻿#ifndef CONSOLE_INTERFACE_PRESENTER_H
+#define CONSOLE_INTERFACE_PRESENTER_H
 
 #include <memory>
 
@@ -8,9 +8,9 @@
 #include <console_login_menu.h>
 #include <console_registration_menu.h>
 
-class CLIPresenter {
+class ConsolePresenter {
  public:
-  CLIPresenter();
+  ConsolePresenter();
 
   enum MenuPoints { kQuit, kDemo, kRegistration, kLogin };
 
@@ -26,4 +26,4 @@ class CLIPresenter {
   ConsoleRegistrationMenu registration_menu_;
 };
 
-#endif  // CLI_PRESENTER
+#endif  // CONSOLE_INTERFACE_PRESENTER_H

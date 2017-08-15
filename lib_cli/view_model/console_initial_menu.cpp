@@ -17,7 +17,6 @@ int ConsoleInitialMenu::GetSubMenu() const { return sub_menu_input_; }
 void ConsoleInitialMenu::SuggestInputSubMenu() {
   for (;;) {
     sub_menu_input_ = input_handler_.GetDigitInputFromUser();
-
     if (IsInputContainSubMenu()) {
       break;
     } else {

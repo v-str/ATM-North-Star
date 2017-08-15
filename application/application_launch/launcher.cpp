@@ -5,7 +5,7 @@
 #include <QApplication>
 
 void Launcher::LaunchConsoleMode() {
-  initial_menu_ = std::unique_ptr<CLIPresenter>(new CLIPresenter);
+  initial_menu_ = std::unique_ptr<ConsolePresenter>(new ConsolePresenter);
   initial_menu_->RunApplication();
 
   // interface_presenter_ = std::unique_ptr<BaseInterfacePresenter> (new

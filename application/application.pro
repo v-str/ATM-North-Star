@@ -53,7 +53,7 @@ HEADERS += \
     $$PWD/interface_presenter/*.h \
     $$PWD/application_launch/*.h \
     $$PWD/atm_operations/*.h \
-    $$PWD/user_data/*.h \
+    $$PWD/user_data/*.h
 
 SOURCES += \
     $$PWD/atm_operations/credit_operations/*.cpp \
