@@ -4,7 +4,7 @@ void ConsoleDescriptionMenu::RunDescriptionMenu() {
   DiplayDemoMenuTitleOn();
   for (;;) {
     DisplayDemoSubMenu();
-    if (user_want_to_registrate_ || user_want_to_exit_ || user_want_to_login_) {
+    if (user_want_to_exit_ || user_want_to_initial_menu_) {
       break;
     }
     DiplayDemoMenuTitleOff();
@@ -23,10 +23,8 @@ void ConsoleDescriptionMenu::DisplayDemoSubMenu() {
     DisplaySubmenu(DemoUserMessenger::kWithdrawalInfo);
   } else if (user_choice == kStatement) {
     DisplaySubmenu(DemoUserMessenger::kStatementInfo);
-  } else if (user_choice == kLogin) {
-    LeadToRegistration();
-  } else if (user_choice == kRegistration) {
-    LeadToRegistration();
+  } else if (user_choice == kExitInitialMenu) {
+    user_want_to_initial_menu_ = true;
   } else if (user_choice == kExit) {
     user_want_to_exit_ = true;
   } else {
@@ -35,12 +33,8 @@ void ConsoleDescriptionMenu::DisplayDemoSubMenu() {
   }
 }
 
-bool ConsoleDescriptionMenu::UserWantToRegistrate() const {
-  return user_want_to_registrate_;
-}
-
-bool ConsoleDescriptionMenu::UserWantToLogin() const {
-  return user_want_to_login_;
+bool ConsoleDescriptionMenu::UserWantToInitialMenu() const {
+  return user_want_to_initial_menu_;
 }
 
 bool ConsoleDescriptionMenu::UserWantToExitProgram() const {
@@ -51,14 +45,6 @@ void ConsoleDescriptionMenu::DisplaySubmenu(
     DemoUserMessenger::MessageType message_type) {
   DemoUserMessenger::ShowMessage(message_type);
   SuggestToExit();
-}
-
-void ConsoleDescriptionMenu::LeadToRegistration() {
-  user_want_to_exit_ = user_want_to_registrate_ = true;
-}
-
-void ConsoleDescriptionMenu::LeadToLogin() {
-  user_want_to_exit_ = user_want_to_login_ = true;
 }
 
 void ConsoleDescriptionMenu::SuggestToExit() {

@@ -36,6 +36,7 @@ void InitialMessenger::DisplayLogotype() {
 }
 
 void InitialMessenger::DisplayInitialMenu() {
+  ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText(
       "\n\n\n\n\t ###############################\n"
       "\t #                             #\n"

@@ -59,7 +59,7 @@ void DemoUserMessenger::ShowDemoMenu(DisplayMode display_mode) {
       "\t#                                                      #\n"
       "\t#  -------------------------------------------------   #\n"
       "\t#                                                      #\n"
-      "\t#   8. Exit to initial menu          9. Exit program   #\n"
+      "\t#   6. Exit to initial menu          7. Exit program   #\n"
       "\t#                                                      #\n"
       "\t########################################################\n\n"
       "\n\t# Enter interested menu: ");

@@ -9,8 +9,7 @@ class ConsoleDescriptionMenu {
   void RunDescriptionMenu();
   void DisplayDemoSubMenu();
 
-  bool UserWantToRegistrate() const;
-  bool UserWantToLogin() const;
+  bool UserWantToInitialMenu() const;
   bool UserWantToExitProgram() const;
 
  private:
@@ -22,23 +21,19 @@ class ConsoleDescriptionMenu {
     kCredit,
     kWidthdrawal,
     kStatement,
-    kLogin,
-    kRegistration,
+    kExitInitialMenu,
     kExit
   };
 
   void DisplaySubmenu(DemoUserMessenger::MessageType message_type);
 
-  void LeadToRegistration();
-  void LeadToLogin();
   void SuggestToExit();
 
   void DiplayDemoMenuTitleOn();
   void DiplayDemoMenuTitleOff();
 
-  bool user_want_to_exit_ = true;
-  bool user_want_to_registrate_ = false;
-  bool user_want_to_login_ = false;
+  bool user_want_to_initial_menu_ = false;
+  bool user_want_to_exit_ = false;
 
   UserInput user_input_;
 };

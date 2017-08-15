@@ -3,6 +3,7 @@
 void ConsoleViewer::RunApplication() {
   initial_menu_.DisplaySplashScreen();
   for (;;) {
+    user_want_exit_ = false;
     initial_menu_.RunInitialMenu();
     RunSubMenu(initial_menu_.GetSubMenu());
     if (user_want_exit_) {
