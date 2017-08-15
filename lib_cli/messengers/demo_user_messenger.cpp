@@ -32,9 +32,9 @@ void DemoUserMessenger::ShowWelcomeDemoMessage() {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "# Welcome to demo mode. This chapter\n"
-      "# contains basic information about ATM North Star.\n\n"
+      "# contains basic information about ATM North Star.\n"
       "# First of all, look at the main menu:\n"
-      "# Please, choose interested you menu:\n");
+      "# Please, choose interested menu:\n");
 }
 
 void DemoUserMessenger::ShowDemoMenu(DisplayMode display_mode) {
@@ -49,18 +49,19 @@ void DemoUserMessenger::ShowDemoMenu(DisplayMode display_mode) {
   }
 
   ConsoleEditor::WriteText(
-      "\n\n\t################ Demo Transaction menu ###############\n"
-      "\t#                                                    #\n"
-      "\t#  1. Account information            2. Refill       #\n"
-      "\t#  ----------------------            --------------  #\n"
-      "\t#  3. Credit application             4. Withdrawal   #\n"
-      "\t#  ----------------------            --------------  #\n"
-      "\t#  5. Statement                                      #\n"
-      "\t#                                                    #\n"
-      "\t#  ------------------------------------------------  #\n"
-      "\t#  6. Log-in(!)    7. Registration      8. Exit      #\n"
-      "\t#                                                    #\n"
-      "\t######################################################\n\n"
+      "\n\n\t################# Demo Transaction menu ################\n"
+      "\t#                                                      #\n"
+      "\t#   1. Account information           2. Refill         #\n"
+      "\t#  ------------------------          ---------------   #\n"
+      "\t#   3. Credit application            4. Withdrawal     #\n"
+      "\t#  ------------------------          ---------------   #\n"
+      "\t#   5. Statement                                       #\n"
+      "\t#                                                      #\n"
+      "\t#  -------------------------------------------------   #\n"
+      "\t#                                                      #\n"
+      "\t#   8. Exit to initial menu          9. Exit program   #\n"
+      "\t#                                                      #\n"
+      "\t########################################################\n\n"
       "\n\t# Enter interested menu: ");
 }
 

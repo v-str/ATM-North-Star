@@ -12,11 +12,6 @@ void ConsoleViewer::RunApplication() {
   }
 }
 
-void ConsoleViewer::RunDescriptionMenu() {
-  description_menu_.RunDescriptionMenu();
-  user_want_exit_ = description_menu_.UserWantToExitProgram();
-}
-
 void ConsoleViewer::RunSubMenu(int sub_menu) {
   if (sub_menu == ConsoleInitialMenu::kLoginMenu) {
     login_menu_.RunLoginMenu();
@@ -30,4 +25,9 @@ void ConsoleViewer::RunSubMenu(int sub_menu) {
   if (sub_menu == ConsoleInitialMenu::kExit) {
     user_want_exit_ = true;
   }
+}
+
+void ConsoleViewer::RunDescriptionMenu() {
+  description_menu_.RunDescriptionMenu();
+  user_want_exit_ = description_menu_.UserWantToExitProgram();
 }
