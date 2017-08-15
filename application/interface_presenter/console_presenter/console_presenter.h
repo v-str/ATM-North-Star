@@ -25,6 +25,8 @@ class ConsolePresenter {
   ConsoleLoginMenu login_menu_;
   ConsoleDescriptionMenu description_menu_;
   ConsoleRegistrationMenu registration_menu_;
+
+  bool user_want_exit_ = false;
 };
 
 #endif  // CONSOLE_INTERFACE_PRESENTER_H

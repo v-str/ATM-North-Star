@@ -3,7 +3,6 @@
 #include <initial_messenger.h>
 
 void ConsoleInitialMenu::RunInitialMenu() {
-  DisplaySplashScreen();
   DisplayInitialMenu();
   SuggestInputSubMenu();
 }

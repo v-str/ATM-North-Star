@@ -5,8 +5,15 @@ ConsolePresenter::ConsolePresenter() {
 }
 
 void ConsolePresenter::RunApplication() {
-  initial_menu_->RunInitialMenu();
-  RunSubMenu(initial_menu_->GetSubMenu());
+  initial_menu_->DisplaySplashScreen();
+  for (;;) {
+    initial_menu_->RunInitialMenu();
+    RunSubMenu(initial_menu_->GetSubMenu());
+    if (user_want_exit_) {
+      initial_menu_->DisplayFarewellMessage();
+      break;
+    }
+  }
 }
 
 void ConsolePresenter::RunSubMenu(int sub_menu) {
@@ -20,6 +27,6 @@ void ConsolePresenter::RunSubMenu(int sub_menu) {
     description_menu_.RunDescriptionMenu();
   }
   if (sub_menu == ConsoleInitialMenu::kExit) {
-    initial_menu_->DisplayFarewellMessage();
+    user_want_exit_ = true;
   }
 }
