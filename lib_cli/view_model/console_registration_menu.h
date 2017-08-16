@@ -7,14 +7,20 @@ class UserInputHandler;
 
 class ConsoleRegistrationMenu {
  public:
-  ConsoleRegistrationMenu();
   ~ConsoleRegistrationMenu();
 
   void RunRegistrationMenu();
 
  private:
-  std::unique_ptr<UserInputHandler> user_input_;
-  std::unique_ptr<UserInputHandler> menu_input_;
+  enum MenuItems { kSymbolQuit, kRegistration, kInitialMenu, kDigitQuit };
+
+  void ProcessMenuUserInput();
+
+  std::unique_ptr<UserInputHandler> input_handler_;
+
+  bool user_want_to_registrate_ = false;
+  bool user_want_to_initial_menu_ = false;
+  bool user_want_to_exit_ = false;
 };
 
 #endif  // CONSOLE_REGISTRATION_MENU_H

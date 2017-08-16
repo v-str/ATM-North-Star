@@ -15,6 +15,7 @@ class ConsoleViewer {
  protected:
   void RunSubMenu(int sub_menu);
   void RunDescriptionMenu();
+  void RunRegistrationMenu();
 
  private:
   ConsoleInitialMenu initial_menu_;

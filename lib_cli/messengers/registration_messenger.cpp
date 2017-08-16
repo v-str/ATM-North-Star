@@ -25,6 +25,7 @@ void RegistrationMessenger::ShowRegistrationReference() {
       " 5. Password may contain both latin alphabet symbols and arabic "
       "digits.\n\n\n"
       " 1. Start registration\n"
+      " 2. Return to initial menu\n"
       " 2. Quit ( or press q )\n"
       " Enter: ");
 }

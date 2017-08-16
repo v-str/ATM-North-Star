@@ -14,7 +14,7 @@ class Registrator {
  private:
   enum MenuItems { kSymbolQuit, kRegistration, kDigitQuit };
 
-  void MenuUserInput();
+  void ProcessMenuUserInput();
   void RunRegistrationProcedure();
 
   void GetRegistratoinDataFromUser();

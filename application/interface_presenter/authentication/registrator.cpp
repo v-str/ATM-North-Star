@@ -6,13 +6,13 @@
 void Registrator::RunRegistrationMenu() {
   RegistrationMessenger::ShowRegistrationLogo();
   RegistrationMessenger::ShowRegistrationReference();
-  MenuUserInput();
+  ProcessMenuUserInput();
   if (user_want_to_registrate) {
     RunRegistrationProcedure();
   }
 }
 
-void Registrator::MenuUserInput() {
+void Registrator::ProcessMenuUserInput() {
   for (;;) {
     int user_choice = menu_input_.GetDigitInputFromUser();
 
@@ -39,7 +39,7 @@ void Registrator::RunRegistrationProcedure() {
       break;
     } else {
       LogonMessenger::SuggestReenterAuthenticationData();
-      MenuUserInput();
+      ProcessMenuUserInput();
       if (!user_want_to_registrate) {
         break;
       }
