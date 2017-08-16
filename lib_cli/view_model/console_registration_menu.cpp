@@ -23,6 +23,7 @@ bool ConsoleRegistrationMenu::UserWantToExit() const {
 void ConsoleRegistrationMenu::ProcessMenuUserInput() {
   input_handler_ = std::unique_ptr<UserInputHandler>(new MenuInputHandler);
   for (;;) {
+    ResetManipulationFlags();
     int user_input = input_handler_->GetDigitInputFromUser();
     if (user_input == kRegistration) {
       user_want_to_registrate_ = true;
@@ -36,4 +37,9 @@ void ConsoleRegistrationMenu::ProcessMenuUserInput() {
       RegistrationMessenger::ShowIncorrectInput();
     }
   }
+}
+
+void ConsoleRegistrationMenu::ResetManipulationFlags() {
+  user_want_to_registrate_ = false;
+  user_want_to_exit_ = false;
 }

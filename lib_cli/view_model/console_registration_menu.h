@@ -19,6 +19,8 @@ class ConsoleRegistrationMenu {
 
   void ProcessMenuUserInput();
 
+  void ResetManipulationFlags();
+
   std::unique_ptr<UserInputHandler> input_handler_;
 
   bool user_want_to_registrate_ = false;
