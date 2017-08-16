@@ -12,7 +12,6 @@ class ConsoleRegistrationMenu {
   void RunRegistrationMenu();
 
   bool UserWantToRegistrate() const;
-  bool UserWantToInitialMEnu() const;
   bool UserWantToExit() const;
 
  private:
@@ -23,7 +22,6 @@ class ConsoleRegistrationMenu {
   std::unique_ptr<UserInputHandler> input_handler_;
 
   bool user_want_to_registrate_ = false;
-  bool user_want_to_initial_menu_ = false;
   bool user_want_to_exit_ = false;
 };
 
