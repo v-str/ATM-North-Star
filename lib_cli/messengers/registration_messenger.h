@@ -11,6 +11,9 @@ class RegistrationMessenger {
   static void SuggestReenterRegistrationData();
   static void FarewellMessage();
   static void ClearScreen();
+
+ private:
+  static const int kTitleDelay = 15;
 };
 
 #endif  // REGISTRATION_MESSENGER_H

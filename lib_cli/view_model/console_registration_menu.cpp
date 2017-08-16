@@ -53,9 +53,11 @@ void ConsoleRegistrationMenu::ResetManipulationFlags() {
 }
 
 void ConsoleRegistrationMenu::GetLoginStringFromUser() {
+  RegistrationMessenger::ShowLoginTitle();
   login_ = input_handler_->GetStringInputFromUser();
 }
 
 void ConsoleRegistrationMenu::GetPasswordStringFromUser() {
+  RegistrationMessenger::ShowPasswordTitle();
   password_ = input_handler_->GetStringInputFromUser();
 }

@@ -38,11 +38,11 @@ void RegistrationMessenger::ShowIncorrectInput() {
 }
 
 void RegistrationMessenger::ShowLoginTitle() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\n\n\tLogin: ");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\n\n\tLogin: ", kTitleDelay);
 }
 
 void RegistrationMessenger::ShowPasswordTitle() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\tPassword: ");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\tPassword: ", kTitleDelay);
 }
 
 void RegistrationMessenger::SuggestReenterRegistrationData() {
