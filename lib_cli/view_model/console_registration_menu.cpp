@@ -12,7 +12,7 @@ void ConsoleRegistrationMenu::RunRegistrationMenu() {
   ProcessMenuUserInput();
 }
 
-void ConsoleRegistrationMenu::ReceiveRegistrationData() {
+void ConsoleRegistrationMenu::ReceiveRegistrationDataFromUser() {
   RegistrationMessenger::ClearScreen();
   RegistrationMessenger::ShowRegistrationLogo();
   input_handler_ = std::unique_ptr<UserInputHandler>(new UserInputHandler);

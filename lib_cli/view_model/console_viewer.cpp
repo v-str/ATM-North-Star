@@ -39,6 +39,6 @@ void ConsoleViewer::RunRegistrationMenu() {
   registration_menu_.RunRegistrationMenu();
   // user_want_to_exit_ = registration_menu.UserWantToExitProgram();
   if (registration_menu_.IsUserWantToRegistrate()) {
-    registration_menu_.ReceiveRegistrationData();
+    registration_menu_.ReceiveRegistrationDataFromUser();
   }
 }

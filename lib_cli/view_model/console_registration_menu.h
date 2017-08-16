@@ -11,7 +11,7 @@ class ConsoleRegistrationMenu {
   ~ConsoleRegistrationMenu();
 
   void RunRegistrationMenu();
-  void ReceiveRegistrationData();
+  void ReceiveRegistrationDataFromUser();
 
   bool IsUserWantToRegistrate() const;
   bool IsUserWantToExitProgram() const;

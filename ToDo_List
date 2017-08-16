@@ -133,6 +133,9 @@
 11. Move logon handling into atm library                                            | - |
                                                                                     |   |
 12. Move console view of registration into cli library                              | - |
+                                                                                    |   |
+13. Develop mechanism for reading registration data properly                        | - |
+
 
 -----------------------------------------------------------------------------------------
 ---------------------------------------- ATM --------------------------------------------
