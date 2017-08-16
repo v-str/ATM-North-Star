@@ -10,7 +10,7 @@ class ConsoleDescriptionMenu {
   void DisplayDemoSubMenu();
 
   bool UserWantToInitialMenu() const;
-  bool UserWantToExitProgram() const;
+  bool IsUserWantToExitProgram() const;
 
  private:
   enum ReturnMenu { kInitialMenu = 1, kDemoMenu, kExitProgram };

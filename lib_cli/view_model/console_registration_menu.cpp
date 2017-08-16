@@ -12,11 +12,11 @@ void ConsoleRegistrationMenu::RunRegistrationMenu() {
   ProcessMenuUserInput();
 }
 
-bool ConsoleRegistrationMenu::UserWantToRegistrate() const {
+bool ConsoleRegistrationMenu::IsUserWantToRegistrate() const {
   return user_want_to_registrate_;
 }
 
-bool ConsoleRegistrationMenu::UserWantToExit() const {
+bool ConsoleRegistrationMenu::IsUserWantToExitProgram() const {
   return user_want_to_exit_;
 }
 

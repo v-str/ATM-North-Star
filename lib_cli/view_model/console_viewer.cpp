@@ -30,7 +30,9 @@ void ConsoleViewer::RunSubMenu(int sub_menu) {
 
 void ConsoleViewer::RunDescriptionMenu() {
   description_menu_.RunDescriptionMenu();
-  user_want_exit_ = description_menu_.UserWantToExitProgram();
+  if (description_menu_.IsUserWantToExitProgram()) {
+    user_want_exit_ = true;
+  }
 }
 
 void ConsoleViewer::RunRegistrationMenu() {

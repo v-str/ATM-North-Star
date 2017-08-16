@@ -38,7 +38,7 @@ bool ConsoleDescriptionMenu::UserWantToInitialMenu() const {
   return user_want_to_initial_menu_;
 }
 
-bool ConsoleDescriptionMenu::UserWantToExitProgram() const {
+bool ConsoleDescriptionMenu::IsUserWantToExitProgram() const {
   return user_want_to_exit_;
 }
 
