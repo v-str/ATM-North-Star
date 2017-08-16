@@ -12,6 +12,14 @@ void ConsoleRegistrationMenu::RunRegistrationMenu() {
   ProcessMenuUserInput();
 }
 
+void ConsoleRegistrationMenu::ReceiveRegistrationData() {
+  RegistrationMessenger::ClearScreen();
+  RegistrationMessenger::ShowRegistrationLogo();
+  input_handler_ = std::unique_ptr<UserInputHandler>(new UserInputHandler);
+  GetLoginStringFromUser();
+  GetPasswordStringFromUser();
+}
+
 bool ConsoleRegistrationMenu::IsUserWantToRegistrate() const {
   return user_want_to_registrate_;
 }
@@ -42,4 +50,12 @@ void ConsoleRegistrationMenu::ProcessMenuUserInput() {
 void ConsoleRegistrationMenu::ResetManipulationFlags() {
   user_want_to_registrate_ = false;
   user_want_to_exit_ = false;
+}
+
+void ConsoleRegistrationMenu::GetLoginStringFromUser() {
+  login_ = input_handler_->GetStringInputFromUser();
+}
+
+void ConsoleRegistrationMenu::GetPasswordStringFromUser() {
+  password_ = input_handler_->GetStringInputFromUser();
 }

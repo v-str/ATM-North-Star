@@ -36,3 +36,28 @@ void RegistrationMessenger::ShowIncorrectInput() {
       " press 2 to exit program ( or press q )\n"
       " Enter: ");
 }
+
+void RegistrationMessenger::ShowLoginTitle() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\n\n\tLogin: ");
+}
+
+void RegistrationMessenger::ShowPasswordTitle() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\tPassword: ");
+}
+
+void RegistrationMessenger::SuggestReenterRegistrationData() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "  The data was inputted﻿ in a wrong way.\n"
+      "  Do you prefer to re-enter data or to quit the program?\n"
+      "  1. Re-enter data\n"
+      "  2. Quit ( or press q )\n"
+      "  Enter: ");
+}
+
+void RegistrationMessenger::FarewellMessage() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "\n\tThank you for using ATM North Star.\n"
+      "\tHave a nice day!\n\n");
+}
+
+void RegistrationMessenger::ClearScreen() { ConsoleEditor::ClearScreen(); }

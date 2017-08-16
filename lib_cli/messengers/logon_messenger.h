@@ -11,9 +11,6 @@ class LogonMessenger {
   };
   enum ContainSpaceSymbol { kBeginWithSpace, kEndWithSpace, kAdjecentSpaces };
 
-  static void DisplayLoginText();
-  static void DisplayPasswordText();
-
   static void CorrectLoginMessage();
   static void LoginLengthStatus(StringLength login_length);
   static void LoginContainSpecialSymbol();
@@ -27,11 +24,6 @@ class LogonMessenger {
   static void PasswordContainSpaceSymbol();
   static void PasswordEmpty();
 
-  static void SuggestReenterAuthenticationData();
-
-  static void FarewellMessage();
-
-  static void ClearScreen();
   static void AddEmptyLines(int amount_of_lines);
 
  private:

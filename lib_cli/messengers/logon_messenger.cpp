@@ -4,14 +4,6 @@
 
 #include <console_editor.h>
 
-void LogonMessenger::DisplayLoginText() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\n\n\tLogin: ", kDelay);
-}
-
-void LogonMessenger::DisplayPasswordText() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\tPassword: ", kDelay);
-}
-
 void LogonMessenger::CorrectLoginMessage() {
   WriteLoginTitleStatus();
   ConsoleEditor::WriteText("    Correct");
@@ -135,23 +127,6 @@ void LogonMessenger::PasswordEmpty() {
       "  Please enter a valid password and try again");
   WtiteDevidingLine();
 }
-
-void LogonMessenger::SuggestReenterAuthenticationData() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "  The data was inputted﻿ in a wrong way.\n"
-      "  Do you prefer to re-enter data or to quit the program?\n"
-      "  1. Re-enter data\n"
-      "  2. Quit ( or press q )\n"
-      "  Enter: ");
-}
-
-void LogonMessenger::FarewellMessage() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\tThank you for using ATM North Star.\n"
-      "\tHave a nice day!\n\n");
-}
-
-void LogonMessenger::ClearScreen() { ConsoleEditor::ClearScreen(); }
 
 void LogonMessenger::AddEmptyLines(int amount_of_lines) {
   ConsoleEditor::AddEmptyLineNTimes(amount_of_lines);

@@ -2,6 +2,7 @@
 #define CONSOLE_REGISTRATION_MENU_H
 
 #include <memory>
+#include <string>
 
 class UserInputHandler;
 
@@ -10,6 +11,7 @@ class ConsoleRegistrationMenu {
   ~ConsoleRegistrationMenu();
 
   void RunRegistrationMenu();
+  void ReceiveRegistrationData();
 
   bool IsUserWantToRegistrate() const;
   bool IsUserWantToExitProgram() const;
@@ -21,10 +23,16 @@ class ConsoleRegistrationMenu {
 
   void ResetManipulationFlags();
 
+  void GetLoginStringFromUser();
+  void GetPasswordStringFromUser();
+
   std::unique_ptr<UserInputHandler> input_handler_;
 
   bool user_want_to_registrate_ = false;
   bool user_want_to_exit_ = false;
+
+  std::string login_;
+  std::string password_;
 };
 
 #endif  // CONSOLE_REGISTRATION_MENU_H

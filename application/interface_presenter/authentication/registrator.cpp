@@ -20,7 +20,6 @@ void Registrator::ProcessMenuUserInput() {
       user_want_to_registrate = true;
       break;
     } else if (user_choice == kSymbolQuit || user_choice == kDigitQuit) {
-      LogonMessenger::FarewellMessage();
       user_want_to_registrate = false;
       break;
     } else {
@@ -38,7 +37,6 @@ void Registrator::RunRegistrationProcedure() {
       // Run transaction menu
       break;
     } else {
-      LogonMessenger::SuggestReenterAuthenticationData();
       ProcessMenuUserInput();
       if (!user_want_to_registrate) {
         break;
@@ -48,18 +46,15 @@ void Registrator::RunRegistrationProcedure() {
 }
 
 void Registrator::GetRegistratoinDataFromUser() {
-  LogonMessenger::ClearScreen();
   RegistrationMessenger::ShowRegistrationLogo();
   GetLoginStringFromUser();
   GetPasswordStringFromUser();
 }
 
 void Registrator::GetLoginStringFromUser() {
-  LogonMessenger::DisplayLoginText();
   login_ = user_input_.GetStringInputFromUser();
 }
 
 void Registrator::GetPasswordStringFromUser() {
-  LogonMessenger::DisplayPasswordText();
   password_ = user_input_.GetStringInputFromUser();
 }

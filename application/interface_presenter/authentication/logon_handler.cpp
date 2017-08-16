@@ -14,7 +14,6 @@ bool LogonHandler::IsAuthenticationOk() const {
 }
 
 void LogonHandler::HandleLoginString(const std::string& login) {
-  LogonMessenger::ClearScreen();
   login_status_ = authenticator_.InspectLoginString(login);
   switch (login_status_) {
     case ATM::LogonStatus::kCorrectLogin:
