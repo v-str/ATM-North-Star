@@ -3,6 +3,7 @@
 void ConsoleDescriptionMenu::RunDescriptionMenu() {
   DiplayDemoMenuTitleOn();
   for (;;) {
+    ResetManipulationFlags();
     DisplayDemoSubMenu();
     if (user_want_to_exit_ || user_want_to_initial_menu_) {
       break;
@@ -29,7 +30,7 @@ void ConsoleDescriptionMenu::DisplayDemoSubMenu() {
     user_want_to_exit_ = true;
   } else {
     DemoUserMessenger::ShowIncorrectMenuInput();
-    SuggestToExit();
+    DisplayReturnMenu();
   }
 }
 
@@ -44,19 +45,21 @@ bool ConsoleDescriptionMenu::UserWantToExitProgram() const {
 void ConsoleDescriptionMenu::DisplaySubmenu(
     DemoUserMessenger::MessageType message_type) {
   DemoUserMessenger::ShowMessage(message_type);
-  SuggestToExit();
+  DisplayReturnMenu();
 }
 
-void ConsoleDescriptionMenu::SuggestToExit() {
-  DemoUserMessenger::SuggestExit();
+void ConsoleDescriptionMenu::DisplayReturnMenu() {
+  DemoUserMessenger::ShowReturnMessage();
   for (;;) {
-    int result_of_exit = 0;
-    result_of_exit = user_input_.GetValueFromUser();
+    int input_result = 0;
+    input_result = user_input_.GetValueFromUser();
 
-    if (result_of_exit == kDemoMenu) {
-      user_want_to_exit_ = false;
+    if (input_result == kInitialMenu) {
+      user_want_to_initial_menu_ = true;
       break;
-    } else if (result_of_exit == kExitProgram) {
+    } else if (input_result == kDemoMenu) {
+      break;
+    } else if (input_result == kExitProgram) {
       user_want_to_exit_ = true;
       break;
     } else {
@@ -72,4 +75,9 @@ void ConsoleDescriptionMenu::DiplayDemoMenuTitleOn() {
 
 void ConsoleDescriptionMenu::DiplayDemoMenuTitleOff() {
   DemoUserMessenger::ShowDemoMenu(DemoUserMessenger::kCLearScreen);
+}
+
+void ConsoleDescriptionMenu::ResetManipulationFlags() {
+  user_want_to_exit_ = false;
+  user_want_to_initial_menu_ = false;
 }

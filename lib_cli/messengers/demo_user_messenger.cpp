@@ -145,9 +145,10 @@ void DemoUserMessenger::ShowIncorrectMenuInput() {
   ShowIncorrectInput();
 }
 
-void DemoUserMessenger::SuggestExit() {
+void DemoUserMessenger::ShowReturnMessage() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t# 1. Return to demo menu\n"
-      "\t# 2. Exit program\n"
+      "\n\t# 1. Return to initial menu\n"
+      "\t# 2. Return to demo menu\n"
+      "\t# 3. Exit program\n"
       "\t# Enter: ");
 }

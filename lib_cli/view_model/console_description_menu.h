@@ -13,7 +13,7 @@ class ConsoleDescriptionMenu {
   bool UserWantToExitProgram() const;
 
  private:
-  enum UserChoice { kDemoMenu = 1, kExitProgram };
+  enum ReturnMenu { kInitialMenu = 1, kDemoMenu, kExitProgram };
 
   enum DemoSubMenu {
     kAccount = 1,
@@ -27,10 +27,12 @@ class ConsoleDescriptionMenu {
 
   void DisplaySubmenu(DemoUserMessenger::MessageType message_type);
 
-  void SuggestToExit();
+  void DisplayReturnMenu();
 
   void DiplayDemoMenuTitleOn();
   void DiplayDemoMenuTitleOff();
+
+  void ResetManipulationFlags();
 
   bool user_want_to_initial_menu_ = false;
   bool user_want_to_exit_ = false;

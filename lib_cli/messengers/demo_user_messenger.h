@@ -20,7 +20,7 @@ class DemoUserMessenger {
 
   static void ShowIncorrectInput();
   static void ShowIncorrectMenuInput();
-  static void SuggestExit();
+  static void ShowReturnMessage();
 
  private:
   static constexpr int kSleep = 100;
