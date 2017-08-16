@@ -12,6 +12,18 @@ void ConsoleRegistrationMenu::RunRegistrationMenu() {
   ProcessMenuUserInput();
 }
 
+bool ConsoleRegistrationMenu::UserWantToRegistrate() const {
+  return user_want_to_registrate_;
+}
+
+bool ConsoleRegistrationMenu::UserWantToInitialMEnu() const {
+  return user_want_to_initial_menu_;
+}
+
+bool ConsoleRegistrationMenu::UserWantToExit() const {
+  return user_want_to_exit_;
+}
+
 void ConsoleRegistrationMenu::ProcessMenuUserInput() {
   input_handler_ = std::unique_ptr<UserInputHandler>(new MenuInputHandler);
   for (;;) {

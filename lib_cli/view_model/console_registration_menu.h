@@ -11,6 +11,10 @@ class ConsoleRegistrationMenu {
 
   void RunRegistrationMenu();
 
+  bool UserWantToRegistrate() const;
+  bool UserWantToInitialMEnu() const;
+  bool UserWantToExit() const;
+
  private:
   enum MenuItems { kSymbolQuit, kRegistration, kInitialMenu, kDigitQuit };
 
