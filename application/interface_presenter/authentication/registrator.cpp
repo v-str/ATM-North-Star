@@ -24,7 +24,7 @@ void Registrator::HandleUserInput() {
       user_want_to_registrate = false;
       break;
     } else {
-      RegistrationMessenger::ShowIncorrectRegistrationConfirmation();
+      RegistrationMessenger::ShowIncorrectInput();
     }
   }
 }

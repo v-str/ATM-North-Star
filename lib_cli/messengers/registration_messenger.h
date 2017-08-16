@@ -5,7 +5,7 @@ class RegistrationMessenger {
  public:
   static void ShowRegistrationLogo();
   static void ShowRegistrationReference();
-  static void ShowIncorrectRegistrationConfirmation();
+  static void ShowIncorrectInput();
 };
 
 #endif  // REGISTRATION_MESSENGER_H
