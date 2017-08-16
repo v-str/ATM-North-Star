@@ -3,8 +3,6 @@
 
 class ConsoleRegistrationMenu {
  public:
-  ConsoleRegistrationMenu();
-
   void RunRegistrationMenu();
 };
 

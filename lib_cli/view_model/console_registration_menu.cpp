@@ -1,10 +1,8 @@
 ﻿#include <console_registration_menu.h>
 
-#include <iostream>
-
-ConsoleRegistrationMenu::ConsoleRegistrationMenu() {}
+#include <registration_messenger.h>
 
 void ConsoleRegistrationMenu::RunRegistrationMenu() {
-  system("clear");
-  std::cout << "Registration menu is under construction\n";
+  RegistrationMessenger::ShowRegistrationLogo();
+  RegistrationMessenger::ShowRegistrationReference();
 }
