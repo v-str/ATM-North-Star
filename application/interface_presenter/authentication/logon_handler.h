@@ -3,8 +3,8 @@
 
 #include <string>
 
-#include <logon_inspector.h>
 #include <logon_status.h>
+#include <registration_inspector.h>
 
 class LogonHandler {
  public:
@@ -16,7 +16,7 @@ class LogonHandler {
   void HandleLoginString(const std::string& login);
   void HandlePasswordString(const std::string& password);
 
-  LogonInspector authenticator_;
+  RegistrationInspector authenticator_;
   ATM::LogonStatus login_status_;
   ATM::LogonStatus password_status_;
 

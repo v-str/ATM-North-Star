@@ -1,8 +1,8 @@
-﻿#include <logon_inspector.h>
+﻿#include <registration_inspector.h>
 
 #include <logon_standard.h>
 
-ATM::LogonStatus LogonInspector::InspectLoginString(const std::string& login) {
+ATM::LogonStatus RegistrationInspector::InspectLoginString(const std::string& login) {
   string_analyzer_.AnalyzeString(login);
 
   if (IsLoginShort(login.length())) {
@@ -33,7 +33,7 @@ ATM::LogonStatus LogonInspector::InspectLoginString(const std::string& login) {
   return ATM::LogonStatus::kCorrectLogin;
 }
 
-ATM::LogonStatus LogonInspector::InspectPasswordString(
+ATM::LogonStatus RegistrationInspector::InspectPasswordString(
     const std::string& password) {
   string_analyzer_.AnalyzeString(password);
 
@@ -56,46 +56,46 @@ ATM::LogonStatus LogonInspector::InspectPasswordString(
   return ATM::LogonStatus::kCorrectPassword;
 }
 
-bool LogonInspector::IsLoginShort(int login_length) const {
+bool RegistrationInspector::IsLoginShort(int login_length) const {
   return login_length < LogonStandard::MinLoginLength();
 }
 
-bool LogonInspector::IsLoginLong(int login_length) const {
+bool RegistrationInspector::IsLoginLong(int login_length) const {
   return login_length > LogonStandard::MaxLoginLength();
 }
 
-bool LogonInspector::IsPasswordShort(int password_length) const {
+bool RegistrationInspector::IsPasswordShort(int password_length) const {
   return password_length < LogonStandard::PasswordLength();
 }
 
-bool LogonInspector::IsPasswordLong(int password_length) const {
+bool RegistrationInspector::IsPasswordLong(int password_length) const {
   return password_length > LogonStandard::PasswordLength();
 }
 
-bool LogonInspector::IsPasswordContainSpaces() const {
+bool RegistrationInspector::IsPasswordContainSpaces() const {
   return string_analyzer_.AmountOfSpaces() > 0;
 }
 
-bool LogonInspector::IsStringContainSpecialSymbols() const {
+bool RegistrationInspector::IsStringContainSpecialSymbols() const {
   return string_analyzer_.IsStringContainSpecialSymbols();
 }
 
-bool LogonInspector::IsStringBeginWithSpace() const {
+bool RegistrationInspector::IsStringBeginWithSpace() const {
   return string_analyzer_.IsStringBeginWithSpace();
 }
 
-bool LogonInspector::IsStringEndWithSpace() const {
+bool RegistrationInspector::IsStringEndWithSpace() const {
   return string_analyzer_.IsStringEndWithSpace();
 }
 
-bool LogonInspector::IsStringContainAdjacentSpaces() const {
+bool RegistrationInspector::IsStringContainAdjacentSpaces() const {
   return string_analyzer_.IsStringContainAdjacentSpaces();
 }
 
-bool LogonInspector::IsStringContainOnlyDigits() const {
+bool RegistrationInspector::IsStringContainOnlyDigits() const {
   return string_analyzer_.IsStringContainOnlyDigits();
 }
 
-bool LogonInspector::IsStringEmpty() const {
+bool RegistrationInspector::IsStringEmpty() const {
   return string_analyzer_.IsStringEmpty();
 }

@@ -1,12 +1,12 @@
-﻿#ifndef LOGON_INSPECTOR_H
-#define LOGON_INSPECTOR_H
+﻿#ifndef REGISTRATION_INSPECTOR_H
+#define REGISTRATION_INSPECTOR_H
 
 #include <string>
 
 #include <logon_status.h>
 #include <string_analyzer.h>
 
-class LogonInspector {
+class RegistrationInspector {
  public:
   ATM::LogonStatus InspectLoginString(const std::string& login);
   ATM::LogonStatus InspectPasswordString(const std::string& password);
@@ -29,4 +29,4 @@ class LogonInspector {
   StringAnalyzer string_analyzer_;
 };
 
-#endif  // LOGON_INSPECTOR_H
+#endif  // REGISTRATION_INSPECTOR_H
