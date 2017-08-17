@@ -16,37 +16,37 @@ bool RegistrationHandler::IsAuthenticationOk() const {
 void RegistrationHandler::HandleLoginString(const std::string& login) {
   login_status_ = authenticator_.InspectLoginString(login);
   switch (login_status_) {
-    case ATM::LogonStatus::kCorrectLogin:
+    case ATM::RegistrationStatus::kCorrectLogin:
       RegistrationStatusMessenger::CorrectLoginMessage();
       is_login_ok_ = true;
       break;
-    case ATM::LogonStatus::kShortLogin:
+    case ATM::RegistrationStatus::kShortLogin:
       RegistrationStatusMessenger::LoginLengthStatus(
           RegistrationStatusMessenger::kShortLoginLength);
       break;
-    case ATM::LogonStatus::kLongLogin:
+    case ATM::RegistrationStatus::kLongLogin:
       RegistrationStatusMessenger::LoginLengthStatus(
           RegistrationStatusMessenger::kLongLoginLength);
       break;
-    case ATM::LogonStatus::kSpecialSymbols:
+    case ATM::RegistrationStatus::kSpecialSymbols:
       RegistrationStatusMessenger::LoginContainSpecialSymbol();
       break;
-    case ATM::LogonStatus::kBeginWithSpace:
+    case ATM::RegistrationStatus::kBeginWithSpace:
       RegistrationStatusMessenger::LoginContainIncorrectSpacePosition(
           RegistrationStatusMessenger::ContainSpaceSymbol::kBeginWithSpace);
       break;
-    case ATM::LogonStatus::kEndWithSpace:
+    case ATM::RegistrationStatus::kEndWithSpace:
       RegistrationStatusMessenger::LoginContainIncorrectSpacePosition(
           RegistrationStatusMessenger::ContainSpaceSymbol::kEndWithSpace);
       break;
-    case ATM::LogonStatus::kAdjacentSpaces:
+    case ATM::RegistrationStatus::kAdjacentSpaces:
       RegistrationStatusMessenger::LoginContainIncorrectSpacePosition(
           RegistrationStatusMessenger::ContainSpaceSymbol::kAdjecentSpaces);
       break;
-    case ATM::LogonStatus::kContainOnlyDigits:
+    case ATM::RegistrationStatus::kContainOnlyDigits:
       RegistrationStatusMessenger::LoginContainOnlyDigits();
       break;
-    case ATM::LogonStatus::kEmptyString:
+    case ATM::RegistrationStatus::kEmptyString:
       RegistrationStatusMessenger::LoginEmpty();
       break;
     default:
@@ -57,19 +57,19 @@ void RegistrationHandler::HandleLoginString(const std::string& login) {
 void RegistrationHandler::HandlePasswordString(const std::string& password) {
   password_status_ = authenticator_.InspectPasswordString(password);
   switch (password_status_) {
-    case ATM::LogonStatus::kCorrectPassword:
+    case ATM::RegistrationStatus::kCorrectPassword:
       RegistrationStatusMessenger::CorrectPasswordMessage();
       is_password_ok_ = true;
       break;
-    case ATM::LogonStatus::kShortPassword:
+    case ATM::RegistrationStatus::kShortPassword:
       RegistrationStatusMessenger::PasswordLength(
           RegistrationStatusMessenger::kShortPasswordLength);
       break;
-    case ATM::LogonStatus::kLongPassword:
+    case ATM::RegistrationStatus::kLongPassword:
       RegistrationStatusMessenger::PasswordLength(
           RegistrationStatusMessenger::kLongPasswordLength);
       break;
-    case ATM::LogonStatus::kContainSpaceSymbol:
+    case ATM::RegistrationStatus::kContainSpaceSymbol:
       RegistrationStatusMessenger::PasswordContainSpaceSymbol();
       break;
     case ATM::kEmptyString:

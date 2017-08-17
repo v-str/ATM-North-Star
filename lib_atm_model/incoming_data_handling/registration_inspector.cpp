@@ -2,58 +2,59 @@
 
 #include <registration_data_length_standard.h>
 
-ATM::LogonStatus RegistrationInspector::InspectLoginString(const std::string& login) {
+ATM::RegistrationStatus RegistrationInspector::InspectLoginString(
+    const std::string& login) {
   string_analyzer_.AnalyzeString(login);
 
   if (IsLoginShort(login.length())) {
-    return ATM::LogonStatus::kShortLogin;
+    return ATM::RegistrationStatus::kShortLogin;
   }
   if (IsLoginLong(login.length())) {
-    return ATM::LogonStatus::kLongLogin;
+    return ATM::RegistrationStatus::kLongLogin;
   }
   if (IsStringContainSpecialSymbols()) {
-    return ATM::LogonStatus::kSpecialSymbols;
+    return ATM::RegistrationStatus::kSpecialSymbols;
   }
   if (IsStringBeginWithSpace()) {
-    return ATM::LogonStatus::kBeginWithSpace;
+    return ATM::RegistrationStatus::kBeginWithSpace;
   }
   if (IsStringEndWithSpace()) {
-    return ATM::LogonStatus::kEndWithSpace;
+    return ATM::RegistrationStatus::kEndWithSpace;
   }
   if (IsStringContainAdjacentSpaces()) {
-    return ATM::LogonStatus::kAdjacentSpaces;
+    return ATM::RegistrationStatus::kAdjacentSpaces;
   }
   if (IsStringContainOnlyDigits()) {
-    return ATM::LogonStatus::kContainOnlyDigits;
+    return ATM::RegistrationStatus::kContainOnlyDigits;
   }
   if (IsStringEmpty()) {
-    return ATM::LogonStatus::kEmptyString;
+    return ATM::RegistrationStatus::kEmptyString;
   }
 
-  return ATM::LogonStatus::kCorrectLogin;
+  return ATM::RegistrationStatus::kCorrectLogin;
 }
 
-ATM::LogonStatus RegistrationInspector::InspectPasswordString(
+ATM::RegistrationStatus RegistrationInspector::InspectPasswordString(
     const std::string& password) {
   string_analyzer_.AnalyzeString(password);
 
   if (IsPasswordShort(password.length())) {
-    return ATM::LogonStatus::kShortPassword;
+    return ATM::RegistrationStatus::kShortPassword;
   }
   if (IsPasswordLong(password.length())) {
-    return ATM::LogonStatus::kLongPassword;
+    return ATM::RegistrationStatus::kLongPassword;
   }
   if (IsPasswordContainSpaces()) {
-    return ATM::LogonStatus::kContainSpaceSymbol;
+    return ATM::RegistrationStatus::kContainSpaceSymbol;
   }
   if (IsStringContainSpecialSymbols()) {
-    return ATM::LogonStatus::kSpecialSymbols;
+    return ATM::RegistrationStatus::kSpecialSymbols;
   }
   if (IsStringEmpty()) {
-    return ATM::LogonStatus::kEmptyString;
+    return ATM::RegistrationStatus::kEmptyString;
   }
 
-  return ATM::LogonStatus::kCorrectPassword;
+  return ATM::RegistrationStatus::kCorrectPassword;
 }
 
 bool RegistrationInspector::IsLoginShort(int login_length) const {

@@ -3,13 +3,13 @@
 
 #include <string>
 
-#include <logon_status.h>
+#include <registration_status.h>
 #include <string_analyzer.h>
 
 class RegistrationInspector {
  public:
-  ATM::LogonStatus InspectLoginString(const std::string& login);
-  ATM::LogonStatus InspectPasswordString(const std::string& password);
+  ATM::RegistrationStatus InspectLoginString(const std::string& login);
+  ATM::RegistrationStatus InspectPasswordString(const std::string& password);
 
  private:
   bool IsLoginShort(int login_length) const;
