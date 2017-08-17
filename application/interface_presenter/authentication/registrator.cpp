@@ -31,8 +31,8 @@ void Registrator::ProcessMenuUserInput() {
 void Registrator::RunRegistrationProcedure() {
   for (;;) {
     GetRegistratoinDataFromUser();
-    logon_handler_.HandleLogonData(login_, password_);
-    if (logon_handler_.IsAuthenticationOk()) {
+    registration_handler_.HandleRegistrationData(login_, password_);
+    if (registration_handler_.IsAuthenticationOk()) {
       // Initialize user data in ATM
       // Run transaction menu
       break;

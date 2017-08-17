@@ -1,19 +1,19 @@
-﻿#include <logon_handler.h>
+﻿#include <registration_handler.h>
 
 #include <registration_status_messenger.h>
 
-void LogonHandler::HandleLogonData(const std::string login,
-                                   const std::string& password) {
+void RegistrationHandler::HandleRegistrationData(const std::string login,
+                                                 const std::string& password) {
   HandleLoginString(login);
   HandlePasswordString(password);
 }
 
-bool LogonHandler::IsAuthenticationOk() const {
+bool RegistrationHandler::IsAuthenticationOk() const {
   bool authentication_status = is_login_ok_ && is_password_ok_;
   return authentication_status;
 }
 
-void LogonHandler::HandleLoginString(const std::string& login) {
+void RegistrationHandler::HandleLoginString(const std::string& login) {
   login_status_ = authenticator_.InspectLoginString(login);
   switch (login_status_) {
     case ATM::LogonStatus::kCorrectLogin:
@@ -54,7 +54,7 @@ void LogonHandler::HandleLoginString(const std::string& login) {
   }
 }
 
-void LogonHandler::HandlePasswordString(const std::string& password) {
+void RegistrationHandler::HandlePasswordString(const std::string& password) {
   password_status_ = authenticator_.InspectPasswordString(password);
   switch (password_status_) {
     case ATM::LogonStatus::kCorrectPassword:

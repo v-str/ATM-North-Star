@@ -1,14 +1,15 @@
-﻿#ifndef LOGON_HANDLING_H
-#define LOGON_HANDLING_H
+﻿#ifndef REGISTRATION_HANDLER_H
+#define REGISTRATION_HANDLER_H
 
 #include <string>
 
 #include <logon_status.h>
 #include <registration_inspector.h>
 
-class LogonHandler {
+class RegistrationHandler {
  public:
-  void HandleLogonData(const std::string login, const std::string& password);
+  void HandleRegistrationData(const std::string login,
+                              const std::string& password);
 
   bool IsAuthenticationOk() const;
 
@@ -24,4 +25,4 @@ class LogonHandler {
   bool is_password_ok_ = false;
 };
 
-#endif  // LOGON_HANDLING_H
+#endif  // REGISTRATION_HANDLER_H

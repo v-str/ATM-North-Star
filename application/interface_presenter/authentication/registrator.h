@@ -3,8 +3,8 @@
 
 #include <string>
 
-#include <logon_handler.h>
 #include <menu_input_handler.h>
+#include <registration_handler.h>
 #include <user_input_handler.h>
 
 class Registrator {
@@ -24,7 +24,7 @@ class Registrator {
 
   UserInputHandler user_input_;
   MenuInputHandler menu_input_;
-  LogonHandler logon_handler_;
+  RegistrationHandler registration_handler_;
 
   std::string login_ = "user";
   std::string password_ = "password";
