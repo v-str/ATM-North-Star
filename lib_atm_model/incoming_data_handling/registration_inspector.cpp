@@ -1,6 +1,6 @@
 ﻿#include <registration_inspector.h>
 
-#include <logon_standard.h>
+#include <registration_data_length_standard.h>
 
 ATM::LogonStatus RegistrationInspector::InspectLoginString(const std::string& login) {
   string_analyzer_.AnalyzeString(login);
@@ -57,19 +57,19 @@ ATM::LogonStatus RegistrationInspector::InspectPasswordString(
 }
 
 bool RegistrationInspector::IsLoginShort(int login_length) const {
-  return login_length < LogonStandard::MinLoginLength();
+  return login_length < RegistrationDataLengthStandard::MinLoginLength();
 }
 
 bool RegistrationInspector::IsLoginLong(int login_length) const {
-  return login_length > LogonStandard::MaxLoginLength();
+  return login_length > RegistrationDataLengthStandard::MaxLoginLength();
 }
 
 bool RegistrationInspector::IsPasswordShort(int password_length) const {
-  return password_length < LogonStandard::PasswordLength();
+  return password_length < RegistrationDataLengthStandard::PasswordLength();
 }
 
 bool RegistrationInspector::IsPasswordLong(int password_length) const {
-  return password_length > LogonStandard::PasswordLength();
+  return password_length > RegistrationDataLengthStandard::PasswordLength();
 }
 
 bool RegistrationInspector::IsPasswordContainSpaces() const {
