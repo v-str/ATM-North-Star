@@ -10,6 +10,7 @@ class ConsoleViewer {
  public:
   enum MenuItem { kQuit, kDemo, kRegistration, kLogin };
 
+  void DisplaySplashScreen();
   void RunApplication();
 
  protected:
