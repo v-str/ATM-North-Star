@@ -1,7 +1,7 @@
 ﻿#include <registrator.h>
 
-#include <logon_messenger.h>
 #include <registration_messenger.h>
+#include <registration_status_messenger.h>
 
 void Registrator::RunRegistrationMenu() {
   RegistrationMessenger::ShowRegistrationLogo();

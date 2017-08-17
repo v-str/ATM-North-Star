@@ -1,16 +1,16 @@
-﻿#include <logon_messenger.h>
+﻿#include <registration_status_messenger.h>
 
 #include <string>
 
 #include <console_editor.h>
 
-void LogonMessenger::CorrectLoginMessage() {
+void RegistrationStatusMessenger::CorrectLoginMessage() {
   WriteLoginTitleStatus();
   ConsoleEditor::WriteText("    Correct");
   WtiteDevidingLine();
 }
 
-void LogonMessenger::LoginLengthStatus(StringLength login_length) {
+void RegistrationStatusMessenger::LoginLengthStatus(StringLength login_length) {
   std::string length_status = "";
 
   switch (login_length) {
@@ -32,7 +32,7 @@ void LogonMessenger::LoginLengthStatus(StringLength login_length) {
   WtiteDevidingLine();
 }
 
-void LogonMessenger::LoginContainSpecialSymbol() {
+void RegistrationStatusMessenger::LoginContainSpecialSymbol() {
   WriteLoginTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\n  Your login contain special symbols like a % $ ^ # and so on.\n"
@@ -40,7 +40,7 @@ void LogonMessenger::LoginContainSpecialSymbol() {
   WtiteDevidingLine();
 }
 
-void LogonMessenger::LoginContainIncorrectSpacePosition(
+void RegistrationStatusMessenger::LoginContainIncorrectSpacePosition(
     ContainSpaceSymbol space_symbol)
 
 {
@@ -68,7 +68,7 @@ void LogonMessenger::LoginContainIncorrectSpacePosition(
   WtiteDevidingLine();
 }
 
-void LogonMessenger::LoginContainOnlyDigits() {
+void RegistrationStatusMessenger::LoginContainOnlyDigits() {
   WriteLoginTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\n Your login contain only digits.\n"
@@ -76,7 +76,7 @@ void LogonMessenger::LoginContainOnlyDigits() {
   WtiteDevidingLine();
 }
 
-void LogonMessenger::LoginEmpty() {
+void RegistrationStatusMessenger::LoginEmpty() {
   WriteLoginTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\n Your login is empty.\n"
@@ -84,13 +84,13 @@ void LogonMessenger::LoginEmpty() {
   WtiteDevidingLine();
 }
 
-void LogonMessenger::CorrectPasswordMessage() {
+void RegistrationStatusMessenger::CorrectPasswordMessage() {
   WritePasswordTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(" Correct");
   WtiteDevidingLine();
 }
 
-void LogonMessenger::PasswordLength(StringLength password_length) {
+void RegistrationStatusMessenger::PasswordLength(StringLength password_length) {
   std::string password_status = "";
 
   switch (password_length) {
@@ -112,7 +112,7 @@ void LogonMessenger::PasswordLength(StringLength password_length) {
   WtiteDevidingLine();
 }
 
-void LogonMessenger::PasswordContainSpaceSymbol() {
+void RegistrationStatusMessenger::PasswordContainSpaceSymbol() {
   WritePasswordTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\n  Password contain space symbol.\n"
@@ -120,7 +120,7 @@ void LogonMessenger::PasswordContainSpaceSymbol() {
   WtiteDevidingLine();
 }
 
-void LogonMessenger::PasswordEmpty() {
+void RegistrationStatusMessenger::PasswordEmpty() {
   WritePasswordTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\n  Password is empty.\n"
@@ -128,21 +128,21 @@ void LogonMessenger::PasswordEmpty() {
   WtiteDevidingLine();
 }
 
-void LogonMessenger::AddEmptyLines(int amount_of_lines) {
+void RegistrationStatusMessenger::AddEmptyLines(int amount_of_lines) {
   ConsoleEditor::AddEmptyLineNTimes(amount_of_lines);
 }
 
-void LogonMessenger::WriteLoginTitleStatus() {
+void RegistrationStatusMessenger::WriteLoginTitleStatus() {
   ConsoleEditor::WriteText("\n");
   ConsoleEditor::WriteTextWithDelayPerSymbol(" Login status: ");
 }
 
-void LogonMessenger::WritePasswordTitleStatus() {
+void RegistrationStatusMessenger::WritePasswordTitleStatus() {
   ConsoleEditor::WriteText("\n\n");
   ConsoleEditor::WriteTextWithDelayPerSymbol(" Password status: ");
 }
 
-void LogonMessenger::WtiteDevidingLine() {
+void RegistrationStatusMessenger::WtiteDevidingLine() {
   ConsoleEditor::WriteText("\n");
   ConsoleEditor::WriteSymbolsNTimes(".", 65);
 }

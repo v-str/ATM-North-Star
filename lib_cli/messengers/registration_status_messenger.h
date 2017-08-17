@@ -1,7 +1,7 @@
-﻿#ifndef LOGON_MESSENGER_H
-#define LOGON_MESSENGER_H
+﻿#ifndef REGISTRATION_STATUS_MESSENGER_H
+#define REGISTRATION_STATUS_MESSENGER_H
 
-class LogonMessenger {
+class RegistrationStatusMessenger {
  public:
   enum StringLength {
     kShortLoginLength,
@@ -37,4 +37,4 @@ class LogonMessenger {
   static constexpr int kDelay = 50;
 };
 
-#endif  // LOGON_MESSENGER_H
+#endif  // REGISTRATION_STATUS_MESSENGER_H
