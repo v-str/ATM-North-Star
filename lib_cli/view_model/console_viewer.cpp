@@ -4,7 +4,7 @@ void ConsoleViewer::DisplaySplashScreen() {
   initial_menu_.DisplaySplashScreen();
 }
 
-void ConsoleViewer::RunApplication() {
+void ConsoleViewer::RunInitialMenu() {
   for (;;) {
     user_want_exit_ = false;
     initial_menu_.RunInitialMenu();
