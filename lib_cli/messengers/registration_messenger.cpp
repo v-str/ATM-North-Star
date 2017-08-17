@@ -26,7 +26,7 @@ void RegistrationMessenger::ShowRegistrationReference() {
       "digits.\n\n\n"
       " 1. Start registration\n"
       " 2. Return to initial menu\n"
-      " 2. Quit ( or press q )\n"
+      " 3. Quit ( or press q )\n"
       " Enter: ");
 }
 
