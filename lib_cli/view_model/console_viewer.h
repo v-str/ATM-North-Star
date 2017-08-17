@@ -12,6 +12,9 @@ class ConsoleViewer {
 
   void DisplaySplashScreen();
   void RunInitialMenu();
+  void DisplayFarewellMessage();
+
+  bool IsUserWantToExit();
 
  protected:
   void RunSubMenu(int sub_menu);

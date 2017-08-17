@@ -2,5 +2,8 @@
 
 void ConsolePresenter::RunApplication() {
   console_viewer_.DisplaySplashScreen();
-  console_viewer_.RunInitialMenu();
+  while (!console_viewer_.IsUserWantToExit()) {
+    console_viewer_.RunInitialMenu();
+  }
+  console_viewer_.DisplayFarewellMessage();
 }

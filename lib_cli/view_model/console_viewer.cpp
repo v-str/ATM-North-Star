@@ -5,16 +5,15 @@ void ConsoleViewer::DisplaySplashScreen() {
 }
 
 void ConsoleViewer::RunInitialMenu() {
-  for (;;) {
-    user_want_exit_ = false;
-    initial_menu_.RunInitialMenu();
-    RunSubMenu(initial_menu_.GetSubMenu());
-    if (user_want_exit_) {
-      initial_menu_.DisplayFarewellMessage();
-      break;
-    }
-  }
+  initial_menu_.RunInitialMenu();
+  RunSubMenu(initial_menu_.GetSubMenu());
 }
+
+void ConsoleViewer::DisplayFarewellMessage() {
+  initial_menu_.DisplayFarewellMessage();
+}
+
+bool ConsoleViewer::IsUserWantToExit() { return user_want_exit_; }
 
 void ConsoleViewer::RunSubMenu(int sub_menu) {
   if (sub_menu == ConsoleInitialMenu::kLoginMenu) {
