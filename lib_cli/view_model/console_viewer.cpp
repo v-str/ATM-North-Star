@@ -13,7 +13,19 @@ void ConsoleViewer::DisplayFarewellMessage() {
   initial_menu_.DisplayFarewellMessage();
 }
 
-bool ConsoleViewer::IsUserWantToExit() { return user_want_exit_; }
+std::string ConsoleViewer::LoginString() const {
+  return registration_menu_.LoginString();
+}
+
+std::string ConsoleViewer::PasswordString() const {
+  return registration_menu_.PasswordString();
+}
+
+bool ConsoleViewer::IsUserWantToExit() const { return user_want_exit_; }
+
+bool ConsoleViewer::IsRegistrationDataReceived() const {
+  return is_registration_data_received_;
+}
 
 void ConsoleViewer::RunSubMenu(int sub_menu) {
   if (sub_menu == ConsoleInitialMenu::kLoginMenu) {
@@ -42,6 +54,7 @@ void ConsoleViewer::RunRegistrationMenu() {
   // user_want_to_exit_ = registration_menu.UserWantToExitProgram();
   if (registration_menu_.IsUserWantToRegistrate()) {
     registration_menu_.ReceiveRegistrationDataFromUser();
+    is_registration_data_received_ = true;
   } else if (registration_menu_.IsUserWantToExitProgram()) {
     user_want_exit_ = true;
   }

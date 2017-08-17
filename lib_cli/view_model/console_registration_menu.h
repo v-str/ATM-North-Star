@@ -13,6 +13,9 @@ class ConsoleRegistrationMenu {
   void RunRegistrationMenu();
   void ReceiveRegistrationDataFromUser();
 
+  std::string LoginString() const;
+  std::string PasswordString() const;
+
   bool IsUserWantToRegistrate() const;
   bool IsUserWantToExitProgram() const;
 

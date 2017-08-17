@@ -1,6 +1,8 @@
 ﻿#ifndef CONSOLE_VIEWER_H
 #define CONSOLE_VIEWER_H
 
+#include <string>
+
 #include <console_description_menu.h>
 #include <console_initial_menu.h>
 #include <console_login_menu.h>
@@ -14,7 +16,11 @@ class ConsoleViewer {
   void RunInitialMenu();
   void DisplayFarewellMessage();
 
-  bool IsUserWantToExit();
+  std::string LoginString() const;
+  std::string PasswordString() const;
+
+  bool IsUserWantToExit() const;
+  bool IsRegistrationDataReceived() const;
 
  protected:
   void RunSubMenu(int sub_menu);
@@ -28,6 +34,7 @@ class ConsoleViewer {
   ConsoleRegistrationMenu registration_menu_;
 
   bool user_want_exit_ = false;
+  bool is_registration_data_received_ = false;
 };
 
 #endif  // CONSOLE_VIEWER_H

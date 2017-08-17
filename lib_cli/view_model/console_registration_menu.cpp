@@ -13,11 +13,17 @@ void ConsoleRegistrationMenu::RunRegistrationMenu() {
 }
 
 void ConsoleRegistrationMenu::ReceiveRegistrationDataFromUser() {
+  input_handler_ = std::unique_ptr<UserInputHandler>(new UserInputHandler);
   RegistrationMessenger::ClearScreen();
   RegistrationMessenger::ShowRegistrationLogo();
-  input_handler_ = std::unique_ptr<UserInputHandler>(new UserInputHandler);
   GetLoginStringFromUser();
   GetPasswordStringFromUser();
+}
+
+std::string ConsoleRegistrationMenu::LoginString() const { return login_; }
+
+std::string ConsoleRegistrationMenu::PasswordString() const {
+  return password_;
 }
 
 bool ConsoleRegistrationMenu::IsUserWantToRegistrate() const {
