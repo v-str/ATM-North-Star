@@ -9,6 +9,8 @@ class ConsolePresenter {
 
   void RunApplication();
 
+  void ProcessRegistrationData();
+
  private:
   ConsoleViewer console_viewer_;
 };
