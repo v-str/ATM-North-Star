@@ -11,7 +11,9 @@ void ConsoleInitialMenu::DisplayFarewellMessage() {
   InitialMessenger::FarewellMessage();
 }
 
-int ConsoleInitialMenu::GetSubMenu() const { return sub_menu_input_; }
+ConsoleInitialMenu::SubMenu ConsoleInitialMenu::GetSubMenu() {
+  return static_cast<ConsoleInitialMenu::SubMenu>(sub_menu_input_);
+}
 
 void ConsoleInitialMenu::SuggestInputSubMenu() {
   for (;;) {
@@ -39,7 +41,7 @@ bool ConsoleInitialMenu::IsInputContainSubMenu() {
   if (sub_menu_input_ == kRegistrationMenu) {
     return true;
   }
-  if (sub_menu_input_ == kDemoMenu) {
+  if (sub_menu_input_ == kDescriptionMenu) {
     return true;
   }
   if (sub_menu_input_ == kExit) {

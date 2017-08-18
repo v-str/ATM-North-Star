@@ -5,14 +5,14 @@
 
 class ConsoleInitialMenu {
  public:
-  enum SubMenu { kExit, kLoginMenu, kRegistrationMenu, kDemoMenu };
+  enum SubMenu { kExit, kLoginMenu, kRegistrationMenu, kDescriptionMenu };
 
   void RunInitialMenu();
   void DisplayFarewellMessage();
 
   void DisplayInitialMenu() const;
   void RunSplashScreen() const;
-  int GetSubMenu() const;
+  SubMenu GetSubMenu();
 
  private:
   void SuggestInputSubMenu();

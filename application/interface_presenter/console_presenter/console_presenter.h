@@ -1,9 +1,10 @@
 ﻿#ifndef CONSOLE_INTERFACE_PRESENTER_H
 #define CONSOLE_INTERFACE_PRESENTER_H
 
-#include <console_viewer.h>
-
+#include <console_description_menu.h>
 #include <console_initial_menu.h>
+#include <console_login_menu.h>
+#include <console_registration_menu.h>
 
 class ConsolePresenter {
  public:
@@ -11,12 +12,18 @@ class ConsolePresenter {
 
   void RunApplication();
 
-  void ProcessRegistrationData();
+  void RunSubMenu(ConsoleInitialMenu::SubMenu sub_menu);
 
  private:
-  ConsoleInitialMenu initial_menu_;
+  void RunDescriptionMenu();
+  void RunRegistrationMenu();
 
-  ConsoleViewer console_viewer_;
+  ConsoleInitialMenu initial_menu_;
+  ConsoleLoginMenu login_menu_;
+  ConsoleDescriptionMenu description_menu_;
+  ConsoleRegistrationMenu registration_menu_;
+
+  bool user_want_to_exit_ = false;
 };
 
 #endif  // CONSOLE_INTERFACE_PRESENTER_H
