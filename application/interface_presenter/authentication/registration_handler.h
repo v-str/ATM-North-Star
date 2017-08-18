@@ -17,7 +17,7 @@ class RegistrationHandler {
   void HandleLoginString(const std::string& login);
   void HandlePasswordString(const std::string& password);
 
-  RegistrationInspector authenticator_;
+  RegistrationInspector registration_inspector_;
   ATM::RegistrationStatus login_status_;
   ATM::RegistrationStatus password_status_;
 

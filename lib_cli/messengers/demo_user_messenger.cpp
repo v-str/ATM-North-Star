@@ -31,7 +31,7 @@ void DemoUserMessenger::ShowMessage(
 void DemoUserMessenger::ShowWelcomeDemoMessage() {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "# Welcome to demo mode. This chapter\n"
+      "# Welcome to description menu. This chapter\n"
       "# contains basic information about ATM North Star.\n"
       "# First of all, look at the main menu:\n"
       "# Please, choose interested menu:\n");

@@ -3,6 +3,8 @@
 
 #include <console_viewer.h>
 
+#include <console_initial_menu.h>
+
 class ConsolePresenter {
  public:
   enum MenuItem { kQuit, kDemo, kRegistration, kLogin };
@@ -12,6 +14,8 @@ class ConsolePresenter {
   void ProcessRegistrationData();
 
  private:
+  ConsoleInitialMenu initial_menu_;
+
   ConsoleViewer console_viewer_;
 };
 

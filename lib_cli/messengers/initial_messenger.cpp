@@ -42,7 +42,7 @@ void InitialMessenger::DisplayInitialMenu() {
       "\t #                             #\n"
       "\t #  1. Login                   #\n"
       "\t #  2. Registration            #\n"
-      "\t #  3. Demo                    #\n"
+      "\t #  3. Description             #\n"
       "\t #                             #\n"
       "\t #  (press 'q' for quit)       #\n"
       "\t #                             #\n"

@@ -14,7 +14,7 @@ bool RegistrationHandler::IsAuthenticationOk() const {
 }
 
 void RegistrationHandler::HandleLoginString(const std::string& login) {
-  login_status_ = authenticator_.InspectLoginString(login);
+  login_status_ = registration_inspector_.InspectLoginString(login);
   switch (login_status_) {
     case ATM::RegistrationStatus::kCorrectLogin:
       RegistrationStatusMessenger::CorrectLoginMessage();
@@ -55,7 +55,7 @@ void RegistrationHandler::HandleLoginString(const std::string& login) {
 }
 
 void RegistrationHandler::HandlePasswordString(const std::string& password) {
-  password_status_ = authenticator_.InspectPasswordString(password);
+  password_status_ = registration_inspector_.InspectPasswordString(password);
   switch (password_status_) {
     case ATM::RegistrationStatus::kCorrectPassword:
       RegistrationStatusMessenger::CorrectPasswordMessage();

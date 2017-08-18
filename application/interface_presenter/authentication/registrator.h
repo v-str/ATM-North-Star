@@ -3,9 +3,9 @@
 
 #include <string>
 
-#include <menu_input_handler.h>
-#include <registration_handler.h>
-#include <user_input_handler.h>
+#include <menu_input_handler.h>    // cli
+#include <registration_handler.h>  // atm_model
+#include <user_input_handler.h>    // cli
 
 class Registrator {
  public:

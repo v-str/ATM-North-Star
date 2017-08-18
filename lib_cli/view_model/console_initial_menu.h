@@ -10,13 +10,12 @@ class ConsoleInitialMenu {
   void RunInitialMenu();
   void DisplayFarewellMessage();
 
-  void DisplaySplashScreen() const;
+  void DisplayInitialMenu() const;
+  void RunSplashScreen() const;
   int GetSubMenu() const;
 
  private:
   void SuggestInputSubMenu();
-
-  void DisplayInitialMenu() const;
 
   bool IsInputContainSubMenu();
 

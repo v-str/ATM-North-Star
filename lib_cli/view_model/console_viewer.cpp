@@ -1,8 +1,6 @@
 ﻿#include <console_viewer.h>
 
-void ConsoleViewer::DisplaySplashScreen() {
-  initial_menu_.DisplaySplashScreen();
-}
+void ConsoleViewer::DisplaySplashScreen() { initial_menu_.RunSplashScreen(); }
 
 void ConsoleViewer::RunInitialMenu() {
   initial_menu_.RunInitialMenu();
@@ -51,7 +49,6 @@ void ConsoleViewer::RunDescriptionMenu() {
 
 void ConsoleViewer::RunRegistrationMenu() {
   registration_menu_.RunRegistrationMenu();
-  // user_want_to_exit_ = registration_menu.UserWantToExitProgram();
   if (registration_menu_.IsUserWantToRegistrate()) {
     registration_menu_.ReceiveRegistrationDataFromUser();
     is_registration_data_received_ = true;

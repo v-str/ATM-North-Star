@@ -24,7 +24,7 @@ void ConsoleInitialMenu::SuggestInputSubMenu() {
   }
 }
 
-void ConsoleInitialMenu::DisplaySplashScreen() const {
+void ConsoleInitialMenu::RunSplashScreen() const {
   InitialMessenger::DisplaySplashScreen();
 }
 
