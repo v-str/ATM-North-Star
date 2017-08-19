@@ -1,7 +1,5 @@
 ﻿#include <console_registration_presenter.h>
 
-#include <string>
-
 void ConsoleRegistrationPresenter::RunRegistrationMenu() {
   registration_menu_.RunRegistrationMenu();
   if (registration_menu_.IsUserWantToRegistrate()) {
@@ -19,9 +17,9 @@ bool ConsoleRegistrationPresenter::IsUserWantToExit() const {
 
 void ConsoleRegistrationPresenter::BeginRegistration() {
   registration_menu_.ReceiveRegistrationDataFromUser();
-  std::string login = registration_menu_.LoginString();
-  std::string password = registration_menu_.PasswordString();
+  login_string_ = registration_menu_.LoginString();
+  password_string_ = registration_menu_.PasswordString();
 
-  registration_handler_.HandleLoginString(login);
-  registration_handler_.HandlePasswordString(password);
+  registration_handler_.HandleLoginString(login_string_);
+  registration_handler_.HandlePasswordString(password_string_);
 }
