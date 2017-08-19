@@ -41,10 +41,8 @@ void RegistrationStatusMessenger::LoginContainSpecialSymbol() {
 }
 
 void RegistrationStatusMessenger::LoginContainIncorrectSpacePosition(
-    ContainSpaceSymbol space_symbol)
-
-{
-  std::string space_status = "";
+    ContainSpaceSymbol space_symbol) {
+  std::string space_status;
 
   switch (space_symbol) {
     case kBeginWithSpace:
