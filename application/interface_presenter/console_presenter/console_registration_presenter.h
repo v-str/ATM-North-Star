@@ -10,6 +10,8 @@ class ConsoleRegistrationPresenter {
   bool IsUserWantToExit() const;
 
  private:
+  void BeginRegistration();
+
   ConsoleRegistrationMenu registration_menu_;
 
   bool user_want_to_exit_ = false;
