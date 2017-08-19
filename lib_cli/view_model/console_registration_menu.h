@@ -12,6 +12,7 @@ class ConsoleRegistrationMenu {
 
   void RunRegistrationMenu();
   void ReceiveRegistrationDataFromUser();
+  void ShowRegistrationReport();
 
   std::string LoginString() const;
   std::string PasswordString() const;
