@@ -12,10 +12,11 @@ class ConsoleInitialPresenter {
 
   void RunApplication();
 
+ private:
   void RunSubMenu(ConsoleInitialMenu::SubMenu sub_menu);
 
- private:
   void RunDescriptionMenu();
+
   void RunRegistrationMenu();
 
   ConsoleInitialMenu initial_menu_;

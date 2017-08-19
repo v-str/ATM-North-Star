@@ -12,17 +12,21 @@ void ConsoleInitialPresenter::RunApplication() {
 }
 
 void ConsoleInitialPresenter::RunSubMenu(ConsoleInitialMenu::SubMenu sub_menu) {
-  if (sub_menu == ConsoleInitialMenu::kLoginMenu) {
-    login_menu_.RunLoginMenu();
-  }
-  if (sub_menu == ConsoleInitialMenu::kRegistrationMenu) {
-    RunRegistrationMenu();
-  }
-  if (sub_menu == ConsoleInitialMenu::kDescriptionMenu) {
-    RunDescriptionMenu();
-  }
-  if (sub_menu == ConsoleInitialMenu::kExit) {
-    user_want_to_exit_ = true;
+  switch (sub_menu) {
+    case ConsoleInitialMenu::kLoginMenu:
+      login_menu_.RunLoginMenu();
+      break;
+    case ConsoleInitialMenu::kRegistrationMenu:
+      RunRegistrationMenu();
+      break;
+    case ConsoleInitialMenu::kDescriptionMenu:
+      RunDescriptionMenu();
+      break;
+    case ConsoleInitialMenu::kExit:
+      user_want_to_exit_ = true;
+      break;
+    default:
+      break;
   }
 }
 
