@@ -7,6 +7,8 @@ class ConsoleRegistrationPresenter {
  public:
   void RunRegistrationMenu();
 
+  bool IsUserWantToExit() const;
+
  private:
   ConsoleRegistrationMenu registration_menu_;
 

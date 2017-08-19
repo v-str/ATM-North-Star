@@ -10,8 +10,12 @@ void ConsoleRegistrationPresenter::RunRegistrationMenu() {
     std::string password = registration_menu_.PasswordString();
 
     // pass here data for atm_model
-
-  } else if (registration_menu_.IsUserWantToExitProgram()) {
+  }
+  if (registration_menu_.IsUserWantToExitProgram()) {
     user_want_to_exit_ = true;
   }
+}
+
+bool ConsoleRegistrationPresenter::IsUserWantToExit() const {
+  return user_want_to_exit_;
 }

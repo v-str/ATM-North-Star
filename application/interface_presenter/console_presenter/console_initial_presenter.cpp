@@ -41,4 +41,5 @@ void ConsoleInitialPresenter::RunDescriptionMenu() {
 
 void ConsoleInitialPresenter::RunRegistrationMenu() {
   registration_presenter_.RunRegistrationMenu();
+  user_want_to_exit_ = registration_presenter_.IsUserWantToExit();
 }
