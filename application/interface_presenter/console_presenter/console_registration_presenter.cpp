@@ -20,6 +20,10 @@ void ConsoleRegistrationPresenter::BeginRegistration() {
   login_string_ = registration_menu_.LoginString();
   password_string_ = registration_menu_.PasswordString();
 
+  HandleRegistrationData();
+}
+
+void ConsoleRegistrationPresenter::HandleRegistrationData() {
   registration_handler_.HandleLoginString(login_string_);
   registration_handler_.HandlePasswordString(password_string_);
 }

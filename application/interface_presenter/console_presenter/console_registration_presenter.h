@@ -14,6 +14,7 @@ class ConsoleRegistrationPresenter {
 
  private:
   void BeginRegistration();
+  void HandleRegistrationData();
 
   ConsoleRegistrationMenu registration_menu_;
   AtmRegistrationHandler registration_handler_;
