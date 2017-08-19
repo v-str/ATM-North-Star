@@ -13,6 +13,7 @@ class AtmRegistrationHandler {
 
  private:
   void CheckLoginString();
+  void CheckPasswodString();
 
   RegistrationInspector registration_inpector_;
 
