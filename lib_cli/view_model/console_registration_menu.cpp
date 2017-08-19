@@ -1,7 +1,6 @@
 ﻿#include <console_registration_menu.h>
 
 #include <menu_input_handler.h>
-#include <registration_messenger.h>
 #include <user_input_handler.h>
 
 ConsoleRegistrationMenu::~ConsoleRegistrationMenu() {}
@@ -32,6 +31,16 @@ bool ConsoleRegistrationMenu::IsUserWantToRegistrate() const {
 
 bool ConsoleRegistrationMenu::IsUserWantToExitProgram() const {
   return user_want_to_exit_;
+}
+
+void ConsoleRegistrationMenu::ShowLoginReport(
+    const RegistrationReporter::RegistrationStatus login) {
+  reporter_.ShowLoginReport(login);
+}
+
+void ConsoleRegistrationMenu::ShowPasswordReport(
+    const RegistrationReporter::RegistrationStatus password) {
+  reporter_.ShowPasswordReport(password);
 }
 
 void ConsoleRegistrationMenu::ProcessMenuUserInput() {

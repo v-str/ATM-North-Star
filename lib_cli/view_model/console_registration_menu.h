@@ -4,6 +4,7 @@
 #include <memory>
 #include <string>
 
+#include <registration_messenger.h>
 #include <registration_reporter.h>
 
 class UserInputHandler;
@@ -16,10 +17,7 @@ class ConsoleRegistrationMenu {
   void ReceiveRegistrationDataFromUser();
 
   template <typename T>
-  void ShowLoginReport(const T& login_status);
-
-  template <typename T>
-  void ShowPasswordReport(const T& password_status);
+  void ShowRegistratoinReport(const T& login_status, const T& password_status);
 
   std::string LoginString() const;
   std::string PasswordString() const;
@@ -29,6 +27,10 @@ class ConsoleRegistrationMenu {
 
  private:
   enum MenuItems { kSymbolQuit, kRegistration, kInitialMenu, kDigitQuit };
+
+  void ShowLoginReport(const RegistrationReporter::RegistrationStatus login);
+  void ShowPasswordReport(
+      const RegistrationReporter::RegistrationStatus password);
 
   void ProcessMenuUserInput();
 
@@ -49,19 +51,18 @@ class ConsoleRegistrationMenu {
 };
 
 template <typename T>
-void ConsoleRegistrationMenu::ShowPasswordReport(const T& password_status) {
-  RegistrationReporter::RegistrationStatus status =
-      static_cast<RegistrationReporter::RegistrationStatus>(password_status);
+void ConsoleRegistrationMenu::ShowRegistratoinReport(const T& login_status,
+                                                     const T& password_status) {
+  RegistrationMessenger::ClearScreen();
 
-  reporter_.ShowPasswordReport(status);
-}
-
-template <typename T>
-void ConsoleRegistrationMenu::ShowLoginReport(const T& login_status) {
-  RegistrationReporter::RegistrationStatus status =
+  RegistrationReporter::RegistrationStatus login =
       static_cast<RegistrationReporter::RegistrationStatus>(login_status);
 
-  reporter_.ShowLoginReport(status);
+  RegistrationReporter::RegistrationStatus password =
+      static_cast<RegistrationReporter::RegistrationStatus>(password_status);
+
+  ShowLoginReport(login);
+  ShowPasswordReport(password);
 }
 
 #endif  // CONSOLE_REGISTRATION_MENU_H

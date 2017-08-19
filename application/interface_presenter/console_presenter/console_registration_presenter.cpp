@@ -31,6 +31,5 @@ void ConsoleRegistrationPresenter::HandleRegistrationData() {
   ATM::RegistrationStatus password_status =
       registration_handler_.HandlePasswordString(password_string_);
 
-  registration_menu_.ShowLoginReport(login_status);
-  registration_menu_.ShowPasswordReport(password_status);
+  registration_menu_.ShowRegistratoinReport(login_status, password_status);
 }
