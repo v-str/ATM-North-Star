@@ -16,7 +16,7 @@
 
 // ================ New Code ================
 
-#include <console_presenter.h>
+#include <console_initial_presenter.h>
 #include <menu_input_handler.h>
 #include <user_input_handler.h>
 
@@ -69,7 +69,7 @@ class ConsoleMode {
   // ============= New Code ==================
   std::unique_ptr<AtmInteractor> atm_;
 
-  ConsolePresenter initial_menu_;
+  ConsoleInitialPresenter initial_menu_;
 
   UserInputHandler user_input_;
   MenuInputHandler quit_menu_handler_;

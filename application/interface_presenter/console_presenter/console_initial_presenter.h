@@ -1,12 +1,12 @@
-﻿#ifndef CONSOLE_INTERFACE_PRESENTER_H
-#define CONSOLE_INTERFACE_PRESENTER_H
+﻿#ifndef CONSOLE_INITIAL_PRESENTER_H
+#define CONSOLE_INITIAL_PRESENTER_H
 
 #include <console_description_menu.h>
 #include <console_initial_menu.h>
 #include <console_login_menu.h>
 #include <console_registration_menu.h>
 
-class ConsolePresenter {
+class ConsoleInitialPresenter {
  public:
   enum MenuItem { kQuit, kDemo, kRegistration, kLogin };
 
@@ -26,4 +26,4 @@ class ConsolePresenter {
   bool user_want_to_exit_ = false;
 };
 
-#endif  // CONSOLE_INTERFACE_PRESENTER_H
+#endif  // CONSOLE_INITIAL_PRESENTER_H

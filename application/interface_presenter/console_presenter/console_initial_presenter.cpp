@@ -1,8 +1,8 @@
-﻿#include <console_presenter.h>
+﻿#include <console_initial_presenter.h>
 
 #include <string>
 
-void ConsolePresenter::RunApplication() {
+void ConsoleInitialPresenter::RunApplication() {
   initial_menu_.RunSplashScreen();
   while (!user_want_to_exit_) {
     initial_menu_.RunInitialMenu();
@@ -11,7 +11,7 @@ void ConsolePresenter::RunApplication() {
   initial_menu_.DisplayFarewellMessage();
 }
 
-void ConsolePresenter::RunSubMenu(ConsoleInitialMenu::SubMenu sub_menu) {
+void ConsoleInitialPresenter::RunSubMenu(ConsoleInitialMenu::SubMenu sub_menu) {
   if (sub_menu == ConsoleInitialMenu::kLoginMenu) {
     login_menu_.RunLoginMenu();
   }
@@ -26,14 +26,14 @@ void ConsolePresenter::RunSubMenu(ConsoleInitialMenu::SubMenu sub_menu) {
   }
 }
 
-void ConsolePresenter::RunDescriptionMenu() {
+void ConsoleInitialPresenter::RunDescriptionMenu() {
   description_menu_.RunDescriptionMenu();
   if (description_menu_.IsUserWantToExitProgram()) {
     user_want_to_exit_ = true;
   }
 }
 
-void ConsolePresenter::RunRegistrationMenu() {
+void ConsoleInitialPresenter::RunRegistrationMenu() {
   registration_menu_.RunRegistrationMenu();
   if (registration_menu_.IsUserWantToRegistrate()) {
     registration_menu_.ReceiveRegistrationDataFromUser();

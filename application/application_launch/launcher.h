@@ -3,7 +3,7 @@
 
 #include <memory>
 
-#include <console_presenter.h>
+#include <console_initial_presenter.h>
 #include <gui_presenter.h>
 
 class Launcher {
@@ -14,7 +14,7 @@ class Launcher {
   void DisplayErrorReport() const;
 
  private:
-  std::unique_ptr<ConsolePresenter> initial_menu_;
+  std::unique_ptr<ConsoleInitialPresenter> initial_menu_;
   std::unique_ptr<GUIPresenter> gui_splash_creen_;
 
   // Programming by intentions
