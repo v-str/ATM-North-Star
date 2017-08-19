@@ -15,8 +15,8 @@ class ConsoleInitialPresenter {
  private:
   void RunSubMenu(ConsoleInitialMenu::SubMenu sub_menu);
 
+  void RunLoginMenu();
   void RunDescriptionMenu();
-
   void RunRegistrationMenu();
 
   ConsoleInitialMenu initial_menu_;

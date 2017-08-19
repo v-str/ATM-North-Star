@@ -14,7 +14,7 @@ void ConsoleInitialPresenter::RunApplication() {
 void ConsoleInitialPresenter::RunSubMenu(ConsoleInitialMenu::SubMenu sub_menu) {
   switch (sub_menu) {
     case ConsoleInitialMenu::kLoginMenu:
-      login_menu_.RunLoginMenu();
+      RunLoginMenu();
       break;
     case ConsoleInitialMenu::kRegistrationMenu:
       RunRegistrationMenu();
@@ -29,6 +29,8 @@ void ConsoleInitialPresenter::RunSubMenu(ConsoleInitialMenu::SubMenu sub_menu) {
       break;
   }
 }
+
+void ConsoleInitialPresenter::RunLoginMenu() { login_menu_.RunLoginMenu(); }
 
 void ConsoleInitialPresenter::RunDescriptionMenu() {
   description_menu_.RunDescriptionMenu();
