@@ -21,4 +21,7 @@ void ConsoleRegistrationPresenter::BeginRegistration() {
   registration_menu_.ReceiveRegistrationDataFromUser();
   std::string login = registration_menu_.LoginString();
   std::string password = registration_menu_.PasswordString();
+
+  registration_handler_.HandleLoginString(login);
+  registration_handler_.HandlePasswordString(password);
 }
