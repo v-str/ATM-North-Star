@@ -25,6 +25,12 @@ void ConsoleRegistrationPresenter::BeginRegistration() {
 }
 
 void ConsoleRegistrationPresenter::HandleRegistrationData() {
-  registration_handler_.HandleLoginString(login_string_);
-  registration_handler_.HandlePasswordString(password_string_);
+  ATM::RegistrationStatus login_status =
+      registration_handler_.HandleLoginString(login_string_);
+
+  ATM::RegistrationStatus password_status =
+      registration_handler_.HandlePasswordString(password_string_);
+
+  registration_menu_.ShowLoginReport(login_status);
+  registration_menu_.ShowPasswordReport(password_status);
 }
