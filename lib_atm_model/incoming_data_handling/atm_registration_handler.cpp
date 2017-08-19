@@ -2,14 +2,24 @@
 
 ATM::RegistrationStatus AtmRegistrationHandler::HandleLoginString(
     const std::string login) {
-  ATM::RegistrationStatus login_status =
-      registration_inpector_.InspectLoginString(login);
-  return login_status;
+  login_status_ = registration_inpector_.InspectLoginString(login);
+
+  CheckLoginString();
+
+  return login_status_;
 }
 
 ATM::RegistrationStatus AtmRegistrationHandler::HandlePasswordString(
     const std::string password) {
-  ATM::RegistrationStatus password_status =
-      registration_inpector_.InspectPasswordString(password);
-  return password_status;
+  password_status_ = registration_inpector_.InspectPasswordString(password);
+
+  return password_status_;
+}
+
+void AtmRegistrationHandler::CheckLoginString() {
+  if (login_status_ == ATM::RegistrationStatus::kCorrectLogin) {
+    is_login_correct_ = true;
+  } else {
+    is_login_correct_ = false;
+  }
 }

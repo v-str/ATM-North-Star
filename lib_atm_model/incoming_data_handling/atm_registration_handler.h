@@ -12,10 +12,15 @@ class AtmRegistrationHandler {
   ATM::RegistrationStatus HandlePasswordString(const std::string password);
 
  private:
+  void CheckLoginString();
+
   RegistrationInspector registration_inpector_;
 
+  ATM::RegistrationStatus login_status_;
+  ATM::RegistrationStatus password_status_;
+
   bool is_login_correct_ = false;
-  bool is_password_correct = false;
+  bool is_password_correct_ = false;
 };
 
 #endif  // ATM_REGISTRATION_HANDLER_H
