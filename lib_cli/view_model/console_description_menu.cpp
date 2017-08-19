@@ -15,21 +15,21 @@ void ConsoleDescriptionMenu::RunDescriptionMenu() {
 void ConsoleDescriptionMenu::DisplayDemoSubMenu() {
   int user_choice = user_input_.GetValueFromUser();
   if (user_choice == kAccount) {
-    DisplaySubmenu(DemoUserMessenger::kAccountInfo);
+    DisplaySubmenu(DescriptionMessenger::kAccountInfo);
   } else if (user_choice == kRefill) {
-    DisplaySubmenu(DemoUserMessenger::kRefillInfo);
+    DisplaySubmenu(DescriptionMessenger::kRefillInfo);
   } else if (user_choice == kCredit) {
-    DisplaySubmenu(DemoUserMessenger::kCreditInfo);
+    DisplaySubmenu(DescriptionMessenger::kCreditInfo);
   } else if (user_choice == kWidthdrawal) {
-    DisplaySubmenu(DemoUserMessenger::kWithdrawalInfo);
+    DisplaySubmenu(DescriptionMessenger::kWithdrawalInfo);
   } else if (user_choice == kStatement) {
-    DisplaySubmenu(DemoUserMessenger::kStatementInfo);
+    DisplaySubmenu(DescriptionMessenger::kStatementInfo);
   } else if (user_choice == kExitInitialMenu) {
     user_want_to_initial_menu_ = true;
   } else if (user_choice == kExit) {
     user_want_to_exit_ = true;
   } else {
-    DemoUserMessenger::ShowIncorrectMenuInput();
+    DescriptionMessenger::ShowIncorrectMenuInput();
     DisplayReturnMenu();
   }
 }
@@ -43,13 +43,13 @@ bool ConsoleDescriptionMenu::IsUserWantToExitProgram() const {
 }
 
 void ConsoleDescriptionMenu::DisplaySubmenu(
-    DemoUserMessenger::MessageType message_type) {
-  DemoUserMessenger::ShowMessage(message_type);
+    DescriptionMessenger::MessageType message_type) {
+  DescriptionMessenger::ShowMessage(message_type);
   DisplayReturnMenu();
 }
 
 void ConsoleDescriptionMenu::DisplayReturnMenu() {
-  DemoUserMessenger::ShowReturnMessage();
+  DescriptionMessenger::ShowReturnMessage();
   for (;;) {
     int input_result = 0;
     input_result = user_input_.GetValueFromUser();
@@ -63,18 +63,18 @@ void ConsoleDescriptionMenu::DisplayReturnMenu() {
       user_want_to_exit_ = true;
       break;
     } else {
-      DemoUserMessenger::ShowIncorrectInput();
+      DescriptionMessenger::ShowIncorrectInput();
     }
   }
 }
 
 void ConsoleDescriptionMenu::DiplayDemoMenuTitleOn() {
-  DemoUserMessenger::ShowMessage(DemoUserMessenger::kWelcome);
-  DemoUserMessenger::ShowDemoMenu(DemoUserMessenger::kNoClearScreen);
+  DescriptionMessenger::ShowMessage(DescriptionMessenger::kWelcome);
+  DescriptionMessenger::ShowDemoMenu(DescriptionMessenger::kNoClearScreen);
 }
 
 void ConsoleDescriptionMenu::DiplayDemoMenuTitleOff() {
-  DemoUserMessenger::ShowDemoMenu(DemoUserMessenger::kCLearScreen);
+  DescriptionMessenger::ShowDemoMenu(DescriptionMessenger::kCLearScreen);
 }
 
 void ConsoleDescriptionMenu::ResetManipulationFlags() {

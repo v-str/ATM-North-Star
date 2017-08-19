@@ -1,7 +1,7 @@
 ﻿#ifndef CONSOLE_DESCRIPTION_MENU_H
 #define CONSOLE_DESCRIPTION_MENU_H
 
-#include <demo_user_messenger.h>
+#include <description_messenger.h>
 #include <user_input.h>
 
 class ConsoleDescriptionMenu {
@@ -25,7 +25,7 @@ class ConsoleDescriptionMenu {
     kExit
   };
 
-  void DisplaySubmenu(DemoUserMessenger::MessageType message_type);
+  void DisplaySubmenu(DescriptionMessenger::MessageType message_type);
 
   void DisplayReturnMenu();
 

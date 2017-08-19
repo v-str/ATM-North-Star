@@ -1,7 +1,7 @@
-﻿#ifndef DEMO_USER_MESSANGER_H
-#define DEMO_USER_MESSANGER_H
+﻿#ifndef DESCRIPTION_MESSENGER_H
+#define DESCRIPTION_MESSENGER_H
 
-class DemoUserMessenger {
+class DescriptionMessenger {
  public:
   enum MessageType {
     kWelcome,
@@ -33,4 +33,4 @@ class DemoUserMessenger {
   static void ShowDemoStatementMessage();
 };
 
-#endif  // DEMO_USER_MESSANGER_H
+#endif  // DESCRIPTION_MESSENGER_H
