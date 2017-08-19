@@ -17,7 +17,7 @@ ConsoleInitialMenu::SubMenu ConsoleInitialMenu::GetSubMenu() {
 
 void ConsoleInitialMenu::SuggestInputSubMenu() {
   for (;;) {
-    sub_menu_input_ = input_handler_.GetDigitInputFromUser();
+    sub_menu_input_ = menu_input_handler_.GetDigitInputFromUser();
     if (IsInputContainSubMenu()) {
       break;
     } else {

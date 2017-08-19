@@ -19,7 +19,7 @@ class ConsoleInitialMenu {
 
   bool IsInputContainSubMenu();
 
-  MenuInputHandler input_handler_;
+  MenuInputHandler menu_input_handler_;
 
   int sub_menu_input_ = 0;
 };
