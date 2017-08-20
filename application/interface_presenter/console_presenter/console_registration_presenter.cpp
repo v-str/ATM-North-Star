@@ -23,18 +23,7 @@ void ConsoleRegistrationPresenter::BeginRegistration() {
 
     HandleRegistrationData();
 
-    if (registration_menu_.IsRegistrationConfirmed()) {
-      // registration_handler.RegistrerUser(login_string, password_string);
-      // registrate user and go to main menu
-      break;
-    }
-
-    if (registration_menu_.IsUserWantToInitialMenu()) {
-      break;
-    }
-
-    if (registration_menu_.IsUserWantToExitProgram()) {
-      user_want_to_exit_ = true;
+    if (UserRequestPerformed()) {
       break;
     }
   }
@@ -53,4 +42,22 @@ void ConsoleRegistrationPresenter::HandleRegistrationData() {
   } else {
     registration_menu_.RunIncorrectRegistrationNotification();
   }
+}
+
+bool ConsoleRegistrationPresenter::UserRequestPerformed() {
+  if (registration_menu_.IsRegistrationConfirmed()) {
+    // registration_handler.RegistrerUser(login_string, password_string);
+    // registrate user and go to main menu
+    return true;
+  }
+
+  if (registration_menu_.IsUserWantToInitialMenu()) {
+    return true;
+  }
+
+  if (registration_menu_.IsUserWantToExitProgram()) {
+    user_want_to_exit_ = true;
+    return true;
+  }
+  return false;
 }

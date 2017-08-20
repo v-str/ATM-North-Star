@@ -28,7 +28,6 @@ class ConsoleRegistrationMenu {
   bool IsUserWantToRepeatRegistrate() const;
   bool IsUserWantToExitProgram() const;
   bool IsUserWantToInitialMenu() const;
-
   bool IsRegistrationConfirmed() const;
 
  private:
