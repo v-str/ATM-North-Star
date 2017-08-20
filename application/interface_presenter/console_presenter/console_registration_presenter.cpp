@@ -15,12 +15,28 @@ bool ConsoleRegistrationPresenter::IsUserWantToExit() const {
 }
 
 void ConsoleRegistrationPresenter::BeginRegistration() {
-  registration_menu_.ReceiveRegistrationDataFromUser();
+  for (;;) {
+    registration_menu_.ReceiveRegistrationDataFromUser();
 
-  login_string_ = registration_menu_.LoginString();
-  password_string_ = registration_menu_.PasswordString();
+    login_string_ = registration_menu_.LoginString();
+    password_string_ = registration_menu_.PasswordString();
 
-  HandleRegistrationData();
+    HandleRegistrationData();
+
+    if (registration_menu_.IsRegistrationConfirmed()) {
+      // registrate user and go to main menu
+      break;
+    }
+
+    if (registration_menu_.IsUserWantToInitialMenu()) {
+      break;
+    }
+
+    if (registration_menu_.IsUserWantToExitProgram()) {
+      user_want_to_exit_ = true;
+      break;
+    }
+  }
 }
 
 void ConsoleRegistrationPresenter::HandleRegistrationData() {
@@ -33,8 +49,8 @@ void ConsoleRegistrationPresenter::HandleRegistrationData() {
   registration_menu_.ShowRegistratoinReport(login_status, password_status);
 
   if (registration_handler_.IsRegistrationDataCorrect()) {
-    registration_menu_.ShowConfirmRegistration();
+    registration_menu_.RunRegistrationConfirmation();
   } else {
-    registration_menu_.ShowIncorrectRegistration();
+    registration_menu_.RunIncorrectRegistrationNotification();
   }
 }

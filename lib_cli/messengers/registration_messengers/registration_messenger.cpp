@@ -32,8 +32,7 @@ void RegistrationMessenger::ShowRegistrationReference() {
 
 void RegistrationMessenger::ShowIncorrectInput() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n Incorrect input, please enter 1 for registration or\n"
-      " press 2 to exit program ( or press q )\n"
+      "\n Incorrect input, please repeat:\n"
       " Enter: ");
 }
 

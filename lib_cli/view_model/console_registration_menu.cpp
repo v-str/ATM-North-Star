@@ -3,8 +3,6 @@
 #include <menu_input_handler.h>
 #include <user_input_handler.h>
 
-ConsoleRegistrationMenu::~ConsoleRegistrationMenu() {}
-
 void ConsoleRegistrationMenu::RunRegistrationMenu() {
   RegistrationMessenger::ShowRegistrationLogo();
   RegistrationMessenger::ShowRegistrationReference();
@@ -19,12 +17,12 @@ void ConsoleRegistrationMenu::ReceiveRegistrationDataFromUser() {
   GetPasswordStringFromUser();
 }
 
-void ConsoleRegistrationMenu::ShowConfirmRegistration() {
+void ConsoleRegistrationMenu::RunRegistrationConfirmation() {
   RegistrationMessenger::ShowConfirmationMessage();
   ProcessMenuUserInput(registration_confirmed_);
 }
 
-void ConsoleRegistrationMenu::ShowIncorrectRegistration() {
+void ConsoleRegistrationMenu::RunIncorrectRegistrationNotification() {
   RegistrationMessenger::IncorrectRegistrationNotification();
   ProcessMenuUserInput(user_want_to_repeat_registration_);
 }
@@ -51,6 +49,10 @@ bool ConsoleRegistrationMenu::IsRegistrationConfirmed() const {
   return registration_confirmed_;
 }
 
+bool ConsoleRegistrationMenu::IsUserWantToInitialMenu() const {
+  return user_want_to_initial_menu_;
+}
+
 void ConsoleRegistrationMenu::ShowLoginReport(
     const RegistrationReporter::RegistrationStatus login) {
   reporter_.ShowLoginReport(login);
@@ -70,6 +72,7 @@ void ConsoleRegistrationMenu::ProcessMenuUserInput(bool& changing_action) {
       changing_action = true;
       break;
     } else if (user_input == kInitialMenu) {
+      user_want_to_initial_menu_ = true;
       break;
     } else if (user_input == kSymbolQuit || user_input == kDigitQuit) {
       user_want_to_exit_ = true;
@@ -85,6 +88,7 @@ void ConsoleRegistrationMenu::ResetManipulationFlags() {
   user_want_to_exit_ = false;
   registration_confirmed_ = false;
   user_want_to_repeat_registration_ = false;
+  user_want_to_initial_menu_ = false;
 }
 
 void ConsoleRegistrationMenu::GetLoginStringFromUser() {

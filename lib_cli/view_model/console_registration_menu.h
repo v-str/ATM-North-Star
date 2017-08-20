@@ -11,13 +11,11 @@ class UserInputHandler;
 
 class ConsoleRegistrationMenu {
  public:
-  ~ConsoleRegistrationMenu();
-
   void RunRegistrationMenu();
   void ReceiveRegistrationDataFromUser();
 
-  void ShowConfirmRegistration();
-  void ShowIncorrectRegistration();
+  void RunRegistrationConfirmation();
+  void RunIncorrectRegistrationNotification();
 
   template <typename T>
   void ShowRegistratoinReport(const T& login_status, const T& password_status);
@@ -29,6 +27,7 @@ class ConsoleRegistrationMenu {
   bool IsUserWantToRepeatRegistrate() const;
   bool IsUserWantToExitProgram() const;
   bool IsRegistrationConfirmed() const;
+  bool IsUserWantToInitialMenu() const;
 
  private:
   enum MenuItems { kSymbolQuit, kNextAction, kInitialMenu, kDigitQuit };
@@ -55,6 +54,7 @@ class ConsoleRegistrationMenu {
   bool registration_confirmed_ = false;
   bool user_want_to_repeat_registration_ = false;
   bool user_want_to_exit_ = false;
+  bool user_want_to_initial_menu_ = false;
 };
 
 template <typename T>
