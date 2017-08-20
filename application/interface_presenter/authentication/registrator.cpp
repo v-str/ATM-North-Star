@@ -30,7 +30,7 @@ void Registrator::ProcessMenuUserInput() {
 
 void Registrator::RunRegistrationProcedure() {
   for (;;) {
-    GetRegistratoinDataFromUser();
+    GetRegistrationDataFromUser();
     registration_handler_.HandleRegistrationData(login_, password_);
     if (registration_handler_.IsAuthenticationOk()) {
       // Initialize user data in ATM
@@ -45,7 +45,7 @@ void Registrator::RunRegistrationProcedure() {
   }
 }
 
-void Registrator::GetRegistratoinDataFromUser() {
+void Registrator::GetRegistrationDataFromUser() {
   RegistrationMessenger::ShowRegistrationLogo();
   GetLoginStringFromUser();
   GetPasswordStringFromUser();
