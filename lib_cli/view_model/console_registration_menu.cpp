@@ -26,7 +26,7 @@ void ConsoleRegistrationMenu::ShowConfirmRegistration() {
 
 void ConsoleRegistrationMenu::ShowIncorrectRegistration() {
   RegistrationMessenger::IncorrectRegistrationNotification();
-  ProcessMenuUserInput(user_want_to_re_registrate_);
+  ProcessMenuUserInput(user_want_to_repeat_registration_);
 }
 
 std::string ConsoleRegistrationMenu::LoginString() const { return login_; }
@@ -39,8 +39,16 @@ bool ConsoleRegistrationMenu::IsUserWantToRegistrate() const {
   return user_want_to_registrate_;
 }
 
+bool ConsoleRegistrationMenu::IsUserWantToRepeatRegistrate() const {
+  return user_want_to_repeat_registration_;
+}
+
 bool ConsoleRegistrationMenu::IsUserWantToExitProgram() const {
   return user_want_to_exit_;
+}
+
+bool ConsoleRegistrationMenu::IsRegistrationConfirmed() const {
+  return registration_confirmed_;
 }
 
 void ConsoleRegistrationMenu::ShowLoginReport(
@@ -76,7 +84,7 @@ void ConsoleRegistrationMenu::ResetManipulationFlags() {
   user_want_to_registrate_ = false;
   user_want_to_exit_ = false;
   registration_confirmed_ = false;
-  user_want_to_re_registrate_ = false;
+  user_want_to_repeat_registration_ = false;
 }
 
 void ConsoleRegistrationMenu::GetLoginStringFromUser() {

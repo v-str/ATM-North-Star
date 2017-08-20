@@ -26,7 +26,9 @@ class ConsoleRegistrationMenu {
   std::string PasswordString() const;
 
   bool IsUserWantToRegistrate() const;
+  bool IsUserWantToRepeatRegistrate() const;
   bool IsUserWantToExitProgram() const;
+  bool IsRegistrationConfirmed() const;
 
  private:
   enum MenuItems { kSymbolQuit, kNextAction, kInitialMenu, kDigitQuit };
@@ -51,7 +53,7 @@ class ConsoleRegistrationMenu {
 
   bool user_want_to_registrate_ = false;
   bool registration_confirmed_ = false;
-  bool user_want_to_re_registrate_ = false;
+  bool user_want_to_repeat_registration_ = false;
   bool user_want_to_exit_ = false;
 };
 
