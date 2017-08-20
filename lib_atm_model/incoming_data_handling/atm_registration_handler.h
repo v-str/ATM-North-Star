@@ -11,6 +11,8 @@ class AtmRegistrationHandler {
   ATM::RegistrationStatus HandleLoginString(const std::string login);
   ATM::RegistrationStatus HandlePasswordString(const std::string password);
 
+  bool IsRegistrationDataCorrect() const;
+
  private:
   void CheckLoginString();
   void CheckPasswodString();

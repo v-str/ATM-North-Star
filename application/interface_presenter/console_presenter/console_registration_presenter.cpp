@@ -4,7 +4,6 @@ void ConsoleRegistrationPresenter::RunRegistrationMenu() {
   registration_menu_.RunRegistrationMenu();
   if (registration_menu_.IsUserWantToRegistrate()) {
     BeginRegistration();
-    // pass here data for atm_model
   }
   if (registration_menu_.IsUserWantToExitProgram()) {
     user_want_to_exit_ = true;

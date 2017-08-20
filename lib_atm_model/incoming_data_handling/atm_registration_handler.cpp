@@ -18,6 +18,11 @@ ATM::RegistrationStatus AtmRegistrationHandler::HandlePasswordString(
   return password_status_;
 }
 
+bool AtmRegistrationHandler::IsRegistrationDataCorrect() const {
+  bool correct_registration_data = is_login_correct_ && is_password_correct_;
+  return correct_registration_data;
+}
+
 void AtmRegistrationHandler::CheckLoginString() {
   if (login_status_ == ATM::RegistrationStatus::kCorrectLogin) {
     is_login_correct_ = true;
