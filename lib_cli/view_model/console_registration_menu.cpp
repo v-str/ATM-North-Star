@@ -8,7 +8,7 @@ ConsoleRegistrationMenu::~ConsoleRegistrationMenu() {}
 void ConsoleRegistrationMenu::RunRegistrationMenu() {
   RegistrationMessenger::ShowRegistrationLogo();
   RegistrationMessenger::ShowRegistrationReference();
-  ProcessMenuUserInput();
+  ProcessMenuUserInput(user_want_to_registrate_);
 }
 
 void ConsoleRegistrationMenu::ReceiveRegistrationDataFromUser() {
@@ -21,12 +21,12 @@ void ConsoleRegistrationMenu::ReceiveRegistrationDataFromUser() {
 
 void ConsoleRegistrationMenu::ShowConfirmRegistration() {
   RegistrationMessenger::ShowConfirmationMessage();
-  ProcessConfirmationUserInput();
+  ProcessMenuUserInput(registration_confirmed_);
 }
 
 void ConsoleRegistrationMenu::ShowIncorrectRegistration() {
   RegistrationMessenger::IncorrectRegistrationNotification();
-  ProcessIncorrectRegistration();
+  ProcessMenuUserInput(user_want_to_re_registrate_);
 }
 
 std::string ConsoleRegistrationMenu::LoginString() const { return login_; }
@@ -53,51 +53,13 @@ void ConsoleRegistrationMenu::ShowPasswordReport(
   reporter_.ShowPasswordReport(password);
 }
 
-void ConsoleRegistrationMenu::ProcessMenuUserInput() {
+void ConsoleRegistrationMenu::ProcessMenuUserInput(bool& changing_action) {
   input_handler_ = std::unique_ptr<UserInputHandler>(new MenuInputHandler);
   for (;;) {
     ResetManipulationFlags();
     int user_input = input_handler_->GetDigitInputFromUser();
-    if (user_input == kRegistration) {
-      user_want_to_registrate_ = true;
-      break;
-    } else if (user_input == kInitialMenu) {
-      break;
-    } else if (user_input == kSymbolQuit || user_input == kDigitQuit) {
-      user_want_to_exit_ = true;
-      break;
-    } else {
-      RegistrationMessenger::ShowIncorrectInput();
-    }
-  }
-}
-
-void ConsoleRegistrationMenu::ProcessConfirmationUserInput() {
-  input_handler_ = std::unique_ptr<UserInputHandler>(new MenuInputHandler);
-  for (;;) {
-    ResetManipulationFlags();
-    int user_input = input_handler_->GetDigitInputFromUser();
-    if (user_input == kConfirmRegistration) {
-      is_registration_confirmed_ = true;
-      break;
-    } else if (user_input == kInitialMenu) {
-      break;
-    } else if (user_input == kSymbolQuit || user_input == kDigitQuit) {
-      user_want_to_exit_ = true;
-      break;
-    } else {
-      RegistrationMessenger::ShowIncorrectInput();
-    }
-  }
-}
-
-void ConsoleRegistrationMenu::ProcessIncorrectRegistration() {
-  input_handler_ = std::unique_ptr<UserInputHandler>(new MenuInputHandler);
-  for (;;) {
-    ResetManipulationFlags();
-    int user_input = input_handler_->GetDigitInputFromUser();
-    if (user_input == kReRegistration) {
-      user_want_to_re_registrate_ = true;
+    if (user_input == kNextAction) {
+      changing_action = true;
       break;
     } else if (user_input == kInitialMenu) {
       break;
@@ -113,7 +75,8 @@ void ConsoleRegistrationMenu::ProcessIncorrectRegistration() {
 void ConsoleRegistrationMenu::ResetManipulationFlags() {
   user_want_to_registrate_ = false;
   user_want_to_exit_ = false;
-  is_registration_confirmed_ = false;
+  registration_confirmed_ = false;
+  user_want_to_re_registrate_ = false;
 }
 
 void ConsoleRegistrationMenu::GetLoginStringFromUser() {
