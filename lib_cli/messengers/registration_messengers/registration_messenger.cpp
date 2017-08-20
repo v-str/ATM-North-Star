@@ -54,12 +54,12 @@ void RegistrationMessenger::SuggestReenterRegistrationData() {
       "  Enter: ");
 }
 
-void RegistrationMessenger::ShowRegistrationConfirmation() {
+void RegistrationMessenger::ShowConfirmationMessage() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "  Registration data confirmed...\n\n"
       "1. Perform registration\n"
       "2. Initial menu\n"
-      "3. Quit\n\n"
+      "3. Quit ( or press q )\n\n"
       "Enter:");
 }
 
