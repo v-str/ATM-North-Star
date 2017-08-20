@@ -1,26 +1,14 @@
 ﻿#ifndef REGISTRATION_REPORTER_H
 #define REGISTRATION_REPORTER_H
 
+#include <registration_status.h>
+
 class RegistrationReporter {
  public:
-  enum RegistrationStatus {
-    kCorrectLogin,
-    kShortLogin,
-    kLongLogin,
-    kCorrectPassword,
-    kShortPassword,
-    kLongPassword,
-    kSpecialSymbols,
-    kBeginWithSpace,
-    kEndWithSpace,
-    kAdjacentSpaces,
-    kContainOnlyDigits,
-    kContainSpaceSymbol,
-    kEmptyString
-  };
+  typedef CONSOLE::RegistrationStatus STATUS;
 
-  void ShowLoginReport(RegistrationStatus login_status);
-  void ShowPasswordReport(RegistrationStatus password_status);
+  void ShowLoginReport(STATUS login_status);
+  void ShowPasswordReport(STATUS password_status);
 };
 
 #endif  // REGISTRATION_REPORTER_H

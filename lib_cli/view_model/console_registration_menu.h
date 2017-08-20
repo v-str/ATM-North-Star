@@ -6,6 +6,7 @@
 
 #include <registration_messenger.h>
 #include <registration_reporter.h>
+#include <registration_status.h>
 
 class UserInputHandler;
 
@@ -32,9 +33,8 @@ class ConsoleRegistrationMenu {
  private:
   enum MenuItems { kSymbolQuit, kNextAction, kInitialMenu, kDigitQuit };
 
-  void ShowLoginReport(const RegistrationReporter::RegistrationStatus login);
-  void ShowPasswordReport(
-      const RegistrationReporter::RegistrationStatus password);
+  void ShowLoginReport(const CONSOLE::RegistrationStatus login_status);
+  void ShowPasswordReport(const CONSOLE::RegistrationStatus password_status);
 
   void ProcessMenuUserInput(bool& changing_action);
 
@@ -62,14 +62,8 @@ void ConsoleRegistrationMenu::ShowRegistratoinReport(const T& login_status,
                                                      const T& password_status) {
   RegistrationMessenger::ClearScreen();
 
-  RegistrationReporter::RegistrationStatus login =
-      static_cast<RegistrationReporter::RegistrationStatus>(login_status);
-
-  RegistrationReporter::RegistrationStatus password =
-      static_cast<RegistrationReporter::RegistrationStatus>(password_status);
-
-  ShowLoginReport(login);
-  ShowPasswordReport(password);
+  ShowLoginReport(static_cast<CONSOLE::RegistrationStatus>(login_status));
+  ShowPasswordReport(static_cast<CONSOLE::RegistrationStatus>(password_status));
 }
 
 #endif  // CONSOLE_REGISTRATION_MENU_H

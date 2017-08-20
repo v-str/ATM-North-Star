@@ -3,8 +3,8 @@
 
 #include <string>
 
+#include <atm_registration_status.h>
 #include <registration_inspector.h>
-#include <registration_status.h>
 
 class AtmRegistrationHandler {
  public:

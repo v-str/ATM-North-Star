@@ -1,5 +1,5 @@
-﻿#ifndef REGISTRATION_STATUS_H
-#define REGISTRATION_STATUS_H
+﻿#ifndef ATM_REGISTRATION_STATUS_H
+#define ATM_REGISTRATION_STATUS_H
 
 namespace ATM {
 enum RegistrationStatus {
@@ -19,4 +19,4 @@ enum RegistrationStatus {
 };
 }
 
-#endif  // REGISTRATION_STATUS_H
+#endif  // ATM_REGISTRATION_STATUS_H

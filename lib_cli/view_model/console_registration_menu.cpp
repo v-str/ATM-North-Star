@@ -54,13 +54,13 @@ bool ConsoleRegistrationMenu::IsUserWantToInitialMenu() const {
 }
 
 void ConsoleRegistrationMenu::ShowLoginReport(
-    const RegistrationReporter::RegistrationStatus login) {
-  reporter_.ShowLoginReport(login);
+    const CONSOLE::RegistrationStatus login_status) {
+  reporter_.ShowLoginReport(login_status);
 }
 
 void ConsoleRegistrationMenu::ShowPasswordReport(
-    const RegistrationReporter::RegistrationStatus password) {
-  reporter_.ShowPasswordReport(password);
+    const CONSOLE::RegistrationStatus password_status) {
+  reporter_.ShowPasswordReport(password_status);
 }
 
 void ConsoleRegistrationMenu::ProcessMenuUserInput(bool& changing_action) {

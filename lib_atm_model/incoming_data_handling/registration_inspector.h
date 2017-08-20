@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include <registration_status.h>
+#include <atm_registration_status.h>
 #include <string_analyzer.h>
 
 class RegistrationInspector {

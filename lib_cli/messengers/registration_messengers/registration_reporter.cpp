@@ -2,38 +2,38 @@
 
 #include <registration_status_messenger.h>
 
-void RegistrationReporter::ShowLoginReport(RegistrationStatus login_status) {
+void RegistrationReporter::ShowLoginReport(STATUS login_status) {
   switch (login_status) {
-    case kCorrectLogin:
+    case STATUS::kCorrectLogin:
       RegistrationStatusMessenger::CorrectLoginMessage();
       break;
-    case kShortLogin:
+    case STATUS::kShortLogin:
       RegistrationStatusMessenger::LoginLengthStatus(
           RegistrationStatusMessenger::kShortLoginLength);
       break;
-    case kLongLogin:
+    case STATUS::kLongLogin:
       RegistrationStatusMessenger::LoginLengthStatus(
           RegistrationStatusMessenger::kLongLoginLength);
       break;
-    case kSpecialSymbols:
+    case STATUS::kSpecialSymbols:
       RegistrationStatusMessenger::LoginContainSpecialSymbol();
       break;
-    case kBeginWithSpace:
+    case STATUS::kBeginWithSpace:
       RegistrationStatusMessenger::LoginContainIncorrectSpacePosition(
           RegistrationStatusMessenger::ContainSpaceSymbol::kBeginWithSpace);
       break;
-    case kEndWithSpace:
+    case STATUS::kEndWithSpace:
       RegistrationStatusMessenger::LoginContainIncorrectSpacePosition(
           RegistrationStatusMessenger::ContainSpaceSymbol::kEndWithSpace);
       break;
-    case kAdjacentSpaces:
+    case STATUS::kAdjacentSpaces:
       RegistrationStatusMessenger::LoginContainIncorrectSpacePosition(
           RegistrationStatusMessenger::ContainSpaceSymbol::kAdjecentSpaces);
       break;
-    case kContainOnlyDigits:
+    case STATUS::kContainOnlyDigits:
       RegistrationStatusMessenger::LoginContainOnlyDigits();
       break;
-    case kEmptyString:
+    case STATUS::kEmptyString:
       RegistrationStatusMessenger::LoginEmpty();
       break;
     default:
@@ -41,24 +41,23 @@ void RegistrationReporter::ShowLoginReport(RegistrationStatus login_status) {
   }
 }
 
-void RegistrationReporter::ShowPasswordReport(
-    RegistrationStatus password_status) {
+void RegistrationReporter::ShowPasswordReport(STATUS password_status) {
   switch (password_status) {
-    case kCorrectPassword:
+    case STATUS::kCorrectPassword:
       RegistrationStatusMessenger::CorrectPasswordMessage();
       break;
-    case kShortPassword:
+    case STATUS::kShortPassword:
       RegistrationStatusMessenger::PasswordLength(
           RegistrationStatusMessenger::kShortPasswordLength);
       break;
-    case kLongPassword:
+    case STATUS::kLongPassword:
       RegistrationStatusMessenger::PasswordLength(
           RegistrationStatusMessenger::kLongPasswordLength);
       break;
-    case kContainSpaceSymbol:
+    case STATUS::kContainSpaceSymbol:
       RegistrationStatusMessenger::PasswordContainSpaceSymbol();
       break;
-    case kEmptyString:
+    case STATUS::kEmptyString:
       RegistrationStatusMessenger::PasswordEmpty();
       break;
     default:
