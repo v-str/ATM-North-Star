@@ -16,17 +16,20 @@ bool ConsoleRegistrationPresenter::IsUserWantToExit() const {
 
 void ConsoleRegistrationPresenter::BeginRegistration() {
   for (;;) {
-    registration_menu_.ReceiveRegistrationDataFromUser();
-
-    login_string_ = registration_menu_.LoginString();
-    password_string_ = registration_menu_.PasswordString();
-
+    ReceiveRegistrationData();
     HandleRegistrationData();
 
     if (UserRequestPerformed()) {
       break;
     }
   }
+}
+
+void ConsoleRegistrationPresenter::ReceiveRegistrationData() {
+  registration_menu_.ReceiveRegistrationDataFromUser();
+
+  login_string_ = registration_menu_.LoginString();
+  password_string_ = registration_menu_.PasswordString();
 }
 
 void ConsoleRegistrationPresenter::HandleRegistrationData() {

@@ -14,6 +14,7 @@ class ConsoleRegistrationPresenter {
 
  private:
   void BeginRegistration();
+  void ReceiveRegistrationData();
   void HandleRegistrationData();
   bool UserRequestPerformed();
 
