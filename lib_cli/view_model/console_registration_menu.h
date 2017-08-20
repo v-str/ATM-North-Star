@@ -16,7 +16,8 @@ class ConsoleRegistrationMenu {
   void RunRegistrationMenu();
   void ReceiveRegistrationDataFromUser();
 
-  void ConfirmRegistration();
+  void ShowConfirmRegistration();
+  void ShowIncorrectRegistration();
 
   template <typename T>
   void ShowRegistratoinReport(const T& login_status, const T& password_status);
@@ -31,7 +32,8 @@ class ConsoleRegistrationMenu {
   enum MenuItems {
     kSymbolQuit,
     kRegistration,
-    kConfirmRegistration,
+    kConfirmRegistration = 1,
+    kReRegistration = 1,
     kInitialMenu,
     kDigitQuit
   };
@@ -42,6 +44,7 @@ class ConsoleRegistrationMenu {
 
   void ProcessMenuUserInput();
   void ProcessConfirmationUserInput();
+  void ProcessIncorrectRegistration();
 
   void ResetManipulationFlags();
 
@@ -57,6 +60,7 @@ class ConsoleRegistrationMenu {
 
   bool user_want_to_registrate_ = false;
   bool is_registration_confirmed_ = false;
+  bool user_want_to_re_registrate_ = false;
   bool user_want_to_exit_ = false;
 };
 
