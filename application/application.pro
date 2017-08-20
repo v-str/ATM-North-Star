@@ -40,9 +40,7 @@ INCLUDEPATH += \
     ../lib_cli/view_model \
     ../lib_cli/messengers \
     ../lib_gui/features \
-    $$PWD/interface_presenter/transaction_menu \
     $$PWD/atm_operations/credit_operations \ #deprecated code, should be removed
-    $$PWD/interface_presenter/authentication \
     $$PWD/interface_presenter \
     $$PWD/interface_presenter/console_presenter \
     $$PWD/application_launch \
@@ -50,9 +48,7 @@ INCLUDEPATH += \
     $$PWD/user_data \ #deprecated code, should be removed
 
 HEADERS += \
-    $$PWD/interface_presenter/transaction_menu/*.h \
     $$PWD/atm_operations/credit_operations/*.h \
-    $$PWD/interface_presenter/authentication/*.h \
     $$PWD/interface_presenter/*.h \
     $$PWD/interface_presenter/console_presenter/*.h \
     $$PWD/application_launch/*.h \
@@ -61,8 +57,6 @@ HEADERS += \
 
 SOURCES += \
     $$PWD/atm_operations/credit_operations/*.cpp \
-    $$PWD/interface_presenter/transaction_menu/*.cpp \
-    $$PWD/interface_presenter/authentication/*.cpp \
     $$PWD/interface_presenter/*.cpp \
     $$PWD/interface_presenter/console_presenter/*.cpp \
     $$PWD/application_launch/*.cpp \
