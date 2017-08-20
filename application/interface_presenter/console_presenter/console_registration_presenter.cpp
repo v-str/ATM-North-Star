@@ -43,7 +43,6 @@ void ConsoleRegistrationPresenter::BeginRegistration() {
 void ConsoleRegistrationPresenter::HandleRegistrationData() {
   ATM::RegistrationStatus login_status =
       registration_handler_.HandleLoginString(login_string_);
-
   ATM::RegistrationStatus password_status =
       registration_handler_.HandlePasswordString(password_string_);
 

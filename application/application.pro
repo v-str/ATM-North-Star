@@ -21,6 +21,7 @@ DEPENDPATH += \
     ../lib_gui/atm_widgets \
     ../lib_atm_model/interaction \
     ../lib_cli/view_model \
+    ../lib_cli/view_model/registration \
     ../lib_cli/messengers \
 
 INCLUDEPATH += \
@@ -38,6 +39,7 @@ INCLUDEPATH += \
     ../lib_atm_model/interaction \
     ../lib_gui/atm_widgets \
     ../lib_cli/view_model \
+    ../lib_cli/view_model/registration \
     ../lib_cli/messengers \
     ../lib_gui/features \
     $$PWD/atm_operations/credit_operations \ #deprecated code, should be removed
