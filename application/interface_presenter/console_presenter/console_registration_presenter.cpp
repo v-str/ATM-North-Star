@@ -24,6 +24,7 @@ void ConsoleRegistrationPresenter::BeginRegistration() {
     HandleRegistrationData();
 
     if (registration_menu_.IsRegistrationConfirmed()) {
+      // registration_handler.RegistrerUser(login_string, password_string);
       // registrate user and go to main menu
       break;
     }
