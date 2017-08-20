@@ -16,6 +16,8 @@ class ConsoleRegistrationMenu {
   void RunRegistrationMenu();
   void ReceiveRegistrationDataFromUser();
 
+  void RunRegistrationConfirmation();
+
   template <typename T>
   void ShowRegistratoinReport(const T& login_status, const T& password_status);
 

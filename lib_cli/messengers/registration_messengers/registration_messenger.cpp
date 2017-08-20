@@ -54,6 +54,15 @@ void RegistrationMessenger::SuggestReenterRegistrationData() {
       "  Enter: ");
 }
 
+void RegistrationMessenger::ShowRegistrationConfirmation() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "  Registration data confirmed...\n\n"
+      "1. Perform registration\n"
+      "2. Initial menu\n"
+      "3. Quit\n\n"
+      "Enter:");
+}
+
 void RegistrationMessenger::FarewellMessage() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\tThank you for using ATM North Star.\n"

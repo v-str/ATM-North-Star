@@ -19,6 +19,10 @@ void ConsoleRegistrationMenu::ReceiveRegistrationDataFromUser() {
   GetPasswordStringFromUser();
 }
 
+void ConsoleRegistrationMenu::RunRegistrationConfirmation() {
+  RegistrationMessenger::ShowRegistrationConfirmation();
+}
+
 std::string ConsoleRegistrationMenu::LoginString() const { return login_; }
 
 std::string ConsoleRegistrationMenu::PasswordString() const {
