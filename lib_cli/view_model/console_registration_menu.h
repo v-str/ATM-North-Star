@@ -28,13 +28,20 @@ class ConsoleRegistrationMenu {
   bool IsUserWantToExitProgram() const;
 
  private:
-  enum MenuItems { kSymbolQuit, kRegistration, kInitialMenu, kDigitQuit };
+  enum MenuItems {
+    kSymbolQuit,
+    kRegistration,
+    kConfirmRegistration,
+    kInitialMenu,
+    kDigitQuit
+  };
 
   void ShowLoginReport(const RegistrationReporter::RegistrationStatus login);
   void ShowPasswordReport(
       const RegistrationReporter::RegistrationStatus password);
 
   void ProcessMenuUserInput();
+  void ProcessConfirmationUserInput();
 
   void ResetManipulationFlags();
 
@@ -49,6 +56,7 @@ class ConsoleRegistrationMenu {
   std::string password_;
 
   bool user_want_to_registrate_ = false;
+  bool is_registration_confirmed_ = false;
   bool user_want_to_exit_ = false;
 };
 

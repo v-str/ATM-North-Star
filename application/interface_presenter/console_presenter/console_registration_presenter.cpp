@@ -33,5 +33,7 @@ void ConsoleRegistrationPresenter::HandleRegistrationData() {
   registration_menu_.ShowRegistratoinReport(login_status, password_status);
 
   if (registration_handler_.IsRegistrationDataCorrect()) {
+    registration_menu_.ConfirmRegistration();
+  } else {
   }
 }

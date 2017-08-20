@@ -8,7 +8,7 @@ class RegistrationMessenger {
   static void ShowIncorrectInput();
   static void ShowLoginTitle();
   static void ShowPasswordTitle();
-  static void SuggestReenterRegistrationData();
+  static void IncorrectRegistrationNotification();
   static void ShowConfirmationMessage();
   static void FarewellMessage();
   static void ClearScreen();

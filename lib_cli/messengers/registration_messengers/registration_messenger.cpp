@@ -45,12 +45,12 @@ void RegistrationMessenger::ShowPasswordTitle() {
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\tPassword: ", kTitleDelay);
 }
 
-void RegistrationMessenger::SuggestReenterRegistrationData() {
+void RegistrationMessenger::IncorrectRegistrationNotification() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "  The data was inputted﻿ in a wrong way.\n"
-      "  Do you prefer to re-enter data or to quit the program?\n"
+      "  The data was inputted﻿ in a wrong way.\n\n"
       "  1. Re-enter data\n"
-      "  2. Quit ( or press q )\n"
+      "  2. Initial menu\n"
+      "  3. Quit ( or press q )\n\n"
       "  Enter: ");
 }
 
@@ -60,7 +60,7 @@ void RegistrationMessenger::ShowConfirmationMessage() {
       "1. Perform registration\n"
       "2. Initial menu\n"
       "3. Quit ( or press q )\n\n"
-      "Enter:");
+      "Enter: ");
 }
 
 void RegistrationMessenger::FarewellMessage() {
