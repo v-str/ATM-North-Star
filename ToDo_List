@@ -130,13 +130,13 @@
                                                                                     |   |
 10. Make application interface launch form config.txt file                          | + |
                                                                                     |   |
-11. Move logon handling into atm library                                            | - |
+11. Move logon handling into atm library                                            | + |
                                                                                     |   |
-12. Move console view of registration into cli library                              | - |
+12. Move console view of registration into cli library                              | + |
                                                                                     |   |
 13. Develop mechanism for reading registration data properly                        | - |
                                                                                     |   |
-14. Remove old classes for registration handling when new classes will developed    | - |
+14. Remove old classes for registration handling when new classes will developed    | + |
 
 -----------------------------------------------------------------------------------------
 ---------------------------------------- ATM --------------------------------------------
