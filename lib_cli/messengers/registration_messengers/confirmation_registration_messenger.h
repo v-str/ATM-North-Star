@@ -9,9 +9,6 @@ class ConfirmationRegistrationMessenger {
                                       const std::string& password_string);
 
  private:
-  static void CalculateMaximalStringLength(int login_string_length,
-                                           int password_string_length);
-
   static int maximal_string_length_;
 };
 

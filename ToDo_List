@@ -137,6 +137,8 @@
 13. Develop mechanism for reading registration data properly                        | + |
                                                                                     |   |
 14. Remove old classes for registration handling when new classes will developed    | + |
+                                                                                    |   |
+15. Add confirmation registration messenger                                         | - |
 
 -----------------------------------------------------------------------------------------
 ---------------------------------------- ATM --------------------------------------------
