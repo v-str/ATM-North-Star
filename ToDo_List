@@ -119,14 +119,14 @@
                                                                                     |   |
 5. Decide problem related with incorrect login registration                         | + |
                                                                                     |   |
-6. Continue make registration module                                                | - |
+6. Continue make registration module                                                | + |
                                                                                     |   |
 7. Delete excess code in AuthenticationMessenger (e.g. constexpr variables )        | - |
                                                                                     |   |
 8. Check initial input screen on comand "2j" or the same                            |   |
    Why gui mode is started after that? Where is warning message?                    | + |
                                                                                     |   |
-9. Clean cli mode from deprecated code                                              | - |
+9. Clean cli mode from deprecated code                                              | + |
                                                                                     |   |
 10. Make application interface launch form config.txt file                          | + |
                                                                                     |   |
@@ -134,7 +134,7 @@
                                                                                     |   |
 12. Move console view of registration into cli library                              | + |
                                                                                     |   |
-13. Develop mechanism for reading registration data properly                        | - |
+13. Develop mechanism for reading registration data properly                        | + |
                                                                                     |   |
 14. Remove old classes for registration handling when new classes will developed    | + |
 
@@ -142,7 +142,7 @@
 ---------------------------------------- ATM --------------------------------------------
 -----------------------------------------------------------------------------------------
                                                                                     |   |
-88. How make user registration class for both interface?                            | - |
+88. How make user registration class for both interface?                            | + |
                                                                                     |   |
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
