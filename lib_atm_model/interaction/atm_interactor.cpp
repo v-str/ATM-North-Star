@@ -5,11 +5,13 @@
 #include <user_registrator.h>
 #include <withdrawal.h>
 
-void AtmInteractor::RegisterUser(const std::string& login, const std::string& password) {
+void AtmInteractor::RegisterUser(const std::string& login,
+                                 const std::string& password) {
   UserRegistrator::RegisterUser(&user_, login, password);
 }
 
-std::string AtmInteractor::AccountInfo(AtmInteractor::AccountData account_data) {
+std::string AtmInteractor::AccountInfo(
+    AtmInteractor::AccountData account_data) {
   AccountInformator::UpdataUserData(user_);
   switch (account_data) {
     case kLogin:
@@ -44,6 +46,6 @@ std::string AtmInteractor::Statement() {
   return AccountInformator::Cash();
 }
 
-bool AtmInteractor::IsWithdrawalAcceptable(int withdrawal_sum) const {
+bool AtmInteractor::IsWithdrawalAcceptable(int withdrawal_sum) {
   return user_.Cash() >= withdrawal_sum;
 }

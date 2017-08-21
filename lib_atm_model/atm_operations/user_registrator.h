@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include <atm_user.h>
+class AtmUser;
 
 class UserRegistrator {
  public:

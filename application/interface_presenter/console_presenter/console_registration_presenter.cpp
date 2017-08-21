@@ -49,7 +49,6 @@ void ConsoleRegistrationPresenter::HandleRegistrationData() {
 
 bool ConsoleRegistrationPresenter::UserRequestPerformed() {
   if (registration_menu_.IsRegistrationConfirmed()) {
-    // registration_handler.RegistrerUser(login_string, password_string);
     // registrate user and go to main menu
     return true;
   }

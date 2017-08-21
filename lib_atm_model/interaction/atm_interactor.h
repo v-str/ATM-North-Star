@@ -16,16 +16,17 @@ class AtmInteractor {
     kMonthlyPayment
   };
 
-  void RegisterUser(const std::string& login, const std::string& password);
-  std::string AccountInfo(AtmInteractor::AccountData account_data);
-  void RefillCash(int refill_cash);
-  bool WithdrawCash(int withdrawal_cash);
-  std::string Statement();
+  static void RegisterUser(const std::string& login,
+                           const std::string& password);
+  static std::string AccountInfo(AtmInteractor::AccountData account_data);
+  static void RefillCash(int refill_cash);
+  static bool WithdrawCash(int withdrawal_cash);
+  static std::string Statement();
 
  private:
-  bool IsWithdrawalAcceptable(int withdrawal_sum) const;
+  static bool IsWithdrawalAcceptable(int withdrawal_sum);
 
-  AtmUser user_;
+  static AtmUser user_;
 };
 
 #endif  // ATM_INTERACTOR_H
