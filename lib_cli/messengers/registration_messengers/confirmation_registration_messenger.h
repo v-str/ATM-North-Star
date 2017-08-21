@@ -1,0 +1,8 @@
+﻿#ifndef CONFIRMATION_REGISTRATION_MESSENGER_H
+#define CONFIRMATION_REGISTRATION_MESSENGER_H
+
+class ConfirmationRegistrationMessenger {
+ public:
+};
+
+#endif  // CONFIRMATION_REGISTRATION_MESSENGER_H
