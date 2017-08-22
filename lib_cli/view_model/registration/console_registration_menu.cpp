@@ -28,9 +28,8 @@ void ConsoleRegistrationMenu::RunIncorrectRegistrationNotification() {
 }
 
 void ConsoleRegistrationMenu::ShowConfirmationRegistrationMessage(
-    const std::string& login_string, const std::string& password_string) const {
-  confirmation_messenger_.ShowConfirmationMessage(login_string,
-                                                  password_string);
+    const std::string& login_string) const {
+  confirmation_messenger_.ShowConfirmationMessage(login_string);
 }
 
 std::string ConsoleRegistrationMenu::LoginString() const { return login_; }

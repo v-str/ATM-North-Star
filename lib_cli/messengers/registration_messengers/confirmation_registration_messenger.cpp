@@ -2,9 +2,9 @@
 
 #include <console_editor.h>
 
-int ConfirmationRegistrationMessenger::maximal_string_length_ = 6;
+int ConfirmationRegistrationMessenger::string_length_ = 6;
 
 void ConfirmationRegistrationMessenger::ShowConfirmationMessage(
-    const std::string& login_string, const std::string& password_string) {
-  maximal_string_length_ = login_string.length();
+    const std::string& login_string) {
+  string_length_ = login_string.length();
 }
