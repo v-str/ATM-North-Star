@@ -19,7 +19,9 @@ class ConsoleRegistrationMenu {
   void RunRegistrationConfirmation();
   void RunIncorrectRegistrationNotification();
 
-  void ShowConfirmationRegistrationMessage() const;
+  void ShowConfirmationRegistrationMessage(
+      const std::string& login_string,
+      const std::string& password_string) const;
 
   template <typename T>
   void ShowRegistratoinReport(const T& login_status,
