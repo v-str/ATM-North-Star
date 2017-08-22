@@ -4,6 +4,7 @@
 #include <memory>
 #include <string>
 
+#include <confirmation_registration_messenger.h>
 #include <registration_messenger.h>
 #include <registration_reporter.h>
 #include <registration_status.h>
@@ -18,8 +19,11 @@ class ConsoleRegistrationMenu {
   void RunRegistrationConfirmation();
   void RunIncorrectRegistrationNotification();
 
+  void ShowConfirmationRegistrationMessage() const;
+
   template <typename T>
-  void ShowRegistratoinReport(const T& login_status, const T& password_status);
+  void ShowRegistratoinReport(const T& login_status,
+                              const T& password_status) const;
 
   std::string LoginString() const;
   std::string PasswordString() const;
@@ -33,8 +37,9 @@ class ConsoleRegistrationMenu {
  private:
   enum MenuItems { kSymbolQuit, kNextAction, kInitialMenu, kDigitQuit };
 
-  void ShowLoginReport(const CONSOLE::RegistrationStatus login_status);
-  void ShowPasswordReport(const CONSOLE::RegistrationStatus password_status);
+  void ShowLoginReport(const CONSOLE::RegistrationStatus login_status) const;
+  void ShowPasswordReport(
+      const CONSOLE::RegistrationStatus password_status) const;
 
   void ProcessMenuUserInput(bool& changing_action);
 
@@ -45,6 +50,7 @@ class ConsoleRegistrationMenu {
 
   std::unique_ptr<UserInputHandler> input_handler_;
 
+  ConfirmationRegistrationMessenger confirmation_messenger_;
   RegistrationReporter reporter_;
 
   std::string login_;
@@ -59,8 +65,8 @@ class ConsoleRegistrationMenu {
 };
 
 template <typename T>
-void ConsoleRegistrationMenu::ShowRegistratoinReport(const T& login_status,
-                                                     const T& password_status) {
+void ConsoleRegistrationMenu::ShowRegistratoinReport(
+    const T& login_status, const T& password_status) const {
   RegistrationMessenger::ClearScreen();
 
   ShowLoginReport(static_cast<CONSOLE::RegistrationStatus>(login_status));

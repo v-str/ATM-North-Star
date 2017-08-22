@@ -27,6 +27,8 @@ void ConsoleRegistrationMenu::RunIncorrectRegistrationNotification() {
   ProcessMenuUserInput(user_want_to_repeat_registration_);
 }
 
+void ConsoleRegistrationMenu::ShowConfirmationRegistrationMessage() const {}
+
 std::string ConsoleRegistrationMenu::LoginString() const { return login_; }
 
 std::string ConsoleRegistrationMenu::PasswordString() const {
@@ -54,12 +56,12 @@ bool ConsoleRegistrationMenu::IsUserWantToInitialMenu() const {
 }
 
 void ConsoleRegistrationMenu::ShowLoginReport(
-    const CONSOLE::RegistrationStatus login_status) {
+    const CONSOLE::RegistrationStatus login_status) const {
   reporter_.ShowLoginReport(login_status);
 }
 
 void ConsoleRegistrationMenu::ShowPasswordReport(
-    const CONSOLE::RegistrationStatus password_status) {
+    const CONSOLE::RegistrationStatus password_status) const {
   reporter_.ShowPasswordReport(password_status);
 }
 

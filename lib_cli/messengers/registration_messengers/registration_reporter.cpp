@@ -2,7 +2,7 @@
 
 #include <registration_status_messenger.h>
 
-void RegistrationReporter::ShowLoginReport(STATUS login_status) {
+void RegistrationReporter::ShowLoginReport(STATUS login_status) const {
   switch (login_status) {
     case STATUS::kCorrectLogin:
       RegistrationStatusMessenger::CorrectLoginMessage();
@@ -41,7 +41,7 @@ void RegistrationReporter::ShowLoginReport(STATUS login_status) {
   }
 }
 
-void RegistrationReporter::ShowPasswordReport(STATUS password_status) {
+void RegistrationReporter::ShowPasswordReport(STATUS password_status) const {
   switch (password_status) {
     case STATUS::kCorrectPassword:
       RegistrationStatusMessenger::CorrectPasswordMessage();
