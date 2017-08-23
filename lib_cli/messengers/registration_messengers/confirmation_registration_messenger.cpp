@@ -4,6 +4,9 @@
 
 std::string ConfirmationRegistrationMessenger::kTitle = "ATM NORTH STAR";
 std::string ConfirmationRegistrationMessenger::kGratingSymbol = "#";
+std::string ConfirmationRegistrationMessenger::kConfirmationText =
+    "CONFIRMATION ACCEPTED";
+std::string ConfirmationRegistrationMessenger::kSpaceSymbol = " ";
 
 void ConfirmationRegistrationMessenger::ShowConfirmationMessage(
     const std::string& login_string) {
@@ -20,6 +23,7 @@ void ConfirmationRegistrationMessenger::WriteTitle() {
 void ConfirmationRegistrationMessenger::DrawConfirmationFrame() {
   DrawHorizontalLine();
   DrawEmptyLine();
+  DrawConfirmationTextLine();
 }
 
 void ConfirmationRegistrationMessenger::DrawHorizontalLine() {
@@ -29,11 +33,22 @@ void ConfirmationRegistrationMessenger::DrawHorizontalLine() {
 }
 
 void ConfirmationRegistrationMessenger::DrawEmptyLine() {
-  ConsoleEditor::WriteText(kGratingSymbol);
-
+  std::string empty_space;
   for (int i = 0; i < kLineLength - 2; ++i) {
-    ConsoleEditor::WriteText(" ");
+    empty_space += " ";
   }
 
-  ConsoleEditor::WriteText(kGratingSymbol);
+  ConsoleEditor::AddEmptyLineNTimes(1);
+  ConsoleEditor::WriteText(kGratingSymbol + empty_space + kGratingSymbol);
+}
+
+void ConfirmationRegistrationMessenger::DrawConfirmationTextLine() {
+  std::string empty_space = "         ";
+
+  std::string final_confirmation_string = kGratingSymbol + empty_space +
+                                          kConfirmationText + empty_space +
+                                          kGratingSymbol;
+
+  ConsoleEditor::AddEmptyLineNTimes(1);
+  ConsoleEditor::WriteText(final_confirmation_string);
 }

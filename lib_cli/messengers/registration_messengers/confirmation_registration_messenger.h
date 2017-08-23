@@ -13,9 +13,12 @@ class ConfirmationRegistrationMessenger {
 
   static void DrawHorizontalLine();
   static void DrawEmptyLine();
+  static void DrawConfirmationTextLine();
 
   static std::string kTitle;
   static std::string kGratingSymbol;
+  static std::string kSpaceSymbol;
+  static std::string kConfirmationText;
 
   static const int kLineLength = 41;
 };
