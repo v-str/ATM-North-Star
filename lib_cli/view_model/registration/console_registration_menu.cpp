@@ -1,6 +1,6 @@
 ﻿#include <console_registration_menu.h>
 
-#include <confirmation_registration_messenger.h>
+#include <confirmation_animator.h>
 
 #include <menu_input_handler.h>
 #include <user_input_handler.h>
@@ -31,7 +31,7 @@ void ConsoleRegistrationMenu::RunIncorrectRegistrationNotification() {
 
 void ConsoleRegistrationMenu::ShowConfirmationRegistrationMessage(
     const std::string& login_string) const {
-  ConfirmationRegistrationaAnimation::ShowConfirmationMessage(login_string);
+  ConfirmationAnimator::ShowConfirmationMessage(login_string);
 }
 
 std::string ConsoleRegistrationMenu::LoginString() const { return login_; }

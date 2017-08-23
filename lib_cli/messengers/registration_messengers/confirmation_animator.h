@@ -1,9 +1,9 @@
-﻿#ifndef CONFIRMATION_REGISTRATION_ANIMATION_H
-#define CONFIRMATION_REGISTRATION_ANIMATION_H
+﻿#ifndef CONFIRMATION_ANIMATOR_H
+#define CONFIRMATION_ANIMATOR_H
 
 #include <string>
 
-class ConfirmationRegistrationaAnimation {
+class ConfirmationAnimator {
  public:
   static void ShowConfirmationMessage(const std::string& login_string);
 
@@ -25,4 +25,4 @@ class ConfirmationRegistrationaAnimation {
   static const int kLineLength = 41;
 };
 
-#endif  // CONFIRMATION_REGISTRATION_ANIMATION_H
+#endif  // CONFIRMATION_ANIMATOR_H
