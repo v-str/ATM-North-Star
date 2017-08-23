@@ -4,7 +4,6 @@
 #include <memory>
 #include <string>
 
-#include <confirmation_registration_messenger.h>
 #include <registration_messenger.h>
 #include <registration_reporter.h>
 #include <registration_status.h>
@@ -51,7 +50,6 @@ class ConsoleRegistrationMenu {
 
   std::unique_ptr<UserInputHandler> input_handler_;
 
-  ConfirmationRegistrationMessenger confirmation_messenger_;
   RegistrationReporter reporter_;
 
   std::string login_;
