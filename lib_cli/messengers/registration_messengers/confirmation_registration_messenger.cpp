@@ -2,47 +2,50 @@
 
 #include <console_editor.h>
 
-std::string ConfirmationRegistrationMessenger::kTitle = "ATM NORTH STAR";
-std::string ConfirmationRegistrationMessenger::kGratingSymbol = "#";
-std::string ConfirmationRegistrationMessenger::kConfirmationText =
+std::string ConfirmationRegistrationaAnimation::kTitle = "ATM NORTH STAR";
+std::string ConfirmationRegistrationaAnimation::kGratingSymbol = "#";
+std::string ConfirmationRegistrationaAnimation::kConfirmationText =
     "CONFIRMATION ACCEPTED";
-std::string ConfirmationRegistrationMessenger::kSpaceSymbol = " ";
+std::string ConfirmationRegistrationaAnimation::kSpaceSymbol = " ";
 
-void ConfirmationRegistrationMessenger::ShowConfirmationMessage(
+void ConfirmationRegistrationaAnimation::ShowConfirmationMessage(
     const std::string& login_string) {
+  kLoginString = login_string;
+
   WriteTitle();
   DrawConfirmationFrame();
 }
 
-void ConfirmationRegistrationMessenger::WriteTitle() {
+void ConfirmationRegistrationaAnimation::WriteTitle() {
   ConsoleEditor::AddEmptyLineNTimes(2);
   ConsoleEditor::WriteText(kTitle);
   ConsoleEditor::AddEmptyLineNTimes(2);
 }
 
-void ConfirmationRegistrationMessenger::DrawConfirmationFrame() {
+void ConfirmationRegistrationaAnimation::DrawConfirmationFrame() {
   DrawHorizontalLine();
   DrawEmptyLine();
   DrawConfirmationTextLine();
+  DrawEmptyLine();
 }
 
-void ConfirmationRegistrationMessenger::DrawHorizontalLine() {
+void ConfirmationRegistrationaAnimation::DrawHorizontalLine() {
   for (int i = 0; i < kLineLength; ++i) {
     ConsoleEditor::WriteText(kGratingSymbol);
   }
 }
 
-void ConfirmationRegistrationMessenger::DrawEmptyLine() {
+void ConfirmationRegistrationaAnimation::DrawEmptyLine() {
   std::string empty_space;
   for (int i = 0; i < kLineLength - 2; ++i) {
-    empty_space += " ";
+    empty_space += kSpaceSymbol;
   }
 
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteText(kGratingSymbol + empty_space + kGratingSymbol);
 }
 
-void ConfirmationRegistrationMessenger::DrawConfirmationTextLine() {
+void ConfirmationRegistrationaAnimation::DrawConfirmationTextLine() {
   std::string empty_space = "         ";
 
   std::string final_confirmation_string = kGratingSymbol + empty_space +
@@ -51,4 +54,9 @@ void ConfirmationRegistrationMessenger::DrawConfirmationTextLine() {
 
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteText(final_confirmation_string);
+}
+
+void ConfirmationRegistrationaAnimation::DrawLoginStringLine() {
+  int free_line_space =
+      kLineLength - (kGratingSymbol.length() * 2) - kLoginString.length();
 }
