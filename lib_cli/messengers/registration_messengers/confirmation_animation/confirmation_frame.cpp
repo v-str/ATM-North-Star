@@ -8,3 +8,5 @@ void ConfirmationFrame::SetFrame(const std::string& text,
   kText = text;
   kFrameSymbol = frame_symbol;
 }
+
+void ConfirmationFrame::DrawFrame(int loading_percent) {}

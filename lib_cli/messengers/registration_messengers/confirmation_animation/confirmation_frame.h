@@ -8,6 +8,8 @@ class ConfirmationFrame {
   static void SetFrame(const std::string& text,
                        const std::string& frame_symbol);
 
+  static void DrawFrame(int loading_percent);
+
  private:
   static std::string kText;
   static std::string kFrameSymbol;

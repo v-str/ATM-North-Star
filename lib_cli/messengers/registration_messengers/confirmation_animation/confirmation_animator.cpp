@@ -12,4 +12,8 @@ void ConfirmationAnimator::ShowConfirmationMessage(
   DrawConfirmationFrame();
 }
 
-void ConfirmationAnimator::DrawConfirmationFrame() {}
+void ConfirmationAnimator::DrawConfirmationFrame() {
+  for (int loading_percent = 0; loading_percent <= 100; ++loading_percent) {
+    ConfirmationFrame::DrawFrame(loading_percent);
+  }
+}
