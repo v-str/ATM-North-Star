@@ -8,7 +8,6 @@ class ConfirmationAnimator {
   static void ShowConfirmationMessage(const std::string& login_string);
 
  private:
-  static void WriteTitle();
   static void DrawConfirmationFrame();
 
   static void DrawHorizontalLine();

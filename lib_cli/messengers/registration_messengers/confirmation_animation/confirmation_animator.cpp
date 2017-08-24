@@ -1,6 +1,7 @@
 ﻿#include <confirmation_animator.h>
 
 #include <console_editor.h>
+#include <titler.h>
 
 std::string ConfirmationAnimator::kTitle = "ATM NORTH STAR";
 std::string ConfirmationAnimator::kGratingSymbol = "#";
@@ -12,14 +13,8 @@ void ConfirmationAnimator::ShowConfirmationMessage(
     const std::string& login_string) {
   kLoginString = login_string;
 
-  WriteTitle();
+  Titler::WriteTitle("ATM \"NORTH STAR\"");
   DrawConfirmationFrame();
-}
-
-void ConfirmationAnimator::WriteTitle() {
-  ConsoleEditor::AddEmptyLineNTimes(2);
-  ConsoleEditor::WriteText(kTitle);
-  ConsoleEditor::AddEmptyLineNTimes(2);
 }
 
 void ConfirmationAnimator::DrawConfirmationFrame() {
