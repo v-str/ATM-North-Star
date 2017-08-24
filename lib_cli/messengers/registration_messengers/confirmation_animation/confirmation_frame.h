@@ -3,7 +3,7 @@
 
 #include <string>
 
-class confirmation_frame {
+class ConfirmationFrame {
  public:
   static void SetFrame(const std::string& text,
                        const std::string& frame_symbol);
@@ -11,6 +11,8 @@ class confirmation_frame {
  private:
   static std::string kText;
   static std::string kFrameSymbol;
+
+  static const int kLineLength = 41;
 };
 
 #endif  // CONFIRMATION_FRAME_H

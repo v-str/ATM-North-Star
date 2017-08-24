@@ -1,10 +1,10 @@
 ﻿#include <confirmation_frame.h>
 
-std::string confirmation_frame::kText = "No text";
-std::string confirmation_frame::kFrameSymbol = "#";
+std::string ConfirmationFrame::kText = "No text";
+std::string ConfirmationFrame::kFrameSymbol = "#";
 
-void confirmation_frame::SetFrame(const std::string& text,
-                                  const std::string& frame_symbol) {
+void ConfirmationFrame::SetFrame(const std::string& text,
+                                 const std::string& frame_symbol) {
   kText = text;
   kFrameSymbol = frame_symbol;
 }
