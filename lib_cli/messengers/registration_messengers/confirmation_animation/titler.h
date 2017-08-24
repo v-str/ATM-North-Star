@@ -5,12 +5,7 @@
 
 class Titler {
  public:
-  Titler(const std::string& title_string);
-
-  void WriteTitle() const;
-
- private:
-  std::string title_string_;
+  static void WriteTitle(const std::string title_string);
 };
 
 #endif  // TITLER_H

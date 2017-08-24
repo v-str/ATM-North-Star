@@ -2,11 +2,9 @@
 
 #include <console_editor.h>
 
-Titler::Titler(const std::string& title_string) : title_string_(title_string) {}
-
-void Titler::WriteTitle() const {
+void Titler::WriteTitle(const std::string title_string) {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteText("      ");
-  ConsoleEditor::WriteText(title_string_);
+  ConsoleEditor::WriteText(title_string);
   ConsoleEditor::AddEmptyLineNTimes(2);
 }
