@@ -5,7 +5,7 @@
 
 class ConfirmationFrame {
  public:
-  static void SetFrame(const std::string& text,
+  static void SetFrame(const std::string& login_string,
                        const std::string& frame_symbol);
 
   static void DrawFrame(int loading_percent);
@@ -14,10 +14,11 @@ class ConfirmationFrame {
   static void DrawHorizontalLine();
   static void DrawEmptyLine();
   static void DrawTextLine();
+  static void DrawLoginLine();
 
   static void DrawString(const std::string& string);
 
-  static std::string kText;
+  static std::string kLoginString;
   static std::string kFrameSymbol;
 
   static const int kLineLength = 41;

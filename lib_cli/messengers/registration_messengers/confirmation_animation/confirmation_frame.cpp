@@ -2,12 +2,12 @@
 
 #include <console_editor.h>
 
-std::string ConfirmationFrame::kText = "No text";
+std::string ConfirmationFrame::kLoginString = "No text";
 std::string ConfirmationFrame::kFrameSymbol = "#";
 
-void ConfirmationFrame::SetFrame(const std::string& text,
+void ConfirmationFrame::SetFrame(const std::string& login_string,
                                  const std::string& frame_symbol) {
-  kText = text;
+  kLoginString = login_string;
   kFrameSymbol = frame_symbol;
 }
 
@@ -16,6 +16,8 @@ void ConfirmationFrame::DrawFrame(int loading_percent) {
   DrawEmptyLine();
   DrawTextLine();
   DrawEmptyLine();
+  DrawEmptyLine();
+  DrawLoginLine();
   DrawEmptyLine();
 }
 
@@ -51,6 +53,19 @@ void ConfirmationFrame::DrawTextLine() {
   text_line.append(kFrameSymbol);
 
   DrawString(text_line);
+}
+
+void ConfirmationFrame::DrawLoginLine() {
+  std::string login_line = kFrameSymbol + "  " + kLoginString;
+  int free_space = kLineLength - login_line.length() - 1;
+
+  for (int i = 0; i < free_space; ++i) {
+    login_line.append(" ");
+  }
+
+  login_line.append(kFrameSymbol);
+
+  DrawString(login_line);
 }
 
 void ConfirmationFrame::DrawString(const std::string& string) {
