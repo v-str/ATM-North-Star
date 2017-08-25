@@ -10,6 +10,8 @@ class ConfirmationAnimator {
  private:
   static void DrawConfirmationFrame();
 
+  static std::string kFrameSymbol;
+
   static const int kSleepDelay = 100;
 };
 

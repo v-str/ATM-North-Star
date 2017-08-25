@@ -4,9 +4,13 @@
 #include <console_editor.h>
 #include <titler.h>
 
+std::string ConfirmationAnimator::kFrameSymbol = "X";
+
 void ConfirmationAnimator::ShowConfirmationMessage(
     const std::string& login_string) {
-  ConfirmationFrame::SetFrame(login_string, "#");
+  kFrameSymbol = login_string.at(0);
+
+  ConfirmationFrame::SetFrame(login_string, kFrameSymbol);
 
   DrawConfirmationFrame();
 }
