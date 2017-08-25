@@ -14,6 +14,7 @@ void ConfirmationFrame::SetFrame(const std::string& text,
 void ConfirmationFrame::DrawFrame(int loading_percent) {
   DrawHorizontalLine();
   DrawEmptyLine();
+  DrawTextLine();
 }
 
 void ConfirmationFrame::DrawHorizontalLine() {
@@ -36,5 +37,19 @@ void ConfirmationFrame::DrawEmptyLine() {
   empty_line.append(kFrameSymbol);
 
   ConsoleEditor::WriteText(empty_line);
+  ConsoleEditor::AddEmptyLineNTimes(1);
+}
+
+void ConfirmationFrame::DrawTextLine() {
+  std::string text_line = "# creating account:";
+  int text_line_length = text_line.length();
+
+  for (int i = 0; i < kLineLength - text_line_length - 1; ++i) {
+    text_line.append(" ");
+  }
+
+  text_line.append(kFrameSymbol);
+
+  ConsoleEditor::WriteText(text_line);
   ConsoleEditor::AddEmptyLineNTimes(1);
 }

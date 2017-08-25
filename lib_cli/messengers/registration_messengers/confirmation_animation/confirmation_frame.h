@@ -13,6 +13,7 @@ class ConfirmationFrame {
  private:
   static void DrawHorizontalLine();
   static void DrawEmptyLine();
+  static void DrawTextLine();
 
   static std::string kText;
   static std::string kFrameSymbol;
