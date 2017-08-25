@@ -14,8 +14,11 @@ void ConfirmationFrame::SetFrame(const std::string& login_string,
 void ConfirmationFrame::DrawFrame(int loading_percent) {
   DrawHorizontalLine();
   DrawEmptyLine();
-  DrawTextLine();
+  DrawTextLine("       REGISTRATION CONFIRMED");
   DrawEmptyLine();
+  DrawHorizontalLine();
+  DrawEmptyLine();
+  DrawTextLine("creating account:");
   DrawEmptyLine();
   DrawLoginLine();
   DrawEmptyLine();
@@ -45,8 +48,11 @@ void ConfirmationFrame::DrawEmptyLine() {
   DrawString(empty_line);
 }
 
-void ConfirmationFrame::DrawTextLine() {
-  std::string text_line = "# creating account:";
+void ConfirmationFrame::DrawTextLine(const std::string& text) {
+  std::string text_line = kFrameSymbol;
+  text_line.append(" ");
+  text_line.append(text);
+
   int text_line_length = text_line.length();
 
   for (int i = 0; i < kLineLength - text_line_length - 1; ++i) {
@@ -73,7 +79,7 @@ void ConfirmationFrame::DrawLoginLine() {
 
 void ConfirmationFrame::DrawPercentLoadingLine(int loading_percent) {
   std::string loading_line = kFrameSymbol;
-  for (int i = 0; i < kLineLength / 2; ++i) {
+  for (int i = 0; i < (kLineLength / 2) - 3; ++i) {
     loading_line.append(" ");
   }
 

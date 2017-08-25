@@ -13,7 +13,7 @@ class ConfirmationFrame {
  private:
   static void DrawHorizontalLine();
   static void DrawEmptyLine();
-  static void DrawTextLine();
+  static void DrawTextLine(const std::string& text);
   static void DrawLoginLine();
   static void DrawPercentLoadingLine(int loading_percent);
 
