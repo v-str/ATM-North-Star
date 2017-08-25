@@ -15,6 +15,8 @@ void ConfirmationFrame::DrawFrame(int loading_percent) {
   DrawHorizontalLine();
   DrawEmptyLine();
   DrawTextLine();
+  DrawEmptyLine();
+  DrawEmptyLine();
 }
 
 void ConfirmationFrame::DrawHorizontalLine() {
@@ -23,8 +25,7 @@ void ConfirmationFrame::DrawHorizontalLine() {
     horizontal_line.append(kFrameSymbol);
   }
 
-  ConsoleEditor::WriteText(horizontal_line);
-  ConsoleEditor::AddEmptyLineNTimes(1);
+  DrawString(horizontal_line);
 }
 
 void ConfirmationFrame::DrawEmptyLine() {
@@ -36,8 +37,7 @@ void ConfirmationFrame::DrawEmptyLine() {
 
   empty_line.append(kFrameSymbol);
 
-  ConsoleEditor::WriteText(empty_line);
-  ConsoleEditor::AddEmptyLineNTimes(1);
+  DrawString(empty_line);
 }
 
 void ConfirmationFrame::DrawTextLine() {
@@ -50,6 +50,10 @@ void ConfirmationFrame::DrawTextLine() {
 
   text_line.append(kFrameSymbol);
 
-  ConsoleEditor::WriteText(text_line);
+  DrawString(text_line);
+}
+
+void ConfirmationFrame::DrawString(const std::string& string) {
+  ConsoleEditor::WriteText(string);
   ConsoleEditor::AddEmptyLineNTimes(1);
 }

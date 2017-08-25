@@ -15,6 +15,8 @@ class ConfirmationFrame {
   static void DrawEmptyLine();
   static void DrawTextLine();
 
+  static void DrawString(const std::string& string);
+
   static std::string kText;
   static std::string kFrameSymbol;
 
