@@ -21,6 +21,7 @@ void ConfirmationFrame::DrawFrame(int loading_percent) {
   DrawEmptyLine();
   DrawPercentLoadingLine(loading_percent);
   DrawEmptyLine();
+  DrawHorizontalLine();
 }
 
 void ConfirmationFrame::DrawHorizontalLine() {

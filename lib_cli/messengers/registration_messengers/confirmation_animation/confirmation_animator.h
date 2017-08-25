@@ -9,6 +9,8 @@ class ConfirmationAnimator {
 
  private:
   static void DrawConfirmationFrame();
+
+  static const int kSleepDelay = 150;
 };
 
 #endif  // CONFIRMATION_ANIMATOR_H
