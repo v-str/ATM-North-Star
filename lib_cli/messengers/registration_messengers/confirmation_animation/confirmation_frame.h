@@ -11,6 +11,8 @@ class ConfirmationFrame {
   static void DrawFrame(int loading_percent);
 
  private:
+  static void DrawHorizontalLine();
+
   static std::string kText;
   static std::string kFrameSymbol;
 
