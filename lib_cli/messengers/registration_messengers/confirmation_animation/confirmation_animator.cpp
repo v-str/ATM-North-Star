@@ -8,7 +8,6 @@ void ConfirmationAnimator::ShowConfirmationMessage(
     const std::string& login_string) {
   ConfirmationFrame::SetFrame(login_string, "#");
 
-  Titler::WriteTitle("ATM \"NORTH STAR\"");
   DrawConfirmationFrame();
 }
 

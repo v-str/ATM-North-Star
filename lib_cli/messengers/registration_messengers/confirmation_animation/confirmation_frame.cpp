@@ -19,6 +19,8 @@ void ConfirmationFrame::DrawFrame(int loading_percent) {
   DrawEmptyLine();
   DrawLoginLine();
   DrawEmptyLine();
+  DrawPercentLoadingLine(loading_percent);
+  DrawEmptyLine();
 }
 
 void ConfirmationFrame::DrawHorizontalLine() {
@@ -66,6 +68,26 @@ void ConfirmationFrame::DrawLoginLine() {
   login_line.append(kFrameSymbol);
 
   DrawString(login_line);
+}
+
+void ConfirmationFrame::DrawPercentLoadingLine(int loading_percent) {
+  std::string loading_line = kFrameSymbol;
+  for (int i = 0; i < kLineLength / 2; ++i) {
+    loading_line.append(" ");
+  }
+
+  loading_line.append(std::to_string(loading_percent));
+  loading_line.append("%");
+
+  int free_space = kLineLength - loading_line.length() - 1;
+
+  for (int i = 0; i < free_space; ++i) {
+    loading_line.append(" ");
+  }
+
+  loading_line.append(kFrameSymbol);
+
+  DrawString(loading_line);
 }
 
 void ConfirmationFrame::DrawString(const std::string& string) {

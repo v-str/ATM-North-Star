@@ -15,6 +15,7 @@ class ConfirmationFrame {
   static void DrawEmptyLine();
   static void DrawTextLine();
   static void DrawLoginLine();
+  static void DrawPercentLoadingLine(int loading_percent);
 
   static void DrawString(const std::string& string);
 
