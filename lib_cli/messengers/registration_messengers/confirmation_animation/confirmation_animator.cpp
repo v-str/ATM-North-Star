@@ -14,6 +14,7 @@ void ConfirmationAnimator::ShowConfirmationMessage(
 
 void ConfirmationAnimator::DrawConfirmationFrame() {
   for (int loading_percent = 0; loading_percent <= 100; ++loading_percent) {
+    Titler::WriteTitle("ATM \"NORTH STAR\"");
     ConfirmationFrame::DrawFrame(loading_percent);
   }
 }
