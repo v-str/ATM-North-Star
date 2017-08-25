@@ -17,12 +17,16 @@ void ConfirmationAnimator::ShowConfirmationMessage(
 
 void ConfirmationAnimator::DrawConfirmationFrame() {
   for (int loading_percent = 0; loading_percent <= 100; ++loading_percent) {
-    ConsoleEditor::ClearScreen();
-
-    Titler::WriteLogoTitle("ATM \"NORTH STAR\"");
-
-    ConfirmationFrame::DrawFrame(loading_percent);
-    ConsoleEditor::Sleep(std::rand() % kSleepDelay);
+    UpdateFrame(loading_percent);
   }
   Titler::WriteEnterMessage();
+}
+
+void ConfirmationAnimator::UpdateFrame(int loading_percent) {
+  ConsoleEditor::ClearScreen();
+
+  Titler::WriteLogoTitle("ATM \"NORTH STAR\"");
+
+  ConfirmationFrame::DrawFrame(loading_percent);
+  ConsoleEditor::Sleep(std::rand() % kSleepDelay);
 }

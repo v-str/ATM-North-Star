@@ -9,6 +9,7 @@ class ConfirmationAnimator {
 
  private:
   static void DrawConfirmationFrame();
+  static void UpdateFrame(int loading_percent);
 
   static std::string kFrameSymbol;
 
