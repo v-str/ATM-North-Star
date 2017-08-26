@@ -8,6 +8,10 @@ void ConsoleMainMenu::RunMainMenu() {
   ProcessMenuUserInput();
 }
 
+bool ConsoleMainMenu::UserWantAccountSubMenu() {
+  return user_want_account_sub_menu_;
+}
+
 void ConsoleMainMenu::ProcessMenuUserInput() {
   user_input_handler_ =
       std::unique_ptr<UserInputHandler>(new SubMenuInputHandler);
@@ -25,6 +29,7 @@ void ConsoleMainMenu::ProcessMenuUserInput() {
 
 bool ConsoleMainMenu::IsUserInputContainSubMenu(int user_input) {
   if (user_input == kAccountInfo) {
+    user_want_account_sub_menu_ = true;
     return true;
   }
   if (user_input == kRefill) {
