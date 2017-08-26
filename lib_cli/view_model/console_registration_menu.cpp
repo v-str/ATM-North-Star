@@ -72,9 +72,10 @@ void ConsoleRegistrationMenu::ShowPasswordReport(
 
 void ConsoleRegistrationMenu::ProcessMenuUserInput(bool& changing_action) {
   input_handler_ = std::unique_ptr<UserInputHandler>(new SubMenuInputHandler);
+  int user_input = 0;
   for (;;) {
     ResetManipulationFlags();
-    int user_input = input_handler_->GetDigitInputFromUser();
+    user_input = input_handler_->GetDigitInputFromUser();
     if (user_input == kNextAction) {
       changing_action = true;
       break;

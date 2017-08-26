@@ -3,14 +3,16 @@
 
 #include <memory>
 
-#include <user_input.h>
+#include <user_input_handler.h>
 
 class ConsoleMainMenu {
  public:
   void RunMainMenu();
 
  private:
-  std::unique_ptr<UserInput> user_input_;
+  void ProcessMenuUserInput();
+
+  std::unique_ptr<UserInputHandler> user_input_handler_;
 };
 
 #endif  // CONSOLE_MAIN_MENU_H
