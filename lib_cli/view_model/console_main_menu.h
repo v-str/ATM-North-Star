@@ -13,13 +13,15 @@ class ConsoleMainMenu {
   enum MenuOperations {
     kAccountInfo,
     kRefill,
-    kCredit,
+    kCreditApplication,
     kWithdrawal,
     kStatement,
     kQuit
   };
 
   void ProcessMenuUserInput();
+
+  bool IsUserInputContainSubMenu(int user_input);
 
   std::unique_ptr<UserInputHandler> user_input_handler_;
 };

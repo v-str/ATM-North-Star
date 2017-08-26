@@ -14,5 +14,31 @@ void ConsoleMainMenu::ProcessMenuUserInput() {
   int user_input = 0;
   for (;;) {
     user_input = user_input_handler_->GetDigitInputFromUser();
+
+    if (IsUserInputContainSubMenu(user_input)) {
+      break;
+    }
   }
+}
+
+bool ConsoleMainMenu::IsUserInputContainSubMenu(int user_input) {
+  if (user_input == kAccountInfo) {
+    return true;
+  }
+  if (user_input == kRefill) {
+    return true;
+  }
+  if (user_input == kCreditApplication) {
+    return true;
+  }
+  if (user_input == kWithdrawal) {
+    return true;
+  }
+  if (user_input == kStatement) {
+    return true;
+  }
+  if (user_input == kQuit) {
+    return true;
+  }
+  return false;
 }
