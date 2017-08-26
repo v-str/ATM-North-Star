@@ -1,6 +1,6 @@
 ﻿#include <menu_input_handler.h>
 
-#include <user_messenger.h>
+#include <main_menu_messenger.h>
 
 int MenuInputHandler::GetDigitInputFromUser() {
   std::string user_input = GetStringInputFromUser();
@@ -12,7 +12,7 @@ int MenuInputHandler::GetDigitInputFromUser() {
 }
 
 bool MenuInputHandler::GetQuitResult() {
-  UserMessenger::ShowQuitMenu();
+  MainMenuMessenger::ShowQuitMenu();
   bool quit_result = true;
   int user_choice = 0;
   for (;;) {
@@ -23,7 +23,7 @@ bool MenuInputHandler::GetQuitResult() {
     } else if (user_choice == kQuit || user_choice == kSubMenuQuit) {
       break;
     } else {
-      UserMessenger::ShowIncorrectInput();
+      MainMenuMessenger::ShowIncorrectInput();
     }
   }
 

@@ -1,7 +1,7 @@
-﻿#ifndef USER_MESSANGER_H
-#define USER_MESSANGER_H
+﻿#ifndef MAIN_MENU_MESSENGER_H
+#define MAIN_MENU_MESSENGER_H
 
-class UserMessenger {
+class MainMenuMessenger {
  public:
   static void ShowMainMenu();
   static void WishAGoodDay();
@@ -15,4 +15,4 @@ class UserMessenger {
   static constexpr int kFrame = 45;
 };
 
-#endif  // USER_MESSANGER_H
+#endif  // MAIN_MENU_MESSENGER_H

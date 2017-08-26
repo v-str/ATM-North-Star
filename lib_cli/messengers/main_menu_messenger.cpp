@@ -1,8 +1,8 @@
-﻿#include <user_messenger.h>
+﻿#include <main_menu_messenger.h>
 
 #include <console_editor.h>
 
-void UserMessenger::ShowMainMenu() {
+void MainMenuMessenger::ShowMainMenu() {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText(
@@ -18,13 +18,13 @@ void UserMessenger::ShowMainMenu() {
       "\tEnter: ");
 }
 
-void UserMessenger::ReRequestAboutExit() {
+void MainMenuMessenger::ReRequestAboutExit() {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteTextWithDelayPerSymbol("\t# Do you really want to exit?");
 }
 
-void UserMessenger::WishAGoodDay() {
+void MainMenuMessenger::WishAGoodDay() {
   ConsoleEditor::AddEmptyLineNTimes(2);
   ConsoleEditor::WriteText(
       "\n\t####################\n"
@@ -34,7 +34,7 @@ void UserMessenger::WishAGoodDay() {
       "\t####################\n\n");
 }
 
-void UserMessenger::ShowQuitMenu() {
+void MainMenuMessenger::ShowQuitMenu() {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\t# 1. Exit to main page.\n"
@@ -42,20 +42,20 @@ void UserMessenger::ShowQuitMenu() {
       "\t# Enter: ");
 }
 
-void UserMessenger::ShowIncorrectInput() {
+void MainMenuMessenger::ShowIncorrectInput() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\t# Incorrect input, please try again", 10);
   ConsoleEditor::WriteTextWithDelayPerSymbol("...", 70);
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
 }
 
-void UserMessenger::ShowIncorrectMainMenuInput() {
+void MainMenuMessenger::ShowIncorrectMainMenuInput() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\t# Incorrect input, please try again", 20);
   ConsoleEditor::Sleep(200);
 }
 
-void UserMessenger::ShowIncorrectRegistration() {
+void MainMenuMessenger::ShowIncorrectRegistration() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\t# Incorrect input, reload program.\n");
 }
