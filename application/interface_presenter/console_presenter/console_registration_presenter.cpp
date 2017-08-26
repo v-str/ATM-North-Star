@@ -1,5 +1,7 @@
 ﻿#include <console_registration_presenter.h>
 
+#include <atm_interactor.h>
+
 void ConsoleRegistrationPresenter::RunRegistrationMenu() {
   registration_menu_.RunRegistrationMenu();
   if (registration_menu_.IsUserWantToRegistrate()) {
@@ -50,6 +52,7 @@ void ConsoleRegistrationPresenter::HandleRegistrationData() {
 bool ConsoleRegistrationPresenter::UserRequestPerformed() {
   if (registration_menu_.IsRegistrationConfirmed()) {
     registration_menu_.ShowConfirmationAnimation(login_string_);
+    AtmInteractor::RegisterUser(login_string_, password_string_);
     main_menu_presenter_.RunMainMenu();
     // user_want_to_exit = main_menu_presenter_.UserWantToExit();
     return true;

@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include <atm_user.h>
+class AtmUser;
 
 class AtmInteractor {
  public:
@@ -26,7 +26,7 @@ class AtmInteractor {
  private:
   static bool IsWithdrawalAcceptable(int withdrawal_sum);
 
-  static AtmUser user_;
+  static AtmUser* user_;
 };
 
 #endif  // ATM_INTERACTOR_H
