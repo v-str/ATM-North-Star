@@ -10,6 +10,15 @@ class ConsoleMainMenu {
   void RunMainMenu();
 
  private:
+  enum MenuOperations {
+    kAccountInfo,
+    kRefill,
+    kCredit,
+    kWithdrawal,
+    kStatement,
+    kQuit
+  };
+
   void ProcessMenuUserInput();
 
   std::unique_ptr<UserInputHandler> user_input_handler_;
