@@ -16,6 +16,7 @@ class ConsoleMainMenu {
     kCreditApplication,
     kWithdrawal,
     kStatement,
+    kLogOut,
     kQuit
   };
 

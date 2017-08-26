@@ -37,6 +37,9 @@ bool ConsoleMainMenu::IsUserInputContainSubMenu(int user_input) {
   if (user_input == kStatement) {
     return true;
   }
+  if (user_input == kLogOut) {
+    return true;
+  }
   if (user_input == kQuit) {
     return true;
   }
