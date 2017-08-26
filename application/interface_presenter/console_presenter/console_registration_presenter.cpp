@@ -50,7 +50,7 @@ void ConsoleRegistrationPresenter::HandleRegistrationData() {
 bool ConsoleRegistrationPresenter::UserRequestPerformed() {
   if (registration_menu_.IsRegistrationConfirmed()) {
     // registrate user and go to main menu
-    registration_menu_.ShowConfirmationRegistrationMessage(login_string_);
+    registration_menu_.ShowConfirmationAnimation(login_string_);
     return true;
   }
 

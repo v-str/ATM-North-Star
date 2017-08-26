@@ -29,7 +29,7 @@ void ConsoleRegistrationMenu::RunIncorrectRegistrationNotification() {
   ProcessMenuUserInput(user_want_to_repeat_registration_);
 }
 
-void ConsoleRegistrationMenu::ShowConfirmationRegistrationMessage(
+void ConsoleRegistrationMenu::ShowConfirmationAnimation(
     const std::string& login_string) const {
   ConfirmationAnimator::ShowConfirmationMessage(login_string);
 }
