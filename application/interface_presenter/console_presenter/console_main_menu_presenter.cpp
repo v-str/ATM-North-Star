@@ -2,9 +2,4 @@
 
 #include <atm_interactor.h>
 
-void ConsoleMainMenuPresenter::RunMainMenu() {
-  main_menu_.RunMainMenu();
-  if (main_menu_.UserWantAccountSubMenu()) {
-    // run account submenu class object
-  }
-}
+void ConsoleMainMenuPresenter::RunMainMenu() { main_menu_.RunMainMenu(); }

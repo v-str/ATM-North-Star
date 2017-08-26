@@ -17,23 +17,18 @@ void AtmInteractor::RegisterUser(const std::string& login,
   UserRegistrator::RegisterUser(user_, login, password);
 }
 
-std::string AtmInteractor::AccountInfo(
-    AtmInteractor::AccountData account_data) {
+std::vector<std::string> AtmInteractor::AccountInfo() {
   AccountInformator::UpdataUserData(*user_);
-  switch (account_data) {
-    case kLogin:
-      return AccountInformator::Login();
-    case kCash:
-      return AccountInformator::Cash();
-    case kCreditSum:
-      return AccountInformator::CreditSum();
-    case kCreditTerm:
-      return AccountInformator::CreditTerm();
-    case kInterestRate:
-      return AccountInformator::InterestRate();
-    case kMonthlyPayment:
-      return AccountInformator::MonthlyPayment();
-  }
+
+  std::vector<std::string> account_info;
+  account_info.push_back(AccountInformator::Login());
+  account_info.push_back(AccountInformator::Cash());
+  account_info.push_back(AccountInformator::CreditSum());
+  account_info.push_back(AccountInformator::CreditTerm());
+  account_info.push_back(AccountInformator::InterestRate());
+  account_info.push_back(AccountInformator::MonthlyPayment());
+
+  return account_info;
 }
 
 void AtmInteractor::RefillCash(int refill_cash) {

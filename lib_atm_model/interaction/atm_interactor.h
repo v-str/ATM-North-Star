@@ -2,6 +2,7 @@
 #define ATM_INTERACTOR_H
 
 #include <string>
+#include <vector>
 
 class AtmUser;
 
@@ -20,7 +21,7 @@ class AtmInteractor {
 
   static void RegisterUser(const std::string& login,
                            const std::string& password);
-  static std::string AccountInfo(AtmInteractor::AccountData account_data);
+  static std::vector<std::string> AccountInfo();
   static void RefillCash(int refill_cash);
   static bool WithdrawCash(int withdrawal_cash);
   static std::string Statement();
