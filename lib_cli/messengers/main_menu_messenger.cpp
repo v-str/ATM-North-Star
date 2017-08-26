@@ -21,22 +21,6 @@ void MainMenuMessenger::ShowMainMenu() {
       1);
 }
 
-void MainMenuMessenger::ReRequestAboutExit() {
-  ConsoleEditor::AddEmptyLineNTimes(1);
-  ConsoleEditor::ClearScreen();
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\t# Do you really want to exit?");
-}
-
-void MainMenuMessenger::WishAGoodDay() {
-  ConsoleEditor::AddEmptyLineNTimes(2);
-  ConsoleEditor::WriteText(
-      "\n\t####################\n"
-      "\t#                  #\n"
-      "\t# Have a nice day! #\n"
-      "\t#                  #\n"
-      "\t####################\n\n");
-}
-
 void MainMenuMessenger::ShowQuitMenu() {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
@@ -50,15 +34,4 @@ void MainMenuMessenger::ShowIncorrectInput() {
       "\t# Incorrect input, please try again", 10);
   ConsoleEditor::WriteTextWithDelayPerSymbol("...", 70);
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
-}
-
-void MainMenuMessenger::ShowIncorrectMainMenuInput() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\t# Incorrect input, please try again", 20);
-  ConsoleEditor::Sleep(200);
-}
-
-void MainMenuMessenger::ShowIncorrectRegistration() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t# Incorrect input, reload program.\n");
 }
