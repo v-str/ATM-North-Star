@@ -50,7 +50,8 @@ void ConsoleRegistrationPresenter::HandleRegistrationData() {
 bool ConsoleRegistrationPresenter::UserRequestPerformed() {
   if (registration_menu_.IsRegistrationConfirmed()) {
     registration_menu_.ShowConfirmationAnimation(login_string_);
-    // main_menu_presenter_.RunMainMenu();
+    main_menu_presenter_.RunMainMenu();
+    // user_want_to_exit = main_menu_presenter_.UserWantToExit();
     return true;
   }
 

@@ -1,8 +1,8 @@
-﻿#ifndef MAIN_MENU_H
-#define MAIN_MENU_H
+﻿#ifndef CONSOLE_MAIN_MENU_H
+#define CONSOLE_MAIN_MENU_H
 
-class MainMenu {
+class ConsoleMainMenu {
  public:
 };
 
-#endif  // MAIN_MENU_H
+#endif  // CONSOLE_MAIN_MENU_H
