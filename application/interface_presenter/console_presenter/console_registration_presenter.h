@@ -4,6 +4,7 @@
 #include <string>
 
 #include <atm_registration_handler.h>
+#include <console_main_menu_presenter.h>
 #include <console_registration_menu.h>
 
 class ConsoleRegistrationPresenter {
@@ -20,6 +21,8 @@ class ConsoleRegistrationPresenter {
 
   ConsoleRegistrationMenu registration_menu_;
   AtmRegistrationHandler registration_handler_;
+
+  ConsoleMainMenuPresenter main_menu_presenter_;
 
   std::string login_string_;
   std::string password_string_;
