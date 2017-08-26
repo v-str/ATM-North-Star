@@ -53,6 +53,8 @@ std::string AtmInteractor::Statement() {
   return AccountInformator::Cash();
 }
 
+void AtmInteractor::ResetData() { user_->ResetData(); }
+
 void AtmInteractor::CheckOnUserExisting() {
   if (user_ != nullptr) {
     delete user_;

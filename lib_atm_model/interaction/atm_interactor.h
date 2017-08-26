@@ -25,10 +25,11 @@ class AtmInteractor {
   static bool WithdrawCash(int withdrawal_cash);
   static std::string Statement();
 
-  static void CheckOnUserExisting();
+  static void ResetData();
 
  private:
   static bool IsWithdrawalAcceptable(int withdrawal_sum);
+  static void CheckOnUserExisting();
 
   static AtmUser* user_;
 };

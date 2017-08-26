@@ -21,6 +21,8 @@ class AtmUser {
   void SetInterestRate(double interest_rate);
   void SetMonthlyPayment(double monthly_payment);
 
+  void ResetData();
+
   std::string Login() const;
   std::string Password() const;
   double Cash() const;

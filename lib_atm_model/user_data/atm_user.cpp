@@ -30,6 +30,15 @@ void AtmUser::SetMonthlyPayment(double monthly_payment) {
   credit_data_.SetMonthlyPayment(monthly_payment);
 }
 
+void AtmUser::ResetData() {
+  SetLogin("");
+  SetPassword("");
+  SetCash(0.0);
+  SetCreditSum(0.0);
+  SetCreditTerm(0);
+  SetMonthlyPayment(0.0);
+}
+
 std::string AtmUser::Login() const { return identification_data_.Login(); }
 
 std::string AtmUser::Password() const {
