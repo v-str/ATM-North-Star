@@ -7,6 +7,8 @@ class AtmUser;
 
 class AtmInteractor {
  public:
+  ~AtmInteractor();
+
   enum AccountData {
     kLogin,
     kCash,
@@ -22,6 +24,8 @@ class AtmInteractor {
   static void RefillCash(int refill_cash);
   static bool WithdrawCash(int withdrawal_cash);
   static std::string Statement();
+
+  static void CheckOnUserExisting();
 
  private:
   static bool IsWithdrawalAcceptable(int withdrawal_sum);

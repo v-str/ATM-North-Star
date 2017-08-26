@@ -8,13 +8,11 @@
 
 AtmUser* AtmInteractor::user_ = nullptr;
 
+AtmInteractor::~AtmInteractor() { delete user_; }
+
 void AtmInteractor::RegisterUser(const std::string& login,
                                  const std::string& password) {
-  if (user_ != nullptr) {
-    delete user_;
-  } else {
-    user_ = new AtmUser;
-  }
+  CheckOnUserExisting();
 
   UserRegistrator::RegisterUser(user_, login, password);
 }
@@ -53,6 +51,14 @@ bool AtmInteractor::WithdrawCash(int withdrawal_cash) {
 std::string AtmInteractor::Statement() {
   AccountInformator::UpdataUserData(*user_);
   return AccountInformator::Cash();
+}
+
+void AtmInteractor::CheckOnUserExisting() {
+  if (user_ != nullptr) {
+    delete user_;
+  } else {
+    user_ = new AtmUser;
+  }
 }
 
 bool AtmInteractor::IsWithdrawalAcceptable(int withdrawal_sum) {
