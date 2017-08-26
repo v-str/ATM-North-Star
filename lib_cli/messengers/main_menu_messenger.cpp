@@ -3,19 +3,22 @@
 #include <console_editor.h>
 
 void MainMenuMessenger::ShowMainMenu() {
-  ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::ClearScreen();
-  ConsoleEditor::WriteText(
-      "\n\t################ Transaction menu ##################\n"
-      "\t#                                                  #\n"
-      "\t# 1. Account information            2. Refill      #\n"
-      "\t# ----------------------            ------------   #\n"
-      "\t# 3. Credit application             4. Withdrawal  #\n"
-      "\t# ----------------------            ------------   #\n"
-      "\t# 5. Statement                      6. Exit        #\n"
-      "\t#                                                  #\n"
-      "\t####################################################\n"
-      "\tEnter: ");
+  ConsoleEditor::AddEmptyLineNTimes(3);
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "\t#################################### ATM North Star ##\n"
+      "\t################### Operation menu ###################\n"
+      "\t##                                                  ##\n"
+      "\t##  1. Account information           2. Refill      ##\n"
+      "\t##  ----------------------           -------------  ##\n"
+      "\t##  3. Credit application            4. Withdrawal  ##\n"
+      "\t##  ----------------------           -------------  ##\n"
+      "\t##  5. Statement                     6. Exit        ##\n"
+      "\t##                                                  ##\n"
+      "\t######################################################\n"
+      "\t######################################################\n"
+      "\tEnter: ",
+      1);
 }
 
 void MainMenuMessenger::ReRequestAboutExit() {
