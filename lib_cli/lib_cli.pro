@@ -9,7 +9,6 @@ QMAKE_CXX = ccache clang++
 INCLUDEPATH += \
     $$PWD/messengers/registration_messengers/confirmation_animation \
     $$PWD/messengers/registration_messengers \
-    $$PWD/view_model/registration \
     $$PWD/output_configuration \
     $$PWD/user_input_handling \
     $$PWD/messengers \
@@ -18,7 +17,6 @@ INCLUDEPATH += \
 HEADERS += \
     $$PWD/messengers/registration_messengers/confirmation_animation/*.h \
     $$PWD/messengers/registration_messengers/*.h \
-    $$PWD/view_model/registration/*.h \
     $$PWD/output_configuration/*.h \
     $$PWD/user_input_handling/*.h \
     $$PWD/messengers/*.h \
@@ -27,7 +25,6 @@ HEADERS += \
 SOURCES += \
     $$PWD/messengers/registration_messengers/confirmation_animation/*.cpp \
     $$PWD/messengers/registration_messengers/*.cpp \
-    $$PWD/view_model/registration/*.cpp \
     $$PWD/output_configuration/*.cpp \
     $$PWD/user_input_handling/*.cpp \
     $$PWD/messengers/*.cpp \

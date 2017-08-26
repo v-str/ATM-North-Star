@@ -3,7 +3,6 @@
 
 class MainMenu {
  public:
-  MainMenu();
 };
 
 #endif  // MAIN_MENU_H
