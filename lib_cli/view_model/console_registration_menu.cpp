@@ -2,7 +2,7 @@
 
 #include <confirmation_animator.h>
 
-#include <menu_input_handler.h>
+#include <submenu_input_handler.h>
 #include <user_input_handler.h>
 
 void ConsoleRegistrationMenu::RunRegistrationMenu() {
@@ -71,7 +71,7 @@ void ConsoleRegistrationMenu::ShowPasswordReport(
 }
 
 void ConsoleRegistrationMenu::ProcessMenuUserInput(bool& changing_action) {
-  input_handler_ = std::unique_ptr<UserInputHandler>(new MenuInputHandler);
+  input_handler_ = std::unique_ptr<UserInputHandler>(new SubMenuInputHandler);
   for (;;) {
     ResetManipulationFlags();
     int user_input = input_handler_->GetDigitInputFromUser();

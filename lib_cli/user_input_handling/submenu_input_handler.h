@@ -1,11 +1,11 @@
-﻿#ifndef MENU_INPUT_HANDLER_H
-#define MENU_INPUT_HANDLER_H
+﻿#ifndef SUBMENU_INPUT_HANDLER_H
+#define SUBMENU_INPUT_HANDLER_H
 
 #include <user_input_handler.h>
 
 #include <string>
 
-class MenuInputHandler : public UserInputHandler {
+class SubMenuInputHandler : public UserInputHandler {
  public:
   int GetDigitInputFromUser() override;
 
@@ -19,4 +19,4 @@ class MenuInputHandler : public UserInputHandler {
   int kSubMenuQuit = 2;
 };
 
-#endif  // MENU_INPUT_HANDLER_H
+#endif  // SUBMENU_INPUT_HANDLER_H
