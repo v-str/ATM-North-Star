@@ -17,6 +17,8 @@ void ConsoleMainMenu::ProcessMenuUserInput() {
 
     if (IsUserInputContainSubMenu(user_input)) {
       break;
+    } else {
+      MainMenuMessenger::ShowIncorrectInput();
     }
   }
 }
