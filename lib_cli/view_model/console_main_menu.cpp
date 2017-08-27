@@ -12,10 +12,6 @@ bool ConsoleMainMenu::UserWantQuit() const { return user_want_quit_; }
 
 bool ConsoleMainMenu::UserWantLogOut() const { return user_want_log_out_; }
 
-bool ConsoleMainMenu::UserWantAccountSubMenu() const {
-  return user_want_account_sub_menu_;
-}
-
 void ConsoleMainMenu::ProcessMenuUserInput() {
   int user_input = 0;
 
@@ -25,7 +21,6 @@ void ConsoleMainMenu::ProcessMenuUserInput() {
     user_input = user_input_handler_->GetDigitInputFromUser();
 
     if (IsUserInputContainMenuItem(user_input)) {
-      user_input_contain_menu_item_ = true;
       break;
     } else {
       MainMenuMessenger::ShowIncorrectInput();
@@ -36,34 +31,35 @@ void ConsoleMainMenu::ProcessMenuUserInput() {
 void ConsoleMainMenu::ResetManipulationFlags() {
   user_want_quit_ = false;
   user_want_log_out_ = false;
-  user_want_account_sub_menu_ = false;
   user_input_contain_menu_item_ = false;
 }
 
 bool ConsoleMainMenu::IsUserInputContainMenuItem(int user_input) {
+  user_input_contain_menu_item_ = false;
+
   if (user_input == kAccountInfo) {
-    user_want_account_sub_menu_ = true;
-    return true;
+    user_input_contain_menu_item_ = true;
   }
   if (user_input == kRefill) {
-    return true;
+    user_input_contain_menu_item_ = true;
   }
   if (user_input == kCreditApplication) {
-    return true;
+    user_input_contain_menu_item_ = true;
   }
   if (user_input == kWithdrawal) {
-    return true;
+    user_input_contain_menu_item_ = true;
   }
   if (user_input == kStatement) {
-    return true;
+    user_input_contain_menu_item_ = true;
   }
   if (user_input == kLogOut) {
     user_want_log_out_ = true;
-    return true;
+    user_input_contain_menu_item_ = true;
   }
   if (user_input == kQuit) {
     user_want_quit_ = true;
-    return true;
+    user_input_contain_menu_item_ = true;
   }
-  return false;
+
+  return user_input_contain_menu_item_;
 }

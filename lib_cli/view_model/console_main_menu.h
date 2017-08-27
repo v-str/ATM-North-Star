@@ -11,7 +11,6 @@ class ConsoleMainMenu {
 
   bool UserWantQuit() const;
   bool UserWantLogOut() const;
-  bool UserWantAccountSubMenu() const;
 
  private:
   enum MenuItems {
@@ -34,9 +33,6 @@ class ConsoleMainMenu {
 
   bool user_want_quit_ = false;
   bool user_want_log_out_ = false;
-
-  bool user_want_account_sub_menu_ = false;
-
   bool user_input_contain_menu_item_ = false;
 };
 
