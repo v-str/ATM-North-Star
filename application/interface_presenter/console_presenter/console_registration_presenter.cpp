@@ -8,12 +8,12 @@ void ConsoleRegistrationPresenter::RunRegistrationMenu() {
     BeginRegistration();
   }
   if (registration_menu_.IsUserWantToExitProgram()) {
-    user_want_to_exit_ = true;
+    user_want_quit_ = true;
   }
 }
 
 bool ConsoleRegistrationPresenter::IsUserWantToExit() const {
-  return user_want_to_exit_;
+  return user_want_quit_;
 }
 
 void ConsoleRegistrationPresenter::BeginRegistration() {
@@ -54,7 +54,7 @@ bool ConsoleRegistrationPresenter::UserRequestPerformed() {
     registration_menu_.ShowConfirmationAnimation(login_string_);
     AtmInteractor::RegisterUser(login_string_, password_string_);
     main_menu_presenter_.RunMainMenu();
-    // user_want_to_exit = main_menu_presenter_.UserWantToExit();
+    user_want_quit_ = main_menu_presenter_.UserWantQuit();
     return true;
   }
 
@@ -63,7 +63,7 @@ bool ConsoleRegistrationPresenter::UserRequestPerformed() {
   }
 
   if (registration_menu_.IsUserWantToExitProgram()) {
-    user_want_to_exit_ = true;
+    user_want_quit_ = true;
     return true;
   }
   return false;

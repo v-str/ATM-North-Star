@@ -17,8 +17,8 @@ bool ConsoleMainMenu::UserWantAccountSubMenu() const {
 }
 
 void ConsoleMainMenu::ProcessMenuUserInput() {
-  user_input_handler_ =
-      std::unique_ptr<UserInputHandler>(new SubMenuInputHandler);
+  user_input_handler_ = std::unique_ptr<UserInputHandler>(new UserInputHandler);
+
   int user_input = 0;
   for (;;) {
     ResetManipulationFlags();
@@ -57,9 +57,11 @@ bool ConsoleMainMenu::IsUserInputContainMenuItem(int user_input) {
     return true;
   }
   if (user_input == kLogOut) {
+    user_want_log_out_ = true;
     return true;
   }
   if (user_input == kQuit) {
+    user_want_quit_ = true;
     return true;
   }
   return false;

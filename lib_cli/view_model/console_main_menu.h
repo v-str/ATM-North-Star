@@ -15,7 +15,7 @@ class ConsoleMainMenu {
 
  private:
   enum MenuItems {
-    kAccountInfo,
+    kAccountInfo = 1,
     kRefill,
     kCreditApplication,
     kWithdrawal,

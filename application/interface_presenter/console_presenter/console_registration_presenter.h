@@ -27,7 +27,7 @@ class ConsoleRegistrationPresenter {
   std::string login_string_;
   std::string password_string_;
 
-  bool user_want_to_exit_ = false;
+  bool user_want_quit_ = false;
 };
 
 #endif  // CONSOLE_REGISTRATION_PRESENTER_H

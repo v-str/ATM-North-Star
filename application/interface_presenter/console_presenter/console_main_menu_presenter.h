@@ -8,9 +8,13 @@ class ConsoleMainMenuPresenter {
  public:
   void RunMainMenu();
 
+  bool UserWantQuit() const;
+
  private:
   ConsoleMainMenu main_menu_;
   ConsoleAccountInformer account_informer_;
+
+  bool user_want_quit_ = false;
 };
 
 #endif  // CONSOLE_MAIN_MENU_PRESENTER_H
