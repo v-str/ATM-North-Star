@@ -4,15 +4,13 @@
 
 void ConsoleMainMenuPresenter::RunMainMenu() {
   for (;;) {
+    ResetManipulationFlags();
+
     main_menu_.RunMainMenu();
 
-    if (main_menu_.UserWantLogOut()) {
-      main_menu_.DisplayLogOutMessage();
-      // reset user data?
-      break;
-    }
-    if (main_menu_.UserWantQuit()) {
-      user_want_quit_ = true;
+    PerformMenuItem();
+
+    if (user_want_log_out_ || user_want_quit_) {
       break;
     }
   }
@@ -20,4 +18,34 @@ void ConsoleMainMenuPresenter::RunMainMenu() {
 
 bool ConsoleMainMenuPresenter::UserWantQuit() const { return user_want_quit_; }
 
-void ConsoleMainMenuPresenter::PerformMenuItem() {}
+void ConsoleMainMenuPresenter::PerformMenuItem() {
+  if (main_menu_.UserWantAccountInfo()) {
+    // run acc info
+  }
+  if (main_menu_.UserWantRefill()) {
+    // run item
+  }
+  if (main_menu_.UserWantCredit()) {
+    // run item
+  }
+  if (main_menu_.UserWantWithdraw()) {
+    // run item
+  }
+  if (main_menu_.UserWantStatement()) {
+    // run item
+  }
+  if (main_menu_.UserWantLogOut()) {
+    // reset user data?
+    main_menu_.DisplayLogOutMessage();
+    user_want_log_out_ = true;
+  }
+  if (main_menu_.UserWantQuit()) {
+    user_want_quit_ = true;
+    // run item
+  }
+}
+
+void ConsoleMainMenuPresenter::ResetManipulationFlags() {
+  user_want_log_out_ = false;
+  user_want_quit_ = false;
+}

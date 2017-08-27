@@ -18,9 +18,9 @@ bool ConsoleMainMenu::UserWantAccountInfo() const {
 
 bool ConsoleMainMenu::UserWantRefill() const { return user_want_refill_; }
 
-bool ConsoleMainMenu::UserWantWithdraw() const { return user_want_withdraw_; }
-
 bool ConsoleMainMenu::UserWantCredit() const { return user_want_credit_; }
+
+bool ConsoleMainMenu::UserWantWithdraw() const { return user_want_withdraw_; }
 
 bool ConsoleMainMenu::UserWantStatement() const { return user_want_statement_; }
 

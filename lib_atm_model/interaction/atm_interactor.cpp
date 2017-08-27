@@ -53,9 +53,8 @@ void AtmInteractor::ResetData() { user_->ResetData(); }
 void AtmInteractor::CheckOnUserExisting() {
   if (user_ != nullptr) {
     delete user_;
-  } else {
-    user_ = new AtmUser;
   }
+  user_ = new AtmUser;
 }
 
 bool AtmInteractor::IsWithdrawalAcceptable(int withdrawal_sum) {

@@ -44,7 +44,7 @@ bool ConsoleInitialMenu::IsInputContainSubMenu() {
   if (sub_menu_input_ == kDescriptionMenu) {
     return true;
   }
-  if (sub_menu_input_ == kExit) {
+  if (sub_menu_input_ == kQuit) {
     return true;
   }
   return false;

@@ -20,13 +20,15 @@ class ConsoleInitialPresenter {
   void RunDescriptionMenu();
   void RunRegistrationMenu();
 
+  void ResetManipulationFlags();
+
   ConsoleInitialMenu initial_menu_;
   ConsoleLoginMenu login_menu_;
   ConsoleDescriptionMenu description_menu_;
 
   ConsoleRegistrationPresenter registration_presenter_;
 
-  bool user_want_to_exit_ = false;
+  bool user_want_to_quit_ = false;
 };
 
 #endif  // CONSOLE_INITIAL_PRESENTER_H

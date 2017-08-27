@@ -13,9 +13,12 @@ class ConsoleMainMenuPresenter {
  private:
   void PerformMenuItem();
 
+  void ResetManipulationFlags();
+
   ConsoleMainMenu main_menu_;
   ConsoleAccountInformer account_informer_;
 
+  bool user_want_log_out_ = false;
   bool user_want_quit_ = false;
 };
 

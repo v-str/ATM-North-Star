@@ -18,6 +18,8 @@ bool ConsoleRegistrationPresenter::IsUserWantToExit() const {
 
 void ConsoleRegistrationPresenter::BeginRegistration() {
   for (;;) {
+    ResetManipulationFlags();
+
     ReceiveRegistrationData();
     HandleRegistrationData();
 
@@ -67,4 +69,8 @@ bool ConsoleRegistrationPresenter::UserRequestPerformed() {
     return true;
   }
   return false;
+}
+
+void ConsoleRegistrationPresenter::ResetManipulationFlags() {
+  user_want_quit_ = false;
 }

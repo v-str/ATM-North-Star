@@ -19,6 +19,8 @@ class ConsoleRegistrationPresenter {
   void HandleRegistrationData();
   bool UserRequestPerformed();
 
+  void ResetManipulationFlags();
+
   ConsoleRegistrationMenu registration_menu_;
   AtmRegistrationHandler registration_handler_;
 

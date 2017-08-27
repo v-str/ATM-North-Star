@@ -5,7 +5,7 @@
 
 class ConsoleInitialMenu {
  public:
-  enum SubMenu { kExit, kLoginMenu, kRegistrationMenu, kDescriptionMenu };
+  enum SubMenu { kQuit, kLoginMenu, kRegistrationMenu, kDescriptionMenu };
 
   void RunInitialMenu();
   void DisplayFarewellMessage();
