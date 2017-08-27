@@ -14,7 +14,7 @@ class ConsoleMainMenu {
   bool UserWantAccountSubMenu() const;
 
  private:
-  enum MenuOperations {
+  enum MenuItems {
     kAccountInfo,
     kRefill,
     kCreditApplication,
@@ -27,7 +27,7 @@ class ConsoleMainMenu {
   void ProcessMenuUserInput();
   void ResetManipulationFlags();
 
-  bool IsUserInputContainSubMenu(int user_input);
+  bool IsUserInputContainMenuItem(int user_input);
 
   std::unique_ptr<UserInputHandler> user_input_handler_;
 

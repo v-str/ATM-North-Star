@@ -25,7 +25,7 @@ void ConsoleMainMenu::ProcessMenuUserInput() {
 
     user_input = user_input_handler_->GetDigitInputFromUser();
 
-    if (IsUserInputContainSubMenu(user_input)) {
+    if (IsUserInputContainMenuItem(user_input)) {
       break;
     } else {
       MainMenuMessenger::ShowIncorrectInput();
@@ -39,7 +39,7 @@ void ConsoleMainMenu::ResetManipulationFlags() {
   user_want_account_sub_menu_ = false;
 }
 
-bool ConsoleMainMenu::IsUserInputContainSubMenu(int user_input) {
+bool ConsoleMainMenu::IsUserInputContainMenuItem(int user_input) {
   if (user_input == kAccountInfo) {
     user_want_account_sub_menu_ = true;
     return true;
