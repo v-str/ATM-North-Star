@@ -11,7 +11,7 @@ void MainMenuMessenger::ShowMainMenu() {
       "\t##                                                  ##\n"
       "\t##  1. Account information           2. Refill      ##\n"
       "\t##  ----------------------           -------------  ##\n"
-      "\t##  3. Credit application            4. Withdrawal  ##\n"
+      "\t##  3. Credit                        4. Withdrawal  ##\n"
       "\t##  ----------------------           -------------  ##\n"
       "\t##  5. Statement                                    ##\n"
       "\t##  ----------------------------------------------  ##\n"
