@@ -8,7 +8,11 @@ void ConsoleMainMenu::RunMainMenu() {
   ProcessMenuUserInput();
 }
 
-bool ConsoleMainMenu::UserWantAccountSubMenu() {
+bool ConsoleMainMenu::UserWantQuit() const { return user_want_quit_; }
+
+bool ConsoleMainMenu::UserWantLogOut() const { return user_want_log_out_; }
+
+bool ConsoleMainMenu::UserWantAccountSubMenu() const {
   return user_want_account_sub_menu_;
 }
 

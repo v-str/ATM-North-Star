@@ -9,7 +9,10 @@ class ConsoleMainMenu {
  public:
   void RunMainMenu();
 
-  bool UserWantAccountSubMenu();
+  bool UserWantQuit() const;
+  bool UserWantLogOut() const;
+
+  bool UserWantAccountSubMenu() const;
 
  private:
   enum MenuOperations {
@@ -28,7 +31,10 @@ class ConsoleMainMenu {
 
   std::unique_ptr<UserInputHandler> user_input_handler_;
 
-  bool user_want_account_sub_menu_;
+  bool user_want_quit_ = false;
+  bool user_want_log_out_ = false;
+
+  bool user_want_account_sub_menu_ = false;
 };
 
 #endif  // CONSOLE_MAIN_MENU_H
