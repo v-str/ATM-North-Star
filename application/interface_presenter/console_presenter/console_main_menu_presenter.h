@@ -11,6 +11,8 @@ class ConsoleMainMenuPresenter {
   bool UserWantQuit() const;
 
  private:
+  void PerformMenuItem();
+
   ConsoleMainMenu main_menu_;
   ConsoleAccountInformer account_informer_;
 

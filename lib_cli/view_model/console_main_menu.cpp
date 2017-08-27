@@ -8,6 +8,18 @@ void ConsoleMainMenu::RunMainMenu() {
   ProcessMenuUserInput();
 }
 
+bool ConsoleMainMenu::UserWantAccountInfo() const {
+  return user_want_account_info_;
+}
+
+bool ConsoleMainMenu::UserWantRefill() const { return user_want_refill_; }
+
+bool ConsoleMainMenu::UserWantWithdraw() const { return user_want_withdraw_; }
+
+bool ConsoleMainMenu::UserWantCredit() const { return user_want_credit_; }
+
+bool ConsoleMainMenu::UserWantStatement() const { return user_want_statement_; }
+
 bool ConsoleMainMenu::UserWantQuit() const { return user_want_quit_; }
 
 bool ConsoleMainMenu::UserWantLogOut() const { return user_want_log_out_; }

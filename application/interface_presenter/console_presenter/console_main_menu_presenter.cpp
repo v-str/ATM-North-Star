@@ -18,3 +18,5 @@ void ConsoleMainMenuPresenter::RunMainMenu() {
 }
 
 bool ConsoleMainMenuPresenter::UserWantQuit() const { return user_want_quit_; }
+
+void ConsoleMainMenuPresenter::PerformMenuItem() {}

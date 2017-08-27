@@ -9,6 +9,12 @@ class ConsoleMainMenu {
  public:
   void RunMainMenu();
 
+  bool UserWantAccountInfo() const;
+  bool UserWantRefill() const;
+  bool UserWantWithdraw() const;
+  bool UserWantCredit() const;
+  bool UserWantStatement() const;
+
   bool UserWantQuit() const;
   bool UserWantLogOut() const;
 
@@ -33,8 +39,15 @@ class ConsoleMainMenu {
 
   int user_input_ = 0;
 
+  bool user_want_account_info_ = false;
+  bool user_want_refill_ = false;
+  bool user_want_withdraw_ = false;
+  bool user_want_credit_ = false;
+  bool user_want_statement_ = false;
+
   bool user_want_quit_ = false;
   bool user_want_log_out_ = false;
+
   bool user_input_contain_menu_item_ = false;
 };
 
