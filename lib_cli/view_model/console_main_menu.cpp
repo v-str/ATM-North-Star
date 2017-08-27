@@ -21,6 +21,8 @@ void ConsoleMainMenu::ProcessMenuUserInput() {
       std::unique_ptr<UserInputHandler>(new SubMenuInputHandler);
   int user_input = 0;
   for (;;) {
+    ResetManipulationFlags();
+
     user_input = user_input_handler_->GetDigitInputFromUser();
 
     if (IsUserInputContainSubMenu(user_input)) {
@@ -29,6 +31,12 @@ void ConsoleMainMenu::ProcessMenuUserInput() {
       MainMenuMessenger::ShowIncorrectInput();
     }
   }
+}
+
+void ConsoleMainMenu::ResetManipulationFlags() {
+  user_want_quit_ = false;
+  user_want_log_out_ = false;
+  user_want_account_sub_menu_ = false;
 }
 
 bool ConsoleMainMenu::IsUserInputContainSubMenu(int user_input) {

@@ -11,7 +11,6 @@ class ConsoleMainMenu {
 
   bool UserWantQuit() const;
   bool UserWantLogOut() const;
-
   bool UserWantAccountSubMenu() const;
 
  private:
@@ -26,6 +25,7 @@ class ConsoleMainMenu {
   };
 
   void ProcessMenuUserInput();
+  void ResetManipulationFlags();
 
   bool IsUserInputContainSubMenu(int user_input);
 
