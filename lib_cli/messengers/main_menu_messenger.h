@@ -4,11 +4,13 @@
 class MainMenuMessenger {
  public:
   static void ShowMainMenu();
+  static void LogOutMessage();
   static void ShowQuitMenu();
   static void ShowIncorrectInput();
 
  private:
-  static constexpr int kFrame = 45;
+  static const int kFrame = 45;
+  static const int kDelay = 300;
 };
 
 #endif  // MAIN_MENU_MESSENGER_H

@@ -7,6 +7,7 @@ void ConsoleMainMenuPresenter::RunMainMenu() {
     main_menu_.RunMainMenu();
 
     if (main_menu_.UserWantLogOut()) {
+      main_menu_.DisplayLogOutMessage();
       // reset user data?
       break;
     }

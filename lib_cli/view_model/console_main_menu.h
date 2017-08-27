@@ -9,6 +9,8 @@ class ConsoleMainMenu {
  public:
   void RunMainMenu();
 
+  void DisplayLogOutMessage() const;
+
   bool UserWantAccountInfo() const;
   bool UserWantRefill() const;
   bool UserWantWithdraw() const;

@@ -8,6 +8,10 @@ void ConsoleMainMenu::RunMainMenu() {
   ProcessMenuUserInput();
 }
 
+void ConsoleMainMenu::DisplayLogOutMessage() const {
+  MainMenuMessenger::LogOutMessage();
+}
+
 bool ConsoleMainMenu::UserWantAccountInfo() const {
   return user_want_account_info_;
 }

@@ -23,6 +23,12 @@ void MainMenuMessenger::ShowMainMenu() {
       1);
 }
 
+void MainMenuMessenger::LogOutMessage() {
+  ConsoleEditor::AddEmptyLineNTimes(1);
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\t## Logout performed...");
+  ConsoleEditor::Sleep(kDelay);
+}
+
 void MainMenuMessenger::ShowQuitMenu() {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
