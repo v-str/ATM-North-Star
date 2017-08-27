@@ -31,6 +31,8 @@ class ConsoleMainMenu {
   std::unique_ptr<UserInputHandler> user_input_handler_ =
       std::unique_ptr<UserInputHandler>(new UserInputHandler);
 
+  int user_input_ = 0;
+
   bool user_want_quit_ = false;
   bool user_want_log_out_ = false;
   bool user_input_contain_menu_item_ = false;

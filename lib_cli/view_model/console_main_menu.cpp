@@ -13,14 +13,12 @@ bool ConsoleMainMenu::UserWantQuit() const { return user_want_quit_; }
 bool ConsoleMainMenu::UserWantLogOut() const { return user_want_log_out_; }
 
 void ConsoleMainMenu::ProcessMenuUserInput() {
-  int user_input = 0;
-
   for (;;) {
     ResetManipulationFlags();
 
-    user_input = user_input_handler_->GetDigitInputFromUser();
+    user_input_ = user_input_handler_->GetDigitInputFromUser();
 
-    if (IsUserInputContainMenuItem(user_input)) {
+    if (IsUserInputContainMenuItem(user_input_)) {
       break;
     } else {
       MainMenuMessenger::ShowIncorrectInput();
