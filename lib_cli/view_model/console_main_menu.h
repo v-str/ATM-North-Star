@@ -29,12 +29,15 @@ class ConsoleMainMenu {
 
   bool IsUserInputContainMenuItem(int user_input);
 
-  std::unique_ptr<UserInputHandler> user_input_handler_;
+  std::unique_ptr<UserInputHandler> user_input_handler_ =
+      std::unique_ptr<UserInputHandler>(new UserInputHandler);
 
   bool user_want_quit_ = false;
   bool user_want_log_out_ = false;
 
   bool user_want_account_sub_menu_ = false;
+
+  bool user_input_contain_menu_item_ = false;
 };
 
 #endif  // CONSOLE_MAIN_MENU_H

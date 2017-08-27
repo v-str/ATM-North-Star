@@ -17,15 +17,15 @@ bool ConsoleMainMenu::UserWantAccountSubMenu() const {
 }
 
 void ConsoleMainMenu::ProcessMenuUserInput() {
-  user_input_handler_ = std::unique_ptr<UserInputHandler>(new UserInputHandler);
-
   int user_input = 0;
+
   for (;;) {
     ResetManipulationFlags();
 
     user_input = user_input_handler_->GetDigitInputFromUser();
 
     if (IsUserInputContainMenuItem(user_input)) {
+      user_input_contain_menu_item_ = true;
       break;
     } else {
       MainMenuMessenger::ShowIncorrectInput();
@@ -37,6 +37,7 @@ void ConsoleMainMenu::ResetManipulationFlags() {
   user_want_quit_ = false;
   user_want_log_out_ = false;
   user_want_account_sub_menu_ = false;
+  user_input_contain_menu_item_ = false;
 }
 
 bool ConsoleMainMenu::IsUserInputContainMenuItem(int user_input) {
