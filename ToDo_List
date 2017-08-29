@@ -141,6 +141,8 @@
 15. Add confirmation registration animation message                                 | + |
                                                                                     |   |
 16. Develop correct new user setting parameters  ( look AtmInteractor )             | - |
+                                                                                    |   |
+17. Perform refactoring password input class                                        | - |
 
 -----------------------------------------------------------------------------------------
 ------------------------------------ ARCHITECTURE ---------------------------------------
