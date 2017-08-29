@@ -13,7 +13,7 @@ void ConsoleDescriptionMenu::RunDescriptionMenu() {
 }
 
 void ConsoleDescriptionMenu::DisplayDemoSubMenu() {
-  int user_choice = user_input_.GetValueFromUser();
+  int user_choice = user_input_handler_.GetDigitInputFromUser();
   if (user_choice == kAccount) {
     DisplaySubmenu(DescriptionMessenger::kAccountInfo);
   } else if (user_choice == kRefill) {
@@ -52,7 +52,7 @@ void ConsoleDescriptionMenu::DisplayReturnMenu() {
   DescriptionMessenger::ShowReturnMessage();
   for (;;) {
     int input_result = 0;
-    input_result = user_input_.GetValueFromUser();
+    input_result = user_input_handler_.GetDigitInputFromUser();
 
     if (input_result == kInitialMenu) {
       user_want_to_initial_menu_ = true;

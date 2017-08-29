@@ -2,7 +2,8 @@
 #define CONSOLE_DESCRIPTION_MENU_H
 
 #include <description_messenger.h>
-#include <user_input.h>
+
+#include <user_input_handler.h>
 
 class ConsoleDescriptionMenu {
  public:
@@ -37,7 +38,7 @@ class ConsoleDescriptionMenu {
   bool user_want_to_initial_menu_ = false;
   bool user_want_to_exit_ = false;
 
-  UserInput user_input_;
+  UserInputHandler user_input_handler_;
 };
 
 #endif  // CONSOLE_DESCRIPTION_MENU_H
