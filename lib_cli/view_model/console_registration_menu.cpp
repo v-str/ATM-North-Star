@@ -2,6 +2,7 @@
 
 #include <confirmation_animator.h>
 
+#include <password_input_handler.h>
 #include <submenu_input_handler.h>
 #include <user_input_handler.h>
 
@@ -106,5 +107,5 @@ void ConsoleRegistrationMenu::GetLoginStringFromUser() {
 
 void ConsoleRegistrationMenu::GetPasswordStringFromUser() {
   RegistrationMessenger::ShowPasswordTitle();
-  password_ = input_handler_->GetStringInputFromUser();
+  password_ = PasswordInputHandler::GetPassword();
 }
