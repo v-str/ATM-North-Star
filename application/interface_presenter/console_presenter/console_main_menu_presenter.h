@@ -15,7 +15,7 @@ class ConsoleMainMenuPresenter {
 
   void ResetManipulationFlags();
 
-  ConsoleMainMenu main_menu_;
+  ConsoleMainMenu console_main_menu_;
   ConsoleAccountInformer account_informer_;
 
   bool user_want_log_out_ = false;

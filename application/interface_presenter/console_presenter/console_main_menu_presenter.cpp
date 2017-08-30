@@ -6,7 +6,7 @@ void ConsoleMainMenuPresenter::RunMainMenu() {
   for (;;) {
     ResetManipulationFlags();
 
-    main_menu_.RunMainMenu();
+    console_main_menu_.RunMainMenu();
 
     PerformMenuItem();
 
@@ -19,27 +19,27 @@ void ConsoleMainMenuPresenter::RunMainMenu() {
 bool ConsoleMainMenuPresenter::UserWantQuit() const { return user_want_quit_; }
 
 void ConsoleMainMenuPresenter::PerformMenuItem() {
-  if (main_menu_.UserWantAccountInfo()) {
+  if (console_main_menu_.UserWantAccountInfo()) {
     // run acc info
   }
-  if (main_menu_.UserWantRefill()) {
+  if (console_main_menu_.UserWantRefill()) {
     // run item
   }
-  if (main_menu_.UserWantCredit()) {
+  if (console_main_menu_.UserWantCredit()) {
     // run item
   }
-  if (main_menu_.UserWantWithdraw()) {
+  if (console_main_menu_.UserWantWithdraw()) {
     // run item
   }
-  if (main_menu_.UserWantStatement()) {
+  if (console_main_menu_.UserWantStatement()) {
     // run item
   }
-  if (main_menu_.UserWantLogOut()) {
+  if (console_main_menu_.UserWantLogOut()) {
     // reset user data?
-    main_menu_.DisplayLogOutMessage();
+    console_main_menu_.DisplayLogOutMessage();
     user_want_log_out_ = true;
   }
-  if (main_menu_.UserWantQuit()) {
+  if (console_main_menu_.UserWantQuit()) {
     user_want_quit_ = true;
     // run item
   }
