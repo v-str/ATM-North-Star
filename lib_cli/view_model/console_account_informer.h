@@ -10,6 +10,8 @@ class ConsoleAccountInformer {
 
   void SetAccountInfo(const std::vector<std::string>& account_info);
 
+  void ShowAccountInfo() const;
+
  private:
   void FillTitles();
 
