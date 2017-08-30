@@ -21,6 +21,7 @@ std::vector<std::string> AtmInteractor::AccountInfo() {
   AccountInformator::UpdataUserData(*user_);
 
   std::vector<std::string> account_info;
+
   account_info.push_back(AccountInformator::Login());
   account_info.push_back(AccountInformator::Cash());
   account_info.push_back(AccountInformator::CreditSum());

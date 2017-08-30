@@ -13,8 +13,9 @@ void ConsoleAccountInformer::ShowAccountInfo() const {}
 
 void ConsoleAccountInformer::FillTitles() {
   info_title_.push_back(AccountMessenger::LoginText());
-  info_title_.push_back(AccountMessenger::BalanceText());
+  info_title_.push_back(AccountMessenger::CashText());
   info_title_.push_back(AccountMessenger::CreditText());
   info_title_.push_back(AccountMessenger::PaymentText());
-  info_title_.push_back(AccountMessenger::TermText());
+  info_title_.push_back(AccountMessenger::InterestRateText());
+  info_title_.push_back(AccountMessenger::CreditTermText());
 }

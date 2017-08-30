@@ -9,10 +9,11 @@ class AccountMessenger {
                               const std::string& info_line);
 
   static std::string LoginText() { return "Login: "; }
-  static std::string BalanceText() { return "Balance: $"; }
+  static std::string CashText() { return "Balance: $"; }
   static std::string CreditText() { return "Credit: $"; }
+  static std::string CreditTermText() { return "Credit term: "; }
+  static std::string InterestRateText() { return "Interest rate: "; }
   static std::string PaymentText() { return "Monthly payment: $"; }
-  static std::string TermText() { return "Credit term: "; }
 
  private:
   static void DisplayStrip();
