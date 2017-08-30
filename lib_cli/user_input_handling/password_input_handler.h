@@ -10,7 +10,7 @@ class PasswordInputHandler {
  private:
   static void SetEcho(bool enable = false);
 
-  static std::string kPassword;
+  static std::string kPasswordString;
 };
 
 #endif  // PASSWORD_INPUT_HANDLER_H

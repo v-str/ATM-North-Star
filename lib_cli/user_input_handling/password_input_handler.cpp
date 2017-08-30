@@ -3,22 +3,22 @@
 #ifdef WIN32
 #include <windows.h>
 #else
-#include <termios.h>
-#include <unistd.h>
+#include <termios.h>  // general terminal interface
+#include <unistd.h>   // symbolic constants
 #endif
 
 #include <iostream>
 
-std::string PasswordInputHandler::kPassword = "";
+std::string PasswordInputHandler::kPasswordString = "";
 
 std::string PasswordInputHandler::GetPassword() {
   SetEcho(false);
 
-  std::getline(std::cin, kPassword);
+  std::getline(std::cin, kPasswordString);
 
   SetEcho(true);
 
-  return kPassword;
+  return kPasswordString;
 }
 
 void PasswordInputHandler::SetEcho(bool enable) {
@@ -36,14 +36,16 @@ void PasswordInputHandler::SetEcho(bool enable) {
   SetConsoleMode(hStdin, mode);
 
 #else
-  struct termios tty;
-  tcgetattr(STDIN_FILENO, &tty);
+  struct termios terminal_interface;
+  tcgetattr(STDIN_FILENO, &terminal_interface);
+
   if (!enable) {
-    tty.c_lflag &= ~ECHO;
+    terminal_interface.c_lflag &= ~ECHO;
   } else {
-    tty.c_lflag |= ECHO;
+    terminal_interface.c_lflag |= ECHO;
   }
 
-  (void)tcsetattr(STDIN_FILENO, TCSANOW, &tty);
+  (void)tcsetattr(STDIN_FILENO, TCSANOW, &terminal_interface);
+
 #endif
 }
