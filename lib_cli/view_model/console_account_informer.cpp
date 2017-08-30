@@ -2,6 +2,8 @@
 
 #include <account_messenger.h>
 
+#include <console_editor.h>
+
 ConsoleAccountInformer::ConsoleAccountInformer() { FillTitles(); }
 
 void ConsoleAccountInformer::SetAccountInfo(
@@ -9,7 +11,15 @@ void ConsoleAccountInformer::SetAccountInfo(
   account_info_ = account_info;
 }
 
-void ConsoleAccountInformer::ShowAccountInfo() const {}
+void ConsoleAccountInformer::ShowAccountInfo() const {
+  ConsoleEditor::ClearScreen();
+
+  for (int i = 0; i < info_title_.size(); ++i) {
+    AccountMessenger::DisplayInfoLine(info_title_[i], account_info_[i]);
+  }
+
+  ConsoleEditor::Sleep(10000);
+}
 
 void ConsoleAccountInformer::FillTitles() {
   info_title_.push_back(AccountMessenger::LoginText());

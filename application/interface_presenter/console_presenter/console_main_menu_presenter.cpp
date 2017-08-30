@@ -20,7 +20,8 @@ bool ConsoleMainMenuPresenter::UserWantQuit() const { return user_want_quit_; }
 
 void ConsoleMainMenuPresenter::PerformMenuItem() {
   if (console_main_menu_.UserWantAccountInfo()) {
-    // run acc info
+    account_informer_.SetAccountInfo(AtmInteractor::AccountInfo());
+    account_informer_.ShowAccountInfo();
   }
   if (console_main_menu_.UserWantRefill()) {
     // run item

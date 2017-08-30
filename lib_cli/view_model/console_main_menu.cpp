@@ -49,10 +49,9 @@ void ConsoleMainMenu::ResetManipulationFlags() {
 }
 
 bool ConsoleMainMenu::IsUserInputContainMenuItem(int user_input) {
-  user_input_contain_menu_item_ = false;
-
   if (user_input == kAccountInfo) {
     user_input_contain_menu_item_ = true;
+    user_want_account_info_ = true;
   }
   if (user_input == kRefill) {
     user_input_contain_menu_item_ = true;
