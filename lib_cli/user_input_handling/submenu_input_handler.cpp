@@ -13,12 +13,12 @@ int SubMenuInputHandler::GetDigitInputFromUser() {
 
 bool SubMenuInputHandler::GetQuitResult() {
   MainMenuMessenger::ShowQuitMenu();
-  bool quit_result = true;
+  bool quit = true;
   int user_choice = 0;
   for (;;) {
     user_choice = GetDigitInputFromUser();
     if (user_choice == kMainMenu) {
-      quit_result = false;
+      quit = false;
       break;
     } else if (user_choice == kQuit || user_choice == kSubMenuQuit) {
       break;
@@ -27,7 +27,7 @@ bool SubMenuInputHandler::GetQuitResult() {
     }
   }
 
-  return quit_result;
+  return quit;
 }
 
 bool SubMenuInputHandler::IsContainQuitString(const std::string& user_string) {
