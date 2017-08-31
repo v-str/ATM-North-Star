@@ -11,7 +11,7 @@ class ConsoleRegistrationPresenter {
  public:
   void RunRegistrationMenu();
 
-  bool IsUserWantToExit() const;
+  bool UserWantQuit() const;
 
  private:
   void BeginRegistration();

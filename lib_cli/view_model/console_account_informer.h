@@ -11,8 +11,10 @@ class ConsoleAccountInformer {
   ConsoleAccountInformer();
 
   void SetAccountInfo(const std::vector<std::string>& account_info);
+  void ShowAccountInfo();
 
-  void ShowAccountInfo() const;
+  bool UserWantMainMenu() const;
+  bool UserWantQuit() const;
 
  private:
   enum SubMenuItem { kMainMenu = 1, kQuit };

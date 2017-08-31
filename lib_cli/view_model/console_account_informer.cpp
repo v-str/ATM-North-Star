@@ -11,13 +11,21 @@ void ConsoleAccountInformer::SetAccountInfo(
   account_info_ = account_info;
 }
 
-void ConsoleAccountInformer::ShowAccountInfo() const {
+void ConsoleAccountInformer::ShowAccountInfo() {
   ConsoleEditor::ClearScreen();
 
   for (int i = 0; i < info_title_.size(); ++i) {
     AccountMessenger::DisplayInfoLine(info_title_[i], account_info_[i]);
   }
+
+  ProcessUserInput();
 }
+
+bool ConsoleAccountInformer::UserWantMainMenu() const {
+  return user_want_to_main_menu_;
+}
+
+bool ConsoleAccountInformer::UserWantQuit() const { return user_want_to_quit_; }
 
 void ConsoleAccountInformer::ProcessUserInput() {
   ResetManipulationFlags();

@@ -12,7 +12,7 @@ void ConsoleRegistrationPresenter::RunRegistrationMenu() {
   }
 }
 
-bool ConsoleRegistrationPresenter::IsUserWantToExit() const {
+bool ConsoleRegistrationPresenter::UserWantQuit() const {
   return user_want_quit_;
 }
 

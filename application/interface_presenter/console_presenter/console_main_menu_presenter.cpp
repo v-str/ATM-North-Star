@@ -22,6 +22,7 @@ void ConsoleMainMenuPresenter::PerformMenuItem() {
   if (console_main_menu_.UserWantAccountInfo()) {
     account_informer_.SetAccountInfo(AtmInteractor::AccountInfo());
     account_informer_.ShowAccountInfo();
+    user_want_quit_ = account_informer_.UserWantQuit();
   }
   if (console_main_menu_.UserWantRefill()) {
     // run item

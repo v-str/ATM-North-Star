@@ -43,7 +43,7 @@ void ConsoleInitialPresenter::RunDescriptionMenu() {
 
 void ConsoleInitialPresenter::RunRegistrationMenu() {
   registration_presenter_.RunRegistrationMenu();
-  user_want_to_quit_ = registration_presenter_.IsUserWantToExit();
+  user_want_to_quit_ = registration_presenter_.UserWantQuit();
 }
 
 void ConsoleInitialPresenter::ResetManipulationFlags() {
