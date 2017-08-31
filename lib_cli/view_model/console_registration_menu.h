@@ -18,8 +18,7 @@ class ConsoleRegistrationMenu {
   void RunRegistrationConfirmation();
   void RunIncorrectRegistrationNotification();
 
-  void ShowConfirmationAnimation(
-      const std::string& login_string) const;
+  void ShowConfirmationAnimation(const std::string& login_string) const;
 
   template <typename T>
   void ShowRegistratoinReport(const T& login_status,
@@ -57,7 +56,7 @@ class ConsoleRegistrationMenu {
 
   bool user_want_to_registrate_ = false;
   bool user_want_to_repeat_registration_ = false;
-  bool user_want_to_exit_ = false;
+  bool user_want_to_quit_ = false;
   bool user_want_to_initial_menu_ = false;
 
   bool registration_confirmed_ = false;

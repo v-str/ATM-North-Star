@@ -17,8 +17,6 @@ void ConsoleAccountInformer::ShowAccountInfo() const {
   for (int i = 0; i < info_title_.size(); ++i) {
     AccountMessenger::DisplayInfoLine(info_title_[i], account_info_[i]);
   }
-
-  ConsoleEditor::Sleep(10000);
 }
 
 void ConsoleAccountInformer::FillTitles() {
@@ -28,4 +26,9 @@ void ConsoleAccountInformer::FillTitles() {
   info_title_.push_back(AccountMessenger::PaymentText());
   info_title_.push_back(AccountMessenger::InterestRateText());
   info_title_.push_back(AccountMessenger::CreditTermText());
+}
+
+void ConsoleAccountInformer::ResetManipulationFlags() {
+  user_want_to_quit_ = false;
+  user_want_to_main_menu_ = false;
 }

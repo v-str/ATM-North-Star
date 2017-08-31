@@ -50,7 +50,7 @@ bool ConsoleRegistrationMenu::IsUserWantToRepeatRegistrate() const {
 }
 
 bool ConsoleRegistrationMenu::IsUserWantToExitProgram() const {
-  return user_want_to_exit_;
+  return user_want_to_quit_;
 }
 
 bool ConsoleRegistrationMenu::IsRegistrationConfirmed() const {
@@ -84,7 +84,7 @@ void ConsoleRegistrationMenu::ProcessMenuUserInput(bool& changing_action) {
       user_want_to_initial_menu_ = true;
       break;
     } else if (user_input == kSymbolQuit || user_input == kDigitQuit) {
-      user_want_to_exit_ = true;
+      user_want_to_quit_ = true;
       break;
     } else {
       RegistrationMessenger::ShowIncorrectInput();
@@ -94,7 +94,7 @@ void ConsoleRegistrationMenu::ProcessMenuUserInput(bool& changing_action) {
 
 void ConsoleRegistrationMenu::ResetManipulationFlags() {
   user_want_to_registrate_ = false;
-  user_want_to_exit_ = false;
+  user_want_to_quit_ = false;
   registration_confirmed_ = false;
   user_want_to_repeat_registration_ = false;
   user_want_to_initial_menu_ = false;

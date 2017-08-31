@@ -142,7 +142,12 @@
                                                                                     |   |
 16. Develop correct new user setting parameters  ( look AtmInteractor )             | - |
                                                                                     |   |
-17. Perform refactoring password input class                                        | - |
+17. Perform refactoring password input class                                        | + |
+                                                                                    |   |
+18. Develop menu items                                                              | - |
+                                                                                    |   |
+19. Develop base menu class                                                         | - |
+
 
 -----------------------------------------------------------------------------------------
 ------------------------------------ ARCHITECTURE ---------------------------------------
