@@ -5,29 +5,29 @@
 int SubMenuInputHandler::GetDigitInputFromUser() {
   std::string user_input = GetStringInputFromUser();
   if (IsContainQuitString(user_input)) {
-    return kQuit;
+    return kDigitalQuit;
   } else {
     return GetDigitsFromString(user_input);
   }
 }
 
-bool SubMenuInputHandler::GetQuitResult() {
+int SubMenuInputHandler::GetQuitResult() {
   MainMenuMessenger::ShowQuitMenu();
-  bool quit = true;
-  int user_choice = 0;
+  int user_input = 0;
   for (;;) {
-    user_choice = GetDigitInputFromUser();
-    if (user_choice == kMainMenu) {
-      quit = false;
+    user_input = GetDigitInputFromUser();
+    if (user_input == kMainMenu) {
       break;
-    } else if (user_choice == kQuit || user_choice == kSubMenuQuit) {
+    }
+    if (user_input == kDigitalQuit || user_input == kStringQuit) {
+      user_input = kDigitalQuit;
       break;
     } else {
       MainMenuMessenger::ShowIncorrectInput();
     }
   }
 
-  return quit;
+  return user_input;
 }
 
 bool SubMenuInputHandler::IsContainQuitString(const std::string& user_string) {

@@ -9,14 +9,12 @@ class SubMenuInputHandler : public UserInputHandler {
  public:
   int GetDigitInputFromUser() override;
 
-  bool GetQuitResult();
+  int GetQuitResult();
 
  private:
-  bool IsContainQuitString(const std::string& user_string);
+  enum SubMenuItem { kMainMenu = 1, kDigitalQuit = 2, kStringQuit = 0 };
 
-  int kQuit = 0;
-  int kMainMenu = 1;
-  int kSubMenuQuit = 2;
+  bool IsContainQuitString(const std::string& user_string);
 };
 
 #endif  // SUBMENU_INPUT_HANDLER_H
