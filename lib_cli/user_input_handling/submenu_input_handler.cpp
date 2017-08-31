@@ -11,7 +11,7 @@ int SubMenuInputHandler::GetDigitInputFromUser() {
   }
 }
 
-int SubMenuInputHandler::GetQuitResult() {
+int SubMenuInputHandler::GetSubMenuInputResult() {
   MainMenuMessenger::ShowQuitMenu();
   int user_input = 0;
   for (;;) {

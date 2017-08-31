@@ -9,7 +9,7 @@ class SubMenuInputHandler : public UserInputHandler {
  public:
   int GetDigitInputFromUser() override;
 
-  int GetQuitResult();
+  int GetSubMenuInputResult();
 
  private:
   enum SubMenuItem { kMainMenu = 1, kDigitalQuit = 2, kStringQuit = 0 };

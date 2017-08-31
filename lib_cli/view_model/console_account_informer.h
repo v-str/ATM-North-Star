@@ -15,6 +15,10 @@ class ConsoleAccountInformer {
   void ShowAccountInfo() const;
 
  private:
+  enum SubMenuItem { kMainMenu = 1, kQuit };
+
+  void ProcessUserInput();
+
   void FillTitles();
 
   void ResetManipulationFlags();

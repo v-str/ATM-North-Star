@@ -19,6 +19,18 @@ void ConsoleAccountInformer::ShowAccountInfo() const {
   }
 }
 
+void ConsoleAccountInformer::ProcessUserInput() {
+  ResetManipulationFlags();
+
+  int user_input = submenu_input_handler_.GetSubMenuInputResult();
+  if (user_input == kMainMenu) {
+    user_want_to_main_menu_ = true;
+  }
+  if (user_input == kQuit) {
+    user_want_to_quit_ = true;
+  }
+}
+
 void ConsoleAccountInformer::FillTitles() {
   info_title_.push_back(AccountMessenger::LoginText());
   info_title_.push_back(AccountMessenger::CashText());
