@@ -8,10 +8,10 @@ class ConsoleInitialMenu {
   enum SubMenu { kQuit, kLoginMenu, kRegistrationMenu, kDescriptionMenu };
 
   void RunInitialMenu();
-  void DisplayFarewellMessage();
 
-  void DisplayInitialMenu() const;
+  void DisplayFarewellMessage() const;
   void RunSplashScreen() const;
+
   SubMenu GetSubMenu();
 
  private:

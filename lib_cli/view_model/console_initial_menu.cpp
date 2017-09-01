@@ -3,11 +3,11 @@
 #include <initial_messenger.h>
 
 void ConsoleInitialMenu::RunInitialMenu() {
-  DisplayInitialMenu();
+  InitialMessenger::DisplayInitialMenu();
   SuggestInputSubMenu();
 }
 
-void ConsoleInitialMenu::DisplayFarewellMessage() {
+void ConsoleInitialMenu::DisplayFarewellMessage() const {
   InitialMessenger::FarewellMessage();
 }
 
@@ -28,10 +28,6 @@ void ConsoleInitialMenu::SuggestInputSubMenu() {
 
 void ConsoleInitialMenu::RunSplashScreen() const {
   InitialMessenger::DisplaySplashScreen();
-}
-
-void ConsoleInitialMenu::DisplayInitialMenu() const {
-  InitialMessenger::DisplayInitialMenu();
 }
 
 bool ConsoleInitialMenu::IsInputContainSubMenu() {
