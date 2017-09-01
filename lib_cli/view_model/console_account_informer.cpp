@@ -1,6 +1,7 @@
 ﻿#include <console_account_informer.h>
 
 #include <account_messenger.h>
+#include <main_menu_messenger.h>
 
 #include <console_editor.h>
 
@@ -30,12 +31,21 @@ bool ConsoleAccountInformer::UserWantQuit() const { return user_want_to_quit_; }
 void ConsoleAccountInformer::ProcessUserInput() {
   ResetManipulationFlags();
 
-  int user_input = submenu_input_handler_.GetSubMenuInputResult();
-  if (user_input == kMainMenu) {
-    user_want_to_main_menu_ = true;
-  }
-  if (user_input == kQuit) {
-    user_want_to_quit_ = true;
+  MainMenuMessenger::ShowQuitMenu();
+
+  int user_input = 0;
+  for (;;) {
+    user_input = user_input_handler_.GetDigitInputFromUser();
+    if (user_input == kMainMenu) {
+      user_want_to_main_menu_ = true;
+      break;
+    }
+    if (user_input == kQuit) {
+      user_want_to_quit_ = true;
+      break;
+    }
+
+    MainMenuMessenger::ShowIncorrectInput();
   }
 }
 

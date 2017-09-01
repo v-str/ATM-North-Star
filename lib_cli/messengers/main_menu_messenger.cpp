@@ -33,7 +33,7 @@ void MainMenuMessenger::ShowQuitMenu() {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\t# 1. Exit to main menu.\n"
-      "\t# 2. Exit program. ( or press 'q')\n"
+      "\t# 2. Exit program.\n"
       "\t# Enter: ");
 }
 

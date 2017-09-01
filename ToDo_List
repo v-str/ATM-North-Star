@@ -147,7 +147,8 @@
 18. Develop menu items                                                              | - |
                                                                                     |   |
 19. Develop base menu class                                                         | - |
-
+                                                                                    |   |
+20. Highlight the same messages and put them in separate messenger class            | - |
 
 -----------------------------------------------------------------------------------------
 ------------------------------------ ARCHITECTURE ---------------------------------------
