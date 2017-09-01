@@ -46,6 +46,7 @@ void ConsoleMainMenu::ResetManipulationFlags() {
   user_want_quit_ = false;
   user_want_log_out_ = false;
   user_input_contain_menu_item_ = false;
+  user_want_account_info_ = false;
 }
 
 bool ConsoleMainMenu::IsUserInputContainMenuItem(int user_input) {
