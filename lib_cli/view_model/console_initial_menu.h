@@ -1,11 +1,11 @@
 ﻿#ifndef CONSOLE_INITIAL_MENU
 #define CONSOLE_INITIAL_MENU
 
-#include <submenu_input_handler.h>
+#include <user_input_handler.h>
 
 class ConsoleInitialMenu {
  public:
-  enum SubMenu { kQuit, kLoginMenu, kRegistrationMenu, kDescriptionMenu };
+  enum SubMenu { kLoginMenu = 1, kRegistrationMenu, kDescriptionMenu, kQuit };
 
   void RunInitialMenu();
 
@@ -19,7 +19,7 @@ class ConsoleInitialMenu {
 
   bool IsInputContainSubMenu();
 
-  SubMenuInputHandler menu_input_handler_;
+  UserInputHandler user_input_handler_;
 
   int sub_menu_input_ = 0;
 };
