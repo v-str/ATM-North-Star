@@ -4,12 +4,18 @@
 
 void ConsoleInitialPresenter::RunApplication() {
   initial_menu_.RunSplashScreen();
-  while (!user_want_to_quit_) {
+
+  for (;;) {
     ResetManipulationFlags();
 
     initial_menu_.RunInitialMenu();
     RunSubMenu(initial_menu_.GetSubMenu());
+
+    if (user_want_to_quit_) {
+      break;
+    }
   }
+
   initial_menu_.DisplayFarewellMessage();
 }
 
