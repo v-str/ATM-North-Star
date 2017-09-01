@@ -26,7 +26,7 @@ void RegistrationMessenger::ShowRegistrationReference() {
       "digits.\n\n\n"
       " 1. Start registration\n"
       " 2. Return to initial menu\n"
-      " 3. Quit ( or press q )\n"
+      " 3. Quit\n"
       " Enter: ");
 }
 
@@ -47,9 +47,9 @@ void RegistrationMessenger::ShowPasswordTitle() {
 void RegistrationMessenger::IncorrectRegistrationNotification() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "  The data was inputted﻿ in a wrong way...\n\n"
-      "  1. Re-enter data\n"
+      "  1. Re-enter registration data\n"
       "  2. Initial menu\n"
-      "  3. Quit ( or press q )\n\n"
+      "  3. Quit\n\n"
       "  Enter: ");
 }
 
@@ -58,7 +58,7 @@ void RegistrationMessenger::ShowConfirmationMessage() {
       "  Registration data confirmed...\n\n"
       "1. Perform registration\n"
       "2. Initial menu\n"
-      "3. Quit ( or press q )\n\n"
+      "3. Quit\n\n"
       "Enter: ");
 }
 

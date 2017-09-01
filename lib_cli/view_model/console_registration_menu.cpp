@@ -1,10 +1,7 @@
 ﻿#include <console_registration_menu.h>
 
 #include <confirmation_animator.h>
-
 #include <password_input_handler.h>
-#include <submenu_input_handler.h>
-#include <user_input_handler.h>
 
 void ConsoleRegistrationMenu::RunRegistrationMenu() {
   RegistrationMessenger::ShowRegistrationLogo();
@@ -13,7 +10,6 @@ void ConsoleRegistrationMenu::RunRegistrationMenu() {
 }
 
 void ConsoleRegistrationMenu::ReceiveRegistrationDataFromUser() {
-  input_handler_ = std::unique_ptr<UserInputHandler>(new UserInputHandler);
   RegistrationMessenger::ClearScreen();
   RegistrationMessenger::ShowRegistrationLogo();
   GetLoginStringFromUser();
@@ -71,19 +67,18 @@ void ConsoleRegistrationMenu::ShowPasswordReport(
   reporter_.ShowPasswordReport(password_status);
 }
 
-void ConsoleRegistrationMenu::ProcessMenuUserInput(bool& changing_action) {
-  input_handler_ = std::unique_ptr<UserInputHandler>(new SubMenuInputHandler);
+void ConsoleRegistrationMenu::ProcessMenuUserInput(bool& action) {
   int user_input = 0;
   for (;;) {
     ResetManipulationFlags();
-    user_input = input_handler_->GetDigitInputFromUser();
-    if (user_input == kNextAction) {
-      changing_action = true;
+    user_input = input_handler_.GetDigitInputFromUser();
+    if (user_input == kAction) {
+      action = true;
       break;
     } else if (user_input == kInitialMenu) {
       user_want_to_initial_menu_ = true;
       break;
-    } else if (user_input == kSymbolQuit || user_input == kDigitQuit) {
+    } else if (user_input == kQuit) {
       user_want_to_quit_ = true;
       break;
     } else {
@@ -102,7 +97,7 @@ void ConsoleRegistrationMenu::ResetManipulationFlags() {
 
 void ConsoleRegistrationMenu::GetLoginStringFromUser() {
   RegistrationMessenger::ShowLoginTitle();
-  login_ = input_handler_->GetStringInputFromUser();
+  login_ = input_handler_.GetStringInputFromUser();
 }
 
 void ConsoleRegistrationMenu::GetPasswordStringFromUser() {

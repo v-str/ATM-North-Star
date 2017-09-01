@@ -7,8 +7,7 @@
 #include <registration_messenger.h>
 #include <registration_reporter.h>
 #include <registration_status.h>
-
-class UserInputHandler;
+#include <user_input_handler.h>
 
 class ConsoleRegistrationMenu {
  public:
@@ -34,21 +33,18 @@ class ConsoleRegistrationMenu {
   bool IsRegistrationConfirmed() const;
 
  private:
-  enum MenuItems { kSymbolQuit, kNextAction, kInitialMenu, kDigitQuit };
+  enum MenuItems { kAction = 1, kInitialMenu, kQuit };
 
   void ShowLoginReport(const CONSOLE::RegistrationStatus login_status) const;
   void ShowPasswordReport(
       const CONSOLE::RegistrationStatus password_status) const;
 
-  void ProcessMenuUserInput(bool& changing_action);
-
+  void ProcessMenuUserInput(bool& action);
   void ResetManipulationFlags();
-
   void GetLoginStringFromUser();
   void GetPasswordStringFromUser();
 
-  std::unique_ptr<UserInputHandler> input_handler_;
-
+  UserInputHandler input_handler_;
   RegistrationReporter reporter_;
 
   std::string login_;
@@ -58,7 +54,6 @@ class ConsoleRegistrationMenu {
   bool user_want_to_repeat_registration_ = false;
   bool user_want_to_quit_ = false;
   bool user_want_to_initial_menu_ = false;
-
   bool registration_confirmed_ = false;
 };
 
