@@ -4,7 +4,7 @@
 
 void ConsoleInitialMenu::RunInitialMenu() {
   InitialMessenger::DisplayInitialMenu();
-  SuggestInputSubMenu();
+  ProcessUserInput();
 }
 
 void ConsoleInitialMenu::DisplayFarewellMessage() const {
@@ -12,12 +12,12 @@ void ConsoleInitialMenu::DisplayFarewellMessage() const {
 }
 
 ConsoleInitialMenu::SubMenu ConsoleInitialMenu::GetSubMenu() {
-  return static_cast<ConsoleInitialMenu::SubMenu>(sub_menu_input_);
+  return static_cast<ConsoleInitialMenu::SubMenu>(user_input_);
 }
 
-void ConsoleInitialMenu::SuggestInputSubMenu() {
+void ConsoleInitialMenu::ProcessUserInput() {
   for (;;) {
-    sub_menu_input_ = user_input_handler_.GetDigitInputFromUser();
+    user_input_ = user_input_handler_.GetDigitInputFromUser();
     if (IsInputContainSubMenu()) {
       break;
     } else {
@@ -31,16 +31,16 @@ void ConsoleInitialMenu::RunSplashScreen() const {
 }
 
 bool ConsoleInitialMenu::IsInputContainSubMenu() {
-  if (sub_menu_input_ == kLoginMenu) {
+  if (user_input_ == kLoginMenu) {
     return true;
   }
-  if (sub_menu_input_ == kRegistrationMenu) {
+  if (user_input_ == kRegistrationMenu) {
     return true;
   }
-  if (sub_menu_input_ == kDescriptionMenu) {
+  if (user_input_ == kDescriptionMenu) {
     return true;
   }
-  if (sub_menu_input_ == kQuit) {
+  if (user_input_ == kQuit) {
     return true;
   }
   return false;

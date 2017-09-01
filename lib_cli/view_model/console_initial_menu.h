@@ -15,13 +15,13 @@ class ConsoleInitialMenu {
   SubMenu GetSubMenu();
 
  private:
-  void SuggestInputSubMenu();
+  void ProcessUserInput();
 
   bool IsInputContainSubMenu();
 
   UserInputHandler user_input_handler_;
 
-  int sub_menu_input_ = 0;
+  int user_input_ = 0;
 };
 
 #endif  // CONSOLE_INITIAL_MENU
