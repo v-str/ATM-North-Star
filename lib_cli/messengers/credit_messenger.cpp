@@ -56,8 +56,7 @@ void CreditMessenger::ShowCreditConditions(int maximal_sum_of_credit) {
   ConsoleEditor::WriteSymbolsNTimes("-", 70);
   ConsoleEditor::WriteText("\n");
   ConsoleEditor::WriteText(" \t\t\t | $");
-  std::string convertible_string_value =
-      ConsoleEditor::ConvertValueToString(maximal_sum_of_credit);
+  std::string convertible_string_value = std::to_string(maximal_sum_of_credit);
   ConsoleEditor::WriteText(convertible_string_value);
   ConsoleEditor::WriteText(" |\n");
   ConsoleEditor::WriteSymbolsNTimes("-", 70);

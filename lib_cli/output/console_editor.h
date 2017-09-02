@@ -18,16 +18,6 @@ class ConsoleEditor {
   static void AddEmptyLineNTimes(int amount_of_empty_lines);
   static void WriteText(const std::string& text);
   static void WriteTextWithInterrupt(const std::string& text, int interrupt);
-
-  template <typename T>
-  static std::string ConvertValueToString(const T& value);
 };
-
-template <typename T>
-std::string ConsoleEditor::ConvertValueToString(const T& value) {
-  std::stringstream stream;
-  stream << value;
-  return stream.str();
-}
 
 #endif  // CONSOLE_EDITOR_H
