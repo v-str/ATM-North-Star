@@ -1,24 +1,21 @@
 ﻿#include <atm_interactor.h>
 
 #include <account_informator.h>
-#include <atm_user.h>
 #include <refill.h>
 #include <user_registrator.h>
 #include <withdrawal.h>
 
-AtmUser* AtmInteractor::user_ = nullptr;
+AtmUser AtmInteractor::user_;
 
-AtmInteractor::~AtmInteractor() { delete user_; }
+void AtmInteractor::PerformUserRegistration(const std::string& login,
+                                            const std::string& password) {
+  ResetData();
 
-void AtmInteractor::AssignRegistrationData(const std::string& login,
-                                           const std::string& password) {
-  CheckOnUserExisting();
-
-  UserRegistrator::RegisterUser(user_, login, password);
+  UserRegistrator::RegisterUser(&user_, login, password);
 }
 
 std::vector<std::string> AtmInteractor::AccountInfo() {
-  AccountInformator::UpdataUserData(*user_);
+  AccountInformator::UpdataUserData(user_);
 
   std::vector<std::string> account_info;
 
@@ -33,31 +30,24 @@ std::vector<std::string> AtmInteractor::AccountInfo() {
 }
 
 void AtmInteractor::RefillCash(int refill_cash) {
-  Refill::RefillCash(user_, refill_cash);
+  Refill::RefillCash(&user_, refill_cash);
 }
 
 bool AtmInteractor::WithdrawCash(int withdrawal_cash) {
   if (IsWithdrawalAcceptable(withdrawal_cash)) {
-    Withdrawal::WithdrawCashFrom(user_, withdrawal_cash);
+    Withdrawal::WithdrawCashFrom(&user_, withdrawal_cash);
     return true;
   }
   return false;
 }
 
 std::string AtmInteractor::Statement() {
-  AccountInformator::UpdataUserData(*user_);
+  AccountInformator::UpdataUserData(user_);
   return AccountInformator::Cash();
 }
 
-void AtmInteractor::ResetData() { user_->ResetData(); }
-
-void AtmInteractor::CheckOnUserExisting() {
-  if (user_ != nullptr) {
-    delete user_;
-  }
-  user_ = new AtmUser;
-}
+void AtmInteractor::ResetData() { user_.ResetData(); }
 
 bool AtmInteractor::IsWithdrawalAcceptable(int withdrawal_sum) {
-  return user_->Cash() >= withdrawal_sum;
+  return user_.Cash() >= withdrawal_sum;
 }

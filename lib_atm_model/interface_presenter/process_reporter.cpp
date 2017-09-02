@@ -1,5 +1,9 @@
 ﻿#include <process_reporter.h>
 
+std::vector<std::string> ProcessReporter::ProcessReport() const {
+  return process_report_;
+}
+
 void ProcessReporter::FillReportContainer() {
   process_report_.push_back("Constructing menu list...");
   process_report_.push_back("Add new account to system...");

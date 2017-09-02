@@ -4,12 +4,10 @@
 #include <string>
 #include <vector>
 
-class AtmUser;
+#include <atm_user.h>
 
 class AtmInteractor {
  public:
-  ~AtmInteractor();
-
   enum AccountData {
     kLogin,
     kCash,
@@ -19,8 +17,8 @@ class AtmInteractor {
     kMonthlyPayment
   };
 
-  static void AssignRegistrationData(const std::string& login,
-                                     const std::string& password);
+  static void PerformUserRegistration(const std::string& login,
+                                      const std::string& password);
   static std::vector<std::string> AccountInfo();
   static void RefillCash(int refill_cash);
   static bool WithdrawCash(int withdrawal_cash);
@@ -30,9 +28,8 @@ class AtmInteractor {
 
  private:
   static bool IsWithdrawalAcceptable(int withdrawal_sum);
-  static void CheckOnUserExisting();
 
-  static AtmUser* user_;
+  static AtmUser user_;
 };
 
 #endif  // ATM_INTERACTOR_H
