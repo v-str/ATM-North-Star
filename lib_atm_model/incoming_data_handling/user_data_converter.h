@@ -11,18 +11,17 @@ class UserDataConverter {
   static std::string ConvertDataToString(const T& value);
 
  private:
-  std::stringstream conversion_stream_;
+  static std::stringstream conversion_stream_;
 };
 
 #endif  // USER_DATA_CONVERTER_H
 
 template <typename T>
-std::string UserDataConverter::ConvertDataToString(
-    const UserDataConverter::T& value) {
+std::string UserDataConverter::ConvertDataToString(const T& value) {
+  conversion_stream_.str("");
   conversion_stream_.clear();
 
-  conversion_stream_ << std::fixed << std::setprecision(2)
-                     << std::to_string(value);
+  conversion_stream_ << std::fixed << std::setprecision(2) << value;
 
   return conversion_stream_.str();
 }

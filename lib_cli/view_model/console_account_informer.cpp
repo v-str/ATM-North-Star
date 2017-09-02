@@ -53,9 +53,9 @@ void ConsoleAccountInformer::FillTitles() {
   info_title_.push_back(AccountMessenger::LoginText());
   info_title_.push_back(AccountMessenger::CashText());
   info_title_.push_back(AccountMessenger::CreditText());
-  info_title_.push_back(AccountMessenger::PaymentText());
-  info_title_.push_back(AccountMessenger::InterestRateText());
   info_title_.push_back(AccountMessenger::CreditTermText());
+  info_title_.push_back(AccountMessenger::InterestRateText());
+  info_title_.push_back(AccountMessenger::MonthlyPaymentText());
 }
 
 void ConsoleAccountInformer::ResetManipulationFlags() {

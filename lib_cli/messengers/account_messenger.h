@@ -11,9 +11,9 @@ class AccountMessenger {
   static std::string LoginText() { return "Login: "; }
   static std::string CashText() { return "Balance: $"; }
   static std::string CreditText() { return "Credit: $"; }
-  static std::string CreditTermText() { return "Credit term: "; }
-  static std::string InterestRateText() { return "Interest rate: "; }
-  static std::string PaymentText() { return "Monthly payment: $"; }
+  static std::string CreditTermText() { return "Credit term, month(s): "; }
+  static std::string InterestRateText() { return "Interest rate, %: "; }
+  static std::string MonthlyPaymentText() { return "Monthly payment: $"; }
 
  private:
   static void DisplayStrip();
