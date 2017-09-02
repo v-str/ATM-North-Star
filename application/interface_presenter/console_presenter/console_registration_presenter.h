@@ -19,6 +19,9 @@ class ConsoleRegistrationPresenter {
   void HandleRegistrationData();
   bool UserRequestPerformed();
 
+  void ShowRegistrationAnimation();
+  void RunMainMenu();
+
   void ResetManipulationFlags();
 
   ConsoleRegistrationMenu registration_menu_;
