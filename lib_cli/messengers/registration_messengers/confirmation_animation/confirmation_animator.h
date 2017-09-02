@@ -23,7 +23,7 @@ class ConfirmationAnimator {
 
   static std::string kFrameSymbol;
 
-  static const int kSleepDelay = 100;
+  static const int kSleepDelay = 21;
 };
 
 #endif  // CONFIRMATION_ANIMATOR_H
