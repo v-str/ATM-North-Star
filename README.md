@@ -18,6 +18,6 @@ Simple console interface with text animation
 <br>
 <br>
 <br>
-<img src='https://github.com/OrdinaryMind/ATM-North-Star/blob/gui_mode/images/atm_cli.gif'>
+<img src='https://github.com/OrdinaryMind/ATM-North-Star/blob/cli_mode/images/atm_cli.gif'>
 
 
