@@ -10,8 +10,8 @@ AtmUser* AtmInteractor::user_ = nullptr;
 
 AtmInteractor::~AtmInteractor() { delete user_; }
 
-void AtmInteractor::AssignRegistrationData(const std::string& login,
-                                           const std::string& password) {
+void AtmInteractor::PerformUserRegistration(const std::string& login,
+                                            const std::string& password) {
   CheckOnUserExisting();
 
   UserRegistrator::RegisterUser(user_, login, password);

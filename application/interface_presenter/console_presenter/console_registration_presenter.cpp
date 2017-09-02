@@ -54,7 +54,7 @@ void ConsoleRegistrationPresenter::HandleRegistrationData() {
 bool ConsoleRegistrationPresenter::UserRequestPerformed() {
   if (registration_menu_.IsRegistrationConfirmed()) {
     registration_menu_.ShowConfirmationAnimation(login_string_);
-    AtmInteractor::AssignRegistrationData(login_string_, password_string_);
+    AtmInteractor::PerformUserRegistration(login_string_, password_string_);
     main_menu_presenter_.RunMainMenu();
     user_want_quit_ = main_menu_presenter_.UserWantQuit();
     return true;

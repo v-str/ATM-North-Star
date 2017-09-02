@@ -19,8 +19,8 @@ class AtmInteractor {
     kMonthlyPayment
   };
 
-  static void AssignRegistrationData(const std::string& login,
-                                     const std::string& password);
+  static void PerformUserRegistration(const std::string& login,
+                                      const std::string& password);
   static std::vector<std::string> AccountInfo();
   static void RefillCash(int refill_cash);
   static bool WithdrawCash(int withdrawal_cash);
