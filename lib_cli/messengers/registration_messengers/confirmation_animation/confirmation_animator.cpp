@@ -4,19 +4,20 @@
 #include <console_editor.h>
 #include <titler.h>
 
-std::string ConfirmationAnimator::kFrameSymbol = "X";
+std::vector<std::string> ConfirmationAnimator::processes_report_;
+std::string ConfirmationAnimator::kFrameSymbol;
+
+void ConfirmationAnimator::ShowAnimation() { DrawConfirmationFrame(); }
 
 void ConfirmationAnimator::SetLoginForAnimation(
     const std::string& login_string) {
   kFrameSymbol = login_string.at(0);
 
   ConfirmationFrame::SetFrame(login_string, kFrameSymbol);
-
-  DrawConfirmationFrame();
 }
 
 void ConfirmationAnimator::SetProcessesReport(
-    const std::vector<std::__cxx11::string>& processes_report) {
+    const std::vector<std::string>& processes_report) {
   processes_report_ = processes_report;
 }
 

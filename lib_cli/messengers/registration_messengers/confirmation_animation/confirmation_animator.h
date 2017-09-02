@@ -6,6 +6,8 @@
 
 class ConfirmationAnimator {
  public:
+  static void ShowAnimation();
+
   static void SetLoginForAnimation(const std::string& login_string);
   static void SetProcessesReport(
       const std::vector<std::string>& processes_report);
