@@ -12,6 +12,7 @@ void ConfirmationFrame::SetFrame(const std::string& login_string,
 }
 
 void ConfirmationFrame::DrawFrame(int loading_percent,
+                                  const std::string& account_text,
                                   const std::string& process_report) {
   DrawHorizontalLine();
   DrawEmptyLine();
@@ -22,7 +23,7 @@ void ConfirmationFrame::DrawFrame(int loading_percent,
   DrawEmptyLine();
   DrawTextLine(process_report);
   DrawEmptyLine();
-  DrawTextLine("creating account:");
+  DrawTextLine(account_text);
   DrawLoginLine();
   DrawEmptyLine();
   DrawPercentLoadingLine(loading_percent);
