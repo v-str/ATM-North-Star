@@ -7,6 +7,8 @@
 class ProcessReporter {
  public:
  private:
+  void FillReportContainer();
+
   std::vector<std::string> process_report_;
 };
 
