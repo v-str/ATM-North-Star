@@ -8,13 +8,14 @@ class ConfirmationAnimator {
  public:
   static void ShowAnimation();
 
-  static void SetLoginForAnimation(const std::string& login_string);
+  static void SeFrameBasedOnLoginSymbols(const std::string& login_string);
   static void SetProcessesReport(
       const std::vector<std::string>& processes_report);
 
  private:
   static void DrawConfirmationFrame();
-  static void UpdateFrame(int loading_percent);
+  static void UpdateFrame(int loading_percent,
+                          const std::string& process_report);
 
   static std::vector<std::string> processes_report_;
 

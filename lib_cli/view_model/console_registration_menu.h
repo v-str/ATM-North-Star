@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <string>
+#include <vector>
 
 #include <registration_messenger.h>
 #include <registration_reporter.h>
@@ -17,7 +18,9 @@ class ConsoleRegistrationMenu {
   void RunRegistrationConfirmation();
   void RunIncorrectRegistrationNotification();
 
-  void ShowConfirmationAnimation(const std::string& login_string) const;
+  void ShowConfirmationAnimation(
+      const std::string& login_string,
+      const std::vector<std::string>& processes_report) const;
 
   template <typename T>
   void ShowRegistratoinReport(const T& login_status,

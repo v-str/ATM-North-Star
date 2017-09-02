@@ -1,5 +1,7 @@
 ﻿#include <process_reporter.h>
 
+ProcessReporter::ProcessReporter() { FillReportContainer(); }
+
 std::vector<std::string> ProcessReporter::ProcessReport() const {
   return process_report_;
 }
@@ -21,7 +23,7 @@ void ProcessReporter::FillReportContainer() {
   process_report_.push_back("Reports checking...");
   process_report_.push_back("Checking access control service...");
   process_report_.push_back("Checking interaction protocol...");
-  process_report_.push_back("Checking video controller");
+  process_report_.push_back("Checking video controller...");
   process_report_.push_back("Internal video system activation...");
   process_report_.push_back("External video system activation...");
   process_report_.push_back("WebATM activation...");

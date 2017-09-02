@@ -8,7 +8,7 @@ class ConfirmationFrame {
   static void SetFrame(const std::string& login_string,
                        const std::string& frame_symbol);
 
-  static void DrawFrame(int loading_percent);
+  static void DrawFrame(int loading_percent, const std::string& process_report);
 
  private:
   static void DrawHorizontalLine();

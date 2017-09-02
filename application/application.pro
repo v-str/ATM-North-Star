@@ -22,6 +22,7 @@ DEPENDPATH += \
     ../lib_gui/atm_widgets \
     ../lib_atm_model/interaction \
     ../lib_atm_model/user_data \
+    ../lib_atm_model/interface_presenter \
     ../lib_cli/view_model \
     ../lib_cli/messengers \
 
@@ -40,6 +41,7 @@ INCLUDEPATH += \
     ../lib_gui/features/service \
     ../lib_atm_model/interaction \
     ../lib_atm_model/user_data \
+    ../lib_atm_model/interface_presenter \
     ../lib_gui/atm_widgets \
     ../lib_cli/view_model \
     ../lib_cli/messengers \

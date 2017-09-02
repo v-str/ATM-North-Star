@@ -27,8 +27,10 @@ void ConsoleRegistrationMenu::RunIncorrectRegistrationNotification() {
 }
 
 void ConsoleRegistrationMenu::ShowConfirmationAnimation(
-    const std::string& login_string) const {
-  ConfirmationAnimator::SetLoginForAnimation(login_string);
+    const std::string& login_string,
+    const std::vector<std::string>& processes_report) const {
+  ConfirmationAnimator::SeFrameBasedOnLoginSymbols(login_string);
+  ConfirmationAnimator::SetProcessesReport(processes_report);
   ConfirmationAnimator::ShowAnimation();
 }
 

@@ -9,7 +9,7 @@ std::string ConfirmationAnimator::kFrameSymbol;
 
 void ConfirmationAnimator::ShowAnimation() { DrawConfirmationFrame(); }
 
-void ConfirmationAnimator::SetLoginForAnimation(
+void ConfirmationAnimator::SeFrameBasedOnLoginSymbols(
     const std::string& login_string) {
   kFrameSymbol = login_string.at(0);
 
@@ -22,17 +22,29 @@ void ConfirmationAnimator::SetProcessesReport(
 }
 
 void ConfirmationAnimator::DrawConfirmationFrame() {
+  int process_index = 0;
+
   for (int loading_percent = 0; loading_percent <= 100; ++loading_percent) {
-    UpdateFrame(loading_percent);
+    if (loading_percent % 5 == 0) {
+      process_index++;
+    }
+
+    UpdateFrame(loading_percent, processes_report_.at(process_index));
   }
+
+  ConsoleEditor::ClearScreen();
+  Titler::WriteLogoTitle("ATM \"NORTH STAR\"");
+  ConfirmationFrame::DrawFrame(100, "Atm activated...");
+
   Titler::WriteEnterMessage();
 }
 
-void ConfirmationAnimator::UpdateFrame(int loading_percent) {
+void ConfirmationAnimator::UpdateFrame(int loading_percent,
+                                       const std::string& process_report) {
   ConsoleEditor::ClearScreen();
 
   Titler::WriteLogoTitle("ATM \"NORTH STAR\"");
 
-  ConfirmationFrame::DrawFrame(loading_percent);
+  ConfirmationFrame::DrawFrame(loading_percent, process_report);
   ConsoleEditor::Sleep(std::rand() % kSleepDelay);
 }

@@ -6,6 +6,8 @@
 
 class ProcessReporter {
  public:
+  ProcessReporter();
+
   std::vector<std::string> ProcessReport() const;
 
  private:

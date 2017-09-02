@@ -11,7 +11,8 @@ void ConfirmationFrame::SetFrame(const std::string& login_string,
   kFrameSymbol = frame_symbol;
 }
 
-void ConfirmationFrame::DrawFrame(int loading_percent) {
+void ConfirmationFrame::DrawFrame(int loading_percent,
+                                  const std::string& process_report) {
   DrawHorizontalLine();
   DrawEmptyLine();
   DrawTextLine("       REGISTRATION CONFIRMED");
@@ -19,7 +20,7 @@ void ConfirmationFrame::DrawFrame(int loading_percent) {
   DrawHorizontalLine();
   DrawEmptyLine();
   DrawEmptyLine();
-  DrawEmptyLine();
+  DrawTextLine(process_report);
   DrawEmptyLine();
   DrawTextLine("creating account:");
   DrawLoginLine();

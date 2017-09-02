@@ -1,6 +1,7 @@
 ﻿#include <console_registration_presenter.h>
 
 #include <atm_interactor.h>
+#include <process_reporter.h>
 
 void ConsoleRegistrationPresenter::RunRegistrationMenu() {
   registration_menu_.RunRegistrationMenu();
@@ -70,7 +71,9 @@ bool ConsoleRegistrationPresenter::UserRequestPerformed() {
 }
 
 void ConsoleRegistrationPresenter::ShowRegistrationAnimation() {
-  registration_menu_.ShowConfirmationAnimation(login_string_);
+  ProcessReporter process_reporter_;
+  registration_menu_.ShowConfirmationAnimation(
+      login_string_, process_reporter_.ProcessReport());
 }
 
 void ConsoleRegistrationPresenter::RunMainMenu() {
