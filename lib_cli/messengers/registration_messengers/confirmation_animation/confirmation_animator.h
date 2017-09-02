@@ -17,6 +17,8 @@ class ConfirmationAnimator {
   static void UpdateFrame(int loading_percent,
                           const std::string& process_report);
 
+  static void DrawFinalFrame();
+
   static std::vector<std::string> processes_report_;
 
   static std::string kFrameSymbol;

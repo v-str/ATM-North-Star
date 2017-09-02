@@ -32,11 +32,7 @@ void ConfirmationAnimator::DrawConfirmationFrame() {
     UpdateFrame(loading_percent, processes_report_.at(process_index));
   }
 
-  ConsoleEditor::ClearScreen();
-  Titler::WriteLogoTitle("ATM \"NORTH STAR\"");
-  ConfirmationFrame::DrawFrame(100, "Account created: ", "Ready to work");
-
-  Titler::WriteEnterMessage();
+  DrawFinalFrame();
 }
 
 void ConfirmationAnimator::UpdateFrame(int loading_percent,
@@ -48,4 +44,11 @@ void ConfirmationAnimator::UpdateFrame(int loading_percent,
   ConfirmationFrame::DrawFrame(loading_percent, "Creating account:",
                                process_report);
   ConsoleEditor::Sleep(std::rand() % kSleepDelay);
+}
+
+void ConfirmationAnimator::DrawFinalFrame() {
+  ConsoleEditor::ClearScreen();
+  Titler::WriteLogoTitle("ATM \"NORTH STAR\"");
+  ConfirmationFrame::DrawFrame(100, "Account created: ", "Ready to work");
+  Titler::WriteEnterMessage();
 }
