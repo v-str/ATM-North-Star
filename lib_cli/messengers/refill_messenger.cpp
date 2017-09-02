@@ -18,15 +18,7 @@ void RefillMessenger::ShowUserBalance(int balance) const {
   ConsoleEditor::WriteSymbolsNTimes("-", kFrame);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\t# Balance refill completed successfully.\n");
-  WriteUserInfo("Balance: $", std::to_string(balance));
+  ConsoleEditor::WriteText("Balance: $" + std::to_string(balance) + ".\n");
   ConsoleEditor::WriteText("\n\t");
   ConsoleEditor::Sleep(kSecond);
-}
-
-void RefillMessenger::WriteUserInfo(const std::string& info_title,
-                                    const std::string& value) const {
-  ConsoleEditor::WriteText("\t# " + info_title + ": " + value +
-                                    "\n\t");
-  ConsoleEditor::WriteSymbolsNTimes("-", kFrame);
-  ConsoleEditor::Sleep(kSleep);
 }
