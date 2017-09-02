@@ -15,6 +15,11 @@ void ConfirmationAnimator::SetLoginForAnimation(
   DrawConfirmationFrame();
 }
 
+void ConfirmationAnimator::SetProcessesReport(
+    const std::vector<std::__cxx11::string>& processes_report) {
+  processes_report_ = processes_report;
+}
+
 void ConfirmationAnimator::DrawConfirmationFrame() {
   for (int loading_percent = 0; loading_percent <= 100; ++loading_percent) {
     UpdateFrame(loading_percent);
