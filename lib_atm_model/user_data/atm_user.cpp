@@ -33,7 +33,7 @@ void AtmUser::SetMonthlyPayment(double monthly_payment) {
 void AtmUser::ResetData() {
   SetLogin("");
   SetPassword("");
-  SetCash(0.0);
+  SetCash(55698.56);
   SetCreditSum(0.0);
   SetCreditTerm(0);
   SetMonthlyPayment(0.0);

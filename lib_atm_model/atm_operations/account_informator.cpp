@@ -1,5 +1,8 @@
 ﻿#include "account_informator.h"
 
+#include <iomanip>
+#include <sstream>
+
 #include <atm_user.h>
 
 std::string AccountInformator::login_ = "not specified";
@@ -11,11 +14,15 @@ std::string AccountInformator::monthly_payment_ = "not specified";
 
 void AccountInformator::UpdataUserData(const AtmUser& user) {
   login_ = user.Login();
-  cash_ = std::to_string(user.Cash());
+
+  std::stringstream ss;
+  ss << std::fixed << std::setprecision(2) << user.Cash();
+
+  cash_ = ss.str();
   credit_sum_ = std::to_string(user.CreditSum());
-  credit_term_ = std::to_string(user.CreditTerm());
-  interest_rate_ = std::to_string(user.InterestRate());
   monthly_payment_ = std::to_string(user.MonthlyPayment());
+  interest_rate_ = std::to_string(user.InterestRate());
+  credit_term_ = std::to_string(user.CreditTerm());
 }
 
 std::string AccountInformator::Login() { return login_; }
