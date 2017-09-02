@@ -6,7 +6,7 @@
 
 std::string ConfirmationAnimator::kFrameSymbol = "X";
 
-void ConfirmationAnimator::ShowConfirmationMessage(
+void ConfirmationAnimator::SetLoginForAnimation(
     const std::string& login_string) {
   kFrameSymbol = login_string.at(0);
 
