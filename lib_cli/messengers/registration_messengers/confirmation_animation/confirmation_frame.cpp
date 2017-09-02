@@ -18,8 +18,10 @@ void ConfirmationFrame::DrawFrame(int loading_percent) {
   DrawEmptyLine();
   DrawHorizontalLine();
   DrawEmptyLine();
-  DrawTextLine("creating account:");
   DrawEmptyLine();
+  DrawEmptyLine();
+  DrawEmptyLine();
+  DrawTextLine("creating account:");
   DrawLoginLine();
   DrawEmptyLine();
   DrawPercentLoadingLine(loading_percent);
