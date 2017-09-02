@@ -4,12 +4,10 @@
 #include <string>
 #include <vector>
 
-class AtmUser;
+#include <atm_user.h>
 
 class AtmInteractor {
  public:
-  ~AtmInteractor();
-
   enum AccountData {
     kLogin,
     kCash,
@@ -30,9 +28,8 @@ class AtmInteractor {
 
  private:
   static bool IsWithdrawalAcceptable(int withdrawal_sum);
-  static void CheckOnUserExisting();
 
-  static AtmUser* user_;
+  static AtmUser user_;
 };
 
 #endif  // ATM_INTERACTOR_H
