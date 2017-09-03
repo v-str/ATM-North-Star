@@ -7,8 +7,11 @@ class ConsoleCashRefillManager {
  public:
   void RunRefillMenu();
 
+  int SumOfCash() const;
+
   bool UserWantMainMenu() const;
   bool UserWantQuit() const;
+  bool UserInputContainCash() const;
 
  private:
   enum SubMenuItems { kMainMenu = 1, kQuit };
@@ -23,6 +26,10 @@ class ConsoleCashRefillManager {
   bool user_want_main_menu_ = false;
   bool user_want_quit_ = false;
   bool user_input_contain_cash_ = false;
+
+  int sum_of_cash_ = 0;
+
+  static const int kNull = 0;
 };
 
 #endif  // CONSOLE_CASH_REFILL_MANAGER_H

@@ -14,7 +14,7 @@ class UserInputHandler {
   int GetDigitsFromString(const std::string& user_string);
 
   const int kInvalidInput = -1;
-  const int kMaximalStringLength = 1;
+  const int kMaximalStringLength = 7;
 };
 
 #endif  // USER_INPUT_HANDLER_H
