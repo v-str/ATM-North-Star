@@ -63,6 +63,8 @@ void ConsoleMainMenuPresenter::RunRefillManager() {
     refill_manager.ShowCashRefillingNotification();
   }
 
+  // Add incorrect refill notification
+
   user_want_quit_ = refill_manager.UserWantQuit();
 }
 

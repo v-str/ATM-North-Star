@@ -13,10 +13,10 @@ class ConsoleCashRefillManager {
   bool UserWantQuit() const;
 
  private:
-  enum SubMenuItems { kMainMenu = 1, kQuit };
+  enum SubMenuItems { kNull, kMainMenu, kQuit };
 
   void ProcessUserInput();
-  bool IsUserInputContainSubMenu(int user_input);
+  bool IsUserInputCorrect(int user_input);
 
   void ResetManipulationFlags();
 
@@ -26,8 +26,6 @@ class ConsoleCashRefillManager {
   bool user_want_quit_ = false;
 
   int sum_of_cash_ = 0;
-
-  static const int kNull = 0;
 };
 
 #endif  // CONSOLE_CASH_REFILL_MANAGER_H
