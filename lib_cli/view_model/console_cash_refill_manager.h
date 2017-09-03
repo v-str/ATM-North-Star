@@ -7,6 +7,9 @@ class ConsoleCashRefillManager {
  public:
   void RunRefillMenu();
 
+  bool UserWantMainMenu() const;
+  bool UserWantQuit() const;
+
  private:
   enum SubMenuItems { kMainMenu = 1, kQuit };
 

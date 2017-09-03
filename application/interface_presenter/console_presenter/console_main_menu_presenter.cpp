@@ -28,6 +28,8 @@ void ConsoleMainMenuPresenter::PerformMenuItem() {
     // run item
     ConsoleCashRefillManager refill_manager;
     refill_manager.RunRefillMenu();
+
+    user_want_quit_ = refill_manager.UserWantQuit();
   }
   if (console_main_menu_.UserWantCredit()) {
     // run item

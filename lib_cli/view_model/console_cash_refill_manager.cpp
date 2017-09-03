@@ -7,6 +7,12 @@ void ConsoleCashRefillManager::RunRefillMenu() {
   ProcessUserInput();
 }
 
+bool ConsoleCashRefillManager::UserWantMainMenu() const {
+  return user_want_main_menu_;
+}
+
+bool ConsoleCashRefillManager::UserWantQuit() const { return user_want_quit_; }
+
 void ConsoleCashRefillManager::ProcessUserInput() {
   int user_input = 0;
 
