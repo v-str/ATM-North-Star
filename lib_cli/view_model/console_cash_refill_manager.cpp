@@ -7,7 +7,7 @@ void ConsoleCashRefillManager::RunRefillMenu() {
   ProcessUserInput();
 }
 
-void ConsoleCashRefillManager::ShowCashRefilling() {
+void ConsoleCashRefillManager::ShowCashRefillingNotification() {
   RefillMessenger::ShowCashRefilling();
 }
 
@@ -18,21 +18,6 @@ bool ConsoleCashRefillManager::UserWantMainMenu() const {
 }
 
 bool ConsoleCashRefillManager::UserWantQuit() const { return user_want_quit_; }
-
-bool ConsoleCashRefillManager::UserInputContainCash() const {
-  return user_input_contain_cash_;
-}
-
-bool ConsoleCashRefillManager::IsUserInputContainSubMenu(int user_input) {
-  if (user_input == kMainMenu) {
-    return user_want_main_menu_ = true;
-  }
-  if (user_input == kQuit) {
-    return user_want_quit_ = true;
-  }
-
-  return false;
-}
 
 void ConsoleCashRefillManager::ProcessUserInput() {
   int user_input = 0;
@@ -48,7 +33,6 @@ void ConsoleCashRefillManager::ProcessUserInput() {
 
     if (user_input > kNull) {
       sum_of_cash_ = user_input;
-      user_input_contain_cash_ = true;
       break;
     }
 
@@ -56,8 +40,18 @@ void ConsoleCashRefillManager::ProcessUserInput() {
   }
 }
 
+bool ConsoleCashRefillManager::IsUserInputContainSubMenu(int user_input) {
+  if (user_input == kMainMenu) {
+    return user_want_main_menu_ = true;
+  }
+  if (user_input == kQuit) {
+    return user_want_quit_ = true;
+  }
+
+  return false;
+}
+
 void ConsoleCashRefillManager::ResetManipulationFlags() {
   user_want_main_menu_ = false;
   user_want_quit_ = false;
-  user_input_contain_cash_ = false;
 }
