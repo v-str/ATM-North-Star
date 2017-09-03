@@ -17,10 +17,10 @@ class ConsoleCashRefillManager {
  private:
   enum SubMenuItems { kMainMenu = 1, kQuit };
 
+  bool IsUserInputContainSubMenu(int user_input);
+
   void ProcessUserInput();
   void ResetManipulationFlags();
-
-  bool IsUserInputContainSubMenu(int user_input);
 
   UserInputHandler user_input_handler_;
 
