@@ -60,6 +60,7 @@ void ConsoleMainMenuPresenter::RunRefillManager() {
 
   if (refill_manager.UserInputContainCash()) {
     AtmInteractor::RefillCash(refill_manager.SumOfCash());
+    refill_manager.ShowCashRefilling();
   }
 
   user_want_quit_ = refill_manager.UserWantQuit();

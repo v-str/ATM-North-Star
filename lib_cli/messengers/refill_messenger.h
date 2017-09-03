@@ -6,7 +6,7 @@
 class RefillMessenger {
  public:
   static void ShowRefillNotification();
-  static void ShowUserBalance(int balance);
+  static void ShowCashRefilling();
   static void ShowIncorrectMessage();
 
   static const int kSecond = 1000;

@@ -21,13 +21,12 @@ void RefillMessenger::ShowRefillNotification() {
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
 }
 
-void RefillMessenger::ShowUserBalance(int balance) {
+void RefillMessenger::ShowCashRefilling() {
   ConsoleEditor::WriteText("\n\t");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t# Balance refill completed successfully.\n");
-  ConsoleEditor::WriteText("Balance: $" + std::to_string(balance) + ".\n");
-  ConsoleEditor::WriteText("\n\t");
+      "\n\t# Balance refill completed successfully.\n\t");
+  ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
   ConsoleEditor::Sleep(kSecond);
 }
 

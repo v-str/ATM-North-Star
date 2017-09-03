@@ -8,6 +8,10 @@ void ConsoleCashRefillManager::RunRefillMenu() {
   ProcessUserInput();
 }
 
+void ConsoleCashRefillManager::ShowCashRefilling() {
+  RefillMessenger::ShowCashRefilling();
+}
+
 int ConsoleCashRefillManager::SumOfCash() const { return sum_of_cash_; }
 
 bool ConsoleCashRefillManager::UserWantMainMenu() const {
