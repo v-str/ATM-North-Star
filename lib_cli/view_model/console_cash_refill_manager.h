@@ -8,9 +8,15 @@ class ConsoleCashRefillManager {
   void RunRefillMenu();
 
  private:
-  enum class SubMenuItems { kMainMenu, kQuit };
+  enum SubMenuItems { kMainMenu = 1, kQuit };
+
+  void ProcessUserInput();
+  void ResetManipulationFlags();
 
   UserInputHandler user_input_handler_;
+
+  bool user_want_main_menu_ = false;
+  bool user_want_quit_ = false;
 };
 
 #endif  // CONSOLE_CASH_REFILL_MANAGER_H

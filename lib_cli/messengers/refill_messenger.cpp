@@ -30,3 +30,9 @@ void RefillMessenger::ShowUserBalance(int balance) {
   ConsoleEditor::WriteText("\n\t");
   ConsoleEditor::Sleep(kSecond);
 }
+
+void RefillMessenger::ShowIncorrectMessage() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "\n\t# Incorrect input, please try again...\n"
+      "\t# Enter: ");
+}
