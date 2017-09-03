@@ -55,6 +55,7 @@ bool ConsoleMainMenu::IsUserInputContainMenuItem(int user_input) {
   }
   if (user_input == kRefill) {
     user_input_contain_menu_item_ = true;
+    user_want_refill_ = true;
   }
   if (user_input == kCreditApplication) {
     user_input_contain_menu_item_ = true;

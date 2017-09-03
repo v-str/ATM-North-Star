@@ -2,6 +2,8 @@
 
 #include <atm_interactor.h>
 
+#include <console_cash_refill_manager.h>
+
 void ConsoleMainMenuPresenter::RunMainMenu() {
   for (;;) {
     ResetManipulationFlags();
@@ -24,6 +26,8 @@ void ConsoleMainMenuPresenter::PerformMenuItem() {
   }
   if (console_main_menu_.UserWantRefill()) {
     // run item
+    ConsoleCashRefillManager refill_manager;
+    refill_manager.RunRefillMenu();
   }
   if (console_main_menu_.UserWantCredit()) {
     // run item

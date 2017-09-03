@@ -9,10 +9,10 @@ class UserInputHandler {
 
   std::string GetStringInputFromUser();
 
+ private:
   bool IsContainOnlyDigits(const std::string& user_string);
   int GetDigitsFromString(const std::string& user_string);
 
- private:
   const int kInvalidChoice = -1;
   const int kMaximalStringLength = 1;
 };

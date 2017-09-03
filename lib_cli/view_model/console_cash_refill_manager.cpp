@@ -1,3 +1,7 @@
 ﻿#include <console_cash_refill_manager.h>
 
-void ConsoleCashRefillManager::RunRefillMenu() {}
+#include <refill_messenger.h>
+
+void ConsoleCashRefillManager::RunRefillMenu() {
+  RefillMessenger::ShowRefillNotification();
+}

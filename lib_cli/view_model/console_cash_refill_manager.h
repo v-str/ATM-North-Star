@@ -8,6 +8,8 @@ class ConsoleCashRefillManager {
   void RunRefillMenu();
 
  private:
+  enum class SubMenuItems { kMainMenu, kQuit };
+
   UserInputHandler user_input_handler_;
 };
 
