@@ -10,7 +10,7 @@ int UserInputHandler::GetDigitInputFromUser() {
     return user_value;
   }
 
-  return kInvalidChoice;
+  return kInvalidInput;
 }
 
 std::string UserInputHandler::GetStringInputFromUser() {
@@ -30,14 +30,14 @@ bool UserInputHandler::IsContainOnlyDigits(const std::string& user_string) {
 
 int UserInputHandler::GetDigitsFromString(const std::string& user_string) {
   if (user_string.length() > kMaximalStringLength) {
-    return kInvalidChoice;
+    return kInvalidInput;
   }
 
   try {
     return std::stoi(user_string);
   } catch (const std::invalid_argument&) {
-    return kInvalidChoice;
+    return kInvalidInput;
   } catch (const std::out_of_range&) {
-    return kInvalidChoice;
+    return kInvalidInput;
   }
 }

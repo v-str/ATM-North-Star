@@ -13,7 +13,7 @@ class UserInputHandler {
   bool IsContainOnlyDigits(const std::string& user_string);
   int GetDigitsFromString(const std::string& user_string);
 
-  const int kInvalidChoice = -1;
+  const int kInvalidInput = -1;
   const int kMaximalStringLength = 1;
 };
 
