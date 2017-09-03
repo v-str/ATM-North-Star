@@ -25,11 +25,7 @@ void ConsoleMainMenuPresenter::PerformMenuItem() {
     RunAccountInfo();
   }
   if (console_main_menu_.UserWantRefill()) {
-    // run item
-    ConsoleCashRefillManager refill_manager;
-    refill_manager.RunRefillMenu();
-
-    user_want_quit_ = refill_manager.UserWantQuit();
+    RunRefillManager();
   }
   if (console_main_menu_.UserWantCredit()) {
     // run item
@@ -55,6 +51,13 @@ void ConsoleMainMenuPresenter::RunAccountInfo() {
   console_account_informer_.SetAccountInfo(AtmInteractor::AccountInfo());
   console_account_informer_.ShowAccountInfo();
   user_want_quit_ = console_account_informer_.UserWantQuit();
+}
+
+void ConsoleMainMenuPresenter::RunRefillManager() {
+  ConsoleCashRefillManager refill_manager;
+  refill_manager.RunRefillMenu();
+
+  user_want_quit_ = refill_manager.UserWantQuit();
 }
 
 void ConsoleMainMenuPresenter::ResetManipulationFlags() {
