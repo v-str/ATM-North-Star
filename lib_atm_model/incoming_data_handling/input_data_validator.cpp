@@ -2,10 +2,6 @@
 
 #include <cmath>
 
-bool InputDataValidator::IsPasswordLengthCorrect(const std::string& login) {
-  return login.length() == k_password_length_;
-}
-
 bool InputDataValidator::IsRefillingCorrect(int refill_sum) {
   if (IsIntegerValue(refill_sum)) {
     return refill_sum >= k_min_refill_sum_ && refill_sum <= k_max_refill_sum_;
