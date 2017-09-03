@@ -21,14 +21,10 @@ void ConsoleCashRefillManager::ProcessUserInput() {
 
     user_input = user_input_handler_.GetDigitInputFromUser();
 
-    if (user_input == kMainMenu) {
-      user_want_main_menu_ = true;
+    if (IsUserInputContainSubMenu(user_input)) {
       break;
     }
-    if (user_input == kQuit) {
-      user_want_quit_ = true;
-      break;
-    }
+
     RefillMessenger::ShowIncorrectMessage();
   }
 }
@@ -37,4 +33,15 @@ void ConsoleCashRefillManager::ResetManipulationFlags() {
   user_want_main_menu_ = false;
   user_want_quit_ = false;
   user_input_contain_cash_ = false;
+}
+
+bool ConsoleCashRefillManager::IsUserInputContainSubMenu(int user_input) {
+  if (user_input == kMainMenu) {
+    return user_want_main_menu_ = true;
+  }
+  if (user_input == kQuit) {
+    return user_want_quit_ = true;
+  }
+
+  return false;
 }

@@ -16,6 +16,8 @@ class ConsoleCashRefillManager {
   void ProcessUserInput();
   void ResetManipulationFlags();
 
+  bool IsUserInputContainSubMenu(int user_input);
+
   UserInputHandler user_input_handler_;
 
   bool user_want_main_menu_ = false;
