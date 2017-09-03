@@ -10,6 +10,7 @@ class UserInputHandler {
   virtual int GetDigitInputFromUser();
 
   std::string GetStringInputFromUser();
+
   bool IsContainOnlyDigits(const std::string& user_string);
   int GetDigitsFromString(const std::string& user_string);
 
