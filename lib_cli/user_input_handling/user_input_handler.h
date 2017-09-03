@@ -5,9 +5,7 @@
 
 class UserInputHandler {
  public:
-  virtual ~UserInputHandler();
-
-  virtual int GetDigitInputFromUser();
+  int GetDigitInputFromUser();
 
   std::string GetStringInputFromUser();
 

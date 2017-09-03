@@ -2,8 +2,6 @@
 
 #include <iostream>
 
-UserInputHandler::~UserInputHandler() {}
-
 int UserInputHandler::GetDigitInputFromUser() {
   std::string user_string = GetStringInputFromUser();
 
