@@ -56,7 +56,6 @@ void ConsoleMainMenuPresenter::RunAccountInfo() {
 void ConsoleMainMenuPresenter::RunRefillManager() {
   ConsoleCashRefillManager refill_manager;
   refill_manager.RunRefillMenu();
-
   user_want_quit_ = refill_manager.UserWantQuit();
 }
 

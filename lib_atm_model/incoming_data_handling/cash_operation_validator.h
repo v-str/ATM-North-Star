@@ -9,15 +9,11 @@ class CashOperationValidator {
   static bool IsWithdrawalCorrect(int withdrawal_sum);
 
  private:
-  static bool IsIntegerValue(double value);
-
-  static constexpr double k_null_ = 0.0;
-
-  static constexpr int k_min_refill_sum_ = 10;
-  static constexpr int k_max_refill_sum_ = 50000;
-
-  static constexpr int k_min_withdrawal_sum_ = 10;
-  static constexpr int k_max_withdrawal_sum_ = 10000;
+  static constexpr double kNull = 0.0;
+  static constexpr int kMinimalRefillSum = 10;
+  static constexpr int kMaximalRefillSum = 50000;
+  static constexpr int kMinimalWithdrawalSum = 10;
+  static constexpr int kMaximalWithdrawalSum = 10000;
 };
 
 #endif  // CASH_OPERATION_VALIDATOR_H
