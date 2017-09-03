@@ -7,8 +7,12 @@ void ConsoleCashRefillManager::RunRefillMenu() {
   ProcessUserInput();
 }
 
-void ConsoleCashRefillManager::ShowCashRefillingNotification() {
-  RefillMessenger::ShowCashRefilling();
+void ConsoleCashRefillManager::ShowCorrectRefillingNotification() const {
+  RefillMessenger::ShowCorrectCashRefilling();
+}
+
+void ConsoleCashRefillManager::ShowIncorrectRefillingNotification() const {
+  RefillMessenger::ShowIncorrectRefillingNotification();
 }
 
 int ConsoleCashRefillManager::SumOfCash() const { return sum_of_cash_; }
@@ -31,7 +35,7 @@ void ConsoleCashRefillManager::ProcessUserInput() {
       break;
     }
 
-    RefillMessenger::ShowIncorrectMessage();
+    RefillMessenger::ShowIncorrectInputMessage();
   }
 }
 

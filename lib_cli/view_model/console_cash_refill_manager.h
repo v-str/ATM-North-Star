@@ -6,7 +6,8 @@
 class ConsoleCashRefillManager {
  public:
   void RunRefillMenu();
-  void ShowCashRefillingNotification();
+  void ShowCorrectRefillingNotification() const;
+  void ShowIncorrectRefillingNotification() const;
 
   int SumOfCash() const;
   bool UserWantMainMenu() const;

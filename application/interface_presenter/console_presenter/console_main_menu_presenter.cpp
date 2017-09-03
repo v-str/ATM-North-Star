@@ -60,10 +60,10 @@ void ConsoleMainMenuPresenter::RunRefillManager() {
 
   if (CashOperationValidator::IsRefillingCorrect(refill_manager.SumOfCash())) {
     AtmInteractor::RefillCash(refill_manager.SumOfCash());
-    refill_manager.ShowCashRefillingNotification();
+    refill_manager.ShowCorrectRefillingNotification();
+  } else {
+    refill_manager.ShowIncorrectRefillingNotification();
   }
-
-  // Add incorrect refill notification
 
   user_want_quit_ = refill_manager.UserWantQuit();
 }
