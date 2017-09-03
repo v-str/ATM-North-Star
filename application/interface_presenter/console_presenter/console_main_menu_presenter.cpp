@@ -2,6 +2,7 @@
 
 #include <atm_interactor.h>
 
+#include <cash_operation_validator.h>
 #include <console_cash_refill_manager.h>
 
 void ConsoleMainMenuPresenter::RunMainMenu() {
@@ -56,6 +57,7 @@ void ConsoleMainMenuPresenter::RunAccountInfo() {
 void ConsoleMainMenuPresenter::RunRefillManager() {
   ConsoleCashRefillManager refill_manager;
   refill_manager.RunRefillMenu();
+
   user_want_quit_ = refill_manager.UserWantQuit();
 }
 
