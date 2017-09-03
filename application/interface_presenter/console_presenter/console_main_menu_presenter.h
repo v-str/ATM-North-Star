@@ -12,6 +12,7 @@ class ConsoleMainMenuPresenter {
 
  private:
   void PerformMenuItem();
+  void RunAccountInfo();
 
   void ResetManipulationFlags();
 

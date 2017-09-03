@@ -20,9 +20,7 @@ bool ConsoleMainMenuPresenter::UserWantQuit() const { return user_want_quit_; }
 
 void ConsoleMainMenuPresenter::PerformMenuItem() {
   if (console_main_menu_.UserWantAccountInfo()) {
-    console_account_informer_.SetAccountInfo(AtmInteractor::AccountInfo());
-    console_account_informer_.ShowAccountInfo();
-    user_want_quit_ = console_account_informer_.UserWantQuit();
+    RunAccountInfo();
   }
   if (console_main_menu_.UserWantRefill()) {
     // run item
@@ -45,6 +43,12 @@ void ConsoleMainMenuPresenter::PerformMenuItem() {
     user_want_quit_ = true;
     // run item
   }
+}
+
+void ConsoleMainMenuPresenter::RunAccountInfo() {
+  console_account_informer_.SetAccountInfo(AtmInteractor::AccountInfo());
+  console_account_informer_.ShowAccountInfo();
+  user_want_quit_ = console_account_informer_.UserWantQuit();
 }
 
 void ConsoleMainMenuPresenter::ResetManipulationFlags() {
