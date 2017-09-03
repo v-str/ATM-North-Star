@@ -36,4 +36,5 @@ void ConsoleCashRefillManager::ProcessUserInput() {
 void ConsoleCashRefillManager::ResetManipulationFlags() {
   user_want_main_menu_ = false;
   user_want_quit_ = false;
+  user_input_contain_cash_ = false;
 }

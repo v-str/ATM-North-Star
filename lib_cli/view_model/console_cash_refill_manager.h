@@ -20,6 +20,7 @@ class ConsoleCashRefillManager {
 
   bool user_want_main_menu_ = false;
   bool user_want_quit_ = false;
+  bool user_input_contain_cash_ = false;
 };
 
 #endif  // CONSOLE_CASH_REFILL_MANAGER_H
