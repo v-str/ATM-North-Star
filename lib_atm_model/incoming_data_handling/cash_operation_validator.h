@@ -1,9 +1,9 @@
-﻿#ifndef INPUT_DATA_VALIDATOR_H
-#define INPUT_DATA_VALIDATOR_H
+﻿#ifndef CASH_OPERATION_VALIDATOR_H
+#define CASH_OPERATION_VALIDATOR_H
 
 #include <string>
 
-class InputDataValidator {
+class CashOperationValidator {
  public:
   static bool IsRefillingCorrect(int refill_sum);
   static bool IsWithdrawalCorrect(int withdrawal_sum);
@@ -20,4 +20,4 @@ class InputDataValidator {
   static constexpr int k_max_withdrawal_sum_ = 10000;
 };
 
-#endif  // INPUT_DATA_VALIDATOR_H
+#endif  // CASH_OPERATION_VALIDATOR_H
