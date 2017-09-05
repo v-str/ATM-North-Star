@@ -3,6 +3,7 @@
 #include <atm_interactor.h>
 
 #include <cash_operation_validator.h>
+#include <console_account_informer.h>
 #include <console_cash_refill_manager.h>
 
 void ConsoleMainMenuPresenter::RunMainMenu() {
@@ -49,6 +50,7 @@ void ConsoleMainMenuPresenter::PerformMenuItem() {
 }
 
 void ConsoleMainMenuPresenter::RunAccountInfo() {
+  ConsoleAccountInformer console_account_informer_;
   console_account_informer_.SetAccountInfo(AtmInteractor::AccountInfo());
   console_account_informer_.ShowAccountInfo();
   user_want_quit_ = console_account_informer_.UserWantQuit();
