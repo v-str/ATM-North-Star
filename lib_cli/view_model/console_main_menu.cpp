@@ -47,6 +47,7 @@ void ConsoleMainMenu::ResetManipulationFlags() {
   user_input_contain_menu_item_ = false;
   user_want_account_info_ = false;
   user_want_refill_ = false;
+  user_want_withdraw_ = false;
 }
 
 bool ConsoleMainMenu::IsUserInputContainMenuItem(int user_input) {
@@ -63,6 +64,7 @@ bool ConsoleMainMenu::IsUserInputContainMenuItem(int user_input) {
   }
   if (user_input == kWithdrawal) {
     user_input_contain_menu_item_ = true;
+    user_want_withdraw_ = true;
   }
   if (user_input == kStatement) {
     user_input_contain_menu_item_ = true;

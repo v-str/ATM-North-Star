@@ -3,6 +3,7 @@
 
 class ConsoleWithdrawalManager {
  public:
+  void ShowWithdrawNotification();
 };
 
 #endif  // CONSOLE_WITHDRAWAL_MANAGER_H

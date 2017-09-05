@@ -5,6 +5,7 @@
 #include <cash_operation_validator.h>
 #include <console_account_informer.h>
 #include <console_cash_refill_manager.h>
+#include <console_withdrawal_manager.h>
 
 void ConsoleMainMenuPresenter::RunMainMenu() {
   for (;;) {
@@ -34,6 +35,8 @@ void ConsoleMainMenuPresenter::PerformMenuItem() {
   }
   if (console_main_menu_.UserWantWithdraw()) {
     // run item
+    ConsoleWithdrawalManager withdrawal_manager;
+    withdrawal_manager.ShowWithdrawNotification();
   }
   if (console_main_menu_.UserWantStatement()) {
     // run item

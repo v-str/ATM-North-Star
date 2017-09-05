@@ -3,11 +3,14 @@
 
 class WithdrawalMessenger {
  public:
-  static void ShowSumOfWithdrawal(int sum_of_cash);
+  static void ShowWithdrawalNotification();
   static void ShowPasswordString();
   static void ShowIncorrectPasswordMessage();
   static void EnterSumOfWithdrawal();
   static void ShowSuccessfulWithdrawal(int sum_of_cash, int sum_of_withdrawal);
+
+ private:
+  static const int kStripLength = 45;
 };
 
 #endif  // WITHDRAWAL_MESSENGER_H
