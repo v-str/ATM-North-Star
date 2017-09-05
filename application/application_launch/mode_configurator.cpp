@@ -8,7 +8,7 @@ ModeConfigurator::ModeConfigurator() {
   AnalyzeConfigFile();
 }
 
-int ModeConfigurator::GetUIMode() const { return application_mode_; }
+int ModeConfigurator::GetUIMode() const { return ui_mode_; }
 
 void ModeConfigurator::ReadConfiguration() {
   if (stream_.is_open()) {
@@ -18,8 +18,8 @@ void ModeConfigurator::ReadConfiguration() {
 
 void ModeConfigurator::AnalyzeConfigFile() {
   if (config_string_ == "Mode: cli") {
-    application_mode_ = kConsoleMode;
+    ui_mode_ = kConsoleMode;
   } else if (config_string_ == "Mode: gui") {
-    application_mode_ = kGraphicalMode;
+    ui_mode_ = kGraphicalMode;
   }
 }
