@@ -149,6 +149,10 @@
 19. Develop base menu class                                                         | - |
                                                                                     |   |
 20. Highlight the same messages and put them in separate messenger class            | - |
+                                                                                    |   |
+21. Develop class for the same notification templates                               | - |
+                                                                                    |   |
+22. Extract user input method from all menus                                        | - |
 
 -----------------------------------------------------------------------------------------
 ------------------------------------ ARCHITECTURE ---------------------------------------
