@@ -7,6 +7,8 @@
 
 AtmUser AtmInteractor::user_;
 
+bool AtmInteractor::access_to_withdrawal_ = false;
+
 void AtmInteractor::PerformUserRegistration(const std::string& login,
                                             const std::string& password) {
   ResetData();
@@ -44,6 +46,14 @@ bool AtmInteractor::WithdrawCash(int withdrawal_cash) {
 std::string AtmInteractor::Statement() {
   AccountInformator::UpdataUserData(user_);
   return AccountInformator::Cash();
+}
+
+bool AtmInteractor::IsPasswordCorrect(const std::string& password_string) {
+  if (password_string == user_.Password()) {
+    return access_to_withdrawal_ = true;
+  } else {
+    return access_to_withdrawal_ = false;
+  }
 }
 
 void AtmInteractor::ResetData() { user_.ResetData(); }

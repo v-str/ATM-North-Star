@@ -24,12 +24,16 @@ class AtmInteractor {
   static bool WithdrawCash(int withdrawal_cash);
   static std::string Statement();
 
+  static bool IsPasswordCorrect(const std::string& password_string);
+
   static void ResetData();
 
  private:
   static bool IsWithdrawalAcceptable(int withdrawal_sum);
 
   static AtmUser user_;
+
+  static bool access_to_withdrawal_;
 };
 
 #endif  // ATM_INTERACTOR_H

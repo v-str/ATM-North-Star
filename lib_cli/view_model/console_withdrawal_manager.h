@@ -15,13 +15,10 @@ class ConsoleWithdrawalManager {
   enum SubMenuItems { kNull, kMainMenu, kQuit };
 
   void ProcessUserInput();
-
   bool IsUserInputCorrect(int user_input);
-
   void ResetManipulationFlags();
 
   bool user_want_quit_ = false;
-
   int sum_of_withdrawal_ = 0;
 };
 
