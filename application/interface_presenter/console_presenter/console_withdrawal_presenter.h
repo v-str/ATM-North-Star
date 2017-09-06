@@ -7,6 +7,8 @@ class ConsoleWithdrawalPresenter {
  public:
   void RunWithdrawalMenu();
 
+  bool UserWantQuit() const;
+
  private:
   ConsoleWithdrawalManager console_withdrawal_manager_;
 };

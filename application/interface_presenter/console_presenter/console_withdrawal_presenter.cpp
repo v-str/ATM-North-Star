@@ -5,3 +5,7 @@
 void ConsoleWithdrawalPresenter::RunWithdrawalMenu() {
   console_withdrawal_manager_.RunWithdrawalMenu();
 }
+
+bool ConsoleWithdrawalPresenter::UserWantQuit() const {
+  return console_withdrawal_manager_.UserWantQuit();
+}
