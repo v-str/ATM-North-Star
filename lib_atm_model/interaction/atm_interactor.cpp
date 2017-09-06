@@ -44,6 +44,8 @@ std::string AtmInteractor::Statement() {
   return AccountInformator::Cash();
 }
 
+void AtmInteractor::ResetData() { user_.ResetData(); }
+
 bool AtmInteractor::IsPasswordCorrect(const std::string& password_string) {
   if (password_string == user_.Password()) {
     return access_to_withdrawal_ = true;
@@ -51,8 +53,6 @@ bool AtmInteractor::IsPasswordCorrect(const std::string& password_string) {
     return access_to_withdrawal_ = false;
   }
 }
-
-void AtmInteractor::ResetData() { user_.ResetData(); }
 
 bool AtmInteractor::IsWithdrawalAcceptable(int withdrawal_sum) {
   return user_.Cash() >= withdrawal_sum;

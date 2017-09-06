@@ -6,6 +6,10 @@
 void ConsoleWithdrawalPresenter::RunWithdrawalMenu() {
   console_withdrawal_manager_.RunWithdrawalMenu();
   if (IsSumOfWithdrawalCorrect()) {
+    if (IsPasswordCorrect()) {
+      AtmInteractor::WithdrawCash(
+          console_withdrawal_manager_.SumOfWithdrawal());
+    }
   }
 }
 
@@ -21,4 +25,11 @@ bool ConsoleWithdrawalPresenter::IsSumOfWithdrawalCorrect() const {
           console_withdrawal_manager_.SumOfWithdrawal());
 
   return correct_withdrawal_sum;
+}
+
+bool ConsoleWithdrawalPresenter::IsPasswordCorrect() const {
+  bool is_password_correct = AtmInteractor::IsPasswordCorrect(
+      console_withdrawal_manager_.GetPasswordFromUser());
+
+  return is_password_correct;
 }

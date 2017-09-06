@@ -21,11 +21,11 @@ class AtmInteractor {
                                       const std::string& password);
   static std::vector<std::string> AccountInfo();
   static void RefillCash(int refill_cash);
-  static bool IsWithdrawalAcceptable(int withdrawal_sum);
   static void WithdrawCash(int withdrawal_cash);
   static std::string Statement();
 
   static bool IsPasswordCorrect(const std::string& password_string);
+  static bool IsWithdrawalAcceptable(int withdrawal_sum);
 
   static void ResetData();
 

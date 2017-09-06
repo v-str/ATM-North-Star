@@ -11,6 +11,7 @@ class ConsoleWithdrawalPresenter {
 
  private:
   bool IsSumOfWithdrawalCorrect() const;
+  bool IsPasswordCorrect() const;
 
   ConsoleWithdrawalManager console_withdrawal_manager_;
 };
