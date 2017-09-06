@@ -34,11 +34,7 @@ void ConsoleMainMenuPresenter::PerformMenuItem() {
     // run item
   }
   if (console_main_menu_.UserWantWithdraw()) {
-    // run item
-    ConsoleWithdrawalManager withdrawal_manager;
-    withdrawal_manager.ShowWithdrawNotification();
-
-    user_want_quit_ = withdrawal_manager.UserWantQuit();
+    RunWithdrawalManager();
   }
   if (console_main_menu_.UserWantStatement()) {
     // run item
@@ -73,6 +69,13 @@ void ConsoleMainMenuPresenter::RunRefillManager() {
   }
 
   user_want_quit_ = refill_manager.UserWantQuit();
+}
+
+void ConsoleMainMenuPresenter::RunWithdrawalManager() {
+  ConsoleWithdrawalManager withdrawal_manager;
+  withdrawal_manager.ShowWithdrawNotification();
+
+  user_want_quit_ = withdrawal_manager.UserWantQuit();
 }
 
 void ConsoleMainMenuPresenter::ResetManipulationFlags() {
