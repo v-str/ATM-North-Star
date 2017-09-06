@@ -73,7 +73,7 @@ void ConsoleMainMenuPresenter::RunRefillManager() {
 
 void ConsoleMainMenuPresenter::RunWithdrawalManager() {
   ConsoleWithdrawalManager withdrawal_manager;
-  withdrawal_manager.ShowWithdrawNotification();
+  withdrawal_manager.RunWithdrawalMenu();
 
   if (CashOperationValidator::IsWithdrawalCorrect(
           withdrawal_manager.SumOfWithdrawal())) {

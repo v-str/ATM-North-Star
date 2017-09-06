@@ -5,7 +5,7 @@
 
 class ConsoleWithdrawalManager {
  public:
-  void ShowWithdrawNotification();
+  void RunWithdrawalMenu();
 
   std::string GetPasswordFromUser() const;
   int SumOfWithdrawal() const;

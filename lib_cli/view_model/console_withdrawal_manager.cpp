@@ -4,7 +4,7 @@
 #include <user_input_handler.h>
 #include <withdrawal_messenger.h>
 
-void ConsoleWithdrawalManager::ShowWithdrawNotification() {
+void ConsoleWithdrawalManager::RunWithdrawalMenu() {
   WithdrawalMessenger::ShowWithdrawalNotification();
   ProcessUserInput();
 }
