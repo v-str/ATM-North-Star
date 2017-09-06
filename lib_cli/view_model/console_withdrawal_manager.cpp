@@ -7,6 +7,10 @@ void ConsoleWithdrawalManager::ShowWithdrawNotification() {
   ProcessUserInput();
 }
 
+int ConsoleWithdrawalManager::SumOfWithdrawal() const {
+  return sum_of_withdrawal_;
+}
+
 bool ConsoleWithdrawalManager::UserWantQuit() const { return user_want_quit_; }
 
 void ConsoleWithdrawalManager::ProcessUserInput() {

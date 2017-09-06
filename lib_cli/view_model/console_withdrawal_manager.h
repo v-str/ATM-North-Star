@@ -7,6 +7,7 @@ class ConsoleWithdrawalManager {
  public:
   void ShowWithdrawNotification();
 
+  int SumOfWithdrawal() const;
   bool UserWantQuit() const;
 
  private:

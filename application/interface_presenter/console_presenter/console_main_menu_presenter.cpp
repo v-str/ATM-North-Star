@@ -75,6 +75,14 @@ void ConsoleMainMenuPresenter::RunWithdrawalManager() {
   ConsoleWithdrawalManager withdrawal_manager;
   withdrawal_manager.ShowWithdrawNotification();
 
+  if (CashOperationValidator::IsWithdrawalCorrect(
+          withdrawal_manager.SumOfWithdrawal())) {
+    AtmInteractor::WithdrawCash(withdrawal_manager.SumOfWithdrawal());
+    // show correct message
+  } else {
+    // show incorrect message
+  }
+
   user_want_quit_ = withdrawal_manager.UserWantQuit();
 }
 
