@@ -10,6 +10,8 @@ class ConsoleWithdrawalPresenter {
   bool UserWantQuit() const;
 
  private:
+  bool IsSumOfWithdrawalCorrect() const;
+
   ConsoleWithdrawalManager console_withdrawal_manager_;
 };
 

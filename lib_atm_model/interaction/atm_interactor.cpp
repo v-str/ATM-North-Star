@@ -35,12 +35,8 @@ void AtmInteractor::RefillCash(int refill_cash) {
   Refill::RefillCash(&user_, refill_cash);
 }
 
-bool AtmInteractor::WithdrawCash(int withdrawal_cash) {
-  if (IsWithdrawalAcceptable(withdrawal_cash)) {
-    Withdrawal::WithdrawCashFrom(&user_, withdrawal_cash);
-    return true;
-  }
-  return false;
+void AtmInteractor::WithdrawCash(int withdrawal_cash) {
+  Withdrawal::WithdrawCashFrom(&user_, withdrawal_cash);
 }
 
 std::string AtmInteractor::Statement() {
