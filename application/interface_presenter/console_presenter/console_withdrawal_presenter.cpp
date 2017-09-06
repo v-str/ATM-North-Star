@@ -4,17 +4,27 @@
 #include <cash_operation_validator.h>
 
 void ConsoleWithdrawalPresenter::RunWithdrawalMenu() {
+  user_want_quit_ = false;
+
   console_withdrawal_manager_.RunWithdrawalMenu();
   if (IsSumOfWithdrawalCorrect()) {
     if (IsPasswordCorrect()) {
       AtmInteractor::WithdrawCash(
           console_withdrawal_manager_.SumOfWithdrawal());
+      console_withdrawal_manager_.ShowSuccessfulWithdrawal();
+    } else {
+      // incorrect password message
     }
+
+  } else if (console_withdrawal_manager_.UserWantQuit()) {
+    user_want_quit_ = true;
+  } else {
+    // incorrect withdrawal message
   }
 }
 
 bool ConsoleWithdrawalPresenter::UserWantQuit() const {
-  return console_withdrawal_manager_.UserWantQuit();
+  return user_want_quit_;
 }
 
 bool ConsoleWithdrawalPresenter::IsSumOfWithdrawalCorrect() const {

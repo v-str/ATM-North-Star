@@ -5,7 +5,7 @@
 #include <cash_operation_validator.h>
 #include <console_account_informer.h>
 #include <console_cash_refill_manager.h>
-#include <console_withdrawal_manager.h>
+#include <console_withdrawal_presenter.h>
 
 void ConsoleMainMenuPresenter::RunMainMenu() {
   for (;;) {
@@ -72,23 +72,10 @@ void ConsoleMainMenuPresenter::RunRefillManager() {
 }
 
 void ConsoleMainMenuPresenter::RunWithdrawalManager() {
-  ConsoleWithdrawalManager withdrawal_manager;
-  withdrawal_manager.RunWithdrawalMenu();
+  ConsoleWithdrawalPresenter withdrawal_presenter;
+  withdrawal_presenter.RunWithdrawalMenu();
 
-  if (CashOperationValidator::IsWithdrawalCorrect(
-          withdrawal_manager.SumOfWithdrawal())) {
-    if (AtmInteractor::IsPasswordCorrect(
-            withdrawal_manager.GetPasswordFromUser())) {
-      AtmInteractor::WithdrawCash(withdrawal_manager.SumOfWithdrawal());
-      //    AtmInteractor::WithdrawCash(withdrawal_manager.SumOfWithdrawal());
-      // show correct message
-    }
-
-  } else {
-    // show incorrect message
-  }
-
-  user_want_quit_ = withdrawal_manager.UserWantQuit();
+  user_want_quit_ = withdrawal_presenter.UserWantQuit();
 }
 
 void ConsoleMainMenuPresenter::ResetManipulationFlags() {

@@ -38,12 +38,13 @@ void WithdrawalMessenger::EnterSumOfWithdrawal() {
       "\n\t# Please, enter the required sum: ");
 }
 
-void WithdrawalMessenger::ShowSuccessfulWithdrawal(int sum_of_cash,
-                                                   int sum_of_withdrawal) {
+void WithdrawalMessenger::ShowSuccessfulWithdrawal() {
+  ConsoleEditor::WriteText("\n\t");
+  ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t# Withdrawal completed successfully\n\t# Sum($): " +
-      std::to_string(sum_of_cash) + "\n\t# Balance($): " +
-      std::to_string(sum_of_withdrawal) + "\n\n");
+      "\n\t# Withdrawal completed successfully.\n\t");
+  ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
+  ConsoleEditor::Sleep(kSecond);
 }
 
 void WithdrawalMessenger::ShowIncorrectInputMessage() {

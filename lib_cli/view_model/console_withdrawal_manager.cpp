@@ -24,6 +24,10 @@ int ConsoleWithdrawalManager::SumOfWithdrawal() const {
 
 bool ConsoleWithdrawalManager::UserWantQuit() const { return user_want_quit_; }
 
+void ConsoleWithdrawalManager::ShowSuccessfulWithdrawal() const {
+  WithdrawalMessenger::ShowSuccessfulWithdrawal();
+}
+
 void ConsoleWithdrawalManager::ProcessUserInput() {
   int user_input = 0;
 

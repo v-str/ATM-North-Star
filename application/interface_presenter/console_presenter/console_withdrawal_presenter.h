@@ -14,6 +14,8 @@ class ConsoleWithdrawalPresenter {
   bool IsPasswordCorrect() const;
 
   ConsoleWithdrawalManager console_withdrawal_manager_;
+
+  bool user_want_quit_ = false;
 };
 
 #endif  // CONSOLE_WITHDRAWAL_PRESENTER_H

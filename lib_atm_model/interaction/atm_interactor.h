@@ -31,8 +31,6 @@ class AtmInteractor {
 
  private:
   static AtmUser user_;
-
-  static bool access_to_withdrawal_;
 };
 
 #endif  // ATM_INTERACTOR_H

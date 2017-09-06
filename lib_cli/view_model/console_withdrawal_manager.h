@@ -10,6 +10,7 @@ class ConsoleWithdrawalManager {
   std::string GetPasswordFromUser() const;
   int SumOfWithdrawal() const;
   bool UserWantQuit() const;
+  void ShowSuccessfulWithdrawal() const;
 
  private:
   enum SubMenuItems { kNull, kMainMenu, kQuit };

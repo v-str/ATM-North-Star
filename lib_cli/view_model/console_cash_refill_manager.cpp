@@ -8,7 +8,7 @@ void ConsoleCashRefillManager::RunRefillMenu() {
 }
 
 void ConsoleCashRefillManager::ShowCorrectRefillingNotification() const {
-  RefillMessenger::ShowCorrectCashRefilling();
+  RefillMessenger::ShowSuccessfulCashRefilling();
 }
 
 void ConsoleCashRefillManager::ShowIncorrectRefillingNotification() const {

@@ -7,11 +7,12 @@ class WithdrawalMessenger {
   static void RequirePasswordMessage();
   static void ShowIncorrectPasswordMessage();
   static void EnterSumOfWithdrawal();
-  static void ShowSuccessfulWithdrawal(int sum_of_cash, int sum_of_withdrawal);
+  static void ShowSuccessfulWithdrawal();
   static void ShowIncorrectInputMessage();
 
  private:
   static const int kStripLength = 45;
+  static const int kSecond = 1000;
 };
 
 #endif  // WITHDRAWAL_MESSENGER_H

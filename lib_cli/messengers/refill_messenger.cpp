@@ -22,7 +22,7 @@ void RefillMessenger::ShowRefillNotification() {
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
 }
 
-void RefillMessenger::ShowCorrectCashRefilling() {
+void RefillMessenger::ShowSuccessfulCashRefilling() {
   ConsoleEditor::WriteText("\n\t");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
   ConsoleEditor::WriteTextWithDelayPerSymbol(

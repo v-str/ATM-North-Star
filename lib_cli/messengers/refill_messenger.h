@@ -6,7 +6,7 @@
 class RefillMessenger {
  public:
   static void ShowRefillNotification();
-  static void ShowCorrectCashRefilling();
+  static void ShowSuccessfulCashRefilling();
   static void ShowIncorrectRefillingNotification();
   static void ShowIncorrectInputMessage();
 
