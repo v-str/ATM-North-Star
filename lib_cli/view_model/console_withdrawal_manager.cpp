@@ -7,6 +7,8 @@ void ConsoleWithdrawalManager::ShowWithdrawNotification() {
   ProcessUserInput();
 }
 
+bool ConsoleWithdrawalManager::UserWantQuit() const { return user_want_quit_; }
+
 void ConsoleWithdrawalManager::ProcessUserInput() {
   int user_input = 0;
 
@@ -25,7 +27,7 @@ void ConsoleWithdrawalManager::ProcessUserInput() {
 
 bool ConsoleWithdrawalManager::IsUserInputCorrect(int user_input) {
   if (user_input == kMainMenu) {
-    return user_want_main_menu_ = true;
+    return true;
   }
   if (user_input == kQuit) {
     return user_want_quit_ = true;
@@ -38,6 +40,5 @@ bool ConsoleWithdrawalManager::IsUserInputCorrect(int user_input) {
 }
 
 void ConsoleWithdrawalManager::ResetManipulationFlags() {
-  user_want_main_menu_ = false;
   user_want_quit_ = false;
 }

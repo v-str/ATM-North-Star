@@ -10,7 +10,6 @@ class ConsoleCashRefillManager {
   void ShowIncorrectRefillingNotification() const;
 
   int SumOfCash() const;
-  bool UserWantMainMenu() const;
   bool UserWantQuit() const;
 
  private:
@@ -23,7 +22,6 @@ class ConsoleCashRefillManager {
 
   UserInputHandler user_input_handler_;
 
-  bool user_want_main_menu_ = false;
   bool user_want_quit_ = false;
 
   int sum_of_cash_ = 0;

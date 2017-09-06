@@ -7,6 +7,8 @@ class ConsoleWithdrawalManager {
  public:
   void ShowWithdrawNotification();
 
+  bool UserWantQuit() const;
+
  private:
   enum SubMenuItems { kNull, kMainMenu, kQuit };
 
@@ -18,7 +20,6 @@ class ConsoleWithdrawalManager {
 
   UserInputHandler user_input_handler_;
 
-  bool user_want_main_menu_ = false;
   bool user_want_quit_ = false;
 
   int sum_of_withdrawal_ = 0;

@@ -37,6 +37,8 @@ void ConsoleMainMenuPresenter::PerformMenuItem() {
     // run item
     ConsoleWithdrawalManager withdrawal_manager;
     withdrawal_manager.ShowWithdrawNotification();
+
+    user_want_quit_ = withdrawal_manager.UserWantQuit();
   }
   if (console_main_menu_.UserWantStatement()) {
     // run item
