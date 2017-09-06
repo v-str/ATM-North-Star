@@ -20,7 +20,6 @@ void WithdrawalMessenger::ShowWithdrawalNotification() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\n\t# Enter the desired sum of withdrawal, $:\n");
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
-  ConsoleEditor::IgnoreCinLine();
 }
 
 void WithdrawalMessenger::ShowPasswordString() {
