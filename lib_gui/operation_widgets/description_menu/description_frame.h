@@ -47,7 +47,7 @@ class DescriptionFrame : public QFrame {
   AtmButton* cash_refill_button_ = nullptr;
   AtmButton* credit_app_button_ = nullptr;
   AtmButton* cash_withdrawal_button_ = nullptr;
-  AtmButton* statement_butotn_ = nullptr;
+  AtmButton* statement_button_ = nullptr;
 
   QVBoxLayout* layout_ = nullptr;
 

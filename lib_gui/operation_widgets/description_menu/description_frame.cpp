@@ -17,7 +17,7 @@ DescriptionFrame::DescriptionFrame(QWidget* parent)
       cash_refill_button_(new AtmButton("Refill cash", this)),
       credit_app_button_(new AtmButton("Credit application", this)),
       cash_withdrawal_button_(new AtmButton("Cash withdrawal", this)),
-      statement_butotn_(new AtmButton("Statement", this)),
+      statement_button_(new AtmButton("Statement", this)),
       layout_(new QVBoxLayout) {
   RemoveButtonsVisualOffset();
   SetGridLayout();
@@ -55,7 +55,7 @@ void DescriptionFrame::RemoveButtonsVisualOffset() {
   cash_refill_button_->SetOffsetSide(AtmButton::kNone);
   credit_app_button_->SetOffsetSide(AtmButton::kNone);
   cash_withdrawal_button_->SetOffsetSide(AtmButton::kNone);
-  statement_butotn_->SetOffsetSide(AtmButton::kNone);
+  statement_button_->SetOffsetSide(AtmButton::kNone);
 }
 
 void DescriptionFrame::SetGridLayout() {
@@ -63,7 +63,7 @@ void DescriptionFrame::SetGridLayout() {
   layout_->addWidget(cash_refill_button_);
   layout_->addWidget(credit_app_button_);
   layout_->addWidget(cash_withdrawal_button_);
-  layout_->addWidget(statement_butotn_);
+  layout_->addWidget(statement_button_);
 
   layout_->setSpacing(5);
 
@@ -82,7 +82,7 @@ void DescriptionFrame::ColorizeWidgets() {
 
   QList<QPushButton*> button_list{account_info_button_, cash_refill_button_,
                                   credit_app_button_, cash_withdrawal_button_,
-                                  statement_butotn_};
+                                  statement_button_};
   color_designer_->PaintWidgetSet(button_list);
 }
 
@@ -95,6 +95,6 @@ void DescriptionFrame::SetConnections() {
           SLOT(ProcessCreditAppButton()));
   connect(cash_withdrawal_button_, SIGNAL(clicked(bool)),
           SLOT(ProcessCashWithdrawalButton()));
-  connect(statement_butotn_, SIGNAL(clicked(bool)),
+  connect(statement_button_, SIGNAL(clicked(bool)),
           SLOT(ProcessStatementButton()));
 }
