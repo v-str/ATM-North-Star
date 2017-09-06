@@ -4,7 +4,7 @@
 class WithdrawalMessenger {
  public:
   static void ShowWithdrawalNotification();
-  static void ShowPasswordString();
+  static void RequirePasswordMessage();
   static void ShowIncorrectPasswordMessage();
   static void EnterSumOfWithdrawal();
   static void ShowSuccessfulWithdrawal(int sum_of_cash, int sum_of_withdrawal);

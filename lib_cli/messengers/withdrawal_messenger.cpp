@@ -22,9 +22,9 @@ void WithdrawalMessenger::ShowWithdrawalNotification() {
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
 }
 
-void WithdrawalMessenger::ShowPasswordString() {
+void WithdrawalMessenger::RequirePasswordMessage() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\t# Please enter your password: XXXX\b\b\b\b");
+      "\t# Please enter your password and press \"Enter\": ");
 }
 
 void WithdrawalMessenger::ShowIncorrectPasswordMessage() {

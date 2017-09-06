@@ -1,10 +1,21 @@
 ﻿#include "console_withdrawal_manager.h"
 
+#include <password_input_handler.h>
+#include <user_input_handler.h>
 #include <withdrawal_messenger.h>
 
 void ConsoleWithdrawalManager::ShowWithdrawNotification() {
   WithdrawalMessenger::ShowWithdrawalNotification();
   ProcessUserInput();
+}
+
+std::string ConsoleWithdrawalManager::GetPasswordFromUser() const {
+  WithdrawalMessenger::RequirePasswordMessage();
+  std::string password_string;
+  PasswordInputHandler password_user_handler_;
+  password_string = password_user_handler_.GetPassword();
+
+  return password_string;
 }
 
 int ConsoleWithdrawalManager::SumOfWithdrawal() const {
@@ -19,6 +30,7 @@ void ConsoleWithdrawalManager::ProcessUserInput() {
   for (;;) {
     ResetManipulationFlags();
 
+    UserInputHandler user_input_handler_;
     user_input = user_input_handler_.GetDigitInputFromUser();
 
     if (IsUserInputCorrect(user_input)) {

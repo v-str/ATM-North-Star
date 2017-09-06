@@ -1,12 +1,13 @@
 ﻿#ifndef CONSOLE_WITHDRAWAL_MANAGER_H
 #define CONSOLE_WITHDRAWAL_MANAGER_H
 
-#include <user_input_handler.h>
+#include <string>
 
 class ConsoleWithdrawalManager {
  public:
   void ShowWithdrawNotification();
 
+  std::string GetPasswordFromUser() const;
   int SumOfWithdrawal() const;
   bool UserWantQuit() const;
 
@@ -18,8 +19,6 @@ class ConsoleWithdrawalManager {
   bool IsUserInputCorrect(int user_input);
 
   void ResetManipulationFlags();
-
-  UserInputHandler user_input_handler_;
 
   bool user_want_quit_ = false;
 
