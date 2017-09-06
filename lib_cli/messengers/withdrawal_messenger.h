@@ -8,6 +8,7 @@ class WithdrawalMessenger {
   static void ShowIncorrectPasswordMessage();
   static void EnterSumOfWithdrawal();
   static void ShowSuccessfulWithdrawal(int sum_of_cash, int sum_of_withdrawal);
+  static void ShowIncorrectInputMessage();
 
  private:
   static const int kStripLength = 45;

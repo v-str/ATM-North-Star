@@ -45,3 +45,9 @@ void WithdrawalMessenger::ShowSuccessfulWithdrawal(int sum_of_cash,
       std::to_string(sum_of_cash) + "\n\t# Balance($): " +
       std::to_string(sum_of_withdrawal) + "\n\n");
 }
+
+void WithdrawalMessenger::ShowIncorrectInputMessage() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "\n\t# Incorrect input, please try again...\n"
+      "\t# Enter: ");
+}

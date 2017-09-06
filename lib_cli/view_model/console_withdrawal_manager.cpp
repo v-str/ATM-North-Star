@@ -18,6 +18,8 @@ void ConsoleWithdrawalManager::ProcessUserInput() {
     if (IsUserInputCorrect(user_input)) {
       break;
     }
+
+    WithdrawalMessenger::ShowIncorrectInputMessage();
   }
 }
 
