@@ -18,7 +18,7 @@ void WithdrawalMessenger::ShowWithdrawalNotification() {
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# 2. Quit\n\t");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\n\t# Enter the desired sum of withdrawal, $:\n");
+      "\n\n\t# Enter the required sum of withdrawal, $:\n");
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
 }
 
