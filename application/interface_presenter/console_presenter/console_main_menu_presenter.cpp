@@ -77,9 +77,13 @@ void ConsoleMainMenuPresenter::RunWithdrawalManager() {
 
   if (CashOperationValidator::IsWithdrawalCorrect(
           withdrawal_manager.SumOfWithdrawal())) {
-    withdrawal_manager.GetPasswordFromUser();
-    //    AtmInteractor::WithdrawCash(withdrawal_manager.SumOfWithdrawal());
-    // show correct message
+    if (AtmInteractor::IsPasswordCorrect(
+            withdrawal_manager.GetPasswordFromUser())) {
+      AtmInteractor::WithdrawCash(withdrawal_manager.SumOfWithdrawal());
+      //    AtmInteractor::WithdrawCash(withdrawal_manager.SumOfWithdrawal());
+      // show correct message
+    }
+
   } else {
     // show incorrect message
   }
