@@ -31,7 +31,7 @@ void RefillMessenger::ShowSuccessfulCashRefilling() {
   ConsoleEditor::Sleep(kSecond);
 }
 
-void RefillMessenger::ShowIncorrectRefillingNotification() {
+void RefillMessenger::ShowIncorrectRefillingMessage() {
   ConsoleEditor::WriteText("\n\t");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t\t\t  Attention\n\t");

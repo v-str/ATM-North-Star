@@ -5,10 +5,9 @@ class WithdrawalMessenger {
  public:
   static void ShowWithdrawalNotification();
   static void RequirePasswordMessage();
-  static void ShowIncorrectPasswordMessage();
   static void EnterSumOfWithdrawal();
   static void ShowSuccessfulWithdrawal();
-  static void ShowIncorrectInputMessage();
+  static void IncorrectWithdrawalMessage();
 
  private:
   static const int kStripLength = 45;

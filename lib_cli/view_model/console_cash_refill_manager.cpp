@@ -12,7 +12,7 @@ void ConsoleCashRefillManager::ShowCorrectRefillingNotification() const {
 }
 
 void ConsoleCashRefillManager::ShowIncorrectRefillingNotification() const {
-  RefillMessenger::ShowIncorrectRefillingNotification();
+  RefillMessenger::ShowIncorrectRefillingMessage();
 }
 
 int ConsoleCashRefillManager::SumOfCash() const { return sum_of_cash_; }

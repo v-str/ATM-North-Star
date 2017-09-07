@@ -22,43 +22,40 @@ int ConsoleWithdrawalManager::SumOfWithdrawal() const {
   return sum_of_withdrawal_;
 }
 
+bool ConsoleWithdrawalManager::UserWantMainMenu() const {
+  return user_want_main_menu_;
+}
+
 bool ConsoleWithdrawalManager::UserWantQuit() const { return user_want_quit_; }
 
 void ConsoleWithdrawalManager::ShowSuccessfulWithdrawal() const {
   WithdrawalMessenger::ShowSuccessfulWithdrawal();
 }
 
-void ConsoleWithdrawalManager::ProcessUserInput() {
-  int user_input = 0;
-
-  for (;;) {
-    ResetManipulationFlags();
-
-    UserInputHandler user_input_handler_;
-    user_input = user_input_handler_.GetDigitInputFromUser();
-
-    if (IsUserInputCorrect(user_input)) {
-      break;
-    }
-
-    WithdrawalMessenger::ShowIncorrectInputMessage();
-  }
+void ConsoleWithdrawalManager::ShowIncorrectWithdrawal() const {
+  WithdrawalMessenger::IncorrectWithdrawalMessage();
 }
 
-bool ConsoleWithdrawalManager::IsUserInputCorrect(int user_input) {
+void ConsoleWithdrawalManager::ProcessUserInput() {
+  ResetManipulationFlags();
+
+  UserInputHandler user_input_handler_;
+  int user_input = user_input_handler_.GetDigitInputFromUser();
+
+  CheckUserInput(user_input);
+}
+
+void ConsoleWithdrawalManager::CheckUserInput(int user_input) {
   if (user_input == kMainMenu) {
-    return true;
-  }
-  if (user_input == kQuit) {
-    return user_want_quit_ = true;
-  }
-  if (user_input > kNull) {
+    user_want_main_menu_ = true;
+  } else if (user_input == kQuit) {
+    user_want_quit_ = true;
+  } else {
     sum_of_withdrawal_ = user_input;
-    return true;
   }
-  return false;
 }
 
 void ConsoleWithdrawalManager::ResetManipulationFlags() {
+  user_want_main_menu_ = false;
   user_want_quit_ = false;
 }

@@ -7,16 +7,21 @@ void ConsoleWithdrawalPresenter::RunWithdrawalMenu() {
   user_want_quit_ = false;
 
   console_withdrawal_manager_.RunWithdrawalMenu();
-  if (IsSumSuitable()) {
-    if (IsPasswordCorrect()) {
-      PerformWithdrawal();
-    } else {
-      // incorrect password message
-    }
-  } else if (console_withdrawal_manager_.UserWantQuit()) {
+
+  if (console_withdrawal_manager_.UserWantQuit()) {
     user_want_quit_ = true;
+  } else if (console_withdrawal_manager_.UserWantMainMenu()) {
+    // user want main menu
   } else {
-    // incorrect withdrawal message
+    if (IsSumSuitable()) {
+      if (IsPasswordCorrect()) {
+        PerformWithdrawal();
+      } else {
+        console_withdrawal_manager_.ShowIncorrectWithdrawal();
+      }
+    } else {
+      console_withdrawal_manager_.ShowIncorrectWithdrawal();
+    }
   }
 }
 

@@ -27,12 +27,6 @@ void WithdrawalMessenger::RequirePasswordMessage() {
       "\t# Please enter your password: ");
 }
 
-void WithdrawalMessenger::ShowIncorrectPasswordMessage() {
-  ConsoleEditor::ClearScreen();
-  ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t# Sorry, entered password is incorrect.\n");
-}
-
 void WithdrawalMessenger::EnterSumOfWithdrawal() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\t# Please, enter the required sum: ");
@@ -47,8 +41,18 @@ void WithdrawalMessenger::ShowSuccessfulWithdrawal() {
   ConsoleEditor::Sleep(kSecond);
 }
 
-void WithdrawalMessenger::ShowIncorrectInputMessage() {
+void WithdrawalMessenger::IncorrectWithdrawalMessage() {
+  ConsoleEditor::WriteText("\n\t");
+  ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t\t\t  Attention\n\t");
+  ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t# Incorrect input, please try again...\n"
-      "\t# Enter: ");
+      "\n\t# Incorrect withdrawal parameters. "
+      "\n\t# Be sure that both withdrawal sum and"
+      "\n\t# password is correct and try again."
+      "\n\t# Quit to main menu...\n\t");
+  ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "\n\t# press enter to continue...");
+  ConsoleEditor::IgnoreCinLine();
 }

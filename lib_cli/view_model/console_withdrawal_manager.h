@@ -9,16 +9,19 @@ class ConsoleWithdrawalManager {
 
   std::string GetPasswordFromUser() const;
   int SumOfWithdrawal() const;
+  bool UserWantMainMenu() const;
   bool UserWantQuit() const;
   void ShowSuccessfulWithdrawal() const;
+  void ShowIncorrectWithdrawal() const;
 
  private:
   enum SubMenuItems { kNull, kMainMenu, kQuit };
 
   void ProcessUserInput();
-  bool IsUserInputCorrect(int user_input);
+  void CheckUserInput(int user_input);
   void ResetManipulationFlags();
 
+  bool user_want_main_menu_ = false;
   bool user_want_quit_ = false;
   int sum_of_withdrawal_ = 0;
 };
