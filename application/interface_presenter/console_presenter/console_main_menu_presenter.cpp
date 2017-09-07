@@ -37,7 +37,7 @@ void ConsoleMainMenuPresenter::PerformMenuItem() {
     RunWithdrawalManager();
   }
   if (console_main_menu_.UserWantStatement()) {
-    // run item
+    RunStatementManager();
   }
   if (console_main_menu_.UserWantLogOut()) {
     // reset user data?
@@ -76,6 +76,8 @@ void ConsoleMainMenuPresenter::RunWithdrawalManager() {
   withdrawal_presenter.RunWithdrawalMenu();
   user_want_quit_ = withdrawal_presenter.UserWantQuit();
 }
+
+void ConsoleMainMenuPresenter::RunStatementManager() {}
 
 void ConsoleMainMenuPresenter::ResetManipulationFlags() {
   user_want_log_out_ = false;

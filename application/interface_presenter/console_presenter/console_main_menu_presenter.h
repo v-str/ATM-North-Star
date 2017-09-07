@@ -14,6 +14,7 @@ class ConsoleMainMenuPresenter {
   void RunAccountInfo();
   void RunRefillManager();
   void RunWithdrawalManager();
+  void RunStatementManager();
 
   void ResetManipulationFlags();
 
