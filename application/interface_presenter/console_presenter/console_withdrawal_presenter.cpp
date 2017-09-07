@@ -10,18 +10,8 @@ void ConsoleWithdrawalPresenter::RunWithdrawalMenu() {
 
   if (console_withdrawal_manager_.UserWantQuit()) {
     user_want_quit_ = true;
-  } else if (console_withdrawal_manager_.UserWantMainMenu()) {
-    // user want main menu
   } else {
-    if (IsSumSuitable()) {
-      if (IsPasswordCorrect()) {
-        PerformWithdrawal();
-      } else {
-        console_withdrawal_manager_.ShowIncorrectWithdrawal();
-      }
-    } else {
-      console_withdrawal_manager_.ShowIncorrectWithdrawal();
-    }
+    ProduceWithdrawalOperation();
   }
 }
 
@@ -49,4 +39,18 @@ bool ConsoleWithdrawalPresenter::IsPasswordCorrect() const {
 void ConsoleWithdrawalPresenter::PerformWithdrawal() const {
   AtmInteractor::WithdrawCash(console_withdrawal_manager_.SumOfWithdrawal());
   console_withdrawal_manager_.ShowSuccessfulWithdrawal();
+}
+
+void ConsoleWithdrawalPresenter::ProduceWithdrawalOperation() const {
+  bool is_sum_suitable = IsSumSuitable();
+
+  if (IsPasswordCorrect()) {
+    if (is_sum_suitable) {
+      PerformWithdrawal();
+    } else {
+      console_withdrawal_manager_.ShowIncorrectWithdrawal();
+    }
+  } else {
+    console_withdrawal_manager_.ShowIncorrectWithdrawal();
+  }
 }

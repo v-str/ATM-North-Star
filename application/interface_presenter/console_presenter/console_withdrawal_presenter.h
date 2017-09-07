@@ -13,6 +13,7 @@ class ConsoleWithdrawalPresenter {
   bool IsSumSuitable() const;
   bool IsPasswordCorrect() const;
   void PerformWithdrawal() const;
+  void ProduceWithdrawalOperation() const;
 
   ConsoleWithdrawalManager console_withdrawal_manager_;
 
