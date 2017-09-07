@@ -74,7 +74,6 @@ void ConsoleMainMenuPresenter::RunRefillManager() {
 void ConsoleMainMenuPresenter::RunWithdrawalManager() {
   ConsoleWithdrawalPresenter withdrawal_presenter;
   withdrawal_presenter.RunWithdrawalMenu();
-
   user_want_quit_ = withdrawal_presenter.UserWantQuit();
 }
 
