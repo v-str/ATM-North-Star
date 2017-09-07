@@ -10,7 +10,7 @@ class ConsoleWithdrawalPresenter {
   bool UserWantQuit() const;
 
  private:
-  bool IsSumOfWithdrawalCorrect() const;
+  bool IsSumSuitable() const;
   bool IsPasswordCorrect() const;
   void PerformWithdrawal() const;
 

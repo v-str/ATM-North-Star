@@ -7,7 +7,7 @@ void ConsoleWithdrawalPresenter::RunWithdrawalMenu() {
   user_want_quit_ = false;
 
   console_withdrawal_manager_.RunWithdrawalMenu();
-  if (IsSumOfWithdrawalCorrect()) {
+  if (IsSumSuitable()) {
     if (IsPasswordCorrect()) {
       PerformWithdrawal();
     } else {
@@ -24,14 +24,14 @@ bool ConsoleWithdrawalPresenter::UserWantQuit() const {
   return user_want_quit_;
 }
 
-bool ConsoleWithdrawalPresenter::IsSumOfWithdrawalCorrect() const {
-  bool correct_withdrawal_sum =
-      CashOperationValidator::IsWithdrawalCorrect(
-          console_withdrawal_manager_.SumOfWithdrawal()) &&
-      AtmInteractor::IsWithdrawalAcceptable(
-          console_withdrawal_manager_.SumOfWithdrawal());
+bool ConsoleWithdrawalPresenter::IsSumSuitable() const {
+  bool is_withdrawal_correct = CashOperationValidator::IsWithdrawalCorrect(
+      console_withdrawal_manager_.SumOfWithdrawal());
 
-  return correct_withdrawal_sum;
+  bool is_withdrawal_acceptable = AtmInteractor::IsWithdrawalAcceptable(
+      console_withdrawal_manager_.SumOfWithdrawal());
+
+  return is_withdrawal_correct && is_withdrawal_acceptable;
 }
 
 bool ConsoleWithdrawalPresenter::IsPasswordCorrect() const {
