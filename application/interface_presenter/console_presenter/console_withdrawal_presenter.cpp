@@ -9,13 +9,10 @@ void ConsoleWithdrawalPresenter::RunWithdrawalMenu() {
   console_withdrawal_manager_.RunWithdrawalMenu();
   if (IsSumOfWithdrawalCorrect()) {
     if (IsPasswordCorrect()) {
-      AtmInteractor::WithdrawCash(
-          console_withdrawal_manager_.SumOfWithdrawal());
-      console_withdrawal_manager_.ShowSuccessfulWithdrawal();
+      PerformWithdrawal();
     } else {
       // incorrect password message
     }
-
   } else if (console_withdrawal_manager_.UserWantQuit()) {
     user_want_quit_ = true;
   } else {
@@ -42,4 +39,9 @@ bool ConsoleWithdrawalPresenter::IsPasswordCorrect() const {
       console_withdrawal_manager_.GetPasswordFromUser());
 
   return is_password_correct;
+}
+
+void ConsoleWithdrawalPresenter::PerformWithdrawal() const {
+  AtmInteractor::WithdrawCash(console_withdrawal_manager_.SumOfWithdrawal());
+  console_withdrawal_manager_.ShowSuccessfulWithdrawal();
 }
