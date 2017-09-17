@@ -2,9 +2,11 @@
 
 #include <iostream>
 
+#include <linux_configurator.h>
+
 ConsoleLoginMenu::ConsoleLoginMenu() {}
 
 void ConsoleLoginMenu::RunLoginMenu() {
-  system("clear");
+  LinuxConfigurator::ClearScreen();
   std::cout << "Login menu is under construction\n";
 }
