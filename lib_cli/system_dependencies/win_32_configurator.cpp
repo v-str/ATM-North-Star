@@ -2,4 +2,6 @@
 
 #include <iostream>
 
-void Win32Configurator::ClearScreen() { system("cls"); }
+int Win32Configurator::clear_screen_value_ = 0;
+
+void Win32Configurator::ClearScreen() { clear_screen_value_ = system("cls"); }

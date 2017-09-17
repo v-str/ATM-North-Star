@@ -2,4 +2,6 @@
 
 #include <iostream>
 
-void LinuxConfigurator::ClearScreen() { system("clear"); }
+int LinuxConfigurator::clear_screen_value_ = 0;
+
+void LinuxConfigurator::ClearScreen() { clear_screen_value_ = system("clear"); }
