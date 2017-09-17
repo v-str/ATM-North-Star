@@ -1,9 +1,10 @@
-cmake_minimum_required (VERSION 3.9)
+﻿cmake_minimum_required (VERSION 3.9)
+
+set (CMAKE_CXX_STANDARD 11)
 
 set (PROJECT_NAME AtmNorthStar)
 project (${PROJECT_NAME})
 
-set (CMAKE_CXX_STANDARD 11)
 set (CMAKE_AUTOMOC ON)
 set (CMAKE_INCLUDE_CURRENT_DIR ON)
 
