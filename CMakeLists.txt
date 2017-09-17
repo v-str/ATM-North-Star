@@ -53,5 +53,3 @@ file (GLOB SOURCES "application/application_launch/*.cpp"
 add_executable (${PROJECT_NAME} ${SOURCES})
 
 target_link_libraries (${PROJECT_NAME} lib_atm_model lib_cli lib_gui)
-
-#qt5_use_modules (${PROJECT_NAME} Widgets)
