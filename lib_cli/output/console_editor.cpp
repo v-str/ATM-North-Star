@@ -4,6 +4,9 @@
 #include <iostream>
 #include <thread>
 
+#include <linux_configurator.h>
+#include <win_32_configurator.h>
+
 void ConsoleEditor::Sleep(int latency_ms) {
   std::this_thread::sleep_for(std::chrono::milliseconds(latency_ms));
 }
@@ -13,10 +16,11 @@ void ConsoleEditor::IgnoreCinLine() {
 }
 
 void ConsoleEditor::ClearScreen() {
-  int system_status = system("clear");
-  if (system_status == -1) {
-    WriteSymbolsNTimes("\n", 50);
-  }
+#ifdef WIN32
+  Win32Configurator::ClearScreen();
+#else
+  LinuxConfigurator::ClearScreen();
+#endif
 }
 
 void ConsoleEditor::WriteTextWithDelayPerSymbol(
