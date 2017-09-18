@@ -81,6 +81,7 @@ void ConsoleMainMenuPresenter::RunWithdrawalManager() {
 void ConsoleMainMenuPresenter::RunStatementManager() {
   StatementManager statement_manager;
   statement_manager.RunStatement(AtmInteractor::AmountOfCash());
+  user_want_quit_ = statement_manager.UserWantQuit();
 }
 
 void ConsoleMainMenuPresenter::ResetManipulationFlags() {
