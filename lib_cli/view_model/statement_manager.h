@@ -3,7 +3,7 @@
 
 class StatementManager {
  public:
-  void RunStatement();
+  void RunStatement(int amount_of_cash);
 
  private:
   bool user_want_quit_ = false;
