@@ -2,3 +2,5 @@
 *.clang-tidy
 *.clang-format
 *.autosave
+*.txt.user
+*.txt.user.6b547d0
