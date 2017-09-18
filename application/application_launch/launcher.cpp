@@ -5,7 +5,8 @@
 #include <QApplication>
 
 void Launcher::LaunchConsoleMode() {
-  initial_menu_ = std::unique_ptr<ConsoleInitialPresenter>(new ConsoleInitialPresenter);
+  initial_menu_ =
+      std::unique_ptr<ConsoleInitialPresenter>(new ConsoleInitialPresenter);
   initial_menu_->RunApplication();
 
   // interface_presenter_ = std::unique_ptr<BaseInterfacePresenter> (new

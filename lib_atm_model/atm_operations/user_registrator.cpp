@@ -1,9 +1,8 @@
-﻿#include "user_registrator.h"
+﻿#include <user_registrator.h>
 
 #include <atm_user.h>
 
-void UserRegistrator::RegisterUser(AtmUser* user,
-                                   const std::string& login,
+void UserRegistrator::RegisterUser(AtmUser* user, const std::string& login,
                                    const std::string& password) {
   AssignLogin(user, login);
   AssignPassword(user, password);

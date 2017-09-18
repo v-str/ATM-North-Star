@@ -5,6 +5,7 @@
 #include <console_editor.h>
 
 void StatementMessenger::ShowStatement(int cash) {
+  ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText(
       "\t##################\n"
       "\t#                #\n"

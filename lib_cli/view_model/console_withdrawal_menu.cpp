@@ -1,15 +1,15 @@
-﻿#include "console_withdrawal_manager.h"
+﻿#include <console_withdrawal_menu.h>
 
 #include <password_input_handler.h>
 #include <user_input_handler.h>
 #include <withdrawal_messenger.h>
 
-void ConsoleWithdrawalManager::RunWithdrawalMenu() {
+void ConsoleWithdrawalMenu::RunWithdrawalMenu() {
   WithdrawalMessenger::ShowWithdrawalNotification();
   ProcessUserInput();
 }
 
-std::string ConsoleWithdrawalManager::GetPasswordFromUser() const {
+std::string ConsoleWithdrawalMenu::GetPasswordFromUser() const {
   WithdrawalMessenger::RequirePasswordMessage();
   std::string password_string;
   PasswordInputHandler password_user_handler_;
@@ -18,25 +18,25 @@ std::string ConsoleWithdrawalManager::GetPasswordFromUser() const {
   return password_string;
 }
 
-int ConsoleWithdrawalManager::SumOfWithdrawal() const {
+int ConsoleWithdrawalMenu::SumOfWithdrawal() const {
   return sum_of_withdrawal_;
 }
 
-bool ConsoleWithdrawalManager::UserWantMainMenu() const {
+bool ConsoleWithdrawalMenu::UserWantMainMenu() const {
   return user_want_main_menu_;
 }
 
-bool ConsoleWithdrawalManager::UserWantQuit() const { return user_want_quit_; }
+bool ConsoleWithdrawalMenu::UserWantQuit() const { return user_want_quit_; }
 
-void ConsoleWithdrawalManager::ShowSuccessfulWithdrawal() const {
+void ConsoleWithdrawalMenu::ShowSuccessfulWithdrawal() const {
   WithdrawalMessenger::ShowSuccessfulWithdrawal();
 }
 
-void ConsoleWithdrawalManager::ShowIncorrectWithdrawal() const {
+void ConsoleWithdrawalMenu::ShowIncorrectWithdrawal() const {
   WithdrawalMessenger::IncorrectWithdrawalMessage();
 }
 
-void ConsoleWithdrawalManager::ProcessUserInput() {
+void ConsoleWithdrawalMenu::ProcessUserInput() {
   ResetManipulationFlags();
 
   UserInputHandler user_input_handler_;
@@ -45,7 +45,7 @@ void ConsoleWithdrawalManager::ProcessUserInput() {
   CheckUserInput(user_input);
 }
 
-void ConsoleWithdrawalManager::CheckUserInput(int user_input) {
+void ConsoleWithdrawalMenu::CheckUserInput(int user_input) {
   if (user_input == kMainMenu) {
     user_want_main_menu_ = true;
   } else if (user_input == kQuit) {
@@ -55,7 +55,7 @@ void ConsoleWithdrawalManager::CheckUserInput(int user_input) {
   }
 }
 
-void ConsoleWithdrawalManager::ResetManipulationFlags() {
+void ConsoleWithdrawalMenu::ResetManipulationFlags() {
   user_want_main_menu_ = false;
   user_want_quit_ = false;
 }

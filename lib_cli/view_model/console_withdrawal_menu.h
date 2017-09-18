@@ -1,9 +1,9 @@
-﻿#ifndef CONSOLE_WITHDRAWAL_MANAGER_H
-#define CONSOLE_WITHDRAWAL_MANAGER_H
+﻿#ifndef CONSOLE_WITHDRAWAL_MENU_H
+#define CONSOLE_WITHDRAWAL_MENU_H
 
 #include <string>
 
-class ConsoleWithdrawalManager {
+class ConsoleWithdrawalMenu {
  public:
   void RunWithdrawalMenu();
 
@@ -26,4 +26,4 @@ class ConsoleWithdrawalManager {
   int sum_of_withdrawal_ = 0;
 };
 
-#endif  // CONSOLE_WITHDRAWAL_MANAGER_H
+#endif  // CONSOLE_WITHDRAWAL_MENU_H

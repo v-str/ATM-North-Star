@@ -4,12 +4,12 @@
 #include <cash_operation_validator.h>
 
 void ConsoleWithdrawalPresenter::RunWithdrawalMenu() {
-  user_want_quit_ = false;
+  console_withdrawal_menu_.RunWithdrawalMenu();
 
-  console_withdrawal_manager_.RunWithdrawalMenu();
-
-  if (console_withdrawal_manager_.UserWantQuit()) {
+  if (console_withdrawal_menu_.UserWantQuit()) {
     user_want_quit_ = true;
+  } else if (console_withdrawal_menu_.UserWantMainMenu()) {
+    user_want_main_menu_ = true;
   } else {
     ProduceWithdrawalOperation();
   }
@@ -21,24 +21,24 @@ bool ConsoleWithdrawalPresenter::UserWantQuit() const {
 
 bool ConsoleWithdrawalPresenter::IsSumSuitable() const {
   bool is_withdrawal_correct = CashOperationValidator::IsWithdrawalCorrect(
-      console_withdrawal_manager_.SumOfWithdrawal());
+      console_withdrawal_menu_.SumOfWithdrawal());
 
   bool is_withdrawal_acceptable = AtmInteractor::IsWithdrawalAcceptable(
-      console_withdrawal_manager_.SumOfWithdrawal());
+      console_withdrawal_menu_.SumOfWithdrawal());
 
   return is_withdrawal_correct && is_withdrawal_acceptable;
 }
 
 bool ConsoleWithdrawalPresenter::IsPasswordCorrect() const {
   bool is_password_correct = AtmInteractor::IsPasswordCorrect(
-      console_withdrawal_manager_.GetPasswordFromUser());
+      console_withdrawal_menu_.GetPasswordFromUser());
 
   return is_password_correct;
 }
 
 void ConsoleWithdrawalPresenter::PerformWithdrawal() const {
-  AtmInteractor::WithdrawCash(console_withdrawal_manager_.SumOfWithdrawal());
-  console_withdrawal_manager_.ShowSuccessfulWithdrawal();
+  AtmInteractor::WithdrawCash(console_withdrawal_menu_.SumOfWithdrawal());
+  console_withdrawal_menu_.ShowSuccessfulWithdrawal();
 }
 
 void ConsoleWithdrawalPresenter::ProduceWithdrawalOperation() const {
@@ -48,6 +48,6 @@ void ConsoleWithdrawalPresenter::ProduceWithdrawalOperation() const {
   if (is_sum_suitable && is_password_correct) {
     PerformWithdrawal();
   } else {
-    console_withdrawal_manager_.ShowIncorrectWithdrawal();
+    console_withdrawal_menu_.ShowIncorrectWithdrawal();
   }
 }

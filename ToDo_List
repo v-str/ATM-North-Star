@@ -99,6 +99,8 @@
 41. Remade initial menu through base class of AtmFrame without back button          | + |
                                                                                     |   |
 42. Develeop repetitive class for text animation and apply it into description menu | + |
+										    |   |
+43. Solve segmentation fault problem						    | - |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
@@ -155,6 +157,8 @@
 22. Extract user input method from all menus                                        | - |
                                                                                     |   |
 23. Continue withdrawal presenter                                                   | - |
+                                                                                    |   |
+24. Solve problem related with incorrect refill menu input                          | - |
 
 
 -----------------------------------------------------------------------------------------

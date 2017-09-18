@@ -27,6 +27,8 @@ class AtmInteractor {
   static bool IsPasswordCorrect(const std::string& password_string);
   static bool IsWithdrawalAcceptable(int withdrawal_sum);
 
+  static double AmountOfCash();
+
   static void ResetData();
 
  private:
