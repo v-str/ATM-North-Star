@@ -9,7 +9,7 @@ void ConsoleWithdrawalPresenter::RunWithdrawalMenu() {
   if (console_withdrawal_menu_.UserWantQuit()) {
     user_want_quit_ = true;
   } else if (console_withdrawal_menu_.UserWantMainMenu()) {
-    user_want_main_menu = true;
+    user_want_main_menu_ = true;
   } else {
     ProduceWithdrawalOperation();
   }

@@ -17,7 +17,7 @@ class ConsoleWithdrawalPresenter {
 
   ConsoleWithdrawalMenu console_withdrawal_menu_;
 
-  bool user_want_main_menu = false;
+  bool user_want_main_menu_ = false;
   bool user_want_quit_ = false;
 };
 
