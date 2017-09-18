@@ -2,3 +2,4 @@
 *.clang-tidy
 *.clang-format
 *.autosave
+/CMakeLists.txt.user
