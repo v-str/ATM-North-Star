@@ -4,12 +4,12 @@
 #include <cash_operation_validator.h>
 
 void ConsoleWithdrawalPresenter::RunWithdrawalMenu() {
-  user_want_quit_ = false;
-
   console_withdrawal_menu_.RunWithdrawalMenu();
 
   if (console_withdrawal_menu_.UserWantQuit()) {
     user_want_quit_ = true;
+  } else if (console_withdrawal_menu_.UserWantMainMenu()) {
+    user_want_main_menu = true;
   } else {
     ProduceWithdrawalOperation();
   }
