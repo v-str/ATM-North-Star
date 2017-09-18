@@ -51,8 +51,6 @@ file (GLOB SOURCES "application/application_launch/*.cpp"
                    "application/interface_presenter/*.cpp"
                    "application/interface_presenter/console_presenter/*.cpp")
 
-file (GLOB TODO_LIST "Todo_List")
-
-add_executable (${PROJECT_NAME} ${SOURCES} ${TODO_LIST})
+add_executable (${PROJECT_NAME} ${SOURCES})
 
 target_link_libraries (${PROJECT_NAME} lib_atm_model lib_cli lib_gui)
