@@ -2,5 +2,5 @@
 *.clang-tidy
 *.clang-format
 *.autosave
-CMakeLists.txt.user
-CMakeLists.txt.user.6b547d0
+/CMakeLists.txt.user
+/CMakeLists.txt.user.6b547d0
