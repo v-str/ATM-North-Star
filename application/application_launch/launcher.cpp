@@ -4,28 +4,34 @@
 
 #include <QApplication>
 
+#include <console_initial_presenter.h>
+#include <gui_presenter.h>
+
 void Launcher::LaunchConsoleMode() {
-  initial_menu_ =
-      std::unique_ptr<ConsoleInitialPresenter>(new ConsoleInitialPresenter);
+  initial_menu_ = new ConsoleInitialPresenter;
   initial_menu_->RunApplication();
 
+  // programming by intension
   // interface_presenter_ = std::unique_ptr<BaseInterfacePresenter> (new
   // ConsolePresenter);
   // interface_presenter_->RunApplication();
+  delete initial_menu_;
 }
 
 void Launcher::LaunchGuiMode(int argc, char* argv[]) {
   QApplication application(argc, argv);
   Q_INIT_RESOURCE(atm_resources);
 
-  gui_splash_creen_ = std::unique_ptr<GUIPresenter>(new GUIPresenter);
+  gui_splash_creen_ = new GUIPresenter;
   gui_splash_creen_->RunInitialScreen();
 
   application.exec();
 
+  // programming by intension
   // interface_presenter_ = std::unique_ptr<BaseInterfacePresenter> (new
   // ConsolePresenter);
   // interface_presenter_->RunApplication();
+  delete gui_splash_creen_;
 }
 
 void Launcher::DisplayErrorReport() const {
