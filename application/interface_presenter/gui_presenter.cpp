@@ -21,8 +21,8 @@ GUIPresenter::GUIPresenter()
 
 GUIPresenter::~GUIPresenter() {
   delete splash_screen_;
-  delete main_widget_;
   delete frame_animator_;
+  delete main_widget_;
 }
 
 void GUIPresenter::RunInitialScreen() { splash_screen_->show(); }
