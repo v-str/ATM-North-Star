@@ -20,6 +20,8 @@ class StatementMessenger {
 
   static bool IsLineSpaceEven(int line_space);
 
+  static std::string GetCashString(double amount_of_cash);
+
   static const int kFilledLineLength = 20;
   static const int kEmptyLineLength = 18;
 };

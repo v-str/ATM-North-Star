@@ -1,5 +1,8 @@
 ﻿#include <statement_messenger.h>
 
+#include <iomanip>
+#include <sstream>
+
 #include <console_editor.h>
 
 void StatementMessenger::ShowStatement(double amount_of_cash) {
@@ -17,7 +20,7 @@ void StatementMessenger::ShowStatement(double amount_of_cash) {
   DrawEmptyLine();
   DrawEmptyLine();
   DrawTextLine("Balance:     ");
-  DrawTextLine(std::to_string(amount_of_cash));
+  DrawTextLine(GetCashString(amount_of_cash));
   DrawEmptyLine();
   DrawEmptyLine();
   DrawFilledLine();
@@ -77,4 +80,11 @@ void StatementMessenger::FillLine(std::string* text_line, int count_of_symbols,
 
 bool StatementMessenger::IsLineSpaceEven(int line_space) {
   return (line_space % 2) == 0;
+}
+
+std::string StatementMessenger::GetCashString(double amount_of_cash) {
+  std::stringstream conversion_stream;
+  conversion_stream << std::fixed << std::setprecision(2) << amount_of_cash;
+
+  return conversion_stream.str();
 }
