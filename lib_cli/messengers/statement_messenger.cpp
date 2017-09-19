@@ -28,3 +28,13 @@ void StatementMessenger::ShowStatement(double amount_of_cash) {
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
   ConsoleEditor::IgnoreCinLine();
 }
+
+void StatementMessenger::DrawEmptyLine() {
+  std::string empty_line = "#";
+  for (int i = 0; i < kLineLength; ++i) {
+    empty_line.append(" ");
+  }
+  empty_line.append("#");
+
+  ConsoleEditor::WriteText(empty_line);
+}
