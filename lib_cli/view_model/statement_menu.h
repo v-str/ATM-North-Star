@@ -1,7 +1,7 @@
-﻿#ifndef STATEMENT_MANAGER_H
-#define STATEMENT_MANAGER_H
+﻿#ifndef STATEMENT_MENU_H
+#define STATEMENT_MENU_H
 
-class StatementManager {
+class StatementMenu {
  public:
   void RunStatement(int amount_of_cash);
 
@@ -18,4 +18,4 @@ class StatementManager {
   bool user_want_quit_ = false;
 };
 
-#endif  // STATEMENT_MANAGER_H
+#endif  // STATEMENT_MENU_H

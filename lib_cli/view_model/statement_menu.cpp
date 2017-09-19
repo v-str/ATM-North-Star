@@ -1,20 +1,20 @@
-﻿#include <statement_manager.h>
+﻿#include <statement_menu.h>
 
 #include <statement_messenger.h>
 #include <user_input_handler.h>
 
-void StatementManager::RunStatement(int amount_of_cash) {
+void StatementMenu::RunStatement(int amount_of_cash) {
   StatementMessenger::ShowStatement(amount_of_cash);
 }
 
-bool StatementManager::UserWantQuit() const { return user_want_quit_; }
+bool StatementMenu::UserWantQuit() const { return user_want_quit_; }
 
-void StatementManager::ProcessUserInput() {
+void StatementMenu::ProcessUserInput() {
   UserInputHandler user_input_handler;
   int user_input = user_input_handler.GetDigitInputFromUser();
 }
 
-void StatementManager::CheckUserInput(int user_input) {
+void StatementMenu::CheckUserInput(int user_input) {
   ResetManipulationFlags();
 
   if (user_input == kMainMenu) {
@@ -25,7 +25,7 @@ void StatementManager::CheckUserInput(int user_input) {
   }
 }
 
-void StatementManager::ResetManipulationFlags() {
+void StatementMenu::ResetManipulationFlags() {
   user_want_main_menu_ = false;
   user_want_quit_ = false;
 }
