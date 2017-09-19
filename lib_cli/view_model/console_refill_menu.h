@@ -1,9 +1,9 @@
-﻿#ifndef CONSOLE_CASH_REFILL_MANAGER_H
-#define CONSOLE_CASH_REFILL_MANAGER_H
+﻿#ifndef CONSOLE_REFILL_MENU_H
+#define CONSOLE_REFILL_MENU_H
 
 #include <user_input_handler.h>
 
-class ConsoleCashRefillManager {
+class ConsoleRefillMenu {
  public:
   void RunRefillMenu();
   void ShowCorrectRefillingNotification() const;
@@ -27,4 +27,4 @@ class ConsoleCashRefillManager {
   int sum_of_cash_ = 0;
 };
 
-#endif  // CONSOLE_CASH_REFILL_MANAGER_H
+#endif  // CONSOLE_REFILL_MENU_H

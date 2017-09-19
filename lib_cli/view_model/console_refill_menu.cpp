@@ -1,25 +1,25 @@
-﻿#include <console_cash_refill_manager.h>
+﻿#include <console_refill_menu.h>
 
 #include <refill_messenger.h>
 
-void ConsoleCashRefillManager::RunRefillMenu() {
+void ConsoleRefillMenu::RunRefillMenu() {
   RefillMessenger::ShowRefillNotification();
   ProcessUserInput();
 }
 
-void ConsoleCashRefillManager::ShowCorrectRefillingNotification() const {
+void ConsoleRefillMenu::ShowCorrectRefillingNotification() const {
   RefillMessenger::ShowSuccessfulCashRefilling();
 }
 
-void ConsoleCashRefillManager::ShowIncorrectRefillingNotification() const {
+void ConsoleRefillMenu::ShowIncorrectRefillingNotification() const {
   RefillMessenger::ShowIncorrectRefillingMessage();
 }
 
-int ConsoleCashRefillManager::SumOfCash() const { return sum_of_cash_; }
+int ConsoleRefillMenu::SumOfCash() const { return sum_of_cash_; }
 
-bool ConsoleCashRefillManager::UserWantQuit() const { return user_want_quit_; }
+bool ConsoleRefillMenu::UserWantQuit() const { return user_want_quit_; }
 
-void ConsoleCashRefillManager::ProcessUserInput() {
+void ConsoleRefillMenu::ProcessUserInput() {
   int user_input = 0;
 
   for (;;) {
@@ -35,7 +35,7 @@ void ConsoleCashRefillManager::ProcessUserInput() {
   }
 }
 
-bool ConsoleCashRefillManager::IsUserInputCorrect(int user_input) {
+bool ConsoleRefillMenu::IsUserInputCorrect(int user_input) {
   if (user_input == kMainMenu) {
     return true;
   }
@@ -50,6 +50,6 @@ bool ConsoleCashRefillManager::IsUserInputCorrect(int user_input) {
   return false;
 }
 
-void ConsoleCashRefillManager::ResetManipulationFlags() {
+void ConsoleRefillMenu::ResetManipulationFlags() {
   user_want_quit_ = false;
 }

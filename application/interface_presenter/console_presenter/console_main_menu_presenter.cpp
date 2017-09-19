@@ -4,7 +4,7 @@
 
 #include <cash_operation_validator.h>
 #include <console_account_menu.h>
-#include <console_cash_refill_manager.h>
+#include <console_refill_menu.h>
 #include <console_withdrawal_presenter.h>
 #include <statement_manager.h>
 
@@ -59,17 +59,17 @@ void ConsoleMainMenuPresenter::RunAccountInfo() {
 }
 
 void ConsoleMainMenuPresenter::RunRefillManager() {
-  ConsoleCashRefillManager refill_manager;
-  refill_manager.RunRefillMenu();
+  ConsoleRefillMenu refill_menu;
+  refill_menu.RunRefillMenu();
 
-  if (CashOperationValidator::IsRefillingCorrect(refill_manager.SumOfCash())) {
-    AtmInteractor::RefillCash(refill_manager.SumOfCash());
-    refill_manager.ShowCorrectRefillingNotification();
+  if (CashOperationValidator::IsRefillingCorrect(refill_menu.SumOfCash())) {
+    AtmInteractor::RefillCash(refill_menu.SumOfCash());
+    refill_menu.ShowCorrectRefillingNotification();
   } else {
-    refill_manager.ShowIncorrectRefillingNotification();
+    refill_menu.ShowIncorrectRefillingNotification();
   }
 
-  user_want_quit_ = refill_manager.UserWantQuit();
+  user_want_quit_ = refill_menu.UserWantQuit();
 }
 
 void ConsoleMainMenuPresenter::RunWithdrawalManager() {
