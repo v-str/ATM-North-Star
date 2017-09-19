@@ -34,42 +34,38 @@ void StatementMessenger::DrawTextLine(const std::string& text) {
 
 void StatementMessenger::DrawFilledLine() {
   std::string filled_line = "\t";
-  for (int i = 0; i < kFilledLineLength; ++i) {
-    filled_line.append("#");
-  }
+  FillLine(&filled_line, kFilledLineLength, "#");
   filled_line.append("\n");
   ConsoleEditor::WriteText(filled_line);
 }
 
 void StatementMessenger::DrawEmptyLine() {
   std::string empty_line = "\t#";
-  for (int i = 0; i < kEmptyLineLength; ++i) {
-    empty_line.append(" ");
-  }
+  FillLine(&empty_line, kEmptyLineLength, " ");
   empty_line.append("#\n");
-
   ConsoleEditor::WriteText(empty_line);
 }
 
 void StatementMessenger::FillFirstLinePart(std::string* text_line,
                                            int free_line_space) {
-  for (int i = 0; i < free_line_space / 2; ++i) {
-    text_line->append(" ");
-  }
+  FillLine(text_line, free_line_space / 2, " ");
 }
 
 void StatementMessenger::AddTextLineRemainder(std::string* text_line,
                                               int free_line_space) {
   if (IsLineSpaceEven(free_line_space)) {
-    for (int i = 0; i < free_line_space / 2; ++i) {
-      text_line->append(" ");
-    }
+    FillLine(text_line, free_line_space / 2, " ");
   } else {
-    for (int i = 0; i < free_line_space / 2; ++i) {
-      text_line->append(" ");
-    }
+    FillLine(text_line, free_line_space / 2, " ");
   }
   text_line->append("#\n");
+}
+
+void StatementMessenger::FillLine(std::string* text_line, int count_of_symbols,
+                                  const std::string& symbol) {
+  for (int i = 0; i < count_of_symbols; ++i) {
+    text_line->append(symbol);
+  }
 }
 
 bool StatementMessenger::IsLineSpaceEven(int line_space) {

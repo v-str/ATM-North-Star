@@ -15,6 +15,9 @@ class StatementMessenger {
   static void FillFirstLinePart(std::string *text_line, int free_line_space);
   static void AddTextLineRemainder(std::string *text_line, int free_line_space);
 
+  static void FillLine(std::string *text_line, int count_of_symbols,
+                       const std::string &symbol);
+
   static bool IsLineSpaceEven(int line_space);
 
   static const int kFilledLineLength = 20;
