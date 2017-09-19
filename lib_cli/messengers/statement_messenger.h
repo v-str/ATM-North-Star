@@ -12,6 +12,8 @@ class StatementMessenger {
   static void DrawFilledLine();
   static void DrawEmptyLine();
 
+  static bool IsLineSpaceEven(int line_space);
+
   static const int kFilledLineLength = 20;
   static const int kEmptyLineLength = 18;
 };
