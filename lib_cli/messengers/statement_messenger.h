@@ -13,6 +13,7 @@ class StatementMessenger {
   static void DrawEmptyLine();
 
   static void FillFirstLinePart(std::string *text_line, int free_line_space);
+  static void AddTextLineRemainder(std::string *text_line, int free_line_space);
 
   static bool IsLineSpaceEven(int line_space);
 
