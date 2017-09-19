@@ -7,7 +7,7 @@
 
 void StatementMessenger::ShowStatement(double amount_of_cash) {
   ConsoleEditor::ClearScreen();
-
+  // simplify this
   DrawFilledLine();
   DrawEmptyLine();
   DrawEmptyLine();
