@@ -5,14 +5,14 @@
 
 #include <console_editor.h>
 
-ConsoleAccountInformer::ConsoleAccountInformer() { FillTitles(); }
+ConsoleAccountMenu::ConsoleAccountMenu() { FillTitles(); }
 
-void ConsoleAccountInformer::SetAccountInfo(
+void ConsoleAccountMenu::SetAccountInfo(
     const std::vector<std::string>& account_info) {
   account_info_ = account_info;
 }
 
-void ConsoleAccountInformer::ShowAccountInfo() {
+void ConsoleAccountMenu::ShowAccountInfo() {
   ConsoleEditor::ClearScreen();
 
   for (int i = 0; i < info_title_.size(); ++i) {
@@ -22,13 +22,13 @@ void ConsoleAccountInformer::ShowAccountInfo() {
   ProcessUserInput();
 }
 
-bool ConsoleAccountInformer::UserWantMainMenu() const {
+bool ConsoleAccountMenu::UserWantMainMenu() const {
   return user_want_to_main_menu_;
 }
 
-bool ConsoleAccountInformer::UserWantQuit() const { return user_want_to_quit_; }
+bool ConsoleAccountMenu::UserWantQuit() const { return user_want_to_quit_; }
 
-void ConsoleAccountInformer::ProcessUserInput() {
+void ConsoleAccountMenu::ProcessUserInput() {
   ResetManipulationFlags();
 
   MainMenuMessenger::ShowQuitMenu();
@@ -49,7 +49,7 @@ void ConsoleAccountInformer::ProcessUserInput() {
   }
 }
 
-void ConsoleAccountInformer::FillTitles() {
+void ConsoleAccountMenu::FillTitles() {
   info_title_.push_back(AccountMessenger::LoginText());
   info_title_.push_back(AccountMessenger::CashText());
   info_title_.push_back(AccountMessenger::CreditText());
@@ -58,7 +58,7 @@ void ConsoleAccountInformer::FillTitles() {
   info_title_.push_back(AccountMessenger::MonthlyPaymentText());
 }
 
-void ConsoleAccountInformer::ResetManipulationFlags() {
+void ConsoleAccountMenu::ResetManipulationFlags() {
   user_want_to_quit_ = false;
   user_want_to_main_menu_ = false;
 }

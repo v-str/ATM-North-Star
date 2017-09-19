@@ -52,10 +52,10 @@ void ConsoleMainMenuPresenter::PerformMenuItem() {
 }
 
 void ConsoleMainMenuPresenter::RunAccountInfo() {
-  ConsoleAccountInformer console_account_informer_;
-  console_account_informer_.SetAccountInfo(AtmInteractor::AccountInfo());
-  console_account_informer_.ShowAccountInfo();
-  user_want_quit_ = console_account_informer_.UserWantQuit();
+  ConsoleAccountMenu console_account_menu_;
+  console_account_menu_.SetAccountInfo(AtmInteractor::AccountInfo());
+  console_account_menu_.ShowAccountInfo();
+  user_want_quit_ = console_account_menu_.UserWantQuit();
 }
 
 void ConsoleMainMenuPresenter::RunRefillManager() {
