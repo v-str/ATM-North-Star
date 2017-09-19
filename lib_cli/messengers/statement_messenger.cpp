@@ -10,8 +10,14 @@ void StatementMessenger::ShowStatement(double amount_of_cash) {
   DrawEmptyLine();
   DrawEmptyLine();
   DrawEmptyLine();
-  DrawTextLine("hell");
+  DrawTextLine("Atm North Star");
   DrawEmptyLine();
+  DrawEmptyLine();
+  DrawTextLine("Green St. 28");
+  DrawEmptyLine();
+  DrawEmptyLine();
+  DrawTextLine("Balance:     ");
+  DrawTextLine(std::to_string(amount_of_cash));
   DrawEmptyLine();
   DrawEmptyLine();
   DrawFilledLine();
@@ -29,7 +35,6 @@ void StatementMessenger::DrawTextLine(const std::string& text) {
   FillFirstLinePart(&text_line, free_line_space);
   text_line += text;
   AddTextLineRemainder(&text_line, free_line_space);
-  ConsoleEditor::WriteText(text_line);
 }
 
 void StatementMessenger::DrawFilledLine() {
@@ -56,9 +61,11 @@ void StatementMessenger::AddTextLineRemainder(std::string* text_line,
   if (IsLineSpaceEven(free_line_space)) {
     FillLine(text_line, free_line_space / 2, " ");
   } else {
-    FillLine(text_line, free_line_space / 2, " ");
+    int rest_of_line = free_line_space / 2;
+    FillLine(text_line, rest_of_line, " ");
   }
   text_line->append("#\n");
+  ConsoleEditor::WriteText(*text_line);
 }
 
 void StatementMessenger::FillLine(std::string* text_line, int count_of_symbols,
