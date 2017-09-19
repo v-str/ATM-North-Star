@@ -3,9 +3,11 @@
 
 class StatementMessenger {
  public:
-  static void ShowStatement(int cash);
+  static void ShowStatement(double amount_of_cash);
 
  private:
+  static void DrawEmptyLine();
+
   static const int kLineLength = 18;
 };
 

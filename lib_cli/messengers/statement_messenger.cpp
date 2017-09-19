@@ -4,7 +4,7 @@
 
 #include <console_editor.h>
 
-void StatementMessenger::ShowStatement(int cash) {
+void StatementMessenger::ShowStatement(double amount_of_cash) {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText(
       "\t##################\n"
@@ -16,7 +16,7 @@ void StatementMessenger::ShowStatement(int cash) {
       "\t#                #\n"
       "\t# Balance:       #\n"
       "\t#  $ " +
-      std::to_string(cash) + "spaces" + "#\n" +
+      std::to_string(amount_of_cash) + "spaces" + "#\n" +
       "\t#                #\n"
       "\t#  HAVE A NICE   #\n"
       "\t#      DAY       #\n"
