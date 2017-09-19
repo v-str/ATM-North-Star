@@ -1,14 +1,14 @@
-﻿#ifndef CONSOLE_ACCOUNT_INFORMER_H
-#define CONSOLE_ACCOUNT_INFORMER_H
+﻿#ifndef CONSOLE_ACCOUNT_MENU_H
+#define CONSOLE_ACCOUNT_MENU_H
 
 #include <string>
 #include <vector>
 
 #include <user_input_handler.h>
 
-class ConsoleAccountInformer {
+class ConsoleAccountMenu {
  public:
-  ConsoleAccountInformer();
+  ConsoleAccountMenu();
 
   void SetAccountInfo(const std::vector<std::string>& account_info);
   void ShowAccountInfo();
@@ -34,4 +34,4 @@ class ConsoleAccountInformer {
   bool user_want_to_main_menu_ = false;
 };
 
-#endif  // CONSOLE_ACCOUNT_INFORMER_H
+#endif  // CONSOLE_ACCOUNT_MENU_H

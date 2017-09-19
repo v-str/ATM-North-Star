@@ -3,7 +3,7 @@
 #include <atm_interactor.h>
 
 #include <cash_operation_validator.h>
-#include <console_account_informer.h>
+#include <console_account_menu.h>
 #include <console_cash_refill_manager.h>
 #include <console_withdrawal_presenter.h>
 #include <statement_manager.h>
