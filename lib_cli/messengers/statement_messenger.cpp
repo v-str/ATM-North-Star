@@ -27,9 +27,7 @@ void StatementMessenger::DrawTextLine(const std::string& text) {
   int free_line_space = work_line_space - text.length();
   std::string text_line = "\t#";
   if (IsLineSpaceEven(free_line_space)) {
-    for (int i = 0; i < free_line_space / 2; ++i) {
-      text_line.append(" ");
-    }
+    FillFirstLinePart(&text_line, free_line_space);
     text_line += text;
     for (int i = 0; i < free_line_space / 2; ++i) {
       text_line.append(" ");
@@ -56,6 +54,13 @@ void StatementMessenger::DrawEmptyLine() {
   empty_line.append("#\n");
 
   ConsoleEditor::WriteText(empty_line);
+}
+
+void StatementMessenger::FillFirstLinePart(std::string* text_line,
+                                           int free_line_space) {
+  for (int i = 0; i < free_line_space / 2; ++i) {
+    text_line->append(" ");
+  }
 }
 
 bool StatementMessenger::IsLineSpaceEven(int line_space) {
