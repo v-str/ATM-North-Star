@@ -29,22 +29,21 @@ bool ConsoleMainMenuPresenter::UserWantQuit() const { return user_want_quit_; }
 
 void ConsoleMainMenuPresenter::PerformMenuItem() {
   if (console_main_menu_.UserWantAccountInfo()) {
-    RunAccountInfo();
+    RunAccountMenu();
   }
   if (console_main_menu_.UserWantRefill()) {
-    RunRefillManager();
+    RunRefillMenu();
   }
   if (console_main_menu_.UserWantCredit()) {
     // run item
   }
   if (console_main_menu_.UserWantWithdraw()) {
-    RunWithdrawalManager();
+    RunWithdrawalPresenter();
   }
   if (console_main_menu_.UserWantStatement()) {
-    RunStatementManager();
+    RunStatementMenu();
   }
   if (console_main_menu_.UserWantLogOut()) {
-    // reset user data?
     console_main_menu_.DisplayLogOutMessage();
     user_want_log_out_ = true;
   }
@@ -54,14 +53,14 @@ void ConsoleMainMenuPresenter::PerformMenuItem() {
   }
 }
 
-void ConsoleMainMenuPresenter::RunAccountInfo() {
+void ConsoleMainMenuPresenter::RunAccountMenu() {
   ConsoleAccountMenu console_account_menu_;
   console_account_menu_.SetAccountInfo(AtmInteractor::AccountInfo());
   console_account_menu_.ShowAccountInfo();
   user_want_quit_ = console_account_menu_.UserWantQuit();
 }
 
-void ConsoleMainMenuPresenter::RunRefillManager() {
+void ConsoleMainMenuPresenter::RunRefillMenu() {
   ConsoleRefillMenu refill_menu;
   refill_menu.RunRefillMenu();
 
@@ -75,13 +74,13 @@ void ConsoleMainMenuPresenter::RunRefillManager() {
   user_want_quit_ = refill_menu.UserWantQuit();
 }
 
-void ConsoleMainMenuPresenter::RunWithdrawalManager() {
+void ConsoleMainMenuPresenter::RunWithdrawalPresenter() {
   ConsoleWithdrawalPresenter withdrawal_presenter;
   withdrawal_presenter.RunWithdrawalMenu();
   user_want_quit_ = withdrawal_presenter.UserWantQuit();
 }
 
-void ConsoleMainMenuPresenter::RunStatementManager() {
+void ConsoleMainMenuPresenter::RunStatementMenu() {
   StatementMenu statement_menu;
   statement_menu.RunStatement(AtmInteractor::Cash());
   user_want_quit_ = statement_menu.UserWantQuit();

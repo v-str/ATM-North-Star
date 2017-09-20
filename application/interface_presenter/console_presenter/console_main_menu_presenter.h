@@ -11,10 +11,10 @@ class ConsoleMainMenuPresenter {
 
  private:
   void PerformMenuItem();
-  void RunAccountInfo();
-  void RunRefillManager();
-  void RunWithdrawalManager();
-  void RunStatementManager();
+  void RunAccountMenu();
+  void RunRefillMenu();
+  void RunWithdrawalPresenter();
+  void RunStatementMenu();
 
   void ResetManipulationFlags();
 
