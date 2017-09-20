@@ -28,7 +28,13 @@ void StatementMessenger::ShowStatement(double amount_of_cash) {
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# 1. Main menu");
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# 2. Quit\n\t");
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
-  ConsoleEditor::IgnoreCinLine();
+}
+
+void StatementMessenger::ShowIncorrectInput() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "\t# Incorrect input, please try again", 10);
+  ConsoleEditor::WriteTextWithDelayPerSymbol("...", 70);
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
 }
 
 void StatementMessenger::DrawTextLine(const std::string& text) {

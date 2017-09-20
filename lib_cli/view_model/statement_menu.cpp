@@ -5,6 +5,7 @@
 
 void StatementMenu::RunStatement(int amount_of_cash) {
   StatementMessenger::ShowStatement(amount_of_cash);
+  ProcessUserInput();
 }
 
 bool StatementMenu::UserWantQuit() const { return user_want_quit_; }
@@ -17,6 +18,7 @@ void StatementMenu::ProcessUserInput() {
     if (IsUserInputCorrect(user_input)) {
       break;
     }
+    StatementMessenger::ShowIncorrectInput();
   }
 }
 

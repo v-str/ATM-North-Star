@@ -33,9 +33,8 @@ void ConsoleAccountMenu::ProcessUserInput() {
 
   MainMenuMessenger::ShowQuitMenu();
 
-  int user_input = 0;
   for (;;) {
-    user_input = user_input_handler_.GetDigitInputFromUser();
+    int user_input = user_input_handler_.GetDigitInputFromUser();
     if (user_input == kMainMenu) {
       user_want_to_main_menu_ = true;
       break;

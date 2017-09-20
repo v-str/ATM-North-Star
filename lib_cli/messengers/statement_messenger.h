@@ -6,6 +6,7 @@
 class StatementMessenger {
  public:
   static void ShowStatement(double amount_of_cash);
+  static void ShowIncorrectInput();
 
  private:
   static void DrawTextLine(const std::string &text);
