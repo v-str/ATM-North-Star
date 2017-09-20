@@ -6,7 +6,7 @@ INCLUDE_DIRECTORIES (messengers
                      messengers/registration_messengers
                      messengers/registration_messengers/confirmation_animation
 		     output
-		     user_input_handling
+                     user_input
                      view_model
                      system_dependencies)
 
@@ -14,7 +14,7 @@ file (GLOB SOURCES "messengers/*.cpp"
                    "messengers/registration_messengers/*.cpp"
                    "messengers/registration_messengers/confirmation_animation/*.cpp"
                    "output/*.cpp"
-		   "user_input_handling/*.cpp"
+                   "user_input/*.cpp"
                    "view_model/*.cpp"
                    "system_dependencies/*.cpp")
 
