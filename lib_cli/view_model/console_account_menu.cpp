@@ -23,24 +23,17 @@ void ConsoleAccountMenu::ShowAccountInfo() {
 }
 
 bool ConsoleAccountMenu::UserWantMainMenu() const {
-  return user_want_to_main_menu_;
+  return user_want_main_menu_;
 }
 
-bool ConsoleAccountMenu::UserWantQuit() const { return user_want_to_quit_; }
+bool ConsoleAccountMenu::UserWantQuit() const { return user_want_quit_; }
 
 void ConsoleAccountMenu::ProcessUserInput() {
-  ResetManipulationFlags();
-
   MainMenuMessenger::ShowQuitMenu();
 
   for (;;) {
     int user_input = user_input_handler_.GetDigitInputFromUser();
-    if (user_input == kMainMenu) {
-      user_want_to_main_menu_ = true;
-      break;
-    }
-    if (user_input == kQuit) {
-      user_want_to_quit_ = true;
+    if (IsUserInputCorrect(user_input)) {
       break;
     }
 
@@ -58,6 +51,18 @@ void ConsoleAccountMenu::FillTitles() {
 }
 
 void ConsoleAccountMenu::ResetManipulationFlags() {
-  user_want_to_quit_ = false;
-  user_want_to_main_menu_ = false;
+  user_want_quit_ = false;
+  user_want_main_menu_ = false;
+}
+
+bool ConsoleAccountMenu::IsUserInputCorrect(int user_input) {
+  ResetManipulationFlags();
+
+  if (user_input == kMainMenu) {
+    return user_want_main_menu_ = true;
+  }
+  if (user_input == kQuit) {
+    return user_want_quit_ = true;
+  }
+  return false;
 }

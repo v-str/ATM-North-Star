@@ -20,18 +20,18 @@ class ConsoleAccountMenu {
   enum SubMenuItem { kMainMenu = 1, kQuit };
 
   void ProcessUserInput();
-
   void FillTitles();
-
   void ResetManipulationFlags();
+
+  bool IsUserInputCorrect(int user_input);
 
   std::vector<std::string> account_info_;
   std::vector<std::string> info_title_;
 
   UserInputHandler user_input_handler_;
 
-  bool user_want_to_quit_ = false;
-  bool user_want_to_main_menu_ = false;
+  bool user_want_quit_ = false;
+  bool user_want_main_menu_ = false;
 };
 
 #endif  // CONSOLE_ACCOUNT_MENU_H
