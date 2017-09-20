@@ -10,11 +10,6 @@
 void Launcher::LaunchConsoleMode() {
   initial_menu_ = new ConsoleInitialPresenter;
   initial_menu_->RunApplication();
-
-  // programming by intension
-  // interface_presenter_ = std::unique_ptr<BaseInterfacePresenter> (new
-  // ConsolePresenter);
-  // interface_presenter_->RunApplication();
   delete initial_menu_;
 }
 
@@ -26,11 +21,6 @@ void Launcher::LaunchGuiMode(int argc, char* argv[]) {
   gui_splash_creen_->RunInitialScreen();
 
   application.exec();
-
-  // programming by intension
-  // interface_presenter_ = std::unique_ptr<BaseInterfacePresenter> (new
-  // ConsolePresenter);
-  // interface_presenter_->RunApplication();
   delete gui_splash_creen_;
 }
 
