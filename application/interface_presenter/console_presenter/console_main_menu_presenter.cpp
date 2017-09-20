@@ -17,6 +17,9 @@ void ConsoleMainMenuPresenter::RunMainMenu() {
     PerformMenuItem();
 
     if (user_want_log_out_ || user_want_quit_) {
+      if (user_want_log_out_) {
+        AtmInteractor::ResetData();
+      }
       break;
     }
   }
@@ -80,7 +83,7 @@ void ConsoleMainMenuPresenter::RunWithdrawalManager() {
 
 void ConsoleMainMenuPresenter::RunStatementManager() {
   StatementMenu statement_menu;
-  statement_menu.RunStatement(AtmInteractor::AmountOfCash());
+  statement_menu.RunStatement(AtmInteractor::Cash());
   user_want_quit_ = statement_menu.UserWantQuit();
 }
 

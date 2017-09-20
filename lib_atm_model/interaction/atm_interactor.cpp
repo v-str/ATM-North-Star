@@ -52,4 +52,4 @@ bool AtmInteractor::IsWithdrawalAcceptable(int withdrawal_sum) {
   return user_.Cash() >= withdrawal_sum;
 }
 
-double AtmInteractor::AmountOfCash() { return user_.Cash(); }
+double AtmInteractor::Cash() { return user_.Cash(); }
