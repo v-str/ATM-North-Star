@@ -159,8 +159,13 @@
 23. Continue withdrawal presenter                                                   | + |
                                                                                     |   |
 24. Solve problem related with incorrect refill menu input                          | + |
-										    |   |
-24. Statement messenger: move calculations in separate class                        | - |
+										   											|   |
+25. Statement messenger: move calculations in separate class                        | - |
+										   											|   |
+26. Linux and Win configurators: rename it to more appropriate                      | - |
+										   											|   |
+27. Lead all user input handlings to the same kind				                    | - |
+
 
 
 -----------------------------------------------------------------------------------------
