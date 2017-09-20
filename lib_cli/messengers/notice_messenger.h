@@ -13,12 +13,12 @@ class NoticeMessenger {
   static void ShowSumCreditInfo();
 
  private:
-  static constexpr int kSecond = 1000;
-  static constexpr int kAccessFrame = 18;
-  static constexpr int kIncorrectDataFrame = 27;
+  static const int kSecond = 1000;
+  static const int kAccessFrame = 18;
+  static const int kIncorrectDataFrame = 27;
 
-  static constexpr int kSleep = 100;
-  static constexpr int kFrame = 45;
+  static const int kSleep = 100;
+  static const int kFrame = 45;
 };
 
 #endif  // NOTICE_MESSENGER_H

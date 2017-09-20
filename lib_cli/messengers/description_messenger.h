@@ -23,7 +23,7 @@ class DescriptionMessenger {
   static void ShowReturnMessage();
 
  private:
-  static constexpr int kSleep = 100;
+  static const int kSleep = 100;
 
   static void ShowWelcomeDemoMessage();
   static void ShowDemoAccountInfoMessage();

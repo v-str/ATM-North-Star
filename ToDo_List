@@ -100,7 +100,7 @@
                                                                                     |   |
 42. Develeop repetitive class for text animation and apply it into description menu | + |
 										    |   |
-43. Solve segmentation fault problem						    | - |
+43. Solve segmentation fault problem						    | + |
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
@@ -123,7 +123,7 @@
                                                                                     |   |
 6. Continue make registration module                                                | + |
                                                                                     |   |
-7. Delete excess code in AuthenticationMessenger (e.g. constexpr variables )        | - |
+7. Delete excess code in AuthenticationMessenger (e.g. constexpr variables )        | + |
                                                                                     |   |
 8. Check initial input screen on comand "2j" or the same                            |   |
    Why gui mode is started after that? Where is warning message?                    | + |
@@ -156,9 +156,9 @@
                                                                                     |   |
 22. Extract user input method from all menus                                        | - |
                                                                                     |   |
-23. Continue withdrawal presenter                                                   | - |
+23. Continue withdrawal presenter                                                   | + |
                                                                                     |   |
-24. Solve problem related with incorrect refill menu input                          | - |
+24. Solve problem related with incorrect refill menu input                          | + |
 										    |   |
 24. Statement messenger: move calculations in separate class                        | - |
 

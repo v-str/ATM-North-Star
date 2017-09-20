@@ -22,9 +22,9 @@ class CreditMessenger {
   static void UnavailableCreditState();
 
  private:
-  static constexpr int kHalfASecond = 500;
-  static constexpr int kSleep = 75;
-  static constexpr int kNull = 0;
+  static const int kHalfASecond = 500;
+  static const int kSleep = 75;
+  static const int kNull = 0;
 };
 
 #endif  // CREDIT_MESSANGER_H

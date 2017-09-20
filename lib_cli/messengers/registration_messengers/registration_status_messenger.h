@@ -32,9 +32,9 @@ class RegistrationStatusMessenger {
 
   static void WtiteDevidingLine();
 
-  static constexpr int kMaxLenghtOfLogin = 21;
-  static constexpr int kMaxLenghtOfPassword = 4;
-  static constexpr int kDelay = 50;
+  static const int kMaxLenghtOfLogin = 21;
+  static const int kMaxLenghtOfPassword = 4;
+  static const int kDelay = 50;
 };
 
 #endif  // REGISTRATION_STATUS_MESSENGER_H

@@ -18,8 +18,8 @@ class AccountMessenger {
  private:
   static void DisplayStrip();
 
-  static constexpr int kNTimes = 45;
-  static constexpr int kSleep = 100;
+  static const int kNTimes = 45;
+  static const int kSleep = 100;
 };
 
 #endif  // ACCOUNT_MESSENGER_H
