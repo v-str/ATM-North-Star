@@ -11,7 +11,7 @@ class StatementMenu {
   enum SubMenuItems { kMainMenu = 1, kQuit };
 
   void ProcessUserInput();
-  void CheckUserInput(int user_input);
+  bool IsUserInputCorrect(int user_input);
   void ResetManipulationFlags();
 
   bool user_want_main_menu_ = false;

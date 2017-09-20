@@ -11,18 +11,25 @@ bool StatementMenu::UserWantQuit() const { return user_want_quit_; }
 
 void StatementMenu::ProcessUserInput() {
   UserInputHandler user_input_handler;
-  int user_input = user_input_handler.GetDigitInputFromUser();
+
+  for (;;) {
+    int user_input = user_input_handler.GetDigitInputFromUser();
+    if (IsUserInputCorrect(user_input)) {
+      break;
+    }
+  }
 }
 
-void StatementMenu::CheckUserInput(int user_input) {
+bool StatementMenu::IsUserInputCorrect(int user_input) {
   ResetManipulationFlags();
 
   if (user_input == kMainMenu) {
-    user_want_main_menu_ = true;
+    return user_want_main_menu_ = true;
   }
   if (user_input == kQuit) {
-    user_want_quit_ = true;
+    return user_want_quit_ = true;
   }
+  return false;
 }
 
 void StatementMenu::ResetManipulationFlags() {
