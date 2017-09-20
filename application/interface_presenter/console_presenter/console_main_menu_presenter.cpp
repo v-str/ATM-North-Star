@@ -49,7 +49,6 @@ void ConsoleMainMenuPresenter::PerformMenuItem() {
   }
   if (console_main_menu_.UserWantQuit()) {
     user_want_quit_ = true;
-    // run item
   }
 }
 
