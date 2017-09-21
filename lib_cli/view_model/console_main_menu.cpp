@@ -29,8 +29,6 @@ bool ConsoleMainMenu::UserWantLogOut() const { return user_want_log_out_; }
 
 void ConsoleMainMenu::ProcessMenuUserInput() {
   for (;;) {
-    ResetManipulationFlags();
-
     user_input_ = user_input_handler_->GetDigitInputFromUser();
 
     if (IsUserInputContainMenuItem(user_input_)) {
@@ -52,6 +50,8 @@ void ConsoleMainMenu::ResetManipulationFlags() {
 }
 
 bool ConsoleMainMenu::IsUserInputContainMenuItem(int user_input) {
+  ResetManipulationFlags();
+
   if (user_input == kAccountInfo) {
     user_input_contain_menu_item_ = true;
     user_want_account_info_ = true;
