@@ -35,7 +35,10 @@ void ConsoleMainMenuPresenter::PerformMenuItem() {
     RunRefillMenu();
   }
   if (console_main_menu_.UserWantCredit()) {
-    // run item
+    // programming by intension
+    // ConsoleCreditPresenter console_credit_presenter;
+    // console_credit_presenter.RunCreditMenu();
+    // user_want_quit = console_credit_presenter.UserWantQuit();
   }
   if (console_main_menu_.UserWantWithdraw()) {
     RunWithdrawalPresenter();
