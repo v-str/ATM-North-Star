@@ -3,7 +3,7 @@
 
 class CreditCalculatorMessenger {
  public:
-
+  void DisplayCalculatorDescription();
 };
 
 #endif  // CREDIT_CALCULATOR_MESSENGER_H
