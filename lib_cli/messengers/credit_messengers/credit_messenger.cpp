@@ -17,3 +17,10 @@ void CreditMessenger::DisplayCreditMenu() {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteText("\t## Enter: ");
 }
+
+void CreditMessenger::ShowIncorrectInput() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "\t# Incorrect input, please try again", 10);
+  ConsoleEditor::WriteTextWithDelayPerSymbol("...", 70);
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
+}

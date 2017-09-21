@@ -4,6 +4,8 @@
 class CreditMessenger {
  public:
   static void DisplayCreditMenu();
+
+  static void ShowIncorrectInput();
 };
 
 #endif  // CREDIT_MESSANGER_H

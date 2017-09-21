@@ -23,15 +23,17 @@ void CreditMenu::ProcessUserInput() {
     UserInputHandler user_input_handler;
     int user_input = user_input_handler.GetDigitInputFromUser();
 
-    // if (IsUserInputContainMenuItem(user_input){
-    //  break;
-    // } else {
-    // CreditMessenger::ShowIncorrectInput();
-    // }
+    if (IsUserInputContainMenuItem(user_input)) {
+      break;
+    } else {
+      CreditMessenger::ShowIncorrectInput();
+    }
   }
 }
 
 bool CreditMenu::IsUserInputContainMenuItem(int user_input) {
+  ResetManipulationFlags();
+
   if (user_input == kCredit) {
     return user_want_credit_ = true;
   }
