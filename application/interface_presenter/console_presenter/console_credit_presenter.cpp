@@ -16,6 +16,8 @@ void ConsoleCreditPresenter::RunCreditMenu() {
   }
 }
 
+bool ConsoleCreditPresenter::UserWantQuit() const { return user_want_quit_; }
+
 void ConsoleCreditPresenter::PerformMenuItem() {}
 
 void ConsoleCreditPresenter::ResetManipulationFlag() {

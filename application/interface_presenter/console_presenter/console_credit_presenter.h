@@ -7,6 +7,8 @@ class ConsoleCreditPresenter {
  public:
   void RunCreditMenu();
 
+  bool UserWantQuit() const;
+
  private:
   void PerformMenuItem();
   void ResetManipulationFlag();

@@ -4,6 +4,7 @@
 
 #include <cash_operation_validator.h>
 #include <console_account_menu.h>
+#include <console_credit_presenter.h>
 #include <console_refill_menu.h>
 #include <console_withdrawal_presenter.h>
 #include <statement_menu.h>
@@ -35,10 +36,7 @@ void ConsoleMainMenuPresenter::PerformMenuItem() {
     RunRefillMenu();
   }
   if (console_main_menu_.UserWantCredit()) {
-    // programming by intension
-    // ConsoleCreditPresenter console_credit_presenter;
-    // console_credit_presenter.RunCreditMenu();
-    // user_want_quit = console_credit_presenter.UserWantQuit();
+    RunCreditMenu();
   }
   if (console_main_menu_.UserWantWithdraw()) {
     RunWithdrawalPresenter();
@@ -74,6 +72,12 @@ void ConsoleMainMenuPresenter::RunRefillMenu() {
   }
 
   user_want_quit_ = refill_menu.UserWantQuit();
+}
+
+void ConsoleMainMenuPresenter::RunCreditMenu() {
+  ConsoleCreditPresenter console_credit_presenter;
+  console_credit_presenter.RunCreditMenu();
+  user_want_quit_ = console_credit_presenter.UserWantQuit();
 }
 
 void ConsoleMainMenuPresenter::RunWithdrawalPresenter() {
