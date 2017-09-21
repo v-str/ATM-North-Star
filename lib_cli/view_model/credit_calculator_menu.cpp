@@ -1,3 +1,7 @@
 ﻿#include <credit_calculator_menu.h>
 
-void CreditCalculatorMenu::RunCreditCalculatorMenu() {}
+#include <credit_calculator_messenger.h>
+
+void CreditCalculatorMenu::RunCreditCalculatorMenu() {
+  CreditCalculatorMessenger::DisplayCalculatorDescription();
+}
