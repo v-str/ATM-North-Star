@@ -8,7 +8,12 @@ class ConsoleCreditPresenter {
   void RunCreditMenu();
 
  private:
+  void PerformMenuItem();
+  void ResetManipulationFlag();
+
   CreditMenu credit_menu_;
+
+  bool user_want_quit_ = false;
 };
 
 #endif  // CONSOLE_CREDIT_PRESENTER_H
