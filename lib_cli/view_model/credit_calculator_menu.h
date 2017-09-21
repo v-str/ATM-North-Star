@@ -11,6 +11,9 @@ class CreditCalculatorMenu {
   void RequestCreditInterestRate();
   void RequestAmountOfMonths();
 
+  template <typename T>
+  T GetUserInput();
+
   int credit_sum_;
   double credit_interest_rate_;
   int amount_of_months_;
