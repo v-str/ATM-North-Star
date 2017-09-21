@@ -3,7 +3,7 @@
 #include <credit_messenger.h>
 #include <user_input_handler.h>
 
-void CreditMenu::DisplayCreditMenu() {
+void CreditMenu::RunCreditMenu() {
   CreditMessenger::DisplayCreditMenu();
   ProcessUserInput();
 }

@@ -6,7 +6,7 @@ void ConsoleCreditPresenter::RunCreditMenu() {
   for (;;) {
     ResetManipulationFlag();
 
-    credit_menu_.DisplayCreditMenu();
+    credit_menu_.RunCreditMenu();
 
     PerformMenuItem();
 

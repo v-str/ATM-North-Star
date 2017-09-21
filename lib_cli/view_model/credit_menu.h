@@ -3,7 +3,7 @@
 
 class CreditMenu {
  public:
-  void DisplayCreditMenu();
+  void RunCreditMenu();
 
   bool IsUserWantCredit() const;
   bool IsUserWantCreditCalculator() const;
