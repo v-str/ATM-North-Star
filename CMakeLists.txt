@@ -21,6 +21,7 @@ INCLUDE_DIRECTORIES (application/application_launch
                      lib_atm_model/user_data
                      lib_cli/messengers
                      lib_cli/messengers/registration_messengers
+                     lib_cli/messengers/credit_messengers
                      lib_cli/messengers/registration_messengers/confirmation_animation
                      lib_cli/output
                      lib_cli/user_input
