@@ -11,7 +11,12 @@ class CreditMenu {
   bool IsUserWantQuit() const;
 
  private:
+  enum CreditItem { kCredit = 1, kCreditCalculator, kMainMenu, kQuit };
+
   void ProcessUserInput();
+
+  bool IsUserInputContainMenuItem(int user_input);
+
   void ResetManipulationFlags();
 
   bool user_want_credit_ = false;

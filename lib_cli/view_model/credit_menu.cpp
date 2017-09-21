@@ -23,12 +23,28 @@ void CreditMenu::ProcessUserInput() {
     UserInputHandler user_input_handler;
     int user_input = user_input_handler.GetDigitInputFromUser();
 
-    // if (contain menu item){
+    // if (IsUserInputContainMenuItem(user_input){
     //  break;
     // } else {
     // CreditMessenger::ShowIncorrectInput();
     // }
   }
+}
+
+bool CreditMenu::IsUserInputContainMenuItem(int user_input) {
+  if (user_input == kCredit) {
+    return user_want_credit_ = true;
+  }
+  if (user_input == kCreditCalculator) {
+    return user_want_credit_calculator_ = true;
+  }
+  if (user_input == kMainMenu) {
+    return user_want_main_menu_ = true;
+  }
+  if (user_input == kQuit) {
+    return user_want_quit_ = true;
+  }
+  return false;
 }
 
 void CreditMenu::ResetManipulationFlags() {
