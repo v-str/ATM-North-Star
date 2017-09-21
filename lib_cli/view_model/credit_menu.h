@@ -12,6 +12,7 @@ class CreditMenu {
 
  private:
   void ProcessUserInput();
+  void ResetManipulationFlags();
 
   bool user_want_credit_ = false;
   bool user_want_credit_calculator_ = false;
