@@ -1,6 +1,8 @@
 ﻿#ifndef CREDIT_CALCULATOR_MENU_H
 #define CREDIT_CALCULATOR_MENU_H
 
+#include <string>
+
 class CreditCalculatorMenu {
  public:
   void ShowCreditCalculatorDescription();
@@ -11,8 +13,7 @@ class CreditCalculatorMenu {
   void RequestCreditInterestRate();
   void RequestAmountOfMonths();
 
-  template <typename T>
-  T GetUserInput();
+  std::string GetUserInput();
 
   int credit_sum_;
   double credit_interest_rate_;

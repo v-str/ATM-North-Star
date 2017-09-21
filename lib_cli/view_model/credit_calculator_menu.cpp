@@ -8,22 +8,28 @@ void CreditCalculatorMenu::ShowCreditCalculatorDescription() {
 }
 
 void CreditCalculatorMenu::RunFillingCreditDatasProcess() {
-  for (;;) {
-    RequestCreditSum();
-    RequestCreditInterestRate();
-    RequestAmountOfMonths();
-  }
+  RequestCreditSum();
+  RequestCreditInterestRate();
+  RequestAmountOfMonths();
 }
 
-void CreditCalculatorMenu::RequestCreditSum() {}
+void CreditCalculatorMenu::RequestCreditSum() {
+  CreditCalculatorMessenger::DisplayCreditSumRequest();
+  credit_sum_ = std::stoi(GetUserInput());
+}
 
-void CreditCalculatorMenu::RequestCreditInterestRate() {}
+void CreditCalculatorMenu::RequestCreditInterestRate() {
+  CreditCalculatorMessenger::DisplayInterestRateRequest();
+  credit_interest_rate_ = std::stod(GetUserInput());
+}
 
-void CreditCalculatorMenu::RequestAmountOfMonths() {}
+void CreditCalculatorMenu::RequestAmountOfMonths() {
+  CreditCalculatorMessenger::DisplayAmountOfMonthRequest();
+  amount_of_months_ = std::stoi(GetUserInput());
+}
 
-template <typename T>
-T CreditCalculatorMenu::GetUserInput() {
+std::string CreditCalculatorMenu::GetUserInput() {
   UserInputHandler user_input_handler;
-  T user_input = user_input_handler.GetStringInputFromUser();
+  std::string user_input = user_input_handler.GetStringInputFromUser();
   return user_input;
 }
