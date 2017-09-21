@@ -45,6 +45,7 @@ void ConsoleMainMenu::ResetManipulationFlags() {
   user_input_contain_menu_item_ = false;
   user_want_account_info_ = false;
   user_want_refill_ = false;
+  user_want_credit_ = false;
   user_want_withdraw_ = false;
   user_want_statement_ = false;
 }
@@ -60,8 +61,9 @@ bool ConsoleMainMenu::IsUserInputContainMenuItem(int user_input) {
     user_input_contain_menu_item_ = true;
     user_want_refill_ = true;
   }
-  if (user_input == kCreditApplication) {
+  if (user_input == kCredit) {
     user_input_contain_menu_item_ = true;
+    user_want_credit_ = true;
   }
   if (user_input == kWithdrawal) {
     user_input_contain_menu_item_ = true;

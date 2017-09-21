@@ -24,7 +24,7 @@ class ConsoleMainMenu {
   enum MenuItems {
     kAccountInfo = 1,
     kRefill,
-    kCreditApplication,
+    kCredit,
     kWithdrawal,
     kStatement,
     kLogOut,

@@ -4,6 +4,7 @@
 #include <text_writer.h>
 
 void CreditMessenger::DisplayCreditMenu() {
+  ConsoleEditor::ClearScreen();
   ConsoleEditor::AddEmptyLineNTimes(2);
   ConsoleEditor::WriteText(
       "\t##############################\n"

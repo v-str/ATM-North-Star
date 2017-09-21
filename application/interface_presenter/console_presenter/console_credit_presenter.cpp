@@ -26,10 +26,10 @@ void ConsoleCreditPresenter::PerformMenuItem() {
     // run credit calculator
   }
   if (credit_menu_.IsUserWantMainMenu()) {
-    // go to main
+    user_want_main_menu_ = true;
   }
   if (credit_menu_.IsUserWantQuit()) {
-    // quit
+    user_want_quit_ = true;
   }
 }
 
