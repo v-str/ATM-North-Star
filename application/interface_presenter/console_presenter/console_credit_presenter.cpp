@@ -2,4 +2,6 @@
 
 #include <atm_interactor.h>
 
-void ConsoleCreditPresenter::RunCreditMenu() {}
+void ConsoleCreditPresenter::RunCreditMenu() {
+  credit_menu_.DisplayCreditMenu();
+}

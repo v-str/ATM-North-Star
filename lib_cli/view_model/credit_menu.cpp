@@ -1,3 +1,5 @@
 ﻿#include <credit_menu.h>
 
-void CreditMenu::DisplayCreditMenu() {}
+#include <credit_messenger.h>
+
+void CreditMenu::DisplayCreditMenu() { CreditMessenger::DisplayCreditMenu(); }

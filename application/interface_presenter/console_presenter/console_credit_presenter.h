@@ -8,7 +8,7 @@ class ConsoleCreditPresenter {
   void RunCreditMenu();
 
  private:
-  CreditMenu credit_menu;
+  CreditMenu credit_menu_;
 };
 
 #endif  // CONSOLE_CREDIT_PRESENTER_H
