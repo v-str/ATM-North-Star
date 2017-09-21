@@ -3,7 +3,7 @@
 
 class CreditCalculatorMenu {
  public:
-    void RunCreditCalculatorMenu();
+    void ShowCreditCalculatorDescription();
 };
 
 #endif  // CREDIT_CALCULATOR_MENU_H

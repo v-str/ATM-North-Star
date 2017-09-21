@@ -1,6 +1,7 @@
 ﻿#include <console_credit_presenter.h>
 
 #include <atm_interactor.h>
+#include <credit_calculator_menu.h>
 
 void ConsoleCreditPresenter::RunCreditMenu() {
   for (;;) {
@@ -24,6 +25,8 @@ void ConsoleCreditPresenter::PerformMenuItem() {
   }
   if (credit_menu_.IsUserWantCreditCalculator()) {
     // run credit calculator
+    CreditCalculatorMenu credit_calculator_menu;
+    credit_calculator_menu.ShowCreditCalculatorDescription();
   }
   if (credit_menu_.IsUserWantMainMenu()) {
     user_want_main_menu_ = true;

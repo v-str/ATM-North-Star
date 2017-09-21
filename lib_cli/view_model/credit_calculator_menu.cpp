@@ -2,6 +2,6 @@
 
 #include <credit_calculator_messenger.h>
 
-void CreditCalculatorMenu::RunCreditCalculatorMenu() {
+void CreditCalculatorMenu::ShowCreditCalculatorDescription() {
   CreditCalculatorMessenger::DisplayCalculatorDescription();
 }
