@@ -31,3 +31,17 @@ void CreditCalculatorMessenger::DisplayCalculatorDescription() {
       "\t  Press \"Enter\" to continue...");
   ConsoleEditor::IgnoreCinLine();
 }
+
+void CreditCalculatorMessenger::DisplayCreditSumRequest() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\t## Sum of credit: ");
+}
+
+void CreditCalculatorMessenger::DisplayInterestRateRequest() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\t## Interest rate: ");
+}
+
+void CreditCalculatorMessenger::DisplayAmountOfMonthRequest() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\t Credit term: ");
+}
+
+void CreditCalculatorMessenger::ClearScreen() { ConsoleEditor::ClearScreen(); }
