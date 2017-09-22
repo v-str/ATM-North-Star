@@ -1,16 +1,16 @@
-﻿#include <statement_menu.h>
+﻿#include <console_statement_menu.h>
 
 #include <statement_messenger.h>
 #include <user_input_handler.h>
 
-void StatementMenu::RunStatement(int amount_of_cash) {
+void ConsoleStatementMenu::RunStatement(int amount_of_cash) {
   StatementMessenger::ShowStatement(amount_of_cash);
   ProcessUserInput();
 }
 
-bool StatementMenu::UserWantQuit() const { return user_want_quit_; }
+bool ConsoleStatementMenu::UserWantQuit() const { return user_want_quit_; }
 
-void StatementMenu::ProcessUserInput() {
+void ConsoleStatementMenu::ProcessUserInput() {
   UserInputHandler user_input_handler;
 
   for (;;) {
@@ -22,7 +22,7 @@ void StatementMenu::ProcessUserInput() {
   }
 }
 
-bool StatementMenu::IsUserInputCorrect(int user_input) {
+bool ConsoleStatementMenu::IsUserInputCorrect(int user_input) {
   ResetManipulationFlags();
 
   if (user_input == kMainMenu) {
@@ -34,7 +34,7 @@ bool StatementMenu::IsUserInputCorrect(int user_input) {
   return false;
 }
 
-void StatementMenu::ResetManipulationFlags() {
+void ConsoleStatementMenu::ResetManipulationFlags() {
   user_want_main_menu_ = false;
   user_want_quit_ = false;
 }

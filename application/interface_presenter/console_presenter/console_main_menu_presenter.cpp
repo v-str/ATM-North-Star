@@ -6,8 +6,8 @@
 #include <console_account_menu.h>
 #include <console_credit_presenter.h>
 #include <console_refill_menu.h>
+#include <console_statement_menu.h>
 #include <console_withdrawal_presenter.h>
-#include <statement_menu.h>
 
 void ConsoleMainMenuPresenter::RunMainMenu() {
   for (;;) {
@@ -87,7 +87,7 @@ void ConsoleMainMenuPresenter::RunWithdrawalPresenter() {
 }
 
 void ConsoleMainMenuPresenter::RunStatementMenu() {
-  StatementMenu statement_menu;
+  ConsoleStatementMenu statement_menu;
   statement_menu.RunStatement(AtmInteractor::Cash());
   user_want_quit_ = statement_menu.UserWantQuit();
 }

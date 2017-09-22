@@ -2,6 +2,7 @@
 #define CONSOLE_MAIN_MENU_H
 
 #include <memory>
+#include <vector>
 
 #include <user_input_handler.h>
 
@@ -38,6 +39,8 @@ class ConsoleMainMenu {
 
   std::unique_ptr<UserInputHandler> user_input_handler_ =
       std::unique_ptr<UserInputHandler>(new UserInputHandler);
+
+  std::vector<bool> user_item_choice_;
 
   int user_input_ = 0;
 

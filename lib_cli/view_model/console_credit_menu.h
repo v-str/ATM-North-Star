@@ -1,7 +1,7 @@
-﻿#ifndef CREDIT_MENU_H
-#define CREDIT_MENU_H
+﻿#ifndef CONSOLE_CREDIT_MENU_H
+#define CONSOLE_CREDIT_MENU_H
 
-class CreditMenu {
+class ConsoleCreditMenu {
  public:
   void RunCreditMenu();
 
@@ -25,4 +25,4 @@ class CreditMenu {
   bool user_want_quit_ = false;
 };
 
-#endif  // CREDIT_MENU_H
+#endif  // CONSOLE_CREDIT_MENU_H

@@ -1,24 +1,26 @@
-﻿#include <credit_menu.h>
+﻿#include <console_credit_menu.h>
 
 #include <credit_messenger.h>
 #include <user_input_handler.h>
 
-void CreditMenu::RunCreditMenu() {
+void ConsoleCreditMenu::RunCreditMenu() {
   CreditMessenger::DisplayCreditMenu();
   ProcessUserInput();
 }
 
-bool CreditMenu::IsUserWantCredit() const { return user_want_credit_; }
+bool ConsoleCreditMenu::IsUserWantCredit() const { return user_want_credit_; }
 
-bool CreditMenu::IsUserWantCreditCalculator() const {
+bool ConsoleCreditMenu::IsUserWantCreditCalculator() const {
   return user_want_credit_calculator_;
 }
 
-bool CreditMenu::IsUserWantMainMenu() const { return user_want_main_menu_; }
+bool ConsoleCreditMenu::IsUserWantMainMenu() const {
+  return user_want_main_menu_;
+}
 
-bool CreditMenu::IsUserWantQuit() const { return user_want_quit_; }
+bool ConsoleCreditMenu::IsUserWantQuit() const { return user_want_quit_; }
 
-void CreditMenu::ProcessUserInput() {
+void ConsoleCreditMenu::ProcessUserInput() {
   for (;;) {
     UserInputHandler user_input_handler;
     int user_input = user_input_handler.GetDigitInputFromUser();
@@ -31,7 +33,7 @@ void CreditMenu::ProcessUserInput() {
   }
 }
 
-bool CreditMenu::IsUserInputContainMenuItem(int user_input) {
+bool ConsoleCreditMenu::IsUserInputContainMenuItem(int user_input) {
   ResetManipulationFlags();
 
   if (user_input == kCredit) {
@@ -49,7 +51,7 @@ bool CreditMenu::IsUserInputContainMenuItem(int user_input) {
   return false;
 }
 
-void CreditMenu::ResetManipulationFlags() {
+void ConsoleCreditMenu::ResetManipulationFlags() {
   user_want_credit_ = false;
   user_want_credit_calculator_ = false;
   user_want_main_menu_ = false;

@@ -1,7 +1,7 @@
-﻿#ifndef STATEMENT_MENU_H
-#define STATEMENT_MENU_H
+﻿#ifndef CONSOLE_STATEMENT_MENU_H
+#define CONSOLE_STATEMENT_MENU_H
 
-class StatementMenu {
+class ConsoleStatementMenu {
  public:
   void RunStatement(int amount_of_cash);
 
@@ -18,4 +18,4 @@ class StatementMenu {
   bool user_want_quit_ = false;
 };
 
-#endif  // STATEMENT_MENU_H
+#endif  // CONSOLE_STATEMENT_MENU_H
