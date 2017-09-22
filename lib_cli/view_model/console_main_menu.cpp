@@ -60,18 +60,20 @@ void ConsoleMainMenu::ProcessMenuUserInput() {
 void ConsoleMainMenu::DefineMenuItem(int user_input) {
   ResetManipulationFlags();
 
-  for (int item = kAccountInfo; item <= kQuit; ++item) {
+  int item = 0;
+  for (item = kAccountInfo; item <= kQuit; ++item) {
     if (user_input == item) {
       user_input_contain_menu_item_ = true;
-      user_item_choice_[item] = true;
       break;
-    } else {
-      user_input_contain_menu_item_ = false;
     }
+  }
+  if (user_input_contain_menu_item_) {
+    user_item_choice_[item] = true;
   }
 }
 
 void ConsoleMainMenu::ResetManipulationFlags() {
+  user_input_contain_menu_item_ = false;
   for (int i = kAccountInfo; i <= kQuit; ++i) {
     user_item_choice_[i] = false;
   }
