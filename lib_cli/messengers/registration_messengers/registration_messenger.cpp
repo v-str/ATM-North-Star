@@ -12,7 +12,7 @@ void RegistrationMessenger::ShowRegistrationLogo() {
 }
 
 void RegistrationMessenger::ShowRegistrationReference() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol(
+  ConsoleEditor::WriteText(
       "  This notice help you perform registration, please read it "
       "carefully:\n\n"
       " 1. Length of the login must be no less than 6 and\n"

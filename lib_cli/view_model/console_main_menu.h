@@ -8,6 +8,8 @@
 
 class ConsoleMainMenu {
  public:
+  ConsoleMainMenu();
+
   void RunMainMenu();
 
   void DisplayLogOutMessage() const;
@@ -33,9 +35,14 @@ class ConsoleMainMenu {
   };
 
   void ProcessMenuUserInput();
+
+  void DefineMenuItem(int user_input);
+
   void ResetManipulationFlags();
 
-  bool IsUserInputContainMenuItem(int user_input);
+  bool IsUserInputContainMenuItem() const;
+
+  void FillMenuItemsVector();
 
   std::unique_ptr<UserInputHandler> user_input_handler_ =
       std::unique_ptr<UserInputHandler>(new UserInputHandler);
@@ -43,15 +50,6 @@ class ConsoleMainMenu {
   std::vector<bool> user_item_choice_;
 
   int user_input_ = 0;
-
-  bool user_want_account_info_ = false;
-  bool user_want_refill_ = false;
-  bool user_want_withdraw_ = false;
-  bool user_want_credit_ = false;
-  bool user_want_statement_ = false;
-
-  bool user_want_quit_ = false;
-  bool user_want_log_out_ = false;
 
   bool user_input_contain_menu_item_ = false;
 };

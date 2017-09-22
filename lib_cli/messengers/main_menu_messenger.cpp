@@ -5,7 +5,7 @@
 void MainMenuMessenger::ShowMainMenu() {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::AddEmptyLineNTimes(3);
-  ConsoleEditor::WriteTextWithDelayPerSymbol(
+  ConsoleEditor::WriteText(
       "\t#################################### ATM North Star ##\n"
       "\t################### Operation menu ###################\n"
       "\t##                                                  ##\n"
@@ -19,8 +19,7 @@ void MainMenuMessenger::ShowMainMenu() {
       "\t##                                                  ##\n"
       "\t######################################################\n"
       "\t######################################################\n"
-      "\tEnter: ",
-      1);
+      "\tEnter: ");
 }
 
 void MainMenuMessenger::LogOutMessage() {

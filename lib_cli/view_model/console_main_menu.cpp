@@ -2,6 +2,12 @@
 
 #include <main_menu_messenger.h>
 
+ConsoleMainMenu::ConsoleMainMenu() {
+  for (int i = 0; i <= kQuit; ++i) {
+    user_item_choice_.push_back(false);
+  }
+}
+
 void ConsoleMainMenu::RunMainMenu() {
   MainMenuMessenger::ShowMainMenu();
   ProcessMenuUserInput();
@@ -12,26 +18,38 @@ void ConsoleMainMenu::DisplayLogOutMessage() const {
 }
 
 bool ConsoleMainMenu::UserWantAccountInfo() const {
-  return user_want_account_info_;
+  return user_item_choice_[kAccountInfo];
 }
 
-bool ConsoleMainMenu::UserWantRefill() const { return user_want_refill_; }
+bool ConsoleMainMenu::UserWantRefill() const {
+  return user_item_choice_[kRefill];
+}
 
-bool ConsoleMainMenu::UserWantCredit() const { return user_want_credit_; }
+bool ConsoleMainMenu::UserWantCredit() const {
+  return user_item_choice_[kCredit];
+}
 
-bool ConsoleMainMenu::UserWantWithdraw() const { return user_want_withdraw_; }
+bool ConsoleMainMenu::UserWantWithdraw() const {
+  return user_item_choice_[kWithdrawal];
+}
 
-bool ConsoleMainMenu::UserWantStatement() const { return user_want_statement_; }
+bool ConsoleMainMenu::UserWantStatement() const {
+  return user_item_choice_[kStatement];
+}
 
-bool ConsoleMainMenu::UserWantQuit() const { return user_want_quit_; }
+bool ConsoleMainMenu::UserWantQuit() const { return user_item_choice_[kQuit]; }
 
-bool ConsoleMainMenu::UserWantLogOut() const { return user_want_log_out_; }
+bool ConsoleMainMenu::UserWantLogOut() const {
+  return user_item_choice_[kLogOut];
+}
 
 void ConsoleMainMenu::ProcessMenuUserInput() {
   for (;;) {
     user_input_ = user_input_handler_->GetDigitInputFromUser();
 
-    if (IsUserInputContainMenuItem(user_input_)) {
+    DefineMenuItem(user_input_);
+
+    if (IsUserInputContainMenuItem()) {
       break;
     } else {
       MainMenuMessenger::ShowIncorrectInput();
@@ -39,48 +57,28 @@ void ConsoleMainMenu::ProcessMenuUserInput() {
   }
 }
 
-void ConsoleMainMenu::ResetManipulationFlags() {
-  user_want_quit_ = false;
-  user_want_log_out_ = false;
-  user_input_contain_menu_item_ = false;
-  user_want_account_info_ = false;
-  user_want_refill_ = false;
-  user_want_credit_ = false;
-  user_want_withdraw_ = false;
-  user_want_statement_ = false;
-}
-
-bool ConsoleMainMenu::IsUserInputContainMenuItem(int user_input) {
+void ConsoleMainMenu::DefineMenuItem(int user_input) {
   ResetManipulationFlags();
 
-  if (user_input == kAccountInfo) {
-    user_input_contain_menu_item_ = true;
-    user_want_account_info_ = true;
+  for (int item = kAccountInfo; item <= kQuit; ++item) {
+    if (user_input == item) {
+      user_input_contain_menu_item_ = true;
+      user_item_choice_[item] = true;
+      break;
+    } else {
+      user_input_contain_menu_item_ = false;
+    }
   }
-  if (user_input == kRefill) {
-    user_input_contain_menu_item_ = true;
-    user_want_refill_ = true;
-  }
-  if (user_input == kCredit) {
-    user_input_contain_menu_item_ = true;
-    user_want_credit_ = true;
-  }
-  if (user_input == kWithdrawal) {
-    user_input_contain_menu_item_ = true;
-    user_want_withdraw_ = true;
-  }
-  if (user_input == kStatement) {
-    user_input_contain_menu_item_ = true;
-    user_want_statement_ = true;
-  }
-  if (user_input == kLogOut) {
-    user_want_log_out_ = true;
-    user_input_contain_menu_item_ = true;
-  }
-  if (user_input == kQuit) {
-    user_want_quit_ = true;
-    user_input_contain_menu_item_ = true;
-  }
+}
 
+void ConsoleMainMenu::ResetManipulationFlags() {
+  for (int i = kAccountInfo; i <= kQuit; ++i) {
+    user_item_choice_[i] = false;
+  }
+}
+
+bool ConsoleMainMenu::IsUserInputContainMenuItem() const {
   return user_input_contain_menu_item_;
 }
+
+void ConsoleMainMenu::FillMenuItemsVector() {}

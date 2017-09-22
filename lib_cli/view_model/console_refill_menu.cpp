@@ -29,9 +29,9 @@ void ConsoleRefillMenu::ProcessUserInput() {
 
     if (IsUserInputCorrect(user_input)) {
       break;
+    } else {
+      RefillMessenger::ShowIncorrectInputMessage();
     }
-
-    RefillMessenger::ShowIncorrectInputMessage();
   }
 }
 
@@ -50,6 +50,4 @@ bool ConsoleRefillMenu::IsUserInputCorrect(int user_input) {
   return false;
 }
 
-void ConsoleRefillMenu::ResetManipulationFlags() {
-  user_want_quit_ = false;
-}
+void ConsoleRefillMenu::ResetManipulationFlags() { user_want_quit_ = false; }
