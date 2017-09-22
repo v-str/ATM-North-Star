@@ -51,3 +51,8 @@ void RefillMessenger::ShowIncorrectInputMessage() {
       "\n\t# Incorrect input, please try again...\n"
       "\t# Enter: ");
 }
+
+void RefillMessenger::ShowMainMenuQuit() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Quit to main menu...");
+  ConsoleEditor::Sleep(kSleep);
+}

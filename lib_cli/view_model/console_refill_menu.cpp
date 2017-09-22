@@ -15,7 +15,15 @@ void ConsoleRefillMenu::ShowIncorrectRefillingNotification() const {
   RefillMessenger::ShowIncorrectRefillingMessage();
 }
 
+void ConsoleRefillMenu::ShowMainMenuQuit() const {
+  RefillMessenger::ShowMainMenuQuit();
+}
+
 int ConsoleRefillMenu::SumOfCash() const { return sum_of_cash_; }
+
+bool ConsoleRefillMenu::UserWantMainMenu() const {
+  return user_want_main_menu_;
+}
 
 bool ConsoleRefillMenu::UserWantQuit() const { return user_want_quit_; }
 
@@ -37,7 +45,7 @@ void ConsoleRefillMenu::ProcessUserInput() {
 
 bool ConsoleRefillMenu::IsUserInputCorrect(int user_input) {
   if (user_input == kMainMenu) {
-    return true;
+    return user_want_main_menu_ = true;
   }
   if (user_input == kQuit) {
     return user_want_quit_ = true;
@@ -46,8 +54,10 @@ bool ConsoleRefillMenu::IsUserInputCorrect(int user_input) {
     sum_of_cash_ = user_input;
     return true;
   }
-
   return false;
 }
 
-void ConsoleRefillMenu::ResetManipulationFlags() { user_want_quit_ = false; }
+void ConsoleRefillMenu::ResetManipulationFlags() {
+  user_want_main_menu_ = false;
+  user_want_quit_ = false;
+}

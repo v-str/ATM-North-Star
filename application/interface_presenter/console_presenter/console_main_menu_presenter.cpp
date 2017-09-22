@@ -67,11 +67,13 @@ void ConsoleMainMenuPresenter::RunRefillMenu() {
   if (CashOperationValidator::IsRefillingCorrect(refill_menu.SumOfCash())) {
     AtmInteractor::RefillCash(refill_menu.SumOfCash());
     refill_menu.ShowCorrectRefillingNotification();
+  } else if (refill_menu.UserWantMainMenu()) {
+    refill_menu.ShowMainMenuQuit();
+  } else if (refill_menu.UserWantQuit()) {
+    user_want_quit_ = true;
   } else {
     refill_menu.ShowIncorrectRefillingNotification();
   }
-
-  user_want_quit_ = refill_menu.UserWantQuit();
 }
 
 void ConsoleMainMenuPresenter::RunCreditMenu() {

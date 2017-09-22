@@ -8,8 +8,10 @@ class ConsoleRefillMenu {
   void RunRefillMenu();
   void ShowCorrectRefillingNotification() const;
   void ShowIncorrectRefillingNotification() const;
+  void ShowMainMenuQuit() const;
 
   int SumOfCash() const;
+  bool UserWantMainMenu() const;
   bool UserWantQuit() const;
 
  private:
@@ -23,6 +25,7 @@ class ConsoleRefillMenu {
   UserInputHandler user_input_handler_;
 
   bool user_want_quit_ = false;
+  bool user_want_main_menu_ = false;
 
   int sum_of_cash_ = 0;
 };
