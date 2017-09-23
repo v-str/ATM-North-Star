@@ -8,6 +8,10 @@ class CreditCalculatorMenu {
   void RunCreditCalculator();
   void RequestDataForCredit();
 
+  std::string CreditSum() const;
+  std::string CreditInterestRate() const;
+  std::string AmountOfMonths() const;
+
  private:
   void RequestCreditSum();
   void RequestCreditInterestRate();

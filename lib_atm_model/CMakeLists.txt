@@ -3,6 +3,7 @@ cmake_minimum_required (VERSION 3.9)
 set (CMAKE_BUILD_TYPE Release)
 
 INCLUDE_DIRECTORIES (atm_operations
+                     credit_calculator
 		     credit_department
 		     incoming_data_handling
 		     interaction
@@ -10,6 +11,7 @@ INCLUDE_DIRECTORIES (atm_operations
 	             user_data)
 
 file (GLOB SOURCES "atm_operations/*.cpp"
+                   "credit_calculator/*.cpp"
 		   "credit_department/*.cpp"
 	           "incoming_data_handling/*.cpp"
 		   "interaction/*.cpp"

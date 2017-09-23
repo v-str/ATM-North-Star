@@ -14,6 +14,16 @@ void CreditCalculatorMenu::RequestDataForCredit() {
   RequestAmountOfMonths();
 }
 
+std::string CreditCalculatorMenu::CreditSum() const { return credit_sum_; }
+
+std::string CreditCalculatorMenu::CreditInterestRate() const {
+  return credit_interest_rate_;
+}
+
+std::string CreditCalculatorMenu::AmountOfMonths() const {
+  return amount_of_months_;
+}
+
 void CreditCalculatorMenu::RequestCreditSum() {
   CreditCalculatorMessenger::DisplayCreditSumRequest();
   credit_sum_ = GetUserInput();
