@@ -35,7 +35,6 @@ class ConsoleMainMenu {
   };
 
   void ProcessMenuUserInput();
-  void DefineMenuItem(int user_input);
   void ResetManipulationFlags();
   void ActivateMenuItem(int user_input);
 

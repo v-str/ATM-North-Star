@@ -45,23 +45,15 @@ bool ConsoleMainMenu::UserWantLogOut() const {
 
 void ConsoleMainMenu::ProcessMenuUserInput() {
   for (;;) {
+    ResetManipulationFlags();
     int user_input = user_input_handler_->GetDigitInputFromUser();
 
-    DefineMenuItem(user_input);
-
-    if (IsUserInputContainMenuItem()) {
+    if (IsUserInputValid(user_input)) {
+      ActivateMenuItem(user_input);
       break;
     } else {
       MainMenuMessenger::ShowIncorrectInput();
     }
-  }
-}
-
-void ConsoleMainMenu::DefineMenuItem(int user_input) {
-  ResetManipulationFlags();
-
-  if (IsUserInputValid(user_input)) {
-    ActivateMenuItem(user_input);
   }
 }
 
