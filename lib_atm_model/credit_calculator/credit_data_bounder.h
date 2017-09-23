@@ -1,9 +1,9 @@
-﻿#ifndef CREDIT_DATA_LIMITER_H
-#define CREDIT_DATA_LIMITER_H
+﻿#ifndef CREDIT_DATA_BOUNDER_H
+#define CREDIT_DATA_BOUNDER_H
 
-class CreditDataLimiter {
+class CreditDataBounder {
  public:
-  CreditDataLimiter();
+  CreditDataBounder();
 
   void SetCreditSumBound(int lower_credit_sum_bound,
                          int upper_credit_sum_bound);
@@ -21,4 +21,4 @@ class CreditDataLimiter {
   int upper_ampunt_of_month_bound_;
 };
 
-#endif  // CREDIT_DATA_LIMITER_H
+#endif  // CREDIT_DATA_BOUNDER_H
