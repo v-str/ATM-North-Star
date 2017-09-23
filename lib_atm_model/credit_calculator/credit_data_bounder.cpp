@@ -25,3 +25,27 @@ void CreditDataBounder::SetAmountOfMonthBound(
   lower_amount_of_month_bound_ = lower_ampunt_of_month_bound;
   upper_ampunt_of_month_bound_ = upper_ampunt_of_month_bound;
 }
+
+int CreditDataBounder::LowerCreditSum() const {
+  return lower_credit_sum_bound_;
+}
+
+int CreditDataBounder::UpperCreditSum() const {
+  return upper_credit_sum_bound_;
+}
+
+double CreditDataBounder::LowerInterestRate() const {
+  return lower_interest_rate_bound_;
+}
+
+double CreditDataBounder::UpperInterestRate() const {
+  return upper_interest_rate_bound_;
+}
+
+int CreditDataBounder::LowerAmountOfMonth() const {
+  return lower_amount_of_month_bound_;
+}
+
+int CreditDataBounder::UpperAmountOfMonth() const {
+  return upper_ampunt_of_month_bound_;
+}

@@ -12,6 +12,13 @@ class CreditDataBounder {
   void SetAmountOfMonthBound(double lower_ampunt_of_month_bound,
                              double upper_ampunt_of_month_bound);
 
+  int LowerCreditSum() const;
+  int UpperCreditSum() const;
+  double LowerInterestRate() const;
+  double UpperInterestRate() const;
+  int LowerAmountOfMonth() const;
+  int UpperAmountOfMonth() const;
+
  private:
   int lower_credit_sum_bound_;
   int upper_credit_sum_bound_;
