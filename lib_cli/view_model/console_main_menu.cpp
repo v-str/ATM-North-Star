@@ -45,9 +45,9 @@ bool ConsoleMainMenu::UserWantLogOut() const {
 
 void ConsoleMainMenu::ProcessMenuUserInput() {
   for (;;) {
-    user_input_ = user_input_handler_->GetDigitInputFromUser();
+    int user_input = user_input_handler_->GetDigitInputFromUser();
 
-    DefineMenuItem(user_input_);
+    DefineMenuItem(user_input);
 
     if (IsUserInputContainMenuItem()) {
       break;
@@ -60,27 +60,27 @@ void ConsoleMainMenu::ProcessMenuUserInput() {
 void ConsoleMainMenu::DefineMenuItem(int user_input) {
   ResetManipulationFlags();
 
-  int item = 0;
-  for (item = kAccountInfo; item <= kQuit; ++item) {
+  for (int item = kAccountInfo; item <= kQuit; ++item) {
     if (user_input == item) {
-      user_input_contain_menu_item_ = true;
+      user_item_choice_[item] = true;
       break;
     }
-  }
-  if (user_input_contain_menu_item_) {
-    user_item_choice_[item] = true;
   }
 }
 
 void ConsoleMainMenu::ResetManipulationFlags() {
-  user_input_contain_menu_item_ = false;
   for (int i = kAccountInfo; i <= kQuit; ++i) {
     user_item_choice_[i] = false;
   }
 }
 
 bool ConsoleMainMenu::IsUserInputContainMenuItem() const {
-  return user_input_contain_menu_item_;
+  for (int item = kAccountInfo; item <= kQuit; ++item) {
+    if (user_item_choice_[item] == true) {
+      return true;
+    }
+  }
+  return false;
 }
 
 void ConsoleMainMenu::FillMenuItemsVector() {}

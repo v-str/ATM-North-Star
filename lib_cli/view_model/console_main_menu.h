@@ -48,10 +48,6 @@ class ConsoleMainMenu {
       std::unique_ptr<UserInputHandler>(new UserInputHandler);
 
   std::vector<bool> user_item_choice_;
-
-  int user_input_ = 0;
-
-  bool user_input_contain_menu_item_ = false;
 };
 
 #endif  // CONSOLE_MAIN_MENU_H
