@@ -38,11 +38,11 @@ void CreditCalculatorMessenger::DisplayCreditSumRequest() {
 }
 
 void CreditCalculatorMessenger::DisplayInterestRateRequest() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\t## Interest rate: ");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\t## Interest rate, %: ");
 }
 
 void CreditCalculatorMessenger::DisplayAmountOfMonthRequest() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\t Credit term: ");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\t## Credit term: ");
 }
 
 void CreditCalculatorMessenger::ClearScreen() { ConsoleEditor::ClearScreen(); }
