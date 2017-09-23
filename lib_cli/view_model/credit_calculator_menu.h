@@ -5,7 +5,7 @@
 
 class CreditCalculatorMenu {
  public:
-  void ShowCreditCalculatorDescription();
+  void RunCreditCalculator();
   void RunFillingCreditDatasProcess();
 
  private:

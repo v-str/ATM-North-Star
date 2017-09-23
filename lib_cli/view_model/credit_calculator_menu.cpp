@@ -3,7 +3,7 @@
 #include <credit_calculator_messenger.h>
 #include <user_input_handler.h>
 
-void CreditCalculatorMenu::ShowCreditCalculatorDescription() {
+void CreditCalculatorMenu::RunCreditCalculator() {
   CreditCalculatorMessenger::DisplayCalculatorDescription();
 }
 

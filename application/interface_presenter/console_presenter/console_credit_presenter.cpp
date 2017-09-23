@@ -26,7 +26,7 @@ void ConsoleCreditPresenter::PerformMenuItem() {
   if (credit_menu_.IsUserWantCreditCalculator()) {
     // run credit calculator
     CreditCalculatorMenu credit_calculator_menu;
-    credit_calculator_menu.ShowCreditCalculatorDescription();
+    credit_calculator_menu.RunCreditCalculator();
   }
   if (credit_menu_.IsUserWantMainMenu()) {
     user_want_main_menu_ = true;
