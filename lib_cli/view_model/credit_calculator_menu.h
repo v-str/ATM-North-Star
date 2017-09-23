@@ -6,7 +6,7 @@
 class CreditCalculatorMenu {
  public:
   void RunCreditCalculator();
-  void RunFillingCreditDatasProcess();
+  void RequestDataForCredit();
 
  private:
   void RequestCreditSum();

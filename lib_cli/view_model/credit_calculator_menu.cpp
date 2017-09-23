@@ -5,9 +5,10 @@
 
 void CreditCalculatorMenu::RunCreditCalculator() {
   CreditCalculatorMessenger::DisplayCalculatorDescription();
+  RequestDataForCredit();
 }
 
-void CreditCalculatorMenu::RunFillingCreditDatasProcess() {
+void CreditCalculatorMenu::RequestDataForCredit() {
   RequestCreditSum();
   RequestCreditInterestRate();
   RequestAmountOfMonths();
