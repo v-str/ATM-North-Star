@@ -35,14 +35,12 @@ class ConsoleMainMenu {
   };
 
   void ProcessMenuUserInput();
-
   void DefineMenuItem(int user_input);
-
   void ResetManipulationFlags();
+  void ActivateMenuItem(int user_input);
 
+  bool IsUserInputValid(int user_input) const;
   bool IsUserInputContainMenuItem() const;
-
-  void FillMenuItemsVector();
 
   std::unique_ptr<UserInputHandler> user_input_handler_ =
       std::unique_ptr<UserInputHandler>(new UserInputHandler);

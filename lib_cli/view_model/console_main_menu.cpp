@@ -60,18 +60,17 @@ void ConsoleMainMenu::ProcessMenuUserInput() {
 void ConsoleMainMenu::DefineMenuItem(int user_input) {
   ResetManipulationFlags();
 
-  for (int item = kAccountInfo; item <= kQuit; ++item) {
-    if (user_input == item) {
-      user_item_choice_[item] = true;
-      break;
-    }
+  if (IsUserInputValid(user_input)) {
+    ActivateMenuItem(user_input);
   }
 }
 
 void ConsoleMainMenu::ResetManipulationFlags() {
-  for (int i = kAccountInfo; i <= kQuit; ++i) {
-    user_item_choice_[i] = false;
-  }
+  user_item_choice_.assign(user_item_choice_.size(), false);
+}
+
+void ConsoleMainMenu::ActivateMenuItem(int user_input) {
+  user_item_choice_[user_input] = true;
 }
 
 bool ConsoleMainMenu::IsUserInputContainMenuItem() const {
@@ -83,4 +82,9 @@ bool ConsoleMainMenu::IsUserInputContainMenuItem() const {
   return false;
 }
 
-void ConsoleMainMenu::FillMenuItemsVector() {}
+bool ConsoleMainMenu::IsUserInputValid(int user_input) const {
+  if (user_input >= kAccountInfo && user_input <= kQuit) {
+    return true;
+  }
+  return false;
+}
