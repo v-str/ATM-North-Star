@@ -5,8 +5,8 @@
 
 class CalculatorDataTransformer {
  public:
-  int TransformIntegerData(const std::string& data);
-  double TransformFractionalData(const std::string& data);
+  static int TransformIntegerData(const std::string& data);
+  static double TransformFractionalData(const std::string& data);
 
  private:
   static constexpr int kInvalidIntegerValue = -1;

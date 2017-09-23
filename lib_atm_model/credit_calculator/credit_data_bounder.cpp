@@ -14,7 +14,7 @@ void CreditDataBounder::SetCreditSumBound(int lower_credit_sum_bound,
   upper_credit_sum_bound_ = upper_credit_sum_bound;
 }
 
-void CreditDataBounder::SetIntersetRateBound(double lower_interest_rate_bound,
+void CreditDataBounder::SetInterestRateBound(double lower_interest_rate_bound,
                                              double upper_interest_rate_bound) {
   lower_interest_rate_bound_ = lower_interest_rate_bound;
   upper_interest_rate_bound_ = upper_interest_rate_bound;

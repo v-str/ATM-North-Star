@@ -3,7 +3,6 @@
 
 #include <string>
 
-#include <calculator_data_transformer.h>
 #include <credit_data_bounder.h>
 
 class CalculatorDataHandler {
@@ -12,12 +11,15 @@ class CalculatorDataHandler {
              const std::string& credit_interest_rate,
              const std::string& amount_of_credit_months);
 
+  bool IsCreditDataValid() const;
+  bool IsCreditInterestRateValid() const;
+  bool IsAmountOfCreditValid() const;
+
  private:
-  CalculatorDataTransformer calculator_data_transformer_;
   CreditDataBounder credit_data_bounder_;
 
   int credit_sum_;
-  double interest_rate_;
+  double credit_interest_rate_;
   int amount_of_credit_months_;
 };
 

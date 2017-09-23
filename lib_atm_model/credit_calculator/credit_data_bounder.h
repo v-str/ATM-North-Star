@@ -7,7 +7,7 @@ class CreditDataBounder {
 
   void SetCreditSumBound(int lower_credit_sum_bound,
                          int upper_credit_sum_bound);
-  void SetIntersetRateBound(double lower_interest_rate_bound,
+  void SetInterestRateBound(double lower_interest_rate_bound,
                             double upper_interest_rate_bound);
   void SetAmountOfMonthBound(double lower_ampunt_of_month_bound,
                              double upper_ampunt_of_month_bound);
