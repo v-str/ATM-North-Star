@@ -30,6 +30,7 @@ void CreditCalculatorMessenger::DisplayCalculatorDescription() {
       "\t############################################################\n\n"
       "\t  Press \"Enter\" to continue...");
   ConsoleEditor::IgnoreCinLine();
+  ConsoleEditor::ClearScreen();
 }
 
 void CreditCalculatorMessenger::DisplayCreditSumRequest() {

@@ -15,9 +15,9 @@ class CreditCalculatorMenu {
 
   std::string GetUserInput();
 
-  int credit_sum_;
-  double credit_interest_rate_;
-  int amount_of_months_;
+  std::string credit_sum_;
+  std::string credit_interest_rate_;
+  std::string amount_of_months_;
 };
 
 #endif  // CREDIT_CALCULATOR_MENU_H
