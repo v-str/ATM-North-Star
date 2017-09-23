@@ -14,6 +14,7 @@ INCLUDE_DIRECTORIES (application/application_launch
                      application/interface_presenter
                      application/interface_presenter/console_presenter
                      lib_atm_model/atm_operations
+                     lib_atm_model/credit_calculator
                      lib_atm_model/credit_department
                      lib_atm_model/incoming_data_handling
                      lib_atm_model/interaction
