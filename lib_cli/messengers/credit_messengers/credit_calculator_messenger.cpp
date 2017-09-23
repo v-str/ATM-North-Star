@@ -23,7 +23,7 @@ void CreditCalculatorMessenger::DisplayCalculatorDescription() {
       "\t## Notification:                                          ##\n"
       "\t## Credit calculator shows annuity payments.              ##\n"
       "\t## Credit sum must be from $10000 to $500000.             ##\n"
-      "\t## Credit percent rate must be from 5% to 50% per year    ##\n"
+      "\t## Credit interest rate must be from 5% to 50% per year   ##\n"
       "\t##  from initial sum of credit.                           ##\n"
       "\t## Credit term must be from 1 month to 60 months.         ##\n"
       "\t##                                                        ##\n"
