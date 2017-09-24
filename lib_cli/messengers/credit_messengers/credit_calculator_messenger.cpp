@@ -3,8 +3,27 @@
 #include <console_editor.h>
 
 void CreditCalculatorMessenger::DisplayCalculatorDescription() {
-  ConsoleEditor::ClearScreen();
+  DisplayCorrectInputOrder();
+  DisplayNotification();
+  DisplayLogo();
+}
 
+void CreditCalculatorMessenger::DisplayCreditSumRequest() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\t## Sum of credit, ($): ");
+}
+
+void CreditCalculatorMessenger::DisplayInterestRateRequest() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\t## Interest rate, (%): ");
+}
+
+void CreditCalculatorMessenger::DisplayAmountOfMonthRequest() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\t## Credit term, (months): ");
+}
+
+void CreditCalculatorMessenger::ClearScreen() { ConsoleEditor::ClearScreen(); }
+
+void CreditCalculatorMessenger::DisplayCorrectInputOrder() {
+  ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText(
       "\t############################################################\n"
       "\t##                                                        ##\n"
@@ -17,7 +36,12 @@ void CreditCalculatorMessenger::DisplayCalculatorDescription() {
       "\t##     3. Credit term in months                           ##\n"
       "\t##                                                        ##\n"
       "\t##                                                        ##\n"
-      "\t############################################################\n\n"
+      "\t############################################################\n\n");
+  ConsoleEditor::Sleep(500);
+}
+
+void CreditCalculatorMessenger::DisplayNotification() {
+  ConsoleEditor::WriteText(
       "\t############################################################\n"
       "\t##                                                        ##\n"
       "\t## Notification:                                          ##\n"
@@ -29,20 +53,15 @@ void CreditCalculatorMessenger::DisplayCalculatorDescription() {
       "\t##                                                        ##\n"
       "\t############################################################\n\n"
       "\t  Press \"Enter\" to continue...");
+}
+
+void CreditCalculatorMessenger::DisplayLogo() {
   ConsoleEditor::IgnoreCinLine();
   ConsoleEditor::ClearScreen();
+  ConsoleEditor::WriteText(
+      "\t############################################################\n"
+      "\t#                                                          #\n"
+      "\t#                    Credit Calculator                     #\n"
+      "\t#                                                          #\n"
+      "\t############################################################\n\n");
 }
-
-void CreditCalculatorMessenger::DisplayCreditSumRequest() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\t## Sum of credit: ");
-}
-
-void CreditCalculatorMessenger::DisplayInterestRateRequest() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\t## Interest rate, %: ");
-}
-
-void CreditCalculatorMessenger::DisplayAmountOfMonthRequest() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\t## Credit term: ");
-}
-
-void CreditCalculatorMessenger::ClearScreen() { ConsoleEditor::ClearScreen(); }

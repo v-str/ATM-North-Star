@@ -9,6 +9,11 @@ class CreditCalculatorMessenger {
   static void DisplayAmountOfMonthRequest();
 
   static void ClearScreen();
+
+ private:
+  static void DisplayCorrectInputOrder();
+  static void DisplayNotification();
+  static void DisplayLogo();
 };
 
 #endif  // CREDIT_CALCULATOR_MESSENGER_H
