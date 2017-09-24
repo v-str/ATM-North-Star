@@ -3,6 +3,7 @@
 
 #include <calculator_data_handler.h>
 #include <console_credit_menu.h>
+#include <credit_calculator_menu.h>
 
 class ConsoleCreditPresenter {
  public:
@@ -16,6 +17,7 @@ class ConsoleCreditPresenter {
   void ResetManipulationFlag();
 
   ConsoleCreditMenu credit_menu_;
+  CreditCalculatorMenu credit_calculator_menu_;
   CalculatorDataHandler calculator_data_handler_;
 
   bool user_want_quit_ = false;

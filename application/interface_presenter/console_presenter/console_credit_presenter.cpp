@@ -1,7 +1,6 @@
 ﻿#include <console_credit_presenter.h>
 
 #include <atm_interactor.h>
-#include <credit_calculator_menu.h>
 
 void ConsoleCreditPresenter::RunCreditMenu() {
   for (;;) {
@@ -35,12 +34,12 @@ void ConsoleCreditPresenter::PerformMenuItem() {
 }
 
 void ConsoleCreditPresenter::RunCreditCalculator() {
-  CreditCalculatorMenu credit_calculator_menu;
-  credit_calculator_menu.RunCreditCalculator();
+  credit_calculator_menu_.RunCreditCalculator();
+
   calculator_data_handler_.HandleData(
-      credit_calculator_menu.CreditSum(),
-      credit_calculator_menu.CreditInterestRate(),
-      credit_calculator_menu.AmountOfMonths());
+      credit_calculator_menu_.CreditSum(),
+      credit_calculator_menu_.CreditInterestRate(),
+      credit_calculator_menu_.AmountOfMonths());
 }
 
 void ConsoleCreditPresenter::ResetManipulationFlag() {
