@@ -2,14 +2,11 @@
 
 #include <calculator_data_transformer.h>
 
-CalculatorDataHandler::HandleData(const std::string &credit_sum,
-                                  const std::string &credit_interest_rate,
-                                  const std::string &amount_of_credit_months) {
-  credit_sum_ = CalculatorDataTransformer::TransformIntegerData(credit_sum);
-  credit_interest_rate_ =
-      CalculatorDataTransformer::TransformFractionalData(credit_interest_rate);
-  amount_of_credit_months_ =
-      CalculatorDataTransformer::TransformIntegerData(amount_of_credit_months);
+CalculatorDataHandler::HandleData(int credit_sum, double credit_interest_rate,
+                                  int amount_of_credit_months) {
+  credit_sum_ = credit_sum;
+  credit_interest_rate_ = credit_interest_rate;
+  amount_of_credit_months_ = amount_of_credit_months;
 }
 
 bool CalculatorDataHandler::IsCreditDataValid() const {
@@ -34,4 +31,14 @@ bool CalculatorDataHandler::IsAmountOfCreditValid() const {
     return true;
   }
   return false;
+}
+
+int CalculatorDataHandler::CreditSum() const { return credit_sum_; }
+
+double CalculatorDataHandler::InterestRate() const {
+  return credit_interest_rate_;
+}
+
+int CalculatorDataHandler::AmountOfMonth() const {
+  return amount_of_credit_months_;
 }

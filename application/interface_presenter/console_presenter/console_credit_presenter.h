@@ -13,8 +13,13 @@ class ConsoleCreditPresenter {
 
  private:
   void PerformMenuItem();
+
   void RunCreditCalculator();
+  void HandleCreditData();
+
   void ResetManipulationFlag();
+
+  bool IsCreditDataOk() const;
 
   ConsoleCreditMenu credit_menu_;
   CreditCalculatorMenu credit_calculator_menu_;
