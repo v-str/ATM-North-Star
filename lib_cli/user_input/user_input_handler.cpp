@@ -52,22 +52,26 @@ int UserInputHandler::GetDigitsFromString() {
 }
 
 bool UserInputHandler::IsConvertableToDouble() {
+  bool is_convertable = false;
   int dot_count = 0;
   for (unsigned int i = 0; i < user_string_.size(); ++i) {
-    if (user_string_[i] == '.') {
-      dot_count++;
+    if (!isdigit(user_string_[i])) {
+      if (user_string_[i] == '.') {
+        dot_count++;
+      } else if (user_string_[i] == ',') {
+        user_string_.replace(i, 1, ".");
+        dot_count++;
+      } else {
+        is_convertable = false;
+      }
     }
-    if (user_string_[i] == ',') {
-      user_string_.replace(i, 1, ".");
-      dot_count++;
-    }
   }
-  if (dot_count > 1) {
-    return false;
+
+  if (dot_count == 1) {
+    is_convertable = true;
   }
-  if (dot_count <= 1) {
-    return true;
-  }
+
+  return is_convertable;
 }
 
 double UserInputHandler::GetDoubleDigitsFromString() {
