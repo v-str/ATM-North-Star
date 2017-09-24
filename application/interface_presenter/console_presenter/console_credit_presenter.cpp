@@ -24,9 +24,7 @@ void ConsoleCreditPresenter::PerformMenuItem() {
     // run credit menu
   }
   if (credit_menu_.IsUserWantCreditCalculator()) {
-    // run credit calculator
-    CreditCalculatorMenu credit_calculator_menu;
-    credit_calculator_menu.RunCreditCalculator();
+    RunCreditCalculator();
   }
   if (credit_menu_.IsUserWantMainMenu()) {
     user_want_main_menu_ = true;
@@ -36,6 +34,16 @@ void ConsoleCreditPresenter::PerformMenuItem() {
   }
 }
 
+void ConsoleCreditPresenter::RunCreditCalculator() {
+  CreditCalculatorMenu credit_calculator_menu;
+  credit_calculator_menu.RunCreditCalculator();
+  calculator_data_handler_.HandleData(
+      credit_calculator_menu.CreditSum(),
+      credit_calculator_menu.CreditInterestRate(),
+      credit_calculator_menu.AmountOfMonths());
+}
+
 void ConsoleCreditPresenter::ResetManipulationFlag() {
   user_want_quit_ = false;
+  user_want_main_menu_ = false;
 }
