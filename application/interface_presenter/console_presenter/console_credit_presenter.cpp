@@ -2,10 +2,6 @@
 
 #include <atm_interactor.h>
 
-#include <console_editor.h>
-
-#include <iostream>
-
 void ConsoleCreditPresenter::RunCreditMenu() {
   for (;;) {
     ResetManipulationFlag();
@@ -43,33 +39,9 @@ void ConsoleCreditPresenter::RunCreditCalculator() {
   HandleCreditData();
 
   if (IsCreditDataOk()) {
-    ConsoleEditor::WriteText("\nCREDIT DATA OK\n\n");
-
-    std::cout << "Credit sum: " << std::boolalpha
-              << calculator_data_handler_.IsCreditDataValid() << " "
-              << calculator_data_handler_.CreditSum() << "\n"
-              << "Interest rate: " << std::boolalpha
-              << calculator_data_handler_.IsCreditInterestRateValid() << " "
-              << calculator_data_handler_.InterestRate() << "\n"
-              << "Amount of months: " << std::boolalpha
-              << calculator_data_handler_.IsAmountOfCreditValid() << " "
-              << calculator_data_handler_.AmountOfMonth() << "\n\n";
-
-    ConsoleEditor::IgnoreCinLine();
+    // Calculate credit
   } else {
-    ConsoleEditor::WriteText("\n\nERROR CREDIT DATA\n\n");
-
-    std::cout << "Credit sum: " << std::boolalpha
-              << calculator_data_handler_.IsCreditDataValid() << " "
-              << calculator_data_handler_.CreditSum() << "\n"
-              << "Interest rate: " << std::boolalpha
-              << calculator_data_handler_.IsCreditInterestRateValid() << " "
-              << calculator_data_handler_.InterestRate() << "\n"
-              << "Amount of months: " << std::boolalpha
-              << calculator_data_handler_.IsAmountOfCreditValid() << " "
-              << calculator_data_handler_.AmountOfMonth() << "\n\n";
-
-    ConsoleEditor::IgnoreCinLine();
+    // Inform about incorrect input data
   }
 }
 
