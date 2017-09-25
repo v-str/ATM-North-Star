@@ -5,8 +5,9 @@
 
 class CalculatorDataHandler {
  public:
-  HandleData(int credit_sum, double credit_interest_rate,
-             int amount_of_credit_months);
+  void HandleData(int credit_sum,
+                  double credit_interest_rate,
+                  int amount_of_credit_months);
 
   bool IsCreditDataValid() const;
   bool IsCreditInterestRateValid() const;

@@ -2,8 +2,9 @@
 
 #include <calculator_data_transformer.h>
 
-CalculatorDataHandler::HandleData(int credit_sum, double credit_interest_rate,
-                                  int amount_of_credit_months) {
+void CalculatorDataHandler::HandleData(int credit_sum,
+                                       double credit_interest_rate,
+                                       int amount_of_credit_months) {
   credit_sum_ = credit_sum;
   credit_interest_rate_ = credit_interest_rate;
   amount_of_credit_months_ = amount_of_credit_months;
