@@ -41,7 +41,9 @@ void ConsoleCreditPresenter::RunCreditCalculator() {
   if (IsCreditDataOk()) {
     // Calculate credit
   } else {
-    // Inform about incorrect input data
+    // Get error message from atm core like a
+    // credit_calculator_menu.ShowIncorrectInputDataMessage(
+    // calculator_data_handler_.GetErrorString);
   }
 }
 
