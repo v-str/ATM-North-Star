@@ -52,27 +52,35 @@ int UserInputHandler::GetDigitsFromString() {
 }
 
 bool UserInputHandler::IsConvertableToDouble() {
-  bool is_convertable = false;
-  int dot_count = 0;
-  for (unsigned int i = 0; i < user_string_.size(); ++i) {
-    if (!isdigit(user_string_[i])) {
-      if (user_string_[i] == '.') {
-        dot_count++;
-      } else if (user_string_[i] == ',') {
-        user_string_.replace(i, 1, ".");
-        dot_count++;
-      } else {
-        is_convertable = false;
-      }
-    }
-  }
+  bool is_convertable = true;
 
-  if (dot_count == 1) {
-    is_convertable = true;
+  for (unsigned int i = 0; i < user_string_.size(); ++i) {
+    if (!IsStringCorrect(i)) {
+      is_convertable = false;
+    }
   }
 
   return is_convertable;
 }
+
+bool UserInputHandler::IsStringCorrect(int index) {
+  if (IsComma(index)) {
+    user_string_.replace(index, 1, ".");
+  }
+
+  if (!isdigit(user_string_[index])) {
+    if (!IsDot(index)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+bool UserInputHandler::IsDot(int index) { return user_string_[index] == '.'; }
+
+bool UserInputHandler::IsComma(int index) { return user_string_[index] == ','; }
+
+void UserInputHandler::SubstituteCommaByDot() {}
 
 double UserInputHandler::GetDoubleDigitsFromString() {
   if (user_string_.length() > kMaximalStringLength) {

@@ -4,7 +4,7 @@ CreditDataBounder::CreditDataBounder()
     : lower_credit_sum_bound_(10000),
       upper_credit_sum_bound_(500000),
       lower_interest_rate_bound_(5.0),
-      upper_interest_rate_bound_(60.0),
+      upper_interest_rate_bound_(50.0),
       lower_amount_of_month_bound_(1),
       upper_ampunt_of_month_bound_(60) {}
 
