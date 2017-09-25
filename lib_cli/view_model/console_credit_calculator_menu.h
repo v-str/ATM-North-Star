@@ -1,9 +1,9 @@
-﻿#ifndef CREDIT_CALCULATOR_MENU_H
-#define CREDIT_CALCULATOR_MENU_H
+﻿#ifndef CONSOLE_CREDIT_CALCULATOR_MENU_H
+#define CONSOLE_CREDIT_CALCULATOR_MENU_H
 
 #include <user_input_handler.h>
 
-class CreditCalculatorMenu {
+class ConsoleCreditCalculatorMenu {
  public:
   void RunCreditCalculator();
   void RequestDataForCredit();
@@ -24,4 +24,4 @@ class CreditCalculatorMenu {
   int amount_of_months_;
 };
 
-#endif  // CREDIT_CALCULATOR_MENU_H
+#endif  // CONSOLE_CREDIT_CALCULATOR_MENU_H

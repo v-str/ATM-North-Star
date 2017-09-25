@@ -1,37 +1,39 @@
-﻿#include <credit_calculator_menu.h>
+﻿#include <console_credit_calculator_menu.h>
 
 #include <credit_calculator_messenger.h>
 
-void CreditCalculatorMenu::RunCreditCalculator() {
+void ConsoleCreditCalculatorMenu::RunCreditCalculator() {
   CreditCalculatorMessenger::DisplayCalculatorDescription();
   RequestDataForCredit();
 }
 
-void CreditCalculatorMenu::RequestDataForCredit() {
+void ConsoleCreditCalculatorMenu::RequestDataForCredit() {
   RequestCreditSum();
   RequestCreditInterestRate();
   RequestAmountOfMonths();
 }
 
-int CreditCalculatorMenu::CreditSum() const { return credit_sum_; }
+int ConsoleCreditCalculatorMenu::CreditSum() const { return credit_sum_; }
 
-double CreditCalculatorMenu::CreditInterestRate() const {
+double ConsoleCreditCalculatorMenu::CreditInterestRate() const {
   return credit_interest_rate_;
 }
 
-int CreditCalculatorMenu::AmountOfMonths() const { return amount_of_months_; }
+int ConsoleCreditCalculatorMenu::AmountOfMonths() const {
+  return amount_of_months_;
+}
 
-void CreditCalculatorMenu::RequestCreditSum() {
+void ConsoleCreditCalculatorMenu::RequestCreditSum() {
   CreditCalculatorMessenger::DisplayCreditSumRequest();
   credit_sum_ = user_input_handler_.GetDigitInputFromUser();
 }
 
-void CreditCalculatorMenu::RequestCreditInterestRate() {
+void ConsoleCreditCalculatorMenu::RequestCreditInterestRate() {
   CreditCalculatorMessenger::DisplayInterestRateRequest();
   credit_interest_rate_ = user_input_handler_.GetDoubleDigitFromUser();
 }
 
-void CreditCalculatorMenu::RequestAmountOfMonths() {
+void ConsoleCreditCalculatorMenu::RequestAmountOfMonths() {
   CreditCalculatorMessenger::DisplayAmountOfMonthRequest();
   amount_of_months_ = user_input_handler_.GetDigitInputFromUser();
 }

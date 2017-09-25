@@ -2,8 +2,8 @@
 #define CONSOLE_CREDIT_PRESENTER_H
 
 #include <calculator_data_handler.h>
+#include <console_credit_calculator_menu.h>
 #include <console_credit_menu.h>
-#include <credit_calculator_menu.h>
 
 class ConsoleCreditPresenter {
  public:
@@ -20,7 +20,7 @@ class ConsoleCreditPresenter {
   bool IsCreditDataOk() const;
 
   ConsoleCreditMenu credit_menu_;
-  CreditCalculatorMenu credit_calculator_menu_;
+  ConsoleCreditCalculatorMenu credit_calculator_menu_;
   CalculatorDataHandler calculator_data_handler_;
 
   bool user_want_quit_ = false;
