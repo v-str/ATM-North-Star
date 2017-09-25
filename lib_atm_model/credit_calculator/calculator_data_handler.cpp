@@ -12,7 +12,7 @@ void CalculatorDataHandler::HandleData(int credit_sum,
   is_amount_of_credit_months_ok = IsAmountOfCreditValid();
 }
 
-bool CalculatorDataHandler::IsCreditDataOk() const {
+bool CalculatorDataHandler::IsCalculationDataValid() const {
   if (is_credit_ok_ && is_interest_rate_ok_ && is_amount_of_credit_months_ok) {
     return true;
   }

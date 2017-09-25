@@ -34,31 +34,10 @@ void ConsoleCreditPresenter::PerformMenuItem() {
 }
 
 void ConsoleCreditPresenter::RunCreditCalculator() {
-  credit_calculator_menu_.RunCreditCalculator();
-
-  HandleCreditData();
-
-  if (IsCreditDataOk()) {
-    // Calculate credit
-  } else {
-    // Get error message from atm core like a
-    // credit_calculator_menu.ShowIncorrectInputDataMessage(
-    // calculator_data_handler_.GetErrorString);
-  }
-}
-
-void ConsoleCreditPresenter::HandleCreditData() {
-  calculator_data_handler_.HandleData(
-      credit_calculator_menu_.CreditSum(),
-      credit_calculator_menu_.CreditInterestRate(),
-      credit_calculator_menu_.AmountOfMonths());
+  console_credit_calculator_presenter_.RunCreditCalculator();
 }
 
 void ConsoleCreditPresenter::ResetManipulationFlag() {
   user_want_quit_ = false;
   user_want_main_menu_ = false;
-}
-
-bool ConsoleCreditPresenter::IsCreditDataOk() const {
-  return calculator_data_handler_.IsCreditDataOk();
 }

@@ -1,8 +1,7 @@
 ﻿#ifndef CONSOLE_CREDIT_PRESENTER_H
 #define CONSOLE_CREDIT_PRESENTER_H
 
-#include <calculator_data_handler.h>
-#include <console_credit_calculator_menu.h>
+#include <console_credit_calculator_presenter.h>
 #include <console_credit_menu.h>
 
 class ConsoleCreditPresenter {
@@ -14,14 +13,10 @@ class ConsoleCreditPresenter {
  private:
   void PerformMenuItem();
   void RunCreditCalculator();
-  void HandleCreditData();
   void ResetManipulationFlag();
 
-  bool IsCreditDataOk() const;
-
+  ConsoleCreditCalculatorPresenter console_credit_calculator_presenter_;
   ConsoleCreditMenu credit_menu_;
-  ConsoleCreditCalculatorMenu credit_calculator_menu_;
-  CalculatorDataHandler calculator_data_handler_;
 
   bool user_want_quit_ = false;
   bool user_want_main_menu_ = false;
