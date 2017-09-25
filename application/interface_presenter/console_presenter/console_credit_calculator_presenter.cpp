@@ -1,5 +1,7 @@
 ﻿#include <console_credit_calculator_presenter.h>
 
+#include <calculator_error_informer.h>
+
 void ConsoleCreditCalculatorPresenter::RunCreditCalculator() {
   credit_calculator_menu_.RunCreditCalculator();
 
@@ -8,9 +10,8 @@ void ConsoleCreditCalculatorPresenter::RunCreditCalculator() {
   if (IsCalculationDataVaild()) {
     // Calculate credit
   } else {
-    // Get error message from atm core like a
-    // credit_calculator_menu.ShowIncorrectInputDataMessage(
-    // calculator_data_handler_.GetErrorString);
+    credit_calculator_menu_.ShowIncorrectInputError(
+        CalculatorErrorInformer::GetErrorsList());
   }
 }
 

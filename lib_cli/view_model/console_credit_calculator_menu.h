@@ -1,6 +1,9 @@
 ﻿#ifndef CONSOLE_CREDIT_CALCULATOR_MENU_H
 #define CONSOLE_CREDIT_CALCULATOR_MENU_H
 
+#include <string>
+#include <vector>
+
 #include <user_input_handler.h>
 
 class ConsoleCreditCalculatorMenu {
@@ -11,6 +14,8 @@ class ConsoleCreditCalculatorMenu {
   int CreditSum() const;
   double CreditInterestRate() const;
   int AmountOfMonths() const;
+
+  void ShowIncorrectInputError(const std::vector<std::string>& error_list);
 
  private:
   void RequestCreditSum();

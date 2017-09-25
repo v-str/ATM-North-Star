@@ -20,6 +20,21 @@ void CreditCalculatorMessenger::DisplayAmountOfMonthRequest() {
   ConsoleEditor::WriteTextWithDelayPerSymbol("\t## Credit term, (months): ");
 }
 
+void CreditCalculatorMessenger::DisplayErrorLogo() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "\n\t## Calculation cannot be performed.\n"
+      "\t## Input data contain next error(s):\n\n");
+}
+
+void CreditCalculatorMessenger::DisplayError(const std::string& error_text) {
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\t## " + error_text + "\n");
+}
+
+void CreditCalculatorMessenger::PressEnterToContinue() {
+  ConsoleEditor::WriteText("\n\t## Press \"Enter\" to continue...");
+  ConsoleEditor::IgnoreCinLine();
+}
+
 void CreditCalculatorMessenger::ClearScreen() { ConsoleEditor::ClearScreen(); }
 
 void CreditCalculatorMessenger::DisplayCorrectInputOrder() {
@@ -47,9 +62,8 @@ void CreditCalculatorMessenger::DisplayNotification() {
       "\t##  from initial sum of credit.                           ##\n"
       "\t## Credit term must be from 1 month to 60 months.         ##\n"
       "\t##                                                        ##\n"
-      "\t############################################################\n\n"
-      "\t  Press \"Enter\" to continue...");
-  ConsoleEditor::IgnoreCinLine();
+      "\t############################################################\n\n");
+  PressEnterToContinue();
 }
 
 void CreditCalculatorMessenger::DisplayLogo() {

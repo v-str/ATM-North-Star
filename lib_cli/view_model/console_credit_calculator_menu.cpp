@@ -23,6 +23,15 @@ int ConsoleCreditCalculatorMenu::AmountOfMonths() const {
   return amount_of_months_;
 }
 
+void ConsoleCreditCalculatorMenu::ShowIncorrectInputError(
+    const std::vector<std::string>& error_list) {
+  CreditCalculatorMessenger::DisplayErrorLogo();
+  for (auto it = error_list.begin(); it != error_list.end(); ++it) {
+    CreditCalculatorMessenger::DisplayError(*it);
+  }
+  CreditCalculatorMessenger::PressEnterToContinue();
+}
+
 void ConsoleCreditCalculatorMenu::RequestCreditSum() {
   CreditCalculatorMessenger::DisplayCreditSumRequest();
   credit_sum_ = user_input_handler_.GetDigitInputFromUser();
