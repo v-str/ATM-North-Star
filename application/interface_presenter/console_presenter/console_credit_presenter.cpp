@@ -58,10 +58,5 @@ void ConsoleCreditPresenter::ResetManipulationFlag() {
 }
 
 bool ConsoleCreditPresenter::IsCreditDataOk() const {
-  if (calculator_data_handler_.IsCreditDataValid() &&
-      calculator_data_handler_.IsCreditInterestRateValid() &&
-      calculator_data_handler_.IsAmountOfCreditValid()) {
-    return true;
-  }
-  return false;
+  return calculator_data_handler_.IsCreditDataOk();
 }

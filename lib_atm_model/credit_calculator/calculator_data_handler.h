@@ -9,6 +9,8 @@ class CalculatorDataHandler {
                   double credit_interest_rate,
                   int amount_of_credit_months);
 
+  bool IsCreditDataOk() const;
+
   bool IsCreditDataValid() const;
   bool IsCreditInterestRateValid() const;
   bool IsAmountOfCreditValid() const;

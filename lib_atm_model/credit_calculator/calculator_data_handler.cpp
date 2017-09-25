@@ -10,6 +10,13 @@ void CalculatorDataHandler::HandleData(int credit_sum,
   amount_of_credit_months_ = amount_of_credit_months;
 }
 
+bool CalculatorDataHandler::IsCreditDataOk() const {
+  if (is_credit_ok_ && is_interest_rate_ok_ && is_amount_of_credit_months_ok) {
+    return true;
+  }
+  return false;
+}
+
 bool CalculatorDataHandler::IsCreditDataValid() const {
   if (credit_sum_ >= credit_data_bounder_.LowerCreditSum() &&
       credit_sum_ <= credit_data_bounder_.UpperCreditSum()) {
