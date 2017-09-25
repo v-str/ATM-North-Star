@@ -1,5 +1,7 @@
 ﻿#include <calculator_data_handler.h>
 
+#include <calculator_error_informer.h>
+
 void CalculatorDataHandler::HandleData(int credit_sum,
                                        double credit_interest_rate,
                                        int amount_of_credit_months) {
@@ -23,24 +25,33 @@ bool CalculatorDataHandler::IsCreditSumValid() const {
   if (credit_sum_ >= credit_data_bounder_.LowerCreditSum() &&
       credit_sum_ <= credit_data_bounder_.UpperCreditSum()) {
     return true;
+  } else {
+    CalculatorErrorInformer::AddErrorText(
+        "Credit sum was inputted incorrectly");
+    return false;
   }
-  return false;
 }
 
 bool CalculatorDataHandler::IsCreditInterestRateValid() const {
   if (credit_interest_rate_ >= credit_data_bounder_.LowerInterestRate() &&
       credit_interest_rate_ <= credit_data_bounder_.UpperInterestRate()) {
     return true;
+  } else {
+    CalculatorErrorInformer::AddErrorText(
+        "Credit interest rate was inputted incorrectly");
+    return false;
   }
-  return false;
 }
 
 bool CalculatorDataHandler::IsAmountOfCreditValid() const {
   if (amount_of_credit_months_ >= credit_data_bounder_.LowerAmountOfMonth() &&
       amount_of_credit_months_ <= credit_data_bounder_.UpperAmountOfMonth()) {
     return true;
+  } else {
+    CalculatorErrorInformer::AddErrorText(
+        "Amount of months was inputted incorrectly");
+    return false;
   }
-  return false;
 }
 
 int CalculatorDataHandler::CreditSum() const { return credit_sum_; }
@@ -54,6 +65,7 @@ int CalculatorDataHandler::AmountOfMonth() const {
 }
 
 void CalculatorDataHandler::ResetData() {
+  CalculatorErrorInformer::ResetErrorList();
   is_credit_ok_ = false;
   is_interest_rate_ok_ = false;
   is_amount_of_credit_months_ok = false;
