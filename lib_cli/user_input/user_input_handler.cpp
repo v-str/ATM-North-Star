@@ -52,28 +52,29 @@ int UserInputHandler::GetDigitsFromString() {
 }
 
 bool UserInputHandler::IsConvertableToDouble() {
-  bool is_convertable = true;
+  bool is_convertable_to_double = true;
 
   for (unsigned int i = 0; i < user_string_.size(); ++i) {
-    if (!IsStringCorrect(i)) {
-      is_convertable = false;
+    if (!IsSymbolAcceptable(i)) {
+      is_convertable_to_double = false;
     }
   }
 
-  return is_convertable;
+  return is_convertable_to_double;
 }
 
-bool UserInputHandler::IsStringCorrect(int index) {
+bool UserInputHandler::IsSymbolAcceptable(int index) {
+  bool is_symbol_acceptable = true;
+
   if (IsComma(index)) {
     user_string_.replace(index, 1, ".");
   }
 
-  if (!isdigit(user_string_[index])) {
-    if (!IsDot(index)) {
-      return false;
-    }
+  if (!isdigit(user_string_[index]) && !IsDot(index)) {
+    is_symbol_acceptable = false;
   }
-  return true;
+
+  return is_symbol_acceptable;
 }
 
 bool UserInputHandler::IsDot(int index) { return user_string_[index] == '.'; }

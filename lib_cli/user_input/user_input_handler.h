@@ -15,7 +15,7 @@ class UserInputHandler {
   int GetDigitsFromString();
 
   bool IsConvertableToDouble();
-  bool IsStringCorrect(int index);
+  bool IsSymbolAcceptable(int index);
   bool IsDot(int index);
   bool IsComma(int index);
 
