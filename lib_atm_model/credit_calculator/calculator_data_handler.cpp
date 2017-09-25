@@ -1,7 +1,5 @@
 ﻿#include <calculator_data_handler.h>
 
-#include <calculator_data_transformer.h>
-
 void CalculatorDataHandler::HandleData(int credit_sum,
                                        double credit_interest_rate,
                                        int amount_of_credit_months) {

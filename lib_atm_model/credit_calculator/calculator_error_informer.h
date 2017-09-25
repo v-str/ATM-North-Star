@@ -1,0 +1,6 @@
+﻿#ifndef CALCULATOR_ERROR_INFORMER_H
+#define CALCULATOR_ERROR_INFORMER_H
+
+class CalculatorErrorInformer {};
+
+#endif  // CALCULATOR_ERROR_INFORMER_H
