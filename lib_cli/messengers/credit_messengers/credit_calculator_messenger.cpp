@@ -27,17 +27,13 @@ void CreditCalculatorMessenger::DisplayCorrectInputOrder() {
   ConsoleEditor::WriteText(
       "\t############################################################\n"
       "\t##                                                        ##\n"
-      "\t##              Credit Calculator                         ##\n"
-      "\t##                                                        ##\n"
       "\t##   Choose:                                              ##\n"
       "\t##                                                        ##\n"
       "\t##     1. Sum of credit, $                                ##\n"
       "\t##     2. Credit interest rate                            ##\n"
       "\t##     3. Credit term in months                           ##\n"
       "\t##                                                        ##\n"
-      "\t##                                                        ##\n"
       "\t############################################################\n\n");
-  ConsoleEditor::Sleep(500);
 }
 
 void CreditCalculatorMessenger::DisplayNotification() {
@@ -53,10 +49,10 @@ void CreditCalculatorMessenger::DisplayNotification() {
       "\t##                                                        ##\n"
       "\t############################################################\n\n"
       "\t  Press \"Enter\" to continue...");
+  ConsoleEditor::IgnoreCinLine();
 }
 
 void CreditCalculatorMessenger::DisplayLogo() {
-  ConsoleEditor::IgnoreCinLine();
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText(
       "\t############################################################\n"
