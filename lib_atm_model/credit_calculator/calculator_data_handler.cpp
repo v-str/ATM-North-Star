@@ -3,9 +3,13 @@
 void CalculatorDataHandler::HandleData(int credit_sum,
                                        double credit_interest_rate,
                                        int amount_of_credit_months) {
+  ResetData();
   credit_sum_ = credit_sum;
   credit_interest_rate_ = credit_interest_rate;
   amount_of_credit_months_ = amount_of_credit_months;
+  is_credit_ok_ = IsCreditSumValid();
+  is_interest_rate_ok_ = IsCreditInterestRateValid();
+  is_amount_of_credit_months_ok = IsAmountOfCreditValid();
 }
 
 bool CalculatorDataHandler::IsCreditDataOk() const {
@@ -15,7 +19,7 @@ bool CalculatorDataHandler::IsCreditDataOk() const {
   return false;
 }
 
-bool CalculatorDataHandler::IsCreditDataValid() const {
+bool CalculatorDataHandler::IsCreditSumValid() const {
   if (credit_sum_ >= credit_data_bounder_.LowerCreditSum() &&
       credit_sum_ <= credit_data_bounder_.UpperCreditSum()) {
     return true;
@@ -47,4 +51,10 @@ double CalculatorDataHandler::InterestRate() const {
 
 int CalculatorDataHandler::AmountOfMonth() const {
   return amount_of_credit_months_;
+}
+
+void CalculatorDataHandler::ResetData() {
+  is_credit_ok_ = false;
+  is_interest_rate_ok_ = false;
+  is_amount_of_credit_months_ok = false;
 }

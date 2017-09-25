@@ -11,7 +11,7 @@ class CalculatorDataHandler {
 
   bool IsCreditDataOk() const;
 
-  bool IsCreditDataValid() const;
+  bool IsCreditSumValid() const;
   bool IsCreditInterestRateValid() const;
   bool IsAmountOfCreditValid() const;
 
@@ -20,6 +20,8 @@ class CalculatorDataHandler {
   int AmountOfMonth() const;
 
  private:
+  void ResetData();
+
   CreditDataBounder credit_data_bounder_;
 
   bool is_credit_ok_;
