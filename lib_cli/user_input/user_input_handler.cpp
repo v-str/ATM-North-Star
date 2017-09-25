@@ -29,12 +29,18 @@ std::string UserInputHandler::GetStringInputFromUser() {
 }
 
 bool UserInputHandler::IsContainOnlyDigits() {
+  bool is_contain_only_digits = true;
+
+  if (IsStringBeginWithNull()) {
+    is_contain_only_digits = false;
+  }
+
   for (unsigned int i = 0; i < user_string_.size(); ++i) {
     if (!isdigit(user_string_[i])) {
-      return false;
+      is_contain_only_digits = false;
     }
   }
-  return true;
+  return is_contain_only_digits;
 }
 
 int UserInputHandler::GetDigitsFromString() {
@@ -53,6 +59,10 @@ int UserInputHandler::GetDigitsFromString() {
 
 bool UserInputHandler::IsConvertableToDouble() {
   bool is_convertable_to_double = true;
+
+  if (IsStringBeginWithNull()) {
+    is_convertable_to_double = false;
+  }
 
   for (unsigned int i = 0; i < user_string_.size(); ++i) {
     if (!IsSymbolAcceptable(i)) {
@@ -95,4 +105,11 @@ double UserInputHandler::GetDoubleDigitsFromString() {
   } catch (std::out_of_range) {
     return kInvalidInput;
   }
+}
+
+bool UserInputHandler::IsStringBeginWithNull() {
+  if (user_string_[0] == '0') {
+    return true;
+  }
+  return false;
 }

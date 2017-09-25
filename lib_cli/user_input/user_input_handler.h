@@ -23,6 +23,8 @@ class UserInputHandler {
 
   double GetDoubleDigitsFromString();
 
+  bool IsStringBeginWithNull();
+
   const int kInvalidInput = -1;
   const int kMaximalStringLength = 7;
 
