@@ -12,22 +12,19 @@ class Calculator {
 
  private:
   void CalculateMonthlyPayment();
-  void CalculatePercentsCoefficient();
 
   double PaymentFormulaNumerator();
   double PaymentFormulaDenominator();
 
   void Reset();
 
-  int credit_sum_;
-  double credit_interest_rate_;
-  int amount_of_months_;
+  double Y;
+  int D;
+  int n;
+  double i;
 
-  double monthly_payment_;
-  double percent_coefficient_;
-
-  static const int kMonthsPerYear = 12;
-  static const int kOne = 1;
+  static const int m = 12;
+  static const int one = 1;
 };
 
 #endif  // CALCULATOR_H
