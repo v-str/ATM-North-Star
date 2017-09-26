@@ -16,8 +16,8 @@ class Calculator {
 
   static double kY;
   static int kD;
-  static int kn;
-  static double ki;
+  static int kN;
+  static double kI;
 
   static const int kM = 12;
   static const int kOne = 1;

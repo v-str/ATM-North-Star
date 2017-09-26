@@ -4,9 +4,9 @@
 
 //                     Annuity credit payment formula
 //
-//                                D * i / m
+//                                D * I / M
 //                 Y = ------------------------------
-//                       1 - 1 / ( 1 + i / m )^n*m
+//                       1 - 1 / ( 1 + I / M )^N*M
 //
 //     D - sum of credit
 //     i - interest rate as coefficient (percents / 100%)
@@ -16,16 +16,16 @@
 
 double Calculator::kY = 0.0;
 int Calculator::kD = 0;
-int Calculator::kn = 0;
-double Calculator::ki = 0.0;
+int Calculator::kN = 0;
+double Calculator::kI = 0.0;
 
 void Calculator::CalculateCredit(int credit_sum, double credit_interest_rate,
                                  int amount_of_months) {
   Reset();
 
   kD = credit_sum;
-  ki = credit_interest_rate / 100;
-  kn = amount_of_months;
+  kI = credit_interest_rate / 100;
+  kN = amount_of_months;
 
   CalculateMonthlyPayment();
 }
@@ -37,19 +37,19 @@ void Calculator::CalculateMonthlyPayment() {
 }
 
 double Calculator::PaymentFormulaNumerator() {
-  double numerator_calculation = kD * (ki / kM);
+  double numerator_calculation = kD * (kI / kM);
   return numerator_calculation;
 }
 
 double Calculator::PaymentFormulaDenominator() {
-  double denominator = kOne + (ki / kM);
-  double result = kOne - (kOne / pow(denominator, kn));
+  double denominator = kOne + (kI / kM);
+  double result = kOne - (kOne / pow(denominator, kN));
   return result;
 }
 
 void Calculator::Reset() {
   kY = 0.0;
   kD = 0;
-  kn = 0;
-  ki = 0.0;
+  kN = 0;
+  kI = 0.0;
 }
