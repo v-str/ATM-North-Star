@@ -12,8 +12,6 @@ class Calculator {
 
  private:
   void CalculateMonthlyPayment();
-
-  void CalculateMaturityInYears();
   void CalculatePercentsCoefficient();
 
   double PaymentFormulaNumerator();
@@ -26,10 +24,10 @@ class Calculator {
   int amount_of_months_;
 
   double monthly_payment_;
-  double maturiry_in_years_;
   double percent_coefficient_;
 
   static const int kMonthsPerYear = 12;
+  static const int kOne = 1;
 };
 
 #endif  // CALCULATOR_H
