@@ -13,6 +13,8 @@ class Calculator {
 
   void CalculateMaturityInYears();
 
+  double PaymentFormulaNumerator();
+  double PaymentFormulaDenominator();
 
   int credit_sum_;
   double credit_interest_rate_;
