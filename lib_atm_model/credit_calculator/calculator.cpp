@@ -6,22 +6,25 @@ Calculator::Calculator()
     : credit_sum_(0),
       credit_interest_rate_(0.0),
       amount_of_months_(0),
-      mounthly_payment_(0.0),
+      monthly_payment_(0.0),
       maturiry_in_years_(0.0),
       percent_coefficient_(0.0) {}
 
 void Calculator::CalculateCredit(int credit_sum, double credit_interest_rate,
                                  int amount_of_months) {
+  Reset();
+
   credit_sum_ = credit_sum;
   credit_interest_rate_ = credit_interest_rate;
   amount_of_months_ = amount_of_months;
 }
 
+double Calculator::MonthlyPayment() const { return monthly_payment_; }
+
 void Calculator::CalculateMonthlyPayment() {
   CalculateMaturityInYears();
   CalculatePercentsCoefficient();
-  // mounthly_payment_ = PaymentFormulaNumerator() /
-  // PaymentFormulaDenominator();
+  monthly_payment_ = PaymentFormulaNumerator() / PaymentFormulaDenominator();
 }
 
 void Calculator::CalculateMaturityInYears() {
@@ -55,4 +58,13 @@ double Calculator::PaymentFormulaDenominator() {
   double denominator = one + (percent_coefficient_ / kMonthsPerYear);
   double result = one - 1 / pow(denominator, maturiry_in_years_);
   return result;
+}
+
+void Calculator::Reset() {
+  credit_sum_ = 0;
+  credit_interest_rate_ = 0.0;
+  amount_of_months_ = 0;
+  monthly_payment_ = 0.0;
+  maturiry_in_years_ = 0.0;
+  percent_coefficient_ = 0.0;
 }

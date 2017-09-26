@@ -8,6 +8,8 @@ class Calculator {
   void CalculateCredit(int credit_sum, double credit_interest_rate,
                        int amount_of_months);
 
+  double MonthlyPayment() const;
+
  private:
   void CalculateMonthlyPayment();
 
@@ -17,11 +19,13 @@ class Calculator {
   double PaymentFormulaNumerator();
   double PaymentFormulaDenominator();
 
+  void Reset();
+
   int credit_sum_;
   double credit_interest_rate_;
   int amount_of_months_;
 
-  double mounthly_payment_;
+  double monthly_payment_;
   double maturiry_in_years_;
   double percent_coefficient_;
 
