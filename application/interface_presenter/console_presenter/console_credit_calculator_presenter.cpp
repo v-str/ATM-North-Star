@@ -7,7 +7,7 @@ void ConsoleCreditCalculatorPresenter::RunCreditCalculator() {
 
   HandleCreditData();
 
-  if (IsCalculationDataVaild()) {
+  if (IsCalculationDataValid()) {
     // Calculate credit
   } else {
     credit_calculator_menu_.ShowIncorrectInputError(
@@ -22,6 +22,6 @@ void ConsoleCreditCalculatorPresenter::HandleCreditData() {
       credit_calculator_menu_.AmountOfMonths());
 }
 
-bool ConsoleCreditCalculatorPresenter::IsCalculationDataVaild() const {
+bool ConsoleCreditCalculatorPresenter::IsCalculationDataValid() const {
   return calculator_data_handler_.IsCalculationDataValid();
 }

@@ -11,7 +11,7 @@ class ConsoleCreditCalculatorPresenter {
  private:
   void HandleCreditData();
 
-  bool IsCalculationDataVaild() const;
+  bool IsCalculationDataValid() const;
 
   ConsoleCreditCalculatorMenu credit_calculator_menu_;
   CalculatorDataHandler calculator_data_handler_;
