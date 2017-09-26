@@ -14,4 +14,8 @@ void Calculator::CalculateCredit(int credit_sum, double credit_interest_rate,
   amount_of_months_ = amount_of_months;
 }
 
-void Calculator::CalculateMonthlyPayment() {}
+void Calculator::CalculateMonthlyPayment() { CalculateMaturityInYears(); }
+
+void Calculator::CalculateMaturityInYears() {
+  maturiry_in_years_ = amount_of_months_ / kMonthsPerYear;
+}
