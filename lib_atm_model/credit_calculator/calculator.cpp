@@ -6,12 +6,12 @@
 //
 //                                D * I / M
 //                 Y = ------------------------------
-//                       1 - 1 / ( 1 + I / M )^N*M
+//                       1 - 1 / ( 1 + I / M )^N
 //
 //     D - sum of credit
 //     i - interest rate as coefficient (percents / 100%)
 //     m - percentage payments per year equal 12 (12 month per year)
-//     n - credit term in years
+//     N - credit term in months
 //
 
 double Calculator::kY = 0.0;
