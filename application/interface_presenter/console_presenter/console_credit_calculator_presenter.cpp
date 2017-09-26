@@ -1,5 +1,6 @@
 ﻿#include <console_credit_calculator_presenter.h>
 
+#include <calculator.h>
 #include <calculator_error_informer.h>
 
 #include <console_editor.h>
@@ -12,12 +13,12 @@ void ConsoleCreditCalculatorPresenter::RunCreditCalculator() {
   HandleCreditData();
 
   if (IsCalculationDataValid()) {
-    calculator_.CalculateCredit(calculator_data_handler_.CreditSum(),
+    Calculator::CalculateCredit(calculator_data_handler_.CreditSum(),
                                 calculator_data_handler_.InterestRate(),
                                 calculator_data_handler_.AmountOfMonth());
 
     ConsoleEditor::WriteText("\n\nMonthly credit payment: ");
-    std::cout << calculator_.MonthlyPayment();
+    std::cout << Calculator::MonthlyPayment();
     ConsoleEditor::AddEmptyLineNTimes(3);
     ConsoleEditor::IgnoreCinLine();
   } else {

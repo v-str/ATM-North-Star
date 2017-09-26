@@ -3,26 +3,24 @@
 
 class Calculator {
  public:
-  Calculator();
-
-  void CalculateCredit(int credit_sum, double credit_interest_rate,
+  static void CalculateCredit(int credit_sum, double credit_interest_rate,
                        int amount_of_months);
 
-  double MonthlyPayment() const;
+  static double MonthlyPayment();
 
  private:
-  void CalculateMonthlyPayment();
-  double PaymentFormulaNumerator();
-  double PaymentFormulaDenominator();
-  void Reset();
+  static void CalculateMonthlyPayment();
+  static double PaymentFormulaNumerator();
+  static double PaymentFormulaDenominator();
+  static void Reset();
 
-  double Y;
-  int D;
-  int n;
-  double i;
+  static double kY;
+  static int kD;
+  static int kn;
+  static double ki;
 
-  static const int m = 12;
-  static const int one = 1;
+  static const int kM = 12;
+  static const int kOne = 1;
 };
 
 #endif  // CALCULATOR_H

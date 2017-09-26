@@ -14,39 +14,42 @@
 //     n - credit term in years
 //
 
-Calculator::Calculator() : Y(0.0), D(0), n(0), i(0.0) {}
+double Calculator::kY = 0.0;
+int Calculator::kD = 0;
+int Calculator::kn = 0;
+double Calculator::ki = 0.0;
 
 void Calculator::CalculateCredit(int credit_sum, double credit_interest_rate,
                                  int amount_of_months) {
   Reset();
 
-  D = credit_sum;
-  i = credit_interest_rate / 100;
-  n = amount_of_months / m;
+  kD = credit_sum;
+  ki = credit_interest_rate / 100;
+  kn = amount_of_months;
 
   CalculateMonthlyPayment();
 }
 
-double Calculator::MonthlyPayment() const { return Y; }
+double Calculator::MonthlyPayment() { return kY; }
 
 void Calculator::CalculateMonthlyPayment() {
-  Y = PaymentFormulaNumerator() / PaymentFormulaDenominator();
+  kY = PaymentFormulaNumerator() / PaymentFormulaDenominator();
 }
 
 double Calculator::PaymentFormulaNumerator() {
-  double numerator_calculation = D * (i / m);
+  double numerator_calculation = kD * (ki / kM);
   return numerator_calculation;
 }
 
 double Calculator::PaymentFormulaDenominator() {
-  double denominator = one + (i / m);
-  double result = one - (one / pow(denominator, n));
+  double denominator = kOne + (ki / kM);
+  double result = kOne - (kOne / pow(denominator, kn));
   return result;
 }
 
 void Calculator::Reset() {
-  Y = 0.0;
-  D = 0;
-  n = 0;
-  i = 0.0;
+  kY = 0.0;
+  kD = 0;
+  kn = 0;
+  ki = 0.0;
 }
