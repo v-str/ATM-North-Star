@@ -19,6 +19,9 @@ class CreditTable {
   double percentage_coefficient_;
   int credit_term_months_;
 
+  double percentages_payment_per_month_;
+  double payment_per_month_;
+
   std::vector<double> balance_owed_;
   std::vector<double> percentages_debt_;
   std::vector<double> principal_debt_;

@@ -1,6 +1,8 @@
 ﻿#ifndef CALCULATOR_H
 #define CALCULATOR_H
 
+#include <credit_table.h>
+
 class Calculator {
  public:
   static void CalculateCredit(int credit_sum, double credit_interest_rate,
@@ -18,6 +20,8 @@ class Calculator {
   static int kD;
   static int kN;
   static double kI;
+
+  static CreditTable credit_table_;
 
   static const int kM = 12;
   static const int kOne = 1;

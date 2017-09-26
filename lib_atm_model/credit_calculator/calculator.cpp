@@ -19,6 +19,8 @@ int Calculator::kD = 0;
 int Calculator::kN = 0;
 double Calculator::kI = 0.0;
 
+CreditTable Calculator::credit_table_;
+
 void Calculator::CalculateCredit(int credit_sum, double credit_interest_rate,
                                  int amount_of_months) {
   Reset();
@@ -28,6 +30,7 @@ void Calculator::CalculateCredit(int credit_sum, double credit_interest_rate,
   kN = amount_of_months;
 
   CalculateMonthlyPayment();
+  credit_table_.CalculateCreditTable(kD, kY, kI, kN);
 }
 
 double Calculator::MonthlyPayment() { return kY; }
