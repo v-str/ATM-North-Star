@@ -1,5 +1,7 @@
 ﻿#include <calculator.h>
 
+#include <math.h>
+
 Calculator::Calculator()
     : credit_sum_(0),
       credit_interest_rate_(0.0),
@@ -45,6 +47,12 @@ void Calculator::CalculatePercentsCoefficient() {
 double Calculator::PaymentFormulaNumerator() {
   double numerator_calculation =
       credit_sum_ * (percent_coefficient_ / kMonthsPerYear);
+  return numerator_calculation;
 }
 
-double Calculator::PaymentFormulaDenominator() {}
+double Calculator::PaymentFormulaDenominator() {
+  int one = 1;
+  double denominator = one + (percent_coefficient_ / kMonthsPerYear);
+  double result = one - 1 / pow(denominator, maturiry_in_years_);
+  return result;
+}
