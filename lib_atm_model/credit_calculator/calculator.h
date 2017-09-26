@@ -12,10 +12,8 @@ class Calculator {
 
  private:
   void CalculateMonthlyPayment();
-
   double PaymentFormulaNumerator();
   double PaymentFormulaDenominator();
-
   void Reset();
 
   double Y;
