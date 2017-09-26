@@ -2,20 +2,17 @@
 
 #include <math.h>
 
-////////////////////////////////////////////////////////////////////////////////
-///                                                                          ///
-///                     Annuity credit payment formula                       ///
-///                                                                          ///
-///                                D * i / m                                 ///
-///                 Y = ------------------------------                       ///
-///                       1 - 1 / ( 1 + i / m )^n*m                          ///
-///                                                                          ///
-///     D - sum of credit                                                    ///
-///     i - interest rate as coefficient (percents / 100%)                   ///
-///     m - percentage payments per year equal 12 (12 month per year)        ///
-///     n - credit term in years                                             ///
-///                                                                          ///
-/// ////////////////////////////////////////////////////////////////////////////
+//                     Annuity credit payment formula
+//
+//                                D * i / m
+//                 Y = ------------------------------
+//                       1 - 1 / ( 1 + i / m )^n*m
+//
+//     D - sum of credit
+//     i - interest rate as coefficient (percents / 100%)
+//     m - percentage payments per year equal 12 (12 month per year)
+//     n - credit term in years
+//
 
 Calculator::Calculator() : Y(0.0), D(0), n(0), i(0.0) {}
 
