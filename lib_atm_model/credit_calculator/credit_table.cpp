@@ -22,16 +22,30 @@ void CreditTable::CalculateCreditTable(int credit_sum, double monthly_payment,
 }
 
 void CreditTable::ConstructCreditTable() {
-  percentages_payment_per_month_ =
-      credit_sum_ * (percentage_coefficient_ / kMonthsPerYear);
-  payment_per_month_ = monthly_payment_ - percentages_payment_per_month_;
+  std::cout
+      << "\n\t#  |  Credit dept | Percent payment | Monthly payment | Total\n";
 
-  double credit_dept = credit_sum_ - payment_per_month_;
+  double credit_dept = 0.0;
+  int count = 0;
 
-  std::cout << "\nOSNOVNOY DOLG: " << credit_dept << "\n"
-            << "PERCENT COEFFICIENT: " << percentage_coefficient_ << "\n"
-            << "PERCENTAGE PAYMENT: " << percentages_payment_per_month_ << "\n"
-            << "MONTHLY PAYMENT: " << payment_per_month_ << "\n"
-            << "TOTAL: " << percentages_payment_per_month_ + payment_per_month_
-            << "\n";
+  while (credit_sum_ >= monthly_payment_) {
+    percentages_payment_per_month_ =
+        credit_sum_ * (percentage_coefficient_ / kMonthsPerYear);
+    payment_per_month_ = monthly_payment_ - percentages_payment_per_month_;
+    credit_dept = credit_sum_ - payment_per_month_;
+    credit_sum_ = credit_dept;
+    count++;
+
+    std::cout << "\t" << count << "   " << credit_dept << "        "
+              << percentages_payment_per_month_ << "          "
+              << payment_per_month_ << "        "
+              << percentages_payment_per_month_ + payment_per_month_ << "\n";
+  }
+
+  count++;
+
+  std::cout << "\t" << count << "   " << credit_dept << "        "
+            << percentages_payment_per_month_ << "          "
+            << payment_per_month_ << "        "
+            << percentages_payment_per_month_ + payment_per_month_ << "\n";
 }

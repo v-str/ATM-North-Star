@@ -9,8 +9,8 @@
 //                       1 - 1 / ( 1 + I / M )^N
 //
 //     D - sum of credit
-//     i - interest rate as coefficient (percents / 100%)
-//     m - percentage payments per year equal 12 (12 month per year)
+//     I - interest rate as coefficient (percents / 100%)
+//     M - percentage payments per year equal 12 (12 months per year)
 //     N - credit term in months
 //
 
