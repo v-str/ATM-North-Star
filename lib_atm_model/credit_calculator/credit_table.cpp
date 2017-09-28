@@ -41,11 +41,4 @@ void CreditTable::ConstructCreditTable() {
               << payment_per_month_ << "        "
               << percentages_payment_per_month_ + payment_per_month_ << "\n";
   }
-
-  count++;
-
-  std::cout << "\t" << count << "   " << credit_dept << "        "
-            << percentages_payment_per_month_ << "          "
-            << payment_per_month_ << "        "
-            << percentages_payment_per_month_ + payment_per_month_ << "\n";
 }
