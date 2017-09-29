@@ -13,10 +13,12 @@ class CreditPaymentsTable {
                         const std::vector<double>& sum_of_main_debt_payment);
 
  private:
-  std::string AlignCell(int cell_size, const std::string& string_content);
-  std::string ConvertToString(double value);
+  void DisplayTablesTitles() const;
 
-  static const int kCellSize = 15;
+  std::string AlignCell(int cell_size, const std::string& string_content) const;
+  std::string ConvertToString(double value) const;
+
+  static const int kCellSize = 20;
 };
 
 #endif  // CREDIT_PAYMENTS_TABLE_H
