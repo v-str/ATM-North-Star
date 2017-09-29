@@ -20,7 +20,7 @@ void CreditPaymentsGenerator::GenerateCreditPayments(
   percentage_coefficient_ = percentage_coefficient;
   credit_term_months_ = credit_term_months;
 
-  ConstructCreditTable();
+  FillCreditPaymentArrays();
 }
 
 std::vector<double> CreditPaymentsGenerator::SumOfOwedCredit() const {
@@ -35,7 +35,7 @@ std::vector<double> CreditPaymentsGenerator::SumOfMainDebtPayments() const {
   return sum_of_main_debt_payments_;
 }
 
-void CreditPaymentsGenerator::ConstructCreditTable() {
+void CreditPaymentsGenerator::FillCreditPaymentArrays() {
   while (credit_sum_ >= monthly_payment_) {
     interest_charge_ = credit_sum_ * (percentage_coefficient_ / kMonthsPerYear);
     main_debp_payment_ = monthly_payment_ - interest_charge_;
@@ -45,6 +45,10 @@ void CreditPaymentsGenerator::ConstructCreditTable() {
     sum_of_owed_credit_.push_back(credit_sum_);
     sum_of_main_debt_payments_.push_back(main_debp_payment_);
   }
+  GenerateLastPayment();
+}
+
+void CreditPaymentsGenerator::GenerateLastPayment() {
   double rest_of_interest_charge = monthly_payment_ - credit_sum_;
 
   main_debp_payment_ = monthly_payment_ - rest_of_interest_charge;

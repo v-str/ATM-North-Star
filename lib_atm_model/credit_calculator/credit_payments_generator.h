@@ -17,7 +17,8 @@ class CreditPaymentsGenerator {
   std::vector<double> SumOfMainDebtPayments() const;
 
  private:
-  void ConstructCreditTable();
+  void FillCreditPaymentArrays();
+  void GenerateLastPayment();
 
   double credit_sum_;
   double monthly_payment_;
