@@ -9,8 +9,7 @@ class CreditPaymentsGenerator {
 
   void GenerateCreditPayments(int credit_sum,
                               double monthly_payment,
-                              double percentage_coefficient,
-                              int credit_term_months);
+                              double percentage_coefficient);
 
   std::vector<double> SumOfOwedCredit() const;
   std::vector<double> SumOfInterestChares() const;
@@ -23,8 +22,6 @@ class CreditPaymentsGenerator {
   double credit_sum_;
   double monthly_payment_;
   double percentage_coefficient_;
-  int credit_term_months_;
-
   double interest_charge_;
   double main_debp_payment_;
 

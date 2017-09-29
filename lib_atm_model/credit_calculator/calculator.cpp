@@ -31,7 +31,7 @@ void Calculator::CalculateCredit(int credit_sum,
   kN = amount_of_months;
 
   CalculateMonthlyPayment();
-  credit_payments_generator_.GenerateCreditPayments(kD, kY, kI, kN);
+  credit_payments_generator_.GenerateCreditPayments(kD, kY, kI);
 }
 
 double Calculator::MonthlyPayment() { return kY; }
