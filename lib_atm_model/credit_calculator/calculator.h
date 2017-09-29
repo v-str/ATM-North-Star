@@ -1,6 +1,8 @@
 ﻿#ifndef CALCULATOR_H
 #define CALCULATOR_H
 
+#include <vector>
+
 #include <credit_payments_generator.h>
 
 class Calculator {
@@ -10,6 +12,10 @@ class Calculator {
                               int amount_of_months);
 
   static double MonthlyPayment();
+
+  static std::vector<double> SumOfOwedCredit();
+  static std::vector<double> SumOfInterestChares();
+  static std::vector<double> SumOfMainDebtPayments();
 
  private:
   static void CalculateMonthlyPayment();

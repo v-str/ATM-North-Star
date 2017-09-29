@@ -12,6 +12,10 @@ class CreditPaymentsGenerator {
                               double percentage_coefficient,
                               int credit_term_months);
 
+  std::vector<double> SumOfOwedCredit() const;
+  std::vector<double> SumOfInterestChares() const;
+  std::vector<double> SumOfMainDebtPayments() const;
+
  private:
   void ConstructCreditTable();
 
@@ -23,9 +27,9 @@ class CreditPaymentsGenerator {
   double interest_charge_;
   double main_debp_payment_;
 
-  std::vector<double> balance_owed_;
-  std::vector<double> interest_charges_;
-  std::vector<double> main_debt_payments_;
+  std::vector<double> sum_of_owed_credit_;
+  std::vector<double> sum_of_interest_charges_;
+  std::vector<double> sum_of_main_debt_payments_;
 
   static const int kMonthsPerYear = 12;
 };

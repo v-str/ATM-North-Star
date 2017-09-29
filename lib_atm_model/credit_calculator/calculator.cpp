@@ -36,6 +36,18 @@ void Calculator::CalculateCredit(int credit_sum,
 
 double Calculator::MonthlyPayment() { return kY; }
 
+std::vector<double> Calculator::SumOfOwedCredit() {
+  return credit_payments_generator_.SumOfOwedCredit();
+}
+
+std::vector<double> Calculator::SumOfInterestChares() {
+  return credit_payments_generator_.SumOfInterestChares();
+}
+
+std::vector<double> Calculator::SumOfMainDebtPayments() {
+  return SumOfMainDebtPayments();
+}
+
 void Calculator::CalculateMonthlyPayment() {
   kY = PaymentFormulaNumerator() / PaymentFormulaDenominator();
 }
