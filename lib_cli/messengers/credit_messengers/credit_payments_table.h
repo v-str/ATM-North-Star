@@ -12,9 +12,9 @@ class CreditPaymentsTable {
                         const std::vector<double>& sum_of_interest_charges,
                         const std::vector<double>& sum_of_main_debt_payment);
 
- private:
-  void DisplayTablesTitles() const;
+  void DisplayTableTitles() const;
 
+ private:
   std::string AlignCell(int cell_size, const std::string& string_content) const;
   std::string ConvertToString(double value) const;
 

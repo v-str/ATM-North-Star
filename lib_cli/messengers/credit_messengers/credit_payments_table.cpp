@@ -11,21 +11,22 @@ void CreditPaymentsTable::BuildCreditTable(
     const std::vector<double>& sum_of_owed_credit,
     const std::vector<double>& sum_of_interest_charges,
     const std::vector<double>& sum_of_main_debt_payment) {
-  DisplayTablesTitles();
+  DisplayTableTitles();
   for (int i = 1; i <= amount_of_months; ++i) {
   }
 }
 
-void CreditPaymentsTable::DisplayTablesTitles() const {
+void CreditPaymentsTable::DisplayTableTitles() const {
   std::string numbers_of_payment = AlignCell(4, "#N");
   std::string monthly_payment = AlignCell(kCellSize, "Monthly payment");
-  std::string credit_sum = AlignCell(kCellSize, "Sum of credit") + "|";
+  std::string credit_sum = AlignCell(kCellSize, "Sum of credit");
   std::string interest_charges = AlignCell(kCellSize, "Interest charges");
   std::string main_debt_payment = AlignCell(kCellSize, "Main debt payment");
 
   ConsoleEditor::WriteText("\n\n" + numbers_of_payment + monthly_payment +
                            credit_sum + interest_charges + main_debt_payment +
                            "\n\n");
+  ConsoleEditor::IgnoreCinLine();
 }
 
 std::string CreditPaymentsTable::AlignCell(

@@ -22,6 +22,7 @@ void ConsoleCreditCalculatorPresenter::RunCreditCalculator() {
     //    ConsoleEditor::AddEmptyLineNTimes(3);
     //    ConsoleEditor::IgnoreCinLine();
     // credit_calculator_menu_.ShowCreditTable(params);
+    credit_calculator_menu_.DisplayTableTitle();
   } else {
     credit_calculator_menu_.ShowIncorrectInputError(
         CalculatorErrorInformer::GetErrorsList());
