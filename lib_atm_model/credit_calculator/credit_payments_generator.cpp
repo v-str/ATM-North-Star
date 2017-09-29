@@ -22,7 +22,7 @@ std::vector<double> CreditPaymentsGenerator::SumOfOwedCredit() const {
   return sum_of_owed_credit_;
 }
 
-std::vector<double> CreditPaymentsGenerator::SumOfInterestChares() const {
+std::vector<double> CreditPaymentsGenerator::SumOfInterestCharges() const {
   return sum_of_interest_charges_;
 }
 

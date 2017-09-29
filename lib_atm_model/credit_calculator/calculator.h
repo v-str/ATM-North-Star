@@ -14,7 +14,7 @@ class Calculator {
   static double MonthlyPayment();
 
   static std::vector<double> SumOfOwedCredit();
-  static std::vector<double> SumOfInterestChares();
+  static std::vector<double> SumOfInterestCharges();
   static std::vector<double> SumOfMainDebtPayments();
 
  private:

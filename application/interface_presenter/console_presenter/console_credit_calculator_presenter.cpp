@@ -17,10 +17,11 @@ void ConsoleCreditCalculatorPresenter::RunCreditCalculator() {
                                 calculator_data_handler_.InterestRate(),
                                 calculator_data_handler_.AmountOfMonth());
 
-    ConsoleEditor::WriteText("\n\nMonthly credit payment: ");
-    std::cout << Calculator::MonthlyPayment();
-    ConsoleEditor::AddEmptyLineNTimes(3);
-    ConsoleEditor::IgnoreCinLine();
+    //    ConsoleEditor::WriteText("\n\nMonthly credit payment: ");
+    //    std::cout << Calculator::MonthlyPayment();
+    //    ConsoleEditor::AddEmptyLineNTimes(3);
+    //    ConsoleEditor::IgnoreCinLine();
+    // credit_calculator_menu_.ShowCreditTable(params);
   } else {
     credit_calculator_menu_.ShowIncorrectInputError(
         CalculatorErrorInformer::GetErrorsList());

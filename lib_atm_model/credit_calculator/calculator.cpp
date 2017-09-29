@@ -40,8 +40,8 @@ std::vector<double> Calculator::SumOfOwedCredit() {
   return credit_payments_generator_.SumOfOwedCredit();
 }
 
-std::vector<double> Calculator::SumOfInterestChares() {
-  return credit_payments_generator_.SumOfInterestChares();
+std::vector<double> Calculator::SumOfInterestCharges() {
+  return credit_payments_generator_.SumOfInterestCharges();
 }
 
 std::vector<double> Calculator::SumOfMainDebtPayments() {

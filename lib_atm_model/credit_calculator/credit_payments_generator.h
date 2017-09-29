@@ -12,7 +12,7 @@ class CreditPaymentsGenerator {
                               double percentage_coefficient);
 
   std::vector<double> SumOfOwedCredit() const;
-  std::vector<double> SumOfInterestChares() const;
+  std::vector<double> SumOfInterestCharges() const;
   std::vector<double> SumOfMainDebtPayments() const;
 
  private:
