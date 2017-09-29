@@ -1,7 +1,7 @@
 ﻿#ifndef CREDIT_TABLE_H
 #define CREDIT_TABLE_H
 
-class CreditTable {
+class CreditPaymentsGenerator {
  public:
   void ShowCreditTable();
 };

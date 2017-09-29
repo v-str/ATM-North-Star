@@ -1,3 +1,3 @@
 ﻿#include "credit_table.h"
 
-void CreditTable::ShowCreditTable() {}
+void CreditPaymentsGenerator::ShowCreditTable() {}

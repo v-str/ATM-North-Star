@@ -1,8 +1,8 @@
-﻿#include <credit_table.h>
+﻿#include <credit_payments_generator.h>
 
 #include <iostream>
 
-CreditTable::CreditTable()
+CreditPaymentsGenerator::CreditPaymentsGenerator()
     : credit_sum_(0.0),
       monthly_payment_(0.0),
       percentage_coefficient_(0.0),
@@ -10,10 +10,11 @@ CreditTable::CreditTable()
       interest_charge_(0.0),
       main_debp_payment_(0.0) {}
 
-void CreditTable::CalculateCreditTable(int credit_sum,
-                                       double monthly_payment,
-                                       double percentage_coefficient,
-                                       int credit_term_months) {
+void CreditPaymentsGenerator::GenerateCreditPayments(
+    int credit_sum,
+    double monthly_payment,
+    double percentage_coefficient,
+    int credit_term_months) {
   credit_sum_ = credit_sum;
   monthly_payment_ = monthly_payment;
   percentage_coefficient_ = percentage_coefficient;
@@ -22,7 +23,7 @@ void CreditTable::CalculateCreditTable(int credit_sum,
   ConstructCreditTable();
 }
 
-void CreditTable::ConstructCreditTable() {
+void CreditPaymentsGenerator::ConstructCreditTable() {
   while (credit_sum_ >= monthly_payment_) {
     interest_charge_ = credit_sum_ * (percentage_coefficient_ / kMonthsPerYear);
     main_debp_payment_ = monthly_payment_ - interest_charge_;

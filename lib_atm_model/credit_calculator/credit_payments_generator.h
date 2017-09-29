@@ -1,16 +1,16 @@
-﻿#ifndef CREDIT_TABLE_H
-#define CREDIT_TABLE_H
+﻿#ifndef CREDIT_PAYMENTS_GENERATOR_H
+#define CREDIT_PAYMENTS_GENERATOR_H
 
 #include <vector>
 
-class CreditTable {
+class CreditPaymentsGenerator {
  public:
-  CreditTable();
+  CreditPaymentsGenerator();
 
-  void CalculateCreditTable(int credit_sum,
-                            double monthly_payment,
-                            double percentage_coefficient,
-                            int credit_term_months);
+  void GenerateCreditPayments(int credit_sum,
+                              double monthly_payment,
+                              double percentage_coefficient,
+                              int credit_term_months);
 
  private:
   void ConstructCreditTable();
@@ -30,4 +30,4 @@ class CreditTable {
   static const int kMonthsPerYear = 12;
 };
 
-#endif  // CREDIT_TABLE_H
+#endif  // CREDIT_PAYMENTS_GENERATOR_H
