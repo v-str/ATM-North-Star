@@ -24,6 +24,15 @@ void ConsoleCreditCalculatorMenu::DisplayCreditTable(
                                    sum_of_main_debt_payments);
 }
 
+void ConsoleCreditCalculatorMenu::DisplayTotalLine(
+    const std::string& total_monthly_payment_sum,
+    const std::string& total_interest_charges_sum,
+    const std::string& total_main_debt_payment) const {
+  payments_table_.DisplayTotalLine(total_monthly_payment_sum,
+                                   total_interest_charges_sum,
+                                   total_main_debt_payment);
+}
+
 int ConsoleCreditCalculatorMenu::CreditSum() const { return credit_sum_; }
 
 double ConsoleCreditCalculatorMenu::CreditInterestRate() const {

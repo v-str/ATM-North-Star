@@ -23,6 +23,19 @@ void CreditPaymentsTable::BuildCreditTable(
     ConsoleEditor::Sleep(kSleepMSec);
   }
   DisplayEmptyRow();
+}
+
+void CreditPaymentsTable::DisplayTotalLine(
+    const std::string& total_monthly_payment_sum,
+    const std::string& total_interest_charges_sum,
+    const std::string& total_main_debt_payment) const {
+  ConsoleEditor::WriteText(kSpace + kLeftBorder +
+                           AlignCell(kCellSize, "Total:") +
+                           AlignCell(kCellSize, total_monthly_payment_sum) +
+                           AlignCell(kCellSize, "") +
+                           AlignCell(kCellSize, total_interest_charges_sum) +
+                           AlignCell(kCellSize, total_main_debt_payment));
+  ConsoleEditor::AddEmptyLineNTimes(1);
 
   // temporary code, only for testing
   ConsoleEditor::IgnoreCinLine();

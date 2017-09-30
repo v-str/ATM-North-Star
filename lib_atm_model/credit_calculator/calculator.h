@@ -18,6 +18,10 @@ class Calculator {
   std::vector<std::string> SumOfInterestCharges() const;
   std::vector<std::string> SumOfMainDebtPayments() const;
 
+  std::string TotalMonthlyPayment() const;
+  std::string TotalInterestCharges() const;
+  std::string TotalMainDebtPayment() const;
+
  private:
   void CalculateMonthlyPayment();
   double PaymentFormulaNumerator();

@@ -19,6 +19,10 @@ class ConsoleCreditCalculatorMenu {
       const std::vector<std::string>& sum_of_interest_charges,
       const std::vector<std::string>& sum_of_main_debt_payments) const;
 
+  void DisplayTotalLine(const std::string& total_monthly_payment_sum,
+                        const std::string& total_interest_charges_sum,
+                        const std::string& total_main_debt_payment) const;
+
   int CreditSum() const;
   double CreditInterestRate() const;
   int AmountOfMonths() const;

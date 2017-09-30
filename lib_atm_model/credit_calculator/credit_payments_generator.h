@@ -16,6 +16,10 @@ class CreditPaymentsGenerator {
   std::vector<std::string> SumOfInterestCharges() const;
   std::vector<std::string> SumOfMainDebtPayments() const;
 
+  std::string TotalMonthlyPayment() const;
+  std::string TotalInterestCharges() const;
+  std::string TotalMainDebtPayment() const;
+
  private:
   void CalculatePaymentTable();
   void CalculateLastPayment();
@@ -32,6 +36,10 @@ class CreditPaymentsGenerator {
   double percentage_coefficient_;
   double interest_charge_;
   double main_debp_payment_;
+
+  double total_monthly_payment_;
+  double total_interest_charges_;
+  double total_main_debt_payment_;
 
   std::vector<std::string> sum_of_owed_credit_;
   std::vector<std::string> sum_of_interest_charges_;

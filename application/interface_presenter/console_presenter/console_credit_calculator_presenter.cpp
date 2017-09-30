@@ -34,6 +34,9 @@ void ConsoleCreditCalculatorPresenter::DisplayCreditTable() const {
       calculator_.AmountOfMonths(), calculator_.MonthlyPayment(),
       calculator_.SumOfOwedCredit(), calculator_.SumOfInterestCharges(),
       calculator_.SumOfMainDebtPayments());
+  credit_calculator_menu_.DisplayTotalLine(calculator_.TotalMonthlyPayment(),
+                                           calculator_.TotalInterestCharges(),
+                                           calculator_.TotalMainDebtPayment());
 }
 
 bool ConsoleCreditCalculatorPresenter::IsCalculationDataValid() const {

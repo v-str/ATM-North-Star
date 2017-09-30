@@ -48,6 +48,18 @@ std::vector<std::string> Calculator::SumOfMainDebtPayments() const {
   return credit_payments_generator_.SumOfMainDebtPayments();
 }
 
+std::string Calculator::TotalMonthlyPayment() const {
+  return credit_payments_generator_.TotalMonthlyPayment();
+}
+
+std::string Calculator::TotalInterestCharges() const {
+  return credit_payments_generator_.TotalInterestCharges();
+}
+
+std::string Calculator::TotalMainDebtPayment() const {
+  return credit_payments_generator_.TotalMainDebtPayment();
+}
+
 void Calculator::CalculateMonthlyPayment() {
   kY = PaymentFormulaNumerator() / PaymentFormulaDenominator();
 }

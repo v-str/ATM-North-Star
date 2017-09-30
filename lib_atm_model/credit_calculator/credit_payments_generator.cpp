@@ -8,7 +8,10 @@ CreditPaymentsGenerator::CreditPaymentsGenerator()
       monthly_payment_(0.0),
       percentage_coefficient_(0.0),
       interest_charge_(0.0),
-      main_debp_payment_(0.0) {}
+      main_debp_payment_(0.0),
+      total_monthly_payment_(0.0),
+      total_interest_charges_(0.0),
+      total_main_debt_payment_(0.0) {}
 
 void CreditPaymentsGenerator::GenerateCreditPayments(
     int credit_sum, double monthly_payment, double percentage_coefficient) {
@@ -34,11 +37,27 @@ std::vector<std::string> CreditPaymentsGenerator::SumOfMainDebtPayments()
   return sum_of_main_debt_payments_;
 }
 
+std::string CreditPaymentsGenerator::TotalMonthlyPayment() const {
+  return ConvertToString(total_monthly_payment_);
+}
+
+std::string CreditPaymentsGenerator::TotalInterestCharges() const {
+  return ConvertToString(total_interest_charges_);
+}
+
+std::string CreditPaymentsGenerator::TotalMainDebtPayment() const {
+  return ConvertToString(total_main_debt_payment_);
+}
+
 void CreditPaymentsGenerator::CalculatePaymentTable() {
   while (credit_sum_ >= monthly_payment_) {
     interest_charge_ = credit_sum_ * (percentage_coefficient_ / kMonthsPerYear);
     main_debp_payment_ = monthly_payment_ - interest_charge_;
     credit_sum_ -= main_debp_payment_;
+
+    total_monthly_payment_ += monthly_payment_;
+    total_interest_charges_ += interest_charge_;
+    total_main_debt_payment_ += main_debp_payment_;
 
     FillPaymentContainers(interest_charge_, credit_sum_, main_debp_payment_);
   }
@@ -50,6 +69,10 @@ void CreditPaymentsGenerator::CalculateLastPayment() {
 
   main_debp_payment_ = monthly_payment_ - rest_of_interest_charge;
   credit_sum_ -= main_debp_payment_;
+
+  total_monthly_payment_ += monthly_payment_;
+  total_interest_charges_ += rest_of_interest_charge;
+  total_main_debt_payment_ += main_debp_payment_;
 
   FillPaymentContainers(rest_of_interest_charge, credit_sum_,
                         main_debp_payment_);
@@ -76,4 +99,7 @@ void CreditPaymentsGenerator::Reset() {
   sum_of_interest_charges_.clear();
   sum_of_owed_credit_.clear();
   sum_of_main_debt_payments_.clear();
+  total_monthly_payment_ = 0.0;
+  total_interest_charges_ = 0.0;
+  total_main_debt_payment_ = 0.0;
 }
