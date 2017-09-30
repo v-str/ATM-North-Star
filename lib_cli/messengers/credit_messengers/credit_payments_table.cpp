@@ -5,6 +5,10 @@
 
 #include <console_editor.h>
 
+std::string CreditPaymentsTable::kEmptyCell = "----------";
+std::string CreditPaymentsTable::kSpace = "      ";
+std::string CreditPaymentsTable::kLeftBorder = "|";
+
 void CreditPaymentsTable::BuildCreditTable(
     int amount_of_months,
     double monthly_payment,
@@ -25,6 +29,8 @@ void CreditPaymentsTable::BuildCreditTable(
 }
 
 void CreditPaymentsTable::DisplayTitle() const {
+  ConsoleEditor::AddEmptyLineNTimes(2);
+  DisplayEmptyRow();
   DisplayUpperTitlesRow();
   DisplayLowerTitlesRow();
   DisplayEmptyRow();
@@ -37,8 +43,8 @@ void CreditPaymentsTable::DisplayUpperTitlesRow() const {
   std::string interest = AlignCell(kCellSize, "Interest");
   std::string main_debt = AlignCell(kCellSize, "Main debt");
 
-  ConsoleEditor::AddEmptyLineNTimes(2);
-  ConsoleEditor::WriteText(number_of + monthly + sum_of + interest + main_debt);
+  ConsoleEditor::WriteText(kSpace + kLeftBorder + number_of + monthly + sum_of +
+                           interest + main_debt);
   ConsoleEditor::AddEmptyLineNTimes(1);
 }
 
@@ -47,19 +53,22 @@ void CreditPaymentsTable::DisplayLowerTitlesRow() const {
   std::string credit = AlignCell(kCellSize, "credit");
   std::string charges = AlignCell(kCellSize, "charges");
 
-  ConsoleEditor::WriteText(payment + payment + credit + charges + payment);
+  ConsoleEditor::WriteText(kSpace + kLeftBorder + payment + payment + credit +
+                           charges + payment);
   ConsoleEditor::AddEmptyLineNTimes(1);
 }
 
 void CreditPaymentsTable::DisplayEmptyRow() const {
   std::string empty_string;
-
-  for (int i = 0; i < 5; ++i) {
-    empty_string += AlignCell(kCellSize, "----------");
-  }
-
-  ConsoleEditor::WriteText(empty_string);
+  FillEmptyRow(&empty_string);
+  ConsoleEditor::WriteText(kSpace + kLeftBorder + empty_string);
   ConsoleEditor::AddEmptyLineNTimes(1);
+}
+
+void CreditPaymentsTable::FillEmptyRow(std::string* filling_string) const {
+  for (int i = 0; i < kAmountOfColumns; ++i) {
+    *filling_string += AlignCell(kCellSize, kEmptyCell);
+  }
 }
 
 void CreditPaymentsTable::DisplayCreditTableRow(
@@ -72,7 +81,8 @@ void CreditPaymentsTable::DisplayCreditTableRow(
       AlignCell(kCellSize, std::to_string(number_of_month));
   std::string monthly_payment_cell =
       AlignCell(kCellSize, ConvertToString(monthly_payment));
-  ConsoleEditor::WriteText(month_cell + monthly_payment_cell +
+  ConsoleEditor::WriteText(kSpace + kLeftBorder + month_cell +
+                           monthly_payment_cell +
                            AlignCell(kCellSize, sum_of_owed_credit) +
                            AlignCell(kCellSize, sum_of_interest_charge) +
                            AlignCell(kCellSize, sum_of_main_debt_payment));
