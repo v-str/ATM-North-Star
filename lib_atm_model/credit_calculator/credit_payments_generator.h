@@ -1,6 +1,7 @@
 ﻿#ifndef CREDIT_PAYMENTS_GENERATOR_H
 #define CREDIT_PAYMENTS_GENERATOR_H
 
+#include <string>
 #include <vector>
 
 class CreditPaymentsGenerator {
@@ -11,13 +12,19 @@ class CreditPaymentsGenerator {
                               double monthly_payment,
                               double percentage_coefficient);
 
-  std::vector<double> SumOfOwedCredit() const;
-  std::vector<double> SumOfInterestCharges() const;
-  std::vector<double> SumOfMainDebtPayments() const;
+  std::vector<std::string> SumOfOwedCredit() const;
+  std::vector<std::string> SumOfInterestCharges() const;
+  std::vector<std::string> SumOfMainDebtPayments() const;
 
  private:
-  void FillCreditPaymentArrays();
-  void FillLastPayment();
+  void CalculatePaymentTable();
+  void CalculateLastPayment();
+  void FillPaymentContainers(double sum_of_owed_credit,
+                             double sum_of_interest_charges,
+                             double sum_of_main_debt_payments);
+
+  std::string ConvertToString(double value) const;
+
   void Reset();
 
   double credit_sum_;
@@ -26,9 +33,9 @@ class CreditPaymentsGenerator {
   double interest_charge_;
   double main_debp_payment_;
 
-  std::vector<double> sum_of_owed_credit_;
-  std::vector<double> sum_of_interest_charges_;
-  std::vector<double> sum_of_main_debt_payments_;
+  std::vector<std::string> sum_of_owed_credit_;
+  std::vector<std::string> sum_of_interest_charges_;
+  std::vector<std::string> sum_of_main_debt_payments_;
 
   static const int kMonthsPerYear = 12;
 };

@@ -14,9 +14,9 @@ class Calculator {
   int AmountOfMonths() const;
   double MonthlyPayment() const;
 
-  std::vector<double> SumOfOwedCredit() const;
-  std::vector<double> SumOfInterestCharges() const;
-  std::vector<double> SumOfMainDebtPayments() const;
+  std::vector<std::string> SumOfOwedCredit() const;
+  std::vector<std::string> SumOfInterestCharges() const;
+  std::vector<std::string> SumOfMainDebtPayments() const;
 
  private:
   void CalculateMonthlyPayment();

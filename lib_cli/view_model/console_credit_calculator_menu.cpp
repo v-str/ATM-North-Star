@@ -16,9 +16,9 @@ void ConsoleCreditCalculatorMenu::RequestDataForCredit() {
 void ConsoleCreditCalculatorMenu::DisplayCreditTable(
     int amount_of_months,
     double monthly_payment,
-    const std::vector<double>& sum_of_owed_credit,
-    const std::vector<double>& sum_of_interest_charges,
-    const std::vector<double>& sum_of_main_debt_payments) const {
+    const std::vector<std::string>& sum_of_owed_credit,
+    const std::vector<std::string>& sum_of_interest_charges,
+    const std::vector<std::string>& sum_of_main_debt_payments) const {
   payments_table_.BuildCreditTable(amount_of_months, monthly_payment,
                                    sum_of_owed_credit, sum_of_interest_charges,
                                    sum_of_main_debt_payments);

@@ -8,9 +8,9 @@
 void CreditPaymentsTable::BuildCreditTable(
     int amount_of_months,
     double monthly_payment,
-    const std::vector<double>& sum_of_owed_credit,
-    const std::vector<double>& sum_of_interest_charges,
-    const std::vector<double>& sum_of_main_debt_payment) const {
+    const std::vector<std::string>& sum_of_owed_credit,
+    const std::vector<std::string>& sum_of_interest_charges,
+    const std::vector<std::string>& sum_of_main_debt_payment) const {
   DisplayTableTitles();
   for (int i = 0; i < amount_of_months; ++i) {
     DisplayCreditTableRow(i + 1, monthly_payment, sum_of_owed_credit[i],
@@ -36,21 +36,17 @@ void CreditPaymentsTable::DisplayTableTitles() const {
 void CreditPaymentsTable::DisplayCreditTableRow(
     int number_of_month,
     double monthly_payment,
-    double sum_of_owed_credit,
-    double sum_of_interest_charge,
-    double sum_of_main_debt_payment) const {
+    const std::string& sum_of_owed_credit,
+    const std::string& sum_of_interest_charge,
+    const std::string& sum_of_main_debt_payment) const {
   std::string month_cell = AlignCell(6, std::to_string(number_of_month));
   std::string monthly_payment_cell =
       AlignCell(kCellSize, ConvertToString(monthly_payment));
-  std::string sum_of_owed_credit_cell =
-      AlignCell(kCellSize, ConvertToString(sum_of_owed_credit));
-  std::string sum_of_interest_charge_cell =
-      AlignCell(kCellSize, ConvertToString(sum_of_interest_charge));
-  std::string sum_of_main_debt_payment_cell =
-      AlignCell(kCellSize, ConvertToString(sum_of_main_debt_payment));
-  ConsoleEditor::WriteText(
-      month_cell + monthly_payment_cell + sum_of_owed_credit_cell +
-      sum_of_interest_charge_cell + sum_of_main_debt_payment_cell + "\n");
+  ConsoleEditor::WriteText(month_cell + monthly_payment_cell +
+                           AlignCell(kCellSize, sum_of_owed_credit) +
+                           AlignCell(kCellSize, sum_of_interest_charge) +
+                           AlignCell(kCellSize, sum_of_main_debt_payment));
+  ConsoleEditor::AddEmptyLineNTimes(1);
 }
 
 std::string CreditPaymentsTable::AlignCell(

@@ -15,9 +15,9 @@ class ConsoleCreditCalculatorMenu {
   void DisplayCreditTable(
       int amount_of_months,
       double monthly_payment,
-      const std::vector<double>& sum_of_owed_credit,
-      const std::vector<double>& sum_of_interest_charges,
-      const std::vector<double>& sum_of_main_debt_payments) const;
+      const std::vector<std::string>& sum_of_owed_credit,
+      const std::vector<std::string>& sum_of_interest_charges,
+      const std::vector<std::string>& sum_of_main_debt_payments) const;
 
   int CreditSum() const;
   double CreditInterestRate() const;

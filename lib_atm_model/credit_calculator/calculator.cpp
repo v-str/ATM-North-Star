@@ -36,15 +36,15 @@ int Calculator::AmountOfMonths() const { return kN; }
 
 double Calculator::MonthlyPayment() const { return kY; }
 
-std::vector<double> Calculator::SumOfOwedCredit() const {
+std::vector<std::string> Calculator::SumOfOwedCredit() const {
   return credit_payments_generator_.SumOfOwedCredit();
 }
 
-std::vector<double> Calculator::SumOfInterestCharges() const {
+std::vector<std::string> Calculator::SumOfInterestCharges() const {
   return credit_payments_generator_.SumOfInterestCharges();
 }
 
-std::vector<double> Calculator::SumOfMainDebtPayments() const {
+std::vector<std::string> Calculator::SumOfMainDebtPayments() const {
   return credit_payments_generator_.SumOfMainDebtPayments();
 }
 
