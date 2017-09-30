@@ -7,28 +7,29 @@
 
 class Calculator {
  public:
-  static void CalculateCredit(int credit_sum,
-                              double credit_interest_rate,
-                              int amount_of_months);
+  void CalculateCredit(int credit_sum,
+                       double credit_interest_rate,
+                       int amount_of_months);
 
-  static double MonthlyPayment();
+  int AmountOfMonths() const;
+  double MonthlyPayment() const;
 
-  static std::vector<double> SumOfOwedCredit();
-  static std::vector<double> SumOfInterestCharges();
-  static std::vector<double> SumOfMainDebtPayments();
+  std::vector<double> SumOfOwedCredit() const;
+  std::vector<double> SumOfInterestCharges() const;
+  std::vector<double> SumOfMainDebtPayments() const;
 
  private:
-  static void CalculateMonthlyPayment();
-  static double PaymentFormulaNumerator();
-  static double PaymentFormulaDenominator();
-  static void Reset();
+  void CalculateMonthlyPayment();
+  double PaymentFormulaNumerator();
+  double PaymentFormulaDenominator();
+  void Reset();
 
   static double kY;
   static int kD;
   static int kN;
   static double kI;
 
-  static CreditPaymentsGenerator credit_payments_generator_;
+  CreditPaymentsGenerator credit_payments_generator_;
 
   static const int kM = 12;
   static const int kOne = 1;

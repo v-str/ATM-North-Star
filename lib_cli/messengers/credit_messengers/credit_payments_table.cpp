@@ -6,11 +6,11 @@
 #include <console_editor.h>
 
 void CreditPaymentsTable::BuildCreditTable(
-    double monthly_payment,
     int amount_of_months,
+    double monthly_payment,
     const std::vector<double>& sum_of_owed_credit,
     const std::vector<double>& sum_of_interest_charges,
-    const std::vector<double>& sum_of_main_debt_payment) {
+    const std::vector<double>& sum_of_main_debt_payment) const {
   DisplayTableTitles();
   for (int i = 1; i <= amount_of_months; ++i) {
   }
@@ -34,7 +34,7 @@ std::string CreditPaymentsTable::AlignCell(
   int string_content_size = string_content.size();
   int spaces_before_string = cell_size - string_content_size - 1;
 
-  std::string aligned_string = "|";
+  std::string aligned_string;
   aligned_string.assign(spaces_before_string, ' ');
   aligned_string += string_content;
   aligned_string += " |";

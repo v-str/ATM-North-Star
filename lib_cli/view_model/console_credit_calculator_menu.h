@@ -12,12 +12,18 @@ class ConsoleCreditCalculatorMenu {
   void RunCreditCalculator();
   void RequestDataForCredit();
 
+  void DisplayCreditTable(
+      int amount_of_months,
+      double monthly_payment,
+      const std::vector<double>& sum_of_owed_credit,
+      const std::vector<double>& sum_of_interest_charges,
+      const std::vector<double>& sum_of_main_debt_payments) const;
+
   int CreditSum() const;
   double CreditInterestRate() const;
   int AmountOfMonths() const;
   void ShowIncorrectInputError(
       const std::vector<std::string>& error_list) const;
-  void DisplayTableTitle() const;
 
  private:
   void RequestCreditSum();

@@ -17,7 +17,7 @@ class CreditPaymentsGenerator {
 
  private:
   void FillCreditPaymentArrays();
-  void GenerateLastPayment();
+  void FillLastPayment();
 
   double credit_sum_;
   double monthly_payment_;

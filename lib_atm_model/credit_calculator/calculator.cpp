@@ -19,8 +19,6 @@ int Calculator::kD = 0;
 int Calculator::kN = 0;
 double Calculator::kI = 0.0;
 
-CreditPaymentsGenerator Calculator::credit_payments_generator_;
-
 void Calculator::CalculateCredit(int credit_sum,
                                  double credit_interest_rate,
                                  int amount_of_months) {
@@ -34,18 +32,20 @@ void Calculator::CalculateCredit(int credit_sum,
   credit_payments_generator_.GenerateCreditPayments(kD, kY, kI);
 }
 
-double Calculator::MonthlyPayment() { return kY; }
+int Calculator::AmountOfMonths() const { return kN; }
 
-std::vector<double> Calculator::SumOfOwedCredit() {
+double Calculator::MonthlyPayment() const { return kY; }
+
+std::vector<double> Calculator::SumOfOwedCredit() const {
   return credit_payments_generator_.SumOfOwedCredit();
 }
 
-std::vector<double> Calculator::SumOfInterestCharges() {
+std::vector<double> Calculator::SumOfInterestCharges() const {
   return credit_payments_generator_.SumOfInterestCharges();
 }
 
-std::vector<double> Calculator::SumOfMainDebtPayments() {
-  return SumOfMainDebtPayments();
+std::vector<double> Calculator::SumOfMainDebtPayments() const {
+  return credit_payments_generator_.SumOfMainDebtPayments();
 }
 
 void Calculator::CalculateMonthlyPayment() {

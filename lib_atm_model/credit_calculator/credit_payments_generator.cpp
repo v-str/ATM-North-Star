@@ -40,10 +40,10 @@ void CreditPaymentsGenerator::FillCreditPaymentArrays() {
     sum_of_owed_credit_.push_back(credit_sum_);
     sum_of_main_debt_payments_.push_back(main_debp_payment_);
   }
-  GenerateLastPayment();
+  FillLastPayment();
 }
 
-void CreditPaymentsGenerator::GenerateLastPayment() {
+void CreditPaymentsGenerator::FillLastPayment() {
   double rest_of_interest_charge = monthly_payment_ - credit_sum_;
 
   main_debp_payment_ = monthly_payment_ - rest_of_interest_charge;
