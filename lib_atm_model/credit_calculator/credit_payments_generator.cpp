@@ -11,6 +11,8 @@ CreditPaymentsGenerator::CreditPaymentsGenerator()
 
 void CreditPaymentsGenerator::GenerateCreditPayments(
     int credit_sum, double monthly_payment, double percentage_coefficient) {
+  Reset();
+
   credit_sum_ = credit_sum;
   monthly_payment_ = monthly_payment;
   percentage_coefficient_ = percentage_coefficient;
@@ -52,4 +54,10 @@ void CreditPaymentsGenerator::FillLastPayment() {
   sum_of_interest_charges_.push_back(rest_of_interest_charge);
   sum_of_owed_credit_.push_back(credit_sum_);
   sum_of_main_debt_payments_.push_back(main_debp_payment_);
+}
+
+void CreditPaymentsGenerator::Reset() {
+  sum_of_interest_charges_.clear();
+  sum_of_owed_credit_.clear();
+  sum_of_main_debt_payments_.clear();
 }

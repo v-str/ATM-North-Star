@@ -15,6 +15,11 @@ class CreditPaymentsTable {
 
  private:
   void DisplayTableTitles() const;
+  void DisplayCreditTableRow(int number_of_month,
+                             double monthly_payment,
+                             double sum_of_owed_credit,
+                             double sum_of_interest_charge,
+                             double sum_of_main_debt_payment) const;
   std::string AlignCell(int cell_size, const std::string& string_content) const;
   std::string ConvertToString(double value) const;
 
