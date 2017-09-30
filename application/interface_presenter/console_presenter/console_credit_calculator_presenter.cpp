@@ -10,7 +10,6 @@ void ConsoleCreditCalculatorPresenter::RunCreditCalculator() {
   if (IsCalculationDataValid()) {
     CalculateCredit();
     DisplayCreditTable();
-
   } else {
     credit_calculator_menu_.ShowIncorrectInputError(
         CalculatorErrorInformer::GetErrorsList());

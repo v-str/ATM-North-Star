@@ -14,6 +14,7 @@ class CreditPaymentsTable {
       const std::vector<std::string>& sum_of_main_debt_payment) const;
 
  private:
+  void DisplayTitle() const;
   void DisplayUpperTitlesRow() const;
   void DisplayLowerTitlesRow() const;
   void DisplayEmptyRow() const;
@@ -27,6 +28,7 @@ class CreditPaymentsTable {
   std::string ConvertToString(double value) const;
 
   static const int kCellSize = 12;
+  static const int kSleepMSec = 50;
 };
 
 #endif  // CREDIT_PAYMENTS_TABLE_H

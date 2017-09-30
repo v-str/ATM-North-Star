@@ -11,18 +11,23 @@ void CreditPaymentsTable::BuildCreditTable(
     const std::vector<std::string>& sum_of_owed_credit,
     const std::vector<std::string>& sum_of_interest_charges,
     const std::vector<std::string>& sum_of_main_debt_payment) const {
-  DisplayUpperTitlesRow();
-  DisplayLowerTitlesRow();
-  DisplayEmptyRow();
+  DisplayTitle();
   for (int i = 0; i < amount_of_months; ++i) {
     DisplayCreditTableRow(i + 1, monthly_payment, sum_of_owed_credit[i],
                           sum_of_interest_charges[i],
                           sum_of_main_debt_payment[i]);
-    ConsoleEditor::Sleep(100);
+    ConsoleEditor::Sleep(kSleepMSec);
   }
   DisplayEmptyRow();
 
+  // temporary code, only for testing
   ConsoleEditor::IgnoreCinLine();
+}
+
+void CreditPaymentsTable::DisplayTitle() const {
+  DisplayUpperTitlesRow();
+  DisplayLowerTitlesRow();
+  DisplayEmptyRow();
 }
 
 void CreditPaymentsTable::DisplayUpperTitlesRow() const {
