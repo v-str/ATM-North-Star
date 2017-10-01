@@ -35,6 +35,7 @@ void ConsoleCreditPresenter::PerformMenuItem() {
 
 void ConsoleCreditPresenter::RunCreditCalculator() {
   console_credit_calculator_presenter_.RunCreditCalculator();
+  // user_want_quit_ = console_credit_calculator_presenter_.UserWantQuit();
 }
 
 void ConsoleCreditPresenter::ResetManipulationFlag() {

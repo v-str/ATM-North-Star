@@ -36,6 +36,7 @@ void CreditPaymentsTable::DisplayTotalLine(
                            AlignCell(kCellSize, total_interest_charges_sum) +
                            AlignCell(kCellSize, total_main_debt_payment));
   ConsoleEditor::AddEmptyLineNTimes(1);
+  DisplayEmptyRow();
 
   // temporary code, only for testing
   ConsoleEditor::IgnoreCinLine();
