@@ -37,9 +37,6 @@ void CreditPaymentsTable::DisplayTotalLine(
                            AlignCell(kCellSize, total_main_debt_payment));
   ConsoleEditor::AddEmptyLineNTimes(1);
   DisplayEmptyRow();
-
-  // temporary code, only for testing
-  ConsoleEditor::IgnoreCinLine();
 }
 
 void CreditPaymentsTable::DisplayTitle() const {

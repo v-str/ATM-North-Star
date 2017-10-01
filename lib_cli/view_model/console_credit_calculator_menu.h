@@ -22,7 +22,6 @@ class ConsoleCreditCalculatorMenu {
   void DisplayTotalLine(const std::string& total_monthly_payment_sum,
                         const std::string& total_interest_charges_sum,
                         const std::string& total_main_debt_payment) const;
-
   int CreditSum() const;
   double CreditInterestRate() const;
   int AmountOfMonths() const;

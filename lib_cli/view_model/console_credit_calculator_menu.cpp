@@ -31,6 +31,7 @@ void ConsoleCreditCalculatorMenu::DisplayTotalLine(
   payments_table_.DisplayTotalLine(total_monthly_payment_sum,
                                    total_interest_charges_sum,
                                    total_main_debt_payment);
+  CreditCalculatorMessenger::PressEnterToContinue();
 }
 
 int ConsoleCreditCalculatorMenu::CreditSum() const { return credit_sum_; }
