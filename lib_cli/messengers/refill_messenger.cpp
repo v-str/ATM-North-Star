@@ -27,7 +27,6 @@ void RefillMessenger::ShowSuccessfulCashRefilling() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\t# Balance refill completed successfully.\n\t");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
-  ConsoleEditor::Sleep(kSecond);
 }
 
 void RefillMessenger::ShowIncorrectRefillingMessage() {
@@ -40,18 +39,9 @@ void RefillMessenger::ShowIncorrectRefillingMessage() {
       "\n\t# requirements."
       "\n\t# Quit to main menu...\n\t");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
-  ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t# press enter to continue...");
-  ConsoleEditor::IgnoreCinLine();
-}
-
-void RefillMessenger::ShowIncorrectInputMessage() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t# Incorrect input, please try again...\n"
-      "\t# Enter: ");
 }
 
 void RefillMessenger::ShowMainMenuQuit() {
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Quit to main menu...");
-  ConsoleEditor::Sleep(kSleep);
+  ConsoleEditor::Sleep(kSecond);
 }

@@ -6,7 +6,6 @@ class MainMenuMessenger {
   static void ShowMainMenu();
   static void LogOutMessage();
   static void ShowQuitMenu();
-  static void PressEnterToContinue();
 
  private:
   static const int kFrame = 45;

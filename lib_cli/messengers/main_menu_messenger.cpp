@@ -42,8 +42,3 @@ void MainMenuMessenger::ShowQuitMenu() {
       "\t# 2. Exit program.\n"
       "\t# Enter: ");
 }
-
-void MainMenuMessenger::PressEnterToContinue() {
-  ConsoleEditor::WriteText("\n\t## Press \"Enter\" to continue...");
-  ConsoleEditor::IgnoreCinLine();
-}

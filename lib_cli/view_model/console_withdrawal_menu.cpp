@@ -1,5 +1,6 @@
 ﻿#include <console_withdrawal_menu.h>
 
+#include <application_messenger.h>
 #include <password_input_handler.h>
 #include <user_input_handler.h>
 #include <withdrawal_messenger.h>
@@ -30,10 +31,12 @@ bool ConsoleWithdrawalMenu::UserWantQuit() const { return user_want_quit_; }
 
 void ConsoleWithdrawalMenu::ShowSuccessfulWithdrawal() const {
   WithdrawalMessenger::ShowSuccessfulWithdrawal();
+  ApplicationMessenger::PressEnterToContinue();
 }
 
 void ConsoleWithdrawalMenu::ShowIncorrectWithdrawal() const {
   WithdrawalMessenger::IncorrectWithdrawalMessage();
+  ApplicationMessenger::PressEnterToContinue();
 }
 
 void ConsoleWithdrawalMenu::ProcessUserInput() {

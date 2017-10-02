@@ -13,8 +13,7 @@ class CreditCalculatorMessenger {
   static void DisplayErrorLogo();
   static void DisplayError(const std::string& error_text);
 
-  static void PressEnterToContinue();
-  static void ClearScreen();
+  //  static void ClearScreen();
 
  private:
   static void DisplayCorrectInputOrder();

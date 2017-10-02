@@ -11,7 +11,6 @@ class WithdrawalMessenger {
 
  private:
   static const int kStripLength = 45;
-  static const int kSecond = 1000;
 };
 
 #endif  // WITHDRAWAL_MESSENGER_H

@@ -8,11 +8,9 @@ class RefillMessenger {
   static void ShowRefillNotification();
   static void ShowSuccessfulCashRefilling();
   static void ShowIncorrectRefillingMessage();
-  static void ShowIncorrectInputMessage();
   static void ShowMainMenuQuit();
 
-  static const int kSecond = 1000;
-  static const int kSleep = 100;
+  static const int kSecond = 200;
   static const int kStripLength = 45;
 };
 

@@ -1,6 +1,7 @@
 ﻿#include <console_account_menu.h>
 
 #include <account_messenger.h>
+#include <application_messenger.h>
 #include <main_menu_messenger.h>
 
 #include <console_editor.h>
@@ -19,7 +20,7 @@ void ConsoleAccountMenu::ShowAccountInfo() {
     AccountMessenger::DisplayInfoLine(info_title_[i], account_info_[i]);
   }
 
-  MainMenuMessenger::PressEnterToContinue();
+  ApplicationMessenger::PressEnterToContinue();
 }
 
 void ConsoleAccountMenu::FillTitles() {

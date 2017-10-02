@@ -37,7 +37,6 @@ void WithdrawalMessenger::ShowSuccessfulWithdrawal() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\t# Withdrawal completed successfully.\n\t");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
-  ConsoleEditor::Sleep(kSecond);
 }
 
 void WithdrawalMessenger::IncorrectWithdrawalMessage() {
@@ -51,7 +50,4 @@ void WithdrawalMessenger::IncorrectWithdrawalMessage() {
       "\n\t# password is correct and try again."
       "\n\t# Quit to main menu...\n\t");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
-  ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t# press enter to continue...");
-  ConsoleEditor::IgnoreCinLine();
 }

@@ -1,5 +1,6 @@
 ﻿#include <credit_calculator_messenger.h>
 
+#include <application_messenger.h>
 #include <console_editor.h>
 
 void CreditCalculatorMessenger::DisplayCalculatorDescription() {
@@ -30,12 +31,8 @@ void CreditCalculatorMessenger::DisplayError(const std::string& error_text) {
   ConsoleEditor::WriteTextWithDelayPerSymbol("\t## " + error_text + "\n");
 }
 
-void CreditCalculatorMessenger::PressEnterToContinue() {
-  ConsoleEditor::WriteText("\n\t## Press \"Enter\" to continue...");
-  ConsoleEditor::IgnoreCinLine();
-}
-
-void CreditCalculatorMessenger::ClearScreen() { ConsoleEditor::ClearScreen(); }
+// void CreditCalculatorMessenger::ClearScreen() { ConsoleEditor::ClearScreen();
+// }
 
 void CreditCalculatorMessenger::DisplayCorrectInputOrder() {
   ConsoleEditor::ClearScreen();
@@ -63,7 +60,7 @@ void CreditCalculatorMessenger::DisplayNotification() {
       "\t## Credit term must be from 1 month to 60 months.         ##\n"
       "\t##                                                        ##\n"
       "\t############################################################\n\n");
-  PressEnterToContinue();
+  ApplicationMessenger::PressEnterToContinue();
 }
 
 void CreditCalculatorMessenger::DisplayLogo() {

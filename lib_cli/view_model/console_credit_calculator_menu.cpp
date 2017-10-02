@@ -1,5 +1,6 @@
 ﻿#include <console_credit_calculator_menu.h>
 
+#include <application_messenger.h>
 #include <credit_calculator_messenger.h>
 
 void ConsoleCreditCalculatorMenu::RunCreditCalculator() {
@@ -14,8 +15,7 @@ void ConsoleCreditCalculatorMenu::RequestDataForCredit() {
 }
 
 void ConsoleCreditCalculatorMenu::DisplayCreditTable(
-    int amount_of_months,
-    double monthly_payment,
+    int amount_of_months, double monthly_payment,
     const std::vector<std::string>& sum_of_owed_credit,
     const std::vector<std::string>& sum_of_interest_charges,
     const std::vector<std::string>& sum_of_main_debt_payments) const {
@@ -31,7 +31,7 @@ void ConsoleCreditCalculatorMenu::DisplayTotalLine(
   payments_table_.DisplayTotalLine(total_monthly_payment_sum,
                                    total_interest_charges_sum,
                                    total_main_debt_payment);
-  CreditCalculatorMessenger::PressEnterToContinue();
+  ApplicationMessenger::PressEnterToContinue();
 }
 
 int ConsoleCreditCalculatorMenu::CreditSum() const { return credit_sum_; }
@@ -50,7 +50,7 @@ void ConsoleCreditCalculatorMenu::ShowIncorrectInputError(
   for (auto it = error_list.begin(); it != error_list.end(); ++it) {
     CreditCalculatorMessenger::DisplayError(*it);
   }
-  CreditCalculatorMessenger::PressEnterToContinue();
+  ApplicationMessenger::PressEnterToContinue();
 }
 
 void ConsoleCreditCalculatorMenu::RequestCreditSum() {

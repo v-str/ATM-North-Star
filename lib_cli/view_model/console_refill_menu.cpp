@@ -1,5 +1,6 @@
 ﻿#include <console_refill_menu.h>
 
+#include <application_messenger.h>
 #include <refill_messenger.h>
 
 void ConsoleRefillMenu::RunRefillMenu() {
@@ -9,10 +10,12 @@ void ConsoleRefillMenu::RunRefillMenu() {
 
 void ConsoleRefillMenu::ShowCorrectRefillingNotification() const {
   RefillMessenger::ShowSuccessfulCashRefilling();
+  ApplicationMessenger::PressEnterToContinue();
 }
 
 void ConsoleRefillMenu::ShowIncorrectRefillingNotification() const {
   RefillMessenger::ShowIncorrectRefillingMessage();
+  ApplicationMessenger::PressEnterToContinue();
 }
 
 void ConsoleRefillMenu::ShowMainMenuQuit() const {
@@ -38,7 +41,7 @@ void ConsoleRefillMenu::ProcessUserInput() {
     if (IsUserInputCorrect(user_input)) {
       break;
     } else {
-      RefillMessenger::ShowIncorrectInputMessage();
+      ApplicationMessenger::ShowIncorrectMenuInput();
     }
   }
 }
