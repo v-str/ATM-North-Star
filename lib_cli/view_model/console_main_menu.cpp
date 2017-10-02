@@ -33,10 +33,6 @@ bool ConsoleMainMenu::UserWantWithdraw() const {
   return user_item_choice_[kWithdrawal];
 }
 
-bool ConsoleMainMenu::UserWantStatement() const {
-  return user_item_choice_[kStatement];
-}
-
 bool ConsoleMainMenu::UserWantQuit() const { return user_item_choice_[kQuit]; }
 
 bool ConsoleMainMenu::UserWantLogOut() const {

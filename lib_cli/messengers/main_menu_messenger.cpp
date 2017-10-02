@@ -4,29 +4,28 @@
 
 void MainMenuMessenger::ShowMainMenu() {
   ConsoleEditor::ClearScreen();
-  ConsoleEditor::AddEmptyLineNTimes(3);
+  ConsoleEditor::AddEmptyLineNTimes(2);
   ConsoleEditor::WriteText(
-      "\t############## ATM North Star ##\n"
-      "\t######## Operation menu ########\n"
-      "\t##                            ##\n"
-      "\t##   1. Account information   ##\n"
-      "\t##  ------------------------  ##\n"
-      "\t##   2. Refill                ##\n"
-      "\t##  ------------------------  ##\n"
-      "\t##   3. Withdrawal            ##\n"
-      "\t##  ------------------------  ##\n"
-      "\t##   4. Statement             ##\n"
-      "\t##  ------------------------  ##\n"
-      "\t##   5. Credit Calculator     ##\n"
-      "\t##  ------------------------  ##\n"
-      "\t##                            ##\n"
-      "\t##                            ##\n"
-      "\t##  ------------------------  ##\n"
-      "\t##   6. Log out    7 Quit     ##\n"
-      "\t##  ------------------------  ##\n"
-      "\t##                            ##\n"
-      "\t################################\n"
-      "\t################################\n"
+      "\t######################################\n"
+      "\t##                   ATM North Star ##\n"
+      "\t##                                  ##\n"
+      "\t##          Operation menu          ##\n"
+      "\t##                                  ##\n"
+      "\t##      1. Account information      ##\n"
+      "\t##     ------------------------     ##\n"
+      "\t##      2. Refill                   ##\n"
+      "\t##     ------------------------     ##\n"
+      "\t##      3. Withdrawal               ##\n"
+      "\t##     ------------------------     ##\n"
+      "\t##      4. Credit Calculator        ##\n"
+      "\t##     ------------------------     ##\n"
+      "\t##                                  ##\n"
+      "\t##                                  ##\n"
+      "\t##     ------------------------     ##\n"
+      "\t##      5. Log out    6. Quit       ##\n"
+      "\t##     ------------------------     ##\n"
+      "\t##                                  ##\n"
+      "\t######################################\n\n"
       "\tEnter: ");
 }
 

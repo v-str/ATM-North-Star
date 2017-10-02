@@ -6,7 +6,6 @@
 #include <console_account_menu.h>
 #include <console_credit_calculator_presenter.h>
 #include <console_refill_menu.h>
-#include <console_statement_menu.h>
 #include <console_withdrawal_presenter.h>
 
 void ConsoleMainMenuPresenter::RunMainMenu() {
@@ -40,9 +39,6 @@ void ConsoleMainMenuPresenter::PerformMenuItem() {
   }
   if (console_main_menu_.UserWantWithdraw()) {
     RunWithdrawalPresenter();
-  }
-  if (console_main_menu_.UserWantStatement()) {
-    RunStatementMenu();
   }
   if (console_main_menu_.UserWantLogOut()) {
     console_main_menu_.DisplayLogOutMessage();
@@ -85,12 +81,6 @@ void ConsoleMainMenuPresenter::RunWithdrawalPresenter() {
   ConsoleWithdrawalPresenter withdrawal_presenter;
   withdrawal_presenter.RunWithdrawalMenu();
   user_want_quit_ = withdrawal_presenter.UserWantQuit();
-}
-
-void ConsoleMainMenuPresenter::RunStatementMenu() {
-  ConsoleStatementMenu statement_menu;
-  statement_menu.RunStatement(AtmInteractor::Cash());
-  user_want_quit_ = statement_menu.UserWantQuit();
 }
 
 void ConsoleMainMenuPresenter::ResetManipulationFlags() {

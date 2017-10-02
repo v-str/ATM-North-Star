@@ -27,7 +27,6 @@ class ConsoleMainMenu {
     kAccountInfo = 1,
     kRefill,
     kWithdrawal,
-    kStatement,
     kCreditCalculator,
     kLogOut,
     kQuit

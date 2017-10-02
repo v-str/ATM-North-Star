@@ -15,7 +15,6 @@ class ConsoleMainMenuPresenter {
   void RunRefillMenu();
   void RunCreditCalculator();
   void RunWithdrawalPresenter();
-  void RunStatementMenu();
 
   void ResetManipulationFlags();
 
