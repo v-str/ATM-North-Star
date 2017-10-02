@@ -44,10 +44,6 @@ void ConsoleAccountMenu::ProcessUserInput() {
 void ConsoleAccountMenu::FillTitles() {
   info_title_.push_back(AccountMessenger::LoginText());
   info_title_.push_back(AccountMessenger::CashText());
-  info_title_.push_back(AccountMessenger::CreditText());
-  info_title_.push_back(AccountMessenger::CreditTermText());
-  info_title_.push_back(AccountMessenger::InterestRateText());
-  info_title_.push_back(AccountMessenger::MonthlyPaymentText());
 }
 
 void ConsoleAccountMenu::ResetManipulationFlags() {

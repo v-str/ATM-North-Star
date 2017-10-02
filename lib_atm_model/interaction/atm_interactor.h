@@ -11,10 +11,6 @@ class AtmInteractor {
   enum AccountData {
     kLogin,
     kCash,
-    kCreditSum,
-    kCreditTerm,
-    kInterestRate,
-    kMonthlyPayment
   };
 
   static void PerformUserRegistration(const std::string& login,
@@ -22,7 +18,6 @@ class AtmInteractor {
   static std::vector<std::string> AccountInfo();
   static void RefillCash(int refill_cash);
   static void WithdrawCash(int withdrawal_cash);
-  static std::string Statement();
 
   static bool IsPasswordCorrect(const std::string& password_string);
   static bool IsWithdrawalAcceptable(int withdrawal_sum);

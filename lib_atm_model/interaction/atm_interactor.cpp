@@ -21,10 +21,6 @@ std::vector<std::string> AtmInteractor::AccountInfo() {
 
   account_info.push_back(AccountInformator::Login());
   account_info.push_back(AccountInformator::Cash());
-  account_info.push_back(AccountInformator::CreditSum());
-  account_info.push_back(AccountInformator::CreditTerm());
-  account_info.push_back(AccountInformator::InterestRate());
-  account_info.push_back(AccountInformator::MonthlyPayment());
 
   return account_info;
 }
@@ -35,11 +31,6 @@ void AtmInteractor::RefillCash(int refill_cash) {
 
 void AtmInteractor::WithdrawCash(int withdrawal_cash) {
   Withdrawal::WithdrawCashFrom(&user_, withdrawal_cash);
-}
-
-std::string AtmInteractor::Statement() {
-  AccountInformator::UpdataUserData(user_);
-  return AccountInformator::Cash();
 }
 
 void AtmInteractor::ResetData() { user_.ResetData(); }
