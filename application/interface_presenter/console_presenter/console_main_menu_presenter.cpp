@@ -35,7 +35,7 @@ void ConsoleMainMenuPresenter::PerformMenuItem() {
   if (console_main_menu_.UserWantRefill()) {
     RunRefillMenu();
   }
-  if (console_main_menu_.UserWantCredit()) {
+  if (console_main_menu_.UserWantCreditCalculator()) {
     RunCreditCalculator();
   }
   if (console_main_menu_.UserWantWithdraw()) {

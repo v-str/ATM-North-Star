@@ -3,7 +3,7 @@
 #include <main_menu_messenger.h>
 
 ConsoleMainMenu::ConsoleMainMenu() {
-  for (int i = 0; i <= kQuit; ++i) {
+  for (int i = kAccountInfo; i <= kQuit; ++i) {
     user_item_choice_.push_back(false);
   }
 }
@@ -25,8 +25,8 @@ bool ConsoleMainMenu::UserWantRefill() const {
   return user_item_choice_[kRefill];
 }
 
-bool ConsoleMainMenu::UserWantCredit() const {
-  return user_item_choice_[kCredit];
+bool ConsoleMainMenu::UserWantCreditCalculator() const {
+  return user_item_choice_[kCreditCalculator];
 }
 
 bool ConsoleMainMenu::UserWantWithdraw() const {
@@ -46,7 +46,7 @@ bool ConsoleMainMenu::UserWantLogOut() const {
 void ConsoleMainMenu::ProcessMenuUserInput() {
   for (;;) {
     ResetManipulationFlags();
-    int user_input = user_input_handler_->GetDigitInputFromUser();
+    int user_input = user_input_handler_.GetDigitInputFromUser();
 
     if (IsUserInputValid(user_input)) {
       ActivateMenuItem(user_input);

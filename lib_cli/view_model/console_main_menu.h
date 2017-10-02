@@ -13,11 +13,10 @@ class ConsoleMainMenu {
   void RunMainMenu();
 
   void DisplayLogOutMessage() const;
-
   bool UserWantAccountInfo() const;
   bool UserWantRefill() const;
   bool UserWantWithdraw() const;
-  bool UserWantCredit() const;
+  bool UserWantCreditCalculator() const;
   bool UserWantStatement() const;
 
   bool UserWantQuit() const;
@@ -27,9 +26,9 @@ class ConsoleMainMenu {
   enum MenuItems {
     kAccountInfo = 1,
     kRefill,
-    kCredit,
     kWithdrawal,
     kStatement,
+    kCreditCalculator,
     kLogOut,
     kQuit
   };
@@ -41,8 +40,7 @@ class ConsoleMainMenu {
   bool IsUserInputValid(int user_input) const;
   bool IsUserInputContainMenuItem() const;
 
-  std::unique_ptr<UserInputHandler> user_input_handler_ =
-      std::unique_ptr<UserInputHandler>(new UserInputHandler);
+  UserInputHandler user_input_handler_;
 
   std::vector<bool> user_item_choice_;
 };
