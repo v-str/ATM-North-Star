@@ -49,3 +49,8 @@ void MainMenuMessenger::ShowIncorrectInput() {
   ConsoleEditor::WriteTextWithDelayPerSymbol("...", 70);
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
 }
+
+void MainMenuMessenger::PressEnterToContinue() {
+  ConsoleEditor::WriteText("\n\t## Press \"Enter\" to continue...");
+  ConsoleEditor::IgnoreCinLine();
+}

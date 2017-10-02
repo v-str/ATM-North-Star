@@ -7,6 +7,7 @@ class MainMenuMessenger {
   static void LogOutMessage();
   static void ShowQuitMenu();
   static void ShowIncorrectInput();
+  static void PressEnterToContinue();
 
  private:
   static const int kFrame = 45;

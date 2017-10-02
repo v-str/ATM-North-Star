@@ -14,7 +14,7 @@ class AccountMessenger {
  private:
   static void DisplayStrip();
 
-  static const int kNTimes = 30;
+  static const int kNTimes = 35;
   static const int kSleep = 100;
 };
 
