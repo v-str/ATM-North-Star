@@ -38,16 +38,18 @@ void InitialMessenger::DisplayLogotype() {
 void InitialMessenger::DisplayInitialMenu() {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText(
-      "\n\n\n\n\t ###############################\n"
-      "\t #                             #\n"
-      "\t #  1. Login                   #\n"
-      "\t #  2. Registration            #\n"
-      "\t #  3. Description             #\n"
-      "\t #  4. Quit                    #\n"
-      "\t #                             #\n"
-      "\t #                             #\n"
-      "\t ###############################\n"
-      "\t   Enter: ");
+      "\n\n\n\n"
+      "\t###############################\n"
+      "\t#              ATM North Star #\n"
+      "\t#                             #\n"
+      "\t#  1. Login                   #\n"
+      "\t#  2. Registration            #\n"
+      "\t#  3. Description             #\n"
+      "\t#  4. Quit                    #\n"
+      "\t#                             #\n"
+      "\t#                             #\n"
+      "\t###############################\n"
+      "\t## Enter: ");
 }
 void InitialMessenger::ShowIncorrectMenuInput() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
