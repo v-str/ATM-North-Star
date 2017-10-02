@@ -48,7 +48,7 @@ void ConsoleMainMenu::ProcessMenuUserInput() {
       ActivateMenuItem(user_input);
       break;
     } else {
-      MainMenuMessenger::ShowIncorrectInput();
+      MainMenuMessenger::ShowIncorrectMenuInput();
     }
   }
 }

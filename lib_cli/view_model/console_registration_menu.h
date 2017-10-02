@@ -42,7 +42,7 @@ class ConsoleRegistrationMenu {
   void ShowPasswordReport(
       const CONSOLE::RegistrationStatus password_status) const;
 
-  void ProcessMenuUserInput(bool& action);
+  void ProcessUserInput(bool& action);
   void ResetManipulationFlags();
   void GetLoginStringFromUser();
   void GetPasswordStringFromUser();

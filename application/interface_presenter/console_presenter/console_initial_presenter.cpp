@@ -40,9 +40,7 @@ void ConsoleInitialPresenter::RunLoginMenu() { login_menu_.RunLoginMenu(); }
 
 void ConsoleInitialPresenter::RunDescriptionMenu() {
   description_menu_.RunDescriptionMenu();
-  if (description_menu_.IsUserWantToExitProgram()) {
-    user_want_to_quit_ = true;
-  }
+  user_want_to_quit_ = description_menu_.IsUserWantToExitProgram();
 }
 
 void ConsoleInitialPresenter::RunRegistrationMenu() {

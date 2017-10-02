@@ -30,10 +30,11 @@ void RegistrationMessenger::ShowRegistrationReference() {
       " Enter: ");
 }
 
-void RegistrationMessenger::ShowIncorrectInput() {
+void RegistrationMessenger::ShowIncorrectMenuInput() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n Incorrect input, please repeat:\n"
-      " Enter: ");
+      "\t# Incorrect input, please try again", 10);
+  ConsoleEditor::WriteTextWithDelayPerSymbol("...", 70);
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
 }
 
 void RegistrationMessenger::ShowLoginTitle() {

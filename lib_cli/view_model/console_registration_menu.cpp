@@ -6,7 +6,7 @@
 void ConsoleRegistrationMenu::RunRegistrationMenu() {
   RegistrationMessenger::ShowRegistrationLogo();
   RegistrationMessenger::ShowRegistrationReference();
-  ProcessMenuUserInput(user_want_to_registrate_);
+  ProcessUserInput(user_want_to_registrate_);
 }
 
 void ConsoleRegistrationMenu::ReceiveRegistrationDataFromUser() {
@@ -18,12 +18,12 @@ void ConsoleRegistrationMenu::ReceiveRegistrationDataFromUser() {
 
 void ConsoleRegistrationMenu::RunRegistrationConfirmation() {
   RegistrationMessenger::ShowConfirmationMessage();
-  ProcessMenuUserInput(registration_confirmed_);
+  ProcessUserInput(registration_confirmed_);
 }
 
 void ConsoleRegistrationMenu::RunIncorrectRegistrationNotification() {
   RegistrationMessenger::IncorrectRegistrationNotification();
-  ProcessMenuUserInput(user_want_to_repeat_registration_);
+  ProcessUserInput(user_want_to_repeat_registration_);
 }
 
 void ConsoleRegistrationMenu::ShowConfirmationAnimation(
@@ -70,7 +70,7 @@ void ConsoleRegistrationMenu::ShowPasswordReport(
   reporter_.ShowPasswordReport(password_status);
 }
 
-void ConsoleRegistrationMenu::ProcessMenuUserInput(bool& action) {
+void ConsoleRegistrationMenu::ProcessUserInput(bool& action) {
   int user_input = 0;
   for (;;) {
     ResetManipulationFlags();
@@ -85,7 +85,7 @@ void ConsoleRegistrationMenu::ProcessMenuUserInput(bool& action) {
       user_want_to_quit_ = true;
       break;
     } else {
-      RegistrationMessenger::ShowIncorrectInput();
+      RegistrationMessenger::ShowIncorrectMenuInput();
     }
   }
 }
