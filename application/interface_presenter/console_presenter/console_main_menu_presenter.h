@@ -13,7 +13,7 @@ class ConsoleMainMenuPresenter {
   void PerformMenuItem();
   void RunAccountMenu();
   void RunRefillMenu();
-  void RunCreditMenu();
+  void RunCreditCalculator();
   void RunWithdrawalPresenter();
   void RunStatementMenu();
 
