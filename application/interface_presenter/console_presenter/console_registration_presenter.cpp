@@ -32,7 +32,6 @@ void ConsoleRegistrationPresenter::BeginRegistration() {
 
 void ConsoleRegistrationPresenter::ReceiveRegistrationData() {
   registration_menu_.ReceiveRegistrationDataFromUser();
-
   login_string_ = registration_menu_.LoginString();
   password_string_ = registration_menu_.PasswordString();
 }

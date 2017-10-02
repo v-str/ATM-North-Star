@@ -13,8 +13,6 @@ void ConsoleWithdrawalPresenter::RunWithdrawalMenu() {
   } else {
     ProduceWithdrawalOperation();
   }
-
-  //
 }
 
 bool ConsoleWithdrawalPresenter::UserWantQuit() const {

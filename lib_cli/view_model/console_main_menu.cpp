@@ -1,5 +1,6 @@
 ﻿#include <console_main_menu.h>
 
+#include <application_messenger.h>
 #include <main_menu_messenger.h>
 
 ConsoleMainMenu::ConsoleMainMenu() {
@@ -48,7 +49,7 @@ void ConsoleMainMenu::ProcessMenuUserInput() {
       ActivateMenuItem(user_input);
       break;
     } else {
-      MainMenuMessenger::ShowIncorrectMenuInput();
+      ApplicationMessenger::ShowIncorrectMenuInput();
     }
   }
 }

@@ -1,5 +1,6 @@
 ﻿#include <console_initial_menu.h>
 
+#include <application_messenger.h>
 #include <initial_messenger.h>
 
 void ConsoleInitialMenu::RunInitialMenu() {
@@ -21,7 +22,7 @@ void ConsoleInitialMenu::ProcessUserInput() {
     if (IsInputContainSubMenu()) {
       break;
     } else {
-      InitialMessenger::ShowIncorrectMenuInput();
+      ApplicationMessenger::ShowIncorrectMenuInput();
     }
   }
 }

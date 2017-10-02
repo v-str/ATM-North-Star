@@ -6,7 +6,6 @@ class MainMenuMessenger {
   static void ShowMainMenu();
   static void LogOutMessage();
   static void ShowQuitMenu();
-  static void ShowIncorrectMenuInput();
   static void PressEnterToContinue();
 
  private:

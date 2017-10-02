@@ -5,7 +5,6 @@
 #include <string>
 #include <vector>
 
-#include <registration_messenger.h>
 #include <registration_reporter.h>
 #include <registration_status.h>
 #include <user_input_handler.h>
@@ -63,8 +62,6 @@ class ConsoleRegistrationMenu {
 template <typename T>
 void ConsoleRegistrationMenu::ShowRegistratoinReport(
     const T& login_status, const T& password_status) const {
-  RegistrationMessenger::ClearScreen();
-
   ShowLoginReport(static_cast<CONSOLE::RegistrationStatus>(login_status));
   ShowPasswordReport(static_cast<CONSOLE::RegistrationStatus>(password_status));
 }

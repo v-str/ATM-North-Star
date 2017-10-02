@@ -1,7 +1,9 @@
 ﻿#include <console_registration_menu.h>
 
+#include <application_messenger.h>
 #include <confirmation_animator.h>
 #include <password_input_handler.h>
+#include <registration_messenger.h>
 
 void ConsoleRegistrationMenu::RunRegistrationMenu() {
   RegistrationMessenger::ShowRegistrationLogo();
@@ -37,6 +39,7 @@ void ConsoleRegistrationMenu::ShowConfirmationAnimation(
 std::string ConsoleRegistrationMenu::LoginString() const { return login_; }
 
 std::string ConsoleRegistrationMenu::PasswordString() const {
+  RegistrationMessenger::ClearScreen();
   return password_;
 }
 
@@ -85,7 +88,7 @@ void ConsoleRegistrationMenu::ProcessUserInput(bool& action) {
       user_want_to_quit_ = true;
       break;
     } else {
-      RegistrationMessenger::ShowIncorrectMenuInput();
+      ApplicationMessenger::ShowIncorrectMenuInput();
     }
   }
 }

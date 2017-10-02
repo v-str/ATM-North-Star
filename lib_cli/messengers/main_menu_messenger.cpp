@@ -43,13 +43,6 @@ void MainMenuMessenger::ShowQuitMenu() {
       "\t# Enter: ");
 }
 
-void MainMenuMessenger::ShowIncorrectMenuInput() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\t# Incorrect input, please try again", 10);
-  ConsoleEditor::WriteTextWithDelayPerSymbol("...", 70);
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Enter: ");
-}
-
 void MainMenuMessenger::PressEnterToContinue() {
   ConsoleEditor::WriteText("\n\t## Press \"Enter\" to continue...");
   ConsoleEditor::IgnoreCinLine();
