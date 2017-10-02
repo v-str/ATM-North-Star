@@ -20,8 +20,6 @@ class ConsoleInitialPresenter {
   void RunDescriptionMenu();
   void RunRegistrationMenu();
 
-  void ResetManipulationFlags();
-
   ConsoleInitialMenu initial_menu_;
   ConsoleLoginMenu login_menu_;
   ConsoleDescriptionMenu description_menu_;

@@ -6,8 +6,6 @@ void ConsoleInitialPresenter::RunApplication() {
   initial_menu_.RunSplashScreen();
 
   for (;;) {
-    ResetManipulationFlags();
-
     initial_menu_.RunInitialMenu();
     RunSubMenu(initial_menu_.GetSubMenu());
 
@@ -50,8 +48,4 @@ void ConsoleInitialPresenter::RunDescriptionMenu() {
 void ConsoleInitialPresenter::RunRegistrationMenu() {
   registration_presenter_.RunRegistrationMenu();
   user_want_to_quit_ = registration_presenter_.UserWantQuit();
-}
-
-void ConsoleInitialPresenter::ResetManipulationFlags() {
-  user_want_to_quit_ = false;
 }
