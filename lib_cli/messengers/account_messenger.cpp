@@ -5,7 +5,7 @@
 
 void AccountMessenger::DisplayInfoLine(const std::string& info_title,
                                        const std::string& info_line) {
-  ConsoleEditor::WriteText("\n\t" + info_title + info_line + "\n\t");
+  ConsoleEditor::WriteText("\n" + info_title + info_line + "\n");
   DisplayStrip();
 }
 

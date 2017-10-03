@@ -22,11 +22,15 @@ void RegistrationMessenger::ShowRegistrationReference() {
       "#                                                     #\n"
       "# 1. Length of the login must be no less than 6 and   #\n"
       "# no more than 35 latin symbols.                      #\n"
+      "#                                                     #\n"
       "# 2. Login must not contain special symbols           #\n"
       "# ( e.g. ; - % # ! and so on) and consist of latin    #\n"
       "# alphabet symbols and arabic digits.                 #\n"
+      "#                                                     #\n"
       "# 3. Length of password must be stricly 6 symbols.    #\n"
+      "#                                                     #\n"
       "# 4. Password must not contain space symbols.         #\n"
+      "#                                                     #\n"
       "# 5. Password may contain both latin alphabet symbols #\n"
       "# and arabic digits.                                  #\n"
       "#                                                     #\n"
@@ -34,7 +38,7 @@ void RegistrationMessenger::ShowRegistrationReference() {
       "    1. Start registration\n"
       "     2. Return to initial menu\n"
       "      3. Quit\n\n"
-      "## Enter: ");
+      "Enter: ");
 }
 
 void RegistrationMessenger::ShowLoginTitle() {

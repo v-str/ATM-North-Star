@@ -4,50 +4,49 @@
 
 void WithdrawalMessenger::ShowWithdrawalNotification() {
   ConsoleEditor::ClearScreen();
-  ConsoleEditor::WriteText("\t");
+  ConsoleEditor::WriteText("");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
-  ConsoleEditor::WriteText("\n\t");
+  ConsoleEditor::WriteText("\n");
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\t\tNotification:\n\tThe sum of withdrawal must be:\n"
-      "\t- more than $10\n"
-      "\t- less than $10000\n\t");
-  ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
-  ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t# If you want to leave this menu, enter:");
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# 1. Main menu");
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# 2. Quit\n\t");
+      "Notification:\nThe sum of withdrawal must be:\n"
+      "- more than $10\n"
+      "- less than $10000\n");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\n\t# Enter the sum of withdrawal, $: ");
+      "\n# If you want to leave this menu, enter:");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n# 1. Main menu");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n# 2. Quit\n");
+  ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "\n\n# Enter the sum of withdrawal, $: ");
 }
 
 void WithdrawalMessenger::RequirePasswordMessage() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\t# Please enter your password: ");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("# Please enter your password: ");
 }
 
 void WithdrawalMessenger::EnterSumOfWithdrawal() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t# Please, enter the required sum: ");
+      "\n# Please, enter the required sum: ");
 }
 
 void WithdrawalMessenger::ShowSuccessfulWithdrawal() {
-  ConsoleEditor::WriteText("\n\t");
+  ConsoleEditor::WriteText("\n");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t# Withdrawal completed successfully.\n\t");
+      "\n# Withdrawal completed successfully.\n");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
 }
 
 void WithdrawalMessenger::IncorrectWithdrawalMessage() {
-  ConsoleEditor::WriteText("\n\t");
+  ConsoleEditor::WriteText("\n");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t\t\t  Attention\n\t");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n  Attention\n");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t# Incorrect withdrawal parameters. "
-      "\n\t# Be sure that both withdrawal sum and"
-      "\n\t# password is correct and try again."
-      "\n\t# Quit to main menu...\n\t");
+      "\n# Incorrect withdrawal parameters. "
+      "\n# Be sure that both withdrawal sum and"
+      "\n# password is correct and try again."
+      "\n# Quit to main menu...\n");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
 }

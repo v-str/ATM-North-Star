@@ -6,39 +6,39 @@ void MainMenuMessenger::ShowMainMenu() {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::AddEmptyLineNTimes(2);
   ConsoleEditor::WriteText(
-      "\t######################################\n"
-      "\t##                   ATM North Star ##\n"
-      "\t##                                  ##\n"
-      "\t##          Operation menu          ##\n"
-      "\t##                                  ##\n"
-      "\t##      1. Account information      ##\n"
-      "\t##     ------------------------     ##\n"
-      "\t##      2. Refill                   ##\n"
-      "\t##     ------------------------     ##\n"
-      "\t##      3. Withdrawal               ##\n"
-      "\t##     ------------------------     ##\n"
-      "\t##      4. Credit Calculator        ##\n"
-      "\t##     ------------------------     ##\n"
-      "\t##                                  ##\n"
-      "\t##                                  ##\n"
-      "\t##     ------------------------     ##\n"
-      "\t##      5. Log out    6. Quit       ##\n"
-      "\t##     ------------------------     ##\n"
-      "\t##                                  ##\n"
-      "\t######################################\n\n"
-      "\tEnter: ");
+      "######################################\n"
+      "##                   ATM North Star ##\n"
+      "##                                  ##\n"
+      "##          Operation menu          ##\n"
+      "##                                  ##\n"
+      "##      1. Account information      ##\n"
+      "##     ------------------------     ##\n"
+      "##      2. Refill                   ##\n"
+      "##     ------------------------     ##\n"
+      "##      3. Withdrawal               ##\n"
+      "##     ------------------------     ##\n"
+      "##      4. Credit Calculator        ##\n"
+      "##     ------------------------     ##\n"
+      "##                                  ##\n"
+      "##                                  ##\n"
+      "##     ------------------------     ##\n"
+      "##      5. Log out    6. Quit       ##\n"
+      "##     ------------------------     ##\n"
+      "##                                  ##\n"
+      "######################################\n\n"
+      "Enter: ");
 }
 
 void MainMenuMessenger::LogOutMessage() {
   ConsoleEditor::AddEmptyLineNTimes(1);
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\t## Logout performed...");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("# Logout performed...");
   ConsoleEditor::Sleep(kDelay);
 }
 
 void MainMenuMessenger::ShowQuitMenu() {
   ConsoleEditor::AddEmptyLineNTimes(1);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\t# 1. Exit to main menu.\n"
-      "\t# 2. Exit program.\n"
-      "\t# Enter: ");
+      "# 1. Exit to main menu.\n"
+      "# 2. Exit program.\n"
+      "# Enter: ");
 }

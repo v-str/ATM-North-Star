@@ -10,25 +10,25 @@ void CreditCalculatorMessenger::DisplayCalculatorDescription() {
 }
 
 void CreditCalculatorMessenger::DisplayCreditSumRequest() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\t## Sum of credit, ($): ");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("## Sum of credit, ($): ");
 }
 
 void CreditCalculatorMessenger::DisplayInterestRateRequest() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\t## Interest rate, (%): ");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("## Interest rate, (%): ");
 }
 
 void CreditCalculatorMessenger::DisplayAmountOfMonthRequest() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\t## Credit term, (months): ");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("## Credit term, (months): ");
 }
 
 void CreditCalculatorMessenger::DisplayErrorLogo() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t## Calculation cannot be performed.\n"
-      "\t## Input data contain next error(s):\n\n");
+      "\n## Calculation cannot be performed.\n"
+      "## Input data contain next error(s):\n\n");
 }
 
 void CreditCalculatorMessenger::DisplayError(const std::string& error_text) {
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\t## " + error_text + "\n");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("## " + error_text + "\n");
 }
 
 // void CreditCalculatorMessenger::ClearScreen() { ConsoleEditor::ClearScreen();
@@ -37,38 +37,38 @@ void CreditCalculatorMessenger::DisplayError(const std::string& error_text) {
 void CreditCalculatorMessenger::DisplayCorrectInputOrder() {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText(
-      "\t############################################################\n"
-      "\t##                                                        ##\n"
-      "\t##   Choose:                                              ##\n"
-      "\t##                                                        ##\n"
-      "\t##     1. Sum of credit, $                                ##\n"
-      "\t##     2. Credit interest rate                            ##\n"
-      "\t##     3. Credit term in months                           ##\n"
-      "\t##                                                        ##\n"
-      "\t############################################################\n\n");
+      "############################################################\n"
+      "##                                                        ##\n"
+      "##   Choose:                                              ##\n"
+      "##                                                        ##\n"
+      "##     1. Sum of credit, $                                ##\n"
+      "##     2. Credit interest rate                            ##\n"
+      "##     3. Credit term in months                           ##\n"
+      "##                                                        ##\n"
+      "############################################################\n\n");
 }
 
 void CreditCalculatorMessenger::DisplayNotification() {
   ConsoleEditor::WriteText(
-      "\t############################################################\n"
-      "\t##                                                        ##\n"
-      "\t## Notification:                                          ##\n"
-      "\t## Credit calculator shows annuity payments.              ##\n"
-      "\t## Credit sum must be from $10000 to $500000.             ##\n"
-      "\t## Credit interest rate must be from 5% to 50% per year   ##\n"
-      "\t##  from initial sum of credit.                           ##\n"
-      "\t## Credit term must be from 1 month to 60 months.         ##\n"
-      "\t##                                                        ##\n"
-      "\t############################################################\n\n");
+      "############################################################\n"
+      "##                                                        ##\n"
+      "## Notification:                                          ##\n"
+      "## Credit calculator shows annuity payments.              ##\n"
+      "## Credit sum must be from $10000 to $500000.             ##\n"
+      "## Credit interest rate must be from 5% to 50% per year   ##\n"
+      "##  from initial sum of credit.                           ##\n"
+      "## Credit term must be from 1 month to 60 months.         ##\n"
+      "##                                                        ##\n"
+      "############################################################\n\n");
   ApplicationMessenger::PressEnterToContinue();
 }
 
 void CreditCalculatorMessenger::DisplayLogo() {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText(
-      "\t############################################################\n"
-      "\t#                                                          #\n"
-      "\t#                    Credit Calculator                     #\n"
-      "\t#                                                          #\n"
-      "\t############################################################\n\n");
+      "##################################################################\n"
+      "#                                                                #\n"
+      "#                       Credit Calculator                        #\n"
+      "#                                                                #\n"
+      "##################################################################\n\n");
 }

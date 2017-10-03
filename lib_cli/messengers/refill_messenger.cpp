@@ -4,43 +4,43 @@
 
 void RefillMessenger::ShowRefillNotification() {
   ConsoleEditor::ClearScreen();
-  ConsoleEditor::WriteText("\t");
+  ConsoleEditor::WriteText("");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
-  ConsoleEditor::WriteText("\n\t");
+  ConsoleEditor::WriteText("\n");
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\t\tNotification:\n\tThe sum of refill must be:\n"
-      "\t- more than $10\n"
-      "\t- less than $50000\n\t");
+      "Notification:\nThe sum of refill must be:\n"
+      "- more than $10\n"
+      "- less than $50000\n");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\tIf you want to leave this menu, enter:");
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t1. Main menu");
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t2. Quit\n\t");
+      "\nIf you want to leave this menu, enter:");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n1. Main menu");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n2. Quit\n");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\n\tEnter the refill sum, $: ");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\nEnter the refill sum, $: ");
 }
 
 void RefillMessenger::ShowSuccessfulCashRefilling() {
-  ConsoleEditor::WriteText("\n\t");
+  ConsoleEditor::WriteText("\n");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t# Balance refill completed successfully.\n\t");
+      "\n# Balance refill completed successfully.\n");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
 }
 
 void RefillMessenger::ShowIncorrectRefillingMessage() {
-  ConsoleEditor::WriteText("\n\t");
+  ConsoleEditor::WriteText("\n");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t\t\t  Attention\n\t");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n  Attention\n");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t# Sum of cash is mismatching the atm-system"
-      "\n\t# requirements."
-      "\n\t# Quit to main menu...\n\t");
+      "\n# Sum of cash is mismatching the atm-system"
+      "\n# requirements."
+      "\n# Quit to main menu...\n");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
 }
 
 void RefillMessenger::ShowMainMenuQuit() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# Quit to main menu...");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n# Quit to main menu...");
   ConsoleEditor::Sleep(kSecond);
 }

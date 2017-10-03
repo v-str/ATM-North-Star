@@ -4,12 +4,12 @@
 
 void ApplicationMessenger::ShowIncorrectMenuInput() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\tIncorrect input, please try again", 10);
+      "Incorrect input, please try again", 10);
   ConsoleEditor::WriteTextWithDelayPerSymbol("...", 70);
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\tEnter: ");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\nEnter: ");
 }
 
 void ApplicationMessenger::PressEnterToContinue() {
-  ConsoleEditor::WriteText("\n\tPress \"Enter\" to continue...");
+  ConsoleEditor::WriteText("\nPress \"Enter\" to continue...");
   ConsoleEditor::IgnoreCinLine();
 }

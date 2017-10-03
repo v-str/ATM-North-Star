@@ -41,20 +41,20 @@ void InitialMessenger::DisplayInitialMenu() {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText(
       "\n\n\n\n"
-      "\t######################################\n"
-      "\t#                     ATM North Star #\n"
-      "\t#                                    #\n"
-      "\t#     1. Login                       #\n"
-      "\t#      2. Registration               #\n"
-      "\t#       3. Description               #\n"
-      "\t#        4. Quit                     #\n"
-      "\t#                                    #\n"
-      "\t######################################\n"
-      "\tEnter: ");
+      "######################################\n"
+      "#                     ATM North Star #\n"
+      "#                                    #\n"
+      "#     1. Login                       #\n"
+      "#      2. Registration               #\n"
+      "#       3. Description               #\n"
+      "#        4. Quit                     #\n"
+      "#                                    #\n"
+      "######################################\n"
+      "Enter: ");
 }
 
 void InitialMessenger::FarewellMessage() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\tThank you for using ATM North Star.\n"
-      "\tHave a nice day!\n\n");
+      "\nThank you for using ATM North Star.\n"
+      "Have a nice day!\n\n");
 }
