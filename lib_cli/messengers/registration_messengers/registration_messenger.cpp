@@ -7,15 +7,16 @@ void RegistrationMessenger::ShowRegistrationLogo() {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText(
       "\n"
-      "#############################\n"
-      "#                           #########\n"
-      "#         REGISTRATION              #########\n"
-      "#                                           ########\n");
+      "#######################################################\n"
+      "#                                                     #\n"
+      "#                   REGISTRATION                      #\n"
+      "#                                                     #\n"
+      "#######################################################\n");
 }
 
 void RegistrationMessenger::ShowRegistrationReference() {
   ConsoleEditor::WriteText(
-      "#                                                   ###\n"
+      "#                                                     #\n"
       "# This notice help you perform registration, please   #\n"
       "# read it carefully:                                  #\n"
       "#                                                     #\n"
