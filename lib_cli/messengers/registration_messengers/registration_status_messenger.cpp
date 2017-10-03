@@ -131,6 +131,7 @@ void RegistrationStatusMessenger::AddEmptyLines(int amount_of_lines) {
 }
 
 void RegistrationStatusMessenger::WriteLoginTitleStatus() {
+  ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText("\n");
   ConsoleEditor::WriteTextWithDelayPerSymbol(" Login status: ");
 }

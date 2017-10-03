@@ -51,26 +51,18 @@ void RegistrationMessenger::ShowPasswordTitle() {
 
 void RegistrationMessenger::IncorrectRegistrationNotification() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "  The data was inputted in a wrong way...\n\n"
+      "The data was inputted in a wrong way...\n\n"
       "  1. Re-enter registration data\n"
-      "  2. Initial menu\n"
-      "  3. Quit\n\n"
-      "  Enter: ");
+      "   2. Initial menu\n"
+      "    3. Quit\n\n"
+      "Enter: ");
 }
 
 void RegistrationMessenger::ShowConfirmationMessage() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "  Registration data confirmed...\n\n"
-      "1. Perform registration\n"
-      "2. Initial menu\n"
-      "3. Quit\n\n"
+      "Registration data confirmed...\n\n"
+      "  1. Perform registration\n"
+      "   2. Initial menu\n"
+      "    3. Quit\n\n"
       "Enter: ");
 }
-
-void RegistrationMessenger::FarewellMessage() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\tThank you for using ATM North Star.\n"
-      "\tHave a nice day!\n\n");
-}
-
-void RegistrationMessenger::ClearScreen() { ConsoleEditor::ClearScreen(); }

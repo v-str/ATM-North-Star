@@ -12,7 +12,6 @@ void ConsoleRegistrationMenu::RunRegistrationMenu() {
 }
 
 void ConsoleRegistrationMenu::ReceiveRegistrationDataFromUser() {
-  RegistrationMessenger::ClearScreen();
   RegistrationMessenger::ShowRegistrationLogo();
   GetLoginStringFromUser();
   GetPasswordStringFromUser();
@@ -39,7 +38,6 @@ void ConsoleRegistrationMenu::ShowConfirmationAnimation(
 std::string ConsoleRegistrationMenu::LoginString() const { return login_; }
 
 std::string ConsoleRegistrationMenu::PasswordString() const {
-  RegistrationMessenger::ClearScreen();
   return password_;
 }
 

@@ -9,8 +9,6 @@ class RegistrationMessenger {
   static void ShowPasswordTitle();
   static void IncorrectRegistrationNotification();
   static void ShowConfirmationMessage();
-  static void FarewellMessage();
-  static void ClearScreen();
 
  private:
   static const int kTitleDelay = 15;
