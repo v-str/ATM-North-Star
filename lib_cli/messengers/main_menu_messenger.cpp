@@ -4,7 +4,6 @@
 
 void MainMenuMessenger::ShowMainMenu() {
   ConsoleEditor::ClearScreen();
-  ConsoleEditor::AddEmptyLineNTimes(2);
   ConsoleEditor::WriteText(
       "######################################\n"
       "##                   ATM North Star ##\n"

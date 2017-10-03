@@ -1,12 +1,13 @@
 ﻿#include <console_login_menu.h>
 
-#include <iostream>
-
-#include <linux_configurator.h>
+#include <console_editor.h>
 
 ConsoleLoginMenu::ConsoleLoginMenu() {}
 
 void ConsoleLoginMenu::RunLoginMenu() {
-  LinuxConfigurator::ClearScreen();
-  std::cout << "Login menu is under construction\n";
+  ConsoleEditor::ClearScreen();
+  ConsoleEditor::WriteText(
+      "Login menu is under construction...\n\n"
+      "Press \"Enter\" to continue...");
+  ConsoleEditor::IgnoreCinLine();
 }
