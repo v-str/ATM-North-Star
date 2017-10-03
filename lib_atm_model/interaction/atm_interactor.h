@@ -8,11 +8,6 @@
 
 class AtmInteractor {
  public:
-  enum AccountData {
-    kLogin,
-    kCash,
-  };
-
   static void PerformUserRegistration(const std::string& login,
                                       const std::string& password);
   static std::vector<std::string> AccountInfo();
