@@ -31,9 +31,9 @@ void RegistrationMessenger::ShowRegistrationReference() {
       "# and arabic digits.                                  #\n"
       "#                                                     #\n"
       "#######################################################\n\n"
-      "   ## 1. Start registration\n"
-      "    ## 2. Return to initial menu\n"
-      "     ## 3. Quit\n\n"
+      "    1. Start registration\n"
+      "     2. Return to initial menu\n"
+      "      3. Quit\n\n"
       "## Enter: ");
 }
 

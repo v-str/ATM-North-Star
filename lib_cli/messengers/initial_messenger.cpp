@@ -49,9 +49,8 @@ void InitialMessenger::DisplayInitialMenu() {
       "\t#       3. Description               #\n"
       "\t#        4. Quit                     #\n"
       "\t#                                    #\n"
-      "\t#                                    #\n"
       "\t######################################\n"
-      "\t## Enter: ");
+      "\tEnter: ");
 }
 
 void InitialMessenger::FarewellMessage() {

@@ -13,12 +13,11 @@ void RefillMessenger::ShowRefillNotification() {
       "\t- less than $50000\n\t");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\t# If you want to leave this menu, enter:");
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# 1. Main menu");
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t# 2. Quit\n\t");
+      "\n\tIf you want to leave this menu, enter:");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t1. Main menu");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\t2. Quit\n\t");
   ConsoleEditor::WriteSymbolsNTimes("-", kStripLength);
-  ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\n\n\t# Enter the refill sum, $: ");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\n\tEnter the refill sum, $: ");
 }
 
 void RefillMessenger::ShowSuccessfulCashRefilling() {
