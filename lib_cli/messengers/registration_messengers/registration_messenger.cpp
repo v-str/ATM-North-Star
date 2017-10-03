@@ -51,7 +51,7 @@ void RegistrationMessenger::ShowPasswordTitle() {
 
 void RegistrationMessenger::IncorrectRegistrationNotification() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "  The data was inputted﻿ in a wrong way...\n\n"
+      "  The data was inputted in a wrong way...\n\n"
       "  1. Re-enter registration data\n"
       "  2. Initial menu\n"
       "  3. Quit\n\n"

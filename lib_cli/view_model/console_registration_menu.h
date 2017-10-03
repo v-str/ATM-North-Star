@@ -13,7 +13,6 @@ class ConsoleRegistrationMenu {
  public:
   void RunRegistrationMenu();
   void ReceiveRegistrationDataFromUser();
-
   void RunRegistrationConfirmation();
   void RunIncorrectRegistrationNotification();
 

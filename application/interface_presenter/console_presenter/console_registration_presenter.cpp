@@ -4,36 +4,32 @@
 #include <process_reporter.h>
 
 void ConsoleRegistrationPresenter::RunRegistrationMenu() {
-  registration_menu_.RunRegistrationMenu();
-  if (registration_menu_.IsUserWantToRegistrate()) {
-    BeginRegistration();
-  }
-  if (registration_menu_.IsUserWantToExitProgram()) {
-    user_want_quit_ = true;
+  console_registration_menu_.RunRegistrationMenu();
+  if (console_registration_menu_.IsUserWantToRegistrate()) {
+    RunRegistration();
   }
 }
 
 bool ConsoleRegistrationPresenter::UserWantQuit() const {
-  return user_want_quit_;
+  return is_user_want_quit_;
 }
 
-void ConsoleRegistrationPresenter::BeginRegistration() {
+void ConsoleRegistrationPresenter::RunRegistration() {
   for (;;) {
-    ResetManipulationFlags();
-
-    ReceiveRegistrationData();
+    ResetManipulationFlag();
+    ReceiveRegistrationDataFromUser();
     HandleRegistrationData();
 
-    if (UserRequestPerformed()) {
+    if (IsRegistrationActionCorrect()) {
       break;
     }
   }
 }
 
-void ConsoleRegistrationPresenter::ReceiveRegistrationData() {
-  registration_menu_.ReceiveRegistrationDataFromUser();
-  login_string_ = registration_menu_.LoginString();
-  password_string_ = registration_menu_.PasswordString();
+void ConsoleRegistrationPresenter::ReceiveRegistrationDataFromUser() {
+  console_registration_menu_.ReceiveRegistrationDataFromUser();
+  login_string_ = console_registration_menu_.LoginString();
+  password_string_ = console_registration_menu_.PasswordString();
 }
 
 void ConsoleRegistrationPresenter::HandleRegistrationData() {
@@ -42,45 +38,43 @@ void ConsoleRegistrationPresenter::HandleRegistrationData() {
   ATM::RegistrationStatus password_status =
       registration_handler_.HandlePasswordString(password_string_);
 
-  registration_menu_.ShowRegistratoinReport(login_status, password_status);
+  console_registration_menu_.ShowRegistratoinReport(login_status,
+                                                    password_status);
 
   if (registration_handler_.IsRegistrationDataCorrect()) {
-    registration_menu_.RunRegistrationConfirmation();
+    console_registration_menu_.RunRegistrationConfirmation();
   } else {
-    registration_menu_.RunIncorrectRegistrationNotification();
+    console_registration_menu_.RunIncorrectRegistrationNotification();
   }
 }
 
-bool ConsoleRegistrationPresenter::UserRequestPerformed() {
-  if (registration_menu_.IsRegistrationConfirmed()) {
+bool ConsoleRegistrationPresenter::IsRegistrationActionCorrect() {
+  if (console_registration_menu_.IsRegistrationConfirmed()) {
     ShowRegistrationAnimation();
     RunMainMenu();
     return true;
   }
-
-  if (registration_menu_.IsUserWantToInitialMenu()) {
+  if (console_registration_menu_.IsUserWantToInitialMenu()) {
     return true;
   }
-
-  if (registration_menu_.IsUserWantToExitProgram()) {
-    user_want_quit_ = true;
-    return true;
+  if (console_registration_menu_.IsUserWantToExitProgram()) {
+    return is_user_want_quit_ = true;
   }
   return false;
 }
 
 void ConsoleRegistrationPresenter::ShowRegistrationAnimation() {
   ProcessReporter process_reporter_;
-  registration_menu_.ShowConfirmationAnimation(
+  console_registration_menu_.ShowConfirmationAnimation(
       login_string_, process_reporter_.ProcessReport());
 }
 
 void ConsoleRegistrationPresenter::RunMainMenu() {
   AtmInteractor::PerformUserRegistration(login_string_, password_string_);
   main_menu_presenter_.RunMainMenu();
-  user_want_quit_ = main_menu_presenter_.UserWantQuit();
+  is_user_want_quit_ = main_menu_presenter_.UserWantQuit();
 }
 
-void ConsoleRegistrationPresenter::ResetManipulationFlags() {
-  user_want_quit_ = false;
+void ConsoleRegistrationPresenter::ResetManipulationFlag() {
+  is_user_want_quit_ = false;
 }

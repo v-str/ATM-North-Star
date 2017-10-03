@@ -14,25 +14,24 @@ class ConsoleRegistrationPresenter {
   bool UserWantQuit() const;
 
  private:
-  void BeginRegistration();
-  void ReceiveRegistrationData();
+  void RunRegistration();
+  void ReceiveRegistrationDataFromUser();
   void HandleRegistrationData();
-  bool UserRequestPerformed();
+  bool IsRegistrationActionCorrect();
 
   void ShowRegistrationAnimation();
   void RunMainMenu();
 
-  void ResetManipulationFlags();
+  void ResetManipulationFlag();
 
-  ConsoleRegistrationMenu registration_menu_;
+  ConsoleRegistrationMenu console_registration_menu_;
   AtmRegistrationHandler registration_handler_;
-
   ConsoleMainMenuPresenter main_menu_presenter_;
 
   std::string login_string_;
   std::string password_string_;
 
-  bool user_want_quit_ = false;
+  bool is_user_want_quit_ = false;
 };
 
 #endif  // CONSOLE_REGISTRATION_PRESENTER_H
