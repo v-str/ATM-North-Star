@@ -17,7 +17,7 @@ void ConsoleCreditCalculatorPresenter::RunCreditCalculator() {
 }
 
 void ConsoleCreditCalculatorPresenter::HandleCreditData() {
-  calculator_data_handler_.HandleData(
+  calculator_data_handler_.HandleCreditData(
       credit_calculator_menu_.CreditSum(),
       credit_calculator_menu_.CreditInterestRate(),
       credit_calculator_menu_.AmountOfMonths());

@@ -1,13 +1,14 @@
 ﻿#ifndef CALCULATOR_DATA_HANDLER_H
 #define CALCULATOR_DATA_HANDLER_H
 
+#include <string>
+
 #include <credit_data_bounder.h>
 
 class CalculatorDataHandler {
  public:
-  void HandleData(int credit_sum,
-                  double credit_interest_rate,
-                  int amount_of_credit_months);
+  void HandleCreditData(int credit_sum, double credit_interest_rate,
+                        int amount_of_credit_months);
 
   bool IsCalculationDataValid() const;
 
@@ -17,10 +18,11 @@ class CalculatorDataHandler {
 
  private:
   void ResetData();
+  void PerformValuesComparing();
 
-  bool IsCreditSumValid() const;
-  bool IsCreditInterestRateValid() const;
-  bool IsAmountOfCreditValid() const;
+  template <typename T>
+  bool IsValueValid(const T& value, const T& upper_bound, const T& lower_bound,
+                    const std::string& value_text_name) const;
 
   CreditDataBounder credit_data_bounder_;
 
