@@ -1,5 +1,7 @@
 ﻿#include <console_initial_presenter.h>
 
+#include <description_messenger.h>
+
 void ConsoleInitialPresenter::RunApplication() {
   initial_menu_.RunSplashScreen();
 
@@ -23,8 +25,8 @@ void ConsoleInitialPresenter::RunSubMenu(ConsoleInitialMenu::SubMenu sub_menu) {
     case ConsoleInitialMenu::kRegistrationMenu:
       RunRegistrationMenu();
       break;
-    case ConsoleInitialMenu::kDescriptionMenu:
-      RunDescriptionMenu();
+    case ConsoleInitialMenu::kDescription:
+      ShowDescription();
       break;
     case ConsoleInitialMenu::kQuit:
       user_want_to_quit_ = true;
@@ -36,9 +38,8 @@ void ConsoleInitialPresenter::RunSubMenu(ConsoleInitialMenu::SubMenu sub_menu) {
 
 void ConsoleInitialPresenter::RunLoginMenu() { login_menu_.RunLoginMenu(); }
 
-void ConsoleInitialPresenter::RunDescriptionMenu() {
-  description_menu_.RunDescriptionMenu();
-  user_want_to_quit_ = description_menu_.IsUserWantToExitProgram();
+void ConsoleInitialPresenter::ShowDescription() {
+  DescriptionMessenger::ShowDescription();
 }
 
 void ConsoleInitialPresenter::RunRegistrationMenu() {

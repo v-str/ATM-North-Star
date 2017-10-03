@@ -38,7 +38,7 @@ bool ConsoleInitialMenu::IsInputContainSubMenu() {
   if (user_input_ == kRegistrationMenu) {
     return true;
   }
-  if (user_input_ == kDescriptionMenu) {
+  if (user_input_ == kDescription) {
     return true;
   }
   if (user_input_ == kQuit) {

@@ -5,7 +5,7 @@
 
 class ConsoleInitialMenu {
  public:
-  enum SubMenu { kLoginMenu = 1, kRegistrationMenu, kDescriptionMenu, kQuit };
+  enum SubMenu { kLoginMenu = 1, kRegistrationMenu, kDescription, kQuit };
 
   void RunInitialMenu();
 

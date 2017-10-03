@@ -40,7 +40,6 @@ void InitialMessenger::DisplayLogotype() {
 void InitialMessenger::DisplayInitialMenu() {
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText(
-      "\n\n\n\n"
       "######################################\n"
       "#                     ATM North Star #\n"
       "#                                    #\n"
