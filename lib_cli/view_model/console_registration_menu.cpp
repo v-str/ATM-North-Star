@@ -13,7 +13,6 @@ void ConsoleRegistrationMenu::RunRegistrationMenu() {
 
 void ConsoleRegistrationMenu::ReceiveRegistrationDataFromUser() {
   RegistrationMessenger::ClearScreen();
-  RegistrationMessenger::ShowRegistrationLogo();
   GetLoginStringFromUser();
   GetPasswordStringFromUser();
 }

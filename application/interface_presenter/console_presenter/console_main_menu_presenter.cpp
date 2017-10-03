@@ -1,8 +1,8 @@
 ﻿#include <console_main_menu_presenter.h>
 
 #include <atm_interactor.h>
-
 #include <cash_operation_validator.h>
+
 #include <console_account_menu.h>
 #include <console_credit_calculator_presenter.h>
 #include <console_refill_menu.h>

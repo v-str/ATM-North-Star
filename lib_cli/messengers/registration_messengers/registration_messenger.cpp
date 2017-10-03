@@ -6,28 +6,34 @@ void RegistrationMessenger::ShowRegistrationLogo() {
   ConsoleEditor::AddEmptyLineNTimes(2);
   ConsoleEditor::ClearScreen();
   ConsoleEditor::WriteText(
-      "\n\t   ####################\n"
-      "\t   #   REGISTRATION   #\n"
-      "\t   ####################\n\n");
+      "\n"
+      "#############################\n"
+      "#                           #########\n"
+      "#         REGISTRATION              #########\n"
+      "#                                           ########\n");
 }
 
 void RegistrationMessenger::ShowRegistrationReference() {
   ConsoleEditor::WriteText(
-      "  This notice help you perform registration, please read it "
-      "carefully:\n\n"
-      " 1. Length of the login must be no less than 6 and\n"
-      "    no more than 35 latin symbols.\n"
-      " 2. Login must not contain special symbols ( e.g. ; - % # ! and so on) "
-      "and\n"
-      "    consist of latin alphabet symbols and arabic digits.\n"
-      " 3. Length of password must be stricly 6 symbols.\n"
-      " 4. Password must not contain space symbols.\n"
-      " 5. Password may contain both latin alphabet symbols and arabic "
-      "digits.\n\n\n"
-      " 1. Start registration\n"
-      " 2. Return to initial menu\n"
-      " 3. Quit\n"
-      " Enter: ");
+      "#                                                   ###\n"
+      "# This notice help you perform registration, please   #\n"
+      "# read it carefully:                                  #\n"
+      "#                                                     #\n"
+      "# 1. Length of the login must be no less than 6 and   #\n"
+      "# no more than 35 latin symbols.                      #\n"
+      "# 2. Login must not contain special symbols           #\n"
+      "# ( e.g. ; - % # ! and so on) and consist of latin    #\n"
+      "# alphabet symbols and arabic digits.                 #\n"
+      "# 3. Length of password must be stricly 6 symbols.    #\n"
+      "# 4. Password must not contain space symbols.         #\n"
+      "# 5. Password may contain both latin alphabet symbols #\n"
+      "# and arabic digits.                                  #\n"
+      "#                                                     #\n"
+      "#######################################################\n\n"
+      "   ## 1. Start registration\n"
+      "    ## 2. Return to initial menu\n"
+      "     ## 3. Quit\n\n"
+      "## Enter: ");
 }
 
 void RegistrationMessenger::ShowLoginTitle() {

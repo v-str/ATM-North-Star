@@ -1,7 +1,5 @@
 ﻿#include <console_initial_presenter.h>
 
-#include <string>
-
 void ConsoleInitialPresenter::RunApplication() {
   initial_menu_.RunSplashScreen();
 
