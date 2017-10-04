@@ -30,10 +30,8 @@ bool ConsoleWithdrawalPresenter::IsSumSuitable() const {
 }
 
 bool ConsoleWithdrawalPresenter::IsPasswordCorrect() const {
-  bool is_password_correct = AtmInteractor::IsPasswordCorrect(
+  return AtmInteractor::IsPasswordCorrect(
       console_withdrawal_menu_.GetPasswordFromUser());
-
-  return is_password_correct;
 }
 
 void ConsoleWithdrawalPresenter::PerformWithdrawal() const {
