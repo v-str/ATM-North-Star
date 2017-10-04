@@ -1,10 +1,10 @@
-cmake_minimum_required (VERSION 3.9)
+﻿cmake_minimum_required (VERSION 3.9)
 
 set (CMAKE_BUILD_TYPE Release)
 
 INCLUDE_DIRECTORIES (messengers
                      messengers/registration_messengers
-                     messengers/credit_messengers
+                     messengers/credit_calculator_messengers
                      messengers/registration_messengers/confirmation_animation
 		     output
                      user_input
@@ -13,7 +13,7 @@ INCLUDE_DIRECTORIES (messengers
 
 file (GLOB SOURCES "messengers/*.cpp"
                    "messengers/registration_messengers/*.cpp"
-                   "messengers/credit_messengers/*.cpp"
+                   "messengers/credit_calculator_messengers/*.cpp"
                    "messengers/registration_messengers/confirmation_animation/*.cpp"
                    "output/*.cpp"
                    "user_input/*.cpp"
