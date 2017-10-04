@@ -146,26 +146,9 @@
                                                                                     |   |
 17. Perform refactoring password input class                                        | + |
                                                                                     |   |
-18. Develop menu items                                                              | - |
+18. Highlight the same messages and put them into separate messenger class          | - |
                                                                                     |   |
-19. Develop base menu class                                                         | - |
-                                                                                    |   |
-20. Highlight the same messages and put them in separate messenger class            | - |
-                                                                                    |   |
-21. Develop class for the same notification templates                               | - |
-                                                                                    |   |
-22. Extract user input method from all menus                                        | - |
-                                                                                    |   |
-23. Continue withdrawal presenter                                                   | + |
-                                                                                    |   |
-24. Solve problem related with incorrect refill menu input                          | + |
-										   											|   |
-25. Statement messenger: move calculations in separate class                        | - |
-										   											|   |
-26. Linux and Win configurators: rename it to more appropriate                      | - |
-										   											|   |
-27. Lead all user input handlings to the same kind				                    | - |
-
+19. Solve problem related with incorrect refill menu input                          | + |
 
 
 -----------------------------------------------------------------------------------------
