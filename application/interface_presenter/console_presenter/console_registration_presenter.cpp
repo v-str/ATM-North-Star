@@ -70,7 +70,7 @@ void ConsoleRegistrationPresenter::ShowRegistrationAnimation() {
 }
 
 void ConsoleRegistrationPresenter::RunMainMenu() {
-  AtmInteractor::PerformUserRegistration(login_string_, password_string_);
+  AtmInteractor::RegisterUser(login_string_, password_string_);
   main_menu_presenter_.RunMainMenu();
   is_user_want_quit_ = main_menu_presenter_.UserWantQuit();
 }

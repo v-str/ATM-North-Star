@@ -7,7 +7,7 @@
 
 AtmUser AtmInteractor::user_;
 
-void AtmInteractor::PerformUserRegistration(const std::string& login,
+void AtmInteractor::RegisterUser(const std::string& login,
                                             const std::string& password) {
   ResetData();
 
