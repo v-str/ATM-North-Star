@@ -8,10 +8,11 @@
 AtmUser AtmInteractor::user_;
 
 void AtmInteractor::RegisterUser(const std::string& login,
-                                            const std::string& password) {
+                                 const std::string& password,
+                                 const std::string& password_tooltip) {
   ResetData();
 
-  UserRegistrator::RegisterUser(&user_, login, password);
+  UserRegistrator::RegisterUser(&user_, login, password, password_tooltip);
 }
 
 std::vector<std::string> AtmInteractor::AccountInfo() {

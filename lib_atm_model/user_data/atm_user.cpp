@@ -8,6 +8,10 @@ void AtmUser::SetPassword(const std::string& password) {
   identification_data_.SetPassword(password);
 }
 
+void AtmUser::SetPasswordTooltip(const std::string& password_tooltip) {
+  identification_data_.SetPasswordTooltip(password_tooltip);
+}
+
 void AtmUser::SetCash(double cash) { cash_data_.SetCash(cash); }
 
 void AtmUser::AddCash(double cash) { cash_data_.AddCash(cash); }
@@ -17,6 +21,7 @@ void AtmUser::WithdrawCash(double cash) { cash_data_.WithdrawCash(cash); }
 void AtmUser::ResetData() {
   SetLogin("");
   SetPassword("");
+  SetPasswordTooltip("");
   SetCash(0.0);
 }
 

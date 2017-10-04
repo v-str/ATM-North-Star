@@ -10,6 +10,7 @@ class AtmUser {
  public:
   void SetLogin(const std::string& login);
   void SetPassword(const std::string& password);
+  void SetPasswordTooltip(const std::string& password_tooltip);
 
   void SetCash(double cash);
   void AddCash(double cash);

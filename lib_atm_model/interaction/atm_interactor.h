@@ -9,7 +9,8 @@
 class AtmInteractor {
  public:
   static void RegisterUser(const std::string& login,
-                           const std::string& password);
+                           const std::string& password,
+                           const std::string& password_tooltip);
   static std::vector<std::string> AccountInfo();
   static void RefillCash(int refill_cash);
   static void WithdrawCash(int withdrawal_cash);
