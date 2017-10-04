@@ -8,6 +8,9 @@ void ConsoleRegistrationPresenter::RunRegistrationMenu() {
   if (console_registration_menu_.IsUserWantToRegistrate()) {
     RunRegistration();
   }
+  if (console_registration_menu_.IsUserWantToExitProgram()) {
+    is_user_want_quit_ = true;
+  }
 }
 
 bool ConsoleRegistrationPresenter::UserWantQuit() const {
