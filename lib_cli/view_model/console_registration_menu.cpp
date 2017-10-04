@@ -110,4 +110,7 @@ void ConsoleRegistrationMenu::GetPasswordStringFromUser() {
   password_ = PasswordInputHandler::GetPassword();
 }
 
-void ConsoleRegistrationMenu::GetPasswordTooltipFromUser() {}
+void ConsoleRegistrationMenu::GetPasswordTooltipFromUser() {
+  RegistrationMessenger::ShowPasswordTooltipTitle();
+  password_tooltip_ = input_handler_.GetStringInputFromUser();
+}

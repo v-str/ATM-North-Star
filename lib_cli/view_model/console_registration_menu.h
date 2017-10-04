@@ -51,7 +51,7 @@ class ConsoleRegistrationMenu {
 
   std::string login_;
   std::string password_;
-  std::string tooltip_;
+  std::string password_tooltip_;
 
   bool user_want_to_registrate_ = false;
   bool user_want_to_repeat_registration_ = false;
