@@ -40,10 +40,7 @@ void ConsoleWithdrawalPresenter::PerformWithdrawal() const {
 }
 
 void ConsoleWithdrawalPresenter::ProduceWithdrawalOperation() const {
-  bool is_sum_suitable = IsSumSuitable();
-  bool is_password_correct = IsPasswordCorrect();
-
-  if (is_sum_suitable && is_password_correct) {
+  if (IsSumSuitable() && IsPasswordCorrect()) {
     PerformWithdrawal();
   } else {
     console_withdrawal_menu_.ShowIncorrectWithdrawal();
