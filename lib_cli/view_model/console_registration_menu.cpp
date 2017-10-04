@@ -15,6 +15,7 @@ void ConsoleRegistrationMenu::ReceiveRegistrationDataFromUser() {
   RegistrationMessenger::ShowRegistrationLogo();
   GetLoginStringFromUser();
   GetPasswordStringFromUser();
+  GetQuestionAnswerBunchFromUser();
 }
 
 void ConsoleRegistrationMenu::RunRegistrationConfirmation() {
@@ -108,3 +109,5 @@ void ConsoleRegistrationMenu::GetPasswordStringFromUser() {
   RegistrationMessenger::ShowPasswordTitle();
   password_ = PasswordInputHandler::GetPassword();
 }
+
+void ConsoleRegistrationMenu::GetQuestionAnswerBunchFromUser() {}

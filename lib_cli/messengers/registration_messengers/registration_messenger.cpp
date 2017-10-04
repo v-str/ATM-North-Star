@@ -20,25 +20,30 @@ void RegistrationMessenger::ShowRegistrationReference() {
       "# This notice help you perform registration, please   #\n"
       "# read it carefully:                                  #\n"
       "#                                                     #\n"
-      "# 1. Length of the login must be no less than 6 and   #\n"
-      "# no more than 35 latin symbols.                      #\n"
+      "# 1. Length of login: 6-35 latin symbols inclusively  #\n"
+      "# 2. Length of password: 6 symbols                    #\n"
+      "# 3. Lenght of control question: no more than         #\n"
+      "#    100 symbols                                      #\n"
+      "# 4. Length of control answer: no more than           #\n"
+      "#    20 symbols                                       #\n"
       "#                                                     #\n"
-      "# 2. Login must not contain special symbols           #\n"
-      "# ( e.g. ; - % # ! and so on) and consist of latin    #\n"
-      "# alphabet symbols and arabic digits.                 #\n"
+      "# 5. Login must not contain special symbols           #\n"
+      "# ( e.g. ; - % # ! and so on)                         #\n"
       "#                                                     #\n"
-      "# 3. Length of password must be stricly 6 symbols.    #\n"
+      "# 6. Password must not contain space symbols          #\n"
       "#                                                     #\n"
-      "# 4. Password must not contain space symbols.         #\n"
-      "#                                                     #\n"
-      "# 5. Password may contain both latin alphabet symbols #\n"
-      "# and arabic digits.                                  #\n"
+      "# 7. Password may contain both latin alphabet symbols #\n"
+      "#    and arabic digits                                #\n"
       "#                                                     #\n"
       "#######################################################\n\n"
       "    1. Start registration\n"
       "     2. Return to initial menu\n"
       "      3. Quit\n\n"
       "Enter: ");
+}
+
+void RegistrationMessenger::ShowControlQuestionNotification() {
+  ConsoleEditor::WriteText("#");
 }
 
 void RegistrationMessenger::ShowLoginTitle() {
