@@ -10,6 +10,8 @@ void ApplicationMessenger::ShowIncorrectMenuInput() {
 }
 
 void ApplicationMessenger::PressEnterToContinue() {
-  ConsoleEditor::WriteText("\nPress \"Enter\" to continue...");
+  ConsoleEditor::WriteText(
+      "\nPress \"Enter\"\n"
+      "to continue...");
   ConsoleEditor::IgnoreCinLine();
 }
