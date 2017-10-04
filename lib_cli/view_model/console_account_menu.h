@@ -16,6 +16,7 @@ class ConsoleAccountMenu {
 
  private:
   void FillTitles();
+  void FindMostLongerAccountString();
 
   std::vector<std::string> account_info_;
   std::vector<std::string> info_title_;

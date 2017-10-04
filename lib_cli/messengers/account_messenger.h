@@ -8,14 +8,19 @@ class AccountMessenger {
   static void DisplayInfoLine(const std::string& info_title,
                               const std::string& info_line);
 
+  static void SetStripLength(int strip_length);
+
   static std::string LoginText() { return "Login: "; }
   static std::string CashText() { return "Balance: $"; }
   static std::string PasswordTooltip() { return "Password tooltip: "; }
 
+  static int StripLength();
+
  private:
   static void DisplayStrip();
 
-  static const int kNTimes = 35;
+  static int kStripLength;
+
   static const int kSleep = 100;
 };
 
