@@ -8,10 +8,12 @@
 
 class AtmRegistrationHandler {
  public:
-  ATM::RegistrationStatus HandleLoginString(const std::string login);
-  ATM::RegistrationStatus HandlePasswordString(const std::string password);
+  ATM::RegistrationStatus HandleLoginString(const std::string& login);
+  ATM::RegistrationStatus HandlePasswordString(const std::string& password);
+  void HandlePasswordTooltip(const std::string& password_tooltip);
 
   bool IsRegistrationDataCorrect() const;
+  bool PasswordTooltipCondition() const;
 
  private:
   void CheckLoginString();
@@ -24,6 +26,7 @@ class AtmRegistrationHandler {
 
   bool is_login_correct_ = false;
   bool is_password_correct_ = false;
+  bool is_password_tooltip_correct_ = false;
 };
 
 #endif  // ATM_REGISTRATION_HANDLER_H

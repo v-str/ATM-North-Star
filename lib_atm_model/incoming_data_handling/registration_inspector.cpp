@@ -57,6 +57,12 @@ ATM::RegistrationStatus RegistrationInspector::InspectPasswordString(
   return ATM::RegistrationStatus::kCorrectPassword;
 }
 
+bool RegistrationInspector::IsPasswordTooltipCorrect(
+    int password_tooltip_length) const {
+  return password_tooltip_length <
+         RegistrationDataLengthStandard::MaxPasswordTooltipLength();
+}
+
 bool RegistrationInspector::IsLoginShort(int login_length) const {
   return login_length < RegistrationDataLengthStandard::MinLoginLength();
 }

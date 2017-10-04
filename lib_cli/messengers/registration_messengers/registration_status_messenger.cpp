@@ -6,7 +6,7 @@
 
 void RegistrationStatusMessenger::CorrectLoginMessage() {
   WriteLoginTitleStatus();
-  ConsoleEditor::WriteText("    Correct");
+  ConsoleEditor::WriteText("             Correct");
   WtiteDevidingLine();
 }
 
@@ -84,7 +84,7 @@ void RegistrationStatusMessenger::LoginEmpty() {
 
 void RegistrationStatusMessenger::CorrectPasswordMessage() {
   WritePasswordTitleStatus();
-  ConsoleEditor::WriteTextWithDelayPerSymbol(" Correct");
+  ConsoleEditor::WriteTextWithDelayPerSymbol("          Correct");
   WtiteDevidingLine();
 }
 
@@ -122,8 +122,24 @@ void RegistrationStatusMessenger::PasswordEmpty() {
   WritePasswordTitleStatus();
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "\n\n  Password is empty.\n"
-      "  Please enter a valid password and try again");
+      "  Please enter a valid password and try again.");
   WtiteDevidingLine();
+}
+
+void RegistrationStatusMessenger::CorrectPasswordTooltip() {
+  WritePasswordTooltipStatus();
+  ConsoleEditor::WriteTextWithDelayPerSymbol("  Correct");
+  WtiteDevidingLine();
+  ConsoleEditor::AddEmptyLineNTimes(2);
+}
+
+void RegistrationStatusMessenger::IncorrectPasswordTooltip() {
+  WritePasswordTooltipStatus();
+  ConsoleEditor::WriteTextWithDelayPerSymbol(
+      "\n\n  Password tooltip is longer than required.\n"
+      "  Please, re-enter password tooltip.");
+  WtiteDevidingLine();
+  ConsoleEditor::AddEmptyLineNTimes(2);
 }
 
 void RegistrationStatusMessenger::AddEmptyLines(int amount_of_lines) {
@@ -139,6 +155,10 @@ void RegistrationStatusMessenger::WriteLoginTitleStatus() {
 void RegistrationStatusMessenger::WritePasswordTitleStatus() {
   ConsoleEditor::WriteText("\n\n");
   ConsoleEditor::WriteTextWithDelayPerSymbol(" Password status: ");
+}
+
+void RegistrationStatusMessenger::WritePasswordTooltipStatus() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol(" Password tooltip status: ");
 }
 
 void RegistrationStatusMessenger::WtiteDevidingLine() {

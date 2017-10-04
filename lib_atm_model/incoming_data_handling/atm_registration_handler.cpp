@@ -1,7 +1,7 @@
 ﻿#include <atm_registration_handler.h>
 
 ATM::RegistrationStatus AtmRegistrationHandler::HandleLoginString(
-    const std::string login) {
+    const std::string& login) {
   login_status_ = registration_inpector_.InspectLoginString(login);
 
   CheckLoginString();
@@ -10,7 +10,7 @@ ATM::RegistrationStatus AtmRegistrationHandler::HandleLoginString(
 }
 
 ATM::RegistrationStatus AtmRegistrationHandler::HandlePasswordString(
-    const std::string password) {
+    const std::string& password) {
   password_status_ = registration_inpector_.InspectPasswordString(password);
 
   CheckPasswodString();
@@ -18,9 +18,21 @@ ATM::RegistrationStatus AtmRegistrationHandler::HandlePasswordString(
   return password_status_;
 }
 
+void AtmRegistrationHandler::HandlePasswordTooltip(
+    const std::string& password_tooltip) {
+  is_password_tooltip_correct_ =
+      registration_inpector_.IsPasswordTooltipCorrect(
+          password_tooltip.length());
+}
+
 bool AtmRegistrationHandler::IsRegistrationDataCorrect() const {
-  bool correct_registration_data = is_login_correct_ && is_password_correct_;
+  bool correct_registration_data =
+      is_login_correct_ && is_password_correct_ && is_password_tooltip_correct_;
   return correct_registration_data;
+}
+
+bool AtmRegistrationHandler::PasswordTooltipCondition() const {
+  return is_password_tooltip_correct_;
 }
 
 void AtmRegistrationHandler::CheckLoginString() {

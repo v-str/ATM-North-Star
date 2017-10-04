@@ -6,11 +6,13 @@ class RegistrationDataLengthStandard {
   static int MinLoginLength();
   static int MaxLoginLength();
   static int PasswordLength();
+  static int MaxPasswordTooltipLength();
 
  private:
-  static constexpr int kMinLoginLength_ = 6;
-  static constexpr int kMaxLoginLength_ = 35;
-  static constexpr int kPasswordLength_ = 6;
+  static const int kMinLoginLength = 6;
+  static const int kMaxLoginLength = 35;
+  static const int kPasswordLength = 6;
+  static const int kMaxPasswordTooltipLength = 50;
 };
 
 #endif  // REGISTRATION_DATA_LENGTH_STANDARD_H

@@ -24,11 +24,15 @@ class RegistrationStatusMessenger {
   static void PasswordContainSpaceSymbol();
   static void PasswordEmpty();
 
+  static void CorrectPasswordTooltip();
+  static void IncorrectPasswordTooltip();
+
   static void AddEmptyLines(int amount_of_lines);
 
  private:
   static void WriteLoginTitleStatus();
   static void WritePasswordTitleStatus();
+  static void WritePasswordTooltipStatus();
 
   static void WtiteDevidingLine();
 

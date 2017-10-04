@@ -24,6 +24,8 @@ class ConsoleRegistrationMenu {
   void ShowRegistratoinReport(const T& login_status,
                               const T& password_status) const;
 
+  void ShowPasswordTooltipReport(bool password_tooltip_condition);
+
   std::string LoginString() const;
   std::string PasswordString() const;
   std::string PasswordTooltip() const;

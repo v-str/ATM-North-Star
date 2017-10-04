@@ -36,6 +36,11 @@ void ConsoleRegistrationMenu::ShowConfirmationAnimation(
   ConfirmationAnimator::ShowAnimation();
 }
 
+void ConsoleRegistrationMenu::ShowPasswordTooltipReport(
+    bool password_tooltip_condition) {
+  reporter_.ShowPasswordTooltipReport(password_tooltip_condition);
+}
+
 std::string ConsoleRegistrationMenu::LoginString() const { return login_; }
 
 std::string ConsoleRegistrationMenu::PasswordString() const {

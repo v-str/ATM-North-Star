@@ -65,3 +65,12 @@ void RegistrationReporter::ShowPasswordReport(STATUS password_status) const {
   }
   RegistrationStatusMessenger::AddEmptyLines(2);
 }
+
+void RegistrationReporter::ShowPasswordTooltipReport(
+    bool password_tooltip_condition) const {
+  if (password_tooltip_condition) {
+    RegistrationStatusMessenger::CorrectPasswordTooltip();
+  } else {
+    RegistrationStatusMessenger::IncorrectPasswordTooltip();
+  }
+}

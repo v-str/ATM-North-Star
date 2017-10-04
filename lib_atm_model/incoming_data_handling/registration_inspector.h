@@ -10,6 +10,7 @@ class RegistrationInspector {
  public:
   ATM::RegistrationStatus InspectLoginString(const std::string& login);
   ATM::RegistrationStatus InspectPasswordString(const std::string& password);
+  bool IsPasswordTooltipCorrect(int password_tooltip_length) const;
 
  private:
   bool IsLoginShort(int login_length) const;

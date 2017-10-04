@@ -37,19 +37,25 @@ void ConsoleRegistrationPresenter::ReceiveRegistrationDataFromUser() {
 }
 
 void ConsoleRegistrationPresenter::HandleRegistrationData() {
-  ATM::RegistrationStatus login_status =
-      registration_handler_.HandleLoginString(login_string_);
-  ATM::RegistrationStatus password_status =
-      registration_handler_.HandlePasswordString(password_string_);
+  PassRegistrationDataInCore();
 
-  console_registration_menu_.ShowRegistratoinReport(login_status,
-                                                    password_status);
+  console_registration_menu_.ShowRegistratoinReport(login_status_,
+                                                    password_status_);
+  console_registration_menu_.ShowPasswordTooltipReport(
+      registration_handler_.PasswordTooltipCondition());
 
   if (registration_handler_.IsRegistrationDataCorrect()) {
     console_registration_menu_.RunRegistrationConfirmation();
   } else {
     console_registration_menu_.RunIncorrectRegistrationNotification();
   }
+}
+
+void ConsoleRegistrationPresenter::PassRegistrationDataInCore() {
+  login_status_ = registration_handler_.HandleLoginString(login_string_);
+  password_status_ =
+      registration_handler_.HandlePasswordString(password_string_);
+  registration_handler_.HandlePasswordTooltip(password_tooltip_);
 }
 
 bool ConsoleRegistrationPresenter::IsRegistrationActionCorrect() {

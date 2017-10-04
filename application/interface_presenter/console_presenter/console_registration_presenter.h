@@ -16,7 +16,10 @@ class ConsoleRegistrationPresenter {
  private:
   void RunRegistration();
   void ReceiveRegistrationDataFromUser();
+
   void HandleRegistrationData();
+  void PassRegistrationDataInCore();
+
   bool IsRegistrationActionCorrect();
 
   void ShowRegistrationAnimation();
@@ -27,6 +30,9 @@ class ConsoleRegistrationPresenter {
   ConsoleRegistrationMenu console_registration_menu_;
   AtmRegistrationHandler registration_handler_;
   ConsoleMainMenuPresenter main_menu_presenter_;
+
+  ATM::RegistrationStatus login_status_;
+  ATM::RegistrationStatus password_status_;
 
   std::string login_string_;
   std::string password_string_;
