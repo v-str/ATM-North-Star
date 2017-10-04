@@ -7,7 +7,7 @@ INCLUDE_DIRECTORIES (messengers
                      messengers/credit_calculator_messengers
                      messengers/registration_messengers/confirmation_animation
 		     output
-                     user_input
+                     user_input_handling
                      view_model
                      system_dependencies)
 
@@ -16,7 +16,7 @@ file (GLOB SOURCES "messengers/*.cpp"
                    "messengers/credit_calculator_messengers/*.cpp"
                    "messengers/registration_messengers/confirmation_animation/*.cpp"
                    "output/*.cpp"
-                   "user_input/*.cpp"
+                   "user_input_handling/*.cpp"
                    "view_model/*.cpp"
                    "system_dependencies/*.cpp")
 
