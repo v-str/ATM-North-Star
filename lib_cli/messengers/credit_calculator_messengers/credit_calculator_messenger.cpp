@@ -30,9 +30,6 @@ void CreditCalculatorMessenger::DisplayError(const std::string& error_text) {
   ConsoleEditor::WriteTextWithDelayPerSymbol("## " + error_text + "\n");
 }
 
-// void CreditCalculatorMessenger::ClearScreen() { ConsoleEditor::ClearScreen();
-// }
-
 void CreditCalculatorMessenger::DisplayNotification() {
   ConsoleEditor::WriteText(
       "##################################################################\n"
@@ -41,7 +38,7 @@ void CreditCalculatorMessenger::DisplayNotification() {
       "##                                                              ##\n"
       "## 1. Credit calculator shows annuity payments.                 ##\n"
       "##                                                              ##\n"
-      "## 2. Credit sum must be from $5000 to $2000000.                ##\n"
+      "## 2. Credit sum must be from $5000 to $5000000.                ##\n"
       "##                                                              ##\n"
       "## 3. Credit interest rate must be from 5% to 50% per year      ##\n"
       "##  from initial sum of credit.                                 ##\n"
