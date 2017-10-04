@@ -15,7 +15,7 @@ void ConsoleRegistrationMenu::ReceiveRegistrationDataFromUser() {
   RegistrationMessenger::ShowRegistrationLogo();
   GetLoginStringFromUser();
   GetPasswordStringFromUser();
-  GetTooltipFromUser();
+  GetPasswordTooltipFromUser();
 }
 
 void ConsoleRegistrationMenu::RunRegistrationConfirmation() {
@@ -110,4 +110,4 @@ void ConsoleRegistrationMenu::GetPasswordStringFromUser() {
   password_ = PasswordInputHandler::GetPassword();
 }
 
-void ConsoleRegistrationMenu::GetTooltipFromUser() {}
+void ConsoleRegistrationMenu::GetPasswordTooltipFromUser() {}

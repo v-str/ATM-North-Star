@@ -9,12 +9,15 @@ void IdentificationData::SetPassword(const std::string& password) {
   password_ = password;
 }
 
-void IdentificationData::SetTooltip(const std::string& control_question) {
-  tooltip_ = control_question;
+void IdentificationData::SetPasswordTooltip(
+    const std::string& control_question) {
+  password_tooltip_ = control_question;
 }
 
 std::string IdentificationData::Login() const { return login_; }
 
 std::string IdentificationData::Password() const { return password_; }
 
-std::string IdentificationData::Tooltip() const { return tooltip_; }
+std::string IdentificationData::PasswordTooltip() const {
+  return password_tooltip_;
+}

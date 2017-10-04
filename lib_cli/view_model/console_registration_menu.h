@@ -44,7 +44,7 @@ class ConsoleRegistrationMenu {
   void ResetManipulationFlags();
   void GetLoginStringFromUser();
   void GetPasswordStringFromUser();
-  void GetTooltipFromUser();
+  void GetPasswordTooltipFromUser();
 
   UserInputHandler input_handler_;
   RegistrationReporter reporter_;

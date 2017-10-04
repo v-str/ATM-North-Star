@@ -8,6 +8,7 @@ class RegistrationMessenger {
   static void ShowControlQuestionNotification();
   static void ShowLoginTitle();
   static void ShowPasswordTitle();
+  static void ShowPasswordTooltipTitle();
   static void IncorrectRegistrationNotification();
   static void ShowConfirmationMessage();
 

@@ -51,6 +51,11 @@ void RegistrationMessenger::ShowPasswordTitle() {
   ConsoleEditor::WriteTextWithDelayPerSymbol("\n\tPassword: ", kTitleDelay);
 }
 
+void RegistrationMessenger::ShowPasswordTooltipTitle() {
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\n\n\tPassword tooltip: ",
+                                             kTitleDelay);
+}
+
 void RegistrationMessenger::IncorrectRegistrationNotification() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
       "The data was inputted in a wrong way...\n\n"
