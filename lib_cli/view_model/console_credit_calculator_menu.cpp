@@ -15,7 +15,8 @@ void ConsoleCreditCalculatorMenu::RequestDataForCredit() {
 }
 
 void ConsoleCreditCalculatorMenu::DisplayCreditTable(
-    int amount_of_months, double monthly_payment,
+    int amount_of_months,
+    double monthly_payment,
     const std::vector<std::string>& sum_of_owed_credit,
     const std::vector<std::string>& sum_of_interest_charges,
     const std::vector<std::string>& sum_of_main_debt_payments) const {
@@ -54,6 +55,7 @@ void ConsoleCreditCalculatorMenu::ShowIncorrectInputError(
 }
 
 void ConsoleCreditCalculatorMenu::RequestCreditSum() {
+  CreditCalculatorMessenger::DisplayLogo();
   CreditCalculatorMessenger::DisplayCreditSumRequest();
   credit_sum_ = user_input_handler_.GetDigitInputFromUser();
 }

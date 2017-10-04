@@ -1,8 +1,8 @@
 ﻿#include <credit_data_bounder.h>
 
 CreditDataBounder::CreditDataBounder()
-    : lower_credit_sum_bound_(10000),
-      upper_credit_sum_bound_(500000),
+    : lower_credit_sum_bound_(5000),
+      upper_credit_sum_bound_(2000000),
       lower_interest_rate_bound_(5.0),
       upper_interest_rate_bound_(50.0),
       lower_amount_of_month_bound_(1),
