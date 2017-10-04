@@ -54,6 +54,8 @@ void InitialMessenger::DisplayInitialMenu() {
 
 void InitialMessenger::FarewellMessage() {
   ConsoleEditor::WriteTextWithDelayPerSymbol(
-      "\nThank you for using ATM North Star.\n"
-      "Have a nice day!\n\n");
+      ".......................................\n"
+      ". Thank you for using ATM North Star .\n"
+      ". Have a nice day!                  .\n"
+      "....................................\n\n");
 }
