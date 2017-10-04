@@ -9,19 +9,16 @@ class IdentificationData {
 
   void SetLogin(const std::string& login);
   void SetPassword(const std::string& password);
-  void SetControlQuestion(const std::string& control_question);
-  void SetControlAnswer(const std::string& contol_answer);
+  void SetTooltip(const std::string& control_question);
 
   std::string Login() const;
   std::string Password() const;
-  std::string ControlQuestion() const;
-  std::string ControlAnswer() const;
+  std::string Tooltip() const;
 
  private:
   std::string login_;
   std::string password_;
-  std::string control_question_;
-  std::string control_answer_;
+  std::string tooltip_;
 };
 
 #endif  // IDENTIFICATION_DATA_H

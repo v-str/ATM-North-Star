@@ -44,15 +44,14 @@ class ConsoleRegistrationMenu {
   void ResetManipulationFlags();
   void GetLoginStringFromUser();
   void GetPasswordStringFromUser();
-  void GetQuestionAnswerBunchFromUser();
+  void GetTooltipFromUser();
 
   UserInputHandler input_handler_;
   RegistrationReporter reporter_;
 
   std::string login_;
   std::string password_;
-  std::string control_question_;
-  std::string control_answer_;
+  std::string tooltip_;
 
   bool user_want_to_registrate_ = false;
   bool user_want_to_repeat_registration_ = false;
