@@ -30,6 +30,7 @@ void ConsoleRegistrationPresenter::ReceiveRegistrationDataFromUser() {
   console_registration_menu_.ReceiveRegistrationDataFromUser();
   login_string_ = console_registration_menu_.LoginString();
   password_string_ = console_registration_menu_.PasswordString();
+  password_tooltip_ = console_registration_menu_.PasswordTooltip();
 }
 
 void ConsoleRegistrationPresenter::HandleRegistrationData() {

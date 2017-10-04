@@ -26,6 +26,7 @@ class ConsoleRegistrationMenu {
 
   std::string LoginString() const;
   std::string PasswordString() const;
+  std::string PasswordTooltip() const;
 
   bool IsUserWantToRegistrate() const;
   bool IsUserWantToRepeatRegistrate() const;

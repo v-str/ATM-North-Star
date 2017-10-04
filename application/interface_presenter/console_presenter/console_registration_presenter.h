@@ -30,6 +30,7 @@ class ConsoleRegistrationPresenter {
 
   std::string login_string_;
   std::string password_string_;
+  std::string password_tooltip_;
 
   bool is_user_want_quit_ = false;
 };

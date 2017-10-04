@@ -52,7 +52,7 @@ void RegistrationMessenger::ShowPasswordTitle() {
 }
 
 void RegistrationMessenger::ShowPasswordTooltipTitle() {
-  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\n\n\tPassword tooltip: ",
+  ConsoleEditor::WriteTextWithDelayPerSymbol("\n\tPassword tooltip: ",
                                              kTitleDelay);
 }
 

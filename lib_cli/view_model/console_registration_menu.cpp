@@ -42,6 +42,10 @@ std::string ConsoleRegistrationMenu::PasswordString() const {
   return password_;
 }
 
+std::string ConsoleRegistrationMenu::PasswordTooltip() const {
+  return password_tooltip_;
+}
+
 bool ConsoleRegistrationMenu::IsUserWantToRegistrate() const {
   return user_want_to_registrate_;
 }
