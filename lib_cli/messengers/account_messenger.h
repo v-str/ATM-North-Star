@@ -10,6 +10,7 @@ class AccountMessenger {
 
   static std::string LoginText() { return "Login: "; }
   static std::string CashText() { return "Balance: $"; }
+  static std::string PasswordTooltip() { return "Password tooltip: "; }
 
  private:
   static void DisplayStrip();

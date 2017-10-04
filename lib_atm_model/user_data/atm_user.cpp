@@ -31,4 +31,8 @@ std::string AtmUser::Password() const {
   return identification_data_.Password();
 }
 
+std::string AtmUser::PasswordTooltip() const {
+  return identification_data_.PasswordTooltip();
+}
+
 double AtmUser::Cash() const { return cash_data_.Cash(); }

@@ -20,6 +20,7 @@ class AtmUser {
 
   std::string Login() const;
   std::string Password() const;
+  std::string PasswordTooltip() const;
   double Cash() const;
 
  private:

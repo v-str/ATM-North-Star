@@ -22,6 +22,7 @@ std::vector<std::string> AtmInteractor::AccountInfo() {
 
   account_info.push_back(AccountInformator::Login());
   account_info.push_back(AccountInformator::Cash());
+  account_info.push_back(AccountInformator::PasswordTooltip());
 
   return account_info;
 }

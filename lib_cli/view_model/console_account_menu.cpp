@@ -26,4 +26,5 @@ void ConsoleAccountMenu::ShowAccountInfo() {
 void ConsoleAccountMenu::FillTitles() {
   info_title_.push_back(AccountMessenger::LoginText());
   info_title_.push_back(AccountMessenger::CashText());
+  info_title_.push_back(AccountMessenger::PasswordTooltip());
 }
