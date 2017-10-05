@@ -1,15 +1,15 @@
-﻿#ifndef GUI_PRESENTER
-#define GUI_PRESENTER
+﻿#ifndef GRAPHICAL_INITIAL_PRESENTER_H
+#define GRAPHICAL_INITIAL_PRESENTER_H
 
 class AtmSplashScreen;
 class FrameAnimator;
 
 class MainWidget;
 
-class GUIPresenter {
+class GraphicalInitialPresenter {
  public:
-  GUIPresenter();
-  ~GUIPresenter();
+  GraphicalInitialPresenter();
+  ~GraphicalInitialPresenter();
 
   void RunApplication();
 
@@ -22,4 +22,4 @@ class GUIPresenter {
   MainWidget* main_widget_ = nullptr;
 };
 
-#endif  // GUI_PRESENTER
+#endif  // GRAPHICAL_INITIAL_PRESENTER_H

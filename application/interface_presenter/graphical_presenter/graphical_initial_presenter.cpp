@@ -1,4 +1,4 @@
-﻿#include <gui_presenter.h>
+﻿#include <graphical_initial_presenter.h>
 
 #include <QEasingCurve>
 #include <QObject>
@@ -9,7 +9,7 @@
 #include <main_widget.h>
 #include <side.h>
 
-GUIPresenter::GUIPresenter()
+GraphicalInitialPresenter::GraphicalInitialPresenter()
     : splash_screen_(new AtmSplashScreen),
       frame_animator_(new FrameAnimator(splash_screen_)),
       main_widget_(new MainWidget) {
@@ -19,20 +19,20 @@ GUIPresenter::GUIPresenter()
   SetConnections();
 }
 
-GUIPresenter::~GUIPresenter() {
+GraphicalInitialPresenter::~GraphicalInitialPresenter() {
   delete splash_screen_;
   delete frame_animator_;
   delete main_widget_;
 }
 
-void GUIPresenter::RunApplication() { splash_screen_->show(); }
+void GraphicalInitialPresenter::RunApplication() { splash_screen_->show(); }
 
-void GUIPresenter::SetAnimation() {
+void GraphicalInitialPresenter::SetAnimation() {
   frame_animator_->SetAnimationCurve(QEasingCurve::OutCirc);
   frame_animator_->SetAnimationDirection(Side::kUp);
 }
 
-void GUIPresenter::SetConnections() {
+void GraphicalInitialPresenter::SetConnections() {
   QObject::connect(splash_screen_, SIGNAL(PassPositionForAnimation(QRect)),
                    frame_animator_, SLOT(Hide(QRect)));
 

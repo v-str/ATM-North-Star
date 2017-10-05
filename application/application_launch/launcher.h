@@ -2,7 +2,7 @@
 #define LAUNCHER_H
 
 class ConsoleInitialPresenter;
-class GUIPresenter;
+class GraphicalInitialPresenter;
 
 class Launcher {
  public:
@@ -12,11 +12,8 @@ class Launcher {
   void DisplayErrorReport() const;
 
  private:
-  ConsoleInitialPresenter* initial_menu_ = nullptr;
-  GUIPresenter* gui_splash_creen_ = nullptr;
-
-  // Programming by intentions
-  // std::unique_ptr<BaseInterfacePresenter> interface_presenter_;
+  ConsoleInitialPresenter* console_initial_presenter_ = nullptr;
+  GraphicalInitialPresenter* gui_splash_creen_ = nullptr;
 };
 
 #endif  // LAUNCHER_H

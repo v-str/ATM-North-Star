@@ -13,6 +13,7 @@ find_package (Qt5Widgets REQUIRED)
 INCLUDE_DIRECTORIES (application/application_launch
                      application/interface_presenter
                      application/interface_presenter/console_presenter
+                     application/interface_presenter/graphical_presenter
                      lib_atm_model/atm_operations
                      lib_atm_model/credit_calculator
                      lib_atm_model/incoming_data_handling
@@ -49,8 +50,8 @@ add_subdirectory (lib_cli)
 add_subdirectory (lib_gui)
 
 file (GLOB SOURCES "application/application_launch/*.cpp"
-                   "application/interface_presenter/*.cpp"
-                   "application/interface_presenter/console_presenter/*.cpp")
+                   "application/interface_presenter/console_presenter/*.cpp"
+                   "application/interface_presenter/graphical_presenter/*cpp")
 
 add_executable (${PROJECT_NAME} ${SOURCES})
 
