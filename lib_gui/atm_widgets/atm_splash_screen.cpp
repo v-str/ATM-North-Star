@@ -139,7 +139,6 @@ void AtmSplashScreen::RunTimers() {
 void AtmSplashScreen::ProcessKeyEnterPressing() {
   emit PassPositionWhenEnterPressed(this->geometry());
   emit EnterIsPressed();
-  emit PassScreenSizeCondition(isFullScreen());
 }
 
 void AtmSplashScreen::ComputeNewGeometry() {

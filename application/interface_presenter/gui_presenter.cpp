@@ -40,9 +40,6 @@ void GUIPresenter::SetConnections() {
                    SIGNAL(PassPositionWhenEnterPressed(const QRect&)),
                    main_widget_, SLOT(SetWidgetGeometry(const QRect&)));
 
-  QObject::connect(splash_screen_, SIGNAL(PassScreenSizeCondition(bool)),
-                   main_widget_, SLOT(FullScreenSizeCondition(bool)));
-
   QObject::connect(frame_animator_, SIGNAL(AnimationComplete()), splash_screen_,
                    SLOT(close()));
 
