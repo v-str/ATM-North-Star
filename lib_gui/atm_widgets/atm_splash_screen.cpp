@@ -27,7 +27,6 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
 
   SetInitialSettings();
   SetWidgetProperties();
-  PaintWidgets();
   SetConnections();
   RunTimers();
 }
@@ -42,26 +41,6 @@ AtmSplashScreen::~AtmSplashScreen() {
 
 void AtmSplashScreen::SetCompanyName(const QString& atm_company_name) {
   ui->atm_company_name_label->setText(atm_company_name);
-}
-
-void AtmSplashScreen::PaintWidgets() {
-  QList<QLabel*> label_list = {ui->atm_company_name_label, ui->text_label,
-                               ui->date_label, ui->time_label,
-                               ui->version_label};
-  QList<QFrame*> frame_list = {ui->frame};
-
-  color_designer_.PaintWidgetSet(label_list);
-  color_designer_.PaintWidgetSet(frame_list);
-}
-
-void AtmSplashScreen::SetBackgroundColor() {
-  color_designer_.SetBackground(this);
-}
-
-void AtmSplashScreen::SetImages() {
-  QCursor custom_cursor(QPixmap(":/images/app_cursor.png"));
-  setCursor(custom_cursor);
-  setWindowIcon(QIcon(":/images/project_icon.png"));
 }
 
 void AtmSplashScreen::UnlockFixedGeometry() { setMinimumSize(0, 0); }
@@ -108,9 +87,36 @@ void AtmSplashScreen::SetInitialSettings() {
   SetBackgroundColor();
   SetImages();
 
-  SetCompanyName("");
-
   setMinimumSize(kWidgetWidth, kWidgetHeight);
+
+  SetCompanyName("");
+}
+
+void AtmSplashScreen::InitializeObjects() {
+  color_swap_timer_ = new QTimer(ui->atm_label);
+  text_color_swapper_ = new TextColorSwapper();
+  date_timer_ = new QTimer(ui->date_label);
+  time_timer_ = new QTimer(ui->time_label);
+}
+
+void AtmSplashScreen::PaintWidgets() {
+  QList<QLabel*> label_list = {ui->atm_company_name_label, ui->text_label,
+                               ui->date_label, ui->time_label,
+                               ui->version_label};
+  QList<QFrame*> frame_list = {ui->frame};
+
+  color_designer_.PaintWidgetSet(label_list);
+  color_designer_.PaintWidgetSet(frame_list);
+}
+
+void AtmSplashScreen::SetBackgroundColor() {
+  color_designer_.SetBackground(this);
+}
+
+void AtmSplashScreen::SetImages() {
+  QCursor custom_cursor(QPixmap(":/images/app_cursor.png"));
+  setCursor(custom_cursor);
+  setWindowIcon(QIcon(":/images/project_icon.png"));
 }
 
 void AtmSplashScreen::SetWidgetProperties() {
@@ -124,13 +130,6 @@ void AtmSplashScreen::SetConnections() {
   connect(time_timer_, SIGNAL(timeout()), SLOT(Tick()));
   connect(this, SIGNAL(Exit()), SLOT(ShowExitWidget()));
   connect(this, SIGNAL(EnterIsPressed()), SLOT(UnlockFixedGeometry()));
-}
-
-void AtmSplashScreen::InitializeObjects() {
-  color_swap_timer_ = new QTimer(ui->atm_label);
-  text_color_swapper_ = new TextColorSwapper();
-  date_timer_ = new QTimer(ui->date_label);
-  time_timer_ = new QTimer(ui->time_label);
 }
 
 void AtmSplashScreen::RunTimers() {

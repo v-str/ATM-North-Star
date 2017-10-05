@@ -31,15 +31,52 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
 
   SetInitialSettings();
   SetWidgetProperties();
-  PaintWidgets();
   SetConnections();
-
   RunTimers();
 }
 
 AtmMainWidget::~AtmMainWidget() {
   delete ui;
   delete time_timer_;
+}
+
+void AtmMainWidget::TickTime() { TimeDateChanger::ChangeTime(ui->time_label); }
+
+void AtmMainWidget::resizeEvent(QResizeEvent*) {
+  ComputeExtraSize();
+  SetFrameArrangement();
+  SetTimeLabelArrangement();
+}
+
+void AtmMainWidget::SetInitialSettings() {
+  InitializeObject();
+  PaintWidgets();
+  SetBackgroundColor();
+  SetImages();
+
+  setMinimumSize(kAppWidth, kAppHeight);
+
+  registration_menu_->close();
+  login_menu_->close();
+}
+
+void AtmMainWidget::InitializeObject() {
+  time_timer_ = new QTimer(ui->time_label);
+  initial_menu_ = new GraphicalInitialMenu(ui->main_frame);
+  registration_menu_ = new GraphicalRegistrationMenu(ui->main_frame);
+  login_menu_ = new GraphicalLoginMenu(ui->main_frame);
+}
+
+void AtmMainWidget::PaintWidgets() {
+  QList<QFrame*> frame_list = {ui->main_frame};
+  QList<QLabel*> label_list = {ui->time_label};
+
+  color_designer_.PaintWidgetSet(frame_list);
+  color_designer_.PaintWidgetSet(label_list);
+}
+
+void AtmMainWidget::SetBackgroundColor() {
+  color_designer_.SetBackground(this);
 }
 
 void AtmMainWidget::SetImages() {
@@ -49,12 +86,9 @@ void AtmMainWidget::SetImages() {
   setWindowIcon(QIcon(":/images/project_icon.png"));
 }
 
-void AtmMainWidget::TickTime() { TimeDateChanger::ChangeTime(ui->time_label); }
-
-void AtmMainWidget::resizeEvent(QResizeEvent*) {
-  ComputeExtraSize();
-  SetFrameArrangement();
-  SetTimeLabelArrangement();
+void AtmMainWidget::SetWidgetProperties() {
+  InitialPropertyInstaller::SetInitialProperties(
+      this, kAppWidth, kAppHeight, InitialPropertyInstaller::kResize);
 }
 
 void AtmMainWidget::SetConnections() {
@@ -69,25 +103,7 @@ void AtmMainWidget::SetConnections() {
           SLOT(Show()));
 }
 
-void AtmMainWidget::SetInitialSettings() {
-  InitializeObject();
-  PaintWidgets();
-  SetBackgroundColor();
-  SetImages();
-
-  registration_menu_->close();
-  login_menu_->close();
-}
-
-void AtmMainWidget::SetBackgroundColor() {
-  color_designer_.SetBackground(this);
-}
-
-void AtmMainWidget::SetWidgetProperties() {
-  setMinimumSize(kAppWidth, kAppHeight);
-  InitialPropertyInstaller::SetInitialProperties(
-      this, kAppWidth, kAppHeight, InitialPropertyInstaller::kResize);
-}
+void AtmMainWidget::RunTimers() { time_timer_->start(kOneSecond); }
 
 void AtmMainWidget::SetFrameArrangement() {
   composer_.SetDeltaSize(DeltaSize(delta_width_, delta_height_));
@@ -107,23 +123,6 @@ void AtmMainWidget::SetTimeLabelArrangement() {
   composer_.SetShiftSide(Side::kRight);
   composer_.SetTransformationType(GeometryComposer::kShift);
   composer_.ComposeGeometry(MainWidgetGeometry::TimeLabel(), ui->time_label);
-}
-
-void AtmMainWidget::RunTimers() { time_timer_->start(kOneSecond); }
-
-void AtmMainWidget::PaintWidgets() {
-  QList<QFrame*> frame_list = {ui->main_frame};
-  QList<QLabel*> label_list = {ui->time_label};
-
-  color_designer_.PaintWidgetSet(frame_list);
-  color_designer_.PaintWidgetSet(label_list);
-}
-
-void AtmMainWidget::InitializeObject() {
-  time_timer_ = new QTimer(ui->time_label);
-  initial_menu_ = new GraphicalInitialMenu(ui->main_frame);
-  registration_menu_ = new GraphicalRegistrationMenu(ui->main_frame);
-  login_menu_ = new GraphicalLoginMenu(ui->main_frame);
 }
 
 void AtmMainWidget::ComputeExtraSize() {

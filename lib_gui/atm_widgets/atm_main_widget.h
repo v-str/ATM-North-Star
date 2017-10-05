@@ -33,18 +33,20 @@ class AtmMainWidget : public QMainWindow {
   void resizeEvent(QResizeEvent* event);
 
  private:
-  void SetConnections();
   void SetInitialSettings();
-
+  void InitializeObject();
+  void PaintWidgets();
   void SetBackgroundColor();
   void SetImages();
 
   void SetWidgetProperties();
+
+  void SetConnections();
+
+  void RunTimers();
+
   void SetFrameArrangement();
   void SetTimeLabelArrangement();
-  void RunTimers();
-  void PaintWidgets();
-  void InitializeObject();
   void ComputeExtraSize();
 
   Ui::AtmMainWidget* ui = nullptr;
