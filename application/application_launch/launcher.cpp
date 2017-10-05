@@ -17,11 +17,11 @@ void Launcher::LaunchGuiMode(int argc, char* argv[]) {
   QApplication application(argc, argv);
   Q_INIT_RESOURCE(atm_resources);
 
-  gui_splash_creen_ = new GraphicalInitialPresenter;
-  gui_splash_creen_->RunApplication();
+  graphical_initial_presenter_ = new GraphicalInitialPresenter;
+  graphical_initial_presenter_->RunApplication();
 
   application.exec();
-  delete gui_splash_creen_;
+  delete graphical_initial_presenter_;
 }
 
 void Launcher::DisplayErrorReport() const {

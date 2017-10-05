@@ -13,7 +13,7 @@ class Launcher {
 
  private:
   ConsoleInitialPresenter* console_initial_presenter_ = nullptr;
-  GraphicalInitialPresenter* gui_splash_creen_ = nullptr;
+  GraphicalInitialPresenter* graphical_initial_presenter_ = nullptr;
 };
 
 #endif  // LAUNCHER_H

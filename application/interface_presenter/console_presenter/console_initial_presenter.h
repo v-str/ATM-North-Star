@@ -8,8 +8,6 @@
 
 class ConsoleInitialPresenter {
  public:
-  enum MenuItem { kQuit, kDemo, kRegistration, kLogin };
-
   void RunApplication();
 
  private:
