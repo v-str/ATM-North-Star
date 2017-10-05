@@ -41,8 +41,11 @@ AtmMainWidget::~AtmMainWidget() {
   delete date_timer_;
 }
 
-void AtmMainWidget::TickTime() {
+void AtmMainWidget::ChangeTime() {
   TimeDateChanger::ChangeTime(ui->time_label);
+}
+
+void AtmMainWidget::ChangeDate() {
   TimeDateChanger::ChangeDate(ui->date_label);
 }
 
@@ -97,7 +100,8 @@ void AtmMainWidget::SetWidgetProperties() {
 }
 
 void AtmMainWidget::SetConnections() {
-  connect(time_timer_, SIGNAL(timeout()), SLOT(TickTime()));
+  connect(date_timer_, SIGNAL(timeout()), SLOT(ChangeDate()));
+  connect(time_timer_, SIGNAL(timeout()), SLOT(ChangeTime()));
   connect(initial_menu_, SIGNAL(RegistrationButtonClicked()),
           registration_menu_, SLOT(Show()));
   connect(initial_menu_, SIGNAL(LoginButtonClicked()), login_menu_,
@@ -108,7 +112,10 @@ void AtmMainWidget::SetConnections() {
           SLOT(Show()));
 }
 
-void AtmMainWidget::RunTimers() { time_timer_->start(kOneSecond); }
+void AtmMainWidget::RunTimers() {
+  date_timer_->start(kOneSecond);
+  time_timer_->start(kOneSecond);
+}
 
 void AtmMainWidget::SetFrameArrangement() {
   composer_.SetDeltaSize(DeltaSize(delta_width_, delta_height_));

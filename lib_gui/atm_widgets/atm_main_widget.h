@@ -26,7 +26,8 @@ class AtmMainWidget : public QMainWindow {
   ~AtmMainWidget();
 
  public slots:
-  void TickTime();
+  void ChangeTime();
+  void ChangeDate();
 
  protected:
   void resizeEvent(QResizeEvent* event);
