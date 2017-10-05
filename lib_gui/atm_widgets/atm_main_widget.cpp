@@ -59,15 +59,9 @@ void AtmMainWidget::resizeEvent(QResizeEvent*) {
 
 void AtmMainWidget::SetConnections() {
   connect(time_timer_, SIGNAL(timeout()), SLOT(TickTime()));
-
-  connect(initial_menu_, SIGNAL(DemoButtonClicked()), description_menu_,
-          SLOT(Show()));
   connect(initial_menu_, SIGNAL(RegistrationButtonClicked()),
           registration_menu_, SLOT(Show()));
   connect(initial_menu_, SIGNAL(LoginButtonClicked()), login_menu_,
-          SLOT(Show()));
-
-  connect(description_menu_, SIGNAL(BackButtonClicked()), initial_menu_,
           SLOT(Show()));
   connect(registration_menu_, SIGNAL(BackButtonClicked()), initial_menu_,
           SLOT(Show()));
@@ -81,7 +75,6 @@ void AtmMainWidget::SetInitialSettings() {
   SetBackground();
   SetImages();
 
-  description_menu_->close();
   registration_menu_->close();
   login_menu_->close();
 }
@@ -102,8 +95,6 @@ void AtmMainWidget::SetFrameArrangement() {
   composer_.ComposeGeometry(MainWidgetGeometry::MainFrame(), ui->main_frame);
   composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(),
                             initial_menu_);
-  composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(),
-                            description_menu_);
   composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(),
                             registration_menu_);
   composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(), login_menu_);
@@ -129,7 +120,6 @@ void AtmMainWidget::PaintWidgets() {
 void AtmMainWidget::InitializeObject() {
   time_timer_ = new QTimer(ui->time_label);
   initial_menu_ = new GraphicalInitialMenu(ui->main_frame);
-  description_menu_ = new GraphicalDescriptionMenu(ui->main_frame);
   registration_menu_ = new GraphicalRegistrationMenu(ui->main_frame);
   login_menu_ = new GraphicalLoginMenu(ui->main_frame);
 }
@@ -139,7 +129,6 @@ void AtmMainWidget::ComputeExtraSize() {
   delta_height_ = height() - Geometry::InitialScreenHeight();
 
   initial_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
-  description_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
   registration_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
   login_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
 }

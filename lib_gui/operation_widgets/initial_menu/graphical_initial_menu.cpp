@@ -16,7 +16,6 @@ GraphicalInitialMenu::GraphicalInitialMenu(QWidget* parent)
       button_frame_(new QFrame(this)),
       login_button_(new AtmButton("Login", button_frame_)),
       registration_button_(new AtmButton("Registration", button_frame_)),
-      description_button_(new AtmButton("Description", button_frame_)),
       v_layout_(new QVBoxLayout) {
   SetInitialFrameGeometry(InitialFrameGeometry::InitialFrame());
   SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
@@ -51,8 +50,7 @@ void GraphicalInitialMenu::ProcessLoginButtonClick() {
 }
 
 void GraphicalInitialMenu::PaintWidgets() {
-  QList<QPushButton*> button_list{login_button_, registration_button_,
-                                  description_button_};
+  QList<QPushButton*> button_list{login_button_, registration_button_};
 
   ColorizeButtons(button_list);
 }
@@ -60,7 +58,6 @@ void GraphicalInitialMenu::PaintWidgets() {
 void GraphicalInitialMenu::SetButtonGeometry() {
   login_button_->setGeometry(InitialFrameGeometry::SignInButton());
   registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
-  description_button_->setGeometry(InitialFrameGeometry::DemoButton());
 }
 
 void GraphicalInitialMenu::SetButtonFrameScalingProperties() {
@@ -81,14 +78,11 @@ void GraphicalInitialMenu::SetButtonFrame() {
 
   v_layout_->addWidget(login_button_);
   v_layout_->addWidget(registration_button_);
-  v_layout_->addWidget(description_button_);
 
   button_frame_->setLayout(v_layout_);
 }
 
 void GraphicalInitialMenu::SetConnections() {
-  connect(description_button_, SIGNAL(clicked(bool)),
-          SLOT(ProcessDemoButtonClick()));
   connect(registration_button_, SIGNAL(clicked(bool)),
           SLOT(ProcessRegistraionButtonClick()));
   connect(login_button_, SIGNAL(clicked(bool)),

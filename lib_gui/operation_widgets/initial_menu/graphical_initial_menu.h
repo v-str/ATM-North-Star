@@ -45,7 +45,6 @@ class GraphicalInitialMenu : public BaseAtmFrame {
   QFrame* button_frame_ = nullptr;
   AtmButton* login_button_ = nullptr;
   AtmButton* registration_button_ = nullptr;
-  AtmButton* description_button_ = nullptr;
   QVBoxLayout* v_layout_ = nullptr;
 
   DeltaSize delta_size_;
