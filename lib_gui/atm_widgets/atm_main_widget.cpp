@@ -38,14 +38,18 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
 AtmMainWidget::~AtmMainWidget() {
   delete ui;
   delete time_timer_;
+  delete date_timer_;
 }
 
-void AtmMainWidget::TickTime() { TimeDateChanger::ChangeTime(ui->time_label); }
+void AtmMainWidget::TickTime() {
+  TimeDateChanger::ChangeTime(ui->time_label);
+  TimeDateChanger::ChangeDate(ui->date_label);
+}
 
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeExtraSize();
   SetFrameArrangement();
-  SetTimeLabelArrangement();
+  SetTimeDateArrangement();
 }
 
 void AtmMainWidget::SetInitialSettings() {
@@ -62,6 +66,7 @@ void AtmMainWidget::SetInitialSettings() {
 
 void AtmMainWidget::InitializeObject() {
   time_timer_ = new QTimer(ui->time_label);
+  date_timer_ = new QTimer(ui->date_label);
   initial_menu_ = new GraphicalInitialMenu(ui->main_frame);
   registration_menu_ = new GraphicalRegistrationMenu(ui->main_frame);
   login_menu_ = new GraphicalLoginMenu(ui->main_frame);
@@ -69,7 +74,7 @@ void AtmMainWidget::InitializeObject() {
 
 void AtmMainWidget::PaintWidgets() {
   QList<QFrame*> frame_list = {ui->main_frame};
-  QList<QLabel*> label_list = {ui->time_label};
+  QList<QLabel*> label_list = {ui->time_label, ui->date_label};
 
   color_designer_.PaintWidgetSet(frame_list);
   color_designer_.PaintWidgetSet(label_list);
@@ -118,11 +123,16 @@ void AtmMainWidget::SetFrameArrangement() {
   composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(), login_menu_);
 }
 
-void AtmMainWidget::SetTimeLabelArrangement() {
+void AtmMainWidget::SetTimeDateArrangement() {
   composer_.SetShiftFactor(kXFactor, kYFactor);
   composer_.SetShiftSide(Side::kRight);
   composer_.SetTransformationType(GeometryComposer::kShift);
   composer_.ComposeGeometry(MainWidgetGeometry::TimeLabel(), ui->time_label);
+
+  composer_.SetShiftFactor(kXFactor, kYFactor);
+  composer_.SetShiftSide(Side::kRight);
+  composer_.SetTransformationType(GeometryComposer::kShift);
+  composer_.ComposeGeometry(MainWidgetGeometry::DateLabel(), ui->date_label);
 }
 
 void AtmMainWidget::ComputeExtraSize() {

@@ -6,7 +6,6 @@
 #include <atm_color_designer.h>
 #include <geometry_composer.h>
 
-class QPaintEvent;
 class QString;
 class ApplicationColor;
 class QTimer;
@@ -46,11 +45,12 @@ class AtmMainWidget : public QMainWindow {
   void RunTimers();
 
   void SetFrameArrangement();
-  void SetTimeLabelArrangement();
+  void SetTimeDateArrangement();
   void ComputeExtraSize();
 
   Ui::AtmMainWidget* ui = nullptr;
   QTimer* time_timer_ = nullptr;
+  QTimer* date_timer_ = nullptr;
   GraphicalInitialMenu* initial_menu_ = nullptr;
   GraphicalRegistrationMenu* registration_menu_ = nullptr;
   GraphicalLoginMenu* login_menu_ = nullptr;
