@@ -9,8 +9,6 @@ void InitialPropertyInstaller::SetInitialProperties(
     int widget_width,
     int widget_height,
     const WidgetSize& widget_size) {
-  widget->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-
   switch (widget_size) {
     case kResize:
       widget->resize(widget_width, widget_height);
