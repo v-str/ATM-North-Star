@@ -30,7 +30,6 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
 
   InitializeObjects();
   SetWidgetProperties();
-  BlockSpace();
   SetInitialSettings();
   PaintWidgets();
   SetConnections();
@@ -53,12 +52,9 @@ void AtmSplashScreen::PaintWidgets() {
   QList<QLabel*> label_list = {ui->atm_company_name_label, ui->text_label,
                                ui->date_label, ui->time_label,
                                ui->version_label};
-  QList<QPushButton*> button_list = {ui->exit_button, ui->minimize_button,
-                                     ui->maximize_button};
   QList<QFrame*> frame_list = {ui->frame};
 
   color_designer_.PaintWidgetSet(label_list);
-  color_designer_.PaintWidgetSet(button_list);
   color_designer_.PaintWidgetSet(frame_list);
 }
 
@@ -79,14 +75,6 @@ void AtmSplashScreen::Tick() {
 
 void AtmSplashScreen::ShowExitWidget() {
   exit_dialog_->ShowWidgetOnCenterAt(geometry());
-}
-
-void AtmSplashScreen::MaximizeButtonClicked() {
-  if (!isFullScreen()) {
-    showFullScreen();
-  } else {
-    showNormal();
-  }
 }
 
 void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
@@ -132,10 +120,7 @@ void AtmSplashScreen::SetConnections() {
   connect(date_timer_, SIGNAL(timeout()), SLOT(Tick()));
   connect(time_timer_, SIGNAL(timeout()), SLOT(Tick()));
   connect(this, SIGNAL(Exit()), SLOT(ShowExitWidget()));
-  connect(ui->exit_button, SIGNAL(clicked(bool)), SLOT(ShowExitWidget()));
   connect(this, SIGNAL(EnterIsPressed()), SLOT(UnlockFixedGeometry()));
-  connect(ui->maximize_button, SIGNAL(clicked(bool)),
-          SLOT(MaximizeButtonClicked()));
 }
 
 void AtmSplashScreen::InitializeObjects() {
@@ -149,14 +134,6 @@ void AtmSplashScreen::RunTimers() {
   color_swap_timer_->start(kTimerValue);
   date_timer_->start(kOneSecond);
   time_timer_->start(kOneSecond);
-}
-
-void AtmSplashScreen::BlockSpace() {
-  ui->exit_button->installEventFilter(new SpaceBlockFilter(ui->exit_button));
-  ui->minimize_button->installEventFilter(
-      new SpaceBlockFilter(ui->minimize_button));
-  ui->maximize_button->installEventFilter(
-      new SpaceBlockFilter(ui->maximize_button));
 }
 
 void AtmSplashScreen::ProcessKeyEnterPressing() {

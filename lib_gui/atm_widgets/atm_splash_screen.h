@@ -36,7 +36,6 @@ class AtmSplashScreen : public QMainWindow {
   void BlinkAtmLabelColor();
   void Tick();
   void ShowExitWidget();
-  void MaximizeButtonClicked();
 
  protected:
   void keyPressEvent(QKeyEvent* event);
@@ -52,7 +51,6 @@ class AtmSplashScreen : public QMainWindow {
   void SetConnections();
   void InitializeObjects();
   void RunTimers();
-  void BlockSpace();
   void ProcessKeyEnterPressing();
   void ComputeNewGeometry();
   void ResizeWidgets();

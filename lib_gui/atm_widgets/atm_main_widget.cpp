@@ -49,14 +49,6 @@ void AtmMainWidget::SetImages() {
   setWindowIcon(QIcon(":/images/project_icon.png"));
 }
 
-void AtmMainWidget::MaximizeButtonClicked(bool) {
-  if (!isFullScreen()) {
-    showFullScreen();
-  } else {
-    showNormal();
-  }
-}
-
 void AtmMainWidget::TickTime() { TimeDateChanger::ChangeTime(ui->time_label); }
 
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
@@ -66,8 +58,6 @@ void AtmMainWidget::resizeEvent(QResizeEvent*) {
 }
 
 void AtmMainWidget::SetConnections() {
-  connect(ui->maximize_button, SIGNAL(clicked(bool)),
-          SLOT(MaximizeButtonClicked(bool)));
   connect(time_timer_, SIGNAL(timeout()), SLOT(TickTime()));
 
   connect(initial_menu_, SIGNAL(DemoButtonClicked()), description_menu_,
@@ -130,12 +120,9 @@ void AtmMainWidget::RunTimers() { time_timer_->start(kOneSecond); }
 
 void AtmMainWidget::PaintWidgets() {
   QList<QFrame*> frame_list = {ui->main_frame};
-  QList<QPushButton*> button_list = {ui->exit_button, ui->minimize_button,
-                                     ui->maximize_button};
   QList<QLabel*> label_list = {ui->time_label};
 
   color_designer_.PaintWidgetSet(frame_list);
-  color_designer_.PaintWidgetSet(button_list);
   color_designer_.PaintWidgetSet(label_list);
 }
 

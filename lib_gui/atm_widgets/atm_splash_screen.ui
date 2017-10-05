@@ -198,31 +198,6 @@ color: rgb(32, 74, 135);
      </property>
     </widget>
    </widget>
-   <widget class="QPushButton" name="exit_button">
-    <property name="geometry">
-     <rect>
-      <x>15</x>
-      <y>15</y>
-      <width>20</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Tlwg Mono</family>
-      <pointsize>12</pointsize>
-      <weight>75</weight>
-      <italic>false</italic>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>X</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="date_label">
     <property name="geometry">
      <rect>
@@ -260,57 +235,6 @@ color: rgb(32, 74, 135);
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="minimize_button">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>15</y>
-      <width>20</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Tlwg Mono</family>
-      <pointsize>12</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>_</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="maximize_button">
-    <property name="geometry">
-     <rect>
-      <x>65</x>
-      <y>15</y>
-      <width>20</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Tlwg Mono</family>
-      <pointsize>17</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>▢</string>
     </property>
    </widget>
    <widget class="QLabel" name="time_label">
@@ -355,22 +279,5 @@ color: rgb(32, 74, 135);
   </widget>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>minimize_button</sender>
-   <signal>clicked()</signal>
-   <receiver>AtmSplashScreen</receiver>
-   <slot>showMinimized()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>52</x>
-     <y>23</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>5</x>
-     <y>168</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

@@ -36,87 +36,6 @@ background-color:black;</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QPushButton" name="maximize_button">
-     <property name="geometry">
-      <rect>
-       <x>55</x>
-       <y>5</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Tlwg Mono</family>
-       <pointsize>17</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:rgb(2, 0, 35);
-color:green;
-border: 1px solid green;
-border-radius: 3px;
-</string>
-     </property>
-     <property name="text">
-      <string>▢</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="exit_button">
-     <property name="geometry">
-      <rect>
-       <x>5</x>
-       <y>5</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Tlwg Mono</family>
-       <pointsize>12</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:rgb(2, 0, 35);
-color:green;
-border: 1px solid green;
-border-radius: 3px;
-
-</string>
-     </property>
-     <property name="text">
-      <string>X</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="minimize_button">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>5</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Tlwg Mono</family>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:rgb(2, 0, 35);
-color:green;
-border: 1px solid green;
-border-radius: 3px;
-</string>
-     </property>
-     <property name="text">
-      <string>_</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="time_label">
      <property name="geometry">
       <rect>
@@ -137,38 +56,5 @@ border-radius: 3px;
   </widget>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>exit_button</sender>
-   <signal>clicked()</signal>
-   <receiver>AtmMainWidget</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>18</x>
-     <y>14</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>167</x>
-     <y>106</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>minimize_button</sender>
-   <signal>clicked()</signal>
-   <receiver>AtmMainWidget</receiver>
-   <slot>showMinimized()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>43</x>
-     <y>10</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>160</x>
-     <y>68</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

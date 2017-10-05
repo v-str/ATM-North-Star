@@ -27,7 +27,6 @@ class AtmMainWidget : public QMainWindow {
   ~AtmMainWidget();
 
  public slots:
-  void MaximizeButtonClicked(bool);
   void TickTime();
 
  protected:
