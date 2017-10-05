@@ -26,13 +26,13 @@ void FrameAnimator::SetAnimationDirection(unsigned int animation_direction) {
   animation_direction_ = CheckOnPositiveValue(animation_direction);
 }
 
-void FrameAnimator::HideFrame(const QRect& geometry) {
+void FrameAnimator::Hide(const QRect& geometry) {
   SetAnimationGeometry(geometry);
   animation_->start();
   QTimer::singleShot(animation_duration_msec_, this, SLOT(EndAnimation()));
 }
 
-void FrameAnimator::ExtrudeFrame(const QRect& geometry) {
+void FrameAnimator::Extrude(const QRect& geometry) {
   SetAnimationGeometry(geometry);
   QTimer::singleShot(animation_duration_msec_, this, SLOT(StartAnimation()));
   QTimer::singleShot(animation_duration_msec_, this, SLOT(EndAnimation()));

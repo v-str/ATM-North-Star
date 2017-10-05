@@ -64,11 +64,11 @@ void AtmFrameSetter::InitializeAnimationObjects(QFrame* frame) {
 
 void AtmFrameSetter::SetAnimationConnections() {
   connect(this, SIGNAL(PassParametersForExtrude(QRect)), extrude_animator_,
-          SLOT(ExtrudeFrame(QRect)));
+          SLOT(Extrude(QRect)));
   connect(extrude_animator_, SIGNAL(AnimationComplete()), this,
           SLOT(FinishExtruding()));
 
   connect(this, SIGNAL(PassParametersForHide(QRect)), hide_animator_,
-          SLOT(HideFrame(QRect)));
+          SLOT(Hide(QRect)));
   connect(hide_animator_, SIGNAL(AnimationComplete()), SLOT(FinishHiding()));
 }

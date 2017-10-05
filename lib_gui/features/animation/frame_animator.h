@@ -22,8 +22,8 @@ class FrameAnimator : public QObject {
   void SetAnimationDirection(unsigned int animation_direction);
 
  public slots:
-  void HideFrame(const QRect& geometry);
-  void ExtrudeFrame(const QRect& geometry);
+  void Hide(const QRect& geometry);
+  void Extrude(const QRect& geometry);
 
   void StartAnimation();
   void EndAnimation();

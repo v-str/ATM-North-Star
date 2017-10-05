@@ -85,10 +85,10 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
       event->ignore();
       break;
     case Qt::Key_Enter:
-      ProcessKeyEnterPressing();
+      ProcessEnterKey();
       break;
     case Qt::Key_Return:
-      ProcessKeyEnterPressing();
+      ProcessEnterKey();
     default:
       break;
   }
@@ -136,8 +136,11 @@ void AtmSplashScreen::RunTimers() {
   time_timer_->start(kOneSecond);
 }
 
-void AtmSplashScreen::ProcessKeyEnterPressing() {
-  emit PassPositionWhenEnterPressed(this->geometry());
+void AtmSplashScreen::ProcessEnterKey() {
+  QRect position = {x(), frameGeometry().y(), width(), height()};
+
+  emit PassPositionForAnimation(geometry());
+  emit PassPosition(position);
   emit EnterIsPressed();
 }
 

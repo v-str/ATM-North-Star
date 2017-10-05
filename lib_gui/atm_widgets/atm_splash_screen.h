@@ -27,7 +27,8 @@ class AtmSplashScreen : public QMainWindow {
  signals:
   void Exit();
   void EnterIsPressed();
-  void PassPositionWhenEnterPressed(const QRect& end_value);
+  void PassPosition(const QRect& pos);
+  void PassPositionForAnimation(const QRect& pos);
   void SizeWindowModified();
 
  public slots:
@@ -50,7 +51,7 @@ class AtmSplashScreen : public QMainWindow {
   void SetConnections();
   void InitializeObjects();
   void RunTimers();
-  void ProcessKeyEnterPressing();
+  void ProcessEnterKey();
   void ComputeNewGeometry();
   void ResizeWidgets();
 

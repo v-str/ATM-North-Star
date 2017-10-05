@@ -33,11 +33,10 @@ void GUIPresenter::SetAnimation() {
 }
 
 void GUIPresenter::SetConnections() {
-  QObject::connect(splash_screen_, SIGNAL(PassPositionWhenEnterPressed(QRect)),
-                   frame_animator_, SLOT(HideFrame(QRect)));
+  QObject::connect(splash_screen_, SIGNAL(PassPositionForAnimation(QRect)),
+                   frame_animator_, SLOT(Hide(QRect)));
 
-  QObject::connect(splash_screen_,
-                   SIGNAL(PassPositionWhenEnterPressed(const QRect&)),
+  QObject::connect(splash_screen_, SIGNAL(PassPosition(const QRect&)),
                    main_widget_, SLOT(SetWidgetGeometry(const QRect&)));
 
   QObject::connect(frame_animator_, SIGNAL(AnimationComplete()), splash_screen_,
