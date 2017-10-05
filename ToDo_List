@@ -101,6 +101,10 @@
 42. Develeop repetitive class for text animation and apply it into description menu | + |
 										                                            |   |
 43. Solve segmentation fault problem						                        | + |
+                                                                                    |   |
+44. Move BaseAtmFrame from initial menu package								        | - |
+																					|	|
+
 
 -----------------------------------------------------------------------------------------
 -------------------------------------- CLI MODE -----------------------------------------
