@@ -4,15 +4,16 @@
 #include <QObject>
 #include <QRect>
 
+#include <main_widget_presenter.h>
+
 #include <atm_splash_screen.h>
 #include <frame_animator.h>
-#include <main_widget.h>
 #include <side.h>
 
 GraphicalInitialPresenter::GraphicalInitialPresenter()
     : splash_screen_(new AtmSplashScreen),
       frame_animator_(new FrameAnimator(splash_screen_)),
-      main_widget_(new MainWidget) {
+      main_widget_(new MainWidgetPresenter) {
   splash_screen_->SetCompanyName("North Star");
 
   SetAnimation();

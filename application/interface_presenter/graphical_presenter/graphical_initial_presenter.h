@@ -4,7 +4,7 @@
 class AtmSplashScreen;
 class FrameAnimator;
 
-class MainWidget;
+class MainWidgetPresenter;
 
 class GraphicalInitialPresenter {
  public:
@@ -19,7 +19,8 @@ class GraphicalInitialPresenter {
 
   AtmSplashScreen* splash_screen_ = nullptr;
   FrameAnimator* frame_animator_ = nullptr;
-  MainWidget* main_widget_ = nullptr;
+
+  MainWidgetPresenter* main_widget_ = nullptr;
 };
 
 #endif  // GRAPHICAL_INITIAL_PRESENTER_H

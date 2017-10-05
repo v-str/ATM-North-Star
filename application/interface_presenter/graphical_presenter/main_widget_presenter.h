@@ -1,16 +1,16 @@
-﻿#ifndef MAIN_WIDGET_H
-#define MAIN_WIDGET_H
+﻿#ifndef MAIN_WIDGET_PRESENTER_H
+#define MAIN_WIDGET_PRESENTER_H
 
 #include <QObject>
 
 class AtmMainWidget;
 class QRect;
 
-class MainWidget : public QObject {
+class MainWidgetPresenter : public QObject {
   Q_OBJECT
  public:
-  explicit MainWidget(QObject* parent = nullptr);
-  ~MainWidget();
+  explicit MainWidgetPresenter(QObject* parent = nullptr);
+  ~MainWidgetPresenter();
 
  public slots:
   void ShowMainWidget();
@@ -21,4 +21,4 @@ class MainWidget : public QObject {
   QRect* main_widget_position_ = nullptr;
 };
 
-#endif  // MAIN_WIDGET_H
+#endif  // MAIN_WIDGET_PRESENTER_H
