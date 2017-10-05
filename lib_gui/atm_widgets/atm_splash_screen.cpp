@@ -25,12 +25,8 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
 
   setWindowTitle("ATM splash screen");
 
-  PaintWidgets();
-  SetBackgroundColor();
-
-  InitializeObjects();
-  SetWidgetProperties();
   SetInitialSettings();
+  SetWidgetProperties();
   PaintWidgets();
   SetConnections();
   RunTimers();
@@ -60,6 +56,12 @@ void AtmSplashScreen::PaintWidgets() {
 
 void AtmSplashScreen::SetBackgroundColor() {
   color_designer_.SetBackground(this);
+}
+
+void AtmSplashScreen::SetImages() {
+  QCursor custom_cursor(QPixmap(":/images/app_cursor.png"));
+  setCursor(custom_cursor);
+  setWindowIcon(QIcon(":/images/project_icon.png"));
 }
 
 void AtmSplashScreen::UnlockFixedGeometry() { setMinimumSize(0, 0); }
@@ -101,18 +103,19 @@ void AtmSplashScreen::resizeEvent(QResizeEvent*) {
 }
 
 void AtmSplashScreen::SetInitialSettings() {
+  InitializeObjects();
+  PaintWidgets();
+  SetBackgroundColor();
+  SetImages();
+
   SetCompanyName("");
 
   setMinimumSize(kWidgetWidth, kWidgetHeight);
-
-  QCursor custom_cursor(QPixmap(":/images/app_cursor.png"));
-  setCursor(custom_cursor);
 }
 
 void AtmSplashScreen::SetWidgetProperties() {
   InitialPropertyInstaller::SetInitialProperties(
       this, kWidgetWidth, kWidgetHeight, InitialPropertyInstaller::kResize);
-  setWindowIcon(QIcon(":/images/project_icon.png"));
 }
 
 void AtmSplashScreen::SetConnections() {

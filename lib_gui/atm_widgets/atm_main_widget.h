@@ -36,7 +36,7 @@ class AtmMainWidget : public QMainWindow {
   void SetConnections();
   void SetInitialSettings();
 
-  void SetBackground();
+  void SetBackgroundColor();
   void SetImages();
 
   void SetWidgetProperties();

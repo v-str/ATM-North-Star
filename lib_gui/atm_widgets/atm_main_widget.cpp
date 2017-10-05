@@ -30,10 +30,10 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
   setWindowTitle("ATM");
 
   SetInitialSettings();
-
   SetWidgetProperties();
   PaintWidgets();
   SetConnections();
+
   RunTimers();
 }
 
@@ -72,14 +72,16 @@ void AtmMainWidget::SetConnections() {
 void AtmMainWidget::SetInitialSettings() {
   InitializeObject();
   PaintWidgets();
-  SetBackground();
+  SetBackgroundColor();
   SetImages();
 
   registration_menu_->close();
   login_menu_->close();
 }
 
-void AtmMainWidget::SetBackground() { color_designer_.SetBackground(this); }
+void AtmMainWidget::SetBackgroundColor() {
+  color_designer_.SetBackground(this);
+}
 
 void AtmMainWidget::SetWidgetProperties() {
   setMinimumSize(kAppWidth, kAppHeight);
