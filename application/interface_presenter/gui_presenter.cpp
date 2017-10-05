@@ -25,7 +25,7 @@ GUIPresenter::~GUIPresenter() {
   delete main_widget_;
 }
 
-void GUIPresenter::RunInitialScreen() { splash_screen_->show(); }
+void GUIPresenter::RunApplication() { splash_screen_->show(); }
 
 void GUIPresenter::SetAnimation() {
   frame_animator_->SetAnimationCurve(QEasingCurve::OutCirc);

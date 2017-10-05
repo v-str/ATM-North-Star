@@ -18,7 +18,7 @@ void Launcher::LaunchGuiMode(int argc, char* argv[]) {
   Q_INIT_RESOURCE(atm_resources);
 
   gui_splash_creen_ = new GUIPresenter;
-  gui_splash_creen_->RunInitialScreen();
+  gui_splash_creen_->RunApplication();
 
   application.exec();
   delete gui_splash_creen_;

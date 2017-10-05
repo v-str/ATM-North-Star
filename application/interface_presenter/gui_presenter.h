@@ -11,7 +11,7 @@ class GUIPresenter {
   GUIPresenter();
   ~GUIPresenter();
 
-  void RunInitialScreen();
+  void RunApplication();
 
  private:
   void SetAnimation();
