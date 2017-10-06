@@ -10,10 +10,13 @@
 #include <QString>
 #include <QTimer>
 
+#include <date_label.h>
 #include <exit_dialog.h>
 #include <initial_property_installer.h>
 #include <space_block_filter.h>
+#include <splash_screen_geometry.h>
 #include <text_color_swapper.h>
+#include <time_label.h>
 #include <timedate_changer.h>
 
 AtmSplashScreen::AtmSplashScreen(QWidget* parent)
@@ -35,8 +38,8 @@ AtmSplashScreen::~AtmSplashScreen() {
   delete ui;
   delete color_swap_timer_;
   delete text_color_swapper_;
-  delete date_timer_;
-  delete time_timer_;
+  delete time_label_;
+  delete date_label_;
 }
 
 void AtmSplashScreen::SetCompanyName(const QString& atm_company_name) {
@@ -47,14 +50,6 @@ void AtmSplashScreen::UnlockFixedGeometry() { setMinimumSize(0, 0); }
 
 void AtmSplashScreen::BlinkAtmLabelColor() {
   text_color_swapper_->SwapColors(ui->atm_label);
-}
-
-void AtmSplashScreen::ChangeTime() {
-  TimeDateChanger::ChangeTime(ui->time_label);
-}
-
-void AtmSplashScreen::ChangeDate() {
-  TimeDateChanger::ChangeDate(ui->date_label);
 }
 
 void AtmSplashScreen::ShowExitWidget() {
@@ -97,15 +92,14 @@ void AtmSplashScreen::SetInitialSettings() {
 
 void AtmSplashScreen::InitializeObjects() {
   color_swap_timer_ = new QTimer(ui->atm_label);
-  text_color_swapper_ = new TextColorSwapper();
-  date_timer_ = new QTimer(ui->date_label);
-  time_timer_ = new QTimer(ui->time_label);
+  text_color_swapper_ = new TextColorSwapper;
+  time_label_ = new TimeLabel(static_cast<QLabel*>(ui->frame));
+  date_label_ = new DateLabel(static_cast<QLabel*>(ui->frame));
 }
 
 void AtmSplashScreen::PaintWidgets() {
   QList<QLabel*> label_list = {ui->atm_company_name_label, ui->text_label,
-                               ui->date_label, ui->time_label,
-                               ui->version_label};
+                               date_label_, time_label_, ui->version_label};
   QList<QFrame*> frame_list = {ui->frame};
 
   color_designer_.PaintWidgetSet(label_list);
@@ -125,21 +119,18 @@ void AtmSplashScreen::SetImages() {
 void AtmSplashScreen::SetWidgetProperties() {
   InitialPropertyInstaller::SetInitialProperties(
       this, kWidgetWidth, kWidgetHeight, InitialPropertyInstaller::kResize);
+
+  time_label_->setGeometry(SplashScreenGeometry::TimeLabel());
+  date_label_->setGeometry(SplashScreenGeometry::DateLabel());
 }
 
 void AtmSplashScreen::SetConnections() {
   connect(color_swap_timer_, SIGNAL(timeout()), SLOT(BlinkAtmLabelColor()));
-  connect(date_timer_, SIGNAL(timeout()), SLOT(ChangeDate()));
-  connect(time_timer_, SIGNAL(timeout()), SLOT(ChangeTime()));
   connect(this, SIGNAL(Exit()), SLOT(ShowExitWidget()));
   connect(this, SIGNAL(EnterIsPressed()), SLOT(UnlockFixedGeometry()));
 }
 
-void AtmSplashScreen::RunTimers() {
-  color_swap_timer_->start(kTimerValue);
-  date_timer_->start(kOneSecond);
-  time_timer_->start(kOneSecond);
-}
+void AtmSplashScreen::RunTimers() { color_swap_timer_->start(kTimerValue); }
 
 void AtmSplashScreen::ProcessEnterKey() {
   QRect position = {x(), frameGeometry().y(), width(), height()};
@@ -157,7 +148,6 @@ void AtmSplashScreen::ResizeWidgets() {
   composer_.ComposeFrame(ui->frame);
   composer_.ComposeVersionLabel(ui->version_label);
   composer_.ComposeCompanyNameLabel(ui->atm_company_name_label);
-  composer_.ComposeSplashScreenLabels(ui->date_label, ui->time_label,
-                                      ui->text_label);
+  composer_.ComposeSplashScreenLabels(date_label_, time_label_, ui->text_label);
   composer_.ComposeAtmLabel(ui->atm_label);
 }
