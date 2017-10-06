@@ -2,7 +2,14 @@
 
 #include <QTimer>
 
+#include <timedate_changer.h>
+
 DateLabel::DateLabel(QLabel *parent)
-    : QLabel(parent), timer_(new QTimer(this)) {}
+    : QLabel(parent), timer_(new QTimer(this)) {
+  timer_->start(kOneSecond);
+  connect(timer_, SIGNAL(timeout()), SLOT(UpdateTime()));
+}
 
 DateLabel::~DateLabel() { delete timer_; }
+
+void DateLabel::UpdateTime() { TimeDateChanger::ChangeDate(this); }

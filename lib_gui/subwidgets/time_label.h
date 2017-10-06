@@ -11,8 +11,15 @@ class TimeLabel : public QLabel {
   TimeLabel(QLabel* parent = nullptr);
   ~TimeLabel();
 
+public slots:
+  void UpdateTime();
+
  private:
+  void SetConnection();
+
   QTimer* timer_ = nullptr;
+
+  static const int kOneSecond = 1000;
 };
 
 #endif  // TIME_LABEL_H

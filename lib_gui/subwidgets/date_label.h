@@ -11,8 +11,13 @@ class DateLabel : public QLabel {
   DateLabel(QLabel* parent = nullptr);
   ~DateLabel();
 
+ public slots:
+  void UpdateTime();
+
  private:
   QTimer* timer_ = nullptr;
+
+  static const int kOneSecond = 1000;
 };
 
 #endif  // DATE_LABEL_H
