@@ -1,5 +1,8 @@
 ﻿#include <date_label.h>
 
-DateLabel::DateLabel(QLabel *parent) : QLabel(parent) {}
+#include <QTimer>
 
-DateLabel::~DateLabel() {}
+DateLabel::DateLabel(QLabel *parent)
+    : QLabel(parent), timer_(new QTimer(this)) {}
+
+DateLabel::~DateLabel() { delete timer_; }

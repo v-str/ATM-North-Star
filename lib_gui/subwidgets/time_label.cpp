@@ -1,5 +1,8 @@
 ﻿#include <time_label.h>
 
-TimeLabel::TimeLabel(QLabel *parent) : QLabel(parent) {}
+#include <QTimer>
 
-TimeLabel::~TimeLabel() {}
+TimeLabel::TimeLabel(QLabel *parent)
+    : QLabel(parent), timer_(new QTimer(this)) {}
+
+TimeLabel::~TimeLabel() { delete timer_; }
