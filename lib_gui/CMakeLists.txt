@@ -16,12 +16,12 @@ INCLUDE_DIRECTORIES (atm_widgets
 		     operation_widgets/login_menu
 		     operation_widgets/registration_menu
 		     subwidgets
+                     system_dependencies
                      widgets_appearance
                      widgets_arrangement/common/modificators/composite
                      widgets_arrangement/common/modificators/primitive
                      widgets_arrangement/common/widgets_geometries
-                     widgets_arrangement/splash_screen
-                     system_dependencies)
+                     widgets_arrangement/splash_screen)
 
 file (GLOB SOURCES "atm_widgets/*.cpp"
 	           "features/animation/*.cpp"
