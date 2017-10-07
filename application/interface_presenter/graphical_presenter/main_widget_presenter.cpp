@@ -15,12 +15,20 @@ MainWidgetPresenter::~MainWidgetPresenter() {
 }
 
 void MainWidgetPresenter::ShowMainWidget() {
-  atm_main_widget_->setGeometry(
-      main_widget_position_->x(), main_widget_position_->y(),
-      main_widget_position_->width(), main_widget_position_->height());
-  atm_main_widget_->showNormal();
+  if (is_maximized_) {
+    atm_main_widget_->showMaximized();
+  } else {
+    atm_main_widget_->setGeometry(
+        main_widget_position_->x(), main_widget_position_->y(),
+        main_widget_position_->width(), main_widget_position_->height());
+    atm_main_widget_->showNormal();
+  }
 }
 
 void MainWidgetPresenter::SetWidgetGeometry(const QRect& initial_position) {
   *main_widget_position_ = initial_position;
+}
+
+void MainWidgetPresenter::SetMaximized(bool is_maximized) {
+  is_maximized_ = is_maximized;
 }

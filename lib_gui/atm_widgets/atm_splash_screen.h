@@ -30,8 +30,8 @@ class AtmSplashScreen : public QMainWindow {
   void Exit();
   void EnterIsPressed();
   void PassPosition(const QRect& pos);
-  void PassPositionForAnimation(const QRect& pos);
   void SizeWindowModified();
+  void MaximizedScreen(bool is_full_screen);
 
  public slots:
   void UnlockFixedGeometry();

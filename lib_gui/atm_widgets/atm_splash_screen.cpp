@@ -145,11 +145,12 @@ void AtmSplashScreen::SetConnections() {
 void AtmSplashScreen::RunTimers() { color_swap_timer_->start(kTimerValue); }
 
 void AtmSplashScreen::ProcessEnterKey() {
-  QRect position = {x(), frameGeometry().y(), width(), height()};
-
-  emit PassPositionForAnimation(geometry());
-  emit PassPosition(position);
+  emit PassPosition(geometry());
   emit EnterIsPressed();
+
+  if (isMaximized()) {
+    emit MaximizedScreen(true);
+  }
 }
 
 void AtmSplashScreen::ComputeNewGeometry() {

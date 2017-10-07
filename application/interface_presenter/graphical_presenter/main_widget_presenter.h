@@ -15,10 +15,13 @@ class MainWidgetPresenter : public QObject {
  public slots:
   void ShowMainWidget();
   void SetWidgetGeometry(const QRect& initial_position);
+  void SetMaximized(bool is_maximized);
 
  private:
   AtmMainWidget* atm_main_widget_ = nullptr;
   QRect* main_widget_position_ = nullptr;
+
+  bool is_maximized_ = false;
 };
 
 #endif  // MAIN_WIDGET_PRESENTER_H
