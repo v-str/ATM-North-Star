@@ -2,8 +2,8 @@
 
 QRect SplashScreenGeometry::kVersionLabel = {485, 17, 100, 15};
 QRect SplashScreenGeometry::kCompanyNameLabel = {35, 40, 510, 70};
-QRect SplashScreenGeometry::kDateLabel = {140, 360, 160, 20};
-QRect SplashScreenGeometry::kTimeLabel = {300, 360, 160, 20};
+QRect SplashScreenGeometry::kDateLabel = {130, 360, 160, 20};
+QRect SplashScreenGeometry::kTimeLabel = {290, 360, 160, 20};
 QRect SplashScreenGeometry::kTextLabel = {150, 270, 280, 30};
 QRect SplashScreenGeometry::kSplashScreenFrame = {10, 10, 580, 380};
 

@@ -121,7 +121,19 @@ void AtmSplashScreen::TuneWidgets() {
   InitialPropertyInstaller::SetInitialProperties(
       this, kWidgetWidth, kWidgetHeight, InitialPropertyInstaller::kResize);
 
-  time_label_->setFont(WidgetFont::GetFont(14));
+  SetFonts();
+
+  time_label_->setGeometry(SplashScreenGeometry::TimeLabel());
+  date_label_->setGeometry(SplashScreenGeometry::DateLabel());
+}
+
+void AtmSplashScreen::SetFonts() {
+  time_label_->setFont(WidgetFont::SetFont(14));
+  date_label_->setFont(WidgetFont::SetFont(14));
+  ui->atm_company_name_label->setFont(WidgetFont::SetFont(25));
+  ui->atm_label->setFont(WidgetFont::SetFont(75));
+  ui->text_label->setFont(WidgetFont::SetFont(17));
+  ui->version_label->setFont(WidgetFont::SetFont(13));
 }
 
 void AtmSplashScreen::SetConnections() {

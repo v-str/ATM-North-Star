@@ -1,16 +1,15 @@
 ﻿#include <widget_font.h>
 
-QString WidgetFont::kWin32Family = "MS PGothic";
+QString WidgetFont::kWin32Family = "Papyrus";
 QString WidgetFont::kLinuxFamily = "Ubuntu";
 
 QFont WidgetFont::kWin32Font;
 QFont WidgetFont::kLinuxFont;
 
-WidgetFont::WidgetFont() { SetFamily(); }
-
-QFont WidgetFont::GetFont(int font_point_size_pt) {
+QFont WidgetFont::SetFont(int font_point_size_pt) {
+  SetFamily();
 #ifdef WIN32
-  kWin32Font.setPixelSize(font_point_size_pt);
+  kWin32Font.setPointSize(font_point_size_pt);
   return kWin32Font;
 #else
   linux_font_.setPointSize(font_point_size_pt);

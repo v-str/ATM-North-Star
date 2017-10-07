@@ -7,8 +7,7 @@ class QLabel;
 
 class AtmLabelStretcher {
  public:
-  void StretchAtmLabel(QLabel* atm_label,
-                       int width_increase,
+  void StretchAtmLabel(QLabel* atm_label, int width_increase,
                        int height_increase);
 
  private:
@@ -20,7 +19,7 @@ class AtmLabelStretcher {
   static const int kInitYPos = 100;
   static const int kInitWidth = 300;
   static const int kInitHeight = 150;
-  static const int kInitFontSize = 90;
+  static const int kInitFontSize = 75;
   static const int kFontSizeLimit = 150;
 
   int font_pointsize_ = 0;

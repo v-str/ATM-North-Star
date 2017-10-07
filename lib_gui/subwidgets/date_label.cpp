@@ -6,6 +6,7 @@
 
 DateLabel::DateLabel(QLabel *parent)
     : QLabel(parent), timer_(new QTimer(this)) {
+  setAlignment(Qt::AlignCenter);
   timer_->start(kOneSecond);
   connect(timer_, SIGNAL(timeout()), SLOT(UpdateTime()));
 }
