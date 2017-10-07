@@ -132,7 +132,7 @@ void AtmSplashScreen::SetFonts() {
   date_label_->setFont(WidgetFont::SetFont(14));
   ui->atm_company_name_label->setFont(WidgetFont::SetFont(25));
   ui->atm_label->setFont(WidgetFont::SetFont(75));
-  ui->text_label->setFont(WidgetFont::SetFont(17));
+  ui->text_label->setFont(WidgetFont::SetFont(15));
   ui->version_label->setFont(WidgetFont::SetFont(13));
 }
 

@@ -1,6 +1,6 @@
 ﻿#include <widget_font.h>
 
-QString WidgetFont::kWin32Family = "Papyrus";
+QString WidgetFont::kWin32Family = "Copperplate Gothic Bold";
 QString WidgetFont::kLinuxFamily = "Ubuntu";
 
 QFont WidgetFont::kWin32Font;
@@ -10,6 +10,7 @@ QFont WidgetFont::SetFont(int font_point_size_pt) {
   SetFamily();
 #ifdef WIN32
   kWin32Font.setPointSize(font_point_size_pt);
+  // kWin32Font.setBold(true);
   return kWin32Font;
 #else
   linux_font_.setPointSize(font_point_size_pt);
