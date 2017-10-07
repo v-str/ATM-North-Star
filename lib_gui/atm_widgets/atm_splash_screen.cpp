@@ -29,7 +29,7 @@ AtmSplashScreen::AtmSplashScreen(QWidget* parent)
   setWindowTitle("ATM splash screen");
 
   SetInitialSettings();
-  SetWidgetProperties();
+  TuneWidgets();
   SetConnections();
   RunTimers();
 }
@@ -116,7 +116,7 @@ void AtmSplashScreen::SetImages() {
   setWindowIcon(QIcon(":/images/project_icon.png"));
 }
 
-void AtmSplashScreen::SetWidgetProperties() {
+void AtmSplashScreen::TuneWidgets() {
   InitialPropertyInstaller::SetInitialProperties(
       this, kWidgetWidth, kWidgetHeight, InitialPropertyInstaller::kResize);
 

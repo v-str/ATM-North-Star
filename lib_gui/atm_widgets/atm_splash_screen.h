@@ -50,7 +50,7 @@ class AtmSplashScreen : public QMainWindow {
   void SetBackgroundColor();
   void SetImages();
 
-  void SetWidgetProperties();
+  void TuneWidgets();
 
   void SetConnections();
 
