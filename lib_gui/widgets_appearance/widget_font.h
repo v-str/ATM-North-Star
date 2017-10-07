@@ -6,13 +6,18 @@
 
 class WidgetFont {
  public:
-  WidgetFont(int font_size_pt);
+  WidgetFont();
 
-  QFont GetFont() const;
+  static QFont GetFont(int font_point_size_pt);
 
  private:
-  QFont win32_font_;
-  QFont linux_font_;
+  static void SetFamily();
+
+  static QString kWin32Family;
+  static QString kLinuxFamily;
+
+  static QFont kWin32Font;
+  static QFont kLinuxFont;
 };
 
 #endif  // WIDGET_FONT_H

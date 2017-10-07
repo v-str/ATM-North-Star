@@ -121,11 +121,7 @@ void AtmSplashScreen::TuneWidgets() {
   InitialPropertyInstaller::SetInitialProperties(
       this, kWidgetWidth, kWidgetHeight, InitialPropertyInstaller::kResize);
 
-  widget_tuner_.TuneLabel(
-      time_label_, Qt::AlignCenter,
-      qMakePair(SplashScreenGeometry::TimeLabel(), WidgetFont(15)));
-
-  date_label_->setGeometry(SplashScreenGeometry::DateLabel());
+  time_label_->setFont(WidgetFont::GetFont(14));
 }
 
 void AtmSplashScreen::SetConnections() {
