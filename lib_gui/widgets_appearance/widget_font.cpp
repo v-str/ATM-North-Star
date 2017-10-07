@@ -10,11 +10,10 @@ QFont WidgetFont::SetFont(int font_point_size_pt) {
   SetFamily();
 #ifdef WIN32
   kWin32Font.setPointSize(font_point_size_pt);
-  // kWin32Font.setBold(true);
   return kWin32Font;
 #else
-  linux_font_.setPointSize(font_point_size_pt);
-  return linux_font_;
+  kLinuxFont.setPointSize(font_point_size_pt);
+  return kLinuxFont;
 #endif
 }
 
