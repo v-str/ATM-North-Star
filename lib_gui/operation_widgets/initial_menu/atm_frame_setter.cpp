@@ -34,7 +34,7 @@ void AtmFrameSetter::SetAnimationDuration(unsigned int duration_msec) {
   extrude_animator_->SetDuration(duration_msec);
 }
 
-void AtmFrameSetter::ColorizeButtons(const QList<QPushButton*>& button_list) {
+void AtmFrameSetter::ColorizeButtons(QList<QPushButton*>* button_list) {
   color_designer_->PaintWidgetSet(button_list);
 }
 

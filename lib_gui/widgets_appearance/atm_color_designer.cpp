@@ -21,21 +21,21 @@ void AtmColorDesigner::SetBackground(QDialog* dialog) {
                             ApplicationColor::ApplicationBackgroundColor());
 }
 
-void AtmColorDesigner::PaintWidgetSet(QList<QLabel*> label_list) const {
-  for (auto label = label_list.begin(); label != label_list.end(); ++label) {
+void AtmColorDesigner::PaintWidgetSet(QList<QLabel*>* label_list) const {
+  for (auto label = label_list->begin(); label != label_list->end(); ++label) {
     Painter::ChangeLabelColor(*label, ApplicationColor::MainColor());
   }
 }
 
-void AtmColorDesigner::PaintWidgetSet(QList<QPushButton*> button_list) const {
-  for (auto button = button_list.begin(); button != button_list.end();
+void AtmColorDesigner::PaintWidgetSet(QList<QPushButton*>* button_list) const {
+  for (auto button = button_list->begin(); button != button_list->end();
        ++button) {
     Painter::ChangeButtonColor(*button);
   }
 }
 
-void AtmColorDesigner::PaintWidgetSet(QList<QFrame*> frame_list) const {
-  for (auto frame = frame_list.begin(); frame != frame_list.end(); ++frame) {
+void AtmColorDesigner::PaintWidgetSet(QList<QFrame*>* frame_list) const {
+  for (auto frame = frame_list->begin(); frame != frame_list->end(); ++frame) {
     Painter::ChangeFrameColor(*frame, ApplicationColor::MainColor());
   }
 }

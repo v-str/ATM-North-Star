@@ -16,9 +16,9 @@ class AtmColorDesigner {
   void SetBackground(QMainWindow* main_window);
   void SetBackground(QDialog* dialog);
 
-  void PaintWidgetSet(QList<QLabel*> label_list) const;
-  void PaintWidgetSet(QList<QPushButton*> button_list) const;
-  void PaintWidgetSet(QList<QFrame*> frame_list) const;
+  void PaintWidgetSet(QList<QLabel*>* label_list) const;
+  void PaintWidgetSet(QList<QPushButton*>* button_list) const;
+  void PaintWidgetSet(QList<QFrame*>* frame_list) const;
 
   void PaintFrame(QFrame* frame) const;
 };

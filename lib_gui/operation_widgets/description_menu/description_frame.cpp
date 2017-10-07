@@ -83,7 +83,7 @@ void DescriptionFrame::ColorizeWidgets() {
   QList<QPushButton*> button_list{account_info_button_, cash_refill_button_,
                                   credit_app_button_, cash_withdrawal_button_,
                                   statement_button_};
-  color_designer_->PaintWidgetSet(button_list);
+  color_designer_->PaintWidgetSet(&button_list);
 }
 
 void DescriptionFrame::SetConnections() {

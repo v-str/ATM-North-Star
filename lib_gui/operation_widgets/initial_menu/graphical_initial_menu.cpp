@@ -52,7 +52,7 @@ void GraphicalInitialMenu::ProcessLoginButtonClick() {
 void GraphicalInitialMenu::PaintWidgets() {
   QList<QPushButton*> button_list{login_button_, registration_button_};
 
-  ColorizeButtons(button_list);
+  ColorizeButtons(&button_list);
 }
 
 void GraphicalInitialMenu::SetButtonGeometry() {

@@ -52,7 +52,7 @@ void BaseAtmFrame::SetFrameAnimation(unsigned int hide_to,
   frame_setter_->SetAnimationDuration(duration_msec);
 }
 
-void BaseAtmFrame::ColorizeButtons(const QList<QPushButton*>& button_list) {
+void BaseAtmFrame::ColorizeButtons(QList<QPushButton*>* button_list) {
   frame_setter_->ColorizeButtons(button_list);
 }
 
@@ -82,7 +82,7 @@ void BaseAtmFrame::ScaleBackButton() {
 
 void BaseAtmFrame::ColorizeBackButton() {
   QList<QPushButton*> button_list{back_button_};
-  frame_setter_->ColorizeButtons(button_list);
+  frame_setter_->ColorizeButtons(&button_list);
 }
 
 void BaseAtmFrame::SetBasicConnections() {

@@ -102,8 +102,8 @@ void AtmSplashScreen::PaintWidgets() {
                                date_label_, time_label_, ui->version_label};
   QList<QFrame*> frame_list = {ui->frame};
 
-  color_designer_.PaintWidgetSet(label_list);
-  color_designer_.PaintWidgetSet(frame_list);
+  color_designer_.PaintWidgetSet(&label_list);
+  color_designer_.PaintWidgetSet(&frame_list);
 }
 
 void AtmSplashScreen::SetBackgroundColor() {

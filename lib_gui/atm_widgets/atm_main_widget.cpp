@@ -79,8 +79,8 @@ void AtmMainWidget::PaintWidgets() {
   QList<QFrame*> frame_list = {ui->main_frame};
   QList<QLabel*> label_list = {ui->time_label, ui->date_label};
 
-  color_designer_.PaintWidgetSet(frame_list);
-  color_designer_.PaintWidgetSet(label_list);
+  color_designer_.PaintWidgetSet(&frame_list);
+  color_designer_.PaintWidgetSet(&label_list);
 }
 
 void AtmMainWidget::SetBackgroundColor() {
