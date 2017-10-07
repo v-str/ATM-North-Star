@@ -41,7 +41,8 @@ INCLUDE_DIRECTORIES (application/application_launch
                      lib_gui/widgets_arrangement/common/modificators/composite
                      lib_gui/widgets_arrangement/common/modificators/primitive
                      lib_gui/widgets_arrangement/common/widgets_geometries
-                     lib_gui/widgets_arrangement/splash_screen)
+                     lib_gui/widgets_arrangement/splash_screen
+                     lib_gui/system_dependencies)
 
 set (LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR})
 
