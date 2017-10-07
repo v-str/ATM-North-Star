@@ -2,19 +2,17 @@
 #define WIDGET_TUNER_H
 
 #include <QLabel>
-#include <QList>
+#include <QPair>
+#include <QRect>
+
+#include <widget_font.h>
 
 class AtmColorDesigner;
 
 class WidgetTuner {
  public:
-  WidgetTuner();
-  ~WidgetTuner();
-
-  void TuneLabels(QList<QLabel*>* label_list);
-
- private:
-  AtmColorDesigner* color_designer_ = nullptr;
+  void TuneLabel(QLabel* label, Qt::AlignmentFlag alignment,
+                 const QPair<QRect, WidgetFont>& label_characteristic);
 };
 
 #endif  // WIDGET_TUNER_H

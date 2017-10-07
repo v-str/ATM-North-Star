@@ -16,7 +16,6 @@ INCLUDE_DIRECTORIES (atm_widgets
 		     operation_widgets/login_menu
 		     operation_widgets/registration_menu
 		     subwidgets
-                     system_dependencies
                      widgets_appearance
                      widgets_arrangement/common/modificators/composite
                      widgets_arrangement/common/modificators/primitive
@@ -35,8 +34,7 @@ file (GLOB SOURCES "atm_widgets/*.cpp"
                    "widgets_arrangement/common/modificators/composite/*.cpp"
                    "widgets_arrangement/common/modificators/primitive/*.cpp"
                    "widgets_arrangement/common/widgets_geometries/*.cpp"
-                   "widgets_arrangement/splash_screen/*.cpp"
-                   "system_dependencies/*.cpp")
+                   "widgets_arrangement/splash_screen/*.cpp")
 
 file (GLOB UI_HEADERS "atm_widgets/*.ui")
 

@@ -18,6 +18,7 @@
 #include <text_color_swapper.h>
 #include <time_label.h>
 #include <timedate_changer.h>
+#include <widget_font.h>
 
 AtmSplashScreen::AtmSplashScreen(QWidget* parent)
     : QMainWindow(parent),
@@ -120,7 +121,10 @@ void AtmSplashScreen::TuneWidgets() {
   InitialPropertyInstaller::SetInitialProperties(
       this, kWidgetWidth, kWidgetHeight, InitialPropertyInstaller::kResize);
 
-  time_label_->setGeometry(SplashScreenGeometry::TimeLabel());
+  widget_tuner_.TuneLabel(
+      time_label_, Qt::AlignCenter,
+      qMakePair(SplashScreenGeometry::TimeLabel(), WidgetFont(15)));
+
   date_label_->setGeometry(SplashScreenGeometry::DateLabel());
 }
 

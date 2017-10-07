@@ -5,6 +5,7 @@
 
 #include <atm_color_designer.h>
 #include <splash_screen_composer.h>
+#include <widget_tuner.h>
 
 class TextColorSwapper;
 class ExitDialog;
@@ -70,6 +71,8 @@ class AtmSplashScreen : public QMainWindow {
 
   AtmColorDesigner color_designer_;
   SplashScreenSizeComposer composer_;
+
+  WidgetTuner widget_tuner_;
 
   static const int kOneSecond = 1000;
   static const int kTimerValue = 350;
