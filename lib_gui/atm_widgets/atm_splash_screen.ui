@@ -36,7 +36,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Ubuntu</family>
+      <family>MS PGothic</family>
       <weight>50</weight>
       <italic>false</italic>
       <bold>false</bold>
@@ -98,7 +98,7 @@ color: rgb(32, 74, 135);
      </property>
      <property name="font">
       <font>
-       <family>Ubuntu</family>
+       <family>MS PGothic</family>
        <pointsize>25</pointsize>
        <weight>50</weight>
        <italic>false</italic>
@@ -134,11 +134,11 @@ color: rgb(32, 74, 135);
      </property>
      <property name="font">
       <font>
-       <family>Ubuntu</family>
+       <family>MS PGothic</family>
        <pointsize>90</pointsize>
-       <weight>75</weight>
+       <weight>50</weight>
        <italic>false</italic>
-       <bold>true</bold>
+       <bold>false</bold>
        <underline>false</underline>
        <strikeout>false</strikeout>
        <stylestrategy>PreferAntialias</stylestrategy>
@@ -172,7 +172,7 @@ color: rgb(32, 74, 135);
      </property>
      <property name="font">
       <font>
-       <family>Ubuntu</family>
+       <family>MS PGothic</family>
        <pointsize>14</pointsize>
        <weight>50</weight>
        <italic>false</italic>
