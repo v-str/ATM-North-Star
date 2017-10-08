@@ -37,7 +37,7 @@ class GraphicalInitialMenu : public BaseAtmFrame {
 
  private:
   void PaintWidgets();
-  void SetButtonGeometry();
+  void TuneButtons();
   void SetButtonFrameScalingProperties();
   void SetButtonFrame();
   void SetConnections();

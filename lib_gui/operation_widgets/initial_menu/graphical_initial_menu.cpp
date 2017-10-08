@@ -10,6 +10,7 @@
 #include <conversion_factor.h>
 #include <initial_frame_geometry.h>
 #include <side.h>
+#include <widget_font.h>
 
 GraphicalInitialMenu::GraphicalInitialMenu(QWidget* parent)
     : BaseAtmFrame(parent, BaseAtmFrame::kBackButtonDeactivated),
@@ -20,7 +21,7 @@ GraphicalInitialMenu::GraphicalInitialMenu(QWidget* parent)
   SetInitialFrameGeometry(InitialFrameGeometry::InitialFrame());
   SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
 
-  SetButtonGeometry();
+  TuneButtons();
   SetButtonFrame();
   SetButtonFrameScalingProperties();
   PaintWidgets();
@@ -55,9 +56,12 @@ void GraphicalInitialMenu::PaintWidgets() {
   ColorizeButtons(&button_list);
 }
 
-void GraphicalInitialMenu::SetButtonGeometry() {
+void GraphicalInitialMenu::TuneButtons() {
   login_button_->setGeometry(InitialFrameGeometry::SignInButton());
+  login_button_->setFont(WidgetFont::SetFont(16));
+
   registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
+  registration_button_->setFont(WidgetFont::SetFont(16));
 }
 
 void GraphicalInitialMenu::SetButtonFrameScalingProperties() {
