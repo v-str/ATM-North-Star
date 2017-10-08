@@ -29,6 +29,7 @@ class ExitDialog : public QDialog {
   void SetConnections();
   void SetInitialProperties();
   void PaintWidgets();
+  void SetFontStyle();
 
   Ui::ExitDialog* ui = nullptr;
 

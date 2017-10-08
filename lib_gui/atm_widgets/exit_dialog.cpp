@@ -9,6 +9,7 @@
 
 #include <initial_property_installer.h>
 #include <widget_center_arranger.h>
+#include <widget_font.h>
 
 ExitDialog::ExitDialog(QWidget* parent)
     : QDialog(parent), ui(new Ui::ExitDialog) {
@@ -25,7 +26,10 @@ ExitDialog::ExitDialog(QWidget* parent)
 
 ExitDialog::~ExitDialog() { delete ui; }
 
-void ExitDialog::SetExitDialogAppearance() { PaintWidgets(); }
+void ExitDialog::SetExitDialogAppearance() {
+  PaintWidgets();
+  SetFontStyle();
+}
 
 void ExitDialog::SetBackgroundColor() { color_designer_.SetBackground(this); }
 
@@ -55,4 +59,10 @@ void ExitDialog::PaintWidgets() {
   color_designer_.PaintWidgetSet(&label_list);
   color_designer_.PaintWidgetSet(&button_list);
   color_designer_.PaintWidgetSet(&frame_list);
+}
+
+void ExitDialog::SetFontStyle() {
+  ui->message_screen->setFont(WidgetFont::SetFont(19));
+  ui->button_no->setFont(WidgetFont::SetFont(14));
+  ui->button_yes->setFont(WidgetFont::SetFont(14));
 }

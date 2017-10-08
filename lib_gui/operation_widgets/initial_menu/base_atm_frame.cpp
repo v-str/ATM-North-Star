@@ -8,6 +8,7 @@
 #include <atm_button.h>
 #include <atm_frame_setter.h>
 #include <side.h>
+#include <widget_font.h>
 
 BaseAtmFrame::BaseAtmFrame(QWidget* parent,
                            BackButtonCondition back_button_condition)
@@ -36,9 +37,10 @@ void BaseAtmFrame::SetInitialFrameGeometry(const QRect& geometry) {
   initial_frame_geometry_ = geometry;
 }
 
-void BaseAtmFrame::SetInitialBackButtonGeometry(const QRect& geometry) {
+void BaseAtmFrame::SetBackButton(const QRect& geometry) {
   back_button_->setGeometry(geometry);
   initial_back_button_geometry_ = geometry;
+  back_button_->setFont(WidgetFont::SetFont(13));
 }
 
 void BaseAtmFrame::SetFrameAnimation(unsigned int hide_to,

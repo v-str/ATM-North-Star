@@ -11,7 +11,7 @@
 
 GraphicalRegistrationMenu::GraphicalRegistrationMenu(QWidget* parent) : BaseAtmFrame(parent) {
   SetInitialFrameGeometry(RegistrationMenuGeometry::RegistrationFrame());
-  SetInitialBackButtonGeometry(RegistrationMenuGeometry::BackButton());
+  SetBackButton(RegistrationMenuGeometry::BackButton());
   SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
 }
 
