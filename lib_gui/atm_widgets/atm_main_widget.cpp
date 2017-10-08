@@ -10,6 +10,7 @@
 #include <QResizeEvent>
 #include <QTimer>
 
+#include <date_label.h>
 #include <description_menu_geometry.h>
 #include <geometry.h>
 #include <graphical_description_menu.h>
@@ -21,7 +22,9 @@
 #include <main_widget_geometry.h>
 #include <painter.h>
 #include <side.h>
+#include <time_label.h>
 #include <timedate_changer.h>
+#include <widget_font.h>
 
 AtmMainWidget::AtmMainWidget(QWidget* parent)
     : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
@@ -32,21 +35,12 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
   SetInitialSettings();
   SetWidgetProperties();
   SetConnections();
-  RunTimers();
 }
 
 AtmMainWidget::~AtmMainWidget() {
   delete ui;
-  delete time_timer_;
-  delete date_timer_;
-}
-
-void AtmMainWidget::ChangeTime() {
-  TimeDateChanger::ChangeTime(ui->time_label);
-}
-
-void AtmMainWidget::ChangeDate() {
-  TimeDateChanger::ChangeDate(ui->date_label);
+  delete time_label_;
+  delete date_label_;
 }
 
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
@@ -68,8 +62,8 @@ void AtmMainWidget::SetInitialSettings() {
 }
 
 void AtmMainWidget::InitializeObject() {
-  time_timer_ = new QTimer(ui->time_label);
-  date_timer_ = new QTimer(ui->date_label);
+  time_label_ = new TimeLabel(static_cast<QLabel*>(ui->main_frame));
+  date_label_ = new DateLabel(static_cast<QLabel*>(ui->main_frame));
   initial_menu_ = new GraphicalInitialMenu(ui->main_frame);
   registration_menu_ = new GraphicalRegistrationMenu(ui->main_frame);
   login_menu_ = new GraphicalLoginMenu(ui->main_frame);
@@ -77,7 +71,7 @@ void AtmMainWidget::InitializeObject() {
 
 void AtmMainWidget::PaintWidgets() {
   QList<QFrame*> frame_list = {ui->main_frame};
-  QList<QLabel*> label_list = {ui->time_label, ui->date_label};
+  QList<QLabel*> label_list = {time_label_, date_label_};
 
   color_designer_.PaintWidgetSet(&frame_list);
   color_designer_.PaintWidgetSet(&label_list);
@@ -97,11 +91,18 @@ void AtmMainWidget::SetImages() {
 void AtmMainWidget::SetWidgetProperties() {
   InitialPropertyInstaller::SetInitialProperties(
       this, kAppWidth, kAppHeight, InitialPropertyInstaller::kResize);
+
+  time_label_->setGeometry(MainWidgetGeometry::TimeLabel());
+  date_label_->setGeometry(MainWidgetGeometry::DateLabel());
+
+  time_label_->setFont(WidgetFont::SetFont(12));
+  date_label_->setFont(WidgetFont::SetFont(12));
+
+  time_label_->setAlignment(Qt::AlignRight);
+  date_label_->setAlignment(Qt::AlignRight);
 }
 
 void AtmMainWidget::SetConnections() {
-  connect(date_timer_, SIGNAL(timeout()), SLOT(ChangeDate()));
-  connect(time_timer_, SIGNAL(timeout()), SLOT(ChangeTime()));
   connect(initial_menu_, SIGNAL(RegistrationButtonClicked()),
           registration_menu_, SLOT(Show()));
   connect(initial_menu_, SIGNAL(LoginButtonClicked()), login_menu_,
@@ -110,11 +111,6 @@ void AtmMainWidget::SetConnections() {
           SLOT(Show()));
   connect(login_menu_, SIGNAL(BackButtonClicked()), initial_menu_,
           SLOT(Show()));
-}
-
-void AtmMainWidget::RunTimers() {
-  date_timer_->start(kOneSecond);
-  time_timer_->start(kOneSecond);
 }
 
 void AtmMainWidget::SetFrameArrangement() {
@@ -134,12 +130,12 @@ void AtmMainWidget::SetTimeDateArrangement() {
   composer_.SetShiftFactor(kXFactor, kYFactor);
   composer_.SetShiftSide(Side::kRight);
   composer_.SetTransformationType(GeometryComposer::kShift);
-  composer_.ComposeGeometry(MainWidgetGeometry::TimeLabel(), ui->time_label);
+  composer_.ComposeGeometry(MainWidgetGeometry::TimeLabel(), time_label_);
 
   composer_.SetShiftFactor(kXFactor, kYFactor);
   composer_.SetShiftSide(Side::kRight);
   composer_.SetTransformationType(GeometryComposer::kShift);
-  composer_.ComposeGeometry(MainWidgetGeometry::DateLabel(), ui->date_label);
+  composer_.ComposeGeometry(MainWidgetGeometry::DateLabel(), date_label_);
 }
 
 void AtmMainWidget::ComputeExtraSize() {

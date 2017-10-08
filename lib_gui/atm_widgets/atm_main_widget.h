@@ -13,6 +13,8 @@ class GraphicalInitialMenu;
 class GraphicalDescriptionMenu;
 class GraphicalRegistrationMenu;
 class GraphicalLoginMenu;
+class TimeLabel;
+class DateLabel;
 
 namespace Ui {
 class AtmMainWidget;
@@ -25,10 +27,6 @@ class AtmMainWidget : public QMainWindow {
   explicit AtmMainWidget(QWidget* parent = nullptr);
   ~AtmMainWidget();
 
- public slots:
-  void ChangeTime();
-  void ChangeDate();
-
  protected:
   void resizeEvent(QResizeEvent* event);
 
@@ -38,23 +36,20 @@ class AtmMainWidget : public QMainWindow {
   void PaintWidgets();
   void SetBackgroundColor();
   void SetImages();
-
   void SetWidgetProperties();
-
   void SetConnections();
-
   void RunTimers();
-
   void SetFrameArrangement();
   void SetTimeDateArrangement();
   void ComputeExtraSize();
 
   Ui::AtmMainWidget* ui = nullptr;
-  QTimer* time_timer_ = nullptr;
-  QTimer* date_timer_ = nullptr;
   GraphicalInitialMenu* initial_menu_ = nullptr;
   GraphicalRegistrationMenu* registration_menu_ = nullptr;
   GraphicalLoginMenu* login_menu_ = nullptr;
+
+  TimeLabel* time_label_ = nullptr;
+  DateLabel* date_label_ = nullptr;
 
   AtmColorDesigner color_designer_;
   GeometryComposer composer_;

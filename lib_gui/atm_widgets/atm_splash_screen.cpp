@@ -99,8 +99,9 @@ void AtmSplashScreen::InitializeObjects() {
 }
 
 void AtmSplashScreen::PaintWidgets() {
-  QList<QLabel*> label_list = {ui->atm_company_name_label, ui->text_label,
-                               date_label_, time_label_, ui->version_label};
+  QList<QLabel*> label_list = {
+      ui->atm_company_name_label, ui->text_label, date_label_, time_label_,
+      ui->version_label,          ui->atm_label};
   QList<QFrame*> frame_list = {ui->frame};
 
   color_designer_.PaintWidgetSet(&label_list);
@@ -125,6 +126,7 @@ void AtmSplashScreen::TuneWidgets() {
 
   time_label_->setGeometry(SplashScreenGeometry::TimeLabel());
   date_label_->setGeometry(SplashScreenGeometry::DateLabel());
+  ui->atm_label->setGeometry(SplashScreenGeometry::AtmLabel());
 }
 
 void AtmSplashScreen::SetFonts() {

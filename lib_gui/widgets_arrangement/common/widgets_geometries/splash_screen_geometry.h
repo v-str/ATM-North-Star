@@ -11,6 +11,7 @@ class SplashScreenGeometry {
   static QRect TimeLabel();
   static QRect TextLabel();
   static QRect SplashScreenFrame();
+  static QRect AtmLabel();
 
  private:
   static QRect kVersionLabel;
@@ -19,6 +20,7 @@ class SplashScreenGeometry {
   static QRect kTimeLabel;
   static QRect kTextLabel;
   static QRect kSplashScreenFrame;
+  static QRect kAtmLabel;
 };
 
 #endif  // SPLASH_SCREEN_GEOMETRY_H
