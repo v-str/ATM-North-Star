@@ -2,9 +2,12 @@
 #define MAIN_WIDGET_PRESENTER_H
 
 #include <QObject>
+#include <QRect>
 
 class AtmMainWidget;
-class QRect;
+class GraphicalInitialMenu;
+class GraphicalRegistrationMenu;
+class GraphicalLoginMenu;
 
 class MainWidgetPresenter : public QObject {
   Q_OBJECT
@@ -18,8 +21,14 @@ class MainWidgetPresenter : public QObject {
   void SetMaximized(bool is_maximized);
 
  private:
+  void SetConnections();
+
   AtmMainWidget* atm_main_widget_ = nullptr;
-  QRect* main_widget_position_ = nullptr;
+  GraphicalInitialMenu* initial_menu_ = nullptr;
+  GraphicalRegistrationMenu* registration_menu_ = nullptr;
+  GraphicalLoginMenu* login_menu_ = nullptr;
+
+  QRect main_widget_position_;
 
   bool is_maximized_ = false;
 };

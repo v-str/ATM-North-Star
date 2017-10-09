@@ -43,6 +43,8 @@ AtmMainWidget::~AtmMainWidget() {
   delete date_label_;
 }
 
+QFrame* AtmMainWidget::GetMainFrame() const { return ui->main_frame; }
+
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeExtraSize();
   SetFrameArrangement();
@@ -103,10 +105,10 @@ void AtmMainWidget::SetWidgetProperties() {
 }
 
 void AtmMainWidget::SetConnections() {
-  connect(initial_menu_, SIGNAL(RegistrationButtonClicked()),
-          registration_menu_, SLOT(Show()));
   connect(initial_menu_, SIGNAL(LoginButtonClicked()), login_menu_,
           SLOT(Show()));
+  connect(initial_menu_, SIGNAL(RegistrationButtonClicked()),
+          registration_menu_, SLOT(Show()));
   connect(registration_menu_, SIGNAL(BackButtonClicked()), initial_menu_,
           SLOT(Show()));
   connect(login_menu_, SIGNAL(BackButtonClicked()), initial_menu_,

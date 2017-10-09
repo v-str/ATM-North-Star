@@ -1,6 +1,7 @@
 ﻿#ifndef ATM_MAIN_WIDGET_H
 #define ATM_MAIN_WIDGET_H
 
+#include <QFrame>
 #include <QMainWindow>
 
 #include <atm_color_designer.h>
@@ -26,6 +27,8 @@ class AtmMainWidget : public QMainWindow {
  public:
   explicit AtmMainWidget(QWidget* parent = nullptr);
   ~AtmMainWidget();
+
+  QFrame* GetMainFrame() const;
 
  protected:
   void resizeEvent(QResizeEvent* event);
