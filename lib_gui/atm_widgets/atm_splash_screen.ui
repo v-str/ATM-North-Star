@@ -98,11 +98,11 @@ color: rgb(32, 74, 135);
      </property>
      <property name="font">
       <font>
-       <family>MS PGothic</family>
+       <family>Tlwg Mono</family>
        <pointsize>25</pointsize>
-       <weight>50</weight>
+       <weight>75</weight>
        <italic>false</italic>
-       <bold>false</bold>
+       <bold>true</bold>
        <underline>false</underline>
        <stylestrategy>PreferAntialias</stylestrategy>
        <kerning>false</kerning>
