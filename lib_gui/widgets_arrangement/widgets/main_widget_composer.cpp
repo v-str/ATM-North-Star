@@ -1,10 +1,13 @@
 ﻿#include <main_widget_composer.h>
 
+#include <initial_frame_geometry.h>
 #include <side.h>
 
 MainWidgetComposer::MainWidgetComposer() { SetDefaultComposing(); }
 
-void MainWidgetComposer::ComposeMainFrame(QFrame* frame) {}
+void MainWidgetComposer::ComposeMenu(QWidget* widget) {
+  composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(), widget);
+}
 
 void MainWidgetComposer::SetDefaultComposing() {
   composer_.SetStretchFactor(kXFactor, kYFactor);
