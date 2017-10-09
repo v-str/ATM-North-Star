@@ -2,21 +2,14 @@
 
 #include <QTimer>
 
-#include <geometry_composer.h>
-#include <side.h>
 #include <timedate_changer.h>
 
 TimeLabel::TimeLabel(QLabel* parent)
-    : QLabel(parent),
-      timer_(new QTimer(this)),
-      composer_(new GeometryComposer) {
+    : QLabel(parent), timer_(new QTimer(this)) {
   SetDefaultSettings();
 }
 
-TimeLabel::~TimeLabel() {
-  delete timer_;
-  delete composer_;
-}
+TimeLabel::~TimeLabel() { delete timer_; }
 
 void TimeLabel::UpdateTime() { TimeDateChanger::ChangeTime(this); }
 

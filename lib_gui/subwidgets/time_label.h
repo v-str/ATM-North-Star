@@ -4,7 +4,6 @@
 #include <QLabel>
 
 class QTimer;
-class GeometryComposer;
 
 class TimeLabel : public QLabel {
   Q_OBJECT
@@ -23,10 +22,6 @@ class TimeLabel : public QLabel {
   void SetDefaultSettings();
 
   QTimer* timer_ = nullptr;
-  GeometryComposer* composer_ = nullptr;
-
-  static constexpr double kXFactor = 1.0;
-  static constexpr double kYFactor = 1.0;
 
   static const int kOneSecond = 1000;
 };

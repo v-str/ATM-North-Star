@@ -115,9 +115,11 @@ void AtmMainWidget::SetConnections() {
 
 void AtmMainWidget::SetArrangement() {
   composer_.SetDeltaSize(DeltaSize(delta_width_, delta_height_));
+
   composer_.SetStretchFactor(kXFactor, kYFactor);
   composer_.SetStretchSide(Side::kRight | Side::kDown);
   composer_.SetTransformationType(GeometryComposer::kStretch);
+
   composer_.ComposeGeometry(MainWidgetGeometry::MainFrame(), ui->main_frame);
   composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(),
                             initial_menu_);

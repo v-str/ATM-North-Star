@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.9)
+﻿cmake_minimum_required (VERSION 3.9)
 
 set (CMAKE_AUTOMOC ON)
 set (CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -20,7 +20,7 @@ INCLUDE_DIRECTORIES (atm_widgets
                      widgets_arrangement/common/modificators/composite
                      widgets_arrangement/common/modificators/primitive
                      widgets_arrangement/common/widgets_geometries
-                     widgets_arrangement/splash_screen)
+                     widgets_arrangement/widgets)
 
 file (GLOB SOURCES "atm_widgets/*.cpp"
 	           "features/animation/*.cpp"
@@ -34,7 +34,7 @@ file (GLOB SOURCES "atm_widgets/*.cpp"
                    "widgets_arrangement/common/modificators/composite/*.cpp"
                    "widgets_arrangement/common/modificators/primitive/*.cpp"
                    "widgets_arrangement/common/widgets_geometries/*.cpp"
-                   "widgets_arrangement/splash_screen/*.cpp")
+                   "widgets_arrangement/widgets/*.cpp")
 
 file (GLOB UI_HEADERS "atm_widgets/*.ui")
 
