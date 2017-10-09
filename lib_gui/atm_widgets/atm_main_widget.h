@@ -7,6 +7,7 @@
 #include <atm_color_designer.h>
 #include <delta_size.h>
 #include <geometry_composer.h>
+#include <main_widget_composer.h>
 
 class QString;
 class ApplicationColor;
@@ -54,7 +55,9 @@ class AtmMainWidget : public QMainWindow {
   DateLabel* date_label_ = nullptr;
 
   AtmColorDesigner color_designer_;
+
   GeometryComposer composer_;
+  MainWidgetComposer main_composer_;
 
   int delta_width_ = 0;
   int delta_height_ = 0;

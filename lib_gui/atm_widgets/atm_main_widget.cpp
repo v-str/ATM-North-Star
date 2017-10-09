@@ -13,6 +13,7 @@
 #include <date_label.h>
 #include <description_menu_geometry.h>
 #include <geometry.h>
+#include <geometry_composer.h>
 #include <graphical_description_menu.h>
 #include <graphical_initial_menu.h>
 #include <graphical_login_menu.h>
@@ -114,18 +115,11 @@ void AtmMainWidget::SetConnections() {
 }
 
 void AtmMainWidget::SetArrangement() {
-  composer_.SetDeltaSize(DeltaSize(delta_width_, delta_height_));
-
-  composer_.SetStretchFactor(kXFactor, kYFactor);
-  composer_.SetStretchSide(Side::kRight | Side::kDown);
-  composer_.SetTransformationType(GeometryComposer::kStretch);
-
-  composer_.ComposeGeometry(MainWidgetGeometry::MainFrame(), ui->main_frame);
-  composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(),
-                            initial_menu_);
-  composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(),
-                            registration_menu_);
-  composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(), login_menu_);
+  main_composer_.SetDeltaSize(DeltaSize(delta_width_, delta_height_));
+  main_composer_.SetMainFrame(ui->main_frame);
+  main_composer_.ComposeMenu(initial_menu_);
+  main_composer_.ComposeMenu(registration_menu_);
+  main_composer_.ComposeMenu(login_menu_);
 }
 
 void AtmMainWidget::SetTimeDateArrangement() {
