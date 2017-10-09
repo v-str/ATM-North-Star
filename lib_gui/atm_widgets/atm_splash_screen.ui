@@ -54,7 +54,7 @@ color: rgb(32, 74, 135);
 }</string>
     </property>
     <property name="text">
-     <string>v.1.0.1</string>
+     <string>v1.0.1</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

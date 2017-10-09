@@ -19,7 +19,7 @@ void SplashScreenSizeComposer::SetFrame(QFrame* frame) {
 }
 
 void SplashScreenSizeComposer::SetVersionLabel(QLabel* version_label) {
-  version_label->setFont(WidgetFont::SetFont(13));
+  version_label->setFont(WidgetFont::SetFont(8));
 
   composer_.SetShiftFactor(1.0, 1.0);
   composer_.SetShiftSide(Side::kRight);
