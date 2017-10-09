@@ -37,6 +37,24 @@ AtmMainWidget::~AtmMainWidget() {
   delete date_label_;
 }
 
+void AtmMainWidget::ShowMainWidget() {
+  if (is_maximized_) {
+    showMaximized();
+  } else {
+    setGeometry(main_widget_position_.x(), main_widget_position_.y(),
+                main_widget_position_.width(), main_widget_position_.height());
+    showNormal();
+  }
+}
+
+void AtmMainWidget::SetWidgetGeometry(const QRect& initial_position) {
+  main_widget_position_ = initial_position;
+}
+
+void AtmMainWidget::SetMaximized(bool is_maximized) {
+  is_maximized_ = is_maximized;
+}
+
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeDeltaSize();
   ComposeWidgets();

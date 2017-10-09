@@ -28,6 +28,11 @@ class AtmMainWidget : public QMainWindow {
   explicit AtmMainWidget(QWidget* parent = nullptr);
   ~AtmMainWidget();
 
+ public slots:
+  void ShowMainWidget();
+  void SetWidgetGeometry(const QRect& initial_position);
+  void SetMaximized(bool is_maximized);
+
  protected:
   void resizeEvent(QResizeEvent* event);
 
@@ -51,6 +56,10 @@ class AtmMainWidget : public QMainWindow {
 
   AtmColorDesigner color_designer_;
   MainWidgetComposer main_widget_composer_;
+
+  QRect main_widget_position_;
+
+  bool is_maximized_ = false;
 
   int delta_width_ = 0;
   int delta_height_ = 0;
