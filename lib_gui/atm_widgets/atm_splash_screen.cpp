@@ -130,11 +130,8 @@ void AtmSplashScreen::TuneWidgets() {
 }
 
 void AtmSplashScreen::SetFonts() {
-  time_label_->setFont(WidgetFont::SetFont(14));
-  date_label_->setFont(WidgetFont::SetFont(14));
   ui->atm_company_name_label->setFont(WidgetFont::SetFont(25));
   ui->atm_label->setFont(WidgetFont::SetFont(75));
-  ui->text_label->setFont(WidgetFont::SetFont(15));
 }
 
 void AtmSplashScreen::SetConnections() {

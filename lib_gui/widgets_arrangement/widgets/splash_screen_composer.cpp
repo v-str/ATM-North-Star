@@ -41,6 +41,10 @@ void SplashScreenSizeComposer::SetCompanyNameLabel(QLabel* company_name_label) {
 void SplashScreenSizeComposer::SetSplashScreenLabels(QLabel* date_label,
                                                      QLabel* time_label,
                                                      QLabel* text_label) {
+  date_label->setFont(WidgetFont::SetFont(14));
+  time_label->setFont(WidgetFont::SetFont(14));
+  text_label->setFont(WidgetFont::SetFont(15));
+
   composer_.SetShiftFactor(0.5, 1.0);
   composer_.SetShiftSide(Side::kRight | Side::kDown);
   composer_.SetTransformationType(GeometryComposer::kShift);
