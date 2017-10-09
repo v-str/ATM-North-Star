@@ -43,11 +43,9 @@ AtmMainWidget::~AtmMainWidget() {
   delete date_label_;
 }
 
-QFrame* AtmMainWidget::GetMainFrame() const { return ui->main_frame; }
-
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
-  ComputeExtraSize();
-  SetFrameArrangement();
+  ComputeDeltaSize();
+  SetArrangement();
   SetTimeDateArrangement();
 }
 
@@ -115,7 +113,7 @@ void AtmMainWidget::SetConnections() {
           SLOT(Show()));
 }
 
-void AtmMainWidget::SetFrameArrangement() {
+void AtmMainWidget::SetArrangement() {
   composer_.SetDeltaSize(DeltaSize(delta_width_, delta_height_));
   composer_.SetStretchFactor(kXFactor, kYFactor);
   composer_.SetStretchSide(Side::kRight | Side::kDown);
@@ -140,7 +138,7 @@ void AtmMainWidget::SetTimeDateArrangement() {
   composer_.ComposeGeometry(MainWidgetGeometry::DateLabel(), date_label_);
 }
 
-void AtmMainWidget::ComputeExtraSize() {
+void AtmMainWidget::ComputeDeltaSize() {
   delta_width_ = width() - Geometry::InitialScreenWidth();
   delta_height_ = height() - Geometry::InitialScreenHeight();
 

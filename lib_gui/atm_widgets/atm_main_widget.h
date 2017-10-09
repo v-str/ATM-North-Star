@@ -5,6 +5,7 @@
 #include <QMainWindow>
 
 #include <atm_color_designer.h>
+#include <delta_size.h>
 #include <geometry_composer.h>
 
 class QString;
@@ -28,8 +29,6 @@ class AtmMainWidget : public QMainWindow {
   explicit AtmMainWidget(QWidget* parent = nullptr);
   ~AtmMainWidget();
 
-  QFrame* GetMainFrame() const;
-
  protected:
   void resizeEvent(QResizeEvent* event);
 
@@ -42,9 +41,9 @@ class AtmMainWidget : public QMainWindow {
   void SetWidgetProperties();
   void SetConnections();
   void RunTimers();
-  void SetFrameArrangement();
+  void SetArrangement();
   void SetTimeDateArrangement();
-  void ComputeExtraSize();
+  void ComputeDeltaSize();
 
   Ui::AtmMainWidget* ui = nullptr;
   GraphicalInitialMenu* initial_menu_ = nullptr;

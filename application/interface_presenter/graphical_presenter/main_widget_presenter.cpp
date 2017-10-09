@@ -3,24 +3,11 @@
 #include <QRect>
 
 #include <atm_main_widget.h>
-#include <graphical_initial_menu.h>
-#include <graphical_login_menu.h>
-#include <graphical_registration_menu.h>
 
 MainWidgetPresenter::MainWidgetPresenter(QObject* parent)
-    : QObject(parent), atm_main_widget_(new AtmMainWidget) {
-  initial_menu_ = new GraphicalInitialMenu(atm_main_widget_->GetMainFrame());
-  registration_menu_ =
-      new GraphicalRegistrationMenu(atm_main_widget_->GetMainFrame());
-  login_menu_ = new GraphicalLoginMenu(atm_main_widget_->GetMainFrame());
-}
+    : QObject(parent), atm_main_widget_(new AtmMainWidget) {}
 
-MainWidgetPresenter::~MainWidgetPresenter() {
-  delete atm_main_widget_;
-  delete initial_menu_;
-  delete registration_menu_;
-  delete login_menu_;
-}
+MainWidgetPresenter::~MainWidgetPresenter() { delete atm_main_widget_; }
 
 void MainWidgetPresenter::ShowMainWidget() {
   if (is_maximized_) {

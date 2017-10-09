@@ -24,9 +24,6 @@ class MainWidgetPresenter : public QObject {
   void SetConnections();
 
   AtmMainWidget* atm_main_widget_ = nullptr;
-  GraphicalInitialMenu* initial_menu_ = nullptr;
-  GraphicalRegistrationMenu* registration_menu_ = nullptr;
-  GraphicalLoginMenu* login_menu_ = nullptr;
 
   QRect main_widget_position_;
 
