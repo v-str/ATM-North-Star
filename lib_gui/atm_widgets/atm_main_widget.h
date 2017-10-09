@@ -5,8 +5,6 @@
 #include <QMainWindow>
 
 #include <atm_color_designer.h>
-#include <delta_size.h>
-#include <geometry_composer.h>
 #include <main_widget_composer.h>
 
 class QString;
@@ -37,13 +35,10 @@ class AtmMainWidget : public QMainWindow {
   void SetInitialSettings();
   void InitializeObject();
   void PaintWidgets();
-  void SetBackgroundColor();
   void SetImages();
   void SetWidgetProperties();
   void SetConnections();
-  void RunTimers();
-  void SetArrangement();
-  void SetTimeDateArrangement();
+  void ComposeWidgets();
   void ComputeDeltaSize();
 
   Ui::AtmMainWidget* ui = nullptr;
@@ -55,20 +50,13 @@ class AtmMainWidget : public QMainWindow {
   DateLabel* date_label_ = nullptr;
 
   AtmColorDesigner color_designer_;
-
-  GeometryComposer composer_;
-  MainWidgetComposer main_composer_;
+  MainWidgetComposer main_widget_composer_;
 
   int delta_width_ = 0;
   int delta_height_ = 0;
 
-  static constexpr double kXFactor = 1.0;
-  static constexpr double kYFactor = 1.0;
-
   static const int kAppWidth = 600;
   static const int kAppHeight = 400;
-
-  static const int kOneSecond = 1;
 };
 
 #endif  // ATM_MAIN_WIDGET_H

@@ -11,21 +11,14 @@
 #include <QTimer>
 
 #include <date_label.h>
-#include <description_menu_geometry.h>
+#include <delta_size.h>
 #include <geometry.h>
-#include <geometry_composer.h>
-#include <graphical_description_menu.h>
 #include <graphical_initial_menu.h>
 #include <graphical_login_menu.h>
 #include <graphical_registration_menu.h>
-#include <initial_frame_geometry.h>
 #include <initial_property_installer.h>
-#include <main_widget_geometry.h>
 #include <painter.h>
-#include <side.h>
 #include <time_label.h>
-#include <timedate_changer.h>
-#include <widget_font.h>
 
 AtmMainWidget::AtmMainWidget(QWidget* parent)
     : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
@@ -46,14 +39,12 @@ AtmMainWidget::~AtmMainWidget() {
 
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeDeltaSize();
-  SetArrangement();
-  SetTimeDateArrangement();
+  ComposeWidgets();
 }
 
 void AtmMainWidget::SetInitialSettings() {
   InitializeObject();
   PaintWidgets();
-  SetBackgroundColor();
   SetImages();
 
   setMinimumSize(kAppWidth, kAppHeight);
@@ -76,9 +67,6 @@ void AtmMainWidget::PaintWidgets() {
 
   color_designer_.PaintWidgetSet(&frame_list);
   color_designer_.PaintWidgetSet(&label_list);
-}
-
-void AtmMainWidget::SetBackgroundColor() {
   color_designer_.SetBackground(this);
 }
 
@@ -92,15 +80,6 @@ void AtmMainWidget::SetImages() {
 void AtmMainWidget::SetWidgetProperties() {
   InitialPropertyInstaller::SetInitialProperties(
       this, kAppWidth, kAppHeight, InitialPropertyInstaller::kResize);
-
-  time_label_->setGeometry(MainWidgetGeometry::TimeLabel());
-  date_label_->setGeometry(MainWidgetGeometry::DateLabel());
-
-  time_label_->setFont(WidgetFont::SetFont(12));
-  date_label_->setFont(WidgetFont::SetFont(12));
-
-  time_label_->setAlignment(Qt::AlignRight);
-  date_label_->setAlignment(Qt::AlignRight);
 }
 
 void AtmMainWidget::SetConnections() {
@@ -114,29 +93,19 @@ void AtmMainWidget::SetConnections() {
           SLOT(Show()));
 }
 
-void AtmMainWidget::SetArrangement() {
-  main_composer_.SetDeltaSize(DeltaSize(delta_width_, delta_height_));
-  main_composer_.SetMainFrame(ui->main_frame);
-  main_composer_.ComposeMenu(initial_menu_);
-  main_composer_.ComposeMenu(registration_menu_);
-  main_composer_.ComposeMenu(login_menu_);
-}
-
-void AtmMainWidget::SetTimeDateArrangement() {
-  composer_.SetShiftFactor(kXFactor, kYFactor);
-  composer_.SetShiftSide(Side::kRight);
-  composer_.SetTransformationType(GeometryComposer::kShift);
-  composer_.ComposeGeometry(MainWidgetGeometry::TimeLabel(), time_label_);
-
-  composer_.SetShiftFactor(kXFactor, kYFactor);
-  composer_.SetShiftSide(Side::kRight);
-  composer_.SetTransformationType(GeometryComposer::kShift);
-  composer_.ComposeGeometry(MainWidgetGeometry::DateLabel(), date_label_);
+void AtmMainWidget::ComposeWidgets() {
+  main_widget_composer_.SetMainFrame(ui->main_frame);
+  main_widget_composer_.ComposeMenu(initial_menu_);
+  main_widget_composer_.ComposeMenu(registration_menu_);
+  main_widget_composer_.ComposeMenu(login_menu_);
+  main_widget_composer_.SetTimeAndDate(time_label_, date_label_);
 }
 
 void AtmMainWidget::ComputeDeltaSize() {
   delta_width_ = width() - Geometry::InitialScreenWidth();
   delta_height_ = height() - Geometry::InitialScreenHeight();
+
+  main_widget_composer_.SetDeltaSize(DeltaSize(delta_width_, delta_height_));
 
   initial_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
   registration_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
