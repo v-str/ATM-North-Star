@@ -76,8 +76,12 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
 }
 
 void AtmSplashScreen::resizeEvent(QResizeEvent*) {
-  ComputeNewGeometry();
-  ResizeWidgets();
+  composer_.ComputeDeltas(width(), height());
+  composer_.SetFrame(ui->frame);
+  composer_.SetVersionLabel(ui->version_label);
+  composer_.SetCompanyNameLabel(ui->atm_company_name_label);
+  composer_.SetSplashScreenLabels(date_label_, time_label_, ui->text_label);
+  composer_.SetAtmLabel(ui->atm_label);
 }
 
 void AtmSplashScreen::SetInitialSettings() {
@@ -122,16 +126,9 @@ void AtmSplashScreen::TuneWidgets() {
   InitialPropertyInstaller::SetInitialProperties(
       this, kWidgetWidth, kWidgetHeight, InitialPropertyInstaller::kResize);
 
-  SetFonts();
-
   time_label_->setGeometry(SplashScreenGeometry::TimeLabel());
   date_label_->setGeometry(SplashScreenGeometry::DateLabel());
   ui->atm_label->setGeometry(SplashScreenGeometry::AtmLabel());
-}
-
-void AtmSplashScreen::SetFonts() {
-  ui->atm_company_name_label->setFont(WidgetFont::SetFont(25));
-  ui->atm_label->setFont(WidgetFont::SetFont(75));
 }
 
 void AtmSplashScreen::SetConnections() {
@@ -149,16 +146,4 @@ void AtmSplashScreen::ProcessEnterKey() {
   if (isMaximized()) {
     emit MaximizedScreen(true);
   }
-}
-
-void AtmSplashScreen::ComputeNewGeometry() {
-  composer_.ComputeDeltas(width(), height());
-}
-
-void AtmSplashScreen::ResizeWidgets() {
-  composer_.SetFrame(ui->frame);
-  composer_.SetVersionLabel(ui->version_label);
-  composer_.SetCompanyNameLabel(ui->atm_company_name_label);
-  composer_.SetSplashScreenLabels(date_label_, time_label_, ui->text_label);
-  composer_.SetAtmLabel(ui->atm_label);
 }

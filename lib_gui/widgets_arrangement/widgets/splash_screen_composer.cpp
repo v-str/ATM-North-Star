@@ -30,6 +30,7 @@ void SplashScreenSizeComposer::SetVersionLabel(QLabel* version_label) {
 }
 
 void SplashScreenSizeComposer::SetCompanyNameLabel(QLabel* company_name_label) {
+  company_name_label->setFont(WidgetFont::SetFont(25));
   composer_.SetShiftFactor(0.5, 1.0);
   composer_.SetShiftSide(Side::kRight);
   composer_.SetTransformationType(GeometryComposer::kShift);
@@ -55,6 +56,7 @@ void SplashScreenSizeComposer::SetSplashScreenLabels(QLabel* date_label,
 }
 
 void SplashScreenSizeComposer::SetAtmLabel(QLabel* atm_label) {
+  atm_label->setFont(WidgetFont::SetFont(75));
   atm_label_stretcher_.StretchAtmLabel(atm_label, delta_size_.Width(),
                                        delta_size_.Height());
 }
