@@ -135,7 +135,6 @@ void AtmSplashScreen::SetFonts() {
   ui->atm_company_name_label->setFont(WidgetFont::SetFont(25));
   ui->atm_label->setFont(WidgetFont::SetFont(75));
   ui->text_label->setFont(WidgetFont::SetFont(15));
-  ui->version_label->setFont(WidgetFont::SetFont(13));
 }
 
 void AtmSplashScreen::SetConnections() {
@@ -160,9 +159,9 @@ void AtmSplashScreen::ComputeNewGeometry() {
 }
 
 void AtmSplashScreen::ResizeWidgets() {
-  composer_.ComposeFrame(ui->frame);
-  composer_.ComposeVersionLabel(ui->version_label);
-  composer_.ComposeCompanyNameLabel(ui->atm_company_name_label);
-  composer_.ComposeSplashScreenLabels(date_label_, time_label_, ui->text_label);
-  composer_.ComposeAtmLabel(ui->atm_label);
+  composer_.SetFrame(ui->frame);
+  composer_.SetVersionLabel(ui->version_label);
+  composer_.SetCompanyNameLabel(ui->atm_company_name_label);
+  composer_.SetSplashScreenLabels(date_label_, time_label_, ui->text_label);
+  composer_.SetAtmLabel(ui->atm_label);
 }

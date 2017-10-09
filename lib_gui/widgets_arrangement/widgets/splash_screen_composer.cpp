@@ -9,15 +9,18 @@
 #include <geometry.h>
 #include <side.h>
 #include <splash_screen_geometry.h>
+#include <widget_font.h>
 
-void SplashScreenSizeComposer::ComposeFrame(QFrame* frame) {
+void SplashScreenSizeComposer::SetFrame(QFrame* frame) {
   composer_.SetStretchFactor(1.0, 1.0);
   composer_.SetStretchSide(Side::kRight | Side::kDown);
   composer_.SetTransformationType(GeometryComposer::kStretch);
   composer_.ComposeGeometry(SplashScreenGeometry::SplashScreenFrame(), frame);
 }
 
-void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
+void SplashScreenSizeComposer::SetVersionLabel(QLabel* version_label) {
+  version_label->setFont(WidgetFont::SetFont(13));
+
   composer_.SetShiftFactor(1.0, 1.0);
   composer_.SetShiftSide(Side::kRight);
   composer_.SetTransformationType(GeometryComposer::kShift);
@@ -26,8 +29,7 @@ void SplashScreenSizeComposer::ComposeVersionLabel(QLabel* version_label) {
                             version_label);
 }
 
-void SplashScreenSizeComposer::ComposeCompanyNameLabel(
-    QLabel* company_name_label) {
+void SplashScreenSizeComposer::SetCompanyNameLabel(QLabel* company_name_label) {
   composer_.SetShiftFactor(0.5, 1.0);
   composer_.SetShiftSide(Side::kRight);
   composer_.SetTransformationType(GeometryComposer::kShift);
@@ -36,9 +38,9 @@ void SplashScreenSizeComposer::ComposeCompanyNameLabel(
                             company_name_label);
 }
 
-void SplashScreenSizeComposer::ComposeSplashScreenLabels(QLabel* date_label,
-                                                         QLabel* time_label,
-                                                         QLabel* text_label) {
+void SplashScreenSizeComposer::SetSplashScreenLabels(QLabel* date_label,
+                                                     QLabel* time_label,
+                                                     QLabel* text_label) {
   composer_.SetShiftFactor(0.5, 1.0);
   composer_.SetShiftSide(Side::kRight | Side::kDown);
   composer_.SetTransformationType(GeometryComposer::kShift);
@@ -48,7 +50,7 @@ void SplashScreenSizeComposer::ComposeSplashScreenLabels(QLabel* date_label,
   composer_.ComposeGeometry(SplashScreenGeometry::TextLabel(), text_label);
 }
 
-void SplashScreenSizeComposer::ComposeAtmLabel(QLabel* atm_label) {
+void SplashScreenSizeComposer::SetAtmLabel(QLabel* atm_label) {
   atm_label_stretcher_.StretchAtmLabel(atm_label, delta_size_.Width(),
                                        delta_size_.Height());
 }

@@ -16,14 +16,13 @@ class AtmSplashScreen;
 
 class SplashScreenSizeComposer {
  public:
-  void ComposeFrame(QFrame* frame);
-  void ComposeVersionLabel(QLabel* version_label);
-  void ComposeCompanyNameLabel(QLabel* company_name_label);
-  void ComposeSplashScreenLabels(QLabel* date_label,
-                                 QLabel* time_label,
-                                 QLabel* text_label);
-
-  void ComposeAtmLabel(QLabel* atm_label);
+  void SetFrame(QFrame* frame);
+  void SetVersionLabel(QLabel* version_label);
+  void SetCompanyNameLabel(QLabel* company_name_label);
+  void SetSplashScreenLabels(QLabel* date_label,
+                             QLabel* time_label,
+                             QLabel* text_label);
+  void SetAtmLabel(QLabel* atm_label);
 
   void ComputeDeltas(int extra_width, int extra_height);
 
