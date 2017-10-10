@@ -23,8 +23,10 @@ class MainWidgetPresenter : public QObject {
 
  private:
   void CreateLoginMenu();
+  void CreateRegistrationMenu();
 
   void ConnectLoginMenu();
+  void ConnectRegistrationMenu();
 
   AtmMainWidget* atm_main_widget_ = nullptr;
   GraphicalLoginMenu* login_menu_ = nullptr;

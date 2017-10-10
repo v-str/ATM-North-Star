@@ -7,14 +7,13 @@
 MainWidgetPresenter::MainWidgetPresenter(QObject* parent)
     : QObject(parent), atm_main_widget_(new AtmMainWidget) {
   CreateLoginMenu();
+  CreateRegistrationMenu();
+
   ConnectLoginMenu();
+  ConnectRegistrationMenu();
 }
 
-MainWidgetPresenter::~MainWidgetPresenter() {
-  delete atm_main_widget_;
-  //  delete login_menu_;
-  //  delete registration_menu_;
-}
+MainWidgetPresenter::~MainWidgetPresenter() { delete atm_main_widget_; }
 
 void MainWidgetPresenter::ShowMainWidget() {
   if (is_maximized_) {
@@ -37,8 +36,13 @@ void MainWidgetPresenter::SetMaximized(bool is_maximized) {
 
 void MainWidgetPresenter::CreateLoginMenu() {
   login_menu_ = new GraphicalLoginMenu(atm_main_widget_->GetMainFrame());
-  atm_main_widget_->SetMenu(login_menu_);
   login_menu_->close();
+}
+
+void MainWidgetPresenter::CreateRegistrationMenu() {
+  registration_menu_ =
+      new GraphicalRegistrationMenu(atm_main_widget_->GetMainFrame());
+  registration_menu_->close();
 }
 
 void MainWidgetPresenter::ConnectLoginMenu() {
@@ -47,5 +51,14 @@ void MainWidgetPresenter::ConnectLoginMenu() {
   connect(atm_main_widget_, SIGNAL(LoginButtonClicked()), login_menu_,
           SLOT(Show()));
   connect(login_menu_, SIGNAL(BackButtonClicked()), atm_main_widget_,
+          SLOT(ProcessInitialMenuOpening()));
+}
+
+void MainWidgetPresenter::ConnectRegistrationMenu() {
+  connect(atm_main_widget_, SIGNAL(MainWidgetGeometryChanged(DeltaSize)),
+          registration_menu_, SLOT(ChangeRegistrationMenuGeometry(DeltaSize)));
+  connect(atm_main_widget_, SIGNAL(RegistrationButtonClicked()),
+          registration_menu_, SLOT(Show()));
+  connect(registration_menu_, SIGNAL(BackButtonClicked()), atm_main_widget_,
           SLOT(ProcessInitialMenuOpening()));
 }

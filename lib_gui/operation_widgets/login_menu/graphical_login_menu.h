@@ -3,11 +3,8 @@
 
 #include <base_atm_frame.h>
 
-#include <QRect>
-
 #include <delta_size.h>
 #include <geometry_composer.h>
-#include <widget_border_controller.h>
 
 class GraphicalLoginMenu : public BaseAtmFrame {
   Q_OBJECT
@@ -20,7 +17,6 @@ class GraphicalLoginMenu : public BaseAtmFrame {
 
  private:
   GeometryComposer composer_;
-  WidgetBorderController border_controller_;
 
   static constexpr double kXFactor = 1.0;
   static constexpr double kYFactor = 1.0;

@@ -1,7 +1,5 @@
 ﻿#include <graphical_login_menu.h>
 
-#include <QList>
-#include <QResizeEvent>
 #include <QWidget>
 
 #include <atm_button.h>

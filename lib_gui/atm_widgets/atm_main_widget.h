@@ -11,7 +11,6 @@ class QString;
 class ApplicationColor;
 class QTimer;
 class GraphicalInitialMenu;
-class GraphicalRegistrationMenu;
 class TimeLabel;
 class DateLabel;
 
@@ -26,10 +25,7 @@ class AtmMainWidget : public QMainWindow {
   explicit AtmMainWidget(QWidget* parent = nullptr);
   ~AtmMainWidget();
 
-  void SetMenu(QWidget* widget);
-
   QFrame* GetMainFrame() const;
-  DeltaSize GetDeltaSize() const;
 
  signals:
   void LoginButtonClicked();
@@ -46,18 +42,17 @@ class AtmMainWidget : public QMainWindow {
   void resizeEvent(QResizeEvent* event);
 
  private:
-  void SetInitialSettings();              // -
-  void InitializeObject();                // -
-  void PaintWidgets();                    // +
-  void SetImages();                       // +
-  void SetInitialMainWidgetProperties();  // +
-  void SetConnections();                  // -
-  void ComposeWidgets();                  // -
-  void ComputeDeltaSize();                // -
+  void SetInitialSettings();
+  void InitializeObjects();
+  void PaintWidgets();
+  void SetImages();
+  void SetInitialMainWidgetProperties();
+  void SetConnections();
+  void ComposeWidgets();
+  void ComputeDeltaSize();
 
   Ui::AtmMainWidget* ui = nullptr;
   GraphicalInitialMenu* initial_menu_ = nullptr;
-  GraphicalRegistrationMenu* registration_menu_ = nullptr;
 
   TimeLabel* time_label_ = nullptr;
   DateLabel* date_label_ = nullptr;
