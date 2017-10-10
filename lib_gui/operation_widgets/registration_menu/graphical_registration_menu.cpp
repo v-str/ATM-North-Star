@@ -11,10 +11,7 @@ GraphicalRegistrationMenu::GraphicalRegistrationMenu(QWidget* parent)
   SetInitialFrameGeometry(RegistrationMenuGeometry::RegistrationFrame());
   SetBackButton(RegistrationMenuGeometry::BackButton());
   SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
-
-  composer_.SetStretchFactor(kXFactor, kYFactor);
-  composer_.SetStretchSide(Side::kRight | Side::kDown);
-  composer_.SetTransformationType(GeometryComposer::kStretch);
+  SetDefaultComposerSettings();
 }
 
 GraphicalRegistrationMenu::~GraphicalRegistrationMenu() {}
@@ -26,4 +23,10 @@ void GraphicalRegistrationMenu::ChangeRegistrationMenuGeometry(
   composer_.SetDeltaSize(delta_size);
   composer_.ComposeGeometry(RegistrationMenuGeometry::RegistrationFrame(),
                             this);
+}
+
+void GraphicalRegistrationMenu::SetDefaultComposerSettings() {
+  composer_.SetStretchFactor(kXFactor, kYFactor);
+  composer_.SetStretchSide(Side::kRight | Side::kDown);
+  composer_.SetTransformationType(GeometryComposer::kStretch);
 }

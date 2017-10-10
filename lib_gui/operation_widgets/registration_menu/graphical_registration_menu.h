@@ -16,6 +16,8 @@ class GraphicalRegistrationMenu : public BaseAtmFrame {
   void ChangeRegistrationMenuGeometry(const DeltaSize& delta_size);
 
  private:
+  void SetDefaultComposerSettings();
+
   GeometryComposer composer_;
 
   static constexpr double kXFactor = 1.0;
