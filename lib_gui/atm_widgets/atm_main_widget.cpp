@@ -37,6 +37,8 @@ AtmMainWidget::~AtmMainWidget() {
   delete date_label_;
 }
 
+QFrame* AtmMainWidget::GetMainFrame() const { return ui->main_frame; }
+
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeDeltaSize();
   ComposeWidgets();

@@ -28,6 +28,8 @@ class AtmMainWidget : public QMainWindow {
   explicit AtmMainWidget(QWidget* parent = nullptr);
   ~AtmMainWidget();
 
+  QFrame* GetMainFrame() const;
+
  protected:
   void resizeEvent(QResizeEvent* event);
 
