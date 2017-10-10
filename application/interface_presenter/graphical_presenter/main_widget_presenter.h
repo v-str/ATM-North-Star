@@ -19,8 +19,6 @@ class MainWidgetPresenter : public QObject {
   void SetWidgetGeometry(const QRect& initial_position);
   void SetMaximized(bool is_maximized);
 
- signals:
-
  private:
   void CreateLoginMenu();
   void CreateRegistrationMenu();

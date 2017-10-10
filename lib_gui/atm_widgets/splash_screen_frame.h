@@ -4,6 +4,11 @@
 #include <QFrame>
 
 class SplashScreenFrame : public QFrame {
+  Q_OBJECT
+
+ public:
+  explicit SplashScreenFrame(QFrame* parent = nullptr);
+  ~SplashScreenFrame();
 };
 
 #endif  // SPLASH_SCREEN_FRAME_H
