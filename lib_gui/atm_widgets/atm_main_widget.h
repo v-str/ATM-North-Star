@@ -11,7 +11,6 @@ class QString;
 class ApplicationColor;
 class QTimer;
 class GraphicalInitialMenu;
-class GraphicalDescriptionMenu;
 class GraphicalRegistrationMenu;
 class GraphicalLoginMenu;
 class TimeLabel;

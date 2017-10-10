@@ -59,6 +59,7 @@ void AtmMainWidget::InitializeObject() {
   time_label_ = new TimeLabel(static_cast<QLabel*>(ui->main_frame));
   date_label_ = new DateLabel(static_cast<QLabel*>(ui->main_frame));
   initial_menu_ = new GraphicalInitialMenu(ui->main_frame);
+
   registration_menu_ = new GraphicalRegistrationMenu(ui->main_frame);
   login_menu_ = new GraphicalLoginMenu(ui->main_frame);
 }
@@ -98,8 +99,8 @@ void AtmMainWidget::SetConnections() {
 void AtmMainWidget::ComposeWidgets() {
   main_widget_composer_.SetMainFrame(ui->main_frame);
   main_widget_composer_.SetTimeAndDate(time_label_, date_label_);
-
   main_widget_composer_.ComposeMenu(initial_menu_);
+
   main_widget_composer_.ComposeMenu(registration_menu_);
   main_widget_composer_.ComposeMenu(login_menu_);
 }
@@ -111,6 +112,7 @@ void AtmMainWidget::ComputeDeltaSize() {
   main_widget_composer_.SetDeltaSize(DeltaSize(delta_width_, delta_height_));
 
   initial_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
+
   registration_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
   login_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
 }

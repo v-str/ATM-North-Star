@@ -5,6 +5,8 @@
 #include <QRect>
 
 class AtmMainWidget;
+class GraphicalRegistrationMenu;
+class GraphicalLoginMenu;
 
 class MainWidgetPresenter : public QObject {
   Q_OBJECT
@@ -21,6 +23,8 @@ class MainWidgetPresenter : public QObject {
 
  private:
   AtmMainWidget* atm_main_widget_ = nullptr;
+  GraphicalLoginMenu* login_menu_ = nullptr;
+  GraphicalRegistrationMenu* registration_menu_ = nullptr;
 
   QRect main_widget_position_;
 
