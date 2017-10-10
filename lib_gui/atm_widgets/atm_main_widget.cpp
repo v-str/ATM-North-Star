@@ -45,6 +45,8 @@ void AtmMainWidget::ProcessRegistrationButtonClick() {
   emit RegistrationButtonClicked();
 }
 
+void AtmMainWidget::ProcessInitialMenuOpening() { emit ShowInitialMenu(); }
+
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeDeltaSize();
   ComposeWidgets();
@@ -106,6 +108,7 @@ void AtmMainWidget::SetConnections() {
           SLOT(Show()));
   connect(login_menu_, SIGNAL(BackButtonClicked()), initial_menu_,
           SLOT(Show()));
+  connect(this, SIGNAL(ShowInitialMenu()), initial_menu_, SLOT(Show()));
 }
 
 void AtmMainWidget::ComposeWidgets() {
