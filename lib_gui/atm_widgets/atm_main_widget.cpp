@@ -66,7 +66,7 @@ void AtmMainWidget::SetInitialSettings() {
   setMinimumSize(kAppWidth, kAppHeight);
 
   registration_menu_->close();
-  login_menu_->close();
+  //  login_menu_->close();
 }
 
 void AtmMainWidget::InitializeObject() {
@@ -75,7 +75,7 @@ void AtmMainWidget::InitializeObject() {
   initial_menu_ = new GraphicalInitialMenu(ui->main_frame);
 
   registration_menu_ = new GraphicalRegistrationMenu(ui->main_frame);
-  login_menu_ = new GraphicalLoginMenu(ui->main_frame);
+  //  login_menu_ = new GraphicalLoginMenu(ui->main_frame);
 }
 
 void AtmMainWidget::PaintWidgets() {
@@ -100,8 +100,8 @@ void AtmMainWidget::SetInitialMainWidgetProperties() {
 }
 
 void AtmMainWidget::SetConnections() {
-  connect(initial_menu_, SIGNAL(LoginButtonClicked()), login_menu_,
-          SLOT(Show()));
+  //  connect(initial_menu_, SIGNAL(LoginButtonClicked()), login_menu_,
+  //          SLOT(Show()));
   connect(initial_menu_, SIGNAL(LoginButtonClicked()),
           SLOT(ProcessLoginButtonClick()));
 
@@ -112,8 +112,8 @@ void AtmMainWidget::SetConnections() {
 
   connect(registration_menu_, SIGNAL(BackButtonClicked()), initial_menu_,
           SLOT(Show()));
-  connect(login_menu_, SIGNAL(BackButtonClicked()), initial_menu_,
-          SLOT(Show()));
+  //  connect(login_menu_, SIGNAL(BackButtonClicked()), initial_menu_,
+  //          SLOT(Show()));
   connect(this, SIGNAL(ShowInitialMenu()), initial_menu_, SLOT(Show()));
 }
 
@@ -123,7 +123,7 @@ void AtmMainWidget::ComposeWidgets() {
   main_widget_composer_.ComposeMenu(initial_menu_);
 
   main_widget_composer_.ComposeMenu(registration_menu_);
-  main_widget_composer_.ComposeMenu(login_menu_);
+  //  main_widget_composer_.ComposeMenu(login_menu_);
 }
 
 void AtmMainWidget::ComputeDeltaSize() {
@@ -135,5 +135,5 @@ void AtmMainWidget::ComputeDeltaSize() {
   initial_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
 
   registration_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
-  login_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
+  //  login_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
 }

@@ -59,7 +59,7 @@ class AtmMainWidget : public QMainWindow {
   Ui::AtmMainWidget* ui = nullptr;
   GraphicalInitialMenu* initial_menu_ = nullptr;
   GraphicalRegistrationMenu* registration_menu_ = nullptr;
-  GraphicalLoginMenu* login_menu_ = nullptr;
+  //  GraphicalLoginMenu* login_menu_ = nullptr;
 
   TimeLabel* time_label_ = nullptr;
   DateLabel* date_label_ = nullptr;
