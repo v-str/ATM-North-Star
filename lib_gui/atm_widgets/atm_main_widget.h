@@ -31,9 +31,11 @@ class AtmMainWidget : public QMainWindow {
 
  signals:
   void LoginButtonClicked();
+  void RegistrationButtonClicked();
 
  public slots:
   void ProcessLoginButtonClick();
+  void ProcessRegistrationButtonClick();
 
  protected:
   void resizeEvent(QResizeEvent* event);
