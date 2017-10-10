@@ -12,16 +12,17 @@ GraphicalLoginMenu::GraphicalLoginMenu(QWidget* parent) : BaseAtmFrame(parent) {
   SetInitialFrameGeometry(LoginMenuGeometry::LoginFrame());
   SetBackButton(LoginMenuGeometry::BackButton());
   SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
+
+  composer_.SetStretchFactor(kXFactor, kYFactor);
+  composer_.SetStretchSide(Side::kRight | Side::kDown);
+  composer_.SetTransformationType(GeometryComposer::kStretch);
 }
 
 GraphicalLoginMenu::~GraphicalLoginMenu() {}
 
-void GraphicalLoginMenu::SetDeltaSize(const DeltaSize& delta_size) {
+void GraphicalLoginMenu::ChangeLoginMenuGeometry(const DeltaSize& delta_size) {
   BaseAtmFrame::SetDeltaSize(delta_size);
-  delta_size_ = delta_size;
-}
-
-void GraphicalLoginMenu::resizeEvent(QResizeEvent*) {
-  BaseAtmFrame::SetDeltaSize(delta_size_);
   ScaleBackButton();
+  composer_.SetDeltaSize(delta_size);
+  composer_.ComposeGeometry(LoginMenuGeometry::LoginFrame(), this);
 }

@@ -16,15 +16,14 @@ class GraphicalLoginMenu : public BaseAtmFrame {
   ~GraphicalLoginMenu();
 
  public slots:
-  void SetDeltaSize(const DeltaSize& delta_size);
-
- protected:
-  void resizeEvent(QResizeEvent*);
+  void ChangeLoginMenuGeometry(const DeltaSize& delta_size);
 
  private:
   GeometryComposer composer_;
   WidgetBorderController border_controller_;
-  DeltaSize delta_size_;
+
+  static constexpr double kXFactor = 1.0;
+  static constexpr double kYFactor = 1.0;
 
   static const int kHalfASecond = 500;
 };
