@@ -34,14 +34,14 @@ class AtmMainWidget : public QMainWindow {
   void resizeEvent(QResizeEvent* event);
 
  private:
-  void SetInitialSettings();
-  void InitializeObject();
-  void PaintWidgets();
-  void SetImages();
-  void SetWidgetProperties();
-  void SetConnections();
-  void ComposeWidgets();
-  void ComputeDeltaSize();
+  void SetInitialSettings();              // -
+  void InitializeObject();                // -
+  void PaintWidgets();                    // +
+  void SetImages();                       // +
+  void SetInitialMainWidgetProperties();  // +
+  void SetConnections();                  // -
+  void ComposeWidgets();                  // -
+  void ComputeDeltaSize();                // -
 
   Ui::AtmMainWidget* ui = nullptr;
   GraphicalInitialMenu* initial_menu_ = nullptr;

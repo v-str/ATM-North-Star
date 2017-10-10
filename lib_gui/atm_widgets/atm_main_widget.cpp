@@ -27,7 +27,7 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
   setWindowTitle("ATM");
 
   SetInitialSettings();
-  SetWidgetProperties();
+  SetInitialMainWidgetProperties();
   SetConnections();
 }
 
@@ -79,7 +79,7 @@ void AtmMainWidget::SetImages() {
   setWindowIcon(QIcon(":/images/project_icon.png"));
 }
 
-void AtmMainWidget::SetWidgetProperties() {
+void AtmMainWidget::SetInitialMainWidgetProperties() {
   InitialPropertyInstaller::SetInitialProperties(
       this, kAppWidth, kAppHeight, InitialPropertyInstaller::kResize);
 }
@@ -97,10 +97,11 @@ void AtmMainWidget::SetConnections() {
 
 void AtmMainWidget::ComposeWidgets() {
   main_widget_composer_.SetMainFrame(ui->main_frame);
+  main_widget_composer_.SetTimeAndDate(time_label_, date_label_);
+
   main_widget_composer_.ComposeMenu(initial_menu_);
   main_widget_composer_.ComposeMenu(registration_menu_);
   main_widget_composer_.ComposeMenu(login_menu_);
-  main_widget_composer_.SetTimeAndDate(time_label_, date_label_);
 }
 
 void AtmMainWidget::ComputeDeltaSize() {
