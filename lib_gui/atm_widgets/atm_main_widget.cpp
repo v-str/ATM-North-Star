@@ -37,6 +37,10 @@ AtmMainWidget::~AtmMainWidget() {
   delete date_label_;
 }
 
+void AtmMainWidget::SetMenu(QWidget* widget) {
+  main_widget_composer_.ComposeMenu(widget);
+}
+
 QFrame* AtmMainWidget::GetMainFrame() const { return ui->main_frame; }
 
 void AtmMainWidget::ProcessLoginButtonClick() { emit LoginButtonClicked(); }
@@ -50,6 +54,8 @@ void AtmMainWidget::ProcessInitialMenuOpening() { emit ShowInitialMenu(); }
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeDeltaSize();
   ComposeWidgets();
+
+  emit MainWidgetGeometryChanged(DeltaSize(delta_width_, delta_height_));
 }
 
 void AtmMainWidget::SetInitialSettings() {

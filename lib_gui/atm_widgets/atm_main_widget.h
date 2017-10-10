@@ -27,12 +27,16 @@ class AtmMainWidget : public QMainWindow {
   explicit AtmMainWidget(QWidget* parent = nullptr);
   ~AtmMainWidget();
 
+  void SetMenu(QWidget* widget);
+
   QFrame* GetMainFrame() const;
+  DeltaSize GetDeltaSize() const;
 
  signals:
   void LoginButtonClicked();
   void RegistrationButtonClicked();
   void ShowInitialMenu();
+  void MainWidgetGeometryChanged(const DeltaSize&);
 
  public slots:
   void ProcessLoginButtonClick();
