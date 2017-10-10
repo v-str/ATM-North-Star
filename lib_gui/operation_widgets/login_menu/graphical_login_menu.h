@@ -15,6 +15,7 @@ class GraphicalLoginMenu : public BaseAtmFrame {
   explicit GraphicalLoginMenu(QWidget* parent = nullptr);
   ~GraphicalLoginMenu();
 
+ public slots:
   void SetDeltaSize(const DeltaSize& delta_size);
 
  protected:

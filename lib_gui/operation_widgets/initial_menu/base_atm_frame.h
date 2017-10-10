@@ -28,8 +28,10 @@ class BaseAtmFrame : public QFrame {
   void SetDeltaSize(const DeltaSize& delta_size);
   void SetInitialFrameGeometry(const QRect& geometry);
   void SetBackButton(const QRect& geometry);
-  void SetFrameAnimation(unsigned int hide_to, unsigned int extrude_from,
-                         unsigned int duration_msec, QFrame* animated_frame);
+  void SetFrameAnimation(unsigned int hide_to,
+                         unsigned int extrude_from,
+                         unsigned int duration_msec,
+                         QFrame* animated_frame);
 
   void ColorizeButtons(QList<QPushButton*>* button_list);
 
