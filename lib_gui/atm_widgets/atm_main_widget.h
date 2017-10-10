@@ -29,6 +29,12 @@ class AtmMainWidget : public QMainWindow {
 
   QFrame* GetMainFrame() const;
 
+ signals:
+  void LoginButtonClicked();
+
+ public slots:
+  void ProcessLoginButtonClick();
+
  protected:
   void resizeEvent(QResizeEvent* event);
 

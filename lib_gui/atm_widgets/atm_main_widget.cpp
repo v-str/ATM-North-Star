@@ -39,6 +39,8 @@ AtmMainWidget::~AtmMainWidget() {
 
 QFrame* AtmMainWidget::GetMainFrame() const { return ui->main_frame; }
 
+void AtmMainWidget::ProcessLoginButtonClick() { emit LoginButtonClicked(); }
+
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeDeltaSize();
   ComposeWidgets();
@@ -88,6 +90,9 @@ void AtmMainWidget::SetInitialMainWidgetProperties() {
 void AtmMainWidget::SetConnections() {
   connect(initial_menu_, SIGNAL(LoginButtonClicked()), login_menu_,
           SLOT(Show()));
+  connect(initial_menu_, SIGNAL(LoginButtonClicked()),
+          SLOT(ProcessLoginButtonClick()));
+
   connect(initial_menu_, SIGNAL(RegistrationButtonClicked()),
           registration_menu_, SLOT(Show()));
   connect(registration_menu_, SIGNAL(BackButtonClicked()), initial_menu_,
