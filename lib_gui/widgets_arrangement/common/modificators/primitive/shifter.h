@@ -11,7 +11,7 @@ class Shifter {
   void ComputeShifting(const QRect& initial_position);
 
   void SetShiftFactor(const ConversionFactor& shift_factor);
-  void SetshiftSide(unsigned int shift_side);
+  void SetShiftSide(unsigned int shift_side);
 
   void SetStretchFactor(const ConversionFactor& stretch_factor);
 

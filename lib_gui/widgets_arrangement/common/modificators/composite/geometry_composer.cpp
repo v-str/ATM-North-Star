@@ -40,7 +40,7 @@ void GeometryComposer::SetStretchFactor(double x_stretch_factor,
 }
 
 void GeometryComposer::SetShiftSide(unsigned int shift_side) {
-  shifter_.SetshiftSide(shift_side);
+  shifter_.SetShiftSide(shift_side);
 }
 
 void GeometryComposer::SetStretchSide(unsigned int stretch_side) {
@@ -70,9 +70,7 @@ void GeometryComposer::ComputeStretching(const QRect& position) {
                       stretcher_.Height());
 }
 
-void GeometryComposer::SetModifiedPosition(int x,
-                                           int y,
-                                           int width,
+void GeometryComposer::SetModifiedPosition(int x, int y, int width,
                                            int height) {
   modified_widget_geometry_.setX(x);
   modified_widget_geometry_.setY(y);

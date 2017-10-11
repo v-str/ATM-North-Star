@@ -38,7 +38,7 @@ void Shifter::SetShiftFactor(const ConversionFactor& shift_factor) {
   shift_factor_ = shift_factor;
 }
 
-void Shifter::SetshiftSide(unsigned int shift_side) {
+void Shifter::SetShiftSide(unsigned int shift_side) {
   shift_side_ = shift_side;
 }
 
