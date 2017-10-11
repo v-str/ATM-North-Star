@@ -34,7 +34,7 @@ void SplashScreenComposer::SetFrame(QFrame* frame) {
   composer_.ComposeGeometry(SplashScreenGeometry::SplashScreenFrame(), frame);
 }
 
-void SplashScreenComposer::SetCompanyNameLabel(QLabel* company_name_label) {
+void SplashScreenComposer::ComposeCompanyNameLabel(QLabel* company_name_label) {
   composer_.SetShiftFactor(0.5, 1.0);
   composer_.SetShiftSide(Side::kRight);
   composer_.SetTransformationType(GeometryComposer::kShift);
@@ -43,7 +43,7 @@ void SplashScreenComposer::SetCompanyNameLabel(QLabel* company_name_label) {
                             company_name_label);
 }
 
-void SplashScreenComposer::SetTextLabel(QLabel* text_label) {
+void SplashScreenComposer::ComposeTextLabel(QLabel* text_label) {
   composer_.SetShiftFactor(0.5, 1.0);
   composer_.SetShiftSide(Side::kRight | Side::kDown);
   composer_.SetTransformationType(GeometryComposer::kShift);
@@ -51,7 +51,7 @@ void SplashScreenComposer::SetTextLabel(QLabel* text_label) {
   composer_.ComposeGeometry(SplashScreenGeometry::TextLabel(), text_label);
 }
 
-void SplashScreenComposer::SetAtmLabel(QLabel* atm_label) {
+void SplashScreenComposer::ComposeAtmLabel(QLabel* atm_label) {
   atm_label_stretcher_.StretchAtmLabel(atm_label, delta_size_.Width(),
                                        delta_size_.Height());
 }
