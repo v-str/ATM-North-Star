@@ -6,7 +6,7 @@ QRect SplashScreenGeometry::kDateLabel = {215, 360, 160, 20};
 QRect SplashScreenGeometry::kTimeLabel = {215, 330, 160, 20};
 QRect SplashScreenGeometry::kTextLabel = {135, 270, 320, 30};
 QRect SplashScreenGeometry::kSplashScreenFrame = {5, 5, 590, 390};
-QRect SplashScreenGeometry::kAtmLabel = {105, 115, 300, 150};
+QRect SplashScreenGeometry::kAtmLabel = {135, 115, 320, 150};
 
 QRect SplashScreenGeometry::VersionLabel() { return kVersionLabel; }
 

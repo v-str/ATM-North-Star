@@ -128,7 +128,6 @@ void AtmSplashScreen::TuneWidgets() {
 
   time_label_->setGeometry(SplashScreenGeometry::TimeLabel());
   date_label_->setGeometry(SplashScreenGeometry::DateLabel());
-  ui->atm_label->setGeometry(SplashScreenGeometry::AtmLabel());
 }
 
 void AtmSplashScreen::SetConnections() {
