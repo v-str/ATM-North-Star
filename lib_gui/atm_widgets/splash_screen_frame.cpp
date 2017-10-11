@@ -24,6 +24,7 @@ void SplashScreenFrame::resizeEvent(QResizeEvent *event) {
   composer_.SetVersionLabel(version_label_);
   composer_.SetCompanyNameLabel(company_name_label_);
   composer_.SetAtmLabel(atm_label_);
+  composer_.SetTextLabel(text_label_);
 }
 
 void SplashScreenFrame::SetSplashScreenSettings() {
@@ -35,6 +36,7 @@ void SplashScreenFrame::InitializeObjects() {
   version_label_ = new QLabel(this);
   company_name_label_ = new QLabel(this);
   atm_label_ = new QLabel(this);
+  text_label_ = new QLabel(this);
 }
 
 void SplashScreenFrame::PaintWidgets() {

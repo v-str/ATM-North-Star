@@ -15,7 +15,7 @@ class AtmLabelStretcher {
   void FitFrameByFontSize(const QLabel* atm_label);
   void PerformStretching(QLabel* atm_label);
 
-  static const int kInitFontSize = 75;
+  static const int kInitFontSize = 65;
   static const int kFontSizeLimit = 150;
 
   int font_pointsize_ = 0;

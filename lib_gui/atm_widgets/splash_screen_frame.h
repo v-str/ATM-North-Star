@@ -32,6 +32,7 @@ class SplashScreenFrame : public BaseAtmFrame {
   QLabel* version_label_ = nullptr;
   QLabel* company_name_label_ = nullptr;
   QLabel* atm_label_ = nullptr;
+  QLabel* text_label_ = nullptr;
 
   static constexpr double kXFactor = 1.0;
   static constexpr double kYFactor = 1.0;

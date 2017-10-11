@@ -46,6 +46,8 @@ void SplashScreenComposer::SetCompanyNameLabel(QLabel* company_name_label) {
 
 void SplashScreenComposer::SetTextLabel(QLabel* text_label) {
   text_label->setFont(WidgetFont::SetFont(15));
+  text_label->setText("Press <Enter> to start");
+  text_label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 
   composer_.SetShiftFactor(0.5, 1.0);
   composer_.SetShiftSide(Side::kRight | Side::kDown);
@@ -56,7 +58,8 @@ void SplashScreenComposer::SetTextLabel(QLabel* text_label) {
 
 void SplashScreenComposer::SetAtmLabel(QLabel* atm_label) {
   atm_label->setText("ATM");
-  atm_label->setFont(WidgetFont::SetFont(75));
+  atm_label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+  atm_label->setFont(WidgetFont::SetFont(55));
   atm_label_stretcher_.StretchAtmLabel(atm_label, delta_size_.Width(),
                                        delta_size_.Height());
 }

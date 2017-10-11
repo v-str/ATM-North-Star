@@ -80,7 +80,6 @@ void AtmSplashScreen::resizeEvent(QResizeEvent*) {
   composer_.SetFrame(ui->frame);
   composer_.SetVersionLabel(ui->version_label);
   composer_.SetCompanyNameLabel(ui->atm_company_name_label);
-  // composer_.SetSplashScreenLabels(date_label_, time_label_, ui->text_label);
   composer_.SetAtmLabel(ui->atm_label);
 }
 
