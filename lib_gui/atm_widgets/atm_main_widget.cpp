@@ -63,11 +63,11 @@ void AtmMainWidget::SetInitialSettings() {
   SetImages();
 
   setMinimumSize(kAppWidth, kAppHeight);
-  //  initial_menu_->close();
+  initial_menu_->close();
 }
 
 void AtmMainWidget::InitializeObjects() {
-  // splash_screen_ = new SplashScreenFrame(ui->main_frame);
+  splash_screen_ = new SplashScreenFrame(ui->main_frame);
   initial_menu_ = new GraphicalInitialMenu(ui->main_frame);
   time_label_ = new TimeLabel(static_cast<QLabel*>(ui->main_frame));
   date_label_ = new DateLabel(static_cast<QLabel*>(ui->main_frame));
@@ -106,6 +106,7 @@ void AtmMainWidget::ComposeWidgets() {
   main_widget_composer_.SetMainFrame(ui->main_frame);
   main_widget_composer_.SetTimeAndDate(time_label_, date_label_);
   main_widget_composer_.ComposeMenu(initial_menu_);
+  main_widget_composer_.ComposeMenu(splash_screen_);
 }
 
 void AtmMainWidget::ComputeDeltaSize() {
@@ -113,4 +114,5 @@ void AtmMainWidget::ComputeDeltaSize() {
   delta_height_ = height() - Geometry::InitialScreenHeight();
   main_widget_composer_.SetDeltaSize(DeltaSize(delta_width_, delta_height_));
   initial_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
+  splash_screen_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
 }
