@@ -41,7 +41,6 @@ class AtmMainWidget : public QMainWindow {
   void ProcessInitialMenuOpening();
 
  protected:
-  void keyPressEvent(QKeyEvent* event);
   void resizeEvent(QResizeEvent* event);
 
  private:
@@ -53,7 +52,6 @@ class AtmMainWidget : public QMainWindow {
   void SetConnections();
   void ComposeWidgets();
   void ComputeDeltaSize();
-  void ProcessEnterKey();
 
   Ui::AtmMainWidget* ui = nullptr;
   GraphicalInitialMenu* initial_menu_ = nullptr;

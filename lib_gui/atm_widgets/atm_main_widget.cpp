@@ -50,22 +50,6 @@ void AtmMainWidget::ProcessRegistrationButtonClick() {
 
 void AtmMainWidget::ProcessInitialMenuOpening() { emit ShowInitialMenu(); }
 
-void AtmMainWidget::keyPressEvent(QKeyEvent* event) {
-  switch (event->key()) {
-    case Qt::Key_Space:
-      event->ignore();
-      break;
-    case Qt::Key_Enter:
-      ProcessEnterKey();
-      break;
-    case Qt::Key_Return:
-      ProcessEnterKey();
-    default:
-      break;
-  }
-  QWidget::keyPressEvent(event);
-}
-
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeDeltaSize();
   ComposeWidgets();
@@ -79,11 +63,11 @@ void AtmMainWidget::SetInitialSettings() {
   SetImages();
 
   setMinimumSize(kAppWidth, kAppHeight);
-  initial_menu_->close();
+  //  initial_menu_->close();
 }
 
 void AtmMainWidget::InitializeObjects() {
-  splash_screen_ = new SplashScreenFrame(ui->main_frame);
+  // splash_screen_ = new SplashScreenFrame(ui->main_frame);
   initial_menu_ = new GraphicalInitialMenu(ui->main_frame);
   time_label_ = new TimeLabel(static_cast<QLabel*>(ui->main_frame));
   date_label_ = new DateLabel(static_cast<QLabel*>(ui->main_frame));
@@ -111,7 +95,6 @@ void AtmMainWidget::SetInitialMainWidgetProperties() {
 }
 
 void AtmMainWidget::SetConnections() {
-  connect(this, SIGNAL(EnterIsPressed()), initial_menu_, SLOT(Show()));
   connect(initial_menu_, SIGNAL(LoginButtonClicked()),
           SLOT(ProcessLoginButtonClick()));
   connect(initial_menu_, SIGNAL(RegistrationButtonClicked()),
@@ -131,5 +114,3 @@ void AtmMainWidget::ComputeDeltaSize() {
   main_widget_composer_.SetDeltaSize(DeltaSize(delta_width_, delta_height_));
   initial_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
 }
-
-void AtmMainWidget::ProcessEnterKey() { emit EnterIsPressed(); }
