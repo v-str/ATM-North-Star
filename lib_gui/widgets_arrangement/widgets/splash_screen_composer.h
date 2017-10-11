@@ -19,8 +19,7 @@ class SplashScreenComposer {
   void SetFrame(QFrame* frame);
   void SetVersionLabel(QLabel* version_label);
   void SetCompanyNameLabel(QLabel* company_name_label);
-  void SetSplashScreenLabels(QLabel* date_label, QLabel* time_label,
-                             QLabel* text_label);
+  void SetTextLabel(QLabel* text_label);
   void SetAtmLabel(QLabel* atm_label);
 
   void ComputeDeltas(int extra_width, int extra_height);

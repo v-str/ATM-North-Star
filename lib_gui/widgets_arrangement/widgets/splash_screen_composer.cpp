@@ -44,19 +44,13 @@ void SplashScreenComposer::SetCompanyNameLabel(QLabel* company_name_label) {
                             company_name_label);
 }
 
-void SplashScreenComposer::SetSplashScreenLabels(QLabel* date_label,
-                                                 QLabel* time_label,
-                                                 QLabel* text_label) {
-  date_label->setFont(WidgetFont::SetFont(14));
-  time_label->setFont(WidgetFont::SetFont(14));
+void SplashScreenComposer::SetTextLabel(QLabel* text_label) {
   text_label->setFont(WidgetFont::SetFont(15));
 
   composer_.SetShiftFactor(0.5, 1.0);
   composer_.SetShiftSide(Side::kRight | Side::kDown);
   composer_.SetTransformationType(GeometryComposer::kShift);
 
-  composer_.ComposeGeometry(SplashScreenGeometry::DateLabel(), date_label);
-  composer_.ComposeGeometry(SplashScreenGeometry::TimeLabel(), time_label);
   composer_.ComposeGeometry(SplashScreenGeometry::TextLabel(), text_label);
 }
 
