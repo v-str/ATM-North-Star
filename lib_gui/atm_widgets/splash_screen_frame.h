@@ -9,6 +9,8 @@ class SplashScreenFrame : public QFrame {
  public:
   explicit SplashScreenFrame(QFrame* parent = nullptr);
   ~SplashScreenFrame();
+
+ private:
 };
 
 #endif  // SPLASH_SCREEN_FRAME_H

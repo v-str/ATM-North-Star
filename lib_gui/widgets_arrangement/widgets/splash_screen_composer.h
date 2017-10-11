@@ -1,5 +1,5 @@
-﻿#ifndef SPLASH_SCREEN_SIZE_COMPOSER_H
-#define SPLASH_SCREEN_SIZE_COMPOSER_H
+﻿#ifndef SPLASH_SCREEN_COMPOSER_H
+#define SPLASH_SCREEN_COMPOSER_H
 
 #include <QRect>
 
@@ -14,13 +14,12 @@ class QFrame;
 
 class AtmSplashScreen;
 
-class SplashScreenSizeComposer {
+class SplashScreenComposer {
  public:
   void SetFrame(QFrame* frame);
   void SetVersionLabel(QLabel* version_label);
   void SetCompanyNameLabel(QLabel* company_name_label);
-  void SetSplashScreenLabels(QLabel* date_label,
-                             QLabel* time_label,
+  void SetSplashScreenLabels(QLabel* date_label, QLabel* time_label,
                              QLabel* text_label);
   void SetAtmLabel(QLabel* atm_label);
 
@@ -36,4 +35,4 @@ class SplashScreenSizeComposer {
   DeltaSize delta_size_;
 };
 
-#endif  // SPLASH_SCREEN_SIZE_COMPOSER_H
+#endif  // SPLASH_SCREEN_COMPOSER_H

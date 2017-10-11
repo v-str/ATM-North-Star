@@ -62,9 +62,8 @@ class AtmSplashScreen : public QMainWindow {
   DateLabel* date_label_ = nullptr;
 
   AtmColorDesigner color_designer_;
-  SplashScreenSizeComposer composer_;
+  SplashScreenComposer composer_;
 
-  static const int kOneSecond = 1000;
   static const int kTimerValue = 350;
   static const int kWidgetWidth = 600;
   static const int kWidgetHeight = 400;
