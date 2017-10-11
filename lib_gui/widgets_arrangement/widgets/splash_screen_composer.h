@@ -16,6 +16,9 @@ class AtmSplashScreen;
 
 class SplashScreenComposer {
  public:
+  void TuneLabels(QLabel* version_label, QLabel* company_name_label,
+                  QLabel* text_label, QLabel* atm_label);
+
   void SetFrame(QFrame* frame);
   void SetVersionLabel(QLabel* version_label);
   void SetCompanyNameLabel(QLabel* company_name_label);

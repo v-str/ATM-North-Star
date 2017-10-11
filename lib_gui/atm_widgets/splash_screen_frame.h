@@ -23,7 +23,9 @@ class SplashScreenFrame : public BaseAtmFrame {
 
  private:
   void SetSplashScreenSettings();
-  void InitializeObjects();
+  void InitializeLabels();
+  void TuneLabel();
+
   void PaintWidgets();
 
   SplashScreenComposer composer_;

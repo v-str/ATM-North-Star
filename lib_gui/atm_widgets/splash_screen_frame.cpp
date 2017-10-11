@@ -10,7 +10,8 @@
 SplashScreenFrame::SplashScreenFrame(QWidget *parent)
     : BaseAtmFrame(parent, kBackButtonDeactivated) {
   SetSplashScreenSettings();
-  InitializeObjects();
+  InitializeLabels();
+  TuneLabel();
   PaintWidgets();
 }
 
@@ -32,11 +33,16 @@ void SplashScreenFrame::SetSplashScreenSettings() {
   SetFrameAnimation(Side::kUp, Side::kDown, kHalfASecond, this);
 }
 
-void SplashScreenFrame::InitializeObjects() {
+void SplashScreenFrame::InitializeLabels() {
   version_label_ = new QLabel(this);
   company_name_label_ = new QLabel(this);
   atm_label_ = new QLabel(this);
   text_label_ = new QLabel(this);
+}
+
+void SplashScreenFrame::TuneLabel() {
+  composer_.TuneLabels(version_label_, company_name_label_, text_label_,
+                       atm_label_);
 }
 
 void SplashScreenFrame::PaintWidgets() {
