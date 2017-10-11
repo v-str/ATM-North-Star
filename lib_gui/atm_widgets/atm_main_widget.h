@@ -11,6 +11,7 @@ class QString;
 class ApplicationColor;
 class QTimer;
 class GraphicalInitialMenu;
+class SplashScreenFrame;
 class TimeLabel;
 class DateLabel;
 
@@ -32,6 +33,7 @@ class AtmMainWidget : public QMainWindow {
   void RegistrationButtonClicked();
   void ShowInitialMenu();
   void MainWidgetGeometryChanged(const DeltaSize&);
+  void EnterIsPressed();
 
  public slots:
   void ProcessLoginButtonClick();
@@ -39,6 +41,7 @@ class AtmMainWidget : public QMainWindow {
   void ProcessInitialMenuOpening();
 
  protected:
+  void keyPressEvent(QKeyEvent* event);
   void resizeEvent(QResizeEvent* event);
 
  private:
@@ -50,9 +53,11 @@ class AtmMainWidget : public QMainWindow {
   void SetConnections();
   void ComposeWidgets();
   void ComputeDeltaSize();
+  void ProcessEnterKey();
 
   Ui::AtmMainWidget* ui = nullptr;
   GraphicalInitialMenu* initial_menu_ = nullptr;
+  SplashScreenFrame* splash_screen_ = nullptr;
 
   TimeLabel* time_label_ = nullptr;
   DateLabel* date_label_ = nullptr;

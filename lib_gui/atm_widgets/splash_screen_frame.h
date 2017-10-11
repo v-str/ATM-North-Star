@@ -19,6 +19,8 @@ class SplashScreenFrame : public QFrame {
  private:
   void PaintWidgets();
 
+  void ProcessEnterKey();
+
   SplashScreenComposer composer_;
   AtmColorDesigner color_designer_;
 };
