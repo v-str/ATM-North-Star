@@ -61,6 +61,7 @@ void SplashScreenComposer::SetSplashScreenLabels(QLabel* date_label,
 }
 
 void SplashScreenComposer::SetAtmLabel(QLabel* atm_label) {
+  atm_label->setText("ATM");
   atm_label->setFont(WidgetFont::SetFont(75));
   atm_label_stretcher_.StretchAtmLabel(atm_label, delta_size_.Width(),
                                        delta_size_.Height());
