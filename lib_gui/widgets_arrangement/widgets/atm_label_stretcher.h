@@ -17,6 +17,8 @@ class AtmLabelStretcher {
 
   static const int kInitFontSize = 65;
   static const int kFontSizeLimit = 130;
+  static const int kFontGrowthCoefficient = 6;
+  static const int kFrameHeightGrowth = 30;
 
   int font_pointsize_ = 0;
   int font_height_ = 0;
