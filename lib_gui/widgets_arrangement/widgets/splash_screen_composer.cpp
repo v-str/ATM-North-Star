@@ -11,6 +11,8 @@
 #include <splash_screen_geometry.h>
 #include <widget_font.h>
 
+#include <QDebug>
+
 void SplashScreenComposer::SetFrame(QFrame* frame) {
   composer_.SetStretchFactor(1.0, 1.0);
   composer_.SetStretchSide(Side::kRight | Side::kDown);
@@ -19,6 +21,7 @@ void SplashScreenComposer::SetFrame(QFrame* frame) {
 }
 
 void SplashScreenComposer::SetVersionLabel(QLabel* version_label) {
+  version_label->setText("v1.0.1");
   version_label->setFont(WidgetFont::SetFont(8));
 
   composer_.SetShiftFactor(1.0, 1.0);

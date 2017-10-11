@@ -4,6 +4,9 @@
 #include <base_atm_frame.h>
 
 #include <atm_color_designer.h>
+#include <splash_screen_composer.h>
+
+class QLabel;
 
 class SplashScreenFrame : public BaseAtmFrame {
   Q_OBJECT
@@ -12,10 +15,18 @@ class SplashScreenFrame : public BaseAtmFrame {
   explicit SplashScreenFrame(QWidget* parent = nullptr);
   ~SplashScreenFrame();
 
- private:
-  void SetInitialSettings();
+ protected:
+  void resizeEvent(QResizeEvent* event);
 
-  GeometryComposer composer_;
+ private:
+  void SetSplashScreenSettings();
+  void InitializeObjects();
+  void PaintWidgets();
+
+  SplashScreenComposer composer_;
+  AtmColorDesigner color_designer_;
+
+  QLabel* version_label_ = nullptr;
 
   static constexpr double kXFactor = 1.0;
   static constexpr double kYFactor = 1.0;
