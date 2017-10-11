@@ -14,8 +14,9 @@ class MainWidgetPresenter : public QObject {
   explicit MainWidgetPresenter(QObject* parent = nullptr);
   ~MainWidgetPresenter();
 
+  void RunApplication();
+
  public slots:
-  void ShowMainWidget();
   void SetWidgetGeometry(const QRect& initial_position);
   void SetMaximized(bool is_maximized);
 

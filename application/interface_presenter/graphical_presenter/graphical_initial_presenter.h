@@ -14,7 +14,7 @@ class GraphicalInitialPresenter {
 
  private:
   void SetAnimation();
-  void SetConnections();
+  //  void SetConnections();
 
   AtmSplashScreen* splash_screen_ = nullptr;
   FrameAnimator* frame_animator_ = nullptr;

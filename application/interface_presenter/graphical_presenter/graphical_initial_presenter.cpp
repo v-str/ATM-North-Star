@@ -16,7 +16,7 @@ GraphicalInitialPresenter::GraphicalInitialPresenter()
   splash_screen_->SetCompanyName("North Star");
 
   SetAnimation();
-  SetConnections();
+  // SetConnections();
 }
 
 GraphicalInitialPresenter::~GraphicalInitialPresenter() {
@@ -32,16 +32,18 @@ void GraphicalInitialPresenter::SetAnimation() {
   frame_animator_->SetAnimationDirection(Side::kUp);
 }
 
-void GraphicalInitialPresenter::SetConnections() {
-  QObject::connect(splash_screen_, SIGNAL(PassPosition(QRect)), frame_animator_,
-                   SLOT(Hide(QRect)));
-  QObject::connect(splash_screen_, SIGNAL(PassPosition(const QRect&)),
-                   main_widget_presenter_,
-                   SLOT(SetWidgetGeometry(const QRect&)));
-  QObject::connect(splash_screen_, SIGNAL(MaximizedScreen(bool)),
-                   main_widget_presenter_, SLOT(SetMaximized(bool)));
-  QObject::connect(frame_animator_, SIGNAL(AnimationComplete()), splash_screen_,
-                   SLOT(close()));
-  QObject::connect(frame_animator_, SIGNAL(AnimationComplete()),
-                   main_widget_presenter_, SLOT(ShowMainWidget()));
-}
+// void GraphicalInitialPresenter::SetConnections() {
+//  QObject::connect(splash_screen_, SIGNAL(PassPosition(QRect)),
+//  frame_animator_,
+//                   SLOT(Hide(QRect)));
+//  QObject::connect(splash_screen_, SIGNAL(PassPosition(const QRect&)),
+//                   main_widget_presenter_,
+//                   SLOT(SetWidgetGeometry(const QRect&)));
+//  QObject::connect(splash_screen_, SIGNAL(MaximizedScreen(bool)),
+//                   main_widget_presenter_, SLOT(SetMaximized(bool)));
+//  QObject::connect(frame_animator_, SIGNAL(AnimationComplete()),
+//  splash_screen_,
+//                   SLOT(close()));
+//  QObject::connect(frame_animator_, SIGNAL(AnimationComplete()),
+//                   main_widget_presenter_, SLOT(ShowMainWidget()));
+//}

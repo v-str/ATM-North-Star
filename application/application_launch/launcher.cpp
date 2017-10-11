@@ -5,7 +5,7 @@
 #include <QApplication>
 
 #include <console_initial_presenter.h>
-#include <graphical_initial_presenter.h>
+#include <main_widget_presenter.h>
 
 void Launcher::LaunchConsoleMode() {
   console_initial_presenter_ = new ConsoleInitialPresenter;
@@ -17,7 +17,7 @@ void Launcher::LaunchGuiMode(int argc, char* argv[]) {
   QApplication application(argc, argv);
   Q_INIT_RESOURCE(atm_resources);
 
-  graphical_initial_presenter_ = new GraphicalInitialPresenter;
+  graphical_initial_presenter_ = new MainWidgetPresenter;
   graphical_initial_presenter_->RunApplication();
 
   application.exec();

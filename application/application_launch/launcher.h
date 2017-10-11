@@ -2,7 +2,7 @@
 #define LAUNCHER_H
 
 class ConsoleInitialPresenter;
-class GraphicalInitialPresenter;
+class MainWidgetPresenter;
 
 class Launcher {
  public:
@@ -13,7 +13,7 @@ class Launcher {
 
  private:
   ConsoleInitialPresenter* console_initial_presenter_ = nullptr;
-  GraphicalInitialPresenter* graphical_initial_presenter_ = nullptr;
+  MainWidgetPresenter* graphical_initial_presenter_ = nullptr;
 };
 
 #endif  // LAUNCHER_H
