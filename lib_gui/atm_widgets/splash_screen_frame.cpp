@@ -40,8 +40,8 @@ void SplashScreenFrame::InitializeObjects() {
 }
 
 void SplashScreenFrame::PaintWidgets() {
-  QList<QLabel *> label_list = {version_label_, company_name_label_,
-                                atm_label_};
+  QList<QLabel *> label_list = {version_label_, company_name_label_, atm_label_,
+                                text_label_};
 
   color_designer_.PaintWidgetSet(&label_list);
 }
