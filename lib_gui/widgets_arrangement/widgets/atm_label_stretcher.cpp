@@ -16,7 +16,7 @@ void AtmLabelStretcher::StretchAtmLabel(QLabel* atm_label, int width_increase,
 }
 
 void AtmLabelStretcher::ComputeFontSize() {
-  int font_growth = (width_increase_ - height_increase_) / 3;
+  int font_growth = (width_increase_ - height_increase_) / 12;
   font_pointsize_ = kInitFontSize + font_growth;
 
   if (font_pointsize_ < kInitFontSize) {
@@ -37,7 +37,7 @@ void AtmLabelStretcher::FitFrameByFontSize(const QLabel* atm_label) {
       SplashScreenGeometry::AtmLabel().height() + height_increase_;
 
   if (font_height_ > frame_height) {
-    frame_height = font_height_ + 15;
+    frame_height = font_height_ + 30;
   }
 }
 

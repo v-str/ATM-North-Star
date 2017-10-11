@@ -118,5 +118,4 @@ void AtmMainWidget::ComputeDeltaSize() {
   delta_height_ = height() - Geometry::InitialScreenHeight();
   main_widget_composer_.SetDeltaSize(DeltaSize(delta_width_, delta_height_));
   initial_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
-  splash_screen_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
 }

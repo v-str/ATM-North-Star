@@ -22,7 +22,7 @@ void SplashScreenFrame::SetCompanyName(const QString &company_name) {
 }
 
 void SplashScreenFrame::resizeEvent(QResizeEvent *) {
-  composer_.ComputeDeltas(GetDeltaSize().Width(), GetDeltaSize().Height());
+  composer_.ComputeDeltas(width(), height());
 
   composer_.ComposeCompanyNameLabel(company_name_label_);
   composer_.ComposeAtmLabel(atm_label_);
