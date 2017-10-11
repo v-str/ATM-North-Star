@@ -78,7 +78,6 @@ void AtmSplashScreen::keyPressEvent(QKeyEvent* event) {
 void AtmSplashScreen::resizeEvent(QResizeEvent*) {
   composer_.ComputeDeltas(width(), height());
   composer_.SetFrame(ui->frame);
-  composer_.SetVersionLabel(ui->version_label);
   composer_.SetCompanyNameLabel(ui->atm_company_name_label);
   composer_.SetAtmLabel(ui->atm_label);
 }

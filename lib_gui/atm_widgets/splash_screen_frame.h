@@ -19,7 +19,7 @@ class SplashScreenFrame : public BaseAtmFrame {
   void SetCompanyName(const QString& company_name);
 
  protected:
-  void resizeEvent(QResizeEvent* event);
+  void resizeEvent(QResizeEvent*);
 
  private:
   void SetSplashScreenSettings();

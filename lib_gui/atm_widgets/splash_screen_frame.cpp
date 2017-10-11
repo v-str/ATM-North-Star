@@ -21,8 +21,9 @@ void SplashScreenFrame::SetCompanyName(const QString &company_name) {
   company_name_label_->setText(company_name);
 }
 
-void SplashScreenFrame::resizeEvent(QResizeEvent *event) {
-  composer_.SetVersionLabel(version_label_);
+void SplashScreenFrame::resizeEvent(QResizeEvent *) {
+  composer_.ComputeDeltas(GetDeltaSize().Width(), GetDeltaSize().Height());
+
   composer_.SetCompanyNameLabel(company_name_label_);
   composer_.SetAtmLabel(atm_label_);
   composer_.SetTextLabel(text_label_);

@@ -58,6 +58,8 @@ void BaseAtmFrame::ColorizeButtons(QList<QPushButton*>* button_list) {
   frame_setter_->ColorizeButtons(button_list);
 }
 
+DeltaSize BaseAtmFrame::GetDeltaSize() const { return delta_size_; }
+
 void BaseAtmFrame::ProcessBackButtonClick() {
   emit PassGeometryForHide(geometry());
   emit BackButtonClicked();

@@ -16,6 +16,7 @@ void SplashScreenComposer::TuneLabels(QLabel* version_label,
                                       QLabel* text_label, QLabel* atm_label) {
   version_label->setText("v1.0.1");
   version_label->setFont(WidgetFont::SetFont(8));
+  version_label->setGeometry(SplashScreenGeometry::VersionLabel());
   company_name_label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
   company_name_label->setFont(WidgetFont::SetFont(25));
   text_label->setFont(WidgetFont::SetFont(15));
@@ -31,15 +32,6 @@ void SplashScreenComposer::SetFrame(QFrame* frame) {
   composer_.SetStretchSide(Side::kRight | Side::kDown);
   composer_.SetTransformationType(GeometryComposer::kStretch);
   composer_.ComposeGeometry(SplashScreenGeometry::SplashScreenFrame(), frame);
-}
-
-void SplashScreenComposer::SetVersionLabel(QLabel* version_label) {
-  composer_.SetShiftFactor(1.0, 1.0);
-  composer_.SetShiftSide(Side::kRight);
-  composer_.SetTransformationType(GeometryComposer::kShift);
-
-  composer_.ComposeGeometry(SplashScreenGeometry::VersionLabel(),
-                            version_label);
 }
 
 void SplashScreenComposer::SetCompanyNameLabel(QLabel* company_name_label) {
