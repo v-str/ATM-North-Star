@@ -36,6 +36,10 @@ AtmMainWidget::~AtmMainWidget() {
   delete date_label_;
 }
 
+void AtmMainWidget::SetCompanyName(const QString& company_name) {
+  splash_screen_->SetCompanyName(company_name);
+}
+
 QFrame* AtmMainWidget::GetMainFrame() const { return ui->main_frame; }
 
 void AtmMainWidget::ProcessLoginButtonClick() {

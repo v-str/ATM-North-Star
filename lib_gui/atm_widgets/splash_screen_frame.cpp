@@ -2,6 +2,7 @@
 
 #include <QLabel>
 #include <QList>
+#include <QString>
 
 #include <side.h>
 #include <splash_screen_geometry.h>
@@ -15,8 +16,13 @@ SplashScreenFrame::SplashScreenFrame(QWidget *parent)
 
 SplashScreenFrame::~SplashScreenFrame() {}
 
+void SplashScreenFrame::SetCompanyName(const QString &company_name) {
+  company_name_label_->setText(company_name);
+}
+
 void SplashScreenFrame::resizeEvent(QResizeEvent *event) {
   composer_.SetVersionLabel(version_label_);
+  composer_.SetCompanyNameLabel(company_name_label_);
 }
 
 void SplashScreenFrame::SetSplashScreenSettings() {
@@ -26,10 +32,11 @@ void SplashScreenFrame::SetSplashScreenSettings() {
 
 void SplashScreenFrame::InitializeObjects() {
   version_label_ = new QLabel(this);
+  company_name_label_ = new QLabel(this);
 }
 
 void SplashScreenFrame::PaintWidgets() {
-  QList<QLabel *> label_list = {version_label_};
+  QList<QLabel *> label_list = {version_label_, company_name_label_};
 
   color_designer_.PaintWidgetSet(&label_list);
 }

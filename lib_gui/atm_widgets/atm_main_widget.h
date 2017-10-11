@@ -26,6 +26,8 @@ class AtmMainWidget : public QMainWindow {
   explicit AtmMainWidget(QWidget* parent = nullptr);
   ~AtmMainWidget();
 
+  void SetCompanyName(const QString& company_name);
+
   QFrame* GetMainFrame() const;
 
  signals:

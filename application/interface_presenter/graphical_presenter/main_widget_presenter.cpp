@@ -6,6 +6,8 @@
 
 MainWidgetPresenter::MainWidgetPresenter(QObject* parent)
     : QObject(parent), atm_main_widget_(new AtmMainWidget) {
+  atm_main_widget_->SetCompanyName("North Star");
+
   CreateLoginMenu();
   CreateRegistrationMenu();
 

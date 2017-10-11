@@ -33,6 +33,8 @@ void SplashScreenComposer::SetVersionLabel(QLabel* version_label) {
 }
 
 void SplashScreenComposer::SetCompanyNameLabel(QLabel* company_name_label) {
+  company_name_label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+
   company_name_label->setFont(WidgetFont::SetFont(25));
   composer_.SetShiftFactor(0.5, 1.0);
   composer_.SetShiftSide(Side::kRight);
