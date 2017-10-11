@@ -22,15 +22,15 @@ class GraphicalInitialMenu : public BaseAtmFrame {
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
- public slots:
-  void ProcessDemoButtonClick();
-  void ProcessRegistraionButtonClick();
-  void ProcessLoginButtonClick();
-
  signals:
   void DemoButtonClicked();
   void RegistrationButtonClicked();
   void LoginButtonClicked();
+
+ public slots:
+  void ProcessDemoButtonClick();
+  void ProcessRegistraionButtonClick();
+  void ProcessLoginButtonClick();
 
  protected:
   void resizeEvent(QResizeEvent*);

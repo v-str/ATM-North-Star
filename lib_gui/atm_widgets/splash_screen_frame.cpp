@@ -2,14 +2,7 @@
 
 #include <QList>
 
-SplashScreenFrame::SplashScreenFrame(QFrame* parent) : QFrame(parent) {
-  PaintWidgets();
-}
+SplashScreenFrame::SplashScreenFrame(QWidget *parent)
+    : BaseAtmFrame(parent, kBackButtonDeactivated) {}
 
 SplashScreenFrame::~SplashScreenFrame() {}
-
-void SplashScreenFrame::resizeEvent(QResizeEvent* event) {
-  composer_.SetFrame(this);
-}
-
-void SplashScreenFrame::PaintWidgets() { color_designer_.PaintFrame(this); }
