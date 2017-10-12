@@ -3,20 +3,15 @@
 #include <QCursor>
 #include <QIcon>
 #include <QLabel>
-#include <QList>
-#include <QPaintEvent>
 #include <QPixmap>
 #include <QResizeEvent>
-#include <QTimer>
 
-#include <date_label.h>
 #include <delta_size.h>
 #include <geometry.h>
 #include <graphical_initial_menu.h>
 #include <initial_property_installer.h>
 #include <main_frame.h>
 #include <splash_screen_frame.h>
-#include <time_label.h>
 
 AtmMainWidget::AtmMainWidget(QWidget* parent) : QMainWindow(parent) {
   setWindowTitle("ATM");
@@ -76,6 +71,7 @@ void AtmMainWidget::SetImages() {
 void AtmMainWidget::SetInitialMainWidgetProperties() {
   InitialPropertyInstaller::SetInitialProperties(
       this, kAppWidth, kAppHeight, InitialPropertyInstaller::kResize);
+  setStyleSheet("background-color:black;");
 }
 
 void AtmMainWidget::SetConnections() {

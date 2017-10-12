@@ -7,8 +7,6 @@
 #include <main_widget_composer.h>
 
 class QString;
-class ApplicationColor;
-class QTimer;
 class GraphicalInitialMenu;
 class SplashScreenFrame;
 class MainFrame;

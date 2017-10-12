@@ -99,11 +99,13 @@
 41. Remade initial menu through base class of AtmFrame without back button          | + |
                                                                                     |   |
 42. Develeop repetitive class for text animation and apply it into description menu | + |
-										                                            |   |
-43. Solve segmentation fault problem						                        | + |
                                                                                     |   |
-44. Move BaseAtmFrame from initial menu package								        | - |
-																					|	|
+43. Solve segmentation fault problem	     		                            | + |
+                                                                                    |   |
+44. Move BaseAtmFrame from initial menu package		                 	    | - |
+                                                                                    |   |
+45. Check all composers, remove unused code                                         | - |
+                                                                                    |   |																			|	|
 
 
 -----------------------------------------------------------------------------------------
