@@ -1,7 +1,7 @@
 ﻿#include <main_frame.h>
 
 #include <date_label.h>
-#include <main_widget_geometry.h>
+#include <main_frame_geometry.h>
 #include <time_label.h>
 
 MainFrame::MainFrame(QWidget* parent) : QFrame(parent) {

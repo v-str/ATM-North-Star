@@ -1,9 +1,9 @@
-﻿#ifndef MAIN_WIDGET_GEOMETRY_H
-#define MAIN_WIDGET_GEOMETRY_H
+﻿#ifndef MAIN_FRAME_GEOMETRY_H
+#define MAIN_FRAME_GEOMETRY_H
 
 #include <QRect>
 
-class MainWidgetGeometry {
+class MainFrameGeometry {
  public:
   static QRect TimeLabel();
   static QRect MainFrame();
@@ -15,4 +15,4 @@ class MainWidgetGeometry {
   static QRect kMainFrame;
 };
 
-#endif  // MAIN_WIDGET_GEOMETRY_H
+#endif  // MAIN_FRAME_GEOMETRY_H

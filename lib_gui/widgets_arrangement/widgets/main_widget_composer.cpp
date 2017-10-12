@@ -1,7 +1,7 @@
 ﻿#include <main_widget_composer.h>
 
 #include <initial_frame_geometry.h>
-#include <main_widget_geometry.h>
+#include <main_frame_geometry.h>
 #include <side.h>
 #include <splash_screen_geometry.h>
 #include <widget_font.h>
@@ -9,7 +9,7 @@
 MainWidgetComposer::MainWidgetComposer() { SetDefaultComposing(); }
 
 void MainWidgetComposer::ComposeMainFrame(QFrame* main_frame) {
-  menu_composer_.ComposeGeometry(MainWidgetGeometry::MainFrame(), main_frame);
+  menu_composer_.ComposeGeometry(MainFrameGeometry::MainFrame(), main_frame);
 }
 
 void MainWidgetComposer::ComposeMenu(QWidget* widget) {
@@ -18,11 +18,11 @@ void MainWidgetComposer::ComposeMenu(QWidget* widget) {
 
 void MainWidgetComposer::ComposeTimeAndDate(QLabel* time_label,
                                             QLabel* date_label) {
-  time_label->setGeometry(MainWidgetGeometry::TimeLabel());
+  time_label->setGeometry(MainFrameGeometry::TimeLabel());
   time_label->setFont(WidgetFont::SetFont(12));
   time_label->setAlignment(Qt::AlignRight);
 
-  date_label->setGeometry(MainWidgetGeometry::DateLabel());
+  date_label->setGeometry(MainFrameGeometry::DateLabel());
   date_label->setFont(WidgetFont::SetFont(12));
   date_label->setAlignment(Qt::AlignRight);
 
@@ -30,8 +30,8 @@ void MainWidgetComposer::ComposeTimeAndDate(QLabel* time_label,
   label_composer_.SetShiftSide(Side::kRight);
   label_composer_.SetTransformationType(GeometryComposer::kShift);
 
-  label_composer_.ComposeGeometry(MainWidgetGeometry::TimeLabel(), time_label);
-  label_composer_.ComposeGeometry(MainWidgetGeometry::DateLabel(), date_label);
+  label_composer_.ComposeGeometry(MainFrameGeometry::TimeLabel(), time_label);
+  label_composer_.ComposeGeometry(MainFrameGeometry::DateLabel(), date_label);
 }
 
 void MainWidgetComposer::PerformPainting(QFrame* main_frame, QLabel* time_label,
