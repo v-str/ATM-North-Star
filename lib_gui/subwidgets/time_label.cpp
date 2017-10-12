@@ -4,7 +4,7 @@
 
 #include <timedate_changer.h>
 
-TimeLabel::TimeLabel(QLabel* parent)
+TimeLabel::TimeLabel(QWidget* parent)
     : QLabel(parent), timer_(new QTimer(this)) {
   SetDefaultSettings();
 }

@@ -8,7 +8,7 @@ class QTimer;
 class TimeLabel : public QLabel {
   Q_OBJECT
  public:
-  TimeLabel(QLabel* parent = nullptr);
+  TimeLabel(QWidget* parent = nullptr);
   ~TimeLabel();
 
  public slots:

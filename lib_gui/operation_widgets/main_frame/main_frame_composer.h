@@ -8,11 +8,14 @@
 
 class MainFrameComposer {
  public:
-  void SetMainFrame(QFrame* main_frame, QLabel* time_label, QLabel* date_label);
+  void SetMainFrameAppearance(QFrame* main_frame, QLabel* time_label, QLabel* date_label);
   void PaintMainFrame(QFrame* main_frame, QLabel* time_label,
                       QLabel* date_label);
 
  private:
+  void SetTime(QLabel* time_label);
+  void SetDate(QLabel* date_label);
+
   AtmColorDesigner color_designer_;
 };
 

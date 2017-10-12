@@ -10,18 +10,15 @@ MainFrame::MainFrame(QWidget* parent) : QFrame(parent) {
   PaintMainFrame();
 }
 
-MainFrame::~MainFrame() {
-  delete time_label_;
-  delete date_label_;
-}
+MainFrame::~MainFrame() {}
 
 void MainFrame::InitializeLabels() {
-  time_label_ = new TimeLabel(qobject_cast<QLabel*>(this));
-  date_label_ = new DateLabel(qobject_cast<QLabel*>(this));
+  time_label_ = new TimeLabel(this);
+  date_label_ = new DateLabel(this);
 }
 
 void MainFrame::SetMainFrame() {
-  main_frame_composer_.SetMainFrame(this, time_label_, date_label_);
+  main_frame_composer_.SetMainFrameAppearance(this, time_label_, date_label_);
 }
 
 void MainFrame::PaintMainFrame() {

@@ -4,7 +4,7 @@
 
 #include <timedate_changer.h>
 
-DateLabel::DateLabel(QLabel *parent)
+DateLabel::DateLabel(QWidget *parent)
     : QLabel(parent), timer_(new QTimer(this)) {
   setAlignment(Qt::AlignCenter);
   timer_->start(kOneSecond);
