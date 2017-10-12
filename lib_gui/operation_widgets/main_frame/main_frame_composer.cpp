@@ -1,7 +1,10 @@
 ﻿#include <main_frame_composer.h>
 
 #include <main_frame_geometry.h>
+#include <side.h>
 #include <widget_font.h>
+
+MainFrameComposer::MainFrameComposer() { SetDefaultComposing(); }
 
 void MainFrameComposer::SetMainFrameAppearance(QFrame *main_frame,
                                                QLabel *time_label,
@@ -16,6 +19,15 @@ void MainFrameComposer::PaintMainFrame(QFrame *main_frame, QLabel *time_label,
   color_designer_.PaintFrame(main_frame);
   color_designer_.PaintSingleWidget(time_label);
   color_designer_.PaintSingleWidget(date_label);
+}
+
+MainFrameComposer::SetDefaultComposing() {
+  composer_.SetShiftFactor(kXFactor, kYFactor);
+  composer_.SetShiftSide(Side::kRight);
+  composer_.SetTransformationType(GeometryComposer::kShift);
+
+  //  composer_.ComposeGeometry(MainFrameGeometry::TimeLabel(), time_label);
+  //  composer_.ComposeGeometry(MainFrameGeometry::DateLabel(), date_label);
 }
 
 void MainFrameComposer::SetTime(QLabel *time_label) {

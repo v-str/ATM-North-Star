@@ -13,22 +13,16 @@ class MainWidgetComposer {
  public:
   MainWidgetComposer();
 
-  void ComposeMainFrame(QFrame* main_frame);
-  void ComposeMenu(QWidget* widget);
-  void ComposeTimeAndDate(QLabel* time_label, QLabel* date_label);
-
-  void PerformPainting(QFrame* main_frame, QLabel* time_label,
-                       QLabel* date_label);
+  void ComposeMainFrame(QWidget* main_frame);
+  void ComposeInitialMenu(QWidget* initial_menu);
+  void ComposeSplashScreen(QWidget* splash_screen);
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
  private:
   void SetDefaultComposing();
 
-  GeometryComposer menu_composer_;
-  GeometryComposer label_composer_;
-
-  AtmColorDesigner color_designer_;
+  GeometryComposer composer_;
 
   static constexpr double kXFactor = 1.0;
   static constexpr double kYFactor = 1.0;

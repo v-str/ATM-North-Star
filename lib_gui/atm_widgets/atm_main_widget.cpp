@@ -88,8 +88,8 @@ void AtmMainWidget::SetConnections() {
 
 void AtmMainWidget::ComposeWidgets() {
   main_widget_composer_.ComposeMainFrame(main_frame_);
-  main_widget_composer_.ComposeMenu(initial_menu_);
-  main_widget_composer_.ComposeMenu(splash_screen_);
+  main_widget_composer_.ComposeInitialMenu(initial_menu_);
+  main_widget_composer_.ComposeSplashScreen(splash_screen_);
 }
 
 void AtmMainWidget::ComputeDeltaSize() {
