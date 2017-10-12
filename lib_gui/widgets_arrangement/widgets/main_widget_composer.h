@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QWidget>
 
+#include <atm_color_designer.h>
 #include <delta_size.h>
 #include <geometry_composer.h>
 
@@ -23,6 +24,8 @@ class MainWidgetComposer {
 
   GeometryComposer menu_composer_;
   GeometryComposer label_composer_;
+
+  AtmColorDesigner color_designer_;
 
   static constexpr double kXFactor = 1.0;
   static constexpr double kYFactor = 1.0;

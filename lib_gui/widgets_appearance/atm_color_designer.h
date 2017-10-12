@@ -20,9 +20,9 @@ class AtmColorDesigner {
   void PaintWidgetSet(QList<QPushButton*>* button_list) const;
   void PaintWidgetSet(QList<QFrame*>* frame_list) const;
 
-  void PaintWidgetSet(QLabel* label) const;
-  void PaintWidgetSet(QPushButton* button) const;
-  void PaintWidgetSet(QFrame* frame) const;
+  void PaintSingleWidget(QLabel* label) const;
+  void PaintSingleWidget(QPushButton* button) const;
+  void PaintSingleWidget(QFrame* frame) const;
 
   void PaintFrame(QFrame* frame) const;
 };

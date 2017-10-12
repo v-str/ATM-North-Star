@@ -40,15 +40,15 @@ void AtmColorDesigner::PaintWidgetSet(QList<QFrame*>* frame_list) const {
   }
 }
 
-void AtmColorDesigner::PaintWidgetSet(QLabel* label) const {
+void AtmColorDesigner::PaintSingleWidget(QLabel* label) const {
   Painter::ChangeLabelColor(label, ApplicationColor::MainColor());
 }
 
-void AtmColorDesigner::PaintWidgetSet(QPushButton* button) const {
+void AtmColorDesigner::PaintSingleWidget(QPushButton* button) const {
   Painter::ChangeButtonColor(button);
 }
 
-void AtmColorDesigner::PaintWidgetSet(QFrame* frame) const {
+void AtmColorDesigner::PaintSingleWidget(QFrame* frame) const {
   Painter::ChangeFrameColor(frame, ApplicationColor::MainColor());
 }
 
