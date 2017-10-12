@@ -11,9 +11,11 @@ class MainFrameComposer {
  public:
   MainFrameComposer();
 
-  void SetMainFrameAppearance(QFrame* main_frame, QLabel* time_label,
+  void SetMainFrameAppearance(QFrame* main_frame,
+                              QLabel* time_label,
                               QLabel* date_label);
-  void PaintMainFrame(QFrame* main_frame, QLabel* time_label,
+  void PaintMainFrame(QFrame* main_frame,
+                      QLabel* time_label,
                       QLabel* date_label);
 
   void ComposeLabels(QLabel* time_label, QLabel* date_label);
@@ -21,7 +23,7 @@ class MainFrameComposer {
   void SetDeltaSize(int delta_width, int delta_height);
 
  private:
-  SetDefaultComposing();
+  void SetDefaultComposing();
 
   void SetTime(QLabel* time_label);
   void SetDate(QLabel* date_label);
