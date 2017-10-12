@@ -50,7 +50,6 @@ class SplashScreenFrame : public BaseAtmFrame {
   static constexpr double kYFactor = 1.0;
 
   static const int kBlinkTime = 350;
-
   static const int kHalfASecond = 500;
 };
 
