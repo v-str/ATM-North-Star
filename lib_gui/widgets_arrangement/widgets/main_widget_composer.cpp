@@ -16,11 +16,6 @@ void MainWidgetComposer::ComposeMenu(QWidget* widget) {
   menu_composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(), widget);
 }
 
-void MainWidgetComposer::ComposeSplashScreen(QWidget* widget) {
-  menu_composer_.ComposeGeometry(SplashScreenGeometry::SplashScreenFrame(),
-                                 widget);
-}
-
 void MainWidgetComposer::ComposeTimeAndDate(QLabel* time_label,
                                             QLabel* date_label) {
   time_label->setGeometry(MainWidgetGeometry::TimeLabel());
@@ -37,6 +32,13 @@ void MainWidgetComposer::ComposeTimeAndDate(QLabel* time_label,
 
   label_composer_.ComposeGeometry(MainWidgetGeometry::TimeLabel(), time_label);
   label_composer_.ComposeGeometry(MainWidgetGeometry::DateLabel(), date_label);
+}
+
+void MainWidgetComposer::PerformPainting(QFrame* main_frame, QLabel* time_label,
+                                         QLabel* date_label) {
+  color_designer_.PaintSingleWidget(main_frame);
+  color_designer_.PaintSingleWidget(time_label);
+  color_designer_.PaintSingleWidget(date_label);
 }
 
 void MainWidgetComposer::SetDeltaSize(const DeltaSize& delta_size) {

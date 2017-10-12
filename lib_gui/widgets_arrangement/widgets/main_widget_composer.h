@@ -15,8 +15,11 @@ class MainWidgetComposer {
 
   void ComposeMainFrame(QFrame* main_frame);
   void ComposeMenu(QWidget* widget);
-  void ComposeSplashScreen(QWidget* widget);
   void ComposeTimeAndDate(QLabel* time_label, QLabel* date_label);
+
+  void PerformPainting(QFrame* main_frame, QLabel* time_label,
+                       QLabel* date_label);
+
   void SetDeltaSize(const DeltaSize& delta_size);
 
  private:

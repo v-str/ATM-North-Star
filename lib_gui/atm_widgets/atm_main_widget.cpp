@@ -78,12 +78,8 @@ void AtmMainWidget::InitializeObjects() {
 }
 
 void AtmMainWidget::PaintWidgets() {
-  QList<QFrame*> frame_list = {ui->main_frame};
-  QList<QLabel*> label_list = {time_label_, date_label_};
-
-  color_designer_.PaintWidgetSet(&frame_list);
-  color_designer_.PaintWidgetSet(&label_list);
-  color_designer_.SetBackground(this);
+  main_widget_composer_.PerformPainting(ui->main_frame, time_label_,
+                                        date_label_);
 }
 
 void AtmMainWidget::SetImages() {
@@ -110,7 +106,7 @@ void AtmMainWidget::ComposeWidgets() {
   main_widget_composer_.ComposeMainFrame(ui->main_frame);
   main_widget_composer_.ComposeTimeAndDate(time_label_, date_label_);
   main_widget_composer_.ComposeMenu(initial_menu_);
-  main_widget_composer_.ComposeSplashScreen(splash_screen_);
+  main_widget_composer_.ComposeMenu(splash_screen_);
 }
 
 void AtmMainWidget::ComputeDeltaSize() {

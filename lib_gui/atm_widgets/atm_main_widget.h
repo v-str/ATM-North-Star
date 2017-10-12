@@ -4,7 +4,6 @@
 #include <QFrame>
 #include <QMainWindow>
 
-#include <atm_color_designer.h>
 #include <main_widget_composer.h>
 
 class QString;
@@ -62,7 +61,6 @@ class AtmMainWidget : public QMainWindow {
   TimeLabel* time_label_ = nullptr;
   DateLabel* date_label_ = nullptr;
 
-  AtmColorDesigner color_designer_;
   MainWidgetComposer main_widget_composer_;
 
   int delta_width_ = 0;
