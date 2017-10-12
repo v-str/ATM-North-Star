@@ -1,14 +1,28 @@
 ﻿#ifndef MAIN_FRAME_H
 #define MAIN_FRAME_H
 
-#include <base_atm_frame.h>
+#include <QFrame>
+#include <QLabel>
 
-class MainFrame : public BaseAtmFrame {
+#include <main_frame_composer.h>
+
+class TimeLabel;
+class DateLabel;
+
+class MainFrame : public QFrame {
   Q_OBJECT
 
  public:
   MainFrame(QWidget* parent = nullptr);
   ~MainFrame();
+
+ private:
+  void InitializeLabels();
+
+  TimeLabel* time_label_ = nullptr;
+  DateLabel* date_label_ = nullptr;
+
+  MainFrameComposer main_frame_composer_;
 };
 
 #endif  // MAIN_FRAME_H
