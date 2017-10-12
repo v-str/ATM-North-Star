@@ -20,5 +20,5 @@ void MainFrame::InitializeLabels() {
 }
 
 void MainFrame::SetMainFrame() {
-  main_frame_composer_.SetInitialSettings(this, time_label_, date_label_);
+  main_frame_composer_.SetMainFrame(this, time_label_, date_label_);
 }
