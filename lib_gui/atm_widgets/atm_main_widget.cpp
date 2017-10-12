@@ -107,8 +107,8 @@ void AtmMainWidget::SetConnections() {
 }
 
 void AtmMainWidget::ComposeWidgets() {
-  main_widget_composer_.SetMainFrame(ui->main_frame);
-  main_widget_composer_.SetTimeAndDate(time_label_, date_label_);
+  main_widget_composer_.ComposeMainFrame(ui->main_frame);
+  main_widget_composer_.ComposeTimeAndDate(time_label_, date_label_);
   main_widget_composer_.ComposeMenu(initial_menu_);
   main_widget_composer_.ComposeSplashScreen(splash_screen_);
 }

@@ -12,16 +12,14 @@ class MainWidgetComposer {
  public:
   MainWidgetComposer();
 
-  void SetMainFrame(QFrame* main_frame);
+  void ComposeMainFrame(QFrame* main_frame);
   void ComposeMenu(QWidget* widget);
   void ComposeSplashScreen(QWidget* widget);
-  void SetTimeAndDate(QLabel* time_label, QLabel* date_label);
+  void ComposeTimeAndDate(QLabel* time_label, QLabel* date_label);
   void SetDeltaSize(const DeltaSize& delta_size);
 
  private:
   void SetDefaultComposing();
-  void TuneTimeAndDateLabels(QLabel* time_label, QLabel* date_label);
-  void ComposeTimeAndDate(QLabel* time_label, QLabel* date_label);
 
   GeometryComposer menu_composer_;
   GeometryComposer label_composer_;

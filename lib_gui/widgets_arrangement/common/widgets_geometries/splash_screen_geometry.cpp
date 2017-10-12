@@ -1,12 +1,12 @@
 ﻿#include <splash_screen_geometry.h>
 
 QRect SplashScreenGeometry::kVersionLabel = {5, 5, 100, 15};
-QRect SplashScreenGeometry::kCompanyNameLabel = {50, 40, 480, 70};
+QRect SplashScreenGeometry::kCompanyNameLabel = {50, 25, 480, 70};
 QRect SplashScreenGeometry::kDateLabel = {215, 360, 160, 20};
 QRect SplashScreenGeometry::kTimeLabel = {215, 330, 160, 20};
 QRect SplashScreenGeometry::kTextLabel = {130, 295, 320, 30};
 QRect SplashScreenGeometry::kSplashScreenFrame = {5, 30, 580, 355};
-QRect SplashScreenGeometry::kAtmLabel = {130, 115, 320, 175};
+QRect SplashScreenGeometry::kAtmLabel = {130, 100, 320, 155};
 
 QRect SplashScreenGeometry::VersionLabel() { return kVersionLabel; }
 
