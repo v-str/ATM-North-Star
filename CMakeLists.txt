@@ -36,6 +36,7 @@ INCLUDE_DIRECTORIES (application/application_launch
                      lib_gui/operation_widgets/initial_menu
                      lib_gui/operation_widgets/login_menu
                      lib_gui/operation_widgets/registration_menu
+                     lib_gui/operation_widgets/splash_screen
                      lib_gui/subwidgets
                      lib_gui/widgets_appearance
                      lib_gui/widgets_arrangement/common/modificators/composite
