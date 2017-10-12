@@ -1,5 +1,7 @@
 ﻿#include <main_frame.h>
 
+#include <QResizeEvent>
+
 #include <date_label.h>
 #include <main_frame_geometry.h>
 #include <time_label.h>
@@ -11,6 +13,14 @@ MainFrame::MainFrame(QWidget* parent) : QFrame(parent) {
 }
 
 MainFrame::~MainFrame() {}
+
+void MainFrame::SetDeltaSize(int delta_width, int delta_height) {
+  main_frame_composer_.SetDeltaSize(delta_width, delta_height);
+}
+
+void MainFrame::resizeEvent(QResizeEvent*) {
+  main_frame_composer_.ComposeLabels(time_label_, date_label_);
+}
 
 void MainFrame::InitializeLabels() {
   time_label_ = new TimeLabel(this);

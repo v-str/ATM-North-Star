@@ -16,6 +16,11 @@ class MainFrame : public QFrame {
   MainFrame(QWidget* parent = nullptr);
   ~MainFrame();
 
+  void SetDeltaSize(int delta_width, int delta_height);
+
+protected:
+  void resizeEvent(QResizeEvent *);
+
  private:
   void InitializeLabels();
   void SetMainFrame();
