@@ -24,12 +24,13 @@ void SplashScreenComposer::TuneLabels(QLabel* version_label,
   text_label->setFont(WidgetFont::SetFont(15));
   text_label->setText("Press <Enter> to start");
   text_label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+
   atm_label->setText("ATM");
   atm_label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
   atm_label->setFont(WidgetFont::SetFont(55));
 }
 
-void SplashScreenComposer::SetFrame(QFrame* frame) {
+void SplashScreenComposer::ComposeFrame(QFrame* frame) {
   composer_.SetStretchFactor(1.0, 1.0);
   composer_.SetStretchSide(Side::kRight | Side::kDown);
   composer_.SetTransformationType(GeometryComposer::kStretch);

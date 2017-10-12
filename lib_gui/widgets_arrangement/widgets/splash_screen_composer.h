@@ -19,7 +19,7 @@ class SplashScreenComposer {
   void TuneLabels(QLabel* version_label, QLabel* company_name_label,
                   QLabel* text_label, QLabel* atm_label);
 
-  void SetFrame(QFrame* frame);
+  void ComposeFrame(QFrame* frame);
   void ComposeCompanyNameLabel(QLabel* company_name_label);
   void ComposeTextLabel(QLabel* text_label);
   void ComposeAtmLabel(QLabel* atm_label);
