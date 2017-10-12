@@ -8,9 +8,13 @@
 
 class MainFrameComposer {
  public:
-  void SetGeometry(QFrame* main_frame, QLabel* time_label, QLabel* date_label);
+  void SetInitialSettings(QFrame* main_frame, QLabel* time_label,
+                          QLabel* date_label);
 
  private:
+  void SetGeometry(QFrame* main_frame, QLabel* time_label,
+                   QLabel* date_label);
+
   AtmColorDesigner color_designer_;
 };
 
