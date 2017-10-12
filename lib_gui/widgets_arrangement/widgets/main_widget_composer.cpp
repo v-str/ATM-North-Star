@@ -3,6 +3,7 @@
 #include <initial_frame_geometry.h>
 #include <main_widget_geometry.h>
 #include <side.h>
+#include <splash_screen_geometry.h>
 #include <widget_font.h>
 
 MainWidgetComposer::MainWidgetComposer() { SetDefaultComposing(); }
@@ -13,6 +14,11 @@ void MainWidgetComposer::SetMainFrame(QFrame* main_frame) {
 
 void MainWidgetComposer::ComposeMenu(QWidget* widget) {
   menu_composer_.ComposeGeometry(InitialFrameGeometry::InitialFrame(), widget);
+}
+
+void MainWidgetComposer::ComposeSplashScreen(QWidget* widget) {
+  menu_composer_.ComposeGeometry(SplashScreenGeometry::SplashScreenFrame(),
+                                 widget);
 }
 
 void MainWidgetComposer::SetTimeAndDate(QLabel* time_label,

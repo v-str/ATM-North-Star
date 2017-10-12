@@ -6,7 +6,6 @@
 #include <QPoint>
 
 #include <conversion_factor.h>
-#include <geometry.h>
 #include <side.h>
 #include <splash_screen_geometry.h>
 #include <widget_font.h>
@@ -17,8 +16,11 @@ void SplashScreenComposer::TuneLabels(QLabel* version_label,
   version_label->setText("v1.0.1");
   version_label->setFont(WidgetFont::SetFont(8));
   version_label->setGeometry(SplashScreenGeometry::VersionLabel());
+
   company_name_label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
   company_name_label->setFont(WidgetFont::SetFont(25));
+  company_name_label->setGeometry(SplashScreenGeometry::CompanyNameLabel());
+
   text_label->setFont(WidgetFont::SetFont(15));
   text_label->setText("Press <Enter> to start");
   text_label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
@@ -57,8 +59,10 @@ void SplashScreenComposer::ComposeAtmLabel(QLabel* atm_label) {
 }
 
 void SplashScreenComposer::ComputeDeltas(int extra_width, int extra_height) {
-  delta_size_.SetWidth(extra_width - Geometry::InitialScreenWidth());
-  delta_size_.SetHeight(extra_height - Geometry::InitialScreenHeight());
+  delta_size_.SetWidth(extra_width -
+                       SplashScreenGeometry::SplashScreenFrame().width());
+  delta_size_.SetHeight(extra_height -
+                        SplashScreenGeometry::SplashScreenFrame().height());
   composer_.SetDeltaSize(delta_size_);
 }
 

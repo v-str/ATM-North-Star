@@ -19,7 +19,7 @@ class Shifter {
   void SetCenter(bool is_center);
 
   int XPos() const;
-  int YPOs() const;
+  int YPos() const;
 
  private:
   DeltaSize delta_size_;

@@ -110,7 +110,7 @@ void AtmMainWidget::ComposeWidgets() {
   main_widget_composer_.SetMainFrame(ui->main_frame);
   main_widget_composer_.SetTimeAndDate(time_label_, date_label_);
   main_widget_composer_.ComposeMenu(initial_menu_);
-  main_widget_composer_.ComposeMenu(splash_screen_);
+  main_widget_composer_.ComposeSplashScreen(splash_screen_);
 }
 
 void AtmMainWidget::ComputeDeltaSize() {

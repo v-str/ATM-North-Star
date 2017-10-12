@@ -54,4 +54,4 @@ void Shifter::SetCenter(bool is_center) { is_center_ = is_center; }
 
 int Shifter::XPos() const { return x_pos_; }
 
-int Shifter::YPOs() const { return y_pos_; }
+int Shifter::YPos() const { return y_pos_; }

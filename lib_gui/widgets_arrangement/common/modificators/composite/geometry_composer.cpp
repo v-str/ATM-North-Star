@@ -59,7 +59,7 @@ void GeometryComposer::KeepCenter(bool is_center) {
 void GeometryComposer::ComputeShifting(const QRect& position) {
   shifter_.ComputeShifting(position);
 
-  SetModifiedPosition(shifter_.XPos(), shifter_.YPOs(), position.width(),
+  SetModifiedPosition(shifter_.XPos(), shifter_.YPos(), position.width(),
                       position.height());
 }
 

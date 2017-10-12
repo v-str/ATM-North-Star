@@ -14,6 +14,7 @@ class MainWidgetComposer {
 
   void SetMainFrame(QFrame* main_frame);
   void ComposeMenu(QWidget* widget);
+  void ComposeSplashScreen(QWidget* widget);
   void SetTimeAndDate(QLabel* time_label, QLabel* date_label);
   void SetDeltaSize(const DeltaSize& delta_size);
 
