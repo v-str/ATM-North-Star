@@ -11,8 +11,7 @@ class ApplicationColor;
 class QTimer;
 class GraphicalInitialMenu;
 class SplashScreenFrame;
-class TimeLabel;
-class DateLabel;
+class MainFrame;
 
 namespace Ui {
 class AtmMainWidget;
@@ -47,19 +46,15 @@ class AtmMainWidget : public QMainWindow {
  private:
   void SetInitialSettings();
   void InitializeObjects();
-  void PaintWidgets();
   void SetImages();
   void SetInitialMainWidgetProperties();
   void SetConnections();
   void ComposeWidgets();
   void ComputeDeltaSize();
 
-  Ui::AtmMainWidget* ui = nullptr;
   GraphicalInitialMenu* initial_menu_ = nullptr;
   SplashScreenFrame* splash_screen_ = nullptr;
-
-  TimeLabel* time_label_ = nullptr;
-  DateLabel* date_label_ = nullptr;
+  MainFrame* main_frame_ = nullptr;
 
   MainWidgetComposer main_widget_composer_;
 

@@ -1,5 +1,4 @@
 ﻿#include <atm_main_widget.h>
-#include <ui_atm_main_widget.h>
 
 #include <QCursor>
 #include <QIcon>
@@ -15,14 +14,11 @@
 #include <geometry.h>
 #include <graphical_initial_menu.h>
 #include <initial_property_installer.h>
-#include <painter.h>
+#include <main_frame.h>
 #include <splash_screen_frame.h>
 #include <time_label.h>
 
-AtmMainWidget::AtmMainWidget(QWidget* parent)
-    : QMainWindow(parent), ui(new Ui::AtmMainWidget) {
-  ui->setupUi(this);
-
+AtmMainWidget::AtmMainWidget(QWidget* parent) : QMainWindow(parent) {
   setWindowTitle("ATM");
 
   SetInitialSettings();
@@ -30,17 +26,13 @@ AtmMainWidget::AtmMainWidget(QWidget* parent)
   SetConnections();
 }
 
-AtmMainWidget::~AtmMainWidget() {
-  delete ui;
-  delete time_label_;
-  delete date_label_;
-}
+AtmMainWidget::~AtmMainWidget() {}
 
 void AtmMainWidget::SetCompanyName(const QString& company_name) {
   splash_screen_->SetCompanyName(company_name);
 }
 
-QFrame* AtmMainWidget::GetMainFrame() const { return ui->main_frame; }
+QFrame* AtmMainWidget::GetMainFrame() const { return main_frame_; }
 
 void AtmMainWidget::ProcessLoginButtonClick() {
   emit LoginButtonClicked();
@@ -63,7 +55,6 @@ void AtmMainWidget::resizeEvent(QResizeEvent*) {
 
 void AtmMainWidget::SetInitialSettings() {
   InitializeObjects();
-  PaintWidgets();
   SetImages();
 
   setMinimumSize(kAppWidth, kAppHeight);
@@ -71,21 +62,14 @@ void AtmMainWidget::SetInitialSettings() {
 }
 
 void AtmMainWidget::InitializeObjects() {
-  splash_screen_ = new SplashScreenFrame(ui->main_frame);
-  initial_menu_ = new GraphicalInitialMenu(ui->main_frame);
-  time_label_ = new TimeLabel(static_cast<QLabel*>(ui->main_frame));
-  date_label_ = new DateLabel(static_cast<QLabel*>(ui->main_frame));
-}
-
-void AtmMainWidget::PaintWidgets() {
-  main_widget_composer_.PerformPainting(ui->main_frame, time_label_,
-                                        date_label_);
+  main_frame_ = new MainFrame(this);
+  splash_screen_ = new SplashScreenFrame(main_frame_);
+  initial_menu_ = new GraphicalInitialMenu(main_frame_);
 }
 
 void AtmMainWidget::SetImages() {
   QCursor custom_cursor(QPixmap(":/images/app_cursor.png"));
   setCursor(custom_cursor);
-
   setWindowIcon(QIcon(":/images/project_icon.png"));
 }
 
@@ -103,8 +87,6 @@ void AtmMainWidget::SetConnections() {
 }
 
 void AtmMainWidget::ComposeWidgets() {
-  main_widget_composer_.ComposeMainFrame(ui->main_frame);
-  main_widget_composer_.ComposeTimeAndDate(time_label_, date_label_);
   main_widget_composer_.ComposeMenu(initial_menu_);
   main_widget_composer_.ComposeMenu(splash_screen_);
 }
