@@ -27,7 +27,7 @@ void SplashScreenComposer::TuneLabels(QLabel* version_label,
 
   atm_label->setText("ATM");
   atm_label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
-  atm_label->setFont(WidgetFont::SetFont(55));
+  atm_label->setFont(WidgetFont::SetFont());
 }
 
 void SplashScreenComposer::ComposeFrame(QFrame* frame) {

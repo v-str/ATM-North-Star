@@ -6,7 +6,7 @@
 
 class WidgetFont {
  public:
-  static QFont SetFont(int font_point_size_pt);
+  static QFont SetFont(int font_point_size_pt = 10);
 
  private:
   static void SetFamily();
