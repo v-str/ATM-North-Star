@@ -16,6 +16,7 @@ INCLUDE_DIRECTORIES (atm_widgets
 		     operation_widgets/login_menu
 		     operation_widgets/registration_menu
                      operation_widgets/splash_screen
+                     operation_widgets/main_frame
 		     subwidgets
                      widgets_appearance
                      widgets_arrangement/common/modificators/composite
@@ -31,6 +32,7 @@ file (GLOB SOURCES "atm_widgets/*.cpp"
 	           "operation_widgets/login_menu/*.cpp"
 	           "operation_widgets/registration_menu/*.cpp"
                    "operation_widgets/splash_screen/*.cpp"
+                   "operation_widgets/main_frame/*.cpp"
 	           "subwidgets/*.cpp"
                    "widgets_appearance/*.cpp"
                    "widgets_arrangement/common/modificators/composite/*.cpp"
