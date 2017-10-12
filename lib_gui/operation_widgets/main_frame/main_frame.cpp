@@ -7,6 +7,7 @@
 MainFrame::MainFrame(QWidget* parent) : QFrame(parent) {
   InitializeLabels();
   SetMainFrame();
+  PaintMainFrame();
 }
 
 MainFrame::~MainFrame() {
@@ -21,4 +22,8 @@ void MainFrame::InitializeLabels() {
 
 void MainFrame::SetMainFrame() {
   main_frame_composer_.SetMainFrame(this, time_label_, date_label_);
+}
+
+void MainFrame::PaintMainFrame() {
+  main_frame_composer_.PaintMainFrame(this, time_label_, date_label_);
 }

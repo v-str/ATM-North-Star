@@ -19,6 +19,7 @@ class MainFrame : public QFrame {
  private:
   void InitializeLabels();
   void SetMainFrame();
+  void PaintMainFrame();
 
   TimeLabel* time_label_ = nullptr;
   DateLabel* date_label_ = nullptr;
