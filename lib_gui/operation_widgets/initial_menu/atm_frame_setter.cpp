@@ -38,12 +38,12 @@ void AtmFrameSetter::ColorizeButtons(QList<QPushButton*>* button_list) {
   color_designer_->PaintWidgetSet(button_list);
 }
 
-void AtmFrameSetter::StartHidingFrame(const QRect& geometry) {
-  emit PassParametersForHide(geometry);
+void AtmFrameSetter::StartHideFrame(const QRect& geometry) {
+  emit PassGeometryForHide(geometry);
 }
 
 void AtmFrameSetter::StartExtrudingFrame(const QRect& geometry) {
-  emit PassParametersForExtrude(geometry);
+  emit PassGeometryForExtrude(geometry);
 }
 
 void AtmFrameSetter::FinishHiding() { emit HidingComplete(); }
@@ -63,12 +63,12 @@ void AtmFrameSetter::InitializeAnimationObjects(QFrame* frame) {
 }
 
 void AtmFrameSetter::SetAnimationConnections() {
-  connect(this, SIGNAL(PassParametersForExtrude(QRect)), extrude_animator_,
+  connect(this, SIGNAL(PassGeometryForExtrude(QRect)), extrude_animator_,
           SLOT(Extrude(QRect)));
   connect(extrude_animator_, SIGNAL(AnimationComplete()), this,
           SLOT(FinishExtruding()));
 
-  connect(this, SIGNAL(PassParametersForHide(QRect)), hide_animator_,
+  connect(this, SIGNAL(PassGeometryForHide(QRect)), hide_animator_,
           SLOT(Hide(QRect)));
   connect(hide_animator_, SIGNAL(AnimationComplete()), SLOT(FinishHiding()));
 }

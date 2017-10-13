@@ -110,8 +110,9 @@ void BaseAtmFrame::SetBasicConnections() {
   connect(this, SIGNAL(PassGeometryForExtrude(QRect)), frame_setter_,
           SLOT(StartExtrudingFrame(QRect)));
   connect(frame_setter_, SIGNAL(ExtrudingComplete()), SLOT(PerformOpening()));
+
   connect(this, SIGNAL(PassGeometryForHide(QRect)), frame_setter_,
-          SLOT(StartHidingFrame(QRect)));
+          SLOT(StartHideFrame(QRect)));
   connect(frame_setter_, SIGNAL(HidingComplete()), SLOT(PerformClosing()));
 }
 

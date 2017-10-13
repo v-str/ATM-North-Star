@@ -24,7 +24,7 @@ class AtmFrameSetter : public QObject {
   void ColorizeButtons(QList<QPushButton*>* button_list);
 
  public slots:
-  void StartHidingFrame(const QRect& geometry);
+  void StartHideFrame(const QRect& geometry);
   void StartExtrudingFrame(const QRect& geometry);
 
   void FinishHiding();
@@ -34,8 +34,8 @@ class AtmFrameSetter : public QObject {
   void HidingComplete();
   void ExtrudingComplete();
 
-  void PassParametersForHide(const QRect& geometry);
-  void PassParametersForExtrude(const QRect& geometry);
+  void PassGeometryForHide(const QRect& geometry);
+  void PassGeometryForExtrude(const QRect& geometry);
 
  private:
   void InitializeAnimationObjects(QFrame* frame);

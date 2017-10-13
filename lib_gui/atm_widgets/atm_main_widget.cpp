@@ -85,7 +85,8 @@ void AtmMainWidget::SetConnections() {
           SLOT(ProcessRegistrationButtonClick()));
   connect(this, SIGNAL(ShowInitialMenu()), initial_menu_, SLOT(ShowMenu()));
 
-  connect(this, SIGNAL(CloseSplashScreen()), splash_screen_, SLOT(Close()));
+  connect(this, SIGNAL(SplashScreenEnterPressed()), splash_screen_,
+          SLOT(Close()));
   connect(splash_screen_, SIGNAL(FrameClosed()), initial_menu_,
           SLOT(ShowFirstTime()));
 }
@@ -106,7 +107,7 @@ void AtmMainWidget::ComputeDeltaSize() {
 
 void AtmMainWidget::CheckSplashScreenCondition() {
   if (!is_splash_screen_closed_) {
-    emit CloseSplashScreen();
+    emit SplashScreenEnterPressed();
     is_splash_screen_closed_ = true;
   }
 }

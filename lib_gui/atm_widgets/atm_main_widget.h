@@ -31,7 +31,7 @@ class AtmMainWidget : public QMainWindow {
   void RegistrationButtonClicked();
   void ShowInitialMenu();
   void MainWidgetGeometryChanged(const DeltaSize&);
-  void CloseSplashScreen();
+  void SplashScreenEnterPressed();
 
  public slots:
   void ProcessLoginButtonClick();
@@ -53,8 +53,8 @@ class AtmMainWidget : public QMainWindow {
 
   void CheckSplashScreenCondition();
 
-  GraphicalInitialMenu* initial_menu_ = nullptr;
   SplashScreenFrame* splash_screen_ = nullptr;
+  GraphicalInitialMenu* initial_menu_ = nullptr;
   MainFrame* main_frame_ = nullptr;
 
   MainWidgetComposer main_widget_composer_;
