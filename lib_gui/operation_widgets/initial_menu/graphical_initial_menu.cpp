@@ -19,7 +19,6 @@ GraphicalInitialMenu::GraphicalInitialMenu(QWidget* parent)
       registration_button_(new AtmButton("Registration", button_frame_)),
       v_layout_(new QVBoxLayout) {
   SetInitialFrameGeometry(InitialFrameGeometry::InitialFrame());
-  SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
 
   TuneButtons();
   SetButtonFrame();
@@ -50,6 +49,16 @@ void GraphicalInitialMenu::ProcessRegistraionButtonClick() {
 void GraphicalInitialMenu::ProcessLoginButtonClick() {
   emit PassGeometryForHide(geometry());
   emit LoginButtonClicked();
+}
+
+void GraphicalInitialMenu::ShowMenu() {
+  SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
+  Show();
+}
+
+void GraphicalInitialMenu::ShowFirstTime() {
+  SetFrameAnimation(Side::kLeft, Side::kDown, kHalfASecond, this);
+  Show();
 }
 
 void GraphicalInitialMenu::PaintWidgets() {

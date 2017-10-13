@@ -83,10 +83,11 @@ void AtmMainWidget::SetConnections() {
           SLOT(ProcessLoginButtonClick()));
   connect(initial_menu_, SIGNAL(RegistrationButtonClicked()),
           SLOT(ProcessRegistrationButtonClick()));
-  connect(this, SIGNAL(ShowInitialMenu()), initial_menu_, SLOT(Show()));
+  connect(this, SIGNAL(ShowInitialMenu()), initial_menu_, SLOT(ShowMenu()));
 
   connect(this, SIGNAL(CloseSplashScreen()), splash_screen_, SLOT(Close()));
-  connect(splash_screen_, SIGNAL(FrameClosed()), initial_menu_, SLOT(Show()));
+  connect(splash_screen_, SIGNAL(FrameClosed()), initial_menu_,
+          SLOT(ShowFirstTime()));
 }
 
 void AtmMainWidget::ComposeWidgets() {

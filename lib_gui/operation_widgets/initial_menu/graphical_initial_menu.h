@@ -31,6 +31,8 @@ class GraphicalInitialMenu : public BaseAtmFrame {
   void ProcessDemoButtonClick();
   void ProcessRegistraionButtonClick();
   void ProcessLoginButtonClick();
+  void ShowMenu();
+  void ShowFirstTime();
 
  protected:
   void resizeEvent(QResizeEvent*);
