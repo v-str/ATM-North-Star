@@ -11,6 +11,7 @@ INCLUDE_DIRECTORIES (atm_widgets
 		     features/animation
 		     features/service
 		     images
+                     operation_widgets/base
 		     operation_widgets/description_menu
 		     operation_widgets/initial_menu
 		     operation_widgets/login_menu
@@ -27,6 +28,7 @@ INCLUDE_DIRECTORIES (atm_widgets
 file (GLOB SOURCES "atm_widgets/*.cpp"
 	           "features/animation/*.cpp"
 	           "features/service/*.cpp"
+                   "operation_widgets/base/*.cpp"
 	           "operation_widgets/description_menu/*.cpp"
 	           "operation_widgets/initial_menu/*.cpp"
 	           "operation_widgets/login_menu/*.cpp"

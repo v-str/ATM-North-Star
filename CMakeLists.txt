@@ -32,6 +32,7 @@ INCLUDE_DIRECTORIES (application/application_launch
                      lib_gui/features/animation
                      lib_gui/features/service
                      lib_gui/images
+                     lib_gui/operation_widgets/base
                      lib_gui/operation_widgets/description_menu
                      lib_gui/operation_widgets/initial_menu
                      lib_gui/operation_widgets/login_menu
