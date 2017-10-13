@@ -2,7 +2,6 @@
 
 #include <QCursor>
 #include <QIcon>
-#include <QLabel>
 #include <QPixmap>
 #include <QResizeEvent>
 
@@ -15,7 +14,6 @@
 
 AtmMainWidget::AtmMainWidget(QWidget* parent) : QMainWindow(parent) {
   setWindowTitle("ATM");
-
   SetInitialSettings();
   SetInitialMainWidgetProperties();
   SetConnections();
@@ -44,16 +42,13 @@ void AtmMainWidget::ProcessInitialMenuOpening() { emit ShowInitialMenu(); }
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeDeltaSize();
   ComposeWidgets();
-
   emit MainWidgetGeometryChanged(DeltaSize(delta_width_, delta_height_));
 }
 
 void AtmMainWidget::SetInitialSettings() {
   InitializeObjects();
   SetImages();
-
   setMinimumSize(kAppWidth, kAppHeight);
-  initial_menu_->close();
 }
 
 void AtmMainWidget::InitializeObjects() {

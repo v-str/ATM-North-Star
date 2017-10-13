@@ -26,6 +26,8 @@ GraphicalInitialMenu::GraphicalInitialMenu(QWidget* parent)
   SetButtonFrameScalingProperties();
   PaintWidgets();
   SetConnections();
+
+  close();
 }
 
 GraphicalInitialMenu::~GraphicalInitialMenu() {}
