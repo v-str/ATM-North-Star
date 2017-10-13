@@ -6,6 +6,7 @@
 #include <QResizeEvent>
 
 #include <delta_size.h>
+#include <exit_dialog.h>
 #include <geometry.h>
 #include <graphical_initial_menu.h>
 #include <initial_property_installer.h>
@@ -39,13 +40,24 @@ void AtmMainWidget::ProcessRegistrationButtonClick() {
 
 void AtmMainWidget::ProcessInitialMenuOpening() { emit ShowInitialMenu(); }
 
+void AtmMainWidget::ShowExitWidget() {
+  exit_dialog_->ShowWidgetOnCenterAt(geometry());
+}
+
 void AtmMainWidget::keyPressEvent(QKeyEvent* event) {
   switch (event->key()) {
+    case Qt::Key_Escape:
+      emit Exit();
+      break;
+    case Qt::Key_Space:
+      event->ignore();
+      break;
     case Qt::Key_Enter:
     case Qt::Key_Return:
       CheckSplashScreenCondition();
       break;
   }
+  QWidget::keyPressEvent(event);
 }
 
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
@@ -61,6 +73,7 @@ void AtmMainWidget::SetInitialSettings() {
 }
 
 void AtmMainWidget::InitializeObjects() {
+  exit_dialog_ = new ExitDialog(this);
   main_frame_ = new MainFrame(this);
   splash_screen_ = new SplashScreenFrame(main_frame_);
   initial_menu_ = new GraphicalInitialMenu(main_frame_);
@@ -76,6 +89,7 @@ void AtmMainWidget::SetInitialMainWidgetProperties() {
   InitialPropertyInstaller::SetInitialProperties(
       this, kAppWidth, kAppHeight, InitialPropertyInstaller::kResize);
   setStyleSheet("background-color:black;");
+  exit_dialog_->setModal(true);
 }
 
 void AtmMainWidget::SetConnections() {
@@ -89,6 +103,7 @@ void AtmMainWidget::SetConnections() {
           SLOT(Close()));
   connect(splash_screen_, SIGNAL(FrameClosed()), initial_menu_,
           SLOT(ShowFirstTime()));
+  connect(this, SIGNAL(Exit()), SLOT(ShowExitWidget()));
 }
 
 void AtmMainWidget::ComposeWidgets() {

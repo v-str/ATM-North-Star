@@ -10,6 +10,7 @@ class QString;
 class GraphicalInitialMenu;
 class SplashScreenFrame;
 class MainFrame;
+class ExitDialog;
 
 namespace Ui {
 class AtmMainWidget;
@@ -32,11 +33,15 @@ class AtmMainWidget : public QMainWindow {
   void ShowInitialMenu();
   void MainWidgetGeometryChanged(const DeltaSize&);
   void SplashScreenEnterPressed();
+  void Exit();
 
  public slots:
   void ProcessLoginButtonClick();
   void ProcessRegistrationButtonClick();
   void ProcessInitialMenuOpening();
+
+ private slots:
+  void ShowExitWidget();
 
  protected:
   void keyPressEvent(QKeyEvent* event);
@@ -56,6 +61,7 @@ class AtmMainWidget : public QMainWindow {
   SplashScreenFrame* splash_screen_ = nullptr;
   GraphicalInitialMenu* initial_menu_ = nullptr;
   MainFrame* main_frame_ = nullptr;
+  ExitDialog* exit_dialog_ = nullptr;
 
   MainWidgetComposer main_widget_composer_;
 
