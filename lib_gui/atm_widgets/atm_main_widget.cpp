@@ -43,10 +43,7 @@ void AtmMainWidget::keyPressEvent(QKeyEvent* event) {
   switch (event->key()) {
     case Qt::Key_Enter:
     case Qt::Key_Return:
-      if (!is_splash_screen_closed_) {
-        emit CloseSplashScreen();
-        is_splash_screen_closed_ = true;
-      }
+      CheckSplashScreenCondition();
       break;
   }
 }
@@ -87,6 +84,7 @@ void AtmMainWidget::SetConnections() {
   connect(initial_menu_, SIGNAL(RegistrationButtonClicked()),
           SLOT(ProcessRegistrationButtonClick()));
   connect(this, SIGNAL(ShowInitialMenu()), initial_menu_, SLOT(Show()));
+
   connect(this, SIGNAL(CloseSplashScreen()), splash_screen_, SLOT(Close()));
   connect(splash_screen_, SIGNAL(FrameClosed()), initial_menu_, SLOT(Show()));
 }
@@ -103,4 +101,11 @@ void AtmMainWidget::ComputeDeltaSize() {
   main_widget_composer_.SetDeltaSize(DeltaSize(delta_width_, delta_height_));
   main_frame_->SetDeltaSize(delta_width_, delta_height_);
   initial_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
+}
+
+void AtmMainWidget::CheckSplashScreenCondition() {
+  if (!is_splash_screen_closed_) {
+    emit CloseSplashScreen();
+    is_splash_screen_closed_ = true;
+  }
 }
