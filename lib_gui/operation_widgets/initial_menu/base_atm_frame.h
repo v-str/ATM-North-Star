@@ -37,15 +37,21 @@ class BaseAtmFrame : public QFrame {
 
   DeltaSize GetDeltaSize() const;
 
+ signals:
+  void BackButtonClicked();
+  void PassGeometryForHide(const QRect&);
+  void PassGeometryForExtrude(const QRect&);
+  void FrameClosed();
+  void FrameOpened();
+
  public slots:
   void ProcessBackButtonClick();
   void Show();
   void Close();
 
- signals:
-  void BackButtonClicked();
-  void PassGeometryForHide(const QRect&);
-  void PassGeometryForExtrude(const QRect&);
+ private slots:
+  void PerformClosing();
+  void PerformOpening();
 
  protected:
   void ScaleBackButton();

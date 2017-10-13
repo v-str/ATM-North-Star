@@ -77,6 +77,16 @@ void BaseAtmFrame::Show() {
 
 void BaseAtmFrame::Close() { emit PassGeometryForHide(geometry()); }
 
+void BaseAtmFrame::PerformClosing() {
+  emit FrameClosed();
+  close();
+}
+
+void BaseAtmFrame::PerformOpening() {
+  emit FrameOpened();
+  show();
+}
+
 void BaseAtmFrame::ScaleBackButton() {
   composer_.SetDeltaSize(delta_size_);
   composer_.SetShiftFactor(kXShiftFactor, kYShiftFactor);
@@ -99,10 +109,10 @@ void BaseAtmFrame::SetBasicConnections() {
 
   connect(this, SIGNAL(PassGeometryForExtrude(QRect)), frame_setter_,
           SLOT(StartExtrudingFrame(QRect)));
-  connect(frame_setter_, SIGNAL(ExtrudingComplete()), SLOT(show()));
+  connect(frame_setter_, SIGNAL(ExtrudingComplete()), SLOT(PerformOpening()));
   connect(this, SIGNAL(PassGeometryForHide(QRect)), frame_setter_,
           SLOT(StartHidingFrame(QRect)));
-  connect(frame_setter_, SIGNAL(HidingComplete()), SLOT(close()));
+  connect(frame_setter_, SIGNAL(HidingComplete()), SLOT(PerformClosing()));
 }
 
 void BaseAtmFrame::SetBackButtonScaling() {

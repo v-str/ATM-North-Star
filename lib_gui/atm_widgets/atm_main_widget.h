@@ -31,7 +31,7 @@ class AtmMainWidget : public QMainWindow {
   void RegistrationButtonClicked();
   void ShowInitialMenu();
   void MainWidgetGeometryChanged(const DeltaSize&);
-  void EnterIsPressed();
+  void CloseSplashScreen();
 
  public slots:
   void ProcessLoginButtonClick();
@@ -39,7 +39,8 @@ class AtmMainWidget : public QMainWindow {
   void ProcessInitialMenuOpening();
 
  protected:
-  void resizeEvent(QResizeEvent* event);
+  void keyPressEvent(QKeyEvent* event);
+  void resizeEvent(QResizeEvent*);
 
  private:
   void SetInitialSettings();
@@ -61,6 +62,8 @@ class AtmMainWidget : public QMainWindow {
 
   static const int kAppWidth = 600;
   static const int kAppHeight = 400;
+
+  bool is_splash_screen_closed_ = false;
 };
 
 #endif  // ATM_MAIN_WIDGET_H

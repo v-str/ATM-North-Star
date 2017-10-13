@@ -39,6 +39,18 @@ void AtmMainWidget::ProcessRegistrationButtonClick() {
 
 void AtmMainWidget::ProcessInitialMenuOpening() { emit ShowInitialMenu(); }
 
+void AtmMainWidget::keyPressEvent(QKeyEvent* event) {
+  switch (event->key()) {
+    case Qt::Key_Enter:
+    case Qt::Key_Return:
+      if (!is_splash_screen_closed_) {
+        emit CloseSplashScreen();
+        is_splash_screen_closed_ = true;
+      }
+      break;
+  }
+}
+
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeDeltaSize();
   ComposeWidgets();
@@ -75,6 +87,8 @@ void AtmMainWidget::SetConnections() {
   connect(initial_menu_, SIGNAL(RegistrationButtonClicked()),
           SLOT(ProcessRegistrationButtonClick()));
   connect(this, SIGNAL(ShowInitialMenu()), initial_menu_, SLOT(Show()));
+  connect(this, SIGNAL(CloseSplashScreen()), splash_screen_, SLOT(Close()));
+  connect(splash_screen_, SIGNAL(FrameClosed()), initial_menu_, SLOT(Show()));
 }
 
 void AtmMainWidget::ComposeWidgets() {
