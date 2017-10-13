@@ -75,6 +75,8 @@ void BaseAtmFrame::Show() {
   emit PassGeometryForExtrude(widget_geometry);
 }
 
+void BaseAtmFrame::Close() { emit PassGeometryForHide(geometry()); }
+
 void BaseAtmFrame::ScaleBackButton() {
   composer_.SetDeltaSize(delta_size_);
   composer_.SetShiftFactor(kXShiftFactor, kYShiftFactor);
