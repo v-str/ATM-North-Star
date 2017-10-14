@@ -91,9 +91,6 @@ void BaseAtmFrame::ScaleBackButton() {
   composer_.SetDeltaSize(delta_size_);
   composer_.SetShiftFactor(kXShiftFactor, kYShiftFactor);
   composer_.ComposeGeometry(initial_back_button_geometry_, back_button_);
-
-  border_controller_.SetGeometryLimit(geometry());
-  border_controller_.ControlWidget(back_button_);
 }
 
 void BaseAtmFrame::ColorizeBackButton() {
