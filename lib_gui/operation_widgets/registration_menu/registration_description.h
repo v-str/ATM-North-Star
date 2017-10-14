@@ -3,6 +3,8 @@
 
 #include <base_atm_frame.h>
 
+#include <atm_color_designer.h>
+
 class QWidget;
 class QRect;
 
@@ -12,11 +14,10 @@ class RegistrationDescription : public BaseAtmFrame {
   explicit RegistrationDescription(QWidget* parent = nullptr);
   ~RegistrationDescription();
 
- public slots:
-  void ControlIndentation(const QRect& control_geometry);
-
  private:
-  static const int kIndent = 10;
+  AtmColorDesigner color_designer_;
+
+  static const int kHalfASecond = 500;
 };
 
 #endif  // REGISTRATION_DESCRIPTION_H

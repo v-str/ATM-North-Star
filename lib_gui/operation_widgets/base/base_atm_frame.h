@@ -35,11 +35,12 @@ class BaseAtmFrame : public QFrame {
 
   void ColorizeButtons(QList<QPushButton*>* button_list);
 
+  QRect GetBackButtonGeometry() const;
+
   DeltaSize GetDeltaSize() const;
 
  signals:
   void BackButtonClicked();
-  void BackButtonGeometryChanged(const QRect&);
   void PassGeometryForHide(const QRect&);
   void PassGeometryForExtrude(const QRect&);
   void FrameClosed();

@@ -58,6 +58,10 @@ void BaseAtmFrame::ColorizeButtons(QList<QPushButton*>* button_list) {
   frame_setter_->ColorizeButtons(button_list);
 }
 
+QRect BaseAtmFrame::GetBackButtonGeometry() const {
+  return back_button_->geometry();
+}
+
 DeltaSize BaseAtmFrame::GetDeltaSize() const { return delta_size_; }
 
 void BaseAtmFrame::ProcessBackButtonClick() {
@@ -91,7 +95,6 @@ void BaseAtmFrame::ScaleBackButton() {
   composer_.SetDeltaSize(delta_size_);
   composer_.SetShiftFactor(kXShiftFactor, kYShiftFactor);
   composer_.ComposeGeometry(initial_back_button_geometry_, back_button_);
-  emit BackButtonGeometryChanged(back_button_->geometry());
 }
 
 void BaseAtmFrame::ColorizeBackButton() {
