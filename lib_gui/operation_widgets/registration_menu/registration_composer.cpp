@@ -8,10 +8,10 @@
 RegistrationComposer::RegistrationComposer() { SetDefaultComposingSettings(); }
 
 void RegistrationComposer::ComposeGeometry(const DeltaSize& delta_size,
+                                           const QRect& widget_geometry,
                                            QWidget* widget_for_compose) {
   composer_.SetDeltaSize(delta_size);
-  composer_.ComposeGeometry(RegistrationMenuGeometry::RegistrationFrame(),
-                            widget_for_compose);
+  composer_.ComposeGeometry(widget_geometry, widget_for_compose);
 }
 
 void RegistrationComposer::SetDefaultComposingSettings() {

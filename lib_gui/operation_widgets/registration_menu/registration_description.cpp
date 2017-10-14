@@ -3,6 +3,6 @@
 #include <QWidget>
 
 RegistrationDescription::RegistrationDescription(QWidget* parent)
-    : BaseAtmFrame(parent) {}
+    : BaseAtmFrame(parent, BackButtonCondition::kBackButtonDeactivated) {}
 
 RegistrationDescription::~RegistrationDescription() {}

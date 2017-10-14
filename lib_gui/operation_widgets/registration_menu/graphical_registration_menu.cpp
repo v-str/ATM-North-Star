@@ -2,11 +2,12 @@
 
 #include <QWidget>
 
+#include <registration_description.h>
 #include <registration_menu_geometry.h>
 #include <side.h>
 
 GraphicalRegistrationMenu::GraphicalRegistrationMenu(QWidget* parent)
-    : BaseAtmFrame(parent) {
+    : BaseAtmFrame(parent), description_(new RegistrationDescription(this)) {
   SetInitialFrameGeometry(RegistrationMenuGeometry::RegistrationFrame());
   SetBackButton(RegistrationMenuGeometry::BackButton());
   SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
@@ -18,5 +19,8 @@ void GraphicalRegistrationMenu::ChangeRegistrationMenuGeometry(
     const DeltaSize& delta_size) {
   BaseAtmFrame::SetDeltaSize(delta_size);
   ScaleBackButton();
-  registration_composer_.ComposeGeometry(delta_size, this);
+  registration_composer_.ComposeGeometry(
+      delta_size, RegistrationMenuGeometry::RegistrationFrame(), this);
+  registration_composer_.ComposeGeometry(
+      delta_size, RegistrationMenuGeometry::DescriptionMenu(), description_);
 }

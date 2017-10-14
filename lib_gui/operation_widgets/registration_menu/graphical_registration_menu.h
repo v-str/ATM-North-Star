@@ -6,6 +6,8 @@
 #include <delta_size.h>
 #include <registration_composer.h>
 
+class RegistrationDescription;
+
 class GraphicalRegistrationMenu : public BaseAtmFrame {
   Q_OBJECT
  public:
@@ -16,6 +18,8 @@ class GraphicalRegistrationMenu : public BaseAtmFrame {
   void ChangeRegistrationMenuGeometry(const DeltaSize& delta_size);
 
  private:
+  RegistrationDescription* description_ = nullptr;
+
   RegistrationComposer registration_composer_;
 
   static const int kHalfASecond = 500;

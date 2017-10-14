@@ -5,12 +5,14 @@
 #include <geometry_composer.h>
 
 class QWidget;
+class QRect;
 
 class RegistrationComposer {
  public:
   RegistrationComposer();
 
   void ComposeGeometry(const DeltaSize& delta_size,
+                       const QRect& widget_geometry,
                        QWidget* widget_for_compose);
 
  private:
