@@ -11,6 +11,7 @@ GraphicalRegistrationMenu::GraphicalRegistrationMenu(QWidget* parent)
   SetInitialFrameGeometry(RegistrationMenuGeometry::RegistrationFrame());
   SetBackButton(RegistrationMenuGeometry::BackButton());
   SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
+  SetConnections();
 }
 
 GraphicalRegistrationMenu::~GraphicalRegistrationMenu() {}
@@ -27,4 +28,9 @@ void GraphicalRegistrationMenu::ComposeWidgets(const DeltaSize& delta_size) {
       delta_size, RegistrationMenuGeometry::RegistrationFrame(), this);
   registration_composer_.ComposeGeometry(
       delta_size, RegistrationMenuGeometry::DescriptionMenu(), description_);
+}
+
+void GraphicalRegistrationMenu::SetConnections() {
+  connect(this, SIGNAL(BackButtonGeometryChanged(QRect)), description_,
+          SLOT(ControlIndentation(QRect)));
 }
