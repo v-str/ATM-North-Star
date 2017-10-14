@@ -39,6 +39,7 @@ class BaseAtmFrame : public QFrame {
 
  signals:
   void BackButtonClicked();
+  void BackButtonGeometryChanged(const QRect&);
   void PassGeometryForHide(const QRect&);
   void PassGeometryForExtrude(const QRect&);
   void FrameClosed();
