@@ -17,8 +17,12 @@ GraphicalRegistrationMenu::~GraphicalRegistrationMenu() {}
 
 void GraphicalRegistrationMenu::ChangeRegistrationMenuGeometry(
     const DeltaSize& delta_size) {
+  ComposeWidgets(delta_size);
   BaseAtmFrame::SetDeltaSize(delta_size);
   ScaleBackButton();
+}
+
+void GraphicalRegistrationMenu::ComposeWidgets(const DeltaSize& delta_size) {
   registration_composer_.ComposeGeometry(
       delta_size, RegistrationMenuGeometry::RegistrationFrame(), this);
   registration_composer_.ComposeGeometry(

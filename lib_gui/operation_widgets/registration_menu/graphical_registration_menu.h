@@ -18,6 +18,8 @@ class GraphicalRegistrationMenu : public BaseAtmFrame {
   void ChangeRegistrationMenuGeometry(const DeltaSize& delta_size);
 
  private:
+  void ComposeWidgets(const DeltaSize& delta_size);
+
   RegistrationDescription* description_ = nullptr;
 
   RegistrationComposer registration_composer_;
