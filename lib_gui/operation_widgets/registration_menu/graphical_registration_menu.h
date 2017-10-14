@@ -4,7 +4,7 @@
 #include <base_atm_frame.h>
 
 #include <delta_size.h>
-#include <geometry_composer.h>
+#include <registration_composer.h>
 
 class GraphicalRegistrationMenu : public BaseAtmFrame {
   Q_OBJECT
@@ -16,12 +16,7 @@ class GraphicalRegistrationMenu : public BaseAtmFrame {
   void ChangeRegistrationMenuGeometry(const DeltaSize& delta_size);
 
  private:
-  void SetDefaultComposerSettings();
-
-  GeometryComposer composer_;
-
-  static constexpr double kXFactor = 1.0;
-  static constexpr double kYFactor = 1.0;
+  RegistrationComposer registration_composer_;
 
   static const int kHalfASecond = 500;
 };
