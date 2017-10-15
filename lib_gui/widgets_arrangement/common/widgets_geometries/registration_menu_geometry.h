@@ -7,11 +7,13 @@ class RegistrationMenuGeometry {
  public:
   static QRect RegistrationFrame();
   static QRect DescriptionFrame();
+  static QRect NextButton();
   static QRect BackButton();
 
  private:
   static QRect kRegistrationFrame;
   static QRect kDescriptionFrame;
+  static QRect kNextButton;
   static QRect kBackButton;
 };
 

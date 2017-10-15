@@ -7,6 +7,7 @@
 
 class QWidget;
 class QRect;
+class AtmButton;
 
 class RegistrationDescription : public BaseAtmFrame {
   Q_OBJECT
@@ -15,6 +16,8 @@ class RegistrationDescription : public BaseAtmFrame {
   ~RegistrationDescription();
 
  private:
+  AtmButton* next_button_ = nullptr;
+
   AtmColorDesigner color_designer_;
 
   static const int kHalfASecond = 500;
