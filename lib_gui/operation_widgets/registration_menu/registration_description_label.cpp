@@ -5,6 +5,7 @@
 RegistrationDescriptionLabel::RegistrationDescriptionLabel(QWidget* parent)
     : QLabel(parent) {
   SetText();
+  setWordWrap(true);
 }
 
 RegistrationDescriptionLabel::~RegistrationDescriptionLabel() {}
