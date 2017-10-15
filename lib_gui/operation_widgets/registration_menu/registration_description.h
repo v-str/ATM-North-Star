@@ -3,10 +3,9 @@
 
 #include <base_atm_frame.h>
 
-#include <atm_color_designer.h>
-
 class QWidget;
 class QRect;
+class RegistrationDescriptionLabel;
 
 class RegistrationDescription : public BaseAtmFrame {
   Q_OBJECT
@@ -15,7 +14,7 @@ class RegistrationDescription : public BaseAtmFrame {
   ~RegistrationDescription();
 
  private:
-  AtmColorDesigner color_designer_;
+  RegistrationDescriptionLabel* description_label_ = nullptr;
 
   static const int kHalfASecond = 500;
 };
