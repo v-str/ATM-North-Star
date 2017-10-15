@@ -42,4 +42,5 @@ void GraphicalRegistrationMenu::ComposeWidgets() {
 
 void GraphicalRegistrationMenu::SetConnections() {
   connect(this, SIGNAL(FrameOpened()), description_, SLOT(Show()));
+  connect(this, SIGNAL(FrameClosed()), description_, SLOT(close()));
 }
