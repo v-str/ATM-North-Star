@@ -7,13 +7,14 @@
 #include <side.h>
 
 GraphicalRegistrationMenu::GraphicalRegistrationMenu(QWidget* parent)
-    : BaseAtmFrame(parent), description_(new RegistrationDescription(this)) {
+    : BaseAtmFrame(parent),
+      registration_description_(new RegistrationDescription(this)) {
   SetInitialFrameGeometry(RegistrationMenuGeometry::RegistrationFrame());
   SetBackButton(RegistrationMenuGeometry::BackButton());
   SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
   SetConnections();
 
-  description_->close();
+  registration_description_->close();
 }
 
 GraphicalRegistrationMenu::~GraphicalRegistrationMenu() {}
@@ -36,11 +37,12 @@ void GraphicalRegistrationMenu::ComposeWidgets() {
       delta_size_, RegistrationMenuGeometry::RegistrationFrame(), this);
   registration_composer_.ComposeGeometry(
       operation_frame_delta_size_, RegistrationMenuGeometry::DescriptionFrame(),
-      description_);
-  description_->SetDeltaSize(operation_frame_delta_size_);
+      registration_description_);
+  registration_description_->SetDeltaSize(operation_frame_delta_size_);
 }
 
 void GraphicalRegistrationMenu::SetConnections() {
-  connect(this, SIGNAL(FrameOpened()), description_, SLOT(Show()));
-  connect(this, SIGNAL(FrameClosed()), description_, SLOT(close()));
+  connect(this, SIGNAL(FrameOpened()), registration_description_, SLOT(Show()));
+  connect(this, SIGNAL(FrameClosed()), registration_description_,
+          SLOT(close()));
 }

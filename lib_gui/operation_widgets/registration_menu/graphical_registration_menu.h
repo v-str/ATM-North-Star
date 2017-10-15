@@ -21,7 +21,7 @@ class GraphicalRegistrationMenu : public BaseAtmFrame {
   void ComposeWidgets();
   void SetConnections();
 
-  RegistrationDescription* description_ = nullptr;
+  RegistrationDescription* registration_description_ = nullptr;
 
   RegistrationComposer registration_composer_;
   DeltaSize operation_frame_delta_size_;
