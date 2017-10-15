@@ -15,6 +15,10 @@ class RegistrationComposer {
                        const QRect& widget_geometry,
                        QWidget* widget_for_compose);
 
+  DeltaSize ComposeDeltaSizeForDescription(
+      const QRect& back_button_geometry,
+      const DeltaSize& basic_delta_size) const;
+
  private:
   void SetDefaultComposingSettings();
 

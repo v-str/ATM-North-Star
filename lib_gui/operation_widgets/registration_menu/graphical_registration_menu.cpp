@@ -20,11 +20,21 @@ GraphicalRegistrationMenu::~GraphicalRegistrationMenu() {}
 
 void GraphicalRegistrationMenu::ChangeRegistrationMenuGeometry(
     const DeltaSize& delta_size) {
-  ComposeWidgets(delta_size);
+  // ComposeWidgets(delta_size);
   BaseAtmFrame::SetDeltaSize(delta_size);
   ScaleBackButton();
 
-  description_->SetDeltaSize(delta_size);
+  DeltaSize description_delta_size =
+      registration_composer_.ComposeDeltaSizeForDescription(
+          GetBackButtonGeometry(), delta_size);
+
+  registration_composer_.ComposeGeometry(
+      delta_size, RegistrationMenuGeometry::RegistrationFrame(), this);
+  registration_composer_.ComposeGeometry(
+      description_delta_size, RegistrationMenuGeometry::DescriptionFrame(),
+      description_);
+
+  description_->SetDeltaSize(description_delta_size);
 }
 
 void GraphicalRegistrationMenu::ComposeWidgets(const DeltaSize& delta_size) {
