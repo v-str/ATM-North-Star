@@ -20,28 +20,24 @@ GraphicalRegistrationMenu::~GraphicalRegistrationMenu() {}
 
 void GraphicalRegistrationMenu::ChangeRegistrationMenuGeometry(
     const DeltaSize& delta_size) {
-  // ComposeWidgets(delta_size);
   BaseAtmFrame::SetDeltaSize(delta_size);
   ScaleBackButton();
 
-  DeltaSize description_delta_size =
+  delta_size_ = delta_size;
+  operation_frame_delta_size_ =
       registration_composer_.ComposeDeltaSizeForDescription(
           GetBackButtonGeometry(), delta_size);
 
-  registration_composer_.ComposeGeometry(
-      delta_size, RegistrationMenuGeometry::RegistrationFrame(), this);
-  registration_composer_.ComposeGeometry(
-      description_delta_size, RegistrationMenuGeometry::DescriptionFrame(),
-      description_);
-
-  description_->SetDeltaSize(description_delta_size);
+  ComposeWidgets();
 }
 
-void GraphicalRegistrationMenu::ComposeWidgets(const DeltaSize& delta_size) {
+void GraphicalRegistrationMenu::ComposeWidgets() {
   registration_composer_.ComposeGeometry(
-      delta_size, RegistrationMenuGeometry::RegistrationFrame(), this);
+      delta_size_, RegistrationMenuGeometry::RegistrationFrame(), this);
   registration_composer_.ComposeGeometry(
-      delta_size, RegistrationMenuGeometry::DescriptionFrame(), description_);
+      operation_frame_delta_size_, RegistrationMenuGeometry::DescriptionFrame(),
+      description_);
+  description_->SetDeltaSize(operation_frame_delta_size_);
 }
 
 void GraphicalRegistrationMenu::SetConnections() {

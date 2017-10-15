@@ -18,13 +18,14 @@ class GraphicalRegistrationMenu : public BaseAtmFrame {
   void ChangeRegistrationMenuGeometry(const DeltaSize& delta_size);
 
  private:
-  void ComposeWidgets(const DeltaSize& delta_size);
-
+  void ComposeWidgets();
   void SetConnections();
 
   RegistrationDescription* description_ = nullptr;
 
   RegistrationComposer registration_composer_;
+  DeltaSize operation_frame_delta_size_;
+  DeltaSize delta_size_;
 
   static const int kHalfASecond = 500;
 };
