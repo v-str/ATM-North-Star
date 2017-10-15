@@ -6,14 +6,18 @@
 
 class QWidget;
 class QRect;
+class RegistrationDescription;
 
 class RegistrationComposer {
  public:
   RegistrationComposer();
 
-  void ComposeGeometry(const DeltaSize& delta_size,
-                       const QRect& widget_geometry,
-                       QWidget* widget_for_compose);
+  void ComposeRegistrationMenu(const DeltaSize& delta_size,
+                               QWidget* registation_menu);
+
+  void ComposeRegistrationDescription(
+      const DeltaSize& delta_size,
+      RegistrationDescription* registration_description);
 
   DeltaSize ComposeDeltaSizeForDescription(
       const QRect& back_button_geometry,

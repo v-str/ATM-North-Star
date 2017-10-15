@@ -2,16 +2,25 @@
 
 #include <QWidget>
 
+#include <registration_description.h>
 #include <registration_menu_geometry.h>
 #include <side.h>
 
 RegistrationComposer::RegistrationComposer() { SetDefaultComposingSettings(); }
 
-void RegistrationComposer::ComposeGeometry(const DeltaSize& delta_size,
-                                           const QRect& widget_geometry,
-                                           QWidget* widget_for_compose) {
+void RegistrationComposer::ComposeRegistrationMenu(const DeltaSize& delta_size,
+                                                   QWidget* registation_menu) {
   composer_.SetDeltaSize(delta_size);
-  composer_.ComposeGeometry(widget_geometry, widget_for_compose);
+  composer_.ComposeGeometry(RegistrationMenuGeometry::RegistrationFrame(),
+                            registation_menu);
+}
+
+void RegistrationComposer::ComposeRegistrationDescription(
+    const DeltaSize& delta_size,
+    RegistrationDescription* registration_description) {
+  composer_.SetDeltaSize(delta_size);
+  composer_.ComposeGeometry(RegistrationMenuGeometry::DescriptionFrame(),
+                            registration_description);
 }
 
 DeltaSize RegistrationComposer::ComposeDeltaSizeForDescription(

@@ -33,11 +33,9 @@ void GraphicalRegistrationMenu::ChangeRegistrationMenuGeometry(
 }
 
 void GraphicalRegistrationMenu::ComposeWidgets() {
-  registration_composer_.ComposeGeometry(
-      delta_size_, RegistrationMenuGeometry::RegistrationFrame(), this);
-  registration_composer_.ComposeGeometry(
-      operation_frame_delta_size_, RegistrationMenuGeometry::DescriptionFrame(),
-      registration_description_);
+  registration_composer_.ComposeRegistrationMenu(delta_size_, this);
+  registration_composer_.ComposeRegistrationDescription(
+      operation_frame_delta_size_, registration_description_);
   registration_description_->SetDeltaSize(operation_frame_delta_size_);
 }
 
