@@ -5,8 +5,6 @@
 
 class PlaceArranger {
  public:
-  enum MonitorCount { kOne = 1, kTwo, kThree, kMore };
-
   static void PlaceAtTheFirstMonitor(QWidget* widget);
 
   static void PlaceToCenterRelativelyOf(QWidget* move_widget,
