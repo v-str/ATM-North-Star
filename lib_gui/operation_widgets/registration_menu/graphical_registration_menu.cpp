@@ -19,8 +19,7 @@ GraphicalRegistrationMenu::GraphicalRegistrationMenu(QWidget* parent)
 
 GraphicalRegistrationMenu::~GraphicalRegistrationMenu() {}
 
-void GraphicalRegistrationMenu::ChangeRegistrationMenuGeometry(
-    const DeltaSize& delta_size) {
+void GraphicalRegistrationMenu::ChangeGeometry(const DeltaSize& delta_size) {
   BaseAtmFrame::SetDeltaSize(delta_size);
   ScaleBackButton();
 

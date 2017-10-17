@@ -39,8 +39,8 @@ void MainWidgetPresenter::CreateRegistrationMenu() {
 }
 
 void MainWidgetPresenter::ConnectLoginMenu() {
-  connect(atm_main_widget_, SIGNAL(MainWidgetGeometryChanged(DeltaSize)),
-          login_menu_, SLOT(ChangeLoginMenuGeometry(DeltaSize)));
+  connect(atm_main_widget_, SIGNAL(GeometryChanged(DeltaSize)), login_menu_,
+          SLOT(ChangeLoginMenuGeometry(DeltaSize)));
   connect(atm_main_widget_, SIGNAL(LoginButtonClicked()), login_menu_,
           SLOT(Show()));
   connect(login_menu_, SIGNAL(BackButtonClicked()), atm_main_widget_,
@@ -48,8 +48,8 @@ void MainWidgetPresenter::ConnectLoginMenu() {
 }
 
 void MainWidgetPresenter::ConnectRegistrationMenu() {
-  connect(atm_main_widget_, SIGNAL(MainWidgetGeometryChanged(DeltaSize)),
-          registration_menu_, SLOT(ChangeRegistrationMenuGeometry(DeltaSize)));
+  connect(atm_main_widget_, SIGNAL(GeometryChanged(DeltaSize)),
+          registration_menu_, SLOT(ChangeGeometry(DeltaSize)));
   connect(atm_main_widget_, SIGNAL(RegistrationButtonClicked()),
           registration_menu_, SLOT(Show()));
   connect(registration_menu_, SIGNAL(BackButtonClicked()), atm_main_widget_,

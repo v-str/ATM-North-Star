@@ -31,7 +31,7 @@ class AtmMainWidget : public QMainWindow {
   void LoginButtonClicked();
   void RegistrationButtonClicked();
   void ShowInitialMenu();
-  void MainWidgetGeometryChanged(const DeltaSize&);
+  void GeometryChanged(const DeltaSize&);
   void SplashScreenEnterPressed();
   void Exit();
 

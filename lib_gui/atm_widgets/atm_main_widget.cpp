@@ -30,12 +30,12 @@ QFrame* AtmMainWidget::GetMainFrame() const { return main_frame_; }
 
 void AtmMainWidget::ProcessLoginButtonClick() {
   emit LoginButtonClicked();
-  emit MainWidgetGeometryChanged(DeltaSize(delta_width_, delta_height_));
+  emit GeometryChanged(DeltaSize(delta_width_, delta_height_));
 }
 
 void AtmMainWidget::ProcessRegistrationButtonClick() {
   emit RegistrationButtonClicked();
-  emit MainWidgetGeometryChanged(DeltaSize(delta_width_, delta_height_));
+  emit GeometryChanged(DeltaSize(delta_width_, delta_height_));
 }
 
 void AtmMainWidget::ProcessInitialMenuOpening() { emit ShowInitialMenu(); }
@@ -63,7 +63,7 @@ void AtmMainWidget::keyPressEvent(QKeyEvent* event) {
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeDeltaSize();
   ComposeWidgets();
-  emit MainWidgetGeometryChanged(DeltaSize(delta_width_, delta_height_));
+  emit GeometryChanged(DeltaSize(delta_width_, delta_height_));
 }
 
 void AtmMainWidget::SetInitialSettings() {
