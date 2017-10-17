@@ -1,5 +1,5 @@
-﻿#include "exit_dialog.h"
-#include "ui_exit_dialog.h"
+﻿#include <exit_dialog.h>
+#include <ui_exit_dialog.h>
 
 #include <QApplication>
 #include <QCursor>
