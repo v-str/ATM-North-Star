@@ -28,6 +28,12 @@ void WidgetCenterArranger::DetermineAmountOfScreens() {
   kScreenCount = QApplication::desktop()->screenCount();
 }
 
-void WidgetCenterArranger::SetScreenDivider() {}
+void WidgetCenterArranger::SetScreenDivider() {
+  if (IsScreenCountEven()) {
+    kScreenDivider = kScreenCount;
+  } else {
+    kScreenDivider = 2;
+  }
+}
 
 bool WidgetCenterArranger::IsScreenCountEven() { return kScreenCount % 2 == 0; }
