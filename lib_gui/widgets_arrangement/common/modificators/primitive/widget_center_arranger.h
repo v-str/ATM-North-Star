@@ -11,17 +11,14 @@ class WidgetCenterArranger {
 
   static void ArrangeWidget(QWidget* widget);
 
-  static void MoveToCenter(QWidget* widget);
   static void MoveToCenterRelativelyOf(QWidget* move_widget,
                                        const QRect& position);
 
  private:
   static void DetermineAmountOfScreens();
-  static void SetScreenDivider();
-  static bool IsScreenCountEven();
+  static void CalculatePositionOffset();
 
   static int kScreenCount;
-  static int kScreenDivider;
 };
 
 #endif  // WIDGET_CENTER_ARRANGER_H

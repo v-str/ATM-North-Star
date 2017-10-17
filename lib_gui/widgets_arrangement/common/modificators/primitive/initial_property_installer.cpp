@@ -5,9 +5,7 @@
 #include <widget_center_arranger.h>
 
 void InitialPropertyInstaller::SetInitialProperties(
-    QWidget* widget,
-    int widget_width,
-    int widget_height,
+    QWidget* widget, int widget_width, int widget_height,
     const WidgetSize& widget_size) {
   switch (widget_size) {
     case kResize:
@@ -20,5 +18,5 @@ void InitialPropertyInstaller::SetInitialProperties(
       break;
   }
 
-  WidgetCenterArranger::MoveToCenter(widget);
+  WidgetCenterArranger::ArrangeWidget(widget);
 }
