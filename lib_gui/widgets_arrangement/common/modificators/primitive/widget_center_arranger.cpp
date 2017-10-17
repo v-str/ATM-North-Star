@@ -3,7 +3,11 @@
 #include <QApplication>
 #include <QDesktopWidget>
 
+int WidgetCenterArranger::kAmountOfScreens = 1;
+
 void WidgetCenterArranger::MoveToCenter(QWidget* widget) {
+  DetermineAmountOfScreens();
+
   widget->move((QApplication::desktop()->width() / 4) - widget->width() / 2,
                (QApplication::desktop()->height() / 2) - widget->height() / 2);
 }
@@ -14,4 +18,8 @@ void WidgetCenterArranger::MoveToCenterRelativelyOf(QWidget* move_widget,
   int y = position.y() + (position.height() / 2) - (move_widget->height() / 2);
 
   move_widget->move(x, y);
+}
+
+void WidgetCenterArranger::DetermineAmountOfScreens() {
+  kAmountOfScreens = QApplication::desktop()->screenCount();
 }
