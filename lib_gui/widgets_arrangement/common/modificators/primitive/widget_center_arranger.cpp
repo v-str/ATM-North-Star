@@ -1,30 +1,24 @@
-﻿#include "widget_center_arranger.h"
+﻿#include <widget_center_arranger.h>
 
 #include <QApplication>
 #include <QDesktopWidget>
 
-#include <QDebug>
+void WidgetCenterArranger::ArrangeToCenter(QWidget* widget) {
+  int x = HalfOf(QApplication::desktop()->width() /
+                     QApplication::desktop()->screenCount() -
+                 widget->width());
 
-int WidgetCenterArranger::kScreenCount = 1;
-
-void WidgetCenterArranger::ArrangeWidget(QWidget* widget) {
-  DetermineAmountOfScreens();
-
-  int x = (QApplication::desktop()->width() / kScreenCount) / 2 -
-          widget->width() / 2;
-  int y = (QApplication::desktop()->height() / 2) - widget->height() / 2;
+  int y = HalfOf(QApplication::desktop()->height() - widget->height());
 
   widget->move(x, y);
 }
 
-void WidgetCenterArranger::MoveToCenterRelativelyOf(QWidget* move_widget,
-                                                    const QRect& position) {
-  int x = position.x() + (position.width() / 2) - (move_widget->width() / 2);
-  int y = position.y() + (position.height() / 2) - (move_widget->height() / 2);
+void WidgetCenterArranger::ArrangeToCenterRelativelyOf(QWidget* move_widget,
+                                                       const QRect& rectangle) {
+  int x = rectangle.x() + HalfOf(rectangle.width() - move_widget->width());
+  int y = rectangle.y() + HalfOf(rectangle.height() - move_widget->height());
 
   move_widget->move(x, y);
 }
 
-void WidgetCenterArranger::DetermineAmountOfScreens() {
-  kScreenCount = QApplication::desktop()->screenCount();
-}
+int WidgetCenterArranger::HalfOf(int length) { return length / 2; }

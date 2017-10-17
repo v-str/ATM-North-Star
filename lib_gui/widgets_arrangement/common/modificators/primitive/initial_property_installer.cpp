@@ -18,5 +18,5 @@ void InitialPropertyInstaller::SetInitialProperties(
       break;
   }
 
-  WidgetCenterArranger::ArrangeWidget(widget);
+  WidgetCenterArranger::ArrangeToCenter(widget);
 }

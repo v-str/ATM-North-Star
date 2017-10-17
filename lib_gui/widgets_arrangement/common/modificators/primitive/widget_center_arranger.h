@@ -9,16 +9,13 @@ class WidgetCenterArranger {
  public:
   enum MonitorCount { kOne = 1, kTwo, kThree, kMore };
 
-  static void ArrangeWidget(QWidget* widget);
+  static void ArrangeToCenter(QWidget* widget);
 
-  static void MoveToCenterRelativelyOf(QWidget* move_widget,
-                                       const QRect& position);
+  static void ArrangeToCenterRelativelyOf(QWidget* move_widget,
+                                          const QRect& rectangle);
 
  private:
-  static void DetermineAmountOfScreens();
-  static void CalculatePositionOffset();
-
-  static int kScreenCount;
+  static int HalfOf(int length);
 };
 
 #endif  // WIDGET_CENTER_ARRANGER_H
