@@ -3,8 +3,6 @@
 
 #include <QWidget>
 
-class QRect;
-
 class WidgetCenterArranger {
  public:
   enum MonitorCount { kOne = 1, kTwo, kThree, kMore };
@@ -15,6 +13,7 @@ class WidgetCenterArranger {
                                           const QRect& rectangle);
 
  private:
+  static int FirstScreenWidth();
   static int HalfOf(int length);
 };
 

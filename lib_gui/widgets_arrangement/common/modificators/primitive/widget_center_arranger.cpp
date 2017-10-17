@@ -4,9 +4,7 @@
 #include <QDesktopWidget>
 
 void WidgetCenterArranger::ArrangeToCenter(QWidget* widget) {
-  int x = HalfOf(QApplication::desktop()->width() /
-                     QApplication::desktop()->screenCount() -
-                 widget->width());
+  int x = HalfOf(FirstScreenWidth() - widget->width());
 
   int y = HalfOf(QApplication::desktop()->height() - widget->height());
 
@@ -19,6 +17,11 @@ void WidgetCenterArranger::ArrangeToCenterRelativelyOf(QWidget* move_widget,
   int y = rectangle.y() + HalfOf(rectangle.height() - move_widget->height());
 
   move_widget->move(x, y);
+}
+
+int WidgetCenterArranger::FirstScreenWidth() {
+  return QApplication::desktop()->width() /
+         QApplication::desktop()->screenCount();
 }
 
 int WidgetCenterArranger::HalfOf(int length) { return length / 2; }
