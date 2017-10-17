@@ -34,7 +34,7 @@ void ExitDialog::SetExitDialogAppearance() {
 void ExitDialog::SetBackgroundColor() { color_designer_.SetBackground(this); }
 
 void ExitDialog::ShowWidgetOnCenterAt(const QRect& widget_geometry) {
-  WidgetCenterArranger::ArrangeToCenterRelativelyOf(this, widget_geometry);
+  WidgetCenterArranger::PlaceToCenterRelativelyOf(this, widget_geometry);
   show();
 }
 

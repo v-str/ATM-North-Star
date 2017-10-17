@@ -7,10 +7,10 @@ class WidgetCenterArranger {
  public:
   enum MonitorCount { kOne = 1, kTwo, kThree, kMore };
 
-  static void ArrangeToCenter(QWidget* widget);
+  static void PlaceAtTheFirstMonitor(QWidget* widget);
 
-  static void ArrangeToCenterRelativelyOf(QWidget* move_widget,
-                                          const QRect& rectangle);
+  static void PlaceToCenterRelativelyOf(QWidget* move_widget,
+                                        const QRect& rectangle);
 
  private:
   static int FirstScreenWidth();
