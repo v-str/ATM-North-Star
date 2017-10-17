@@ -1,26 +1,26 @@
-﻿#include <widget_center_arranger.h>
+﻿#include <place_arranger.h>
 
 #include <QApplication>
 #include <QDesktopWidget>
 
-void WidgetCenterArranger::PlaceAtTheFirstMonitor(QWidget* widget) {
+void PlaceArranger::PlaceAtTheFirstMonitor(QWidget* widget) {
   int x = HalfOf(FirstScreenWidth() - widget->width());
   int y = HalfOf(QApplication::desktop()->height() - widget->height());
 
   widget->move(x, y);
 }
 
-void WidgetCenterArranger::PlaceToCenterRelativelyOf(QWidget* move_widget,
-                                                     const QRect& rectangle) {
+void PlaceArranger::PlaceToCenterRelativelyOf(QWidget* move_widget,
+                                              const QRect& rectangle) {
   int x = rectangle.x() + HalfOf(rectangle.width() - move_widget->width());
   int y = rectangle.y() + HalfOf(rectangle.height() - move_widget->height());
 
   move_widget->move(x, y);
 }
 
-int WidgetCenterArranger::FirstScreenWidth() {
+int PlaceArranger::FirstScreenWidth() {
   return QApplication::desktop()->width() /
          QApplication::desktop()->screenCount();
 }
 
-int WidgetCenterArranger::HalfOf(int length) { return length / 2; }
+int PlaceArranger::HalfOf(int length) { return length / 2; }

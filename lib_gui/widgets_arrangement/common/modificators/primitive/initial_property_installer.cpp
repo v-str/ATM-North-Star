@@ -2,7 +2,7 @@
 
 #include <QWidget>
 
-#include <widget_center_arranger.h>
+#include <place_arranger.h>
 
 void InitialPropertyInstaller::SetInitialProperties(
     QWidget* widget, int widget_width, int widget_height,
@@ -18,5 +18,5 @@ void InitialPropertyInstaller::SetInitialProperties(
       break;
   }
 
-  WidgetCenterArranger::PlaceAtTheFirstMonitor(widget);
+  PlaceArranger::PlaceAtTheFirstMonitor(widget);
 }

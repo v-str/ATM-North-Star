@@ -1,9 +1,9 @@
-﻿#ifndef WIDGET_CENTER_ARRANGER_H
-#define WIDGET_CENTER_ARRANGER_H
+﻿#ifndef PLACE_ARRANGER_H
+#define PLACE_ARRANGER_H
 
 #include <QWidget>
 
-class WidgetCenterArranger {
+class PlaceArranger {
  public:
   enum MonitorCount { kOne = 1, kTwo, kThree, kMore };
 
@@ -17,4 +17,4 @@ class WidgetCenterArranger {
   static int HalfOf(int length);
 };
 
-#endif  // WIDGET_CENTER_ARRANGER_H
+#endif  // PLACE_ARRANGER_H
