@@ -4,6 +4,7 @@
 #include <QDesktopWidget>
 
 int WidgetCenterArranger::kAmountOfScreens = 1;
+int WidgetCenterArranger::kScreenDivider = 1;
 
 void WidgetCenterArranger::MoveToCenter(QWidget* widget) {
   DetermineAmountOfScreens();
