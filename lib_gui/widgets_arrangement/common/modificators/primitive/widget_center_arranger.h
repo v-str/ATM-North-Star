@@ -9,6 +9,8 @@ class WidgetCenterArranger {
  public:
   enum MonitorCount { kOne = 1, kTwo, kThree, kMore };
 
+  static void ArrangeWidget(QWidget* widget);
+
   static void MoveToCenter(QWidget* widget);
   static void MoveToCenterRelativelyOf(QWidget* move_widget,
                                        const QRect& position);

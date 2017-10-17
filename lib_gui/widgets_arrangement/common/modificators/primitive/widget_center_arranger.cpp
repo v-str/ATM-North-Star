@@ -6,6 +6,8 @@
 int WidgetCenterArranger::kAmountOfScreens = 1;
 int WidgetCenterArranger::kScreenDivider = 1;
 
+void WidgetCenterArranger::ArrangeWidget(QWidget* widget) {}
+
 void WidgetCenterArranger::MoveToCenter(QWidget* widget) {
   DetermineAmountOfScreens();
 
