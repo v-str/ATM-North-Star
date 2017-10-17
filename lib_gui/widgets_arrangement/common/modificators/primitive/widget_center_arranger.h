@@ -18,6 +18,7 @@ class WidgetCenterArranger {
  private:
   static void DetermineAmountOfScreens();
   static void SetScreenDivider();
+  static bool IsScreenCountEven();
 
   static int kScreenCount;
   static int kScreenDivider;

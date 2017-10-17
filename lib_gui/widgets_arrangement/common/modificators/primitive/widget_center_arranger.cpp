@@ -10,6 +10,7 @@ void WidgetCenterArranger::ArrangeWidget(QWidget* widget) {}
 
 void WidgetCenterArranger::MoveToCenter(QWidget* widget) {
   DetermineAmountOfScreens();
+  SetScreenDivider();
 
   widget->move((QApplication::desktop()->width() / 4) - widget->width() / 2,
                (QApplication::desktop()->height() / 2) - widget->height() / 2);
@@ -28,3 +29,5 @@ void WidgetCenterArranger::DetermineAmountOfScreens() {
 }
 
 void WidgetCenterArranger::SetScreenDivider() {}
+
+bool WidgetCenterArranger::IsScreenCountEven() { return kScreenCount % 2 == 0; }
