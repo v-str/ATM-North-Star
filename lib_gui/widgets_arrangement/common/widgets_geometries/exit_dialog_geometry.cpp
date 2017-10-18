@@ -14,4 +14,4 @@ QRect ExitDialogGeometry::ButtonYes() { return kButtonYes; }
 
 QRect ExitDialogGeometry::ButtonNo() { return kButtonNo; }
 
-QRect ExitDialogGeometry::MessageScreen() { return kMessageScreen; }
+QRect ExitDialogGeometry::ScreenMessage() { return kMessageScreen; }

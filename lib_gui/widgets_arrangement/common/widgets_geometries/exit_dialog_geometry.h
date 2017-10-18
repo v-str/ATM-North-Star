@@ -9,7 +9,7 @@ class ExitDialogGeometry {
   static QRect ExitDialogFrame();
   static QRect ButtonYes();
   static QRect ButtonNo();
-  static QRect MessageScreen();
+  static QRect ScreenMessage();
 
  private:
   static QRect kExitDialog;

@@ -8,10 +8,9 @@
 class QTimer;
 class QString;
 class QRect;
-
-namespace Ui {
-class ExitDialog;
-}
+class QLabel;
+class QFrame;
+class AtmButton;
 
 class ExitDialog : public QDialog {
   Q_OBJECT
@@ -24,6 +23,7 @@ class ExitDialog : public QDialog {
 
  private:
   void SetBackgroundColor();
+  void SetGeometry();
   void SetExitDialogAppearance();
 
   void SetConnections();
@@ -31,7 +31,10 @@ class ExitDialog : public QDialog {
   void PaintWidgets();
   void SetFontStyle();
 
-  Ui::ExitDialog* ui = nullptr;
+  QFrame* exit_dialog_frame_ = nullptr;
+  AtmButton* button_yes_ = nullptr;
+  AtmButton* button_no_ = nullptr;
+  QLabel* screen_message_ = nullptr;
 
   AtmColorDesigner color_designer_;
 
