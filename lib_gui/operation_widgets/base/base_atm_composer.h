@@ -25,6 +25,8 @@ class BaseAtmComposer {
 
   static constexpr double kButtonStretchX = 0.7;
   static constexpr double kButtonStretchY = 0.3;
+  static constexpr double kButtonShiftX = 0.0;
+  static constexpr double kButtonShiftY = 1.0;
 };
 
 #endif  // BASE_ATM_COMPOSER_H
