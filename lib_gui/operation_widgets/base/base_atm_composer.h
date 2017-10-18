@@ -9,15 +9,22 @@
 
 class BaseAtmComposer {
  public:
+  BaseAtmComposer();
+
   void SetDeltaSize(const DeltaSize& delta_size);
   void ComposeFrame(QWidget* widget);
   void ComposeBackButton(QWidget* widget);
 
  private:
-  AtmButton button_composer_;
-  AtmButton frame_composer_;
+  void SetButtonComposer();
+
+  GeometryComposer button_composer_;
+  GeometryComposer frame_composer_;
 
   DeltaSize delta_size_;
+
+  static constexpr double kButtonStretchX = 0.7;
+  static constexpr double kButtonStretchY = 0.3;
 };
 
 #endif  // BASE_ATM_COMPOSER_H
