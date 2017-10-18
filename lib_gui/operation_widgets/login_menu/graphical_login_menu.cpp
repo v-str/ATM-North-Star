@@ -18,7 +18,7 @@ GraphicalLoginMenu::GraphicalLoginMenu(QWidget* parent) : BaseAtmFrame(parent) {
 
 GraphicalLoginMenu::~GraphicalLoginMenu() {}
 
-void GraphicalLoginMenu::ChangeLoginMenuGeometry(const DeltaSize& delta_size) {
+void GraphicalLoginMenu::ChangeGeometry(const DeltaSize& delta_size) {
   BaseAtmFrame::SetDeltaSize(delta_size);
   ScaleBackButton();
   composer_.SetDeltaSize(delta_size);

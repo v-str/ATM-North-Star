@@ -40,7 +40,7 @@ void MainWidgetPresenter::CreateRegistrationMenu() {
 
 void MainWidgetPresenter::ConnectLoginMenu() {
   connect(atm_main_widget_, SIGNAL(GeometryChanged(DeltaSize)), login_menu_,
-          SLOT(ChangeLoginMenuGeometry(DeltaSize)));
+          SLOT(ChangeGeometry(DeltaSize)));
   connect(atm_main_widget_, SIGNAL(LoginButtonClicked()), login_menu_,
           SLOT(Show()));
   connect(login_menu_, SIGNAL(BackButtonClicked()), atm_main_widget_,
