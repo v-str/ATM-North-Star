@@ -43,10 +43,12 @@ class BaseAtmFrame : public QFrame {
   void BackButtonClicked();
   void PassGeometryForHide(const QRect&);
   void PassGeometryForExtrude(const QRect&);
+  void GeometryChanged(const DeltaSize&);
   void FrameClosed();
   void FrameOpened();
 
  public slots:
+  void ChangeGeometry(const DeltaSize& delta_size);
   void ProcessBackButtonClick();
   void Show();
   void Close();
@@ -70,6 +72,8 @@ class BaseAtmFrame : public QFrame {
   QRect initial_back_button_geometry_;
 
   GeometryComposer button_composer_;
+  GeometryComposer composer_;
+
   WidgetBorderController border_controller_;
   DeltaSize delta_size_;
 

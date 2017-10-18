@@ -7,6 +7,7 @@
 #include <QPixmap>
 #include <QString>
 
+#include <exit_dialog_geometry.h>
 #include <initial_property_installer.h>
 #include <place_arranger.h>
 #include <widget_font.h>
