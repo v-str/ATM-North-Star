@@ -5,15 +5,17 @@
 BaseAtmComposer::BaseAtmComposer() { SetButtonComposer(); }
 
 void BaseAtmComposer::SetDeltaSize(const DeltaSize& delta_size) {
-  delta_size_ = delta_size;
+  button_composer_.SetDeltaSize(delta_size);
 }
 
 void BaseAtmComposer::ComposeFrame(QWidget* widget) {
   // perform composing
 }
 
-void BaseAtmComposer::ComposeBackButton(QWidget* widget) {
-  // perform composing
+void BaseAtmComposer::ComposeBackButton(const QRect& button_geometry,
+                                        QWidget* widget) {
+  button_composer_.SetShiftFactor(kButtonShiftX, kButtonShiftY);
+  button_composer_.ComposeGeometry(button_geometry, widget);
 }
 
 void BaseAtmComposer::SetButtonComposer() {
