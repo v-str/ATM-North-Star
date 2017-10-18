@@ -65,9 +65,9 @@ QRect BaseAtmFrame::GetBackButtonGeometry() const {
 DeltaSize BaseAtmFrame::GetDeltaSize() const { return delta_size_; }
 
 void BaseAtmFrame::ChangeGeometry(const DeltaSize& delta_size) {
-  // SetDeltaSize(delta_size);
+  composer_.SetDeltaSize(delta_size);
+  composer_.ComposeBackButton(initial_back_button_geometry_, back_button_);
   // ComposeFrame(this);
-  // ComposeButton();
 }
 
 void BaseAtmFrame::ProcessBackButtonClick() {
