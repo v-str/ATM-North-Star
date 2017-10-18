@@ -69,7 +69,7 @@ class BaseAtmFrame : public QFrame {
   QRect initial_frame_geometry_;
   QRect initial_back_button_geometry_;
 
-  GeometryComposer composer_;
+  GeometryComposer button_composer_;
   WidgetBorderController border_controller_;
   DeltaSize delta_size_;
 

@@ -28,14 +28,10 @@ void AtmMainWidget::SetCompanyName(const QString& company_name) {
 
 QFrame* AtmMainWidget::GetMainFrame() const { return main_frame_; }
 
-void AtmMainWidget::ProcessLoginButtonClick() {
-  emit LoginButtonClicked();
-  emit GeometryChanged(DeltaSize(delta_width_, delta_height_));
-}
+void AtmMainWidget::ProcessLoginButtonClick() { emit LoginButtonClicked(); }
 
 void AtmMainWidget::ProcessRegistrationButtonClick() {
   emit RegistrationButtonClicked();
-  emit GeometryChanged(DeltaSize(delta_width_, delta_height_));
 }
 
 void AtmMainWidget::ProcessInitialMenuOpening() { emit ShowInitialMenu(); }
