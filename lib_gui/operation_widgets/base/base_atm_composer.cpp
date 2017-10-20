@@ -1,5 +1,6 @@
 ﻿#include <base_atm_composer.h>
 
+#include <button_property.h>
 #include <side.h>
 
 BaseAtmComposer::BaseAtmComposer() {
@@ -23,10 +24,14 @@ void BaseAtmComposer::ComposeBackButton(const QRect& button_geometry,
 }
 
 void BaseAtmComposer::SetButtonComposer() {
-  button_composer_.SetShiftFactor(kButtonShiftX, kButtonShiftY);
+  button_composer_.SetShiftFactor(ButtonProperty::ShiftX(),
+                                  ButtonProperty::ShiftY());
   button_composer_.SetShiftSide(Side::kRight | Side::kDown);
-  button_composer_.SetStretchFactor(kButtonStretchX, kButtonStretchY);
+
+  button_composer_.SetStretchFactor(ButtonProperty::StretchX(),
+                                    ButtonProperty::StretchY());
   button_composer_.SetStretchSide(Side::kUp | Side::kRight);
+
   button_composer_.SetTransformationType(GeometryComposer::kScale);
 }
 
