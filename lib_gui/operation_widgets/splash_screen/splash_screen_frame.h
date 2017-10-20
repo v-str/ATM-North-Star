@@ -20,11 +20,10 @@ class SplashScreenFrame : public BaseAtmFrame {
 
   void SetCompanyName(const QString& company_name);
 
- private slots:
-  void BlinkAtmLabelColor();
+ public slots:
+  void ChangeSPG(const DeltaSize& delta_size);
 
- protected:
-  void resizeEvent(QResizeEvent*);
+  void BlinkAtmLabelColor();
 
  private:
   void SetSplashScreenSettings();

@@ -7,9 +7,12 @@
 #include <splash_screen_geometry.h>
 #include <widget_font.h>
 
+#include <QDebug>
+
 void SplashScreenComposer::TuneLabels(QLabel* version_label,
                                       QLabel* company_name_label,
-                                      QLabel* text_label, QLabel* atm_label) {
+                                      QLabel* text_label,
+                                      QLabel* atm_label) {
   version_label->setText("v1.0.1");
   version_label->setGeometry(SplashScreenGeometry::VersionLabel());
   version_label->setFont(WidgetFont::SetFont(8));
@@ -54,12 +57,11 @@ void SplashScreenComposer::ComposeTextLabel(QLabel* text_label) {
 void SplashScreenComposer::ComposeAtmLabel(QLabel* atm_label) {
   atm_label_stretcher_.StretchAtmLabel(atm_label, delta_size_.Width(),
                                        delta_size_.Height());
+
+  qDebug() << delta_size_.Width() << " " << delta_size_.Height();
 }
 
-void SplashScreenComposer::ComputeDeltas(int extra_width, int extra_height) {
-  delta_size_.SetWidth(extra_width -
-                       SplashScreenGeometry::SplashScreenFrame().width());
-  delta_size_.SetHeight(extra_height -
-                        SplashScreenGeometry::SplashScreenFrame().height());
-  composer_.SetDeltaSize(delta_size_);
+void SplashScreenComposer::SetDeltaSize(const DeltaSize& delta_size) {
+  composer_.SetDeltaSize(delta_size);
+  delta_size_ = delta_size;
 }

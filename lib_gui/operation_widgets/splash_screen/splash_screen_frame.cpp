@@ -9,6 +9,8 @@
 #include <splash_screen_geometry.h>
 #include <text_color_swapper.h>
 
+#include <QDebug>
+
 SplashScreenFrame::SplashScreenFrame(QWidget* parent)
     : BaseAtmFrame(parent, kBackButtonDeactivated) {
   SetSplashScreenSettings();
@@ -29,16 +31,18 @@ void SplashScreenFrame::SetCompanyName(const QString& company_name) {
   company_name_label_->setText(company_name);
 }
 
-void SplashScreenFrame::BlinkAtmLabelColor() {
-  text_color_swapper_->SwapColors(atm_label_);
-}
-
-void SplashScreenFrame::resizeEvent(QResizeEvent*) {
-  composer_.ComputeDeltas(width(), height());
-
+void SplashScreenFrame::ChangeSPG(const DeltaSize& delta_size) {
+  qDebug() << "in splash screen\nwidth: " << width() << " "
+           << "height: " << height();
+  composer_.SetDeltaSize(delta_size);
+  composer_.ComposeFrame(this);
   composer_.ComposeCompanyNameLabel(company_name_label_);
   composer_.ComposeAtmLabel(atm_label_);
   composer_.ComposeTextLabel(text_label_);
+}
+
+void SplashScreenFrame::BlinkAtmLabelColor() {
+  text_color_swapper_->SwapColors(atm_label_);
 }
 
 void SplashScreenFrame::SetSplashScreenSettings() {
