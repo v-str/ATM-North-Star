@@ -17,6 +17,7 @@ class BaseAtmComposer {
 
  private:
   void SetButtonComposer();
+  void SetFrameComposer();
 
   GeometryComposer button_composer_;
   GeometryComposer frame_composer_;
@@ -25,6 +26,9 @@ class BaseAtmComposer {
   static constexpr double kButtonStretchY = 0.3;
   static constexpr double kButtonShiftX = 0.0;
   static constexpr double kButtonShiftY = 1.0;
+
+  static constexpr double kFrameStretchX = 1.0;
+  static constexpr double kFrameStretchY = 1.0;
 };
 
 #endif  // BASE_ATM_COMPOSER_H
