@@ -36,12 +36,15 @@ void BaseAtmFrame::SetDeltaSize(const DeltaSize& delta_size) {
 void BaseAtmFrame::SetInitialFrameGeometry(const QRect& geometry) {
   setGeometry(geometry);
   initial_frame_geometry_ = geometry;
+  composer_.SetFrameGeometry(geometry);
 }
 
 void BaseAtmFrame::SetBackButton(const QRect& geometry) {
   back_button_->setGeometry(geometry);
   initial_back_button_geometry_ = geometry;
   back_button_->setFont(WidgetFont::SetFont(13));
+
+  composer_.SetButtonGeometry(geometry);
 }
 
 void BaseAtmFrame::SetFrameAnimation(unsigned int hide_to,

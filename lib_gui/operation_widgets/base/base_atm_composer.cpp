@@ -5,13 +5,13 @@
 #include <side.h>
 
 BaseAtmComposer::BaseAtmComposer() {
-  SetButtonComposer();
   SetFrameComposer();
+  SetButtonComposer();
 }
 
 void BaseAtmComposer::SetDeltaSize(const DeltaSize& delta_size) {
-  button_composer_.SetDeltaSize(delta_size);
   frame_composer_.SetDeltaSize(delta_size);
+  button_composer_.SetDeltaSize(delta_size);
 }
 
 void BaseAtmComposer::ComposeFrame(const QRect& frame_geometry,
@@ -24,6 +24,20 @@ void BaseAtmComposer::ComposeBackButton(const QRect& button_geometry,
   button_composer_.ComposeGeometry(button_geometry, widget);
 }
 
+void BaseAtmComposer::SetFrameGeometry(const QRect& frame_geometry) {
+  frame_geometry_ = frame_geometry;
+}
+
+void BaseAtmComposer::SetButtonGeometry(const QRect& button_geometry) {
+  button_geometry_ = button_geometry;
+}
+
+void BaseAtmComposer::SetFrameComposer() {
+  frame_composer_.SetStretchFactor(FrameProperty::StretchX(),
+                                   FrameProperty::StretchY());
+  frame_composer_.SetStretchSide(Side::kRight | Side::kDown);
+}
+
 void BaseAtmComposer::SetButtonComposer() {
   button_composer_.SetShiftFactor(ButtonProperty::ShiftX(),
                                   ButtonProperty::ShiftY());
@@ -34,10 +48,4 @@ void BaseAtmComposer::SetButtonComposer() {
   button_composer_.SetStretchSide(Side::kUp | Side::kRight);
 
   button_composer_.SetTransformationType(GeometryComposer::kScale);
-}
-
-void BaseAtmComposer::SetFrameComposer() {
-  frame_composer_.SetStretchFactor(FrameProperty::StretchX(),
-                                   FrameProperty::StretchY());
-  frame_composer_.SetStretchSide(Side::kRight | Side::kDown);
 }
