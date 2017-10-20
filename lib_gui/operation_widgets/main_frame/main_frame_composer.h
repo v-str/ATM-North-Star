@@ -20,7 +20,7 @@ class MainFrameComposer {
 
   void ComposeLabels(QLabel* time_label, QLabel* date_label);
 
-  void SetDeltaSize(int delta_width, int delta_height);
+  void SetDeltaSize(const DeltaSize& delta_size);
 
  private:
   void SetDefaultComposing();

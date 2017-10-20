@@ -13,6 +13,8 @@
 #include <main_frame.h>
 #include <splash_screen_frame.h>
 
+#include <QDebug>
+
 AtmMainWidget::AtmMainWidget(QWidget* parent) : QMainWindow(parent) {
   setWindowTitle("ATM");
   SetInitialSettings();
@@ -59,7 +61,8 @@ void AtmMainWidget::keyPressEvent(QKeyEvent* event) {
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeDeltaSize();
   ComposeWidgets();
-  emit GeometryChanged(DeltaSize(delta_width_, delta_height_));
+  emit GeometryChanged(delta_size_);
+  qDebug() << "geometry changed";
 }
 
 void AtmMainWidget::SetInitialSettings() {
@@ -105,15 +108,15 @@ void AtmMainWidget::SetConnections() {
 void AtmMainWidget::ComposeWidgets() {
   main_widget_composer_.ComposeMainFrame(main_frame_);
   main_widget_composer_.ComposeInitialMenu(initial_menu_);
-  main_widget_composer_.ComposeSplashScreen(splash_screen_);
+  // main_widget_composer_.ComposeSplashScreen(splash_screen_);
 }
 
 void AtmMainWidget::ComputeDeltaSize() {
-  delta_width_ = width() - Geometry::InitialScreenWidth();
-  delta_height_ = height() - Geometry::InitialScreenHeight();
-  main_widget_composer_.SetDeltaSize(DeltaSize(delta_width_, delta_height_));
-  main_frame_->SetDeltaSize(delta_width_, delta_height_);
-  initial_menu_->SetDeltaSize(DeltaSize(delta_width_, delta_height_));
+  delta_size_.SetWidth(width() - Geometry::InitialScreenWidth());
+  delta_size_.SetHeight(height() - Geometry::InitialScreenHeight());
+  main_widget_composer_.SetDeltaSize(delta_size_);
+  main_frame_->SetDeltaSize(delta_size_);
+  initial_menu_->SetDeltaSize(delta_size_);
 }
 
 void AtmMainWidget::CheckSplashScreenCondition() {

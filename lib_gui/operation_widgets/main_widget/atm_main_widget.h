@@ -65,8 +65,7 @@ class AtmMainWidget : public QMainWindow {
 
   MainWidgetComposer main_widget_composer_;
 
-  int delta_width_ = 0;
-  int delta_height_ = 0;
+  DeltaSize delta_size_;
 
   static const int kAppWidth = 600;
   static const int kAppHeight = 400;

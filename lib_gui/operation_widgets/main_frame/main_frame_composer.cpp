@@ -28,8 +28,8 @@ void MainFrameComposer::ComposeLabels(QLabel* time_label, QLabel* date_label) {
   composer_.ComposeGeometry(MainFrameGeometry::DateLabel(), date_label);
 }
 
-void MainFrameComposer::SetDeltaSize(int delta_width, int delta_height) {
-  composer_.SetDeltaSize(DeltaSize(delta_width, delta_height));
+void MainFrameComposer::SetDeltaSize(const DeltaSize& delta_size) {
+  composer_.SetDeltaSize(delta_size);
 }
 
 void MainFrameComposer::SetDefaultComposing() {

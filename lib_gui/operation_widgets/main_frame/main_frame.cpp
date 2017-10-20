@@ -14,8 +14,8 @@ MainFrame::MainFrame(QWidget* parent) : QFrame(parent) {
 
 MainFrame::~MainFrame() {}
 
-void MainFrame::SetDeltaSize(int delta_width, int delta_height) {
-  main_frame_composer_.SetDeltaSize(delta_width, delta_height);
+void MainFrame::SetDeltaSize(const DeltaSize& delta_size) {
+  main_frame_composer_.SetDeltaSize(delta_size);
 }
 
 void MainFrame::resizeEvent(QResizeEvent*) {
