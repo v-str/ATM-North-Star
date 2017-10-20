@@ -14,14 +14,12 @@ void BaseAtmComposer::SetDeltaSize(const DeltaSize& delta_size) {
   button_composer_.SetDeltaSize(delta_size);
 }
 
-void BaseAtmComposer::ComposeFrame(const QRect& frame_geometry,
-                                   QWidget* widget) {
-  frame_composer_.ComposeGeometry(frame_geometry, widget);
+void BaseAtmComposer::ComposeFrame(QWidget* widget) {
+  frame_composer_.ComposeGeometry(frame_geometry_, widget);
 }
 
-void BaseAtmComposer::ComposeBackButton(const QRect& button_geometry,
-                                        QWidget* widget) {
-  button_composer_.ComposeGeometry(button_geometry, widget);
+void BaseAtmComposer::ComposeBackButton(QWidget* widget) {
+  button_composer_.ComposeGeometry(button_geometry_, widget);
 }
 
 void BaseAtmComposer::SetFrameGeometry(const QRect& frame_geometry) {

@@ -13,8 +13,8 @@ class BaseAtmComposer {
   BaseAtmComposer();
 
   void SetDeltaSize(const DeltaSize& delta_size);
-  void ComposeFrame(const QRect& frame_geometry, QWidget* widget);
-  void ComposeBackButton(const QRect& button_geometry, QWidget* widget);
+  void ComposeFrame(QWidget* widget);
+  void ComposeBackButton(QWidget* widget);
 
   void SetFrameGeometry(const QRect& frame_geometry);
   void SetButtonGeometry(const QRect& button_geometry);

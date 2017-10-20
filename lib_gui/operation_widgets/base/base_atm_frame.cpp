@@ -72,9 +72,9 @@ void BaseAtmFrame::ChangeGeometry(const DeltaSize& delta_size) {
   composer_.SetDeltaSize(delta_size);
 
   if (is_back_button_activated_) {
-    composer_.ComposeBackButton(initial_back_button_geometry_, back_button_);
+    composer_.ComposeBackButton(back_button_);
   }
-  composer_.ComposeFrame(initial_frame_geometry_, this);
+  composer_.ComposeFrame(this);
 }
 
 void BaseAtmFrame::ProcessBackButtonClick() {
