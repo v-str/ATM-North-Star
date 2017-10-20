@@ -18,11 +18,11 @@ void BaseAtmComposer::ComposeFrame(QWidget* widget) {
 
 void BaseAtmComposer::ComposeBackButton(const QRect& button_geometry,
                                         QWidget* widget) {
-  button_composer_.SetShiftFactor(kButtonShiftX, kButtonShiftY);
   button_composer_.ComposeGeometry(button_geometry, widget);
 }
 
 void BaseAtmComposer::SetButtonComposer() {
+  button_composer_.SetShiftFactor(kButtonShiftX, kButtonShiftY);
   button_composer_.SetShiftSide(Side::kRight | Side::kDown);
   button_composer_.SetStretchFactor(kButtonStretchX, kButtonStretchY);
   button_composer_.SetStretchSide(Side::kUp | Side::kRight);
