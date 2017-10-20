@@ -15,6 +15,7 @@ BaseAtmFrame::BaseAtmFrame(QWidget* parent,
     : QFrame(parent), frame_setter_(new AtmFrameSetter(this)) {
   switch (back_button_condition) {
     case kBackButtonActivated:
+      is_back_button_activated_ = true;
       back_button_ = (new AtmButton("back", this));
       ColorizeBackButton();
       SetBackButtonScaling();

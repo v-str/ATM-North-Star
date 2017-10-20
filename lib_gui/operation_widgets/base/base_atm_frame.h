@@ -79,6 +79,9 @@ class BaseAtmFrame : public QFrame {
   WidgetBorderController border_controller_;
   DeltaSize delta_size_;
 
+  bool is_back_button_activated_ = false;
+
+  // Move to composer!
   static constexpr double kXShiftFactor = 0.0;
   static constexpr double kYShiftFactor = 1.0;
   static constexpr double kXStretchFactor = 0.07;
