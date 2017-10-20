@@ -21,9 +21,6 @@ class BaseAtmComposer {
 
   GeometryComposer button_composer_;
   GeometryComposer frame_composer_;
-
-  static constexpr double kFrameStretchX = 1.0;
-  static constexpr double kFrameStretchY = 1.0;
 };
 
 #endif  // BASE_ATM_COMPOSER_H

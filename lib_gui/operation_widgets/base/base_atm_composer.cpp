@@ -1,6 +1,7 @@
 ﻿#include <base_atm_composer.h>
 
 #include <button_property.h>
+#include <frame_property.h>
 #include <side.h>
 
 BaseAtmComposer::BaseAtmComposer() {
@@ -36,6 +37,7 @@ void BaseAtmComposer::SetButtonComposer() {
 }
 
 void BaseAtmComposer::SetFrameComposer() {
-  frame_composer_.SetStretchFactor(kFrameStretchX, kFrameStretchY);
+  frame_composer_.SetStretchFactor(FrameProperty::StretchX(),
+                                   FrameProperty::StretchY());
   frame_composer_.SetStretchSide(Side::kRight | Side::kDown);
 }
