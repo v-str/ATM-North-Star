@@ -1,8 +1,6 @@
-﻿#ifndef SCALING_PROPERY_H
-#define SCALING_PROPERY_H
+﻿#ifndef SCALING_PROPERTY_H
+#define SCALING_PROPERTY_H
 
-struct ScalingPropery {
- public:
-};
+struct ScalingProperty {};
 
-#endif  // SCALING_PROPERY_H
+#endif  // SCALING_PROPERTY_H
