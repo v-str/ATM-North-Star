@@ -34,7 +34,6 @@ void GraphicalDescriptionMenu::SetDeltaSize(const DeltaSize& delta_size) {
 }
 
 void GraphicalDescriptionMenu::resizeEvent(QResizeEvent*) {
-  ScaleBackButton();
   BaseAtmFrame::SetDeltaSize(delta_size_);
   composer_.SetDeltaSize(delta_size_);
 

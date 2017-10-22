@@ -20,7 +20,6 @@ GraphicalRegistrationMenu::~GraphicalRegistrationMenu() {}
 
 void GraphicalRegistrationMenu::ChangeGeometry(const DeltaSize& delta_size) {
   SetDeltaSize(delta_size);
-  ScaleBackButton();
 
   registration_composer_.ComposeRegistrationMenu(delta_size, this);
 

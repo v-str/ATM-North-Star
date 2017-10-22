@@ -83,11 +83,6 @@ void BaseAtmFrame::PerformOpening() {
   show();
 }
 
-void BaseAtmFrame::ScaleBackButton() {
-  base_composer_.SetDeltaSize(delta_size_);
-  base_composer_.ComposeBackButton(back_button_);
-}
-
 void BaseAtmFrame::ColorizeBackButton() {
   QList<QPushButton*> button_list{back_button_};
   frame_setter_->ColorizeButtons(&button_list);

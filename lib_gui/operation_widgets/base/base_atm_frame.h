@@ -55,9 +55,6 @@ class BaseAtmFrame : public QFrame {
   void PerformClosing();
   void PerformOpening();
 
- protected:
-  void ScaleBackButton();
-
  private:
   void ColorizeBackButton();
   void SetBasicConnections();

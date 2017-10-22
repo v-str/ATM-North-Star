@@ -20,7 +20,6 @@ GraphicalLoginMenu::~GraphicalLoginMenu() {}
 
 void GraphicalLoginMenu::ChangeGeometry(const DeltaSize& delta_size) {
   BaseAtmFrame::SetDeltaSize(delta_size);
-  ScaleBackButton();
   composer_.SetDeltaSize(delta_size);
   composer_.ComposeGeometry(LoginMenuGeometry::LoginFrame(), this);
 }
