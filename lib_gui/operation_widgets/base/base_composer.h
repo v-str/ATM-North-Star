@@ -4,14 +4,17 @@
 #include <delta_size.h>
 #include <geometry_composer.h>
 
+class AtmButton;
+
 class BaseComposer {
  public:
+  void SetDeltaSize(const DeltaSize& delta_size);
+  void ComposeBackButton(AtmButton* back_button);
+
  private:
   void SetBackButtonSettings();
 
   GeometryComposer back_button_composer_;
-  GeometryComposer composer_;
-
   DeltaSize delta_size_;
 };
 
