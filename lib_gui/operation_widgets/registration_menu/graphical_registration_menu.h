@@ -18,14 +18,12 @@ class GraphicalRegistrationMenu : public BaseAtmFrame {
   void ChangeGeometry(const DeltaSize& delta_size) override;
 
  private:
-  void ComposeWidgets();
   void SetConnections();
 
   RegistrationDescription* registration_description_ = nullptr;
 
   RegistrationComposer registration_composer_;
   DeltaSize operation_frame_delta_size_;
-  DeltaSize delta_size_;
 
   static const int kHalfASecond = 500;
 };
