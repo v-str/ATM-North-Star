@@ -56,8 +56,6 @@ QRect BaseAtmFrame::GetBackButtonGeometry() const {
   return back_button_->geometry();
 }
 
-DeltaSize BaseAtmFrame::GetDeltaSize() const { return delta_size_; }
-
 void BaseAtmFrame::ProcessBackButtonClick() {
   emit PassGeometryForHide(geometry());
   emit BackButtonClicked();

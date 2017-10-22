@@ -9,7 +9,6 @@
 #include <base_composer.h>
 #include <delta_size.h>
 #include <geometry_composer.h>
-#include <widget_border_controller.h>
 
 class AtmButton;
 class AtmFrameSetter;
@@ -36,8 +35,6 @@ class BaseAtmFrame : public QFrame {
   void ColorizeButtons(QList<QPushButton*>* button_list);
 
   QRect GetBackButtonGeometry() const;
-
-  DeltaSize GetDeltaSize() const;
 
  signals:
   void BackButtonClicked();
@@ -69,7 +66,6 @@ class BaseAtmFrame : public QFrame {
 
   QRect initial_frame_geometry_;
 
-  WidgetBorderController border_controller_;
   DeltaSize delta_size_;
 
   bool is_back_button_activated_ = false;
