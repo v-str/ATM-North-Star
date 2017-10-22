@@ -110,8 +110,8 @@ void AtmMainWidget::SetConnections() {
 }
 
 void AtmMainWidget::ComputeDeltaSize() {
-  delta_size_.SetWidth(width() - AppGeometry::InitialScreenWidth());
-  delta_size_.SetHeight(height() - AppGeometry::InitialScreenHeight());
+  delta_size_.SetWidth(width() - AppGeometry::InitialWidth());
+  delta_size_.SetHeight(height() - AppGeometry::InitialHeight());
   main_widget_composer_.SetDeltaSize(delta_size_);
   main_frame_->SetDeltaSize(delta_size_);
 }

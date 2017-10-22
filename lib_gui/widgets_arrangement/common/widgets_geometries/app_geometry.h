@@ -3,12 +3,12 @@
 
 class AppGeometry {
  public:
-  static int InitialScreenWidth();
-  static int InitialScreenHeight();
+  static int InitialWidth();
+  static int InitialHeight();
 
  private:
-  static const int kInitialScreenWidth = 600;
-  static const int kInitialScreenHeight = 400;
+  static const int kInitialWidth = 600;
+  static const int kInitialHeight = 400;
 };
 
 #endif  // APP_GEOMETRY_H
