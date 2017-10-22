@@ -21,7 +21,7 @@ GraphicalDescriptionMenu::GraphicalDescriptionMenu(QWidget* parent)
 
   description_title_->setText("Description");
 
-  SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
+  SetFrameAnimation(Side::kLeft, Side::kRight, this);
 
   SetConnections();
 }

@@ -20,8 +20,6 @@ class GraphicalLoginMenu : public BaseAtmFrame {
 
   static constexpr double kXFactor = 1.0;
   static constexpr double kYFactor = 1.0;
-
-  static const int kHalfASecond = 500;
 };
 
 #endif  // GRAPHICAL_LOGIN_MENU_H

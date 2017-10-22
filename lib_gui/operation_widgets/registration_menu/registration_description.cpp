@@ -11,7 +11,7 @@ RegistrationDescription::RegistrationDescription(QWidget* parent)
     : BaseAtmFrame(parent, BackButtonCondition::kBackButtonDeactivated),
       description_label_(new RegistrationDescriptionLabel(this)) {
   SetInitialFrameGeometry(RegistrationMenuGeometry::DescriptionFrame());
-  SetFrameAnimation(Side::kUp, Side::kDown, kHalfASecond, this);
+  SetFrameAnimation(Side::kUp, Side::kDown, this);
 }
 
 RegistrationDescription::~RegistrationDescription() {}

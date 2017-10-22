@@ -10,7 +10,7 @@ GraphicalRegistrationMenu::GraphicalRegistrationMenu(QWidget* parent)
     : BaseAtmFrame(parent),
       registration_description_(new RegistrationDescription(this)) {
   SetInitialFrameGeometry(RegistrationMenuGeometry::RegistrationFrame());
-  SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
+  SetFrameAnimation(Side::kLeft, Side::kRight, this);
   SetConnections();
 
   registration_description_->close();

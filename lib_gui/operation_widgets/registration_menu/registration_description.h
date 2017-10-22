@@ -15,8 +15,6 @@ class RegistrationDescription : public BaseAtmFrame {
 
  private:
   RegistrationDescriptionLabel* description_label_ = nullptr;
-
-  static const int kHalfASecond = 500;
 };
 
 #endif  // REGISTRATION_DESCRIPTION_H

@@ -39,8 +39,8 @@ void BaseAtmFrame::SetInitialFrameGeometry(const QRect& geometry) {
 
 void BaseAtmFrame::SetFrameAnimation(unsigned int hide_to,
                                      unsigned int extrude_from,
-                                     unsigned int duration_msec,
-                                     QFrame* animated_frame) {
+                                     QFrame* animated_frame,
+                                     unsigned int duration_msec) {
   // SetOperationFrame - always at the first position
   frame_setter_->SetOperationFrame(animated_frame);
 

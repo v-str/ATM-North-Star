@@ -29,8 +29,8 @@ class BaseAtmFrame : public QFrame {
   void SetInitialFrameGeometry(const QRect& geometry);
   void SetFrameAnimation(unsigned int hide_to,
                          unsigned int extrude_from,
-                         unsigned int duration_msec,
-                         QFrame* animated_frame);
+                         QFrame* animated_frame,
+                         unsigned int duration_msec = 500);
 
   void ColorizeButtons(QList<QPushButton*>* button_list);
 
@@ -65,12 +65,10 @@ class BaseAtmFrame : public QFrame {
   AtmFrameSetter* frame_setter_ = nullptr;
 
   QRect initial_frame_geometry_;
-
   DeltaSize delta_size_;
+  BaseComposer base_composer_;
 
   bool is_back_button_activated_ = false;
-
-  BaseComposer base_composer_;
 };
 
 #endif  // BASE_ATM_FRAME_H

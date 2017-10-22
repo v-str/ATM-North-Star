@@ -39,7 +39,6 @@ class GraphicalDescriptionMenu : public BaseAtmFrame {
   WidgetBorderController border_controller_;
   DeltaSize delta_size_;
 
-  static const int kHalfASecond = 500;
   static constexpr int DescriptionXStretchFactor = 1.0;
   static constexpr int DescriptionYStretchFactor = 1.0;
 };

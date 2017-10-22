@@ -47,7 +47,7 @@ void SplashScreenFrame::BlinkAtmLabelColor() {
 
 void SplashScreenFrame::SetSplashScreenSettings() {
   SetInitialFrameGeometry(SplashScreenGeometry::SplashScreenFrame());
-  SetFrameAnimation(Side::kUp, Side::kDown, kHalfASecond, this);
+  SetFrameAnimation(Side::kUp, Side::kDown, this);
 }
 
 void SplashScreenFrame::InitializeObjects() {

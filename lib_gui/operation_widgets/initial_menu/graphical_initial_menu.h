@@ -55,8 +55,6 @@ class GraphicalInitialMenu : public BaseAtmFrame {
 
   static constexpr double kXFactor = 0.5;
   static constexpr double kYFactor = 0.5;
-
-  static const int kHalfASecond = 500;
 };
 
 #endif  // GRAPHICAL_INITIAL_MENU_H

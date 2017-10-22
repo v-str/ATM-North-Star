@@ -52,12 +52,12 @@ void GraphicalInitialMenu::ProcessLoginButtonClick() {
 }
 
 void GraphicalInitialMenu::ShowMenu() {
-  SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
+  SetFrameAnimation(Side::kLeft, Side::kRight, this);
   Show();
 }
 
 void GraphicalInitialMenu::ShowFirstTime() {
-  SetFrameAnimation(Side::kLeft, Side::kDown, kHalfASecond, this);
+  SetFrameAnimation(Side::kLeft, Side::kDown, this);
   Show();
 }
 
