@@ -6,7 +6,6 @@
 #include <QObject>
 #include <QRect>
 
-#include <base_atm_composer.h>
 #include <delta_size.h>
 #include <geometry_composer.h>
 #include <widget_border_controller.h>
@@ -49,7 +48,6 @@ class BaseAtmFrame : public QFrame {
   void FrameOpened();
 
  public slots:
-  void ChangeGeometry(const DeltaSize& delta_size);
   void ProcessBackButtonClick();
   void Show();
   void Close();
@@ -73,8 +71,6 @@ class BaseAtmFrame : public QFrame {
   QRect initial_back_button_geometry_;
 
   GeometryComposer button_composer_;
-
-  BaseAtmComposer composer_;
 
   WidgetBorderController border_controller_;
   DeltaSize delta_size_;
