@@ -10,14 +10,14 @@ class BaseComposer {
  public:
   BaseComposer();
 
-  void SetDeltaSize(const DeltaSize& delta_size);
-  void ComposeBackButton(AtmButton* back_button);
+  static void SetDeltaSize(const DeltaSize& delta_size);
+  static void ComposeBackButton(AtmButton* back_button);
 
  private:
-  void SetBackButtonSettings();
+  static void SetBackButtonSettings();
 
-  GeometryComposer back_button_composer_;
-  DeltaSize delta_size_;
+  static GeometryComposer kBackButtonCompser;
+  static DeltaSize kDeltaSize;
 };
 
 #endif  // BASE_COMPOSER_H
