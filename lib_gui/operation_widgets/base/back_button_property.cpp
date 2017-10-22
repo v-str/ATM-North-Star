@@ -1,8 +1,8 @@
 ﻿#include <back_button_property.h>
 
-QRect BackButtonProperty::kBackButton = {5, 320, 50, 30};
+QRect BackButtonProperty::kBackButtonGeometry = {5, 320, 50, 30};
 
-QRect BackButtonProperty::BackButton() { return kBackButton; }
+QRect BackButtonProperty::BackButtonGeometry() { return kBackButtonGeometry; }
 
 double BackButtonProperty::XShift() { return kXShift; }
 

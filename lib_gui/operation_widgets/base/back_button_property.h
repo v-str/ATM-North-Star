@@ -5,7 +5,7 @@
 
 class BackButtonProperty {
  public:
-  static QRect BackButton();
+  static QRect BackButtonGeometry();
 
   static double XShift();
   static double YShift();
@@ -13,7 +13,7 @@ class BackButtonProperty {
   static double YStretch();
 
  private:
-  static QRect kBackButton;
+  static QRect kBackButtonGeometry;
 
   static constexpr double kXShift = 0.0;
   static constexpr double kYShift = 1.0;
