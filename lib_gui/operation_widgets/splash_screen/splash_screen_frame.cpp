@@ -31,7 +31,7 @@ void SplashScreenFrame::SetCompanyName(const QString& company_name) {
   company_name_label_->setText(company_name);
 }
 
-void SplashScreenFrame::ChangeSPG(const DeltaSize& delta_size) {
+void SplashScreenFrame::ChangeGeometry(const DeltaSize& delta_size) {
   qDebug() << "in splash screen\nwidth: " << width() << " "
            << "height: " << height();
   composer_.SetDeltaSize(delta_size);

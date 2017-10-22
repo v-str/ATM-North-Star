@@ -19,6 +19,7 @@ GraphicalInitialMenu::GraphicalInitialMenu(QWidget* parent)
       registration_button_(new AtmButton("Registration", button_frame_)),
       v_layout_(new QVBoxLayout) {
   SetInitialFrameGeometry(InitialFrameGeometry::InitialFrame());
+  SetButtonFrameScalingProperties();
 
   TuneButtons();
   SetButtonFrame();
@@ -34,6 +35,16 @@ GraphicalInitialMenu::~GraphicalInitialMenu() {}
 void GraphicalInitialMenu::SetDeltaSize(const DeltaSize& delta_size) {
   BaseAtmFrame::SetDeltaSize(delta_size);
   delta_size_ = delta_size;
+}
+
+void GraphicalInitialMenu::ChangeGeometry(const DeltaSize& delta_size) {
+  SetDeltaSize(delta_size_);
+
+  composer_.SetDeltaSize(delta_size_);
+  composer_.ComposeGeometry(InitialFrameGeometry::ButtonFrame(), button_frame_);
+
+  border_controller_.SetGeometryLimit(geometry());
+  border_controller_.ControlWidget(button_frame_);
 }
 
 void GraphicalInitialMenu::ProcessDemoButtonClick() {
@@ -102,15 +113,4 @@ void GraphicalInitialMenu::SetConnections() {
           SLOT(ProcessRegistraionButtonClick()));
   connect(login_button_, SIGNAL(clicked(bool)),
           SLOT(ProcessLoginButtonClick()));
-}
-
-void GraphicalInitialMenu::resizeEvent(QResizeEvent*) {
-  BaseAtmFrame::SetDeltaSize(delta_size_);
-  SetButtonFrameScalingProperties();
-
-  composer_.SetDeltaSize(delta_size_);
-  composer_.ComposeGeometry(InitialFrameGeometry::ButtonFrame(), button_frame_);
-
-  border_controller_.SetGeometryLimit(geometry());
-  border_controller_.ControlWidget(button_frame_);
 }

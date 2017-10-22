@@ -105,7 +105,9 @@ void AtmMainWidget::SetConnections() {
   connect(this, SIGNAL(Exit()), SLOT(ShowExitWidget()));
 
   connect(this, SIGNAL(GeometryChanged(DeltaSize)), splash_screen_,
-          SLOT(ChangeSPG(DeltaSize)));
+          SLOT(ChangeGeometry(DeltaSize)));
+  connect(this, SIGNAL(GeometryChanged(DeltaSize)), initial_menu_,
+          SLOT(ChangeGeometry(DeltaSize)));
 }
 
 void AtmMainWidget::ComposeWidgets() {

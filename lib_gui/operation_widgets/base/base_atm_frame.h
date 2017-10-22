@@ -45,6 +45,8 @@ class BaseAtmFrame : public QFrame {
   void FrameOpened();
 
  public slots:
+  virtual void ChangeGeometry(const DeltaSize& delta_size) = 0;
+
   void ProcessBackButtonClick();
   void Show();
   void Close();

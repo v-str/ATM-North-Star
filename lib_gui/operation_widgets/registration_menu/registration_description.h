@@ -13,6 +13,9 @@ class RegistrationDescription : public BaseAtmFrame {
   explicit RegistrationDescription(QWidget* parent = nullptr);
   ~RegistrationDescription();
 
+ public slots:
+  void ChangeGeometry(const DeltaSize& delta_size) override;
+
  private:
   RegistrationDescriptionLabel* description_label_ = nullptr;
 };

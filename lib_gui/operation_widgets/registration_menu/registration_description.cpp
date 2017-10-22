@@ -15,3 +15,5 @@ RegistrationDescription::RegistrationDescription(QWidget* parent)
 }
 
 RegistrationDescription::~RegistrationDescription() {}
+
+void RegistrationDescription::ChangeGeometry(const DeltaSize& delta_size) {}

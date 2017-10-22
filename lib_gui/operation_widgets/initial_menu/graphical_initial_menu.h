@@ -28,14 +28,13 @@ class GraphicalInitialMenu : public BaseAtmFrame {
   void LoginButtonClicked();
 
  public slots:
+  void ChangeGeometry(const DeltaSize& delta_size) override;
+
   void ProcessDemoButtonClick();
   void ProcessRegistraionButtonClick();
   void ProcessLoginButtonClick();
   void ShowMenu();
   void ShowFirstTime();
-
- protected:
-  void resizeEvent(QResizeEvent*);
 
  private:
   void PaintWidgets();

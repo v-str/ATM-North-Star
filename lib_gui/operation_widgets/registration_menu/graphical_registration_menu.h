@@ -15,7 +15,7 @@ class GraphicalRegistrationMenu : public BaseAtmFrame {
   ~GraphicalRegistrationMenu();
 
  public slots:
-  void ChangeGeometry(const DeltaSize& delta_size);
+  void ChangeGeometry(const DeltaSize& delta_size) override;
 
  private:
   void ComposeWidgets();
