@@ -3,6 +3,7 @@
 
 #include <QRect>
 
+#include <back_button_composer.h>
 #include <delta_size.h>
 #include <geometry_composer.h>
 
@@ -11,8 +12,6 @@ class QWidget;
 
 class AtmComposer {
  public:
-  AtmComposer();
-
   static void SetDeltaSize(const DeltaSize& delta_size);
   static void ComposeBackButton(AtmButton* back_button);
   static void ComposeWidget(const QRect& widget_geometry, QWidget* widget);
@@ -20,7 +19,7 @@ class AtmComposer {
  private:
   static void SetBackButtonSettings();
 
-  static GeometryComposer kBackButtonComposer;
+  static BackButtonComposer kBackButtonComposer;
   static DeltaSize kDeltaSize;
 };
 
