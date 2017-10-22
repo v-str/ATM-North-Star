@@ -68,6 +68,11 @@ void GraphicalInitialMenu::PaintWidgets() {
   QList<QPushButton*> button_list{login_button_, registration_button_};
 
   ColorizeButtons(&button_list);
+
+  button_frame_->setStyleSheet(
+      "QFrame{"
+      "border: 0px solid black;"
+      "}");
 }
 
 void GraphicalInitialMenu::TuneButtons() {
@@ -80,10 +85,6 @@ void GraphicalInitialMenu::TuneButtons() {
 
 void GraphicalInitialMenu::SetButtonFrame() {
   button_frame_->setGeometry(InitialFrameGeometry::ButtonFrame());
-
-  button_frame_->setStyleSheet(
-      "QFrame {"
-      "border: 0px;}");
 
   v_layout_->addWidget(login_button_);
   v_layout_->addWidget(registration_button_);
