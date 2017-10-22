@@ -19,11 +19,8 @@ GraphicalInitialMenu::GraphicalInitialMenu(QWidget* parent)
       registration_button_(new AtmButton("Registration", button_frame_)),
       v_layout_(new QVBoxLayout) {
   SetInitialFrameGeometry(InitialFrameGeometry::InitialFrame());
-  SetButtonFrameScalingProperties();
-
   TuneButtons();
   SetButtonFrame();
-  SetButtonFrameScalingProperties();
   PaintWidgets();
   SetConnections();
 
@@ -32,16 +29,11 @@ GraphicalInitialMenu::GraphicalInitialMenu(QWidget* parent)
 
 GraphicalInitialMenu::~GraphicalInitialMenu() {}
 
-void GraphicalInitialMenu::SetDeltaSize(const DeltaSize& delta_size) {
-  BaseAtmFrame::SetDeltaSize(delta_size);
-  delta_size_ = delta_size;
-}
-
 void GraphicalInitialMenu::ChangeGeometry(const DeltaSize& delta_size) {
   SetDeltaSize(delta_size);
 
-  composer_.SetDeltaSize(delta_size);
-  composer_.ComposeGeometry(InitialFrameGeometry::ButtonFrame(), button_frame_);
+  menu_composer_.ComposeMenu(delta_size, this);
+  menu_composer_.ComposeFrame(delta_size, button_frame_);
 
   border_controller_.SetGeometryLimit(geometry());
   border_controller_.ControlWidget(button_frame_);
@@ -84,15 +76,6 @@ void GraphicalInitialMenu::TuneButtons() {
 
   registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
   registration_button_->setFont(WidgetFont::SetFont(16));
-}
-
-void GraphicalInitialMenu::SetButtonFrameScalingProperties() {
-  composer_.SetShiftFactor(kXFactor, kYFactor);
-  composer_.SetShiftSide(Side::kRight | Side::kDown);
-  composer_.SetStretchFactor(kXFactor, kYFactor);
-  composer_.SetStretchSide(Side::kRight | Side::kDown);
-  composer_.SetTransformationType(GeometryComposer::kScale);
-  composer_.KeepCenter(true);
 }
 
 void GraphicalInitialMenu::SetButtonFrame() {

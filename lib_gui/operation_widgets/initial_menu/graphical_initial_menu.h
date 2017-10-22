@@ -8,6 +8,7 @@
 
 #include <delta_size.h>
 #include <geometry_composer.h>
+#include <initial_menu_composer.h>
 #include <widget_border_controller.h>
 
 class QWidget;
@@ -20,8 +21,6 @@ class GraphicalInitialMenu : public BaseAtmFrame {
   explicit GraphicalInitialMenu(QWidget* parent = nullptr);
   ~GraphicalInitialMenu();
 
-  void SetDeltaSize(const DeltaSize& delta_size);
-
  signals:
   void DemoButtonClicked();
   void RegistrationButtonClicked();
@@ -33,13 +32,12 @@ class GraphicalInitialMenu : public BaseAtmFrame {
   void ProcessDemoButtonClick();
   void ProcessRegistraionButtonClick();
   void ProcessLoginButtonClick();
-  void ShowMenu();
   void ShowFirstTime();
+  void ShowMenu();
 
  private:
   void PaintWidgets();
   void TuneButtons();
-  void SetButtonFrameScalingProperties();
   void SetButtonFrame();
   void SetConnections();
 
@@ -48,12 +46,8 @@ class GraphicalInitialMenu : public BaseAtmFrame {
   AtmButton* registration_button_ = nullptr;
   QVBoxLayout* v_layout_ = nullptr;
 
-  DeltaSize delta_size_;
   WidgetBorderController border_controller_;
-  GeometryComposer composer_;
-
-  static constexpr double kXFactor = 0.5;
-  static constexpr double kYFactor = 0.5;
+  InitialMenuComposer menu_composer_;
 };
 
 #endif  // GRAPHICAL_INITIAL_MENU_H
