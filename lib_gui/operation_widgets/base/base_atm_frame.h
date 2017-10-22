@@ -68,7 +68,6 @@ class BaseAtmFrame : public QFrame {
   AtmFrameSetter* frame_setter_ = nullptr;
 
   QRect initial_frame_geometry_;
-  QRect initial_back_button_geometry_;
 
   WidgetBorderController border_controller_;
   DeltaSize delta_size_;
