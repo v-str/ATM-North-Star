@@ -1,1 +1,3 @@
-#include <base_composer.h>
+﻿#include <base_composer.h>
+
+void BaseComposer::SetBackButtonSettings() {}
