@@ -1,7 +1,7 @@
-﻿#ifndef GEOMETRY_H
-#define GEOMETRY_H
+﻿#ifndef APP_GEOMETRY_H
+#define APP_GEOMETRY_H
 
-class Geometry {
+class AppGeometry {
  public:
   static int InitialScreenWidth();
   static int InitialScreenHeight();
@@ -11,4 +11,4 @@ class Geometry {
   static const int kInitialScreenHeight = 400;
 };
 
-#endif  // GEOMETRY_H
+#endif  // APP_GEOMETRY_H

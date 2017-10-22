@@ -5,9 +5,9 @@
 #include <QPixmap>
 #include <QResizeEvent>
 
+#include <app_geometry.h>
 #include <delta_size.h>
 #include <exit_dialog.h>
-#include <geometry.h>
 #include <graphical_initial_menu.h>
 #include <initial_property_installer.h>
 #include <main_frame.h>
@@ -110,8 +110,8 @@ void AtmMainWidget::SetConnections() {
 }
 
 void AtmMainWidget::ComputeDeltaSize() {
-  delta_size_.SetWidth(width() - Geometry::InitialScreenWidth());
-  delta_size_.SetHeight(height() - Geometry::InitialScreenHeight());
+  delta_size_.SetWidth(width() - AppGeometry::InitialScreenWidth());
+  delta_size_.SetHeight(height() - AppGeometry::InitialScreenHeight());
   main_widget_composer_.SetDeltaSize(delta_size_);
   main_frame_->SetDeltaSize(delta_size_);
 }
