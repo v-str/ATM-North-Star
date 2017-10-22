@@ -14,6 +14,8 @@ void AtmComposer::SetDeltaSize(const DeltaSize& delta_size) {
 }
 
 void AtmComposer::ComposeBackButton(AtmButton* back_button) {
+  SetBackButtonSettings();
+
   kBackButtonComposer.SetDeltaSize(kDeltaSize);
   kBackButtonComposer.ComposeGeometry(BackButtonProperty::BackButtonGeometry(),
                                       back_button);

@@ -2,6 +2,7 @@
 
 #include <QWidget>
 
+#include <atm_composer.h>
 #include <registration_description.h>
 #include <registration_menu_geometry.h>
 #include <side.h>
@@ -20,6 +21,8 @@ GraphicalRegistrationMenu::~GraphicalRegistrationMenu() {}
 
 void GraphicalRegistrationMenu::ChangeGeometry(const DeltaSize& delta_size) {
   SetDeltaSize(delta_size);
+
+  AtmComposer::ComposeBackButton(GetBackButton());
 
   // BaseComposer::SetDeltaSize(delta_size);
 

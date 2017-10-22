@@ -6,6 +6,7 @@
 #include <QResizeEvent>
 
 #include <app_geometry.h>
+#include <atm_composer.h>
 #include <delta_size.h>
 #include <exit_dialog.h>
 #include <graphical_initial_menu.h>
@@ -115,6 +116,8 @@ void AtmMainWidget::ComputeDeltaSize() {
   delta_size_.SetHeight(height() - AppGeometry::InitialHeight());
   main_widget_composer_.SetDeltaSize(delta_size_);
   main_frame_->SetDeltaSize(delta_size_);
+
+  AtmComposer::SetDeltaSize(delta_size_);
 }
 
 void AtmMainWidget::CheckSplashScreenCondition() {
