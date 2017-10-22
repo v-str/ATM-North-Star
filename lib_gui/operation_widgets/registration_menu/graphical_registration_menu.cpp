@@ -24,18 +24,16 @@ void GraphicalRegistrationMenu::ChangeGeometry(const DeltaSize& delta_size) {
 
   delta_size_ = delta_size;
 
-  operation_frame_delta_size_ =
-      registration_composer_.ComposeDeltaSizeForDescription(
-          GetBackButtonGeometry(), delta_size);
-
   ComposeWidgets();
+
+  //  operation_frame_delta_size_ =
+  //      registration_composer_.ComposeDeltaSizeForDescription(
+  //          GetBackButtonGeometry(), delta_size);
+  // registration_description_->ChangeGeometry(operation_frame_delta_size_);
 }
 
 void GraphicalRegistrationMenu::ComposeWidgets() {
   registration_composer_.ComposeRegistrationMenu(delta_size_, this);
-  registration_composer_.ComposeRegistrationDescription(
-      operation_frame_delta_size_, registration_description_);
-  registration_description_->SetDeltaSize(operation_frame_delta_size_);
 }
 
 void GraphicalRegistrationMenu::SetConnections() {

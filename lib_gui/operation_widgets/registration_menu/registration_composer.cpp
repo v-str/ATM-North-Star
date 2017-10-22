@@ -15,14 +15,6 @@ void RegistrationComposer::ComposeRegistrationMenu(const DeltaSize& delta_size,
                             registation_menu);
 }
 
-void RegistrationComposer::ComposeRegistrationDescription(
-    const DeltaSize& delta_size,
-    RegistrationDescription* registration_description) {
-  composer_.SetDeltaSize(delta_size);
-  composer_.ComposeGeometry(RegistrationMenuGeometry::DescriptionFrame(),
-                            registration_description);
-}
-
 DeltaSize RegistrationComposer::ComposeDeltaSizeForDescription(
     const QRect& back_button_geometry,
     const DeltaSize& basic_delta_size) const {

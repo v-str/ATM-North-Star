@@ -15,10 +15,6 @@ class RegistrationComposer {
   void ComposeRegistrationMenu(const DeltaSize& delta_size,
                                QWidget* registation_menu);
 
-  void ComposeRegistrationDescription(
-      const DeltaSize& delta_size,
-      RegistrationDescription* registration_description);
-
   DeltaSize ComposeDeltaSizeForDescription(
       const QRect& back_button_geometry,
       const DeltaSize& basic_delta_size) const;

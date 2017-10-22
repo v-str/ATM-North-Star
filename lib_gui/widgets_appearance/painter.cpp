@@ -13,7 +13,7 @@ void Painter::ChangeLabelColor(QLabel* label, const QString& text_color) {
   QString string_text_color =
       "QLabel{"
       "color: %1;"
-      "border: 0px solid black;"
+      "border: 1px solid red;"
       "}";
 
   label->setStyleSheet(string_text_color.arg(text_color));
