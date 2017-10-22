@@ -6,7 +6,6 @@
 #include <QObject>
 #include <QRect>
 
-#include <base_composer.h>
 #include <delta_size.h>
 #include <geometry_composer.h>
 
@@ -65,7 +64,6 @@ class BaseAtmFrame : public QFrame {
 
   QRect initial_frame_geometry_;
   DeltaSize delta_size_;
-  BaseComposer base_composer_;
 
   bool is_back_button_activated_ = false;
 };

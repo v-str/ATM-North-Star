@@ -16,7 +16,7 @@ class BaseComposer {
  private:
   static void SetBackButtonSettings();
 
-  static GeometryComposer kBackButtonCompser;
+  static GeometryComposer kBackButtonComposer;
   static DeltaSize kDeltaSize;
 };
 
