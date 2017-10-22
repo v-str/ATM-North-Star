@@ -115,8 +115,6 @@ void AtmMainWidget::ComputeDeltaSize() {
   delta_size_.SetHeight(height() - AppGeometry::InitialHeight());
   main_widget_composer_.SetDeltaSize(delta_size_);
   main_frame_->SetDeltaSize(delta_size_);
-
-  // BaseComposer.SetDeltaSize(delta_size);
 }
 
 void AtmMainWidget::CheckSplashScreenCondition() {
