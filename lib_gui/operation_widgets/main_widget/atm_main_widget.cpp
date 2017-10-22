@@ -67,7 +67,7 @@ void AtmMainWidget::resizeEvent(QResizeEvent*) {
 void AtmMainWidget::SetInitialSettings() {
   InitializeObjects();
   SetImages();
-  setMinimumSize(kAppWidth, kAppHeight);
+  setMinimumSize(AppGeometry::InitialWidth(), AppGeometry::InitialHeight());
 }
 
 void AtmMainWidget::InitializeObjects() {
@@ -85,7 +85,8 @@ void AtmMainWidget::SetImages() {
 
 void AtmMainWidget::SetInitialMainWidgetProperties() {
   InitialPropertyInstaller::SetInitialProperties(
-      this, kAppWidth, kAppHeight, InitialPropertyInstaller::kResize);
+      this, AppGeometry::InitialWidth(), AppGeometry::InitialHeight(),
+      InitialPropertyInstaller::kResize);
   setStyleSheet("background-color:black;");
   exit_dialog_->setModal(true);
 }

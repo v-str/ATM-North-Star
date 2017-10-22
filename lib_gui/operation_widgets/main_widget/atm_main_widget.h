@@ -62,11 +62,7 @@ class AtmMainWidget : public QMainWindow {
   ExitDialog* exit_dialog_ = nullptr;
 
   MainWidgetComposer main_widget_composer_;
-
   DeltaSize delta_size_;
-
-  static const int kAppWidth = 600;
-  static const int kAppHeight = 400;
 
   bool is_splash_screen_closed_ = false;
 };
