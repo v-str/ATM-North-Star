@@ -13,7 +13,6 @@ class MainWidgetComposer {
   MainWidgetComposer();
 
   void ComposeMainFrame(QWidget* main_frame);
-  void ComposeInitialMenu(QWidget* initial_menu);
   void ComposeSplashScreen(QWidget* splash_screen);
 
   void SetDeltaSize(const DeltaSize& delta_size);

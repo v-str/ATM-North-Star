@@ -38,9 +38,9 @@ void GraphicalInitialMenu::SetDeltaSize(const DeltaSize& delta_size) {
 }
 
 void GraphicalInitialMenu::ChangeGeometry(const DeltaSize& delta_size) {
-  SetDeltaSize(delta_size_);
+  SetDeltaSize(delta_size);
 
-  composer_.SetDeltaSize(delta_size_);
+  composer_.SetDeltaSize(delta_size);
   composer_.ComposeGeometry(InitialFrameGeometry::ButtonFrame(), button_frame_);
 
   border_controller_.SetGeometryLimit(geometry());

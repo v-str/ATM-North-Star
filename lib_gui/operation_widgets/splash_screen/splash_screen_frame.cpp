@@ -9,8 +9,6 @@
 #include <splash_screen_geometry.h>
 #include <text_color_swapper.h>
 
-#include <QDebug>
-
 SplashScreenFrame::SplashScreenFrame(QWidget* parent)
     : BaseAtmFrame(parent, kBackButtonDeactivated) {
   SetSplashScreenSettings();
@@ -32,8 +30,6 @@ void SplashScreenFrame::SetCompanyName(const QString& company_name) {
 }
 
 void SplashScreenFrame::ChangeGeometry(const DeltaSize& delta_size) {
-  qDebug() << "in splash screen\nwidth: " << width() << " "
-           << "height: " << height();
   composer_.SetDeltaSize(delta_size);
   composer_.ComposeFrame(this);
   composer_.ComposeCompanyNameLabel(company_name_label_);

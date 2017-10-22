@@ -60,9 +60,8 @@ void AtmMainWidget::keyPressEvent(QKeyEvent* event) {
 
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeDeltaSize();
-  ComposeWidgets();
+  main_widget_composer_.ComposeMainFrame(main_frame_);
   emit GeometryChanged(delta_size_);
-  qDebug() << "geometry changed";
 }
 
 void AtmMainWidget::SetInitialSettings() {
@@ -110,18 +109,11 @@ void AtmMainWidget::SetConnections() {
           SLOT(ChangeGeometry(DeltaSize)));
 }
 
-void AtmMainWidget::ComposeWidgets() {
-  main_widget_composer_.ComposeMainFrame(main_frame_);
-  main_widget_composer_.ComposeInitialMenu(initial_menu_);
-  // main_widget_composer_.ComposeSplashScreen(splash_screen_);
-}
-
 void AtmMainWidget::ComputeDeltaSize() {
   delta_size_.SetWidth(width() - Geometry::InitialScreenWidth());
   delta_size_.SetHeight(height() - Geometry::InitialScreenHeight());
   main_widget_composer_.SetDeltaSize(delta_size_);
   main_frame_->SetDeltaSize(delta_size_);
-  initial_menu_->SetDeltaSize(delta_size_);
 }
 
 void AtmMainWidget::CheckSplashScreenCondition() {
