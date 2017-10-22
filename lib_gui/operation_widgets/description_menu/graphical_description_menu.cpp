@@ -18,7 +18,6 @@ GraphicalDescriptionMenu::GraphicalDescriptionMenu(QWidget* parent)
       description_frame_(new DescriptionFrame(this)),
       description_title_(new DescriptionTitle(this)) {
   SetInitialFrameGeometry(DescriptionMenuGeometry::DescriptionMenu());
-  SetBackButton(DescriptionMenuGeometry::BackButton());
 
   description_title_->setText("Description");
 

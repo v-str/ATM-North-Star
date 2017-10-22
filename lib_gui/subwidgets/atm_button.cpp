@@ -9,12 +9,17 @@
 #include <QWidget>
 
 #include <font_size_controller.h>
+#include <widget_font.h>
 
 AtmButton::AtmButton(const QString& text, QWidget* widget)
     : QPushButton(text, widget), font_size_controller_(new FontSizeController) {
   offset_side_ = kRight;
 
   SetSizePolicy();
+}
+
+void AtmButton::SetFontSize(unsigned int font_size_pt) {
+  setFont(WidgetFont::SetFont(font_size_pt));
 }
 
 void AtmButton::SetOffsetSide(unsigned int offset_side) {

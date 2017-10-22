@@ -8,6 +8,8 @@ class AtmButton;
 
 class BaseComposer {
  public:
+  BaseComposer();
+
   void SetDeltaSize(const DeltaSize& delta_size);
   void ComposeBackButton(AtmButton* back_button);
 

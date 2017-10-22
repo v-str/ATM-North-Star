@@ -15,6 +15,8 @@ class AtmButton : public QPushButton {
 
   AtmButton(const QString& text, QWidget* widget = nullptr);
 
+  void SetFontSize(unsigned int font_size_pt);
+
   void SetOffsetSide(unsigned int offset_side);
 
   void SetXHoverOffset(int x_offset = 5);

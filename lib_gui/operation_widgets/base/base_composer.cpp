@@ -4,6 +4,8 @@
 #include <back_button_property.h>
 #include <side.h>
 
+BaseComposer::BaseComposer() { SetBackButtonSettings(); }
+
 void BaseComposer::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
 }

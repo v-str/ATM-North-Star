@@ -6,6 +6,7 @@
 #include <QObject>
 #include <QRect>
 
+#include <base_composer.h>
 #include <delta_size.h>
 #include <geometry_composer.h>
 #include <widget_border_controller.h>
@@ -27,7 +28,6 @@ class BaseAtmFrame : public QFrame {
 
   void SetDeltaSize(const DeltaSize& delta_size);
   void SetInitialFrameGeometry(const QRect& geometry);
-  void SetBackButton(const QRect& geometry);
   void SetFrameAnimation(unsigned int hide_to,
                          unsigned int extrude_from,
                          unsigned int duration_msec,
@@ -62,7 +62,7 @@ class BaseAtmFrame : public QFrame {
  private:
   void ColorizeBackButton();
   void SetBasicConnections();
-  void SetBackButtonScaling();
+  void SetBackButton();
 
   AtmButton* back_button_ = nullptr;
   AtmFrameSetter* frame_setter_ = nullptr;
@@ -70,18 +70,12 @@ class BaseAtmFrame : public QFrame {
   QRect initial_frame_geometry_;
   QRect initial_back_button_geometry_;
 
-  GeometryComposer button_composer_;
-
   WidgetBorderController border_controller_;
   DeltaSize delta_size_;
 
   bool is_back_button_activated_ = false;
 
-  // Move to composer!
-  static constexpr double kXShiftFactor = 0.0;
-  static constexpr double kYShiftFactor = 1.0;
-  static constexpr double kXStretchFactor = 0.07;
-  static constexpr double kYStretchFactor = 0.03;
+  BaseComposer base_composer_;
 };
 
 #endif  // BASE_ATM_FRAME_H

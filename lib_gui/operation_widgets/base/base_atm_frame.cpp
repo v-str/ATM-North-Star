@@ -16,9 +16,8 @@ BaseAtmFrame::BaseAtmFrame(QWidget* parent,
   switch (back_button_condition) {
     case kBackButtonActivated:
       is_back_button_activated_ = true;
-      back_button_ = (new AtmButton("back", this));
+      SetBackButton();
       ColorizeBackButton();
-      SetBackButtonScaling();
       SetBasicConnections();
       break;
     case kBackButtonDeactivated:
@@ -36,12 +35,6 @@ void BaseAtmFrame::SetDeltaSize(const DeltaSize& delta_size) {
 void BaseAtmFrame::SetInitialFrameGeometry(const QRect& geometry) {
   setGeometry(geometry);
   initial_frame_geometry_ = geometry;
-}
-
-void BaseAtmFrame::SetBackButton(const QRect& geometry) {
-  back_button_->setGeometry(geometry);
-  initial_back_button_geometry_ = geometry;
-  back_button_->setFont(WidgetFont::SetFont(13));
 }
 
 void BaseAtmFrame::SetFrameAnimation(unsigned int hide_to,
@@ -93,9 +86,8 @@ void BaseAtmFrame::PerformOpening() {
 }
 
 void BaseAtmFrame::ScaleBackButton() {
-  button_composer_.SetDeltaSize(delta_size_);
-  button_composer_.SetShiftFactor(kXShiftFactor, kYShiftFactor);
-  button_composer_.ComposeGeometry(initial_back_button_geometry_, back_button_);
+  base_composer_.SetDeltaSize(delta_size_);
+  base_composer_.ComposeBackButton(back_button_);
 }
 
 void BaseAtmFrame::ColorizeBackButton() {
@@ -118,9 +110,7 @@ void BaseAtmFrame::SetBasicConnections() {
   connect(frame_setter_, SIGNAL(HidingComplete()), SLOT(PerformClosing()));
 }
 
-void BaseAtmFrame::SetBackButtonScaling() {
-  button_composer_.SetShiftSide(Side::kRight | Side::kDown);
-  button_composer_.SetStretchFactor(kXStretchFactor, kYStretchFactor);
-  button_composer_.SetStretchSide(Side::kUp | Side::kRight);
-  button_composer_.SetTransformationType(GeometryComposer::kScale);
+void BaseAtmFrame::SetBackButton() {
+  back_button_ = (new AtmButton("back", this));
+  back_button_->SetFontSize(13);
 }

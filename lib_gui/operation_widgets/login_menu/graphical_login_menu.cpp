@@ -8,7 +8,7 @@
 
 GraphicalLoginMenu::GraphicalLoginMenu(QWidget* parent) : BaseAtmFrame(parent) {
   SetInitialFrameGeometry(LoginMenuGeometry::LoginFrame());
-  SetBackButton(LoginMenuGeometry::BackButton());
+  // SetBackButton(LoginMenuGeometry::BackButton());
   SetFrameAnimation(Side::kLeft, Side::kRight, kHalfASecond, this);
 
   composer_.SetStretchFactor(kXFactor, kYFactor);
