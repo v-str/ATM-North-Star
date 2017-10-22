@@ -21,12 +21,17 @@ GraphicalRegistrationMenu::~GraphicalRegistrationMenu() {}
 void GraphicalRegistrationMenu::ChangeGeometry(const DeltaSize& delta_size) {
   SetDeltaSize(delta_size);
 
+  // BaseComposer::SetDeltaSize(delta_size);
+
   registration_composer_.ComposeRegistrationMenu(delta_size, this);
 
   //  operation_frame_delta_size_ =
   //      registration_composer_.ComposeDeltaSizeForDescription(
   //          GetBackButtonGeometry(), delta_size);
   // registration_description_->ChangeGeometry(operation_frame_delta_size_);
+
+  // BaseComposer::ComposeWidget(RegistrationMenuGeometry::RegistrationFrame(),
+  // this);
 }
 
 void GraphicalRegistrationMenu::SetConnections() {
