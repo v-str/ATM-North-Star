@@ -1,5 +1,5 @@
-﻿#ifndef BASE_COMPOSER_H
-#define BASE_COMPOSER_H
+﻿#ifndef ATM_COMPOSER_H
+#define ATM_COMPOSER_H
 
 #include <QRect>
 
@@ -9,9 +9,9 @@
 class AtmButton;
 class QWidget;
 
-class BaseComposer {
+class AtmComposer {
  public:
-  BaseComposer();
+  AtmComposer();
 
   static void SetDeltaSize(const DeltaSize& delta_size);
   static void ComposeBackButton(AtmButton* back_button);
@@ -24,4 +24,4 @@ class BaseComposer {
   static DeltaSize kDeltaSize;
 };
 
-#endif  // BASE_COMPOSER_H
+#endif  // ATM_COMPOSER_H

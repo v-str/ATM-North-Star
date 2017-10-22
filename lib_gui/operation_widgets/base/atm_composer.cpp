@@ -1,25 +1,25 @@
-﻿#include <base_composer.h>
+﻿#include <atm_composer.h>
 
 #include <atm_button.h>
 #include <back_button_property.h>
 #include <side.h>
 
-GeometryComposer BaseComposer::kBackButtonComposer;
-DeltaSize BaseComposer::kDeltaSize;
+GeometryComposer AtmComposer::kBackButtonComposer;
+DeltaSize AtmComposer::kDeltaSize;
 
-BaseComposer::BaseComposer() { SetBackButtonSettings(); }
+AtmComposer::AtmComposer() { SetBackButtonSettings(); }
 
-void BaseComposer::SetDeltaSize(const DeltaSize& delta_size) {
+void AtmComposer::SetDeltaSize(const DeltaSize& delta_size) {
   kDeltaSize = delta_size;
 }
 
-void BaseComposer::ComposeBackButton(AtmButton* back_button) {
+void AtmComposer::ComposeBackButton(AtmButton* back_button) {
   kBackButtonComposer.SetDeltaSize(kDeltaSize);
   kBackButtonComposer.ComposeGeometry(BackButtonProperty::BackButtonGeometry(),
                                       back_button);
 }
 
-void BaseComposer::SetBackButtonSettings() {
+void AtmComposer::SetBackButtonSettings() {
   kBackButtonComposer.SetShiftFactor(BackButtonProperty::XShift(),
                                      BackButtonProperty::YShift());
   kBackButtonComposer.SetShiftSide(Side::kRight | Side::kDown);
