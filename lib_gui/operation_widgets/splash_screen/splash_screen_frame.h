@@ -4,7 +4,6 @@
 #include <base_atm_frame.h>
 
 #include <atm_color_designer.h>
-#include <splash_screen_composer.h>
 
 class QLabel;
 class QString;
@@ -32,7 +31,6 @@ class SplashScreenFrame : public BaseAtmFrame {
   void PaintWidgets();
   void SetConnection();
 
-  SplashScreenComposer composer_;
   AtmColorDesigner color_designer_;
 
   QTimer* color_swap_timer_ = nullptr;
@@ -42,9 +40,6 @@ class SplashScreenFrame : public BaseAtmFrame {
   QLabel* company_name_label_ = nullptr;
   QLabel* atm_label_ = nullptr;
   QLabel* text_label_ = nullptr;
-
-  static constexpr double kXFactor = 1.0;
-  static constexpr double kYFactor = 1.0;
 
   static const int kBlinkTime = 350;
 };

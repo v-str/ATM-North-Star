@@ -7,6 +7,8 @@
 #include <splash_screen_geometry.h>
 #include <widget_font.h>
 
+AtmLabelStretcher SplashScreenComposer::kAtmLabelStretcher;
+
 void SplashScreenComposer::TuneLabels(QLabel* version_label,
                                       QLabel* company_name_label,
                                       QLabel* text_label,
@@ -30,6 +32,6 @@ void SplashScreenComposer::TuneLabels(QLabel* version_label,
 
 void SplashScreenComposer::StretchAtmLabel(const DeltaSize& delta_size,
                                            QLabel* atm_label) {
-  atm_label_stretcher_.StretchAtmLabel(atm_label, delta_size.Width(),
-                                       delta_size.Height());
+  kAtmLabelStretcher.StretchAtmLabel(atm_label, delta_size.Width(),
+                                     delta_size.Height());
 }

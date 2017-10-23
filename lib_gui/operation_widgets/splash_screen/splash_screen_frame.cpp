@@ -7,6 +7,7 @@
 
 #include <atm_composer.h>
 #include <side.h>
+#include <splash_screen_composer.h>
 #include <splash_screen_geometry.h>
 #include <text_color_swapper.h>
 
@@ -31,7 +32,8 @@ void SplashScreenFrame::SetCompanyName(const QString& company_name) {
 }
 
 void SplashScreenFrame::ChangeGeometry() {
-  composer_.StretchAtmLabel(AtmComposer::GetDeltaSize(), atm_label_);
+  SplashScreenComposer::StretchAtmLabel(AtmComposer::GetDeltaSize(),
+                                        atm_label_);
 
   AtmComposer::StretchWidget(SplashScreenGeometry::SplashScreenFrame(),
                              Side::kRight | Side::kDown, 1.0, 1.0, this);
@@ -61,8 +63,8 @@ void SplashScreenFrame::InitializeObjects() {
 }
 
 void SplashScreenFrame::TuneLabel() {
-  composer_.TuneLabels(version_label_, company_name_label_, text_label_,
-                       atm_label_);
+  SplashScreenComposer::TuneLabels(version_label_, company_name_label_,
+                                   text_label_, atm_label_);
 }
 
 void SplashScreenFrame::PaintWidgets() {
