@@ -1,5 +1,5 @@
-﻿#ifndef SPLASH_SCREEN_COMPOSER_H
-#define SPLASH_SCREEN_COMPOSER_H
+﻿#ifndef SPLASH_SCREEN_TUNER_H
+#define SPLASH_SCREEN_TUNER_H
 
 #include <atm_label_stretcher.h>
 #include <delta_size.h>
@@ -7,7 +7,7 @@
 class QLabel;
 class QFrame;
 
-class SplashScreenComposer {
+class SplashScreenTuner {
  public:
   static void TuneLabels(QLabel* version_label,
                          QLabel* company_name_label,
@@ -32,4 +32,4 @@ class SplashScreenComposer {
   static AtmLabelStretcher kAtmLabelStretcher;
 };
 
-#endif  // SPLASH_SCREEN_COMPOSER_H
+#endif  // SPLASH_SCREEN_TUNER_H

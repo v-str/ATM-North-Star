@@ -1,4 +1,4 @@
-﻿#include <splash_screen_composer.h>
+﻿#include <splash_screen_tuner.h>
 
 #include <QFrame>
 #include <QLabel>
@@ -7,9 +7,9 @@
 #include <splash_screen_geometry.h>
 #include <widget_font.h>
 
-AtmLabelStretcher SplashScreenComposer::kAtmLabelStretcher;
+AtmLabelStretcher SplashScreenTuner::kAtmLabelStretcher;
 
-void SplashScreenComposer::TuneLabels(QLabel* version_label,
+void SplashScreenTuner::TuneLabels(QLabel* version_label,
                                       QLabel* company_name_label,
                                       QLabel* text_label,
                                       QLabel* atm_label) {
@@ -19,13 +19,13 @@ void SplashScreenComposer::TuneLabels(QLabel* version_label,
   SetAlignment(company_name_label, text_label, atm_label);
 }
 
-void SplashScreenComposer::StretchAtmLabel(const DeltaSize& delta_size,
+void SplashScreenTuner::StretchAtmLabel(const DeltaSize& delta_size,
                                            QLabel* atm_label) {
   kAtmLabelStretcher.StretchAtmLabel(atm_label, delta_size.Width(),
                                      delta_size.Height());
 }
 
-void SplashScreenComposer::SetText(QLabel* version_label,
+void SplashScreenTuner::SetText(QLabel* version_label,
                                    QLabel* text_label,
                                    QLabel* atm_label) {
   version_label->setText("v1.0.1");
@@ -33,13 +33,13 @@ void SplashScreenComposer::SetText(QLabel* version_label,
   atm_label->setText("ATM");
 }
 
-void SplashScreenComposer::SetGeometry(QLabel* version_label,
+void SplashScreenTuner::SetGeometry(QLabel* version_label,
                                        QLabel* company_name_label) {
   version_label->setGeometry(SplashScreenGeometry::VersionLabel());
   company_name_label->setGeometry(SplashScreenGeometry::CompanyNameLabel());
 }
 
-void SplashScreenComposer::SetFont(QLabel* version_label,
+void SplashScreenTuner::SetFont(QLabel* version_label,
                                    QLabel* company_name_label,
                                    QLabel* text_label,
                                    QLabel* atm_label) {
@@ -49,7 +49,7 @@ void SplashScreenComposer::SetFont(QLabel* version_label,
   atm_label->setFont(WidgetFont::SetFont());
 }
 
-void SplashScreenComposer::SetAlignment(QLabel* company_name_label,
+void SplashScreenTuner::SetAlignment(QLabel* company_name_label,
                                         QLabel* text_label,
                                         QLabel* atm_label) {
   company_name_label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);

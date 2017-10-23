@@ -7,8 +7,8 @@
 
 #include <atm_composer.h>
 #include <side.h>
-#include <splash_screen_composer.h>
 #include <splash_screen_geometry.h>
+#include <splash_screen_tuner.h>
 #include <text_color_swapper.h>
 
 SplashScreenFrame::SplashScreenFrame(QWidget* parent)
@@ -32,9 +32,7 @@ void SplashScreenFrame::SetCompanyName(const QString& company_name) {
 }
 
 void SplashScreenFrame::ChangeGeometry() {
-  SplashScreenComposer::StretchAtmLabel(AtmComposer::GetDeltaSize(),
-                                        atm_label_);
-
+  SplashScreenTuner::StretchAtmLabel(AtmComposer::GetDeltaSize(), atm_label_);
   AtmComposer::StretchWidget(SplashScreenGeometry::SplashScreenFrame(),
                              Side::kRight | Side::kDown, 1.0, 1.0, this);
   AtmComposer::ShiftWidget(SplashScreenGeometry::CompanyNameLabel(),
@@ -63,8 +61,8 @@ void SplashScreenFrame::InitializeObjects() {
 }
 
 void SplashScreenFrame::TuneLabel() {
-  SplashScreenComposer::TuneLabels(version_label_, company_name_label_,
-                                   text_label_, atm_label_);
+  SplashScreenTuner::TuneLabels(version_label_, company_name_label_,
+                                text_label_, atm_label_);
 }
 
 void SplashScreenFrame::PaintWidgets() {
