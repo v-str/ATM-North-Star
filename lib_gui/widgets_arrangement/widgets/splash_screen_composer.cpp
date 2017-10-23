@@ -28,15 +28,6 @@ void SplashScreenComposer::TuneLabels(QLabel* version_label,
   atm_label->setFont(WidgetFont::SetFont());
 }
 
-void SplashScreenComposer::ComposeCompanyNameLabel(QLabel* company_name_label) {
-  composer_.SetShiftFactor(0.5, 1.0);
-  composer_.SetShiftSide(Side::kRight);
-  composer_.SetTransformationType(GeometryComposer::kShift);
-
-  composer_.ComposeGeometry(SplashScreenGeometry::CompanyNameLabel(),
-                            company_name_label);
-}
-
 void SplashScreenComposer::ComposeTextLabel(QLabel* text_label) {
   composer_.SetShiftFactor(0.5, 1.0);
   composer_.SetShiftSide(Side::kRight | Side::kDown);

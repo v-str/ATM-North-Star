@@ -35,8 +35,9 @@ void SplashScreenFrame::ChangeGeometry() {
 
   AtmComposer::StretchWidget(SplashScreenGeometry::SplashScreenFrame(),
                              Side::kRight | Side::kDown, 1.0, 1.0, this);
+  AtmComposer::ShiftWidget(SplashScreenGeometry::CompanyNameLabel(),
+                           Side::kRight, 0.5, 1.0, company_name_label_);
 
-  composer_.ComposeCompanyNameLabel(company_name_label_);
   composer_.ComposeAtmLabel(atm_label_);
   composer_.ComposeTextLabel(text_label_);
 }
