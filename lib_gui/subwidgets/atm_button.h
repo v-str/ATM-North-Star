@@ -37,6 +37,8 @@ class AtmButton : public QPushButton {
 
   FontSizeController* font_size_controller_ = nullptr;
 
+  static const int KFontScaleCoefficient = 100;
+
   int x_offset_ = 5;
   int y_offset_ = 5;
   unsigned int offset_side_ = 0;
