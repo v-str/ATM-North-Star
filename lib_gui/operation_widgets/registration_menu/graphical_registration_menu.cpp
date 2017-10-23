@@ -24,18 +24,13 @@ void GraphicalRegistrationMenu::ChangeGeometry() {
   AtmComposer::ComposeBackButton(GetBackButton());
   AtmComposer::StretchWidget(RegistrationMenuGeometry::RegistrationFrame(),
                              Side::kRight | Side::kDown, 1.0, 1.0, this);
-
-  //  operation_frame_delta_size_ =
-  //      registration_composer_.ComposeDeltaSizeForDescription(
-  //          GetBackButtonGeometry(), delta_size);
-  // registration_description_->ChangeGeometry(operation_frame_delta_size_);
-
-  // BaseComposer::ComposeWidget(RegistrationMenuGeometry::RegistrationFrame(),
-  // this);
+  emit GeometryChanged();
 }
 
 void GraphicalRegistrationMenu::SetConnections() {
   connect(this, SIGNAL(FrameOpened()), registration_description_, SLOT(Show()));
   connect(this, SIGNAL(FrameClosed()), registration_description_,
           SLOT(close()));
+  connect(this, SIGNAL(GeometryChanged()), registration_description_,
+          SLOT(ChangeGeometry()));
 }

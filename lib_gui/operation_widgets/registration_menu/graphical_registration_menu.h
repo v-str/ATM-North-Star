@@ -3,9 +3,6 @@
 
 #include <base_atm_frame.h>
 
-#include <delta_size.h>
-#include <registration_composer.h>
-
 class RegistrationDescription;
 
 class GraphicalRegistrationMenu : public BaseAtmFrame {
@@ -21,11 +18,6 @@ class GraphicalRegistrationMenu : public BaseAtmFrame {
   void SetConnections();
 
   RegistrationDescription* registration_description_ = nullptr;
-
-  RegistrationComposer registration_composer_;
-  DeltaSize operation_frame_delta_size_;
-
-  static const int kHalfASecond = 500;
 };
 
 #endif  // GRAPHICAL_REGISTRATION_MENU_H
