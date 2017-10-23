@@ -55,7 +55,6 @@ void SplashScreenFrame::InitializeObjects() {
   company_name_label_ = new QLabel(this);
   atm_label_ = new QLabel(this);
   text_label_ = new QLabel(this);
-
   color_swap_timer_ = new QTimer(atm_label_);
   text_color_swapper_ = new TextColorSwapper;
 }
