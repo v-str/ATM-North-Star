@@ -7,6 +7,7 @@
 
 #include <application_color.h>
 #include <atm_button.h>
+#include <atm_composer.h>
 #include <conversion_factor.h>
 #include <initial_frame_geometry.h>
 #include <side.h>
@@ -29,11 +30,11 @@ GraphicalInitialMenu::GraphicalInitialMenu(QWidget* parent)
 
 GraphicalInitialMenu::~GraphicalInitialMenu() {}
 
-void GraphicalInitialMenu::ChangeGeometry(const DeltaSize& delta_size) {
-  SetDeltaSize(delta_size);
+void GraphicalInitialMenu::ChangeGeometry() {
+  SetDeltaSize(AtmComposer::GetDeltaSize());
 
-  menu_composer_.ComposeMenu(delta_size, this);
-  menu_composer_.ComposeFrame(delta_size, button_frame_);
+  menu_composer_.ComposeMenu(AtmComposer::GetDeltaSize(), this);
+  menu_composer_.ComposeFrame(AtmComposer::GetDeltaSize(), button_frame_);
 
   border_controller_.SetGeometryLimit(geometry());
   border_controller_.ControlWidget(button_frame_);
@@ -71,7 +72,7 @@ void GraphicalInitialMenu::PaintWidgets() {
 
   button_frame_->setStyleSheet(
       "QFrame{"
-      "border: 0px solid black;"
+      "border: 1px solid red;"
       "}");
 }
 

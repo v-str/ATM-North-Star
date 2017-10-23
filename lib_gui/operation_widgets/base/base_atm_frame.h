@@ -39,12 +39,12 @@ class BaseAtmFrame : public QFrame {
   void BackButtonClicked();
   void PassGeometryForHide(const QRect&);
   void PassGeometryForExtrude(const QRect&);
-  void GeometryChanged(const DeltaSize&);
+  void GeometryChanged();
   void FrameClosed();
   void FrameOpened();
 
  public slots:
-  virtual void ChangeGeometry(const DeltaSize& delta_size) = 0;
+  virtual void ChangeGeometry() = 0;
 
   void ProcessBackButtonClick();
   void Show();

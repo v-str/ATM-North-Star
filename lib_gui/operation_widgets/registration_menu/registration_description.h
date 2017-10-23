@@ -14,7 +14,7 @@ class RegistrationDescription : public BaseAtmFrame {
   ~RegistrationDescription();
 
  public slots:
-  void ChangeGeometry(const DeltaSize& delta_size) override;
+  void ChangeGeometry() override;
 
  private:
   RegistrationDescriptionLabel* description_label_ = nullptr;

@@ -21,7 +21,7 @@ class SplashScreenFrame : public BaseAtmFrame {
   void SetCompanyName(const QString& company_name);
 
  public slots:
-  void ChangeGeometry(const DeltaSize& delta_size) override;
+  void ChangeGeometry() override;
 
   void BlinkAtmLabelColor();
 

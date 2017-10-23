@@ -13,7 +13,7 @@ class GraphicalLoginMenu : public BaseAtmFrame {
   ~GraphicalLoginMenu();
 
  public slots:
-  void ChangeGeometry(const DeltaSize& delta_size) override;
+  void ChangeGeometry() override;
 
  private:
   GeometryComposer composer_;

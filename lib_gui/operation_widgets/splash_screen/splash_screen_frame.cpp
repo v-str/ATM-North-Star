@@ -5,6 +5,7 @@
 #include <QString>
 #include <QTimer>
 
+#include <atm_composer.h>
 #include <side.h>
 #include <splash_screen_geometry.h>
 #include <text_color_swapper.h>
@@ -29,8 +30,8 @@ void SplashScreenFrame::SetCompanyName(const QString& company_name) {
   company_name_label_->setText(company_name);
 }
 
-void SplashScreenFrame::ChangeGeometry(const DeltaSize& delta_size) {
-  composer_.SetDeltaSize(delta_size);
+void SplashScreenFrame::ChangeGeometry() {
+  composer_.SetDeltaSize(AtmComposer::GetDeltaSize());
   composer_.ComposeFrame(this);
   composer_.ComposeCompanyNameLabel(company_name_label_);
   composer_.ComposeAtmLabel(atm_label_);

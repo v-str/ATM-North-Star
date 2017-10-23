@@ -16,6 +16,8 @@ class AtmComposer {
   static void ComposeBackButton(AtmButton* back_button);
   static void ComposeWidget(const QRect& widget_geometry, QWidget* widget);
 
+  static DeltaSize GetDeltaSize();
+
  private:
   static void SetBackButtonSettings();
 

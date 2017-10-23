@@ -19,12 +19,13 @@ GraphicalRegistrationMenu::GraphicalRegistrationMenu(QWidget* parent)
 
 GraphicalRegistrationMenu::~GraphicalRegistrationMenu() {}
 
-void GraphicalRegistrationMenu::ChangeGeometry(const DeltaSize& delta_size) {
-  SetDeltaSize(delta_size);
+void GraphicalRegistrationMenu::ChangeGeometry() {
+  SetDeltaSize(AtmComposer::GetDeltaSize());
 
   AtmComposer::ComposeBackButton(GetBackButton());
 
-  registration_composer_.ComposeRegistrationMenu(delta_size, this);
+  registration_composer_.ComposeRegistrationMenu(AtmComposer::GetDeltaSize(),
+                                                 this);
 
   //  operation_frame_delta_size_ =
   //      registration_composer_.ComposeDeltaSizeForDescription(

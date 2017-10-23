@@ -62,7 +62,7 @@ void AtmMainWidget::keyPressEvent(QKeyEvent* event) {
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeDeltaSize();
   main_widget_composer_.ComposeMainFrame(main_frame_);
-  emit GeometryChanged(delta_size_);
+  emit GeometryChanged();
 }
 
 void AtmMainWidget::SetInitialSettings() {
@@ -105,10 +105,10 @@ void AtmMainWidget::SetConnections() {
           SLOT(ShowFirstTime()));
   connect(this, SIGNAL(Exit()), SLOT(ShowExitWidget()));
 
-  connect(this, SIGNAL(GeometryChanged(DeltaSize)), splash_screen_,
-          SLOT(ChangeGeometry(DeltaSize)));
-  connect(this, SIGNAL(GeometryChanged(DeltaSize)), initial_menu_,
-          SLOT(ChangeGeometry(DeltaSize)));
+  connect(this, SIGNAL(GeometryChanged()), splash_screen_,
+          SLOT(ChangeGeometry()));
+  connect(this, SIGNAL(GeometryChanged()), initial_menu_,
+          SLOT(ChangeGeometry()));
 }
 
 void AtmMainWidget::ComputeDeltaSize() {
