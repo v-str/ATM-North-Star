@@ -17,6 +17,18 @@ class SplashScreenComposer {
   static void StretchAtmLabel(const DeltaSize& delta_size, QLabel* atm_label);
 
  private:
+  static void SetText(QLabel* version_label,
+                      QLabel* text_label,
+                      QLabel* atm_label);
+  static void SetGeometry(QLabel* version_label, QLabel* company_name_label);
+  static void SetFont(QLabel* version_label,
+                      QLabel* company_name_label,
+                      QLabel* text_label,
+                      QLabel* atm_label);
+  static void SetAlignment(QLabel* company_name_label,
+                           QLabel* text_label,
+                           QLabel* atm_label);
+
   static AtmLabelStretcher kAtmLabelStretcher;
 };
 
