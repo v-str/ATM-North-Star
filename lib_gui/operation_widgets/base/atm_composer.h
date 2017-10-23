@@ -6,6 +6,7 @@
 #include <back_button_composer.h>
 #include <delta_size.h>
 #include <geometry_composer.h>
+#include <side.h>
 
 class AtmButton;
 class QWidget;

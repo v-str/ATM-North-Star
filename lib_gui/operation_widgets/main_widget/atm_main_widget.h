@@ -52,7 +52,6 @@ class AtmMainWidget : public QMainWindow {
   void SetInitialMainWidgetProperties();
   void SetConnections();
   void ComputeDeltaSize();
-  void ComposeMainFrame();
   void CheckSplashScreenCondition();
 
   SplashScreenFrame* splash_screen_ = nullptr;

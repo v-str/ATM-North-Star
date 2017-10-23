@@ -1,7 +1,6 @@
 ﻿#include <atm_composer.h>
 
 #include <atm_button.h>
-#include <side.h>
 
 BackButtonComposer AtmComposer::kBackButtonComposer;
 GeometryComposer AtmComposer::kShiftComposer;

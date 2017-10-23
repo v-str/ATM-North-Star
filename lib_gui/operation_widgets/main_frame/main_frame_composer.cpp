@@ -1,11 +1,9 @@
 ﻿#include <main_frame_composer.h>
 
-#include <delta_size.h>
 #include <main_frame_geometry.h>
-#include <side.h>
 #include <widget_font.h>
 
-MainFrameComposer::MainFrameComposer() { SetDefaultComposing(); }
+MainFrameComposer::MainFrameComposer() {}
 
 void MainFrameComposer::SetMainFrameAppearance(QFrame* main_frame,
                                                QLabel* time_label,
@@ -21,21 +19,6 @@ void MainFrameComposer::PaintMainFrame(QFrame* main_frame,
   color_designer_.PaintFrame(main_frame);
   color_designer_.PaintSingleWidget(time_label);
   color_designer_.PaintSingleWidget(date_label);
-}
-
-void MainFrameComposer::ComposeLabels(QLabel* time_label, QLabel* date_label) {
-  composer_.ComposeGeometry(MainFrameGeometry::TimeLabel(), time_label);
-  composer_.ComposeGeometry(MainFrameGeometry::DateLabel(), date_label);
-}
-
-void MainFrameComposer::SetDeltaSize(const DeltaSize& delta_size) {
-  composer_.SetDeltaSize(delta_size);
-}
-
-void MainFrameComposer::SetDefaultComposing() {
-  composer_.SetShiftFactor(kXFactor, kYFactor);
-  composer_.SetShiftSide(Side::kRight);
-  composer_.SetTransformationType(GeometryComposer::kShift);
 }
 
 void MainFrameComposer::SetTime(QLabel* time_label) {

@@ -12,7 +12,6 @@
 #include <graphical_initial_menu.h>
 #include <initial_property_installer.h>
 #include <main_frame.h>
-#include <main_frame_geometry.h>
 #include <side.h>
 #include <splash_screen_frame.h>
 
@@ -63,7 +62,6 @@ void AtmMainWidget::keyPressEvent(QKeyEvent* event) {
 
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeDeltaSize();
-  ComposeMainFrame();
   emit GeometryChanged();
 }
 
@@ -118,11 +116,6 @@ void AtmMainWidget::ComputeDeltaSize() {
   int delta_width = width() - AppGeometry::InitialWidth();
   int delta_height = height() - AppGeometry::InitialHeight();
   AtmComposer::SetDeltaSize(DeltaSize(delta_width, delta_height));
-}
-
-void AtmMainWidget::ComposeMainFrame() {
-  AtmComposer::StretchWidget(MainFrameGeometry::MainFrame(),
-                             Side::kRight | Side::kDown, 1.0, 1.0, main_frame_);
 }
 
 void AtmMainWidget::CheckSplashScreenCondition() {

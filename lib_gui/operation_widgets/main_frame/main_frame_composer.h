@@ -5,7 +5,6 @@
 #include <QLabel>
 
 #include <atm_color_designer.h>
-#include <geometry_composer.h>
 
 class MainFrameComposer {
  public:
@@ -18,21 +17,11 @@ class MainFrameComposer {
                       QLabel* time_label,
                       QLabel* date_label);
 
-  void ComposeLabels(QLabel* time_label, QLabel* date_label);
-
-  void SetDeltaSize(const DeltaSize& delta_size);
-
  private:
-  void SetDefaultComposing();
-
   void SetTime(QLabel* time_label);
   void SetDate(QLabel* date_label);
 
   AtmColorDesigner color_designer_;
-  GeometryComposer composer_;
-
-  static constexpr double kXFactor = 1.0;
-  static constexpr double kYFactor = 1.0;
 };
 
 #endif  // MAIN_FRAME_COMPOSER_H

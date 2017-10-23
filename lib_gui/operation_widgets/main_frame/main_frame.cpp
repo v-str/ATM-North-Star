@@ -16,8 +16,12 @@ MainFrame::MainFrame(QWidget* parent) : QFrame(parent) {
 MainFrame::~MainFrame() {}
 
 void MainFrame::ChangeGeometry() {
-  main_frame_composer_.SetDeltaSize(AtmComposer::GetDeltaSize());
-  main_frame_composer_.ComposeLabels(time_label_, date_label_);
+  AtmComposer::StretchWidget(MainFrameGeometry::MainFrame(),
+                             Side::kRight | Side::kDown, 1.0, 1.0, this);
+  AtmComposer::ShiftWidget(MainFrameGeometry::TimeLabel(), Side::kRight, 1.0,
+                           1.0, time_label_);
+  AtmComposer::ShiftWidget(MainFrameGeometry::DateLabel(), Side::kRight, 1.0,
+                           1.0, date_label_);
 }
 
 void MainFrame::InitializeLabels() {
