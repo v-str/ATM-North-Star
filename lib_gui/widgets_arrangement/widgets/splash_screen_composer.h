@@ -17,8 +17,7 @@ class SplashScreenComposer {
                   QLabel* text_label,
                   QLabel* atm_label);
 
-  void ComposeTextLabel(QLabel* text_label);
-  void ComposeAtmLabel(QLabel* atm_label);
+  void StretchAtmLabel(QLabel* atm_label);
 
   void SetDeltaSize(const DeltaSize& delta_size);
 

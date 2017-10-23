@@ -32,14 +32,14 @@ void SplashScreenFrame::SetCompanyName(const QString& company_name) {
 
 void SplashScreenFrame::ChangeGeometry() {
   composer_.SetDeltaSize(AtmComposer::GetDeltaSize());
+  composer_.StretchAtmLabel(atm_label_);
 
   AtmComposer::StretchWidget(SplashScreenGeometry::SplashScreenFrame(),
                              Side::kRight | Side::kDown, 1.0, 1.0, this);
   AtmComposer::ShiftWidget(SplashScreenGeometry::CompanyNameLabel(),
                            Side::kRight, 0.5, 1.0, company_name_label_);
-
-  composer_.ComposeAtmLabel(atm_label_);
-  composer_.ComposeTextLabel(text_label_);
+  AtmComposer::ShiftWidget(SplashScreenGeometry::TextLabel(),
+                           Side::kRight | Side::kDown, 0.5, 1.0, text_label_);
 }
 
 void SplashScreenFrame::BlinkAtmLabelColor() {

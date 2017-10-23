@@ -28,15 +28,7 @@ void SplashScreenComposer::TuneLabels(QLabel* version_label,
   atm_label->setFont(WidgetFont::SetFont());
 }
 
-void SplashScreenComposer::ComposeTextLabel(QLabel* text_label) {
-  composer_.SetShiftFactor(0.5, 1.0);
-  composer_.SetShiftSide(Side::kRight | Side::kDown);
-  composer_.SetTransformationType(GeometryComposer::kShift);
-
-  composer_.ComposeGeometry(SplashScreenGeometry::TextLabel(), text_label);
-}
-
-void SplashScreenComposer::ComposeAtmLabel(QLabel* atm_label) {
+void SplashScreenComposer::StretchAtmLabel(QLabel* atm_label) {
   atm_label_stretcher_.StretchAtmLabel(atm_label, delta_size_.Width(),
                                        delta_size_.Height());
 }
