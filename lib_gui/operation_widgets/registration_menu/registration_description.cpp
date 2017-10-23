@@ -18,6 +18,7 @@ RegistrationDescription::RegistrationDescription(QWidget* parent)
 RegistrationDescription::~RegistrationDescription() {}
 
 void RegistrationDescription::ChangeGeometry() {
+  SetDeltaSize(AtmComposer::GetDeltaSize());
   AtmComposer::StretchWidget(RegistrationMenuGeometry::DescriptionFrame(),
                              Side::kRight | Side::kDown, 1.0, 0.97, this);
 }
