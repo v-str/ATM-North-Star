@@ -2,6 +2,7 @@
 
 #include <QResizeEvent>
 
+#include <atm_composer.h>
 #include <date_label.h>
 #include <main_frame_geometry.h>
 #include <time_label.h>
@@ -14,11 +15,8 @@ MainFrame::MainFrame(QWidget* parent) : QFrame(parent) {
 
 MainFrame::~MainFrame() {}
 
-void MainFrame::SetDeltaSize(const DeltaSize& delta_size) {
-  main_frame_composer_.SetDeltaSize(delta_size);
-}
-
-void MainFrame::resizeEvent(QResizeEvent*) {
+void MainFrame::ChangeGeometry() {
+  main_frame_composer_.SetDeltaSize(AtmComposer::GetDeltaSize());
   main_frame_composer_.ComposeLabels(time_label_, date_label_);
 }
 

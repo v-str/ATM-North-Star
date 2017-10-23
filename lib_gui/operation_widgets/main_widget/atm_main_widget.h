@@ -4,7 +4,7 @@
 #include <QFrame>
 #include <QMainWindow>
 
-#include <main_widget_composer.h>
+#include <delta_size.h>
 
 class QString;
 class GraphicalInitialMenu;
@@ -61,8 +61,6 @@ class AtmMainWidget : public QMainWindow {
   GraphicalInitialMenu* initial_menu_ = nullptr;
   MainFrame* main_frame_ = nullptr;
   ExitDialog* exit_dialog_ = nullptr;
-
-  MainWidgetComposer main_widget_composer_;
   DeltaSize delta_size_;
 
   bool is_splash_screen_closed_ = false;

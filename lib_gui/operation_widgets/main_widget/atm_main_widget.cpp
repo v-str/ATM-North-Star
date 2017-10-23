@@ -12,6 +12,8 @@
 #include <graphical_initial_menu.h>
 #include <initial_property_installer.h>
 #include <main_frame.h>
+#include <main_frame_geometry.h>
+#include <side.h>
 #include <splash_screen_frame.h>
 
 #include <QDebug>
@@ -109,6 +111,7 @@ void AtmMainWidget::SetConnections() {
           SLOT(ChangeGeometry()));
   connect(this, SIGNAL(GeometryChanged()), initial_menu_,
           SLOT(ChangeGeometry()));
+  connect(this, SIGNAL(GeometryChanged()), main_frame_, SLOT(ChangeGeometry()));
 }
 
 void AtmMainWidget::ComputeDeltaSize() {
@@ -118,11 +121,8 @@ void AtmMainWidget::ComputeDeltaSize() {
 
 void AtmMainWidget::PerformComposing() {
   AtmComposer::SetDeltaSize(delta_size_);
-
-  main_frame_->SetDeltaSize(delta_size_);
-
-  main_widget_composer_.SetDeltaSize(delta_size_);
-  main_widget_composer_.ComposeMainFrame(main_frame_);
+  AtmComposer::StretchWidget(MainFrameGeometry::MainFrame(),
+                             Side::kRight | Side::kDown, 1.0, 1.0, main_frame_);
 }
 
 void AtmMainWidget::CheckSplashScreenCondition() {
