@@ -103,5 +103,5 @@ void BaseAtmFrame::SetBasicConnections() {
 
 void BaseAtmFrame::SetBackButton() {
   back_button_ = (new AtmButton("Back", this));
-  back_button_->SetFontSize(12);
+  back_button_->SetFont(WidgetFont::SetFont(12));
 }

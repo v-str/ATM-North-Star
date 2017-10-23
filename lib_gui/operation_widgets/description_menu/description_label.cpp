@@ -12,14 +12,12 @@
 DescriptionLabel::DescriptionLabel(QWidget* parent)
     : QLabel(parent),
       color_designer_(new AtmColorDesigner),
-      font_size_controller_(new FontSizeController(8, 50)),
       text_animation_(new TextAnimation(this)) {
   SetDescriptionLabel();
   ColorizeWidget();
 }
 
 DescriptionLabel::~DescriptionLabel() {
-  delete font_size_controller_;
   delete color_designer_;
   delete text_animation_;
 }
@@ -50,7 +48,7 @@ void DescriptionLabel::ShowStatementInfo() {
 }
 
 void DescriptionLabel::resizeEvent(QResizeEvent* event) {
-  font_size_controller_->ControlFontSize(event->size().width(), this);
+  FontSizeController::ControlFontSize(11, 50, event->size().width(), this);
 }
 
 void DescriptionLabel::SetDescriptionLabel() {

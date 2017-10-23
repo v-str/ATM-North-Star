@@ -7,6 +7,7 @@ class QRect;
 class FontSizeController;
 class QString;
 class QWidget;
+class QFont;
 
 class AtmButton : public QPushButton {
   Q_OBJECT
@@ -15,7 +16,7 @@ class AtmButton : public QPushButton {
 
   AtmButton(const QString& text, QWidget* widget = nullptr);
 
-  void SetFontSize(unsigned int font_size_pt);
+  void SetFont(const QFont& font);
 
   void SetOffsetSide(unsigned int offset_side);
 
@@ -39,6 +40,7 @@ class AtmButton : public QPushButton {
   int x_offset_ = 5;
   int y_offset_ = 5;
   unsigned int offset_side_ = 0;
+  unsigned int font_size_pt_ = 0;
 
   bool is_focus_ = false;
 };

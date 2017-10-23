@@ -79,6 +79,6 @@ void ExitDialog::PaintWidgets() {
 void ExitDialog::SetFontStyle() {
   screen_message_->setFont(WidgetFont::SetFont(19));
   screen_message_->setAlignment(Qt::AlignCenter);
-  button_yes_->setFont(WidgetFont::SetFont(14));
-  button_no_->setFont(WidgetFont::SetFont(14));
+  button_yes_->SetFont(WidgetFont::SetFont(14));
+  button_no_->SetFont(WidgetFont::SetFont(14));
 }
