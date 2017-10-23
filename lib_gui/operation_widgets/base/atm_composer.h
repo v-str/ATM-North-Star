@@ -26,8 +26,9 @@ class AtmComposer {
                             double y_stretch_factor,
                             QWidget* widget);
 
-  static void SetScaleWidgetSide(unsigned int shift_side,
-                                 unsigned int stretch_side);
+  static void SetScalingProperties(unsigned int shift_side,
+                                   unsigned int stretch_side,
+                                   bool keep_at_center);
   static void ScaleWidget(const QRect& initial_geometry,
                           double x_shift_factor,
                           double y_shift_factor,

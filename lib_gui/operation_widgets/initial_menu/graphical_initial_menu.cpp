@@ -33,8 +33,12 @@ GraphicalInitialMenu::~GraphicalInitialMenu() {}
 void GraphicalInitialMenu::ChangeGeometry() {
   SetDeltaSize(AtmComposer::GetDeltaSize());
 
-  menu_composer_.ComposeMenu(AtmComposer::GetDeltaSize(), this);
-  menu_composer_.ComposeFrame(AtmComposer::GetDeltaSize(), button_frame_);
+  AtmComposer::StretchWidget(InitialFrameGeometry::InitialFrame(),
+                             Side::kRight | Side::kDown, 1.0, 1.0, this);
+  AtmComposer::SetScalingProperties(Side::kRight | Side::kDown,
+                                    Side::kRight | Side::kDown, true);
+  AtmComposer::ScaleWidget(InitialFrameGeometry::ButtonFrame(), 0.5, 0.5, 0.5,
+                           0.5, button_frame_);
 
   border_controller_.SetGeometryLimit(geometry());
   border_controller_.ControlWidget(button_frame_);

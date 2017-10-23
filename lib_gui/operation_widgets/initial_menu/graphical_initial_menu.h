@@ -6,9 +6,6 @@
 #include <QRect>
 #include <QVBoxLayout>
 
-#include <delta_size.h>
-#include <geometry_composer.h>
-#include <initial_menu_composer.h>
 #include <widget_border_controller.h>
 
 class QWidget;
@@ -47,7 +44,6 @@ class GraphicalInitialMenu : public BaseAtmFrame {
   QVBoxLayout* v_layout_ = nullptr;
 
   WidgetBorderController border_controller_;
-  InitialMenuComposer menu_composer_;
 };
 
 #endif  // GRAPHICAL_INITIAL_MENU_H

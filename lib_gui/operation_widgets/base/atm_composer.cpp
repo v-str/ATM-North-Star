@@ -40,10 +40,12 @@ void AtmComposer::StretchWidget(const QRect& initial_geometry,
   kStretchComposer.ComposeGeometry(initial_geometry, widget);
 }
 
-void AtmComposer::SetScaleWidgetSide(unsigned int shift_side,
-                                     unsigned int stretch_side) {
+void AtmComposer::SetScalingProperties(unsigned int shift_side,
+                                       unsigned int stretch_side,
+                                       bool keep_at_center) {
   kScaleComposer.SetShiftSide(shift_side);
   kScaleComposer.SetStretchSide(stretch_side);
+  kScaleComposer.KeepCenter(keep_at_center);
 }
 
 void AtmComposer::ScaleWidget(const QRect& initial_geometry,
