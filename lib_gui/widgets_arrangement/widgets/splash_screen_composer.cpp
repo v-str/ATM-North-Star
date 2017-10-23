@@ -28,13 +28,6 @@ void SplashScreenComposer::TuneLabels(QLabel* version_label,
   atm_label->setFont(WidgetFont::SetFont());
 }
 
-void SplashScreenComposer::ComposeFrame(QFrame* frame) {
-  composer_.SetStretchFactor(1.0, 1.0);
-  composer_.SetStretchSide(Side::kRight | Side::kDown);
-  composer_.SetTransformationType(GeometryComposer::kStretch);
-  composer_.ComposeGeometry(SplashScreenGeometry::SplashScreenFrame(), frame);
-}
-
 void SplashScreenComposer::ComposeCompanyNameLabel(QLabel* company_name_label) {
   composer_.SetShiftFactor(0.5, 1.0);
   composer_.SetShiftSide(Side::kRight);
