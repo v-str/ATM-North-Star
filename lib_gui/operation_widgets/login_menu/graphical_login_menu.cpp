@@ -3,6 +3,7 @@
 #include <QWidget>
 
 #include <atm_button.h>
+#include <atm_composer.h>
 #include <login_menu_geometry.h>
 #include <side.h>
 
@@ -19,7 +20,10 @@ GraphicalLoginMenu::GraphicalLoginMenu(QWidget* parent) : BaseAtmFrame(parent) {
 GraphicalLoginMenu::~GraphicalLoginMenu() {}
 
 void GraphicalLoginMenu::ChangeGeometry(const DeltaSize& delta_size) {
-  BaseAtmFrame::SetDeltaSize(delta_size);
+  SetDeltaSize(delta_size);
+
+  AtmComposer::ComposeBackButton(GetBackButton());
+
   composer_.SetDeltaSize(delta_size);
   composer_.ComposeGeometry(LoginMenuGeometry::LoginFrame(), this);
 }

@@ -24,8 +24,6 @@ void GraphicalRegistrationMenu::ChangeGeometry(const DeltaSize& delta_size) {
 
   AtmComposer::ComposeBackButton(GetBackButton());
 
-  // BaseComposer::SetDeltaSize(delta_size);
-
   registration_composer_.ComposeRegistrationMenu(delta_size, this);
 
   //  operation_frame_delta_size_ =
