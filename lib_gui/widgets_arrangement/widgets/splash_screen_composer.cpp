@@ -28,12 +28,8 @@ void SplashScreenComposer::TuneLabels(QLabel* version_label,
   atm_label->setFont(WidgetFont::SetFont());
 }
 
-void SplashScreenComposer::StretchAtmLabel(QLabel* atm_label) {
-  atm_label_stretcher_.StretchAtmLabel(atm_label, delta_size_.Width(),
-                                       delta_size_.Height());
-}
-
-void SplashScreenComposer::SetDeltaSize(const DeltaSize& delta_size) {
-  composer_.SetDeltaSize(delta_size);
-  delta_size_ = delta_size;
+void SplashScreenComposer::StretchAtmLabel(const DeltaSize& delta_size,
+                                           QLabel* atm_label) {
+  atm_label_stretcher_.StretchAtmLabel(atm_label, delta_size.Width(),
+                                       delta_size.Height());
 }

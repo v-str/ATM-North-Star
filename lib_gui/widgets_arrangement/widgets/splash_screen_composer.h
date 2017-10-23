@@ -17,14 +17,11 @@ class SplashScreenComposer {
                   QLabel* text_label,
                   QLabel* atm_label);
 
-  void StretchAtmLabel(QLabel* atm_label);
-
-  void SetDeltaSize(const DeltaSize& delta_size);
+  void StretchAtmLabel(const DeltaSize& delta_size, QLabel* atm_label);
 
  private:
   AtmLabelStretcher atm_label_stretcher_;
   GeometryComposer composer_;
-  DeltaSize delta_size_;
 };
 
 #endif  // SPLASH_SCREEN_COMPOSER_H
