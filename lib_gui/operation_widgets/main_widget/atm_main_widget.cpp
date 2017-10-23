@@ -63,7 +63,7 @@ void AtmMainWidget::keyPressEvent(QKeyEvent* event) {
 
 void AtmMainWidget::resizeEvent(QResizeEvent*) {
   ComputeDeltaSize();
-  PerformComposing();
+  ComposeMainFrame();
   emit GeometryChanged();
 }
 
@@ -117,10 +117,10 @@ void AtmMainWidget::SetConnections() {
 void AtmMainWidget::ComputeDeltaSize() {
   delta_size_.SetWidth(width() - AppGeometry::InitialWidth());
   delta_size_.SetHeight(height() - AppGeometry::InitialHeight());
+  AtmComposer::SetDeltaSize(delta_size_);
 }
 
-void AtmMainWidget::PerformComposing() {
-  AtmComposer::SetDeltaSize(delta_size_);
+void AtmMainWidget::ComposeMainFrame() {
   AtmComposer::StretchWidget(MainFrameGeometry::MainFrame(),
                              Side::kRight | Side::kDown, 1.0, 1.0, main_frame_);
 }
