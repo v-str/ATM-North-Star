@@ -6,6 +6,7 @@
 #include <date_label.h>
 #include <main_frame_geometry.h>
 #include <time_label.h>
+#include <widget_font.h>
 
 MainFrame::MainFrame(QWidget* parent) : QFrame(parent) {
   InitializeLabels();
@@ -30,9 +31,19 @@ void MainFrame::InitializeLabels() {
 }
 
 void MainFrame::SetMainFrame() {
-  main_frame_composer_.SetMainFrameAppearance(this, time_label_, date_label_);
+  setGeometry(MainFrameGeometry::MainFrame());
+
+  time_label_->setGeometry(MainFrameGeometry::TimeLabel());
+  time_label_->setFont(WidgetFont::SetFont(12));
+  time_label_->setAlignment(Qt::AlignRight);
+
+  date_label_->setGeometry(MainFrameGeometry::DateLabel());
+  date_label_->setFont(WidgetFont::SetFont(12));
+  date_label_->setAlignment(Qt::AlignRight);
 }
 
 void MainFrame::PaintMainFrame() {
-  main_frame_composer_.PaintMainFrame(this, time_label_, date_label_);
+  color_designer_.PaintFrame(this);
+  color_designer_.PaintSingleWidget(time_label_);
+  color_designer_.PaintSingleWidget(date_label_);
 }

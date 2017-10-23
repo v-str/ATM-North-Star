@@ -4,7 +4,7 @@
 #include <QFrame>
 #include <QLabel>
 
-#include <main_frame_composer.h>
+#include <atm_color_designer.h>
 
 class TimeLabel;
 class DateLabel;
@@ -27,7 +27,7 @@ class MainFrame : public QFrame {
   TimeLabel* time_label_ = nullptr;
   DateLabel* date_label_ = nullptr;
 
-  MainFrameComposer main_frame_composer_;
+  AtmColorDesigner color_designer_;
 };
 
 #endif  // MAIN_FRAME_H
