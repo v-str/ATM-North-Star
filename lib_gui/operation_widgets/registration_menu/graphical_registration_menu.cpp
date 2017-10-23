@@ -21,11 +21,9 @@ GraphicalRegistrationMenu::~GraphicalRegistrationMenu() {}
 
 void GraphicalRegistrationMenu::ChangeGeometry() {
   SetDeltaSize(AtmComposer::GetDeltaSize());
-
   AtmComposer::ComposeBackButton(GetBackButton());
-
-  registration_composer_.ComposeRegistrationMenu(AtmComposer::GetDeltaSize(),
-                                                 this);
+  AtmComposer::StretchWidget(RegistrationMenuGeometry::RegistrationFrame(),
+                             Side::kRight | Side::kDown, 1.0, 1.0, this);
 
   //  operation_frame_delta_size_ =
   //      registration_composer_.ComposeDeltaSizeForDescription(
