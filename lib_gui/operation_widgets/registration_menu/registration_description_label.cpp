@@ -18,6 +18,7 @@ void RegistrationDescriptionLabel::SetInitialSettings() {
   AtmColorDesigner::PaintSingleWidget(this);
   setFont(WidgetFont::SetFont(12));
   setGeometry(RegistrationMenuGeometry::DesctiptionLabel());
+  setAlignment(Qt::AlignLeft | Qt::AlignTop);
   setWordWrap(true);
 }
 

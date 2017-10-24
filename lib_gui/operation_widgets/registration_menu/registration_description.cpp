@@ -24,6 +24,14 @@ void RegistrationDescription::ChangeGeometry() {
 
   AtmComposer::StretchWidget(RegistrationMenuGeometry::DescriptionFrame(),
                              Side::kRight | Side::kDown, 1.0, 0.97, this);
+
+  ComposeDescriptionLabel();
+}
+
+void RegistrationDescription::ComposeDescriptionLabel() {
+  AtmComposer::StretchWidget(RegistrationMenuGeometry::DesctiptionLabel(),
+                             Side::kRight | Side::kDown, 1.0, 0.97,
+                             description_label_);
 }
 
 DeltaSize RegistrationDescription::CalculateDeltaSize(
