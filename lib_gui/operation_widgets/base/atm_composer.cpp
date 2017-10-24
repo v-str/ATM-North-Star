@@ -62,3 +62,7 @@ void AtmComposer::ScaleWidget(const QRect& initial_geometry,
 }
 
 DeltaSize AtmComposer::GetDeltaSize() { return kDeltaSize; }
+
+DeltaSize AtmComposer::GetBackButtonDeltaSize() {
+  return kBackButtonComposer.GetBackButtonDeltaSize();
+}

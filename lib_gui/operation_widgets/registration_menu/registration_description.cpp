@@ -4,6 +4,7 @@
 #include <QWidget>
 
 #include <atm_composer.h>
+#include <delta_size.h>
 #include <registration_description_label.h>
 #include <registration_menu_geometry.h>
 #include <side.h>
@@ -18,7 +19,9 @@ RegistrationDescription::RegistrationDescription(QWidget* parent)
 RegistrationDescription::~RegistrationDescription() {}
 
 void RegistrationDescription::ChangeGeometry() {
-  SetDeltaSize(AtmComposer::GetDeltaSize());
+  SetDeltaSize(AtmComposer::GetDeltaSize() -
+               AtmComposer::GetBackButtonDeltaSize());
+
   AtmComposer::StretchWidget(RegistrationMenuGeometry::DescriptionFrame(),
                              Side::kRight | Side::kDown, 1.0, 0.97, this);
 }

@@ -25,7 +25,6 @@ class AtmComposer {
                             double x_stretch_factor,
                             double y_stretch_factor,
                             QWidget* widget);
-
   static void SetScalingProperties(unsigned int shift_side,
                                    unsigned int stretch_side,
                                    bool keep_at_center);
@@ -35,12 +34,10 @@ class AtmComposer {
                           double x_stretch_factor,
                           double y_stretch_factor,
                           QWidget* widget);
-
   static DeltaSize GetDeltaSize();
+  static DeltaSize GetBackButtonDeltaSize();
 
  private:
-  static void SetBackButtonSettings();
-
   static BackButtonComposer kBackButtonComposer;
   static GeometryComposer kShiftComposer;
   static GeometryComposer kStretchComposer;

@@ -1,12 +1,12 @@
 ﻿#ifndef DELTA_SIZE_H
 #define DELTA_SIZE_H
 
-#include <QSize>
-
 class DeltaSize {
  public:
   DeltaSize();
   DeltaSize(int width, int height);
+
+  DeltaSize operator-(const DeltaSize& delta_size);
 
   void SetDeltaSize(const DeltaSize& delta_size);
 
