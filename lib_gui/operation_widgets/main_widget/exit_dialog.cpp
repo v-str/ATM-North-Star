@@ -9,6 +9,7 @@
 #include <QString>
 
 #include <atm_button.h>
+#include <atm_color_designer.h>
 #include <exit_dialog_geometry.h>
 #include <initial_property_installer.h>
 #include <place_arranger.h>
@@ -38,7 +39,7 @@ void ExitDialog::SetExitDialogAppearance() {
   SetFontStyle();
 }
 
-void ExitDialog::SetBackgroundColor() { color_designer_.SetBackground(this); }
+void ExitDialog::SetBackgroundColor() { AtmColorDesigner::SetBackground(this); }
 
 void ExitDialog::SetGeometry() {
   setGeometry(ExitDialogGeometry::ExitDialog());
@@ -71,9 +72,9 @@ void ExitDialog::PaintWidgets() {
   QList<QPushButton*> button_list = {button_yes_, button_no_};
   QList<QFrame*> frame_list = {exit_dialog_frame_};
 
-  color_designer_.PaintWidgetSet(&label_list);
-  color_designer_.PaintWidgetSet(&button_list);
-  color_designer_.PaintWidgetSet(&frame_list);
+  AtmColorDesigner::PaintWidgetSet(&label_list);
+  AtmColorDesigner::PaintWidgetSet(&button_list);
+  AtmColorDesigner::PaintWidgetSet(&frame_list);
 }
 
 void ExitDialog::SetFontStyle() {

@@ -4,7 +4,6 @@
 #include <QLabel>
 
 class QWidget;
-class AtmColorDesigner;
 class TextAnimation;
 
 class DescriptionLabel : public QLabel {
@@ -30,7 +29,6 @@ class DescriptionLabel : public QLabel {
   void SetDescriptionLabel();
   void ColorizeWidget();
 
-  AtmColorDesigner* color_designer_ = nullptr;
   TextAnimation* text_animation_ = nullptr;
 
   static const int kDelayMSec = 5;

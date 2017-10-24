@@ -2,6 +2,7 @@
 
 #include <QWidget>
 
+#include <atm_color_designer.h>
 #include <registration_menu_geometry.h>
 #include <widget_font.h>
 
@@ -14,7 +15,7 @@ RegistrationDescriptionLabel::RegistrationDescriptionLabel(QWidget* parent)
 RegistrationDescriptionLabel::~RegistrationDescriptionLabel() {}
 
 void RegistrationDescriptionLabel::SetInitialSettings() {
-  color_designer_.PaintSingleWidget(this);
+  AtmColorDesigner::PaintSingleWidget(this);
   setFont(WidgetFont::SetFont(12));
   setGeometry(RegistrationMenuGeometry::DesctiptionLabel());
   setWordWrap(true);

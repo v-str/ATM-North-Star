@@ -5,6 +5,7 @@
 #include <QString>
 #include <QTimer>
 
+#include <atm_color_designer.h>
 #include <atm_composer.h>
 #include <side.h>
 #include <splash_screen_geometry.h>
@@ -68,7 +69,7 @@ void SplashScreenFrame::PaintWidgets() {
   QList<QLabel*> label_list = {version_label_, company_name_label_, atm_label_,
                                text_label_};
 
-  color_designer_.PaintWidgetSet(&label_list);
+  AtmColorDesigner::PaintWidgetSet(&label_list);
 }
 
 void SplashScreenFrame::SetConnection() {

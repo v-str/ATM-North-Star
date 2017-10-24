@@ -7,7 +7,6 @@
 
 class FrameAnimator;
 class QFrame;
-class AtmColorDesigner;
 class QPushButton;
 
 class AtmFrameSetter : public QObject {
@@ -42,7 +41,6 @@ class AtmFrameSetter : public QObject {
 
   void SetAnimationConnections();
 
-  AtmColorDesigner* color_designer_ = nullptr;
   FrameAnimator* hide_animator_ = nullptr;
   FrameAnimator* extrude_animator_ = nullptr;
 };

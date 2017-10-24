@@ -7,7 +7,6 @@
 #include <geometry_composer.h>
 #include <widget_border_controller.h>
 
-class AtmColorDesigner;
 class AtmButton;
 class QVBoxLayout;
 
@@ -40,8 +39,6 @@ class DescriptionFrame : public QFrame {
   void ColorizeWidgets();
 
   void SetConnections();
-
-  AtmColorDesigner* color_designer_ = nullptr;
 
   AtmButton* account_info_button_ = nullptr;
   AtmButton* cash_refill_button_ = nullptr;

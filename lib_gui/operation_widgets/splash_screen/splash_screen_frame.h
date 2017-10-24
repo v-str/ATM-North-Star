@@ -3,8 +3,6 @@
 
 #include <base_atm_frame.h>
 
-#include <atm_color_designer.h>
-
 class QLabel;
 class QString;
 class QTimer;
@@ -30,8 +28,6 @@ class SplashScreenFrame : public BaseAtmFrame {
   void TuneLabel();
   void PaintWidgets();
   void SetConnection();
-
-  AtmColorDesigner color_designer_;
 
   QTimer* color_swap_timer_ = nullptr;
   TextColorSwapper* text_color_swapper_ = nullptr;

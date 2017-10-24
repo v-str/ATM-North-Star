@@ -2,6 +2,7 @@
 
 #include <QResizeEvent>
 
+#include <atm_color_designer.h>
 #include <atm_composer.h>
 #include <date_label.h>
 #include <main_frame_geometry.h>
@@ -43,7 +44,7 @@ void MainFrame::SetMainFrame() {
 }
 
 void MainFrame::PaintMainFrame() {
-  color_designer_.PaintFrame(this);
-  color_designer_.PaintSingleWidget(time_label_);
-  color_designer_.PaintSingleWidget(date_label_);
+  AtmColorDesigner::PaintFrame(this);
+  AtmColorDesigner::PaintSingleWidget(time_label_);
+  AtmColorDesigner::PaintSingleWidget(date_label_);
 }

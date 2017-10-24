@@ -11,20 +11,18 @@ class QDialog;
 
 class AtmColorDesigner {
  public:
-  AtmColorDesigner();
+  static void SetBackground(QMainWindow* main_window);
+  static void SetBackground(QDialog* dialog);
 
-  void SetBackground(QMainWindow* main_window);
-  void SetBackground(QDialog* dialog);
+  static void PaintWidgetSet(QList<QLabel*>* label_list);
+  static void PaintWidgetSet(QList<QPushButton*>* button_list);
+  static void PaintWidgetSet(QList<QFrame*>* frame_list);
 
-  void PaintWidgetSet(QList<QLabel*>* label_list) const;
-  void PaintWidgetSet(QList<QPushButton*>* button_list) const;
-  void PaintWidgetSet(QList<QFrame*>* frame_list) const;
+  static void PaintSingleWidget(QLabel* label);
+  static void PaintSingleWidget(QPushButton* button);
+  static void PaintSingleWidget(QFrame* frame);
 
-  void PaintSingleWidget(QLabel* label) const;
-  void PaintSingleWidget(QPushButton* button) const;
-  void PaintSingleWidget(QFrame* frame) const;
-
-  void PaintFrame(QFrame* frame) const;
+  static void PaintFrame(QFrame* frame);
 };
 
 #endif  // ATM_COLOR_DESIGNER_H

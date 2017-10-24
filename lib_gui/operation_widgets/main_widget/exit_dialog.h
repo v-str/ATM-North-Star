@@ -3,8 +3,6 @@
 
 #include <QDialog>
 
-#include <atm_color_designer.h>
-
 class QTimer;
 class QString;
 class QRect;
@@ -35,8 +33,6 @@ class ExitDialog : public QDialog {
   AtmButton* button_yes_ = nullptr;
   AtmButton* button_no_ = nullptr;
   QLabel* screen_message_ = nullptr;
-
-  AtmColorDesigner color_designer_;
 
   static const int kWidgetWidth = 300;
   static const int kWidgetHeight = 150;

@@ -4,8 +4,6 @@
 #include <QFrame>
 #include <QLabel>
 
-#include <atm_color_designer.h>
-
 class TimeLabel;
 class DateLabel;
 
@@ -26,8 +24,6 @@ class MainFrame : public QFrame {
 
   TimeLabel* time_label_ = nullptr;
   DateLabel* date_label_ = nullptr;
-
-  AtmColorDesigner color_designer_;
 };
 
 #endif  // MAIN_FRAME_H

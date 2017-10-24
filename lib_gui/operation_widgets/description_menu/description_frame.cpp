@@ -12,7 +12,6 @@
 
 DescriptionFrame::DescriptionFrame(QWidget* parent)
     : QFrame(parent),
-      color_designer_(new AtmColorDesigner),
       account_info_button_(new AtmButton("Account information", this)),
       cash_refill_button_(new AtmButton("Refill cash", this)),
       credit_app_button_(new AtmButton("Credit application", this)),
@@ -26,7 +25,7 @@ DescriptionFrame::DescriptionFrame(QWidget* parent)
   SetConnections();
 }
 
-DescriptionFrame::~DescriptionFrame() { delete color_designer_; }
+DescriptionFrame::~DescriptionFrame() {}
 
 void DescriptionFrame::SetDeltaSize(const DeltaSize& delta_size) {
   delta_size_ = delta_size;
@@ -83,7 +82,7 @@ void DescriptionFrame::ColorizeWidgets() {
   QList<QPushButton*> button_list{account_info_button_, cash_refill_button_,
                                   credit_app_button_, cash_withdrawal_button_,
                                   statement_button_};
-  color_designer_->PaintWidgetSet(&button_list);
+  AtmColorDesigner::PaintWidgetSet(&button_list);
 }
 
 void DescriptionFrame::SetConnections() {

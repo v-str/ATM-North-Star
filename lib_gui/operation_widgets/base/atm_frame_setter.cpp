@@ -6,17 +6,15 @@
 #include <atm_color_designer.h>
 #include <frame_animator.h>
 
-AtmFrameSetter::AtmFrameSetter(QFrame* frame)
-    : QObject(frame), color_designer_(new AtmColorDesigner) {}
+AtmFrameSetter::AtmFrameSetter(QFrame* frame) : QObject(frame) {}
 
 AtmFrameSetter::~AtmFrameSetter() {
-  delete color_designer_;
   delete hide_animator_;
   delete extrude_animator_;
 }
 
 void AtmFrameSetter::SetOperationFrame(QFrame* frame) {
-  color_designer_->PaintFrame(frame);
+  AtmColorDesigner::PaintFrame(frame);
 
   InitializeAnimationObjects(frame);
 
@@ -35,7 +33,7 @@ void AtmFrameSetter::SetAnimationDuration(unsigned int duration_msec) {
 }
 
 void AtmFrameSetter::ColorizeButtons(QList<QPushButton*>* button_list) {
-  color_designer_->PaintWidgetSet(button_list);
+  AtmColorDesigner::PaintWidgetSet(button_list);
 }
 
 void AtmFrameSetter::StartHideFrame(const QRect& geometry) {

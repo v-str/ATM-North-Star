@@ -10,17 +10,12 @@
 #include <text_animation.h>
 
 DescriptionLabel::DescriptionLabel(QWidget* parent)
-    : QLabel(parent),
-      color_designer_(new AtmColorDesigner),
-      text_animation_(new TextAnimation(this)) {
+    : QLabel(parent), text_animation_(new TextAnimation(this)) {
   SetDescriptionLabel();
   ColorizeWidget();
 }
 
-DescriptionLabel::~DescriptionLabel() {
-  delete color_designer_;
-  delete text_animation_;
-}
+DescriptionLabel::~DescriptionLabel() { delete text_animation_; }
 
 void DescriptionLabel::ShowAccountInfo() {
   text_animation_->SetTextForAnimation(DescriptionText::AccountInfoText());
