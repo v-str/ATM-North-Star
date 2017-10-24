@@ -3,6 +3,8 @@
 
 #include <QPushButton>
 
+#include <font_size_controller.h>
+
 class QRect;
 class QString;
 class QWidget;
@@ -35,6 +37,8 @@ class AtmButton : public QPushButton {
   void ReturnToInitialPosition();
 
   static const int KFontScaleCoefficient = 80;
+
+  FontSizeController size_controller;
 
   int x_offset_ = 5;
   int y_offset_ = 5;

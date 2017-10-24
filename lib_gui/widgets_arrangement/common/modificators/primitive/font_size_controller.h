@@ -13,9 +13,6 @@ class FontSizeController {
                        int current_widget_width,
                        QWidget* widget);
 
-  double SideRatio();
-  int FontSize();
-
  private:
   void CalculateSideRatio(int widget_width, int widget_height);
 

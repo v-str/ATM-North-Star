@@ -42,11 +42,6 @@ void DescriptionLabel::ShowStatementInfo() {
   text_animation_->StartAnimation(kDelayMSec, this);
 }
 
-void DescriptionLabel::resizeEvent(QResizeEvent* event) {
-  FontSizeController size_controller;
-  size_controller.ControlFontSize(11, 50, 6, event->size().width(), this);
-}
-
 void DescriptionLabel::SetDescriptionLabel() {
   setAlignment(Qt::AlignLeft | Qt::AlignTop);
   setGeometry(DescriptionMenuGeometry::DescriprionLabel());

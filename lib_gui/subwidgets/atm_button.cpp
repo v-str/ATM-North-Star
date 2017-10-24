@@ -8,7 +8,6 @@
 #include <QString>
 #include <QWidget>
 
-#include <font_size_controller.h>
 #include <widget_font.h>
 
 AtmButton::AtmButton(const QString& text, QWidget* widget)
@@ -38,7 +37,6 @@ void AtmButton::enterEvent(QEvent*) { OffsetButton(); }
 void AtmButton::leaveEvent(QEvent*) { ReturnToInitialPosition(); }
 
 void AtmButton::resizeEvent(QResizeEvent* event) {
-  FontSizeController size_controller;
   size_controller.ControlFontSize(font_size_pt_, 6, KFontScaleCoefficient,
                                   event->size().width(), this);
 }

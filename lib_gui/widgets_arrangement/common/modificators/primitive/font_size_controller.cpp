@@ -23,10 +23,6 @@ void FontSizeController::ControlFontSize(int initial_font_size,
   widget->setFont(new_font);
 }
 
-double FontSizeController::SideRatio() { return side_ratio_; }
-
-int FontSizeController::FontSize() { return font_size_; }
-
 void FontSizeController::CalculateSideRatio(int widget_width,
                                             int widget_height) {
   side_ratio_ = double(widget_width) / double(widget_height);

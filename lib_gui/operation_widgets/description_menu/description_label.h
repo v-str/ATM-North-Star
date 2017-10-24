@@ -22,9 +22,6 @@ class DescriptionLabel : public QLabel {
  signals:
   void StartAnimation();
 
- protected:
-  void resizeEvent(QResizeEvent* event);
-
  private:
   void SetDescriptionLabel();
   void ColorizeWidget();

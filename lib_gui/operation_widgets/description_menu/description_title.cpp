@@ -8,21 +8,14 @@
 
 #include <application_color.h>
 #include <description_menu_geometry.h>
-#include <font_size_controller.h>
 
-DescriptionTitle::DescriptionTitle(QWidget* parent)
-    : QLabel(parent), font_size_controller_(new FontSizeController) {
+DescriptionTitle::DescriptionTitle(QWidget* parent) : QLabel(parent) {
   setGeometry(DescriptionMenuGeometry::DescriptionTitle());
   setAlignment(Qt::AlignCenter);
   ColorizeWidget();
 }
 
-DescriptionTitle::~DescriptionTitle() { delete font_size_controller_; }
-
-void DescriptionTitle::resizeEvent(QResizeEvent* event) {
-  font_size_controller_->ControlFontSize(11, 50, 10, event->size().width(),
-                                         this);
-}
+DescriptionTitle::~DescriptionTitle() {}
 
 void DescriptionTitle::ColorizeWidget() {
   QString stylesheet_string =
