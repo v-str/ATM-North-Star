@@ -5,15 +5,22 @@ class QWidget;
 
 class FontSizeController {
  public:
-  static void ControlFontSize(int initial_font_size,
-                              int font_scale_coefficient,
-                              int current_widget_width,
-                              QWidget* widget);
+  FontSizeController();
+
+  void ControlFontSize(int initial_font_size,
+                       int ratio_limit,
+                       int font_scale_coefficient,
+                       int current_widget_width,
+                       QWidget* widget);
+
+  double SideRatio();
+  int FontSize();
 
  private:
-  static void CalculateSideRatio(int widget_width, int widget_height);
+  void CalculateSideRatio(int widget_width, int widget_height);
 
-  static double kSideRatio;
+  double side_ratio_;
+  int font_size_;
 };
 
 #endif  // FONT_SIZE_CONTROLLER_H

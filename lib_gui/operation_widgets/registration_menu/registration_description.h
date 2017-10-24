@@ -3,6 +3,8 @@
 
 #include <base_atm_frame.h>
 
+#include <font_size_controller.h>
+
 class QWidget;
 class QRect;
 class RegistrationDescriptionLabel;
@@ -23,6 +25,7 @@ class RegistrationDescription : public BaseAtmFrame {
                                const DeltaSize& back_button_delta_size);
 
   RegistrationDescriptionLabel* description_label_ = nullptr;
+  FontSizeController size_controller_;
 };
 
 #endif  // REGISTRATION_DESCRIPTION_H

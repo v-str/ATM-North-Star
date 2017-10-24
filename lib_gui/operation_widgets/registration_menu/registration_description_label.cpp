@@ -31,10 +31,9 @@ void RegistrationDescriptionLabel::SetText() {
       "Familiarize with registration rules:\n"
       "- Length of login: 6-35 latin symbols inclusively\n"
       "- Length of password: 6 symbols\n"
-      "- Length of tooltip: mo more than 50 symbols\n"
+      "- Length of tooltip: no more than 50 symbols\n"
       "- Login must not contain special symbols\n"
-      "   ( e.g. ; - % # ! and so on )\n"
+      "( e.g. ; - % # ! and so on )\n"
       "- Password must not contain space symbols\n"
-      "- Password may contain both latin alphabet symbols\n"
-      "   and arabic digits");
+      "- Password may contain both latin alphabet symbols and arabic digits");
 }

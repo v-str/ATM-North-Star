@@ -43,7 +43,8 @@ void DescriptionLabel::ShowStatementInfo() {
 }
 
 void DescriptionLabel::resizeEvent(QResizeEvent* event) {
-  FontSizeController::ControlFontSize(11, 50, event->size().width(), this);
+  FontSizeController size_controller;
+  size_controller.ControlFontSize(11, 50, 6, event->size().width(), this);
 }
 
 void DescriptionLabel::SetDescriptionLabel() {

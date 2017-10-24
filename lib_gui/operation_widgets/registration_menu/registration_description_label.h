@@ -17,7 +17,7 @@ class RegistrationDescriptionLabel : public QLabel {
   void SetInitialSettings();
   void SetText();
 
-  static const int kInitialLabelFont = 12;
+  static const int kInitialLabelFont = 11;
 };
 
 #endif  // REGISTRATION_DESCRIPTION_LABEL_H

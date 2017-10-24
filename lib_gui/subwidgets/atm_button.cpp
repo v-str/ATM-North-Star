@@ -38,8 +38,9 @@ void AtmButton::enterEvent(QEvent*) { OffsetButton(); }
 void AtmButton::leaveEvent(QEvent*) { ReturnToInitialPosition(); }
 
 void AtmButton::resizeEvent(QResizeEvent* event) {
-  FontSizeController::ControlFontSize(font_size_pt_, KFontScaleCoefficient,
-                                      event->size().width(), this);
+  FontSizeController size_controller;
+  size_controller.ControlFontSize(font_size_pt_, 6, KFontScaleCoefficient,
+                                  event->size().width(), this);
 }
 
 void AtmButton::SetSizePolicy() {

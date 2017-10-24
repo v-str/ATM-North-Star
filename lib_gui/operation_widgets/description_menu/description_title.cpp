@@ -20,7 +20,8 @@ DescriptionTitle::DescriptionTitle(QWidget* parent)
 DescriptionTitle::~DescriptionTitle() { delete font_size_controller_; }
 
 void DescriptionTitle::resizeEvent(QResizeEvent* event) {
-  font_size_controller_->ControlFontSize(11, 50, event->size().width(), this);
+  font_size_controller_->ControlFontSize(11, 50, 10, event->size().width(),
+                                         this);
 }
 
 void DescriptionTitle::ColorizeWidget() {
