@@ -12,7 +12,7 @@
 #include <widget_font.h>
 
 AtmButton::AtmButton(const QString& text, QWidget* widget)
-    : QPushButton(text, widget), font_size_controller_(new FontSizeController) {
+    : QPushButton(text, widget) {
   offset_side_ = kRight;
 
   SetSizePolicy();
@@ -31,15 +31,15 @@ void AtmButton::SetXHoverOffset(int x_offset) { x_offset_ = x_offset; }
 
 void AtmButton::SetYHoverOffset(int y_offset) { y_offset_ = y_offset; }
 
-AtmButton::~AtmButton() { delete font_size_controller_; }
+AtmButton::~AtmButton() {}
 
 void AtmButton::enterEvent(QEvent*) { OffsetButton(); }
 
 void AtmButton::leaveEvent(QEvent*) { ReturnToInitialPosition(); }
 
 void AtmButton::resizeEvent(QResizeEvent* event) {
-  font_size_controller_->ControlFontSize(font_size_pt_, KFontScaleCoefficient,
-                                         event->size().width(), this);
+  FontSizeController::ControlFontSize(font_size_pt_, KFontScaleCoefficient,
+                                      event->size().width(), this);
 }
 
 void AtmButton::SetSizePolicy() {

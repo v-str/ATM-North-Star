@@ -11,9 +11,13 @@ class RegistrationDescriptionLabel : public QLabel {
   RegistrationDescriptionLabel(QWidget* parent = nullptr);
   ~RegistrationDescriptionLabel();
 
+  int GetInitialFontSize() const;
+
  private:
   void SetInitialSettings();
   void SetText();
+
+  static const int kInitialLabelFont = 12;
 };
 
 #endif  // REGISTRATION_DESCRIPTION_LABEL_H

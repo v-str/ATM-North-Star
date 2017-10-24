@@ -14,9 +14,13 @@ RegistrationDescriptionLabel::RegistrationDescriptionLabel(QWidget* parent)
 
 RegistrationDescriptionLabel::~RegistrationDescriptionLabel() {}
 
+int RegistrationDescriptionLabel::GetInitialFontSize() const {
+  return kInitialLabelFont;
+}
+
 void RegistrationDescriptionLabel::SetInitialSettings() {
   AtmColorDesigner::PaintSingleWidget(this);
-  setFont(WidgetFont::SetFont(12));
+  setFont(WidgetFont::SetFont(kInitialLabelFont));
   setGeometry(RegistrationMenuGeometry::DesctiptionLabel());
   setAlignment(Qt::AlignLeft | Qt::AlignTop);
   setWordWrap(true);
@@ -24,14 +28,13 @@ void RegistrationDescriptionLabel::SetInitialSettings() {
 
 void RegistrationDescriptionLabel::SetText() {
   setText(
-      "This notice help you perform registration, please\n"
-      "read it carefully:\n\n"
-      "1. Length of login: 6-35 latin symbols inclusively\n"
-      "2. Length of password: 6 symbols\n"
-      "3. Length of tooltip: mo more than 50 symbols\n\n"
-      "4. Login must not contain special symbols\n"
+      "Familiarize with registration rules:\n"
+      "- Length of login: 6-35 latin symbols inclusively\n"
+      "- Length of password: 6 symbols\n"
+      "- Length of tooltip: mo more than 50 symbols\n"
+      "- Login must not contain special symbols\n"
       "   ( e.g. ; - % # ! and so on )\n"
-      "5. Password must not contain space symbols\n"
-      "6. Password may contain both latin alphabet symbols\n"
+      "- Password must not contain space symbols\n"
+      "- Password may contain both latin alphabet symbols\n"
       "   and arabic digits");
 }
