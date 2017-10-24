@@ -17,6 +17,9 @@ class RegistrationDescription : public BaseAtmFrame {
   void ChangeGeometry() override;
 
  private:
+  DeltaSize CalculateDeltaSize(const DeltaSize& app_delta_size,
+                               const DeltaSize& back_button_delta_size);
+
   RegistrationDescriptionLabel* description_label_ = nullptr;
 };
 

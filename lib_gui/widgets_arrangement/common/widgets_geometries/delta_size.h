@@ -6,8 +6,6 @@ class DeltaSize {
   DeltaSize();
   DeltaSize(int width, int height);
 
-  DeltaSize operator-(const DeltaSize& delta_size);
-
   void SetDeltaSize(const DeltaSize& delta_size);
 
   void SetWidth(int delta_width);

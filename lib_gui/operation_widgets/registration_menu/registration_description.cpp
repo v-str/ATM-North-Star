@@ -19,9 +19,15 @@ RegistrationDescription::RegistrationDescription(QWidget* parent)
 RegistrationDescription::~RegistrationDescription() {}
 
 void RegistrationDescription::ChangeGeometry() {
-  SetDeltaSize(AtmComposer::GetDeltaSize() -
-               AtmComposer::GetBackButtonDeltaSize());
+  SetDeltaSize(CalculateDeltaSize(AtmComposer::GetDeltaSize(),
+                                  AtmComposer::GetBackButtonDeltaSize()));
 
   AtmComposer::StretchWidget(RegistrationMenuGeometry::DescriptionFrame(),
                              Side::kRight | Side::kDown, 1.0, 0.97, this);
+}
+
+DeltaSize RegistrationDescription::CalculateDeltaSize(
+    const DeltaSize& app_delta_size, const DeltaSize& back_button_delta_size) {
+  int height = app_delta_size.Height() - back_button_delta_size.Height();
+  return DeltaSize(app_delta_size.Width(), height);
 }
