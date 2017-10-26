@@ -1,6 +1,5 @@
 ﻿#include <font_size_controller.h>
 
-#include <QFont>
 #include <QWidget>
 
 FontSizeController::FontSizeController() : side_ratio_(2.0), font_size_(11) {}
@@ -16,10 +15,10 @@ void FontSizeController::ControlFontSize(int initial_font_size,
     font_size_ = initial_font_size + grows_coefficient;
   }
 
-  QFont new_font = widget->font();
-  new_font.setPointSize(font_size_);
+  calculated_font_ = widget->font();
+  calculated_font_.setPointSize(font_size_);
 
-  widget->setFont(new_font);
+  widget->setFont(calculated_font_);
 }
 
 void FontSizeController::CalculateSideRatio(int widget_width,
