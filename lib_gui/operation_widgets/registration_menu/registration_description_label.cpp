@@ -7,6 +7,8 @@
 #include <registration_menu_geometry.h>
 #include <widget_font.h>
 
+#include <QDebug>
+
 QString RegistrationDescriptionLabel::kDescriptionText =
     "Familiarize with registration rules:\n"
     "- Length of login: 6-35 latin symbols inclusively\n"
@@ -29,6 +31,15 @@ void RegistrationDescriptionLabel::ChangeGeometry() {
                              Side::kRight | Side::kDown, 1.0, 0.7, this);
 
   size_controller_.ControlFontSize(kInitialLabelFont, 3.0, 200, this);
+
+  qDebug() << "Label:\n"
+              "width: "
+           << this->width() << "height: " << this->height() << "\n\n";
+
+  // font testing
+  QFontMetrics font_metrics_(font());
+
+  qDebug() << "Avarage char width: " << font_metrics_.averageCharWidth();
 }
 
 void RegistrationDescriptionLabel::SetInitialSettings() {

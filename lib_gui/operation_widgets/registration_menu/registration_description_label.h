@@ -4,6 +4,8 @@
 #include <QLabel>
 #include <QString>
 
+#include <QFontMetrics>
+
 #include <font_size_controller.h>
 
 class QWidget;
