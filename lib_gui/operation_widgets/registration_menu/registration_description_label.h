@@ -2,6 +2,9 @@
 #define REGISTRATION_DESCRIPTION_LABEL_H
 
 #include <QLabel>
+#include <QString>
+
+#include <font_size_controller.h>
 
 class QWidget;
 
@@ -11,11 +14,14 @@ class RegistrationDescriptionLabel : public QLabel {
   RegistrationDescriptionLabel(QWidget* parent = nullptr);
   ~RegistrationDescriptionLabel();
 
-  int GetInitialFontSize() const;
+ public slots:
+  void ChangeGeometry();
 
  private:
   void SetInitialSettings();
-  void SetText();
+
+  static QString kDescriptionText;
+  FontSizeController size_controller_;
 
   static const int kInitialLabelFont = 11;
 };

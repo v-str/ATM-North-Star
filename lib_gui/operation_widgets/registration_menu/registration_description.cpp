@@ -14,6 +14,7 @@ RegistrationDescription::RegistrationDescription(QWidget* parent)
       description_label_(new RegistrationDescriptionLabel(this)) {
   SetInitialFrameGeometry(RegistrationMenuGeometry::DescriptionFrame());
   SetFrameAnimation(Side::kUp, Side::kDown, this);
+  SetConnections();
 }
 
 RegistrationDescription::~RegistrationDescription() {}
@@ -25,20 +26,16 @@ void RegistrationDescription::ChangeGeometry() {
   AtmComposer::StretchWidget(RegistrationMenuGeometry::DescriptionFrame(),
                              Side::kRight | Side::kDown, 1.0, 0.97, this);
 
-  ComposeDescriptionLabel();
-}
-
-void RegistrationDescription::ComposeDescriptionLabel() {
-  AtmComposer::StretchWidget(RegistrationMenuGeometry::DesctiptionLabel(),
-                             Side::kRight | Side::kDown, 1.0, 0.7,
-                             description_label_);
-
-  size_controller_.ControlFontSize(description_label_->GetInitialFontSize(),
-                                   3.0, 200, description_label_);
+  emit GeometryChanged();
 }
 
 DeltaSize RegistrationDescription::CalculateDeltaSize(
     const DeltaSize& app_delta_size, const DeltaSize& back_button_delta_size) {
   int height = app_delta_size.Height() - back_button_delta_size.Height();
   return DeltaSize(app_delta_size.Width(), height);
+}
+
+void RegistrationDescription::SetConnections() {
+  connect(this, SIGNAL(GeometryChanged()), description_label_,
+          SLOT(ChangeGeometry()));
 }

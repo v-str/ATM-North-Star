@@ -19,13 +19,11 @@ class RegistrationDescription : public BaseAtmFrame {
   void ChangeGeometry() override;
 
  private:
-  void ComposeDescriptionLabel();
-
   DeltaSize CalculateDeltaSize(const DeltaSize& app_delta_size,
                                const DeltaSize& back_button_delta_size);
+  void SetConnections();
 
   RegistrationDescriptionLabel* description_label_ = nullptr;
-  FontSizeController size_controller_;
 };
 
 #endif  // REGISTRATION_DESCRIPTION_H
