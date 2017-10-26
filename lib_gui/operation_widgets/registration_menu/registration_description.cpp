@@ -34,8 +34,7 @@ void RegistrationDescription::ComposeDescriptionLabel() {
                              description_label_);
 
   size_controller_.ControlFontSize(description_label_->GetInitialFontSize(),
-                                   3.0, 200, description_label_->width(),
-                                   description_label_);
+                                   3.0, 200, description_label_);
 }
 
 DeltaSize RegistrationDescription::CalculateDeltaSize(

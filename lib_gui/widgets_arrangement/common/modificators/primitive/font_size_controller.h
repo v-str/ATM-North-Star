@@ -10,7 +10,6 @@ class FontSizeController {
   void ControlFontSize(int initial_font_size,
                        int ratio_limit,
                        int font_scale_coefficient,
-                       int current_widget_width,
                        QWidget* widget);
 
  private:
