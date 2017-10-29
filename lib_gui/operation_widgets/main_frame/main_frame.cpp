@@ -35,11 +35,11 @@ void MainFrame::SetMainFrame() {
   setGeometry(MainFrameGeometry::MainFrame());
 
   time_label_->setGeometry(MainFrameGeometry::TimeLabel());
-  time_label_->setFont(WidgetFont::SetFont(12));
+  time_label_->setFont(WidgetFont::SetFont(16));
   time_label_->setAlignment(Qt::AlignRight);
 
   date_label_->setGeometry(MainFrameGeometry::DateLabel());
-  date_label_->setFont(WidgetFont::SetFont(12));
+  date_label_->setFont(WidgetFont::SetFont(16));
   date_label_->setAlignment(Qt::AlignRight);
 }
 

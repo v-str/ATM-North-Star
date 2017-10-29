@@ -20,7 +20,7 @@ ExitDialog::ExitDialog(QWidget* parent)
       exit_dialog_frame_(new QFrame(this)),
       button_yes_(new AtmButton("Yes", exit_dialog_frame_)),
       button_no_(new AtmButton("No", exit_dialog_frame_)),
-      screen_message_(new QLabel("Exit atm?", exit_dialog_frame_)) {
+      exit_question_message_(new QLabel("Exit atm?", exit_dialog_frame_)) {
   setWindowTitle("Exit window");
 
   SetExitDialogAppearance();
@@ -46,7 +46,7 @@ void ExitDialog::SetGeometry() {
   exit_dialog_frame_->setGeometry(ExitDialogGeometry::ExitDialogFrame());
   button_yes_->setGeometry(ExitDialogGeometry::ButtonYes());
   button_no_->setGeometry(ExitDialogGeometry::ButtonNo());
-  screen_message_->setGeometry(ExitDialogGeometry::ScreenMessage());
+  exit_question_message_->setGeometry(ExitDialogGeometry::ScreenMessage());
 }
 
 void ExitDialog::ShowWidgetOnCenterAt(const QRect& widget_geometry) {
@@ -68,7 +68,7 @@ void ExitDialog::SetInitialProperties() {
 }
 
 void ExitDialog::PaintWidgets() {
-  QList<QLabel*> label_list = {screen_message_};
+  QList<QLabel*> label_list = {exit_question_message_};
   QList<QPushButton*> button_list = {button_yes_, button_no_};
   QList<QFrame*> frame_list = {exit_dialog_frame_};
 
@@ -78,8 +78,8 @@ void ExitDialog::PaintWidgets() {
 }
 
 void ExitDialog::SetFontStyle() {
-  screen_message_->setFont(WidgetFont::SetFont(19));
-  screen_message_->setAlignment(Qt::AlignCenter);
+  exit_question_message_->setFont(WidgetFont::SetFont(19));
+  exit_question_message_->setAlignment(Qt::AlignCenter);
   button_yes_->SetFont(WidgetFont::SetFont(14));
   button_no_->SetFont(WidgetFont::SetFont(14));
 }

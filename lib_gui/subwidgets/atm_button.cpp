@@ -18,8 +18,8 @@ AtmButton::AtmButton(const QString& text, QWidget* widget)
 }
 
 void AtmButton::SetFont(const QFont& font) {
-  font_size_pt_ = font.pointSize();
-  setFont(WidgetFont::SetFont(font.pointSize()));
+  font_size_px_ = font.pixelSize();
+  setFont(WidgetFont::SetFont(font.pixelSize()));
 }
 
 void AtmButton::SetOffsetSide(unsigned int offset_side) {
@@ -36,10 +36,7 @@ void AtmButton::enterEvent(QEvent*) { OffsetButton(); }
 
 void AtmButton::leaveEvent(QEvent*) { ReturnToInitialPosition(); }
 
-void AtmButton::resizeEvent(QResizeEvent* event) {
-  size_controller.ControlFontSize(font_size_pt_, 6, KFontScaleCoefficient,
-                                  this);
-}
+void AtmButton::resizeEvent(QResizeEvent* event) {}
 
 void AtmButton::SetSizePolicy() {
   QSizePolicy size_policy = this->sizePolicy();

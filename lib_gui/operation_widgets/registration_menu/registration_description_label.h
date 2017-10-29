@@ -23,9 +23,6 @@ class RegistrationDescriptionLabel : public QLabel {
   void SetInitialSettings();
 
   static QString kDescriptionText;
-  FontSizeController size_controller_;
-
-  static const int kInitialLabelFont = 11;
 };
 
 #endif  // REGISTRATION_DESCRIPTION_LABEL_H

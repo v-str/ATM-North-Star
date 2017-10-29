@@ -32,7 +32,7 @@ class ExitDialog : public QDialog {
   QFrame* exit_dialog_frame_ = nullptr;
   AtmButton* button_yes_ = nullptr;
   AtmButton* button_no_ = nullptr;
-  QLabel* screen_message_ = nullptr;
+  QLabel* exit_question_message_ = nullptr;
 
   static const int kWidgetWidth = 300;
   static const int kWidgetHeight = 150;

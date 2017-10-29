@@ -29,14 +29,12 @@ RegistrationDescriptionLabel::~RegistrationDescriptionLabel() {}
 void RegistrationDescriptionLabel::ChangeGeometry() {
   AtmComposer::StretchWidget(RegistrationMenuGeometry::DesctiptionLabel(),
                              Side::kRight | Side::kDown, 1.0, 0.7, this);
-
-  size_controller_.ControlFontSize(kInitialLabelFont, 3.0, 200, this);
 }
 
 void RegistrationDescriptionLabel::SetInitialSettings() {
   AtmColorDesigner::PaintSingleWidget(this);
   setText(kDescriptionText);
-  setFont(WidgetFont::SetFont(kInitialLabelFont));
+  setFont(WidgetFont::SetFont(15));
   setGeometry(RegistrationMenuGeometry::DesctiptionLabel());
   setAlignment(Qt::AlignLeft | Qt::AlignTop);
   setWordWrap(true);

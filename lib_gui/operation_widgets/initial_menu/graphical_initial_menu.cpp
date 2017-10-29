@@ -82,10 +82,10 @@ void GraphicalInitialMenu::PaintWidgets() {
 
 void GraphicalInitialMenu::TuneButtons() {
   login_button_->setGeometry(InitialFrameGeometry::SignInButton());
-  login_button_->SetFont(WidgetFont::SetFont(14));
+  login_button_->SetFont(WidgetFont::SetFont(13));
 
   registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
-  registration_button_->SetFont(WidgetFont::SetFont(14));
+  registration_button_->SetFont(WidgetFont::SetFont(13));
 }
 
 void GraphicalInitialMenu::SetButtonFrame() {
