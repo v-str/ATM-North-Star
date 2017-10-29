@@ -22,7 +22,7 @@ SplashScreenFrame::SplashScreenFrame(QWidget* parent)
 
   font_size_controller_.SetDefaultParameters(
       SplashScreenGeometry::SplashScreenFrame().height(),
-      atm_label_->font().pixelSize(), 200);
+      atm_label_->font().pixelSize(), kAtmLabelFontSizeLimit);
 
   color_swap_timer_->start(kBlinkTime);
 }

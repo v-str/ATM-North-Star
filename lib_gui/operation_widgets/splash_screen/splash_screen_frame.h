@@ -42,6 +42,7 @@ class SplashScreenFrame : public BaseAtmFrame {
   FontSizeController font_size_controller_;
 
   static const int kBlinkTime = 350;
+  static const int kAtmLabelFontSizeLimit = 200;
 };
 
 #endif  // SPLASH_SCREEN_FRAME_H

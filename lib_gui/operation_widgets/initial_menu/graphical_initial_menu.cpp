@@ -25,6 +25,10 @@ GraphicalInitialMenu::GraphicalInitialMenu(QWidget* parent)
   PaintWidgets();
   SetConnections();
 
+  font_size_controller_.SetDefaultParameters(button_frame_->height(),
+                                             login_button_->font().pixelSize(),
+                                             kButtonsFontSizeLimit);
+
   close();
 }
 
@@ -42,6 +46,11 @@ void GraphicalInitialMenu::ChangeGeometry() {
 
   border_controller_.SetGeometryLimit(geometry());
   border_controller_.ControlWidget(button_frame_);
+
+  font_size_controller_.ControllFontSize(button_frame_->height(),
+                                         login_button_);
+  font_size_controller_.ControllFontSize(button_frame_->height(),
+                                         registration_button_);
 }
 
 void GraphicalInitialMenu::ProcessDemoButtonClick() {
@@ -82,10 +91,10 @@ void GraphicalInitialMenu::PaintWidgets() {
 
 void GraphicalInitialMenu::TuneButtons() {
   login_button_->setGeometry(InitialFrameGeometry::SignInButton());
-  login_button_->SetFont(WidgetFont::SetFont(13));
+  login_button_->SetFont(WidgetFont::SetFont(18));
 
   registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
-  registration_button_->SetFont(WidgetFont::SetFont(13));
+  registration_button_->SetFont(WidgetFont::SetFont(18));
 }
 
 void GraphicalInitialMenu::SetButtonFrame() {
