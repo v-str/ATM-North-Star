@@ -6,13 +6,13 @@ QString WidgetFont::kLinuxFamily = "Tlwg Mono";
 QFont WidgetFont::kWin32Font;
 QFont WidgetFont::kLinuxFont;
 
-QFont WidgetFont::SetFont(int font_point_size_pt) {
+QFont WidgetFont::SetFont(int font_size_px) {
   SetFamily();
 #ifdef WIN32
-  kWin32Font.setPointSize(font_point_size_pt);
+  kWin32Font.setPixelSize(font_size_px);
   return kWin32Font;
 #else
-  kLinuxFont.setPointSize(font_point_size_pt);
+  kLinuxFont.setPixelSize(font_size_px);
   return kLinuxFont;
 #endif
 }
