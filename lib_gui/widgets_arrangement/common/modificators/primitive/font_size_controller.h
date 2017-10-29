@@ -1,26 +1,17 @@
 ﻿#ifndef FONT_SIZE_CONTROLLER_H
 #define FONT_SIZE_CONTROLLER_H
 
-#include <QFont>
+#include <QRect>
 
 class QWidget;
 
 class FontSizeController {
  public:
-  FontSizeController();
-
-  void ControlFontSize(int initial_font_size,
-                       int ratio_limit,
-                       int font_scale_coefficient,
-                       QWidget* widget);
+  void SetDefaultParameters(const QWidget& widget);
 
  private:
-  void CalculateSideRatio(int widget_width, int widget_height);
-
-  QFont calculated_font_;
-
-  double side_ratio_;
-  int font_size_;
+  int default_widget_height_;
+  int default_font_size_px_ = 0;
 };
 
 #endif  // FONT_SIZE_CONTROLLER_H

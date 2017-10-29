@@ -1,27 +1,14 @@
 ﻿#include <font_size_controller.h>
 
+#include <QFont>
 #include <QWidget>
 
-FontSizeController::FontSizeController() : side_ratio_(2.0), font_size_(11) {}
+#include <QDebug>
 
-void FontSizeController::ControlFontSize(int initial_font_size,
-                                         int ratio_limit,
-                                         int font_scale_coefficient,
-                                         QWidget* widget) {
-  CalculateSideRatio(widget->width(), widget->height());
+void FontSizeController::SetDefaultParameters(const QWidget& widget) {
+  default_widget_height_ = widget.height();
+  default_font_size_px_ = widget.font().pixelSize();
 
-  if (side_ratio_ < ratio_limit) {
-    int grows_coefficient = widget->width() / font_scale_coefficient;
-    font_size_ = initial_font_size + grows_coefficient;
-  }
-
-  calculated_font_ = widget->font();
-  calculated_font_.setPointSize(font_size_);
-
-  widget->setFont(calculated_font_);
-}
-
-void FontSizeController::CalculateSideRatio(int widget_width,
-                                            int widget_height) {
-  side_ratio_ = double(widget_width) / double(widget_height);
+  qDebug() << "Height: " << default_widget_height_
+           << "\nFont size: " << default_font_size_px_;
 }

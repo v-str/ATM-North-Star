@@ -20,6 +20,8 @@ SplashScreenFrame::SplashScreenFrame(QWidget* parent)
   PaintWidgets();
   SetConnection();
 
+  font_size_controller_.SetDefaultParameters(*atm_label_);
+
   color_swap_timer_->start(kBlinkTime);
 }
 
