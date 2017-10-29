@@ -14,14 +14,14 @@ void FontSizeController::SetDefaultParameters(int design_height,
 
 void FontSizeController::ControllFontSize(int current_height, QWidget* widget) {
   if (current_height > design_height_) {
-    ChangeFontSize(current_height);
-    widget_font_ = widget->font();
-    widget_font_.setPixelSize(font_size_px_);
-    widget->setFont(widget_font_);
+    ReSetFontSize(current_height);
   }
+  widget_font_ = widget->font();
+  widget_font_.setPixelSize(font_size_px_);
+  widget->setFont(widget_font_);
 }
 
-void FontSizeController::ChangeFontSize(int current_height) {
+void FontSizeController::ReSetFontSize(int current_height) {
   font_size_px_ = double(current_height) / increment_factor_;
 
   if (!IsFontSizeAcceptable()) {

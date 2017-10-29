@@ -47,7 +47,7 @@ class GraphicalInitialMenu : public BaseAtmFrame {
   WidgetBorderController border_controller_;
   FontSizeController font_size_controller_;
 
-  static const int kButtonsFontSizeLimit = 50;
+  static const int kButtonsFontSizeLimit = 25;
 };
 
 #endif  // GRAPHICAL_INITIAL_MENU_H

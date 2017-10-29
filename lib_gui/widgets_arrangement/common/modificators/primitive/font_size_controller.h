@@ -14,7 +14,7 @@ class FontSizeController {
   void ControllFontSize(int current_height, QWidget* widget);
 
  private:
-  void ChangeFontSize(int current_height);
+  void ReSetFontSize(int current_height);
   bool IsFontSizeAcceptable();
 
   QFont widget_font_;
