@@ -9,21 +9,14 @@ class RegistrationMenuGeometry {
   static QRect DescriptionFrame();
   static QRect DesctiptionLabel();
   static QRect BackButton();
-
-  static QRect CheckBoxOne();
-  static QRect CheckBoxTwo();
-  static QRect CheckBoxFrame();
+  static QRect FamiliarizedCheckbox();
 
  private:
   static QRect kRegistrationFrame;
   static QRect kDescriptionFrame;
   static QRect kDescriptionLabel;
   static QRect kBackButton;
-
-  static QRect kCheckBoxOne;
-  static QRect kCheckBoxTwo;
-
-  static QRect kCheckBoxFrame;
+  static QRect kFamiliarizedCheckbox;
 };
 
 #endif  // REGISTRATION_MENU_GEOMETRY_H

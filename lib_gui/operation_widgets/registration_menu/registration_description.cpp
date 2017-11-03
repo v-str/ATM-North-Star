@@ -2,7 +2,6 @@
 
 #include <QCheckBox>
 #include <QRect>
-#include <QVBoxLayout>
 #include <QWidget>
 
 #include <atm_composer.h>
@@ -10,19 +9,15 @@
 #include <registration_description_label.h>
 #include <registration_menu_geometry.h>
 #include <side.h>
+#include <widget_font.h>
 
 RegistrationDescription::RegistrationDescription(QWidget* parent)
     : BaseAtmFrame(parent, BackButtonCondition::kBackButtonDeactivated),
-      checkbox_frame_(new QFrame(this)),
       description_label_(new RegistrationDescriptionLabel(this)),
-      familiarized_checkbox_(
-          new QCheckBox("I'm familiarized", checkbox_frame_)),
-      not_familiarized_checkbox_(
-          new QCheckBox("I'm not familiarized", checkbox_frame_)),
-      checkbox_v_layout_(new QVBoxLayout) {
+      familiarized_checkbox_(new QCheckBox("I'm familiarized", this)) {
   SetInitialFrameGeometry(RegistrationMenuGeometry::DescriptionFrame());
   SetFrameAnimation(Side::kUp, Side::kDown, this);
-  SetCheckBoxFrame();
+  SetCheckBox();
   SetConnections();
 }
 
@@ -34,17 +29,16 @@ void RegistrationDescription::ChangeGeometry() {
 
   AtmComposer::StretchWidget(RegistrationMenuGeometry::DescriptionFrame(),
                              Side::kRight | Side::kDown, 1.0, 0.97, this);
+  AtmComposer::ScaleWidget(RegistrationMenuGeometry::FamiliarizedCheckbox(),
+                           0.0, 0.97, 0.0, 0.0, familiarized_checkbox_);
 
   emit GeometryChanged();
 }
 
-void RegistrationDescription::SetCheckBoxFrame() {
-  checkbox_frame_->setGeometry(RegistrationMenuGeometry::CheckBoxFrame());
-
-  checkbox_v_layout_->addWidget(familiarized_checkbox_);
-  checkbox_v_layout_->addWidget(not_familiarized_checkbox_);
-
-  checkbox_frame_->setLayout(checkbox_v_layout_);
+void RegistrationDescription::SetCheckBox() {
+  familiarized_checkbox_->setGeometry(
+      RegistrationMenuGeometry::FamiliarizedCheckbox());
+  familiarized_checkbox_->setFont(WidgetFont::SetFont(15));
 }
 
 DeltaSize RegistrationDescription::CalculateDeltaSize(

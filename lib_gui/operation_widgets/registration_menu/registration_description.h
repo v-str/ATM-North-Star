@@ -9,8 +9,6 @@ class QWidget;
 class QRect;
 class RegistrationDescriptionLabel;
 class QCheckBox;
-class QVBoxLayout;
-class QFrame;
 
 class RegistrationDescription : public BaseAtmFrame {
   Q_OBJECT
@@ -22,17 +20,14 @@ class RegistrationDescription : public BaseAtmFrame {
   void ChangeGeometry() override;
 
  private:
-  void SetCheckBoxFrame();
+  void SetCheckBox();
 
   DeltaSize CalculateDeltaSize(const DeltaSize& app_delta_size,
                                const DeltaSize& back_button_delta_size);
   void SetConnections();
 
-  QVBoxLayout* checkbox_v_layout_ = nullptr;
   RegistrationDescriptionLabel* description_label_ = nullptr;
-  QFrame* checkbox_frame_ = nullptr;
   QCheckBox* familiarized_checkbox_ = nullptr;
-  QCheckBox* not_familiarized_checkbox_ = nullptr;
 };
 
 #endif  // REGISTRATION_DESCRIPTION_H
