@@ -7,6 +7,8 @@ FamiliarizedCheckbox::FamiliarizedCheckbox(QWidget *parent)
     : QCheckBox("I'm familiarized", parent) {
   setGeometry(RegistrationMenuGeometry::FamiliarizedCheckbox());
   setFont(WidgetFont::SetFont(14));
+
+  setStyleSheet("border: 1px solid red;");
 }
 
 FamiliarizedCheckbox::~FamiliarizedCheckbox() {}
