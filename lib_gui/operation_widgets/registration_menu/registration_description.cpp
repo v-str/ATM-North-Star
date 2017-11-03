@@ -22,6 +22,7 @@ RegistrationDescription::RegistrationDescription(QWidget* parent)
       checkbox_v_layout_(new QVBoxLayout) {
   SetInitialFrameGeometry(RegistrationMenuGeometry::DescriptionFrame());
   SetFrameAnimation(Side::kUp, Side::kDown, this);
+  SetCheckBoxFrame();
   SetConnections();
 }
 
@@ -37,7 +38,14 @@ void RegistrationDescription::ChangeGeometry() {
   emit GeometryChanged();
 }
 
-void RegistrationDescription::SetCheckBoxFrame() {}
+void RegistrationDescription::SetCheckBoxFrame() {
+  checkbox_frame_->setGeometry(RegistrationMenuGeometry::CheckBoxFrame());
+
+  checkbox_v_layout_->addWidget(familiarized_checkbox_);
+  checkbox_v_layout_->addWidget(not_familiarized_checkbox_);
+
+  checkbox_frame_->setLayout(checkbox_v_layout_);
+}
 
 DeltaSize RegistrationDescription::CalculateDeltaSize(
     const DeltaSize& app_delta_size, const DeltaSize& back_button_delta_size) {
