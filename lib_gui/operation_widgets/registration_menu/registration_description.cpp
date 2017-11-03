@@ -1,6 +1,5 @@
 ﻿#include <registration_description.h>
 
-#include <QCheckBox>
 #include <QRect>
 #include <QWidget>
 
@@ -14,10 +13,9 @@
 RegistrationDescription::RegistrationDescription(QWidget* parent)
     : BaseAtmFrame(parent, BackButtonCondition::kBackButtonDeactivated),
       description_label_(new RegistrationDescriptionLabel(this)),
-      familiarized_checkbox_(new QCheckBox("I'm familiarized", this)) {
+      familiarized_checkbox_(new FamiliarizedCheckbox(this)) {
   SetInitialFrameGeometry(RegistrationMenuGeometry::DescriptionFrame());
   SetFrameAnimation(Side::kUp, Side::kDown, this);
-  SetCheckBox();
   SetConnections();
 }
 
@@ -33,12 +31,6 @@ void RegistrationDescription::ChangeGeometry() {
                            0.0, 0.9, 0.0, 0.0, familiarized_checkbox_);
 
   emit GeometryChanged();
-}
-
-void RegistrationDescription::SetCheckBox() {
-  familiarized_checkbox_->setGeometry(
-      RegistrationMenuGeometry::FamiliarizedCheckbox());
-  familiarized_checkbox_->setFont(WidgetFont::SetFont(15));
 }
 
 DeltaSize RegistrationDescription::CalculateDeltaSize(
