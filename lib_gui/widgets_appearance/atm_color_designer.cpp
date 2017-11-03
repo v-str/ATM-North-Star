@@ -50,6 +50,10 @@ void AtmColorDesigner::PaintSingleWidget(QFrame* frame) {
   Painter::ChangeFrameColor(frame, ApplicationColor::MainColor());
 }
 
+void AtmColorDesigner::PaintSingleWidget(QCheckBox* checkbox) {
+  Painter::ChangeCheckBoxColor(checkbox);
+}
+
 void AtmColorDesigner::PaintFrame(QFrame* frame) {
   QString string_color =
       "QFrame{"

@@ -1,5 +1,6 @@
 ﻿#include <familiarized_checkbox.h>
 
+#include <atm_color_designer.h>
 #include <registration_menu_geometry.h>
 #include <widget_font.h>
 
@@ -8,7 +9,7 @@ FamiliarizedCheckbox::FamiliarizedCheckbox(QWidget *parent)
   setGeometry(RegistrationMenuGeometry::FamiliarizedCheckbox());
   setFont(WidgetFont::SetFont(14));
 
-  setStyleSheet("border: 1px solid red;");
+  AtmColorDesigner::PaintSingleWidget(this);
 }
 
 FamiliarizedCheckbox::~FamiliarizedCheckbox() {}

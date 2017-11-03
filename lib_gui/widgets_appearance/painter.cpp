@@ -1,5 +1,6 @@
 ﻿#include <painter.h>
 
+#include <QCheckBox>
 #include <QDialog>
 #include <QFrame>
 #include <QLabel>
@@ -17,6 +18,24 @@ void Painter::ChangeLabelColor(QLabel* label, const QString& text_color) {
       "}";
 
   label->setStyleSheet(string_text_color.arg(text_color));
+}
+
+void Painter::ChangeCheckBoxColor(QCheckBox* checkbox) {
+  QString string_color =
+      "QCheckBox {"
+      "border: 3px solid black;"
+      "color: %1;"
+      "}"
+      "QCheckBox::indicator{"
+      "border: 1px solid %1;"
+      "background-color: black;"
+      "border-radius: 3px;"
+      "}"
+      "QCheckBox::indicator:checked{"
+      "background-color: %1;"
+      "}";
+
+  checkbox->setStyleSheet(string_color.arg(ApplicationColor::MainColor()));
 }
 
 void Painter::ChangeButtonColor(QPushButton* push_button) {

@@ -8,6 +8,7 @@ class QPushButton;
 class QFrame;
 class QMainWindow;
 class QDialog;
+class QCheckBox;
 
 class AtmColorDesigner {
  public:
@@ -21,6 +22,7 @@ class AtmColorDesigner {
   static void PaintSingleWidget(QLabel* label);
   static void PaintSingleWidget(QPushButton* button);
   static void PaintSingleWidget(QFrame* frame);
+  static void PaintSingleWidget(QCheckBox* checkbox);
 
   static void PaintFrame(QFrame* frame);
 };
