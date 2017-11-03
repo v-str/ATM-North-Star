@@ -1,6 +1,8 @@
 ﻿#include <registration_description.h>
 
+#include <QCheckBox>
 #include <QRect>
+#include <QVBoxLayout>
 #include <QWidget>
 
 #include <atm_composer.h>
@@ -11,7 +13,13 @@
 
 RegistrationDescription::RegistrationDescription(QWidget* parent)
     : BaseAtmFrame(parent, BackButtonCondition::kBackButtonDeactivated),
-      description_label_(new RegistrationDescriptionLabel(this)) {
+      checkbox_frame_(new QFrame(this)),
+      description_label_(new RegistrationDescriptionLabel(this)),
+      familiarized_checkbox_(
+          new QCheckBox("I'm familiarized", checkbox_frame_)),
+      not_familiarized_checkbox_(
+          new QCheckBox("I'm not familiarized", checkbox_frame_)),
+      checkbox_v_layout_(new QVBoxLayout) {
   SetInitialFrameGeometry(RegistrationMenuGeometry::DescriptionFrame());
   SetFrameAnimation(Side::kUp, Side::kDown, this);
   SetConnections();
@@ -28,6 +36,8 @@ void RegistrationDescription::ChangeGeometry() {
 
   emit GeometryChanged();
 }
+
+void RegistrationDescription::SetCheckBoxFrame() {}
 
 DeltaSize RegistrationDescription::CalculateDeltaSize(
     const DeltaSize& app_delta_size, const DeltaSize& back_button_delta_size) {
