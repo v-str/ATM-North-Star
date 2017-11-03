@@ -30,7 +30,7 @@ void RegistrationDescription::ChangeGeometry() {
   AtmComposer::StretchWidget(RegistrationMenuGeometry::DescriptionFrame(),
                              Side::kRight | Side::kDown, 1.0, 0.97, this);
   AtmComposer::ScaleWidget(RegistrationMenuGeometry::FamiliarizedCheckbox(),
-                           0.0, 0.97, 0.0, 0.0, familiarized_checkbox_);
+                           0.0, 0.9, 0.0, 0.0, familiarized_checkbox_);
 
   emit GeometryChanged();
 }
