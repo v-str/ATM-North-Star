@@ -1,6 +1,6 @@
 ﻿#include <widget_font.h>
 
-QString WidgetFont::kWin32Family = "Copperplate Gothic Bold";
+QString WidgetFont::kWin32Family = "Copperplate Gothic Light";
 QString WidgetFont::kLinuxFamily = "Tlwg Mono";
 
 QFont WidgetFont::kWin32Font;
