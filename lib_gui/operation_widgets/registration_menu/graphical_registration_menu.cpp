@@ -40,7 +40,7 @@ void GraphicalRegistrationMenu::SetNextButton() {
 }
 
 void GraphicalRegistrationMenu::CalculateNextButtonGeometry() {
-  int x = GetBackButton()->x() + GetBackButton()->width() + 5;
+  int x = GetBackButton()->x() + GetBackButton()->width() + 10;
   next_button_->setGeometry(x, GetBackButton()->y(), GetBackButton()->width(),
                             GetBackButton()->height());
 }
@@ -51,4 +51,8 @@ void GraphicalRegistrationMenu::SetConnections() {
           SLOT(close()));
   connect(this, SIGNAL(GeometryChanged()), registration_description_,
           SLOT(ChangeGeometry()));
+  connect(registration_description_, SIGNAL(UserFamiliarized()), next_button_,
+          SLOT(show()));
+  connect(registration_description_, SIGNAL(UserNotFamiliarized()),
+          next_button_, SLOT(close()));
 }

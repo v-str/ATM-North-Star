@@ -16,8 +16,13 @@ class RegistrationDescription : public BaseAtmFrame {
   explicit RegistrationDescription(QWidget* parent = nullptr);
   ~RegistrationDescription();
 
+ signals:
+  void UserFamiliarized();
+  void UserNotFamiliarized();
+
  public slots:
   void ChangeGeometry() override;
+  void CheckBoxClicked(int state);
 
  private:
   DeltaSize CalculateDeltaSize(const DeltaSize& app_delta_size,

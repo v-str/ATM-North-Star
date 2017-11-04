@@ -35,6 +35,15 @@ void RegistrationDescription::ChangeGeometry() {
   emit GeometryChanged();
 }
 
+void RegistrationDescription::CheckBoxClicked(int state) {
+  if (state == Qt::Unchecked) {
+    emit UserNotFamiliarized();
+  }
+  if (state == Qt::Checked) {
+    emit UserFamiliarized();
+  }
+}
+
 DeltaSize RegistrationDescription::CalculateDeltaSize(
     const DeltaSize& app_delta_size, const DeltaSize& back_button_delta_size) {
   int height = app_delta_size.Height() - back_button_delta_size.Height();
@@ -44,4 +53,6 @@ DeltaSize RegistrationDescription::CalculateDeltaSize(
 void RegistrationDescription::SetConnections() {
   connect(this, SIGNAL(GeometryChanged()), description_label_,
           SLOT(ChangeGeometry()));
+  connect(familiarized_checkbox_, SIGNAL(stateChanged(int)),
+          SLOT(CheckBoxClicked(int)));
 }
