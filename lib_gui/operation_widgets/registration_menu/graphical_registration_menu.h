@@ -16,6 +16,7 @@ class GraphicalRegistrationMenu : public BaseAtmFrame {
   void ChangeGeometry() override;
 
  private:
+  void SetNextButton();
   void CalculateNextButtonGeometry();
   void SetConnections();
 

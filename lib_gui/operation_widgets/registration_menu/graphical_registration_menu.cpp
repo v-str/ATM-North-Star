@@ -17,10 +17,9 @@ GraphicalRegistrationMenu::GraphicalRegistrationMenu(QWidget* parent)
   SetInitialFrameGeometry(RegistrationMenuGeometry::RegistrationFrame());
   SetFrameAnimation(Side::kLeft, Side::kRight, this);
   SetConnections();
+  SetNextButton();
 
   registration_description_->close();
-  next_button_->SetFont(GetBackButton()->font());
-  AtmColorDesigner::PaintSingleWidget(next_button_);
 }
 
 GraphicalRegistrationMenu::~GraphicalRegistrationMenu() {}
@@ -32,6 +31,12 @@ void GraphicalRegistrationMenu::ChangeGeometry() {
   AtmComposer::StretchWidget(RegistrationMenuGeometry::RegistrationFrame(),
                              Side::kRight | Side::kDown, 1.0, 1.0, this);
   emit GeometryChanged();
+}
+
+void GraphicalRegistrationMenu::SetNextButton() {
+  next_button_->SetFont(GetBackButton()->font());
+  AtmColorDesigner::PaintSingleWidget(next_button_);
+  next_button_->close();
 }
 
 void GraphicalRegistrationMenu::CalculateNextButtonGeometry() {
