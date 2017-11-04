@@ -21,8 +21,8 @@ class AtmButton : public QPushButton {
 
   void SetOffsetSide(unsigned int offset_side);
 
-  void SetXHoverOffset(int x_offset = 5);
-  void SetYHoverOffset(int y_offset = 5);
+  void SetXHoverOffset(int x_offset = 2);
+  void SetYHoverOffset(int y_offset = 2);
 
   ~AtmButton();
 
@@ -36,8 +36,8 @@ class AtmButton : public QPushButton {
   void OffsetButton();
   void ReturnToInitialPosition();
 
-  int x_offset_ = 5;
-  int y_offset_ = 5;
+  int x_offset_ = 1;
+  int y_offset_ = 1;
   unsigned int offset_side_ = 0;
   unsigned int font_size_px_ = 0;
 
