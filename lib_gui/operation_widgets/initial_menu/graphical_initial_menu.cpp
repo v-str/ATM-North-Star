@@ -25,10 +25,6 @@ GraphicalInitialMenu::GraphicalInitialMenu(QWidget* parent)
   PaintWidgets();
   SetConnections();
 
-  font_size_controller_.SetDefaultParameters(button_frame_->height(),
-                                             login_button_->font().pixelSize(),
-                                             kButtonsFontSizeLimit);
-
   close();
 }
 
@@ -46,11 +42,6 @@ void GraphicalInitialMenu::ChangeGeometry() {
 
   border_controller_.SetGeometryLimit(geometry());
   border_controller_.ControlWidget(button_frame_);
-
-  font_size_controller_.ControllFontSize(button_frame_->height(),
-                                         login_button_);
-  font_size_controller_.ControllFontSize(button_frame_->height(),
-                                         registration_button_);
 }
 
 void GraphicalInitialMenu::ProcessDemoButtonClick() {

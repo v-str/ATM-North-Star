@@ -20,10 +20,6 @@ SplashScreenFrame::SplashScreenFrame(QWidget* parent)
   PaintWidgets();
   SetConnection();
 
-  font_size_controller_.SetDefaultParameters(
-      SplashScreenGeometry::SplashScreenFrame().height(),
-      atm_label_->font().pixelSize(), kAtmLabelFontSizeLimit);
-
   color_swap_timer_->start(kBlinkTime);
 }
 
@@ -45,7 +41,6 @@ void SplashScreenFrame::ChangeGeometry() {
                            Side::kRight | Side::kDown, 0.5, 1.0, text_label_);
   AtmComposer::ShiftWidget(SplashScreenGeometry::AtmLabel(),
                            Side::kRight | Side::kDown, 0.5, 0.5, atm_label_);
-  font_size_controller_.ControllFontSize(height(), atm_label_);
 }
 
 void SplashScreenFrame::BlinkAtmLabelColor() {
