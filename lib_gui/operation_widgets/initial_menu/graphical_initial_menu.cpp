@@ -85,7 +85,7 @@ void GraphicalInitialMenu::PaintWidgets() {
 
   button_frame_->setStyleSheet(
       "QFrame{"
-      "border: 1px solid red;"
+      "border: 0px solid black;"
       "}");
 }
 

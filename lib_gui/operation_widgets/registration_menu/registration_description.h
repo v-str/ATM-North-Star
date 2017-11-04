@@ -23,6 +23,7 @@ class RegistrationDescription : public BaseAtmFrame {
  public slots:
   void ChangeGeometry() override;
   void CheckBoxClicked(int state);
+  void DeactivateFamiliarizing();
 
  private:
   DeltaSize CalculateDeltaSize(const DeltaSize& app_delta_size,

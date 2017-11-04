@@ -44,6 +44,11 @@ void RegistrationDescription::CheckBoxClicked(int state) {
   }
 }
 
+void RegistrationDescription::DeactivateFamiliarizing() {
+  familiarized_checkbox_->setCheckState(Qt::Unchecked);
+  emit UserNotFamiliarized();
+}
+
 DeltaSize RegistrationDescription::CalculateDeltaSize(
     const DeltaSize& app_delta_size, const DeltaSize& back_button_delta_size) {
   int height = app_delta_size.Height() - back_button_delta_size.Height();

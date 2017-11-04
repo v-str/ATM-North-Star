@@ -55,4 +55,8 @@ void GraphicalRegistrationMenu::SetConnections() {
           SLOT(show()));
   connect(registration_description_, SIGNAL(UserNotFamiliarized()),
           next_button_, SLOT(close()));
+  connect(this, SIGNAL(FrameClosed()), registration_description_,
+          SLOT(DeactivateFamiliarizing()));
+  connect(next_button_, SIGNAL(clicked(bool)), registration_description_,
+          SLOT(Close()));
 }
