@@ -42,6 +42,8 @@ void GraphicalInitialMenu::ChangeGeometry() {
 
   border_controller_.SetGeometryLimit(geometry());
   border_controller_.ControlWidget(button_frame_);
+
+  font_size_controller_.ControllFontSize(login_button_);
 }
 
 void GraphicalInitialMenu::ProcessDemoButtonClick() {

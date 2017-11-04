@@ -2,17 +2,17 @@
 #define FONT_SIZE_CONTROLLER_H
 
 #include <QFont>
-#include <QFontMetrics>
 #include <QRect>
 
-class QWidget;
+class QPushButton;
 
 class FontSizeController {
  public:
-  void ControllFontSize(QWidget* widget);
+  void ControllFontSize(QPushButton* widget);
 
  private:
-  QFont widget_font_;
+  QRect widget_geometry_;
+  QRect font_geometry_;
 };
 
 #endif  // FONT_SIZE_CONTROLLER_H
