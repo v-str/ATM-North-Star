@@ -10,8 +10,6 @@
 #include <side.h>
 #include <widget_font.h>
 
-#include <QDebug>
-
 GraphicalRegistrationMenu::GraphicalRegistrationMenu(QWidget* parent)
     : BaseAtmFrame(parent),
       registration_description_(new RegistrationDescription(this)),
@@ -38,17 +36,8 @@ void GraphicalRegistrationMenu::ChangeGeometry() {
 
 void GraphicalRegistrationMenu::CalculateNextButtonGeometry() {
   int x = GetBackButton()->x() + GetBackButton()->width() + 5;
-  int y = GetBackButton()->y();
-  int width = GetBackButton()->width();
-  int height = GetBackButton()->height();
-
-  qDebug() << GetBackButton()->x() << " " << GetBackButton()->y() << " "
-           << GetBackButton()->width() << " " << GetBackButton()->height()
-           << "\n";
-
-  qDebug() << x << " " << y << " " << width << " " << height;
-
-  next_button_->setGeometry(x, y, width, height);
+  next_button_->setGeometry(x, GetBackButton()->y(), GetBackButton()->width(),
+                            GetBackButton()->height());
 }
 
 void GraphicalRegistrationMenu::SetConnections() {
