@@ -26,8 +26,7 @@ class BaseAtmFrame : public QFrame {
 
   void SetDeltaSize(const DeltaSize& delta_size);
   void SetInitialFrameGeometry(const QRect& geometry);
-  void SetFrameAnimation(unsigned int hide_to,
-                         unsigned int extrude_from,
+  void SetFrameAnimation(unsigned int hide_to, unsigned int extrude_from,
                          QFrame* animated_frame,
                          unsigned int duration_msec = 500);
 
