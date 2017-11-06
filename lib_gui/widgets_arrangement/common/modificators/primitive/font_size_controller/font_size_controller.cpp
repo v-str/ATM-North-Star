@@ -8,48 +8,42 @@
 
 void FontSizeController::ControllFontSize(QPushButton* widget) {
   QFontMetrics font_metrics(widget->font());
+  init_font_geometry_ = font_metrics.boundingRect(widget->text());
 
-  widget_geometry_ = widget->geometry();
-  font_geometry_ = font_metrics.boundingRect(widget->text());
-
-  GetDebugInfo();
+  GetInitDebugInfo();
 }
 
 void FontSizeController::ControllFontSize(QLabel* widget) {
   QFontMetrics font_metrics(widget->font());
+  if (is_first_calc_) {
+    init_font_geometry_ = font_metrics.boundingRect(widget->text());
+    init_font_ = widget->font();
+    init_widget_geometry_ = widget->geometry();
+    init_fc_ = init_widget_geometry_.height() / init_font_.pixelSize();
+    GetInitDebugInfo();
+    is_first_calc_ = false;
+  } else {
+    widget_geometry_ = widget->geometry();
+    GetInitDebugInfo();
+    GetDebugInfo();
+  }
+}
 
-  widget_geometry_ = widget->geometry();
-  font_geometry_ = font_metrics.boundingRect(widget->text());
-
-  font_height_ = font_metrics.height();
-
-  GetDebugInfo();
+void FontSizeController::GetInitDebugInfo() {
+  system("clear");
+  qDebug() << "Init widget width: "
+           << QString::number(init_widget_geometry_.width());
+  qDebug() << "Init widget height: "
+           << QString::number(init_widget_geometry_.height());
+  qDebug() << "Init font height: "
+           << QString::number(init_font_geometry_.height());
+  qDebug() << "Init font pixel size: "
+           << QString::number(init_font_.pixelSize());
+  qDebug() << "Init FC: " << QString::number(init_fc_);
 }
 
 void FontSizeController::GetDebugInfo() {
-  WriteWidgetSizes();
-  WriteWidgetFontInfo();
-  WriteHeightCoefficient();
-}
-
-void FontSizeController::WriteWidgetSizes() {
-  qDebug() << "Widget height: " << QString::number(widget_geometry_.height());
+  qDebug() << "\n\nGeometry changed!\n\n";
   qDebug() << "Widget width: " << QString::number(widget_geometry_.width());
-}
-
-void FontSizeController::WriteWidgetFontInfo() {
-  qDebug() << "Widget font height: " << QString::number(font_height_);
-}
-
-void FontSizeController::WriteHeightCoefficient() {
-  double height_coefficient =
-      double(widget_geometry_.height()) / double(font_height_);
-  if (is_first_coefficient_calculation_) {
-    qDebug() << "Initial coeffiient: " << QString::number(height_coefficient)
-             << "\n\n";
-    is_first_coefficient_calculation_ = false;
-  } else {
-    qDebug() << "Height coefficient: " << QString::number(height_coefficient)
-             << "\n\n";
-  }
+  qDebug() << "Widget height: " << QString::number(widget_geometry_.height());
 }
