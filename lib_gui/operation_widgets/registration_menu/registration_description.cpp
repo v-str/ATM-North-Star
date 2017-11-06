@@ -32,6 +32,8 @@ void RegistrationDescription::ChangeGeometry() {
   AtmComposer::ScaleWidget(RegistrationMenuGeometry::FamiliarizedCheckbox(),
                            0.0, 0.85, 1.0, 0.0, familiarized_checkbox_);
 
+  font_controller_.ControllFontSize(description_label_);
+
   emit GeometryChanged();
 }
 

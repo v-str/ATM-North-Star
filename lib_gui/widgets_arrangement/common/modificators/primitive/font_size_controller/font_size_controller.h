@@ -15,8 +15,16 @@ class FontSizeController {
  private:
   void GetDebugInfo();
 
+  void WriteWidgetSizes();
+  void WriteWidgetFontInfo();
+  void WriteHeightCoefficient();
+
   QRect widget_geometry_;
   QRect font_geometry_;
+
+  int font_height_ = 0;
+
+  bool is_first_coefficient_calculation_ = true;
 };
 
 #endif  // FONT_SIZE_CONTROLLER_H

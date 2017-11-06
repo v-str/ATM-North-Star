@@ -42,7 +42,7 @@ void SplashScreenFrame::ChangeGeometry() {
   AtmComposer::ShiftWidget(SplashScreenGeometry::AtmLabel(),
                            Side::kRight | Side::kDown, 0.5, 0.5, atm_label_);
 
-  font_size_controller_.ControllFontSize(atm_label_);
+  // font_size_controller_.ControllFontSize(atm_label_);
 }
 
 void SplashScreenFrame::BlinkAtmLabelColor() {

@@ -23,6 +23,7 @@ INCLUDE_DIRECTORIES (atm_widgets
                      widgets_appearance
                      widgets_arrangement/common/modificators/composite
                      widgets_arrangement/common/modificators/primitive
+                     widgets_arrangement/common/modificators/primitive/font_size_controller
                      widgets_arrangement/common/widgets_geometries
                      widgets_arrangement/widgets)
 
@@ -41,6 +42,7 @@ file (GLOB SOURCES "atm_widgets/*.cpp"
                    "widgets_appearance/*.cpp"
                    "widgets_arrangement/common/modificators/composite/*.cpp"
                    "widgets_arrangement/common/modificators/primitive/*.cpp"
+                   "widgets_arrangement/common/modificators/primitive/font_size_controller/*.cpp"
                    "widgets_arrangement/common/widgets_geometries/*.cpp"
                    "widgets_arrangement/widgets/*.cpp")
 

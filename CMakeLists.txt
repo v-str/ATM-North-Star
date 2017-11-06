@@ -44,6 +44,7 @@ INCLUDE_DIRECTORIES (application/application_launch
                      lib_gui/widgets_appearance
                      lib_gui/widgets_arrangement/common/modificators/composite
                      lib_gui/widgets_arrangement/common/modificators/primitive
+                     lib_gui/widgets_arrangement/common/modificators/primitive/font_size_controller
                      lib_gui/widgets_arrangement/common/widgets_geometries
                      lib_gui/widgets_arrangement/widgets)
 
