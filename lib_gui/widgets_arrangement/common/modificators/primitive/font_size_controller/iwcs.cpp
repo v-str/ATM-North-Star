@@ -6,13 +6,13 @@ void IWCS::SetIww(int iww) { iww_ = iww; }
 
 void IWCS::SetIwh(int iwh) { iwh_ = iwh; }
 
-void IWCS::SetIfh(int ifh) {
-  ifh_ = ifh;
+void IWCS::SetIfh(int ifh) { ifh_ = ifh; }
+
+void IWCS::SetIfps(int ifps) {
+  ifps_ = ifps;
   SetIfch();
   SetIfcw();
 }
-
-void IWCS::SetIfps(int ifps) { ifps_ = ifps; }
 
 void IWCS::SetIfch() { ifch_ = iwh_ / ifps_; }
 

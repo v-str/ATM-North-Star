@@ -18,11 +18,6 @@ class FontSizeController {
   void GetInitDebugInfo();
   void GetDebugInfo();
 
-  QRect init_widget_geometry_;
-  QRect init_font_geometry_;
-  QFont init_font_;
-  int init_fc_ = 0;
-
   IWCS iwcs_;
 
   QRect widget_geometry_;

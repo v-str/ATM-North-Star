@@ -17,8 +17,6 @@ class IWCS {
   void SetIwh(int iwh);
   void SetIfh(int ifh);
   void SetIfps(int ifps);
-  void SetIfch();
-  void SetIfcw();
 
   int Iww() const;
   int Iwh() const;
@@ -28,6 +26,9 @@ class IWCS {
   int Ifcw() const;
 
  private:
+  void SetIfch();
+  void SetIfcw();
+
   int iww_ = 0;
   int iwh_ = 0;
   int ifh_ = 0;
