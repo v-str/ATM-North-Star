@@ -23,11 +23,7 @@ class FontSizeController {
   IWCS iwcs_;
 
   QRect widget_geometry_;
-  QRect font_geometry_;
   QFont font_;
-  int fc_ = 0;
-
-  bool is_first_calc_ = true;
 };
 
 #endif  // FONT_SIZE_CONTROLLER_H
