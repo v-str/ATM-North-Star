@@ -24,8 +24,20 @@ void FontSizeController::ControllFontSize(QLabel* widget) {
     is_first_calc_ = false;
   } else {
     widget_geometry_ = widget->geometry();
+
     GetInitDebugInfo();
     GetDebugInfo();
+
+    if (widget_geometry_.width() == init_widget_geometry_.width()) {
+      qDebug() << "\n";
+      qDebug() << "Widget width = Init widget width = "
+               << QString::number(widget_geometry_.width());
+    }
+    if (widget_geometry_.height() == init_widget_geometry_.height()) {
+      qDebug() << "\n";
+      qDebug() << "Widget height = Init height width = "
+               << QString::number(widget_geometry_.height());
+    }
   }
 }
 

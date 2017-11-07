@@ -27,6 +27,7 @@ class FontSizeController {
   QRect widget_geometry_;
   QRect font_geometry_;
   QFont font_;
+  int fc_ = 0;
 
   bool is_first_calc_ = true;
 };
