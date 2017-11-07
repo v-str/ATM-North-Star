@@ -27,6 +27,9 @@ class FontSizeController {
 
   QRect widget_geometry_;
   QFont font_;
+
+  int font_increment_ = 0;
+  int previous_font_increment_ = 0;
 };
 
 #endif  // FONT_SIZE_CONTROLLER_H

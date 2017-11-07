@@ -37,6 +37,20 @@ void FontSizeController::ControllFontSize(QWidget* widget) {
     qDebug() << "\nSides size changed!";
     qDebug() << "Delta width = " << delta_width;
     qDebug() << "Delta height = " << delta_height;
+
+    if (delta_width >= 2 * delta_height) {
+      font_increment_ = delta_height / iwcs_.Ifps();
+      font_.setPixelSize(iwcs_.Ifps() + font_increment_);
+      widget->setFont(font_);
+      qDebug() << "Delta width >= 2 * Delta height!";
+      qDebug() << "Font increment: " << font_increment_;
+    } else {
+      previous_font_increment_ = font_increment_;
+      font_.setPixelSize(iwcs_.Ifps() + previous_font_increment_);
+      widget->setFont(font_);
+      qDebug() << "Delta width <= 2* Delta height!";
+      qDebug() << "Font increment: " << previous_font_increment_;
+    }
   }
 }
 
