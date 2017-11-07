@@ -7,8 +7,7 @@
 #include <QPushButton>
 #include <QRect>
 
-class QPushButton;
-class QLabel;
+#include <iwcs.h>
 
 class FontSizeController {
  public:
@@ -23,6 +22,8 @@ class FontSizeController {
   QRect init_font_geometry_;
   QFont init_font_;
   int init_fc_ = 0;
+
+  IWCS iwcs_;
 
   QRect widget_geometry_;
   QRect font_geometry_;

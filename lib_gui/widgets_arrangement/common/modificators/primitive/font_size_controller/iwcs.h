@@ -1,7 +1,7 @@
-﻿/* IWCS - Initial widget control sizes
-Special class for storing initial widget parameters
-iww_ - inital widget width
-iwh_ - initial widget height
+﻿/* IWCS - Initial wid control sizes
+Special class for storing initial wid parameters
+iww_ - inital wid width
+iwh_ - initial wid height
 ifh_ - initial font height
 ifps_ - initial font pixel size
 ifch_ - initial font height coefficient
@@ -17,15 +17,15 @@ class IWCS {
   void SetIwh(int iwh);
   void SetIfh(int ifh);
   void SetIfps(int ifps);
-  void SetIfch(int ifch);
-  void SetIfcw(int ifcw);
+  void SetIfch();
+  void SetIfcw();
 
-  int GetIww() const;
-  int GetIwh() const;
-  int GetIfh() const;
-  int GetIfps() const;
-  int GetIfch() const;
-  int GetIfcw() const;
+  int Iww() const;
+  int Iwh() const;
+  int Ifh() const;
+  int Ifps() const;
+  int Ifch() const;
+  int Ifcw() const;
 
  private:
   int iww_ = 0;
@@ -34,6 +34,8 @@ class IWCS {
   int ifps_ = 0;
   int ifch_ = 0;
   int ifcw_ = 0;
+
+  static double kWidthMultiplier;
 };
 
 #endif  // IWCS_H

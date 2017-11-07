@@ -20,6 +20,12 @@ void FontSizeController::ControllFontSize(QLabel* widget) {
     init_font_ = widget->font();
     init_widget_geometry_ = widget->geometry();
     init_fc_ = init_widget_geometry_.height() / init_font_.pixelSize();
+
+    iwcs_.SetIww(widget->geometry().width());
+    iwcs_.SetIwh(widget->geometry().height());
+    iwcs_.SetIfh(font_metrics.boundingRect(widget->text()).height());
+    iwcs_.SetIfps(widget->font().pixelSize());
+
     GetInitDebugInfo();
     is_first_calc_ = false;
   } else {
