@@ -6,13 +6,15 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QRect>
+#include <QString>
 
 #include <iwcs.h>
 
 class FontSizeController {
  public:
-  void ControllFontSize(QPushButton* widget);
-  void ControllFontSize(QLabel* widget);
+  void TakeInitialMeasurements(QWidget* widget);
+
+  void ControllFontSize(QWidget* widget);
 
  private:
   void GetInitDebugInfo();

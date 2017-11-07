@@ -17,6 +17,7 @@ RegistrationDescription::RegistrationDescription(QWidget* parent)
   SetInitialFrameGeometry(RegistrationMenuGeometry::DescriptionFrame());
   SetFrameAnimation(Side::kUp, Side::kDown, this);
   SetConnections();
+  font_controller_.TakeInitialMeasurements(description_label_);
 }
 
 RegistrationDescription::~RegistrationDescription() {}
