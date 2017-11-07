@@ -21,7 +21,7 @@ void FontSizeController::ControllFontSize(QWidget* widget) {
   GetInitDebugInfo();
   GetDebugInfo();
 
-  if (IsSidesEqualDefault()) {
+  if (IsSidesSizeEqualDefault()) {
     font_.setPixelSize(iwcs_.Ifps());
     widget->setFont(font_);
 
@@ -29,11 +29,25 @@ void FontSizeController::ControllFontSize(QWidget* widget) {
                 "Font size set to initial value = "
              << QString::number(iwcs_.Ifps()) << "pixels";
   }
+
+  if (IsSidesSizeChanged()) {
+    int delta_width = widget_geometry_.width() - iwcs_.Iww();
+    int delta_height = widget_geometry_.height() - iwcs_.Iwh();
+
+    qDebug() << "\nSides size changed!";
+    qDebug() << "Delta width = " << delta_width;
+    qDebug() << "Delta height = " << delta_height;
+  }
 }
 
-bool FontSizeController::IsSidesEqualDefault() const {
+bool FontSizeController::IsSidesSizeEqualDefault() const {
   return widget_geometry_.width() == iwcs_.Iww() ||
          widget_geometry_.height() == iwcs_.Iwh();
+}
+
+bool FontSizeController::IsSidesSizeChanged() const {
+  return widget_geometry_.width() != iwcs_.Iww() &&
+         widget_geometry_.height() != iwcs_.Iwh();
 }
 
 void FontSizeController::GetInitDebugInfo() {
