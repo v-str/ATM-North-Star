@@ -18,17 +18,14 @@ void FontSizeController::ControllFontSize(QWidget* widget) {
   widget_geometry_ = widget->geometry();
 
   GetInitDebugInfo();
+
   GetDebugInfo();
 
-  if (widget_geometry_.width() == iwcs_.Iww()) {
-    qDebug() << "\n";
-    qDebug() << "Widget width = Init widget width = "
-             << QString::number(widget_geometry_.width());
-  }
-  if (widget_geometry_.height() == iwcs_.Iwh()) {
-    qDebug() << "\n";
-    qDebug() << "Widget height = Init height width = "
-             << QString::number(widget_geometry_.height());
+  if (widget_geometry_.width() == iwcs_.Iww() ||
+      widget_geometry_.height() == iwcs_.Iwh()) {
+    qDebug() << "\nOne of the sides have initial size.\n"
+                "Current font = "
+             << QString::number(iwcs_.Ifps()) << "pixels";
   }
 }
 
