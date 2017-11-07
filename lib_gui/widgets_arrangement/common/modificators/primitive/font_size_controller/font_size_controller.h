@@ -17,6 +17,8 @@ class FontSizeController {
   void ControllFontSize(QWidget* widget);
 
  private:
+  bool IsSidesEqualDefault() const;
+
   void GetInitDebugInfo();
   void GetDebugInfo();
 
