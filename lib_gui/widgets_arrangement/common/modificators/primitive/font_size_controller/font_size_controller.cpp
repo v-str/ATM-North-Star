@@ -6,7 +6,7 @@
 
 #include <QDebug>
 
-void FontSizeController::TakeInitialMeasurements(QWidget* widget) {
+void FontSizeController::SetnitialMeasurements(QWidget* widget) {
   iwcs_.SetIww(widget->geometry().width());
   iwcs_.SetIwh(widget->geometry().height());
   iwcs_.SetIfps(widget->font().pixelSize());
@@ -38,18 +38,19 @@ void FontSizeController::ControllFontSize(QWidget* widget) {
     qDebug() << "Delta width = " << delta_width;
     qDebug() << "Delta height = " << delta_height;
 
-    if (delta_width >= 2 * delta_height) {
-      font_increment_ = delta_height / iwcs_.Ifps();
-      font_.setPixelSize(iwcs_.Ifps() + font_increment_);
+    if (delta_width >= delta_height) {
+      width_font_increment_ = delta_height / iwcs_.Ifps();
+      font_.setPixelSize(iwcs_.Ifps() + width_font_increment_);
       widget->setFont(font_);
       qDebug() << "Delta width >= 2 * Delta height!";
-      qDebug() << "Font increment: " << font_increment_;
+      qDebug() << "Font increment: " << width_font_increment_;
     } else {
-      previous_font_increment_ = font_increment_;
-      font_.setPixelSize(iwcs_.Ifps() + previous_font_increment_);
+      // previous_font_increment_ = font_increment_;
+      height_font_increment_ = delta_width / iwcs_.Ifps();
+      font_.setPixelSize(iwcs_.Ifps() + height_font_increment_);
       widget->setFont(font_);
       qDebug() << "Delta width <= 2* Delta height!";
-      qDebug() << "Font increment: " << previous_font_increment_;
+      qDebug() << "Font increment: " << height_font_increment_;
     }
   }
 }
