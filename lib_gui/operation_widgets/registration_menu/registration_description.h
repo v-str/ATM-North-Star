@@ -32,7 +32,7 @@ class RegistrationDescription : public BaseAtmFrame {
 
   RegistrationDescriptionLabel* description_label_ = nullptr;
   AtmCheckbox* atm_checkbox_ = nullptr;
-  FontSizeController font_controller_;
+  FontSizeController font_size_controller_;
 };
 
 #endif  // REGISTRATION_DESCRIPTION_H

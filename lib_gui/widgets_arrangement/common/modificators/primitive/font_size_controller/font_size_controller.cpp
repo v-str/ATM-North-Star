@@ -39,19 +39,27 @@ void FontSizeController::ControllFontSize(QWidget* widget) {
     qDebug() << "Delta height = " << delta_height;
 
     if (delta_width >= delta_height) {
-      width_font_increment_ = delta_height / iwcs_.Ifps();
+      qDebug() << "Delta width >= Delta height!";
+      width_font_increment_ =
+          font_scale_multiplier_ * (delta_height / iwcs_.Ifps());
+      qDebug() << "Width font increment: "
+               << QString::number(width_font_increment_);
       font_.setPixelSize(iwcs_.Ifps() + width_font_increment_);
       widget->setFont(font_);
-      qDebug() << "Delta width >= 2 * Delta height!";
       qDebug() << "Font increment: " << width_font_increment_;
     } else {
-      height_font_increment_ = delta_width / iwcs_.Ifps();
+      height_font_increment_ =
+          font_scale_multiplier_ * (delta_width / iwcs_.Ifps());
       font_.setPixelSize(iwcs_.Ifps() + height_font_increment_);
       widget->setFont(font_);
-      qDebug() << "Delta width <= 2* Delta height!";
+      qDebug() << "Delta width <= Delta height!";
       qDebug() << "Font increment: " << height_font_increment_;
     }
   }
+}
+
+void FontSizeController::SetFontScaleMultiplier(int font_scale_multiplier) {
+  font_scale_multiplier_ = font_scale_multiplier;
 }
 
 QFont FontSizeController::CurrentFont() const { return font_; }

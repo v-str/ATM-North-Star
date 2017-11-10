@@ -13,8 +13,9 @@
 class FontSizeController {
  public:
   void SetnitialMeasurements(QWidget* widget);
-
   void ControllFontSize(QWidget* widget);
+
+  void SetFontScaleMultiplier(int font_scale_multiplier);
 
   QFont CurrentFont() const;
 
@@ -32,6 +33,7 @@ class FontSizeController {
 
   int width_font_increment_ = 0;
   int height_font_increment_ = 0;
+  int font_scale_multiplier_ = 1;
 };
 
 #endif  // FONT_SIZE_CONTROLLER_H

@@ -3,8 +3,6 @@
 
 #include <base_atm_frame.h>
 
-#include <font_size_controller.h>
-
 class QLabel;
 class QString;
 class QTimer;
@@ -38,8 +36,6 @@ class SplashScreenFrame : public BaseAtmFrame {
   QLabel* company_name_label_ = nullptr;
   QLabel* atm_label_ = nullptr;
   QLabel* text_label_ = nullptr;
-
-  FontSizeController font_size_controller_;
 
   static const int kBlinkTime = 350;
   static const int kAtmLabelFontSizeLimit = 200;

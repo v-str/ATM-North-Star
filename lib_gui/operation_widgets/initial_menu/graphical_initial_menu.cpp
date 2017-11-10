@@ -25,6 +25,9 @@ GraphicalInitialMenu::GraphicalInitialMenu(QWidget* parent)
   PaintWidgets();
   SetConnections();
 
+  font_size_controller_.SetnitialMeasurements(login_button_);
+  font_size_controller_.SetFontScaleMultiplier(2);
+
   close();
 }
 
@@ -39,6 +42,9 @@ void GraphicalInitialMenu::ChangeGeometry() {
                                     Side::kRight | Side::kDown, true);
   AtmComposer::ScaleWidget(InitialFrameGeometry::ButtonFrame(), 0.5, 0.5, 0.5,
                            0.5, button_frame_);
+
+  font_size_controller_.ControllFontSize(login_button_);
+  registration_button_->SetFont(font_size_controller_.CurrentFont());
 
   border_controller_.SetGeometryLimit(geometry());
   border_controller_.ControlWidget(button_frame_);

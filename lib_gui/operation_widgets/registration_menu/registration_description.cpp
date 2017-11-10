@@ -19,7 +19,7 @@ RegistrationDescription::RegistrationDescription(QWidget* parent)
   SetConnections();
 
   atm_checkbox_->setGeometry(RegistrationMenuGeometry::FamiliarizedCheckbox());
-  font_controller_.SetnitialMeasurements(description_label_);
+  font_size_controller_.SetnitialMeasurements(description_label_);
 }
 
 RegistrationDescription::~RegistrationDescription() {}
@@ -35,8 +35,8 @@ void RegistrationDescription::ChangeGeometry() {
   AtmComposer::ScaleWidget(RegistrationMenuGeometry::FamiliarizedCheckbox(),
                            0.0, 0.85, 1.0, 0.0, atm_checkbox_);
 
-  font_controller_.ControllFontSize(description_label_);
-  atm_checkbox_->setFont(font_controller_.CurrentFont());
+  font_size_controller_.ControllFontSize(description_label_);
+  atm_checkbox_->setFont(font_size_controller_.CurrentFont());
 
   emit GeometryChanged();
 }
