@@ -19,7 +19,7 @@ RegistrationDescription::RegistrationDescription(QWidget* parent)
   SetConnections();
 
   atm_checkbox_->setGeometry(RegistrationMenuGeometry::FamiliarizedCheckbox());
-  font_size_controller_.SetnitialMeasurements(description_label_);
+  font_size_controller_.SetnitialMeasurements(description_label_, 0.7);
 }
 
 RegistrationDescription::~RegistrationDescription() {}

@@ -12,19 +12,14 @@
 
 class FontSizeController {
  public:
-  void SetnitialMeasurements(QWidget* widget);
+  void SetnitialMeasurements(QWidget* widget, double font_scale_multiplier);
   void ControllFontSize(QWidget* widget);
-
-  void SetFontScaleMultiplier(int font_scale_multiplier);
 
   QFont CurrentFont() const;
 
  private:
   bool IsSidesSizeEqualDefault() const;
   bool IsSidesSizeChanged() const;
-
-  void GetInitDebugInfo();
-  void GetDebugInfo();
 
   IWCS iwcs_;
 
@@ -33,7 +28,8 @@ class FontSizeController {
 
   int width_font_increment_ = 0;
   int height_font_increment_ = 0;
-  int font_scale_multiplier_ = 1;
+
+  double font_scale_multiplier_;
 };
 
 #endif  // FONT_SIZE_CONTROLLER_H

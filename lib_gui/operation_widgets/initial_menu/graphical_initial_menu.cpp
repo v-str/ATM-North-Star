@@ -25,8 +25,7 @@ GraphicalInitialMenu::GraphicalInitialMenu(QWidget* parent)
   PaintWidgets();
   SetConnections();
 
-  font_size_controller_.SetnitialMeasurements(login_button_);
-  font_size_controller_.SetFontScaleMultiplier(2);
+  font_size_controller_.SetnitialMeasurements(login_button_, 3.5);
 
   close();
 }

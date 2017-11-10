@@ -4,62 +4,39 @@
 #include <QLabel>
 #include <QPushButton>
 
-#include <QDebug>
-
-void FontSizeController::SetnitialMeasurements(QWidget* widget) {
+void FontSizeController::SetnitialMeasurements(QWidget* widget,
+                                               double font_scale_multiplier) {
   iwcs_.SetIww(widget->geometry().width());
   iwcs_.SetIwh(widget->geometry().height());
   iwcs_.SetIfps(widget->font().pixelSize());
 
-  GetInitDebugInfo();
+  font_scale_multiplier_ = font_scale_multiplier;
 }
 
 void FontSizeController::ControllFontSize(QWidget* widget) {
   widget_geometry_ = widget->geometry();
   font_ = widget->font();
 
-  GetInitDebugInfo();
-  GetDebugInfo();
-
   if (IsSidesSizeEqualDefault()) {
     font_.setPixelSize(iwcs_.Ifps());
     widget->setFont(font_);
-
-    qDebug() << "\nOne of the sides have initial size.\n"
-                "Font size set to initial value = "
-             << QString::number(iwcs_.Ifps()) << "pixels";
   }
 
   if (IsSidesSizeChanged()) {
     int delta_width = widget_geometry_.width() - iwcs_.Iww();
     int delta_height = widget_geometry_.height() - iwcs_.Iwh();
-
-    qDebug() << "\nSides size changed!";
-    qDebug() << "Delta width = " << delta_width;
-    qDebug() << "Delta height = " << delta_height;
-
     if (delta_width >= delta_height) {
-      qDebug() << "Delta width >= Delta height!";
       width_font_increment_ =
           font_scale_multiplier_ * (delta_height / iwcs_.Ifps());
-      qDebug() << "Width font increment: "
-               << QString::number(width_font_increment_);
       font_.setPixelSize(iwcs_.Ifps() + width_font_increment_);
       widget->setFont(font_);
-      qDebug() << "Font increment: " << width_font_increment_;
     } else {
       height_font_increment_ =
           font_scale_multiplier_ * (delta_width / iwcs_.Ifps());
       font_.setPixelSize(iwcs_.Ifps() + height_font_increment_);
       widget->setFont(font_);
-      qDebug() << "Delta width <= Delta height!";
-      qDebug() << "Font increment: " << height_font_increment_;
     }
   }
-}
-
-void FontSizeController::SetFontScaleMultiplier(int font_scale_multiplier) {
-  font_scale_multiplier_ = font_scale_multiplier;
 }
 
 QFont FontSizeController::CurrentFont() const { return font_; }
@@ -72,19 +49,4 @@ bool FontSizeController::IsSidesSizeEqualDefault() const {
 bool FontSizeController::IsSidesSizeChanged() const {
   return widget_geometry_.width() != iwcs_.Iww() &&
          widget_geometry_.height() != iwcs_.Iwh();
-}
-
-void FontSizeController::GetInitDebugInfo() {
-  system("clear");
-  qDebug() << "Init widget width: " << QString::number(iwcs_.Iww());
-  qDebug() << "Init widget height: " << QString::number(iwcs_.Iwh());
-  qDebug() << "Init font pixel size: " << QString::number(iwcs_.Ifps());
-  qDebug() << "Init FCh: " << QString::number(iwcs_.Ifch());
-  qDebug() << "Init FCw: " << QString::number(iwcs_.Ifcw());
-}
-
-void FontSizeController::GetDebugInfo() {
-  qDebug() << "\n\nGeometry changed!\n\n";
-  qDebug() << "Widget width: " << QString::number(widget_geometry_.width());
-  qDebug() << "Widget height: " << QString::number(widget_geometry_.height());
 }
