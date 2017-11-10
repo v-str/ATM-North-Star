@@ -15,8 +15,6 @@
 #include <side.h>
 #include <splash_screen_frame.h>
 
-#include <QDebug>
-
 AtmMainWidget::AtmMainWidget(QWidget* parent) : QMainWindow(parent) {
   setWindowTitle("ATM");
   SetInitialSettings();

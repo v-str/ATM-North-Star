@@ -9,8 +9,8 @@ void FontSizeController::SetnitialMeasurements(QWidget* widget,
   iwcs_.SetIww(widget->geometry().width());
   iwcs_.SetIwh(widget->geometry().height());
   iwcs_.SetIfps(widget->font().pixelSize());
-
   font_scale_multiplier_ = font_scale_multiplier;
+  font_ = widget->font();
 }
 
 void FontSizeController::ControllFontSize(QWidget* widget) {

@@ -24,8 +24,8 @@ RegistrationDescription::RegistrationDescription(QWidget* parent)
 
 RegistrationDescription::~RegistrationDescription() {}
 
-int RegistrationDescription::CurrentDescriptionFontPixelSize() const {
-  return font_size_controller_.CurrentFont().pixelSize();
+QFont RegistrationDescription::CurrentDescriptionFont() const {
+  return font_size_controller_.CurrentFont();
 }
 
 void RegistrationDescription::ChangeGeometry() {

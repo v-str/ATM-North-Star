@@ -7,8 +7,6 @@
 #include <registration_menu_geometry.h>
 #include <widget_font.h>
 
-#include <QDebug>
-
 QString RegistrationDescriptionLabel::kDescriptionText =
     "Familiarize with registration rules:\n"
     "- Length of login: 6-35 latin symbols inclusively\n"

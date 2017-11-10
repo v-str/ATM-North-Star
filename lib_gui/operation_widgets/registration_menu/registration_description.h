@@ -3,6 +3,8 @@
 
 #include <base_atm_frame.h>
 
+#include <QFont>
+
 #include <atm_checkbox.h>
 #include <font_size_controller.h>
 
@@ -16,7 +18,7 @@ class RegistrationDescription : public BaseAtmFrame {
   explicit RegistrationDescription(QWidget* parent = nullptr);
   ~RegistrationDescription();
 
-  int CurrentDescriptionFontPixelSize() const;
+  QFont CurrentDescriptionFont() const;
 
  signals:
   void UserFamiliarized();

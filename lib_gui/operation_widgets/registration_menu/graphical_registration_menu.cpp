@@ -31,6 +31,9 @@ void GraphicalRegistrationMenu::ChangeGeometry() {
   AtmComposer::StretchWidget(RegistrationMenuGeometry::RegistrationFrame(),
                              Side::kRight | Side::kDown, 1.0, 1.0, this);
 
+  BackButton()->SetFont(registration_description_->CurrentDescriptionFont());
+  next_button_->SetFont(registration_description_->CurrentDescriptionFont());
+
   emit GeometryChanged();
 }
 
