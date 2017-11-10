@@ -26,23 +26,24 @@ GraphicalRegistrationMenu::~GraphicalRegistrationMenu() {}
 
 void GraphicalRegistrationMenu::ChangeGeometry() {
   SetDeltaSize(AtmComposer::GetDeltaSize());
-  AtmComposer::ComposeBackButton(GetBackButton());
+  AtmComposer::ComposeBackButton(BackButton());
   CalculateNextButtonGeometry();
   AtmComposer::StretchWidget(RegistrationMenuGeometry::RegistrationFrame(),
                              Side::kRight | Side::kDown, 1.0, 1.0, this);
+
   emit GeometryChanged();
 }
 
 void GraphicalRegistrationMenu::SetNextButton() {
-  next_button_->SetFont(GetBackButton()->font());
+  next_button_->SetFont(BackButton()->font());
   AtmColorDesigner::PaintSingleWidget(next_button_);
   next_button_->close();
 }
 
 void GraphicalRegistrationMenu::CalculateNextButtonGeometry() {
-  int x = GetBackButton()->x() + GetBackButton()->width() + 10;
-  next_button_->setGeometry(x, GetBackButton()->y(), GetBackButton()->width(),
-                            GetBackButton()->height());
+  int x = BackButton()->x() + BackButton()->width() + 10;
+  next_button_->setGeometry(x, BackButton()->y(), BackButton()->width(),
+                            BackButton()->height());
 }
 
 void GraphicalRegistrationMenu::SetConnections() {

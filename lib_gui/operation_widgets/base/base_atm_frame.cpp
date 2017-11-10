@@ -52,7 +52,7 @@ void BaseAtmFrame::ColorizeButtons(QList<QPushButton*>* button_list) {
   frame_setter_->ColorizeButtons(button_list);
 }
 
-AtmButton* BaseAtmFrame::GetBackButton() const { return back_button_; }
+AtmButton* BaseAtmFrame::BackButton() const { return back_button_; }
 
 void BaseAtmFrame::ProcessBackButtonClick() {
   emit PassGeometryForHide(geometry());

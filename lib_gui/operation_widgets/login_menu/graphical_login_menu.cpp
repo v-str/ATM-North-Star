@@ -16,7 +16,7 @@ GraphicalLoginMenu::~GraphicalLoginMenu() {}
 void GraphicalLoginMenu::ChangeGeometry() {
   SetDeltaSize(AtmComposer::GetDeltaSize());
 
-  AtmComposer::ComposeBackButton(GetBackButton());
+  AtmComposer::ComposeBackButton(BackButton());
   AtmComposer::StretchWidget(LoginMenuGeometry::LoginFrame(),
                              Side::kRight | Side::kDown, 1.0, 1.0, this);
 }

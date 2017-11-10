@@ -24,6 +24,10 @@ RegistrationDescription::RegistrationDescription(QWidget* parent)
 
 RegistrationDescription::~RegistrationDescription() {}
 
+int RegistrationDescription::CurrentDescriptionFontPixelSize() const {
+  return font_size_controller_.CurrentFont().pixelSize();
+}
+
 void RegistrationDescription::ChangeGeometry() {
   SetDeltaSize(CalculateDeltaSize(AtmComposer::GetDeltaSize(),
                                   AtmComposer::GetBackButtonDeltaSize()));

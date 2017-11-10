@@ -16,6 +16,8 @@ class RegistrationDescription : public BaseAtmFrame {
   explicit RegistrationDescription(QWidget* parent = nullptr);
   ~RegistrationDescription();
 
+  int CurrentDescriptionFontPixelSize() const;
+
  signals:
   void UserFamiliarized();
   void UserNotFamiliarized();
