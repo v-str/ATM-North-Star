@@ -36,13 +36,11 @@ class GraphicalInitialMenu : public BaseAtmFrame {
  private:
   void PaintWidgets();
   void TuneButtons();
-  void SetButtonFrame();
+  void SetButtons();
   void SetConnections();
 
-  QFrame* button_frame_ = nullptr;
   AtmButton* login_button_ = nullptr;
   AtmButton* registration_button_ = nullptr;
-  QVBoxLayout* v_layout_ = nullptr;
 
   WidgetBorderController border_controller_;
   FontSizeController font_size_controller_;

@@ -15,13 +15,11 @@
 
 GraphicalInitialMenu::GraphicalInitialMenu(QWidget* parent)
     : BaseAtmFrame(parent, BaseAtmFrame::kBackButtonDeactivated),
-      button_frame_(new QFrame(this)),
-      login_button_(new AtmButton("Login", button_frame_)),
-      registration_button_(new AtmButton("Registration", button_frame_)),
-      v_layout_(new QVBoxLayout) {
+      login_button_(new AtmButton("Login", this)),
+      registration_button_(new AtmButton("Registration", this)) {
   SetInitialFrameGeometry(InitialFrameGeometry::InitialFrame());
   TuneButtons();
-  SetButtonFrame();
+  SetButtons();
   PaintWidgets();
   SetConnections();
 
@@ -39,14 +37,15 @@ void GraphicalInitialMenu::ChangeGeometry() {
                              Side::kRight | Side::kDown, 1.0, 1.0, this);
   AtmComposer::SetScalingProperties(Side::kRight | Side::kDown,
                                     Side::kRight | Side::kDown, true);
-  AtmComposer::ScaleWidget(InitialFrameGeometry::ButtonFrame(), 0.5, 0.5, 0.5,
-                           0.5, button_frame_);
+  AtmComposer::ScaleWidget(InitialFrameGeometry::LoginButton(), 0.5, 0.5, 0.5,
+                           0.2, login_button_);
+
+  registration_button_->setGeometry(
+      login_button_->x(), login_button_->y() + login_button_->height() + 10,
+      login_button_->width(), login_button_->height());
 
   font_size_controller_.ControllFontSize(login_button_);
   registration_button_->SetFont(font_size_controller_.CurrentFont());
-
-  border_controller_.SetGeometryLimit(geometry());
-  border_controller_.ControlWidget(button_frame_);
 }
 
 void GraphicalInitialMenu::ProcessDemoButtonClick() {
@@ -76,30 +75,20 @@ void GraphicalInitialMenu::ShowFirstTime() {
 
 void GraphicalInitialMenu::PaintWidgets() {
   QList<QPushButton*> button_list{login_button_, registration_button_};
-
   ColorizeButtons(&button_list);
-
-  button_frame_->setStyleSheet(
-      "QFrame{"
-      "border: 0px solid black;"
-      "}");
 }
 
 void GraphicalInitialMenu::TuneButtons() {
-  login_button_->setGeometry(InitialFrameGeometry::SignInButton());
+  login_button_->setGeometry(InitialFrameGeometry::LoginButton());
   login_button_->SetFont(WidgetFont::SetFont(18));
 
   registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
   registration_button_->SetFont(WidgetFont::SetFont(18));
 }
 
-void GraphicalInitialMenu::SetButtonFrame() {
-  button_frame_->setGeometry(InitialFrameGeometry::ButtonFrame());
-
-  v_layout_->addWidget(login_button_);
-  v_layout_->addWidget(registration_button_);
-
-  button_frame_->setLayout(v_layout_);
+void GraphicalInitialMenu::SetButtons() {
+  login_button_->setGeometry(InitialFrameGeometry::LoginButton());
+  registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
 }
 
 void GraphicalInitialMenu::SetConnections() {

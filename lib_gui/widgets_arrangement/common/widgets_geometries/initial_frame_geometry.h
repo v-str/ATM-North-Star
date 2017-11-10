@@ -7,14 +7,14 @@ class InitialFrameGeometry {
  public:
   static QRect InitialFrame();
   static QRect ButtonFrame();
-  static QRect SignInButton();
+  static QRect LoginButton();
   static QRect RegistrationButton();
   static QRect DemoButton();
 
  private:
   static QRect kInitialFrame;
   static QRect kButtonFrame;
-  static QRect kSignInButton;
+  static QRect kLoginButton;
   static QRect kRegistrationButton;
   static QRect kDemoButton;
 };
