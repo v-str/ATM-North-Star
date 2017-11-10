@@ -13,10 +13,12 @@
 RegistrationDescription::RegistrationDescription(QWidget* parent)
     : BaseAtmFrame(parent, BackButtonCondition::kBackButtonDeactivated),
       description_label_(new RegistrationDescriptionLabel(this)),
-      familiarized_checkbox_(new FamiliarizedCheckbox(this)) {
+      atm_checkbox_(new AtmCheckbox(this)) {
   SetInitialFrameGeometry(RegistrationMenuGeometry::DescriptionFrame());
   SetFrameAnimation(Side::kUp, Side::kDown, this);
   SetConnections();
+
+  atm_checkbox_->setGeometry(RegistrationMenuGeometry::FamiliarizedCheckbox());
   font_controller_.SetnitialMeasurements(description_label_);
 }
 
@@ -31,9 +33,10 @@ void RegistrationDescription::ChangeGeometry() {
 
   AtmComposer::SetScalingProperties(Side::kDown, Side::kRight, false);
   AtmComposer::ScaleWidget(RegistrationMenuGeometry::FamiliarizedCheckbox(),
-                           0.0, 0.85, 1.0, 0.0, familiarized_checkbox_);
+                           0.0, 0.85, 1.0, 0.0, atm_checkbox_);
 
   font_controller_.ControllFontSize(description_label_);
+  atm_checkbox_->setFont(font_controller_.CurrentFont());
 
   emit GeometryChanged();
 }
@@ -48,7 +51,7 @@ void RegistrationDescription::CheckBoxClicked(int state) {
 }
 
 void RegistrationDescription::DeactivateFamiliarizing() {
-  familiarized_checkbox_->setCheckState(Qt::Unchecked);
+  atm_checkbox_->setCheckState(Qt::Unchecked);
   emit UserNotFamiliarized();
 }
 
@@ -61,6 +64,5 @@ DeltaSize RegistrationDescription::CalculateDeltaSize(
 void RegistrationDescription::SetConnections() {
   connect(this, SIGNAL(GeometryChanged()), description_label_,
           SLOT(ChangeGeometry()));
-  connect(familiarized_checkbox_, SIGNAL(stateChanged(int)),
-          SLOT(CheckBoxClicked(int)));
+  connect(atm_checkbox_, SIGNAL(stateChanged(int)), SLOT(CheckBoxClicked(int)));
 }

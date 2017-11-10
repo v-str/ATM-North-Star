@@ -3,7 +3,7 @@
 
 #include <base_atm_frame.h>
 
-#include <familiarized_checkbox.h>
+#include <atm_checkbox.h>
 #include <font_size_controller.h>
 
 class QWidget;
@@ -31,7 +31,7 @@ class RegistrationDescription : public BaseAtmFrame {
   void SetConnections();
 
   RegistrationDescriptionLabel* description_label_ = nullptr;
-  FamiliarizedCheckbox* familiarized_checkbox_ = nullptr;
+  AtmCheckbox* atm_checkbox_ = nullptr;
   FontSizeController font_controller_;
 };
 

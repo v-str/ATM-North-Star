@@ -45,7 +45,6 @@ void FontSizeController::ControllFontSize(QWidget* widget) {
       qDebug() << "Delta width >= 2 * Delta height!";
       qDebug() << "Font increment: " << width_font_increment_;
     } else {
-      // previous_font_increment_ = font_increment_;
       height_font_increment_ = delta_width / iwcs_.Ifps();
       font_.setPixelSize(iwcs_.Ifps() + height_font_increment_);
       widget->setFont(font_);
@@ -54,6 +53,8 @@ void FontSizeController::ControllFontSize(QWidget* widget) {
     }
   }
 }
+
+QFont FontSizeController::CurrentFont() const { return font_; }
 
 bool FontSizeController::IsSidesSizeEqualDefault() const {
   return widget_geometry_.width() == iwcs_.Iww() ||
