@@ -13,7 +13,4 @@ INCLUDE_DIRECTORIES (messengers
 
 file (GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
 
-set (CLI_LIBRARY_MESSAGE "Console library installed...")
-message (${CLI_LIBRARY_MESSAGE})
-
 add_library (lib_cli STATIC ${SOURCES})

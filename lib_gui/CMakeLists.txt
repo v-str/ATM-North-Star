@@ -33,9 +33,6 @@ file (GLOB UI_HEADERS "atm_widgets/*.ui")
 qt5_wrap_ui (FORMS_HEADERS ${UI_HEADERS})
 qt5_add_resources (RESOURCES atm_resources.qrc)
 
-set (GUI_LIBRARY_MESSAGE "Graphical library installed...\n")
-message (${GUI_LIBRARY_MESSAGE})
-
 add_library (lib_gui STATIC ${SOURCES} ${FORMS_HEADERS} ${RESOURCES})
 
 qt5_use_modules (lib_gui Widgets)
