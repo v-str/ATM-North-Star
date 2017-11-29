@@ -46,7 +46,8 @@ INCLUDE_DIRECTORIES (application/application_launch
                      lib_gui/widgets_arrangement/common/modificators/primitive
                      lib_gui/widgets_arrangement/common/modificators/primitive/font_size_controller
                      lib_gui/widgets_arrangement/common/widgets_geometries
-                     lib_gui/widgets_arrangement/widgets)
+                     lib_gui/widgets_arrangement/widgets
+                     lib_gui/external_libraries/font_size_generator)
 
 set (LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR})
 

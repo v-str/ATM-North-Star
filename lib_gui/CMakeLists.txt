@@ -24,15 +24,18 @@ INCLUDE_DIRECTORIES (atm_widgets
                      widgets_arrangement/common/modificators/composite
                      widgets_arrangement/common/modificators/primitive
                      widgets_arrangement/common/widgets_geometries
-                     widgets_arrangement/widgets)
+                     widgets_arrangement/widgets
+                     external_libraries/font_size_generator)
 
 file (GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
-
 file (GLOB UI_HEADERS "atm_widgets/*.ui")
+
+add_subdirectory (external_libraries/font_size_generator)
 
 qt5_wrap_ui (FORMS_HEADERS ${UI_HEADERS})
 qt5_add_resources (RESOURCES atm_resources.qrc)
 
 add_library (lib_gui STATIC ${SOURCES} ${FORMS_HEADERS} ${RESOURCES})
+target_link_libraries (${lib_gui} lib_font_size_generator)
 
 qt5_use_modules (lib_gui Widgets)
