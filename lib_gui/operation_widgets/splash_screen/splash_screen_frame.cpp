@@ -44,7 +44,7 @@ void SplashScreenFrame::ChangeGeometry() {
 }
 
 void SplashScreenFrame::BlinkAtmLabelColor() {
-  // text_color_swapper_->SwapColors(atm_label_);
+  text_color_swapper_->SwapColors(atm_label_);
 }
 
 void SplashScreenFrame::SetSplashScreenSettings() {
