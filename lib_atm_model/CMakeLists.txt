@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.9)
+﻿cmake_minimum_required (VERSION 3.0)
 
 set (CMAKE_BUILD_TYPE Release)
 
@@ -9,12 +9,7 @@ INCLUDE_DIRECTORIES (atm_operations
                      interface_presenter
 	             user_data)
 
-file (GLOB SOURCES "atm_operations/*.cpp"
-                   "credit_calculator/*.cpp"
-	           "incoming_data_handling/*.cpp"
-		   "interaction/*.cpp"
-		   "interface_presenter/*.cpp"
-                   "user_data/*.cpp")
+file (GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
 
 set (ATM_CORE_MESSAGE "\nAtm Core library installed...")
 message (${ATM_CORE_MESSAGE})
