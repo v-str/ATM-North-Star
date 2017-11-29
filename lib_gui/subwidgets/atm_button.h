@@ -3,8 +3,6 @@
 
 #include <QPushButton>
 
-#include <font_size_controller.h>
-
 class QRect;
 class QString;
 class QWidget;

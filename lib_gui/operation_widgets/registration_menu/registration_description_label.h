@@ -6,8 +6,6 @@
 
 #include <QFontMetrics>
 
-#include <font_size_controller.h>
-
 class QWidget;
 
 class RegistrationDescriptionLabel : public QLabel {

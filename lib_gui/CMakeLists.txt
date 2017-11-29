@@ -23,7 +23,6 @@ INCLUDE_DIRECTORIES (atm_widgets
                      widgets_appearance
                      widgets_arrangement/common/modificators/composite
                      widgets_arrangement/common/modificators/primitive
-                     widgets_arrangement/common/modificators/primitive/font_size_controller
                      widgets_arrangement/common/widgets_geometries
                      widgets_arrangement/widgets)
 

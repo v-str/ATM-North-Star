@@ -22,9 +22,6 @@ GraphicalInitialMenu::GraphicalInitialMenu(QWidget* parent)
   SetButtons();
   PaintWidgets();
   SetConnections();
-
-  font_size_controller_.SetnitialMeasurements(login_button_, 3.5);
-
   close();
 }
 
@@ -43,9 +40,6 @@ void GraphicalInitialMenu::ChangeGeometry() {
   registration_button_->setGeometry(
       login_button_->x(), login_button_->y() + login_button_->height() + 10,
       login_button_->width(), login_button_->height());
-
-  font_size_controller_.ControllFontSize(login_button_);
-  registration_button_->SetFont(font_size_controller_.CurrentFont());
 }
 
 void GraphicalInitialMenu::ProcessDemoButtonClick() {

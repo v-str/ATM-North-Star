@@ -6,7 +6,6 @@
 #include <QFont>
 
 #include <atm_checkbox.h>
-#include <font_size_controller.h>
 
 class QWidget;
 class QRect;
@@ -17,8 +16,6 @@ class RegistrationDescription : public BaseAtmFrame {
  public:
   explicit RegistrationDescription(QWidget* parent = nullptr);
   ~RegistrationDescription();
-
-  QFont CurrentDescriptionFont() const;
 
  signals:
   void UserFamiliarized();
@@ -36,7 +33,6 @@ class RegistrationDescription : public BaseAtmFrame {
 
   RegistrationDescriptionLabel* description_label_ = nullptr;
   AtmCheckbox* atm_checkbox_ = nullptr;
-  FontSizeController font_size_controller_;
 };
 
 #endif  // REGISTRATION_DESCRIPTION_H

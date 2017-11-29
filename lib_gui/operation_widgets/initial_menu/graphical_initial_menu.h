@@ -6,7 +6,6 @@
 #include <QRect>
 #include <QVBoxLayout>
 
-#include <font_size_controller.h>
 #include <widget_border_controller.h>
 
 class QWidget;
@@ -43,8 +42,6 @@ class GraphicalInitialMenu : public BaseAtmFrame {
   AtmButton* registration_button_ = nullptr;
 
   WidgetBorderController border_controller_;
-  FontSizeController font_size_controller_;
-
   static const int kButtonsFontSizeLimit = 25;
 };
 

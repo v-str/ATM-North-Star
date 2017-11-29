@@ -6,7 +6,6 @@
 #include <atm_color_designer.h>
 #include <description_menu_geometry.h>
 #include <description_text.h>
-#include <font_size_controller.h>
 #include <text_animation.h>
 
 DescriptionLabel::DescriptionLabel(QWidget* parent)
