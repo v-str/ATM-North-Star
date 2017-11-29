@@ -9,7 +9,7 @@ ifcw_ - initial font width coefficient
 */
 
 #ifndef IWCS_H
-#define IWCS_h
+#define IWCS_H
 
 class IWCS {
  public:
