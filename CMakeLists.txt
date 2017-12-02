@@ -9,6 +9,8 @@ set (CMAKE_AUTOMOC ON)
 set (CMAKE_INCLUDE_CURRENT_DIR ON)
 
 find_package (Qt5Widgets REQUIRED)
+find_package (Qt5Gui)
+find_package (Qt5Core)
 
 INCLUDE_DIRECTORIES (application/application_launch
                      application/interface_presenter

@@ -28,7 +28,6 @@ INCLUDE_DIRECTORIES (atm_widgets
                      external_libraries/font_size_generator)
 
 file (GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
-file (GLOB UI_HEADERS "atm_widgets/*.ui")
 
 add_subdirectory (external_libraries/font_size_generator)
 
