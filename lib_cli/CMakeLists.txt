@@ -2,14 +2,8 @@
 
 set (CMAKE_BUILD_TYPE Release)
 
-INCLUDE_DIRECTORIES (messengers
-                     messengers/registration_messengers
-                     messengers/credit_calculator_messengers
-                     messengers/registration_messengers/confirmation_animation
-		     output
-                     user_input_handling
-                     view_model
-                     system_dependencies)
+header_directories (ALL_APPLICATION_HEADERS)
+include_directories ("${ALL_APPLICATION_HEADERS}")
 
 file (GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
 

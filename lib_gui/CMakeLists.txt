@@ -7,25 +7,8 @@ find_package (Qt5Widgets REQUIRED)
 find_package (Qt5Gui)
 find_package (Qt5Core)
 
-INCLUDE_DIRECTORIES (atm_widgets
-		     features/animation
-		     features/service
-		     images
-                     operation_widgets/base
-		     operation_widgets/description_menu
-		     operation_widgets/initial_menu
-		     operation_widgets/login_menu
-		     operation_widgets/registration_menu
-                     operation_widgets/splash_screen
-                     operation_widgets/main_frame
-                     operation_widgets/main_widget
-		     subwidgets
-                     widgets_appearance
-                     widgets_arrangement/common/modificators/composite
-                     widgets_arrangement/common/modificators/primitive
-                     widgets_arrangement/common/widgets_geometries
-                     widgets_arrangement/widgets
-                     external_libraries/font_size_generator)
+header_directories (ALL_APPLICATION_HEADERS)
+include_directories ("${ALL_APPLICATION_HEADERS}")
 
 file (GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
 

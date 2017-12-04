@@ -2,12 +2,8 @@
 
 set (CMAKE_BUILD_TYPE Release)
 
-INCLUDE_DIRECTORIES (atm_operations
-                     credit_calculator
-		     incoming_data_handling
-		     interaction
-                     interface_presenter
-	             user_data)
+header_directories (ALL_APPLICATION_HEADERS)
+include_directories ("${ALL_APPLICATION_HEADERS}")
 
 file (GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
 
