@@ -1,14 +1,7 @@
-﻿//#define DOCTEST_CONFIG_IMPLEMENT
-//#include "doctest.h"
-
-#include <launcher.h>
+﻿#include <launcher.h>
 #include <mode_configurator.h>
 
 int main(int argc, char* argv[]) {
-  //  doctest::Context context;
-  //  context.applyCommandLine(argc, argv);
-  //  int tests_result = context.run();
-
   enum Mode { CLI, GUI };
 
   ModeConfigurator mode_configurator;

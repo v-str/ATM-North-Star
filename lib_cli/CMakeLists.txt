@@ -1,9 +1,7 @@
 ﻿cmake_minimum_required (VERSION 3.0)
 
-set (CMAKE_BUILD_TYPE Release)
-
-header_directories (ALL_APPLICATION_HEADERS)
-include_directories ("${ALL_APPLICATION_HEADERS}")
+header_directories (LIB_HEADERS)
+include_directories ("${LIB_HEADERS}")
 
 file (GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
 

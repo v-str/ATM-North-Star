@@ -2,7 +2,6 @@
 
 set (PROJECT_NAME atm_north_star)
 project (${PROJECT_NAME})
-#enable_testing ()
 
 set (CMAKE_INCLUDE_CURRENT_DIR ON)
 set (CMAKE_CXX_STANDARD 11)
@@ -29,7 +28,4 @@ file (GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
 
 add_executable (atm_north_star "${HEADERS}" "${SOURCES}")
 target_link_libraries (atm_north_star lib_atm_model lib_cli lib_gui)
-
-#add_test (${PROJECT_NAME} ${PROJECT_NAME})
-
 
