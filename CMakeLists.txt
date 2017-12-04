@@ -26,6 +26,9 @@ include_directories ("${ALL_APPLICATION_HEADERS}")
 file (GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
 file (GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
 
-add_executable (atm_north_star "${HEADERS}" "${SOURCES}")
-target_link_libraries (atm_north_star lib_atm_model lib_cli lib_gui)
+set (TXT_APP_FILES "${CMAKE_CURRENT_SOURCE_DIR}/todo_list/to_do_core"
+                   "${CMAKE_CURRENT_SOURCE_DIR}/todo_list/to_do_gui"
+                   "${CMAKE_CURRENT_SOURCE_DIR}/todo_list/to_do_cli")
 
+add_executable (${PROJECT_NAME} "${HEADERS}" "${SOURCES}" "${TXT_APP_FILES}")
+target_link_libraries (${PROJECT_NAME} lib_atm_model lib_cli lib_gui)

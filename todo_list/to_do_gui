@@ -1,7 +1,4 @@
 ﻿-----------------------------------------------------------------------------------------
-------------------------------------  ToDo List  ----------------------------------------
------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------
 -------------------------------------- GUI MODE -----------------------------------------
 -----------------------------------------------------------------------------------------
                                                                                     |   |
@@ -105,62 +102,4 @@
 44. Move BaseAtmFrame from initial menu package		                 	    | - |
                                                                                     |   |
 45. Check all composers, remove unused code                                         | - |
-                                                                                    |   |																			|	|
-
------------------------------------------------------------------------------------------
--------------------------------------- CLI MODE -----------------------------------------
------------------------------------------------------------------------------------------
-                                                                                    |   |
--1. Make class ModeSelector like a simple class that                                | + |
-    maintain user input processing                                                  |   |
-                                                                                    |   |
-0. Modify user_input for maintain exit through char q or Q                          | + |
-                                                                                    |   |
-1. Continue separate console_mode on classes                                        | + |
-                                                                                    |   |
-2. Add messages for every authentication error                                      | + |
-                                                                                    |   |
-3. Delete unnecessary staic fields in authenication messenger                       | + |
-                                                                                    |   |
-4. Continue make registration error handling                                        | + |
-                                                                                    |   |
-5. Decide problem related with incorrect login registration                         | + |
-                                                                                    |   |
-6. Continue make registration module                                                | + |
-                                                                                    |   |
-7. Delete excess code in AuthenticationMessenger (e.g. constexpr variables )        | + |
-                                                                                    |   |
-8. Check initial input screen on comand "2j" or the same                            |   |
-   Why gui mode is started after that? Where is warning message?                    | + |
-                                                                                    |   |
-9. Clean cli mode from deprecated code                                              | + |
-                                                                                    |   |
-10. Make application interface launch form config.txt file                          | + |
-                                                                                    |   |
-11. Move logon handling into atm library                                            | + |
-                                                                                    |   |
-12. Move console view of registration into cli library                              | + |
-                                                                                    |   |
-13. Develop mechanism for reading registration data properly                        | + |
-                                                                                    |   |
-14. Remove old classes for registration handling when new classes will developed    | + |
-                                                                                    |   |
-15. Add confirmation registration animation message                                 | + |
-                                                                                    |   |
-16. Develop correct new user setting parameters  ( look AtmInteractor )             | + |
-                                                                                    |   |
-17. Perform refactoring password input class                                        | + |
-                                                                                    |   |
-18. Highlight the same messages and put them into separate messenger class          | - |
-                                                                                    |   |
-19. Solve problem related with incorrect refill menu input                          | + |
-
-
------------------------------------------------------------------------------------------
------------------------------------- ARCHITECTURE ---------------------------------------
------------------------------------------------------------------------------------------
-1. Build architecture using MVP pattern                                             | - |
-                                                                                    |   |
-2.
------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------
+                                                                                    |   | 
