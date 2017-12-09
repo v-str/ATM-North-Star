@@ -5,6 +5,7 @@
 
 #include <atm_composer.h>
 #include <delta_size.h>
+#include <font_size_generator.h>
 #include <registration_description_label.h>
 #include <registration_menu_geometry.h>
 #include <side.h>
@@ -33,6 +34,8 @@ void RegistrationDescription::ChangeGeometry() {
   AtmComposer::SetScalingProperties(Side::kDown, Side::kRight, false);
   AtmComposer::ScaleWidget(RegistrationMenuGeometry::FamiliarizedCheckbox(),
                            0.0, 0.85, 1.0, 0.0, atm_checkbox_);
+
+  atm_checkbox_->setFont(description_label_->font());
 
   emit GeometryChanged();
 }

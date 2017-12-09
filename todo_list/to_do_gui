@@ -104,3 +104,5 @@
 45. Check all composers, remove unused code                                         | - |
                                                                                     |   |
 46. What is QTest? Write code using approach based on TDD                           | - |
+                                                                                    |   |
+47. When widget is maximized the font of labels not correctly displaying, fix it    | - |

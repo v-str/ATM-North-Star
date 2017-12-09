@@ -10,6 +10,7 @@
 class QWidget;
 class QRect;
 class RegistrationDescriptionLabel;
+class FontSizeGenerator;
 
 class RegistrationDescription : public BaseAtmFrame {
   Q_OBJECT
