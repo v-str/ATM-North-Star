@@ -4,6 +4,7 @@
 
 #include <atm_color_designer.h>
 #include <atm_composer.h>
+#include <font_size_generator.h>
 #include <registration_menu_geometry.h>
 #include <widget_font.h>
 
@@ -22,11 +23,14 @@ RegistrationDescriptionLabel::RegistrationDescriptionLabel(QWidget* parent)
   SetInitialSettings();
 }
 
-RegistrationDescriptionLabel::~RegistrationDescriptionLabel() {}
+RegistrationDescriptionLabel::~RegistrationDescriptionLabel() {
+  delete font_size_generator_;
+}
 
 void RegistrationDescriptionLabel::ChangeGeometry() {
   AtmComposer::StretchWidget(RegistrationMenuGeometry::DesctiptionLabel(),
                              Side::kRight | Side::kDown, 1.0, 0.7, this);
+  font_size_generator_->GenerateFontSize(this);
 }
 
 void RegistrationDescriptionLabel::SetInitialSettings() {
@@ -36,4 +40,5 @@ void RegistrationDescriptionLabel::SetInitialSettings() {
   setGeometry(RegistrationMenuGeometry::DesctiptionLabel());
   setAlignment(Qt::AlignLeft | Qt::AlignTop);
   setWordWrap(true);
+  font_size_generator_ = new FontSizeGenerator(0.3, *this);
 }

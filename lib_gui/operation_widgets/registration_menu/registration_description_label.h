@@ -7,6 +7,7 @@
 #include <QFontMetrics>
 
 class QWidget;
+class FontSizeGenerator;
 
 class RegistrationDescriptionLabel : public QLabel {
   Q_OBJECT
@@ -19,6 +20,8 @@ class RegistrationDescriptionLabel : public QLabel {
 
  private:
   void SetInitialSettings();
+
+  FontSizeGenerator* font_size_generator_ = nullptr;
 
   static QString kDescriptionText;
 };
