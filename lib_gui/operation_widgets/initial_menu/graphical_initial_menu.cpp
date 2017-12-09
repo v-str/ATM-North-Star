@@ -9,6 +9,7 @@
 #include <atm_button.h>
 #include <atm_composer.h>
 #include <conversion_factor.h>
+#include <font_size_generator.h>
 #include <initial_frame_geometry.h>
 #include <side.h>
 #include <widget_font.h>
@@ -20,12 +21,15 @@ GraphicalInitialMenu::GraphicalInitialMenu(QWidget* parent)
   SetInitialFrameGeometry(InitialFrameGeometry::InitialFrame());
   TuneButtons();
   SetButtons();
+
+  font_size_generator_ = new FontSizeGenerator(1.3, *login_button_);
+
   PaintWidgets();
   SetConnections();
   close();
 }
 
-GraphicalInitialMenu::~GraphicalInitialMenu() {}
+GraphicalInitialMenu::~GraphicalInitialMenu() { delete font_size_generator_; }
 
 void GraphicalInitialMenu::ChangeGeometry() {
   SetDeltaSize(AtmComposer::GetDeltaSize());
@@ -40,6 +44,9 @@ void GraphicalInitialMenu::ChangeGeometry() {
   registration_button_->setGeometry(
       login_button_->x(), login_button_->y() + login_button_->height() + 10,
       login_button_->width(), login_button_->height());
+
+  font_size_generator_->GenerateFontSize(login_button_);
+  font_size_generator_->GenerateFontSize(registration_button_);
 }
 
 void GraphicalInitialMenu::ProcessDemoButtonClick() {

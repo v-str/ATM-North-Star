@@ -102,4 +102,5 @@
 44. Move BaseAtmFrame from initial menu package		                 	    | - |
                                                                                     |   |
 45. Check all composers, remove unused code                                         | - |
-                                                                                    |   | 
+                                                                                    |   |
+46. What is QTest? Write code using approach based on TDD                           | - |

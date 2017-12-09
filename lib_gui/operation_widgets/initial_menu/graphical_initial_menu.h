@@ -11,6 +11,7 @@
 class QWidget;
 class QPushButton;
 class AtmButton;
+class FontSizeGenerator;
 
 class GraphicalInitialMenu : public BaseAtmFrame {
   Q_OBJECT
@@ -40,6 +41,8 @@ class GraphicalInitialMenu : public BaseAtmFrame {
 
   AtmButton* login_button_ = nullptr;
   AtmButton* registration_button_ = nullptr;
+
+  FontSizeGenerator* font_size_generator_ = nullptr;
 
   WidgetBorderController border_controller_;
   static const int kButtonsFontSizeLimit = 25;
