@@ -37,6 +37,8 @@ class GraphicalInitialMenu : public BaseAtmFrame {
   void PaintWidgets();
   void TuneButtons();
   void SetButtons();
+  void InitializeFontGenerator();
+  void CopyLoginButtonAppearanceToRegistrationButton();
   void SetConnections();
 
   AtmButton* login_button_ = nullptr;
@@ -45,7 +47,7 @@ class GraphicalInitialMenu : public BaseAtmFrame {
   FontSizeGenerator* font_size_generator_ = nullptr;
 
   WidgetBorderController border_controller_;
-  static const int kButtonsFontSizeLimit = 25;
+  static const int kHeightBtwButtons = 10;
 };
 
 #endif  // GRAPHICAL_INITIAL_MENU_H

@@ -21,9 +21,7 @@ GraphicalInitialMenu::GraphicalInitialMenu(QWidget* parent)
   SetInitialFrameGeometry(InitialFrameGeometry::InitialFrame());
   TuneButtons();
   SetButtons();
-
-  font_size_generator_ = new FontSizeGenerator(1.3, *login_button_);
-
+  InitializeFontGenerator();
   PaintWidgets();
   SetConnections();
   close();
@@ -33,20 +31,14 @@ GraphicalInitialMenu::~GraphicalInitialMenu() { delete font_size_generator_; }
 
 void GraphicalInitialMenu::ChangeGeometry() {
   SetDeltaSize(AtmComposer::GetDeltaSize());
-
   AtmComposer::StretchWidget(InitialFrameGeometry::InitialFrame(),
                              Side::kRight | Side::kDown, 1.0, 1.0, this);
   AtmComposer::SetScalingProperties(Side::kRight | Side::kDown,
                                     Side::kRight | Side::kDown, true);
   AtmComposer::ScaleWidget(InitialFrameGeometry::LoginButton(), 0.5, 0.5, 0.5,
                            0.2, login_button_);
-
-  registration_button_->setGeometry(
-      login_button_->x(), login_button_->y() + login_button_->height() + 10,
-      login_button_->width(), login_button_->height());
-
   font_size_generator_->GenerateFontSize(login_button_);
-  font_size_generator_->GenerateFontSize(registration_button_);
+  CopyLoginButtonAppearanceToRegistrationButton();
 }
 
 void GraphicalInitialMenu::ProcessDemoButtonClick() {
@@ -90,6 +82,18 @@ void GraphicalInitialMenu::TuneButtons() {
 void GraphicalInitialMenu::SetButtons() {
   login_button_->setGeometry(InitialFrameGeometry::LoginButton());
   registration_button_->setGeometry(InitialFrameGeometry::RegistrationButton());
+}
+
+void GraphicalInitialMenu::InitializeFontGenerator() {
+  font_size_generator_ = new FontSizeGenerator(1.3, *login_button_);
+}
+
+void GraphicalInitialMenu::CopyLoginButtonAppearanceToRegistrationButton() {
+  registration_button_->setGeometry(
+      login_button_->x(),
+      login_button_->y() + login_button_->height() + kHeightBtwButtons,
+      login_button_->width(), login_button_->height());
+  font_size_generator_->GenerateFontSize(registration_button_);
 }
 
 void GraphicalInitialMenu::SetConnections() {
