@@ -28,7 +28,8 @@ file (GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
 
 set (TXT_APP_FILES "${CMAKE_CURRENT_SOURCE_DIR}/todo_list/to_do_core"
                    "${CMAKE_CURRENT_SOURCE_DIR}/todo_list/to_do_gui"
-                   "${CMAKE_CURRENT_SOURCE_DIR}/todo_list/to_do_cli")
+                   "${CMAKE_CURRENT_SOURCE_DIR}/todo_list/to_do_cli"
+                   "${CMAKE_CURRENT_SOURCE_DIR}/todo_list/common_to_do")
 
 add_executable (${PROJECT_NAME} ${HEADERS} ${SOURCES} ${TXT_APP_FILES})
 target_link_libraries (${PROJECT_NAME} lib_atm_model lib_cli lib_gui)
