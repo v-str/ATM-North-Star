@@ -21,3 +21,4 @@ Simple console interface with text animation
 <img src='https://github.com/OrdinaryMind/ATM-North-Star/blob/cli_mode/images/atm_cli.gif'>
 
 
+Github savecommit
